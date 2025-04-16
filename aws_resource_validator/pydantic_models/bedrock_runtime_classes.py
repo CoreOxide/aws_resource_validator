@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.bedrock_runtime_constants import *
 
-class GuardrailOutputContentTypeDef(BaseValidatorModel):
+class GuardrailOutputContent(BaseValidatorModel):
     text: Optional[str] = None
 
 
-class GuardrailUsageTypeDef(BaseValidatorModel):
+class GuardrailUsage(BaseValidatorModel):
     topicPolicyUnits: int
     contentPolicyUnits: int
     wordPolicyUnits: int
@@ -25,7 +25,7 @@ class GuardrailUsageTypeDef(BaseValidatorModel):
     contextualGroundingPolicyUnits: int
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -33,201 +33,201 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AsyncInvokeS3OutputDataConfigTypeDef(BaseValidatorModel):
+class AsyncInvokeS3OutputDataConfig(BaseValidatorModel):
     s3Uri: str
     kmsKeyId: Optional[str] = None
     bucketOwner: Optional[str] = None
 
 
-class ReasoningContentBlockDeltaTypeDef(BaseValidatorModel):
+class ReasoningContentBlockDelta(BaseValidatorModel):
     text: Optional[str] = None
     redactedContent: Optional[bytes] = None
     signature: Optional[str] = None
 
 
-class ToolUseBlockStartTypeDef(BaseValidatorModel):
+class ToolUseBlockStart(BaseValidatorModel):
     toolUseId: str
     name: str
 
 
-class ContentBlockStopEventTypeDef(BaseValidatorModel):
+class ContentBlockStopEvent(BaseValidatorModel):
     contentBlockIndex: int
 
 
-class ConverseMetricsTypeDef(BaseValidatorModel):
+class ConverseMetrics(BaseValidatorModel):
     latencyMs: int
 
 
-class GuardrailConfigurationTypeDef(BaseValidatorModel):
+class GuardrailConfiguration(BaseValidatorModel):
     guardrailIdentifier: str
     guardrailVersion: str
     trace: Optional[GuardrailTraceType] = None
 
 
-class InferenceConfigurationTypeDef(BaseValidatorModel):
+class InferenceConfiguration(BaseValidatorModel):
     maxTokens: Optional[int] = None
     temperature: Optional[float] = None
     topP: Optional[float] = None
     stopSequences: Optional[Sequence[str]] = None
 
 
-class PerformanceConfigurationTypeDef(BaseValidatorModel):
+class PerformanceConfiguration(BaseValidatorModel):
     latency: Optional[PerformanceConfigLatencyType] = None
 
 
-class PromptVariableValuesTypeDef(BaseValidatorModel):
+class PromptVariableValues(BaseValidatorModel):
     text: Optional[str] = None
 
 
-class TokenUsageTypeDef(BaseValidatorModel):
+class TokenUsage(BaseValidatorModel):
     inputTokens: int
     outputTokens: int
     totalTokens: int
 
 
-class ConverseStreamMetricsTypeDef(BaseValidatorModel):
+class ConverseStreamMetrics(BaseValidatorModel):
     latencyMs: int
 
 
-class InternalServerExceptionTypeDef(BaseValidatorModel):
+class InternalServerException(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class MessageStartEventTypeDef(BaseValidatorModel):
+class MessageStartEvent(BaseValidatorModel):
     role: ConversationRoleType
 
 
-class MessageStopEventTypeDef(BaseValidatorModel):
+class MessageStopEvent(BaseValidatorModel):
     stopReason: StopReasonType
     additionalModelResponseFields: Optional[Dict[str, Any]] = None
 
 
-class ModelStreamErrorExceptionTypeDef(BaseValidatorModel):
+class ModelStreamErrorException(BaseValidatorModel):
     message: Optional[str] = None
     originalStatusCode: Optional[int] = None
     originalMessage: Optional[str] = None
 
 
-class ServiceUnavailableExceptionTypeDef(BaseValidatorModel):
+class ServiceUnavailableException(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class ThrottlingExceptionTypeDef(BaseValidatorModel):
+class ThrottlingException(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class ValidationExceptionTypeDef(BaseValidatorModel):
+class ValidationException(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class GuardrailStreamConfigurationTypeDef(BaseValidatorModel):
+class GuardrailStreamConfiguration(BaseValidatorModel):
     guardrailIdentifier: str
     guardrailVersion: str
     trace: Optional[GuardrailTraceType] = None
     streamProcessingMode: Optional[GuardrailStreamProcessingModeType] = None
 
 
-class PromptRouterTraceTypeDef(BaseValidatorModel):
+class PromptRouterTrace(BaseValidatorModel):
     invokedModelId: Optional[str] = None
 
 
-class GetAsyncInvokeRequestTypeDef(BaseValidatorModel):
+class GetAsyncInvokeRequest(BaseValidatorModel):
     invocationArn: str
 
 
-class GuardrailTextBlockTypeDef(BaseValidatorModel):
+class GuardrailTextBlock(BaseValidatorModel):
     text: str
     qualifiers: Optional[Sequence[GuardrailContentQualifierType]] = None
 
 
-class GuardrailConverseTextBlockOutputTypeDef(BaseValidatorModel):
+class GuardrailConverseTextBlockOutput(BaseValidatorModel):
     text: str
     qualifiers: Optional[List[GuardrailConverseContentQualifierType]] = None
 
 
-class GuardrailConverseTextBlockTypeDef(BaseValidatorModel):
+class GuardrailConverseTextBlock(BaseValidatorModel):
     text: str
     qualifiers: Optional[Sequence[GuardrailConverseContentQualifierType]] = None
 
 
-class GuardrailImageCoverageTypeDef(BaseValidatorModel):
+class GuardrailImageCoverage(BaseValidatorModel):
     guarded: Optional[int] = None
     total: Optional[int] = None
 
 
-class GuardrailTextCharactersCoverageTypeDef(BaseValidatorModel):
+class GuardrailTextCharactersCoverage(BaseValidatorModel):
     guarded: Optional[int] = None
     total: Optional[int] = None
 
 
-class GuardrailCustomWordTypeDef(BaseValidatorModel):
+class GuardrailCustomWord(BaseValidatorModel):
     match: str
     action: Literal["BLOCKED"]
 
 
-class GuardrailRegexFilterTypeDef(BaseValidatorModel):
+class GuardrailRegexFilter(BaseValidatorModel):
     action: GuardrailSensitiveInformationPolicyActionType
     name: Optional[str] = None
     match: Optional[str] = None
     regex: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ModelTimeoutExceptionTypeDef(BaseValidatorModel):
+class ModelTimeoutException(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class ReasoningTextBlockTypeDef(BaseValidatorModel):
+class ReasoningTextBlock(BaseValidatorModel):
     text: str
     signature: Optional[str] = None
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     uri: str
     bucketOwner: Optional[str] = None
 
 
-class SpecificToolChoiceTypeDef(BaseValidatorModel):
+class SpecificToolChoice(BaseValidatorModel):
     name: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class ToolInputSchemaTypeDef(BaseValidatorModel):
+class ToolInputSchema(BaseValidatorModel):
     json: Optional[Mapping[str, Any]] = None
 
 
-class InvokeModelResponseTypeDef(BaseValidatorModel):
+class InvokeModelResponse(BaseValidatorModel):
     body: StreamingBody
     contentType: str
     performanceConfigLatency: PerformanceConfigLatencyType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartAsyncInvokeResponseTypeDef(BaseValidatorModel):
+class StartAsyncInvokeResponse(BaseValidatorModel):
     invocationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AsyncInvokeOutputDataConfigTypeDef(BaseValidatorModel):
-    s3OutputDataConfig: Optional[AsyncInvokeS3OutputDataConfigTypeDef] = None
+class AsyncInvokeOutputDataConfig(BaseValidatorModel):
+    s3OutputDataConfig: Optional[AsyncInvokeS3OutputDataConfig] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class InvokeModelRequestTypeDef(BaseValidatorModel):
+class InvokeModelRequest(BaseValidatorModel):
     modelId: str
-    body: Optional[BlobTypeDef] = None
+    body: Optional[Blob] = None
     contentType: Optional[str] = None
     accept: Optional[str] = None
     trace: Optional[TraceType] = None
@@ -236,9 +236,9 @@ class InvokeModelRequestTypeDef(BaseValidatorModel):
     performanceConfigLatency: Optional[PerformanceConfigLatencyType] = None
 
 
-class InvokeModelWithResponseStreamRequestTypeDef(BaseValidatorModel):
+class InvokeModelWithResponseStreamRequest(BaseValidatorModel):
     modelId: str
-    body: Optional[BlobTypeDef] = None
+    body: Optional[Blob] = None
     contentType: Optional[str] = None
     accept: Optional[str] = None
     trace: Optional[TraceType] = None
@@ -247,83 +247,83 @@ class InvokeModelWithResponseStreamRequestTypeDef(BaseValidatorModel):
     performanceConfigLatency: Optional[PerformanceConfigLatencyType] = None
 
 
-class ToolUseBlockDeltaTypeDef(BaseValidatorModel):
+class ToolUseBlockDelta(BaseValidatorModel):
     pass
 
 
-class ContentBlockDeltaTypeDef(BaseValidatorModel):
+class ContentBlockDelta(BaseValidatorModel):
     text: Optional[str] = None
-    toolUse: Optional[ToolUseBlockDeltaTypeDef] = None
-    reasoningContent: Optional[ReasoningContentBlockDeltaTypeDef] = None
+    toolUse: Optional[ToolUseBlockDelta] = None
+    reasoningContent: Optional[ReasoningContentBlockDelta] = None
 
 
-class ContentBlockStartTypeDef(BaseValidatorModel):
-    toolUse: Optional[ToolUseBlockStartTypeDef] = None
+class ContentBlockStart(BaseValidatorModel):
+    toolUse: Optional[ToolUseBlockStart] = None
 
 
-class GuardrailContentFilterTypeDef(BaseValidatorModel):
+class GuardrailContentFilter(BaseValidatorModel):
     pass
 
 
-class GuardrailContentPolicyAssessmentTypeDef(BaseValidatorModel):
-    filters: List[GuardrailContentFilterTypeDef]
+class GuardrailContentPolicyAssessment(BaseValidatorModel):
+    filters: List[GuardrailContentFilter]
 
 
-class GuardrailContextualGroundingFilterTypeDef(BaseValidatorModel):
+class GuardrailContextualGroundingFilter(BaseValidatorModel):
     pass
 
 
-class GuardrailContextualGroundingPolicyAssessmentTypeDef(BaseValidatorModel):
-    filters: Optional[List[GuardrailContextualGroundingFilterTypeDef]] = None
+class GuardrailContextualGroundingPolicyAssessment(BaseValidatorModel):
+    filters: Optional[List[GuardrailContextualGroundingFilter]] = None
 
 
-class GuardrailCoverageTypeDef(BaseValidatorModel):
-    textCharacters: Optional[GuardrailTextCharactersCoverageTypeDef] = None
-    images: Optional[GuardrailImageCoverageTypeDef] = None
+class GuardrailCoverage(BaseValidatorModel):
+    textCharacters: Optional[GuardrailTextCharactersCoverage] = None
+    images: Optional[GuardrailImageCoverage] = None
 
 
-class GuardrailManagedWordTypeDef(BaseValidatorModel):
+class GuardrailManagedWord(BaseValidatorModel):
     pass
 
 
-class GuardrailWordPolicyAssessmentTypeDef(BaseValidatorModel):
-    customWords: List[GuardrailCustomWordTypeDef]
-    managedWordLists: List[GuardrailManagedWordTypeDef]
+class GuardrailWordPolicyAssessment(BaseValidatorModel):
+    customWords: List[GuardrailCustomWord]
+    managedWordLists: List[GuardrailManagedWord]
 
 
-class GuardrailPiiEntityFilterTypeDef(BaseValidatorModel):
+class GuardrailPiiEntityFilter(BaseValidatorModel):
     pass
 
 
-class GuardrailSensitiveInformationPolicyAssessmentTypeDef(BaseValidatorModel):
-    piiEntities: List[GuardrailPiiEntityFilterTypeDef]
-    regexes: List[GuardrailRegexFilterTypeDef]
+class GuardrailSensitiveInformationPolicyAssessment(BaseValidatorModel):
+    piiEntities: List[GuardrailPiiEntityFilter]
+    regexes: List[GuardrailRegexFilter]
 
 
-class GuardrailTopicTypeDef(BaseValidatorModel):
+class GuardrailTopic(BaseValidatorModel):
     pass
 
 
-class GuardrailTopicPolicyAssessmentTypeDef(BaseValidatorModel):
-    topics: List[GuardrailTopicTypeDef]
+class GuardrailTopicPolicyAssessment(BaseValidatorModel):
+    topics: List[GuardrailTopic]
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListAsyncInvokesRequestPaginateTypeDef(BaseValidatorModel):
-    submitTimeAfter: Optional[TimestampTypeDef] = None
-    submitTimeBefore: Optional[TimestampTypeDef] = None
+class ListAsyncInvokesRequestPaginate(BaseValidatorModel):
+    submitTimeAfter: Optional[Timestamp] = None
+    submitTimeBefore: Optional[Timestamp] = None
     statusEquals: Optional[AsyncInvokeStatusType] = None
     sortBy: Optional[Literal["SubmissionTime"]] = None
     sortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAsyncInvokesRequestTypeDef(BaseValidatorModel):
-    submitTimeAfter: Optional[TimestampTypeDef] = None
-    submitTimeBefore: Optional[TimestampTypeDef] = None
+class ListAsyncInvokesRequest(BaseValidatorModel):
+    submitTimeAfter: Optional[Timestamp] = None
+    submitTimeBefore: Optional[Timestamp] = None
     statusEquals: Optional[AsyncInvokeStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -331,41 +331,41 @@ class ListAsyncInvokesRequestTypeDef(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
-class PayloadPartTypeDef(BaseValidatorModel):
+class PayloadPart(BaseValidatorModel):
     pass
 
 
-class ResponseStreamTypeDef(BaseValidatorModel):
-    chunk: Optional[PayloadPartTypeDef] = None
-    internalServerException: Optional[InternalServerExceptionTypeDef] = None
-    modelStreamErrorException: Optional[ModelStreamErrorExceptionTypeDef] = None
-    validationException: Optional[ValidationExceptionTypeDef] = None
-    throttlingException: Optional[ThrottlingExceptionTypeDef] = None
-    modelTimeoutException: Optional[ModelTimeoutExceptionTypeDef] = None
-    serviceUnavailableException: Optional[ServiceUnavailableExceptionTypeDef] = None
+class ResponseStream(BaseValidatorModel):
+    chunk: Optional[PayloadPart] = None
+    internalServerException: Optional[InternalServerException] = None
+    modelStreamErrorException: Optional[ModelStreamErrorException] = None
+    validationException: Optional[ValidationException] = None
+    throttlingException: Optional[ThrottlingException] = None
+    modelTimeoutException: Optional[ModelTimeoutException] = None
+    serviceUnavailableException: Optional[ServiceUnavailableException] = None
 
 
-class ReasoningContentBlockOutputTypeDef(BaseValidatorModel):
-    reasoningText: Optional[ReasoningTextBlockTypeDef] = None
+class ReasoningContentBlockOutput(BaseValidatorModel):
+    reasoningText: Optional[ReasoningTextBlock] = None
     redactedContent: Optional[bytes] = None
 
 
-class ReasoningContentBlockTypeDef(BaseValidatorModel):
-    reasoningText: Optional[ReasoningTextBlockTypeDef] = None
-    redactedContent: Optional[BlobTypeDef] = None
+class ReasoningContentBlock(BaseValidatorModel):
+    reasoningText: Optional[ReasoningTextBlock] = None
+    redactedContent: Optional[Blob] = None
 
 
-class ToolSpecificationTypeDef(BaseValidatorModel):
+class ToolSpecification(BaseValidatorModel):
     name: str
-    inputSchema: ToolInputSchemaTypeDef
+    inputSchema: ToolInputSchema
     description: Optional[str] = None
 
 
-class AsyncInvokeSummaryTypeDef(BaseValidatorModel):
+class AsyncInvokeSummary(BaseValidatorModel):
     invocationArn: str
     modelArn: str
     submitTime: datetime
-    outputDataConfig: AsyncInvokeOutputDataConfigTypeDef
+    outputDataConfig: AsyncInvokeOutputDataConfig
     clientRequestToken: Optional[str] = None
     status: Optional[AsyncInvokeStatusType] = None
     failureMessage: Optional[str] = None
@@ -373,7 +373,7 @@ class AsyncInvokeSummaryTypeDef(BaseValidatorModel):
     endTime: Optional[datetime] = None
 
 
-class GetAsyncInvokeResponseTypeDef(BaseValidatorModel):
+class GetAsyncInvokeResponse(BaseValidatorModel):
     invocationArn: str
     modelArn: str
     clientRequestToken: str
@@ -382,319 +382,319 @@ class GetAsyncInvokeResponseTypeDef(BaseValidatorModel):
     submitTime: datetime
     lastModifiedTime: datetime
     endTime: datetime
-    outputDataConfig: AsyncInvokeOutputDataConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    outputDataConfig: AsyncInvokeOutputDataConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class StartAsyncInvokeRequestTypeDef(BaseValidatorModel):
+class StartAsyncInvokeRequest(BaseValidatorModel):
     modelId: str
     modelInput: Mapping[str, Any]
-    outputDataConfig: AsyncInvokeOutputDataConfigTypeDef
+    outputDataConfig: AsyncInvokeOutputDataConfig
     clientRequestToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class ContentBlockDeltaEventTypeDef(BaseValidatorModel):
-    delta: ContentBlockDeltaTypeDef
+class ContentBlockDeltaEvent(BaseValidatorModel):
+    delta: ContentBlockDelta
     contentBlockIndex: int
 
 
-class ContentBlockStartEventTypeDef(BaseValidatorModel):
-    start: ContentBlockStartTypeDef
+class ContentBlockStartEvent(BaseValidatorModel):
+    start: ContentBlockStart
     contentBlockIndex: int
 
 
-class GuardrailConverseImageBlockOutputTypeDef(BaseValidatorModel):
+class GuardrailConverseImageBlockOutput(BaseValidatorModel):
     pass
 
 
-class GuardrailConverseContentBlockOutputTypeDef(BaseValidatorModel):
-    text: Optional[GuardrailConverseTextBlockOutputTypeDef] = None
-    image: Optional[GuardrailConverseImageBlockOutputTypeDef] = None
+class GuardrailConverseContentBlockOutput(BaseValidatorModel):
+    text: Optional[GuardrailConverseTextBlockOutput] = None
+    image: Optional[GuardrailConverseImageBlockOutput] = None
 
 
-class GuardrailInvocationMetricsTypeDef(BaseValidatorModel):
+class GuardrailInvocationMetrics(BaseValidatorModel):
     guardrailProcessingLatency: Optional[int] = None
-    usage: Optional[GuardrailUsageTypeDef] = None
-    guardrailCoverage: Optional[GuardrailCoverageTypeDef] = None
+    usage: Optional[GuardrailUsage] = None
+    guardrailCoverage: Optional[GuardrailCoverage] = None
 
 
-class InvokeModelWithResponseStreamResponseTypeDef(BaseValidatorModel):
-    body: EventStream[ResponseStreamTypeDef]
+class InvokeModelWithResponseStreamResponse(BaseValidatorModel):
+    body: EventStream[ResponseStream]
     contentType: str
     performanceConfigLatency: PerformanceConfigLatencyType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ToolTypeDef(BaseValidatorModel):
-    toolSpec: Optional[ToolSpecificationTypeDef] = None
+class Tool(BaseValidatorModel):
+    toolSpec: Optional[ToolSpecification] = None
 
 
-class ListAsyncInvokesResponseTypeDef(BaseValidatorModel):
-    asyncInvokeSummaries: List[AsyncInvokeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAsyncInvokesResponse(BaseValidatorModel):
+    asyncInvokeSummaries: List[AsyncInvokeSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GuardrailImageBlockTypeDef(BaseValidatorModel):
+class GuardrailImageBlock(BaseValidatorModel):
     pass
 
 
-class GuardrailContentBlockTypeDef(BaseValidatorModel):
-    text: Optional[GuardrailTextBlockTypeDef] = None
-    image: Optional[GuardrailImageBlockTypeDef] = None
+class GuardrailContentBlock(BaseValidatorModel):
+    text: Optional[GuardrailTextBlock] = None
+    image: Optional[GuardrailImageBlock] = None
 
 
-class GuardrailAssessmentTypeDef(BaseValidatorModel):
-    topicPolicy: Optional[GuardrailTopicPolicyAssessmentTypeDef] = None
-    contentPolicy: Optional[GuardrailContentPolicyAssessmentTypeDef] = None
-    wordPolicy: Optional[GuardrailWordPolicyAssessmentTypeDef] = None
-    sensitiveInformationPolicy: Optional[GuardrailSensitiveInformationPolicyAssessmentTypeDef] = None
-    contextualGroundingPolicy: Optional[GuardrailContextualGroundingPolicyAssessmentTypeDef] = None
-    invocationMetrics: Optional[GuardrailInvocationMetricsTypeDef] = None
+class GuardrailAssessment(BaseValidatorModel):
+    topicPolicy: Optional[GuardrailTopicPolicyAssessment] = None
+    contentPolicy: Optional[GuardrailContentPolicyAssessment] = None
+    wordPolicy: Optional[GuardrailWordPolicyAssessment] = None
+    sensitiveInformationPolicy: Optional[GuardrailSensitiveInformationPolicyAssessment] = None
+    contextualGroundingPolicy: Optional[GuardrailContextualGroundingPolicyAssessment] = None
+    invocationMetrics: Optional[GuardrailInvocationMetrics] = None
 
 
-class VideoBlockOutputTypeDef(BaseValidatorModel):
+class VideoBlockOutput(BaseValidatorModel):
     pass
 
 
-class DocumentBlockOutputTypeDef(BaseValidatorModel):
+class DocumentBlockOutput(BaseValidatorModel):
     pass
 
 
-class ImageBlockOutputTypeDef(BaseValidatorModel):
+class ImageBlockOutput(BaseValidatorModel):
     pass
 
 
-class ToolResultContentBlockOutputTypeDef(BaseValidatorModel):
+class ToolResultContentBlockOutput(BaseValidatorModel):
     json: Optional[Dict[str, Any]] = None
     text: Optional[str] = None
-    image: Optional[ImageBlockOutputTypeDef] = None
-    document: Optional[DocumentBlockOutputTypeDef] = None
-    video: Optional[VideoBlockOutputTypeDef] = None
+    image: Optional[ImageBlockOutput] = None
+    document: Optional[DocumentBlockOutput] = None
+    video: Optional[VideoBlockOutput] = None
 
 
-class ToolChoiceTypeDef(BaseValidatorModel):
+class ToolChoice(BaseValidatorModel):
     pass
 
 
-class ToolConfigurationTypeDef(BaseValidatorModel):
-    tools: Sequence[ToolTypeDef]
-    toolChoice: Optional[ToolChoiceTypeDef] = None
+class ToolConfiguration(BaseValidatorModel):
+    tools: Sequence[Tool]
+    toolChoice: Optional[ToolChoice] = None
 
 
-class ApplyGuardrailRequestTypeDef(BaseValidatorModel):
+class ApplyGuardrailRequest(BaseValidatorModel):
     guardrailIdentifier: str
     guardrailVersion: str
     source: GuardrailContentSourceType
-    content: Sequence[GuardrailContentBlockTypeDef]
+    content: Sequence[GuardrailContentBlock]
 
 
-class ApplyGuardrailResponseTypeDef(BaseValidatorModel):
-    usage: GuardrailUsageTypeDef
+class ApplyGuardrailResponse(BaseValidatorModel):
+    usage: GuardrailUsage
     action: GuardrailActionType
-    outputs: List[GuardrailOutputContentTypeDef]
-    assessments: List[GuardrailAssessmentTypeDef]
-    guardrailCoverage: GuardrailCoverageTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    outputs: List[GuardrailOutputContent]
+    assessments: List[GuardrailAssessment]
+    guardrailCoverage: GuardrailCoverage
+    ResponseMetadata: ResponseMetadata
 
 
-class GuardrailTraceAssessmentTypeDef(BaseValidatorModel):
+class GuardrailTraceAssessment(BaseValidatorModel):
     modelOutput: Optional[List[str]] = None
-    inputAssessment: Optional[Dict[str, GuardrailAssessmentTypeDef]] = None
-    outputAssessments: Optional[Dict[str, List[GuardrailAssessmentTypeDef]]] = None
+    inputAssessment: Optional[Dict[str, GuardrailAssessment]] = None
+    outputAssessments: Optional[Dict[str, List[GuardrailAssessment]]] = None
 
 
-class ToolResultBlockOutputTypeDef(BaseValidatorModel):
+class ToolResultBlockOutput(BaseValidatorModel):
     toolUseId: str
-    content: List[ToolResultContentBlockOutputTypeDef]
+    content: List[ToolResultContentBlockOutput]
     status: Optional[ToolResultStatusType] = None
 
 
-class GuardrailConverseTextBlockUnionTypeDef(BaseValidatorModel):
+class GuardrailConverseTextBlockUnion(BaseValidatorModel):
     pass
 
 
-class GuardrailConverseImageBlockUnionTypeDef(BaseValidatorModel):
+class GuardrailConverseImageBlockUnion(BaseValidatorModel):
     pass
 
 
-class GuardrailConverseContentBlockTypeDef(BaseValidatorModel):
-    text: Optional[GuardrailConverseTextBlockUnionTypeDef] = None
-    image: Optional[GuardrailConverseImageBlockUnionTypeDef] = None
+class GuardrailConverseContentBlock(BaseValidatorModel):
+    text: Optional[GuardrailConverseTextBlockUnion] = None
+    image: Optional[GuardrailConverseImageBlockUnion] = None
 
 
-class ConverseStreamTraceTypeDef(BaseValidatorModel):
-    guardrail: Optional[GuardrailTraceAssessmentTypeDef] = None
-    promptRouter: Optional[PromptRouterTraceTypeDef] = None
+class ConverseStreamTrace(BaseValidatorModel):
+    guardrail: Optional[GuardrailTraceAssessment] = None
+    promptRouter: Optional[PromptRouterTrace] = None
 
 
-class ConverseTraceTypeDef(BaseValidatorModel):
-    guardrail: Optional[GuardrailTraceAssessmentTypeDef] = None
-    promptRouter: Optional[PromptRouterTraceTypeDef] = None
+class ConverseTrace(BaseValidatorModel):
+    guardrail: Optional[GuardrailTraceAssessment] = None
+    promptRouter: Optional[PromptRouterTrace] = None
 
 
-class ToolUseBlockOutputTypeDef(BaseValidatorModel):
+class ToolUseBlockOutput(BaseValidatorModel):
     pass
 
 
-class ContentBlockOutputTypeDef(BaseValidatorModel):
+class ContentBlockOutput(BaseValidatorModel):
     text: Optional[str] = None
-    image: Optional[ImageBlockOutputTypeDef] = None
-    document: Optional[DocumentBlockOutputTypeDef] = None
-    video: Optional[VideoBlockOutputTypeDef] = None
-    toolUse: Optional[ToolUseBlockOutputTypeDef] = None
-    toolResult: Optional[ToolResultBlockOutputTypeDef] = None
-    guardContent: Optional[GuardrailConverseContentBlockOutputTypeDef] = None
-    reasoningContent: Optional[ReasoningContentBlockOutputTypeDef] = None
+    image: Optional[ImageBlockOutput] = None
+    document: Optional[DocumentBlockOutput] = None
+    video: Optional[VideoBlockOutput] = None
+    toolUse: Optional[ToolUseBlockOutput] = None
+    toolResult: Optional[ToolResultBlockOutput] = None
+    guardContent: Optional[GuardrailConverseContentBlockOutput] = None
+    reasoningContent: Optional[ReasoningContentBlockOutput] = None
 
 
-class VideoBlockUnionTypeDef(BaseValidatorModel):
+class VideoBlockUnion(BaseValidatorModel):
     pass
 
 
-class DocumentBlockUnionTypeDef(BaseValidatorModel):
+class DocumentBlockUnion(BaseValidatorModel):
     pass
 
 
-class ImageBlockUnionTypeDef(BaseValidatorModel):
+class ImageBlockUnion(BaseValidatorModel):
     pass
 
 
-class ToolResultContentBlockTypeDef(BaseValidatorModel):
+class ToolResultContentBlock(BaseValidatorModel):
     json: Optional[Mapping[str, Any]] = None
     text: Optional[str] = None
-    image: Optional[ImageBlockUnionTypeDef] = None
-    document: Optional[DocumentBlockUnionTypeDef] = None
-    video: Optional[VideoBlockUnionTypeDef] = None
+    image: Optional[ImageBlockUnion] = None
+    document: Optional[DocumentBlockUnion] = None
+    video: Optional[VideoBlockUnion] = None
 
 
-class ConverseStreamMetadataEventTypeDef(BaseValidatorModel):
-    usage: TokenUsageTypeDef
-    metrics: ConverseStreamMetricsTypeDef
-    trace: Optional[ConverseStreamTraceTypeDef] = None
-    performanceConfig: Optional[PerformanceConfigurationTypeDef] = None
+class ConverseStreamMetadataEvent(BaseValidatorModel):
+    usage: TokenUsage
+    metrics: ConverseStreamMetrics
+    trace: Optional[ConverseStreamTrace] = None
+    performanceConfig: Optional[PerformanceConfiguration] = None
 
 
-class MessageOutputTypeDef(BaseValidatorModel):
+class MessageOutput(BaseValidatorModel):
     role: ConversationRoleType
-    content: List[ContentBlockOutputTypeDef]
+    content: List[ContentBlockOutput]
 
 
-class GuardrailConverseContentBlockUnionTypeDef(BaseValidatorModel):
+class GuardrailConverseContentBlockUnion(BaseValidatorModel):
     pass
 
 
-class SystemContentBlockTypeDef(BaseValidatorModel):
+class SystemContentBlock(BaseValidatorModel):
     text: Optional[str] = None
-    guardContent: Optional[GuardrailConverseContentBlockUnionTypeDef] = None
+    guardContent: Optional[GuardrailConverseContentBlockUnion] = None
 
 
-class ConverseStreamOutputTypeDef(BaseValidatorModel):
-    messageStart: Optional[MessageStartEventTypeDef] = None
-    contentBlockStart: Optional[ContentBlockStartEventTypeDef] = None
-    contentBlockDelta: Optional[ContentBlockDeltaEventTypeDef] = None
-    contentBlockStop: Optional[ContentBlockStopEventTypeDef] = None
-    messageStop: Optional[MessageStopEventTypeDef] = None
-    metadata: Optional[ConverseStreamMetadataEventTypeDef] = None
-    internalServerException: Optional[InternalServerExceptionTypeDef] = None
-    modelStreamErrorException: Optional[ModelStreamErrorExceptionTypeDef] = None
-    validationException: Optional[ValidationExceptionTypeDef] = None
-    throttlingException: Optional[ThrottlingExceptionTypeDef] = None
-    serviceUnavailableException: Optional[ServiceUnavailableExceptionTypeDef] = None
+class ConverseStreamOutput(BaseValidatorModel):
+    messageStart: Optional[MessageStartEvent] = None
+    contentBlockStart: Optional[ContentBlockStartEvent] = None
+    contentBlockDelta: Optional[ContentBlockDeltaEvent] = None
+    contentBlockStop: Optional[ContentBlockStopEvent] = None
+    messageStop: Optional[MessageStopEvent] = None
+    metadata: Optional[ConverseStreamMetadataEvent] = None
+    internalServerException: Optional[InternalServerException] = None
+    modelStreamErrorException: Optional[ModelStreamErrorException] = None
+    validationException: Optional[ValidationException] = None
+    throttlingException: Optional[ThrottlingException] = None
+    serviceUnavailableException: Optional[ServiceUnavailableException] = None
 
 
-class ConverseOutputTypeDef(BaseValidatorModel):
-    message: Optional[MessageOutputTypeDef] = None
+class ConverseOutput(BaseValidatorModel):
+    message: Optional[MessageOutput] = None
 
 
-class ToolResultContentBlockUnionTypeDef(BaseValidatorModel):
+class ToolResultContentBlockUnion(BaseValidatorModel):
     pass
 
 
-class ToolResultBlockTypeDef(BaseValidatorModel):
+class ToolResultBlock(BaseValidatorModel):
     toolUseId: str
-    content: Sequence[ToolResultContentBlockUnionTypeDef]
+    content: Sequence[ToolResultContentBlockUnion]
     status: Optional[ToolResultStatusType] = None
 
 
-class ConverseStreamResponseTypeDef(BaseValidatorModel):
-    stream: EventStream[ConverseStreamOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ConverseStreamResponse(BaseValidatorModel):
+    stream: EventStream[ConverseStreamOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class ConverseResponseTypeDef(BaseValidatorModel):
-    output: ConverseOutputTypeDef
+class ConverseResponse(BaseValidatorModel):
+    output: ConverseOutput
     stopReason: StopReasonType
-    usage: TokenUsageTypeDef
-    metrics: ConverseMetricsTypeDef
+    usage: TokenUsage
+    metrics: ConverseMetrics
     additionalModelResponseFields: Dict[str, Any]
-    trace: ConverseTraceTypeDef
-    performanceConfig: PerformanceConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    trace: ConverseTrace
+    performanceConfig: PerformanceConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ReasoningContentBlockUnionTypeDef(BaseValidatorModel):
+class ReasoningContentBlockUnion(BaseValidatorModel):
     pass
 
 
-class ToolResultBlockUnionTypeDef(BaseValidatorModel):
+class ToolResultBlockUnion(BaseValidatorModel):
     pass
 
 
-class ToolUseBlockUnionTypeDef(BaseValidatorModel):
+class ToolUseBlockUnion(BaseValidatorModel):
     pass
 
 
-class ContentBlockTypeDef(BaseValidatorModel):
+class ContentBlock(BaseValidatorModel):
     text: Optional[str] = None
-    image: Optional[ImageBlockUnionTypeDef] = None
-    document: Optional[DocumentBlockUnionTypeDef] = None
-    video: Optional[VideoBlockUnionTypeDef] = None
-    toolUse: Optional[ToolUseBlockUnionTypeDef] = None
-    toolResult: Optional[ToolResultBlockUnionTypeDef] = None
-    guardContent: Optional[GuardrailConverseContentBlockUnionTypeDef] = None
-    reasoningContent: Optional[ReasoningContentBlockUnionTypeDef] = None
+    image: Optional[ImageBlockUnion] = None
+    document: Optional[DocumentBlockUnion] = None
+    video: Optional[VideoBlockUnion] = None
+    toolUse: Optional[ToolUseBlockUnion] = None
+    toolResult: Optional[ToolResultBlockUnion] = None
+    guardContent: Optional[GuardrailConverseContentBlockUnion] = None
+    reasoningContent: Optional[ReasoningContentBlockUnion] = None
 
 
-class ContentBlockUnionTypeDef(BaseValidatorModel):
+class ContentBlockUnion(BaseValidatorModel):
     pass
 
 
-class MessageTypeDef(BaseValidatorModel):
+class Message(BaseValidatorModel):
     role: ConversationRoleType
-    content: Sequence[ContentBlockUnionTypeDef]
+    content: Sequence[ContentBlockUnion]
 
 
-class MessageUnionTypeDef(BaseValidatorModel):
+class MessageUnion(BaseValidatorModel):
     pass
 
 
-class ConverseRequestTypeDef(BaseValidatorModel):
+class ConverseRequest(BaseValidatorModel):
     modelId: str
-    messages: Optional[Sequence[MessageUnionTypeDef]] = None
-    system: Optional[Sequence[SystemContentBlockTypeDef]] = None
-    inferenceConfig: Optional[InferenceConfigurationTypeDef] = None
-    toolConfig: Optional[ToolConfigurationTypeDef] = None
-    guardrailConfig: Optional[GuardrailConfigurationTypeDef] = None
+    messages: Optional[Sequence[MessageUnion]] = None
+    system: Optional[Sequence[SystemContentBlock]] = None
+    inferenceConfig: Optional[InferenceConfiguration] = None
+    toolConfig: Optional[ToolConfiguration] = None
+    guardrailConfig: Optional[GuardrailConfiguration] = None
     additionalModelRequestFields: Optional[Mapping[str, Any]] = None
-    promptVariables: Optional[Mapping[str, PromptVariableValuesTypeDef]] = None
+    promptVariables: Optional[Mapping[str, PromptVariableValues]] = None
     additionalModelResponseFieldPaths: Optional[Sequence[str]] = None
     requestMetadata: Optional[Mapping[str, str]] = None
-    performanceConfig: Optional[PerformanceConfigurationTypeDef] = None
+    performanceConfig: Optional[PerformanceConfiguration] = None
 
 
-class ConverseStreamRequestTypeDef(BaseValidatorModel):
+class ConverseStreamRequest(BaseValidatorModel):
     modelId: str
-    messages: Optional[Sequence[MessageUnionTypeDef]] = None
-    system: Optional[Sequence[SystemContentBlockTypeDef]] = None
-    inferenceConfig: Optional[InferenceConfigurationTypeDef] = None
-    toolConfig: Optional[ToolConfigurationTypeDef] = None
-    guardrailConfig: Optional[GuardrailStreamConfigurationTypeDef] = None
+    messages: Optional[Sequence[MessageUnion]] = None
+    system: Optional[Sequence[SystemContentBlock]] = None
+    inferenceConfig: Optional[InferenceConfiguration] = None
+    toolConfig: Optional[ToolConfiguration] = None
+    guardrailConfig: Optional[GuardrailStreamConfiguration] = None
     additionalModelRequestFields: Optional[Mapping[str, Any]] = None
-    promptVariables: Optional[Mapping[str, PromptVariableValuesTypeDef]] = None
+    promptVariables: Optional[Mapping[str, PromptVariableValues]] = None
     additionalModelResponseFieldPaths: Optional[Sequence[str]] = None
     requestMetadata: Optional[Mapping[str, str]] = None
-    performanceConfig: Optional[PerformanceConfigurationTypeDef] = None
+    performanceConfig: Optional[PerformanceConfiguration] = None
 
 

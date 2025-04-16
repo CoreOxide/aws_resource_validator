@@ -12,16 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudsearchdomain_constants import *
 
-class BucketTypeDef(BaseValidatorModel):
+class Bucket(BaseValidatorModel):
     value: Optional[str] = None
     count: Optional[int] = None
 
 
-class DocumentServiceWarningTypeDef(BaseValidatorModel):
+class DocumentServiceWarning(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -29,7 +29,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class SearchRequestTypeDef(BaseValidatorModel):
+class SearchRequest(BaseValidatorModel):
     query: str
     cursor: Optional[str] = None
     expr: Optional[str] = None
@@ -46,79 +46,79 @@ class SearchRequestTypeDef(BaseValidatorModel):
     stats: Optional[str] = None
 
 
-class SearchStatusTypeDef(BaseValidatorModel):
+class SearchStatus(BaseValidatorModel):
     timems: Optional[int] = None
     rid: Optional[str] = None
 
 
-class SuggestRequestTypeDef(BaseValidatorModel):
+class SuggestRequest(BaseValidatorModel):
     query: str
     suggester: str
     size: Optional[int] = None
 
 
-class SuggestStatusTypeDef(BaseValidatorModel):
+class SuggestStatus(BaseValidatorModel):
     timems: Optional[int] = None
     rid: Optional[str] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class UploadDocumentsRequestTypeDef(BaseValidatorModel):
-    documents: BlobTypeDef
+class UploadDocumentsRequest(BaseValidatorModel):
+    documents: Blob
     contentType: ContentTypeType
 
 
-class BucketInfoTypeDef(BaseValidatorModel):
-    buckets: Optional[List[BucketTypeDef]] = None
+class BucketInfo(BaseValidatorModel):
+    buckets: Optional[List[Bucket]] = None
 
 
-class HitTypeDef(BaseValidatorModel):
+class Hit(BaseValidatorModel):
     pass
 
 
-class HitsTypeDef(BaseValidatorModel):
+class Hits(BaseValidatorModel):
     found: Optional[int] = None
     start: Optional[int] = None
     cursor: Optional[str] = None
-    hit: Optional[List[HitTypeDef]] = None
+    hit: Optional[List[Hit]] = None
 
 
-class UploadDocumentsResponseTypeDef(BaseValidatorModel):
+class UploadDocumentsResponse(BaseValidatorModel):
     status: str
     adds: int
     deletes: int
-    warnings: List[DocumentServiceWarningTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    warnings: List[DocumentServiceWarning]
+    ResponseMetadata: ResponseMetadata
 
 
-class SuggestionMatchTypeDef(BaseValidatorModel):
+class SuggestionMatch(BaseValidatorModel):
     pass
 
 
-class SuggestModelTypeDef(BaseValidatorModel):
+class SuggestModel(BaseValidatorModel):
     query: Optional[str] = None
     found: Optional[int] = None
-    suggestions: Optional[List[SuggestionMatchTypeDef]] = None
+    suggestions: Optional[List[SuggestionMatch]] = None
 
 
-class FieldStatsTypeDef(BaseValidatorModel):
+class FieldStats(BaseValidatorModel):
     pass
 
 
-class SearchResponseTypeDef(BaseValidatorModel):
-    status: SearchStatusTypeDef
-    hits: HitsTypeDef
-    facets: Dict[str, BucketInfoTypeDef]
-    stats: Dict[str, FieldStatsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchResponse(BaseValidatorModel):
+    status: SearchStatus
+    hits: Hits
+    facets: Dict[str, BucketInfo]
+    stats: Dict[str, FieldStats]
+    ResponseMetadata: ResponseMetadata
 
 
-class SuggestResponseTypeDef(BaseValidatorModel):
-    status: SuggestStatusTypeDef
-    suggest: SuggestModelTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class SuggestResponse(BaseValidatorModel):
+    status: SuggestStatus
+    suggest: SuggestModel
+    ResponseMetadata: ResponseMetadata
 
 

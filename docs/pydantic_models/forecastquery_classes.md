@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DataPointTypeDef
+# DataPoint
 
 ### Timestamp
 - **Type**: typing.Optional[str]
@@ -15,13 +15,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ForecastTypeDef
+# Forecast
 
 ### Predictions
-- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.forecastquery_classes.DataPointTypeDef]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.forecastquery_classes.DataPoint]]]
 
 
-# QueryForecastRequestTypeDef
+# QueryForecastRequest
 
 ### ForecastArn
 - **Type**: <class 'str'>
@@ -41,18 +41,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# QueryForecastResponseTypeDef
+# QueryForecastResponse
 
 ### Forecast
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.ForecastTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.Forecast'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# QueryWhatIfForecastRequestTypeDef
+# QueryWhatIfForecastRequest
 
 ### WhatIfForecastArn
 - **Type**: <class 'str'>
@@ -72,18 +72,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# QueryWhatIfForecastResponseTypeDef
+# QueryWhatIfForecastResponse
 
 ### Forecast
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.ForecastTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.Forecast'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>

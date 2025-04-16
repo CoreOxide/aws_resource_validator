@@ -12,29 +12,29 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.verifiedpermissions_constants import *
 
-class ActionIdentifierTypeDef(BaseValidatorModel):
+class ActionIdentifier(BaseValidatorModel):
     actionType: str
     actionId: str
 
 
-class EntityIdentifierTypeDef(BaseValidatorModel):
+class EntityIdentifier(BaseValidatorModel):
     entityType: str
     entityId: str
 
 
-class BatchGetPolicyErrorItemTypeDef(BaseValidatorModel):
+class BatchGetPolicyErrorItem(BaseValidatorModel):
     code: BatchGetPolicyErrorCodeType
     policyStoreId: str
     policyId: str
     message: str
 
 
-class BatchGetPolicyInputItemTypeDef(BaseValidatorModel):
+class BatchGetPolicyInputItem(BaseValidatorModel):
     policyStoreId: str
     policyId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -42,109 +42,109 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeterminingPolicyItemTypeDef(BaseValidatorModel):
+class DeterminingPolicyItem(BaseValidatorModel):
     policyId: str
 
 
-class EvaluationErrorItemTypeDef(BaseValidatorModel):
+class EvaluationErrorItem(BaseValidatorModel):
     errorDescription: str
 
 
-class CognitoGroupConfigurationDetailTypeDef(BaseValidatorModel):
+class CognitoGroupConfigurationDetail(BaseValidatorModel):
     groupEntityType: Optional[str] = None
 
 
-class CognitoGroupConfigurationItemTypeDef(BaseValidatorModel):
+class CognitoGroupConfigurationItem(BaseValidatorModel):
     groupEntityType: Optional[str] = None
 
 
-class CognitoGroupConfigurationTypeDef(BaseValidatorModel):
+class CognitoGroupConfiguration(BaseValidatorModel):
     groupEntityType: str
 
 
-class ValidationSettingsTypeDef(BaseValidatorModel):
+class ValidationSettings(BaseValidatorModel):
     mode: ValidationModeType
 
 
-class CreatePolicyTemplateInputTypeDef(BaseValidatorModel):
+class CreatePolicyTemplateInput(BaseValidatorModel):
     policyStoreId: str
     statement: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
-class DeleteIdentitySourceInputTypeDef(BaseValidatorModel):
+class DeleteIdentitySourceInput(BaseValidatorModel):
     policyStoreId: str
     identitySourceId: str
 
 
-class DeletePolicyInputTypeDef(BaseValidatorModel):
+class DeletePolicyInput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
 
 
-class DeletePolicyStoreInputTypeDef(BaseValidatorModel):
+class DeletePolicyStoreInput(BaseValidatorModel):
     policyStoreId: str
 
 
-class DeletePolicyTemplateInputTypeDef(BaseValidatorModel):
+class DeletePolicyTemplateInput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
 
 
-class GetIdentitySourceInputTypeDef(BaseValidatorModel):
+class GetIdentitySourceInput(BaseValidatorModel):
     policyStoreId: str
     identitySourceId: str
 
 
-class IdentitySourceDetailsTypeDef(BaseValidatorModel):
+class IdentitySourceDetails(BaseValidatorModel):
     clientIds: Optional[List[str]] = None
     userPoolArn: Optional[str] = None
     discoveryUrl: Optional[str] = None
     openIdIssuer: Optional[Literal["COGNITO"]] = None
 
 
-class GetPolicyInputTypeDef(BaseValidatorModel):
+class GetPolicyInput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
 
 
-class GetPolicyStoreInputTypeDef(BaseValidatorModel):
+class GetPolicyStoreInput(BaseValidatorModel):
     policyStoreId: str
 
 
-class GetPolicyTemplateInputTypeDef(BaseValidatorModel):
+class GetPolicyTemplateInput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
 
 
-class GetSchemaInputTypeDef(BaseValidatorModel):
+class GetSchemaInput(BaseValidatorModel):
     policyStoreId: str
 
 
-class IdentitySourceFilterTypeDef(BaseValidatorModel):
+class IdentitySourceFilter(BaseValidatorModel):
     principalEntityType: Optional[str] = None
 
 
-class IdentitySourceItemDetailsTypeDef(BaseValidatorModel):
+class IdentitySourceItemDetails(BaseValidatorModel):
     clientIds: Optional[List[str]] = None
     userPoolArn: Optional[str] = None
     discoveryUrl: Optional[str] = None
     openIdIssuer: Optional[Literal["COGNITO"]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListPolicyStoresInputTypeDef(BaseValidatorModel):
+class ListPolicyStoresInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class PolicyStoreItemTypeDef(BaseValidatorModel):
+class PolicyStoreItem(BaseValidatorModel):
     policyStoreId: str
     arn: str
     createdDate: datetime
@@ -152,13 +152,13 @@ class PolicyStoreItemTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class ListPolicyTemplatesInputTypeDef(BaseValidatorModel):
+class ListPolicyTemplatesInput(BaseValidatorModel):
     policyStoreId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class PolicyTemplateItemTypeDef(BaseValidatorModel):
+class PolicyTemplateItem(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
     createdDate: datetime
@@ -166,647 +166,647 @@ class PolicyTemplateItemTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class OpenIdConnectAccessTokenConfigurationDetailTypeDef(BaseValidatorModel):
+class OpenIdConnectAccessTokenConfigurationDetail(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
     audiences: Optional[List[str]] = None
 
 
-class OpenIdConnectAccessTokenConfigurationItemTypeDef(BaseValidatorModel):
+class OpenIdConnectAccessTokenConfigurationItem(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
     audiences: Optional[List[str]] = None
 
 
-class OpenIdConnectAccessTokenConfigurationTypeDef(BaseValidatorModel):
+class OpenIdConnectAccessTokenConfiguration(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
     audiences: Optional[Sequence[str]] = None
 
 
-class OpenIdConnectGroupConfigurationDetailTypeDef(BaseValidatorModel):
+class OpenIdConnectGroupConfigurationDetail(BaseValidatorModel):
     groupClaim: str
     groupEntityType: str
 
 
-class OpenIdConnectGroupConfigurationItemTypeDef(BaseValidatorModel):
+class OpenIdConnectGroupConfigurationItem(BaseValidatorModel):
     groupClaim: str
     groupEntityType: str
 
 
-class OpenIdConnectGroupConfigurationTypeDef(BaseValidatorModel):
+class OpenIdConnectGroupConfiguration(BaseValidatorModel):
     groupClaim: str
     groupEntityType: str
 
 
-class OpenIdConnectIdentityTokenConfigurationDetailTypeDef(BaseValidatorModel):
+class OpenIdConnectIdentityTokenConfigurationDetail(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
     clientIds: Optional[List[str]] = None
 
 
-class OpenIdConnectIdentityTokenConfigurationItemTypeDef(BaseValidatorModel):
+class OpenIdConnectIdentityTokenConfigurationItem(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
     clientIds: Optional[List[str]] = None
 
 
-class OpenIdConnectIdentityTokenConfigurationTypeDef(BaseValidatorModel):
+class OpenIdConnectIdentityTokenConfiguration(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
     clientIds: Optional[Sequence[str]] = None
 
 
-class StaticPolicyDefinitionDetailTypeDef(BaseValidatorModel):
+class StaticPolicyDefinitionDetail(BaseValidatorModel):
     statement: str
     description: Optional[str] = None
 
 
-class StaticPolicyDefinitionItemTypeDef(BaseValidatorModel):
+class StaticPolicyDefinitionItem(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class StaticPolicyDefinitionTypeDef(BaseValidatorModel):
+class StaticPolicyDefinition(BaseValidatorModel):
     statement: str
     description: Optional[str] = None
 
 
-class SchemaDefinitionTypeDef(BaseValidatorModel):
+class SchemaDefinition(BaseValidatorModel):
     cedarJson: Optional[str] = None
 
 
-class UpdateCognitoGroupConfigurationTypeDef(BaseValidatorModel):
+class UpdateCognitoGroupConfiguration(BaseValidatorModel):
     groupEntityType: str
 
 
-class UpdateOpenIdConnectAccessTokenConfigurationTypeDef(BaseValidatorModel):
+class UpdateOpenIdConnectAccessTokenConfiguration(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
     audiences: Optional[Sequence[str]] = None
 
 
-class UpdateOpenIdConnectGroupConfigurationTypeDef(BaseValidatorModel):
+class UpdateOpenIdConnectGroupConfiguration(BaseValidatorModel):
     groupClaim: str
     groupEntityType: str
 
 
-class UpdateOpenIdConnectIdentityTokenConfigurationTypeDef(BaseValidatorModel):
+class UpdateOpenIdConnectIdentityTokenConfiguration(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
     clientIds: Optional[Sequence[str]] = None
 
 
-class UpdateStaticPolicyDefinitionTypeDef(BaseValidatorModel):
+class UpdateStaticPolicyDefinition(BaseValidatorModel):
     statement: str
     description: Optional[str] = None
 
 
-class UpdatePolicyTemplateInputTypeDef(BaseValidatorModel):
+class UpdatePolicyTemplateInput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
     statement: str
     description: Optional[str] = None
 
 
-class EntityReferenceTypeDef(BaseValidatorModel):
+class EntityReference(BaseValidatorModel):
     unspecified: Optional[bool] = None
-    identifier: Optional[EntityIdentifierTypeDef] = None
+    identifier: Optional[EntityIdentifier] = None
 
 
-class TemplateLinkedPolicyDefinitionDetailTypeDef(BaseValidatorModel):
+class TemplateLinkedPolicyDefinitionDetail(BaseValidatorModel):
     policyTemplateId: str
-    principal: Optional[EntityIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
+    principal: Optional[EntityIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
 
 
-class TemplateLinkedPolicyDefinitionItemTypeDef(BaseValidatorModel):
+class TemplateLinkedPolicyDefinitionItem(BaseValidatorModel):
     policyTemplateId: str
-    principal: Optional[EntityIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
+    principal: Optional[EntityIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
 
 
-class TemplateLinkedPolicyDefinitionTypeDef(BaseValidatorModel):
+class TemplateLinkedPolicyDefinition(BaseValidatorModel):
     policyTemplateId: str
-    principal: Optional[EntityIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
+    principal: Optional[EntityIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
 
 
-class BatchGetPolicyInputTypeDef(BaseValidatorModel):
-    requests: Sequence[BatchGetPolicyInputItemTypeDef]
+class BatchGetPolicyInput(BaseValidatorModel):
+    requests: Sequence[BatchGetPolicyInputItem]
 
 
-class CreateIdentitySourceOutputTypeDef(BaseValidatorModel):
+class CreateIdentitySourceOutput(BaseValidatorModel):
     createdDate: datetime
     identitySourceId: str
     lastUpdatedDate: datetime
     policyStoreId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePolicyOutputTypeDef(BaseValidatorModel):
+class CreatePolicyOutput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
     policyType: PolicyTypeType
-    principal: EntityIdentifierTypeDef
-    resource: EntityIdentifierTypeDef
-    actions: List[ActionIdentifierTypeDef]
+    principal: EntityIdentifier
+    resource: EntityIdentifier
+    actions: List[ActionIdentifier]
     createdDate: datetime
     lastUpdatedDate: datetime
     effect: PolicyEffectType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePolicyStoreOutputTypeDef(BaseValidatorModel):
+class CreatePolicyStoreOutput(BaseValidatorModel):
     policyStoreId: str
     arn: str
     createdDate: datetime
     lastUpdatedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePolicyTemplateOutputTypeDef(BaseValidatorModel):
+class CreatePolicyTemplateOutput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
     createdDate: datetime
     lastUpdatedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPolicyTemplateOutputTypeDef(BaseValidatorModel):
+class GetPolicyTemplateOutput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
     description: str
     statement: str
     createdDate: datetime
     lastUpdatedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSchemaOutputTypeDef(BaseValidatorModel):
+class GetSchemaOutput(BaseValidatorModel):
     policyStoreId: str
     schema: str
     createdDate: datetime
     lastUpdatedDate: datetime
     namespaces: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutSchemaOutputTypeDef(BaseValidatorModel):
+class PutSchemaOutput(BaseValidatorModel):
     policyStoreId: str
     namespaces: List[str]
     createdDate: datetime
     lastUpdatedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIdentitySourceOutputTypeDef(BaseValidatorModel):
+class UpdateIdentitySourceOutput(BaseValidatorModel):
     createdDate: datetime
     identitySourceId: str
     lastUpdatedDate: datetime
     policyStoreId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePolicyOutputTypeDef(BaseValidatorModel):
+class UpdatePolicyOutput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
     policyType: PolicyTypeType
-    principal: EntityIdentifierTypeDef
-    resource: EntityIdentifierTypeDef
-    actions: List[ActionIdentifierTypeDef]
+    principal: EntityIdentifier
+    resource: EntityIdentifier
+    actions: List[ActionIdentifier]
     createdDate: datetime
     lastUpdatedDate: datetime
     effect: PolicyEffectType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePolicyStoreOutputTypeDef(BaseValidatorModel):
+class UpdatePolicyStoreOutput(BaseValidatorModel):
     policyStoreId: str
     arn: str
     createdDate: datetime
     lastUpdatedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePolicyTemplateOutputTypeDef(BaseValidatorModel):
+class UpdatePolicyTemplateOutput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
     createdDate: datetime
     lastUpdatedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class IsAuthorizedOutputTypeDef(BaseValidatorModel):
+class IsAuthorizedOutput(BaseValidatorModel):
     decision: DecisionType
-    determiningPolicies: List[DeterminingPolicyItemTypeDef]
-    errors: List[EvaluationErrorItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    determiningPolicies: List[DeterminingPolicyItem]
+    errors: List[EvaluationErrorItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class IsAuthorizedWithTokenOutputTypeDef(BaseValidatorModel):
+class IsAuthorizedWithTokenOutput(BaseValidatorModel):
     decision: DecisionType
-    determiningPolicies: List[DeterminingPolicyItemTypeDef]
-    errors: List[EvaluationErrorItemTypeDef]
-    principal: EntityIdentifierTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    determiningPolicies: List[DeterminingPolicyItem]
+    errors: List[EvaluationErrorItem]
+    principal: EntityIdentifier
+    ResponseMetadata: ResponseMetadata
 
 
-class CognitoUserPoolConfigurationDetailTypeDef(BaseValidatorModel):
+class CognitoUserPoolConfigurationDetail(BaseValidatorModel):
     userPoolArn: str
     clientIds: List[str]
     issuer: str
-    groupConfiguration: Optional[CognitoGroupConfigurationDetailTypeDef] = None
+    groupConfiguration: Optional[CognitoGroupConfigurationDetail] = None
 
 
-class CognitoUserPoolConfigurationItemTypeDef(BaseValidatorModel):
+class CognitoUserPoolConfigurationItem(BaseValidatorModel):
     userPoolArn: str
     clientIds: List[str]
     issuer: str
-    groupConfiguration: Optional[CognitoGroupConfigurationItemTypeDef] = None
+    groupConfiguration: Optional[CognitoGroupConfigurationItem] = None
 
 
-class CognitoUserPoolConfigurationTypeDef(BaseValidatorModel):
+class CognitoUserPoolConfiguration(BaseValidatorModel):
     userPoolArn: str
     clientIds: Optional[Sequence[str]] = None
-    groupConfiguration: Optional[CognitoGroupConfigurationTypeDef] = None
+    groupConfiguration: Optional[CognitoGroupConfiguration] = None
 
 
-class CreatePolicyStoreInputTypeDef(BaseValidatorModel):
-    validationSettings: ValidationSettingsTypeDef
+class CreatePolicyStoreInput(BaseValidatorModel):
+    validationSettings: ValidationSettings
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
-class GetPolicyStoreOutputTypeDef(BaseValidatorModel):
+class GetPolicyStoreOutput(BaseValidatorModel):
     policyStoreId: str
     arn: str
-    validationSettings: ValidationSettingsTypeDef
+    validationSettings: ValidationSettings
     createdDate: datetime
     lastUpdatedDate: datetime
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePolicyStoreInputTypeDef(BaseValidatorModel):
+class UpdatePolicyStoreInput(BaseValidatorModel):
     policyStoreId: str
-    validationSettings: ValidationSettingsTypeDef
+    validationSettings: ValidationSettings
     description: Optional[str] = None
 
 
-class ListIdentitySourcesInputTypeDef(BaseValidatorModel):
+class ListIdentitySourcesInput(BaseValidatorModel):
     policyStoreId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[IdentitySourceFilterTypeDef]] = None
+    filters: Optional[Sequence[IdentitySourceFilter]] = None
 
 
-class ListIdentitySourcesInputPaginateTypeDef(BaseValidatorModel):
+class ListIdentitySourcesInputPaginate(BaseValidatorModel):
     policyStoreId: str
-    filters: Optional[Sequence[IdentitySourceFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[IdentitySourceFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPolicyStoresInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPolicyStoresInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPolicyTemplatesInputPaginateTypeDef(BaseValidatorModel):
+class ListPolicyTemplatesInputPaginate(BaseValidatorModel):
     policyStoreId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPolicyStoresOutputTypeDef(BaseValidatorModel):
-    policyStores: List[PolicyStoreItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPolicyStoresOutput(BaseValidatorModel):
+    policyStores: List[PolicyStoreItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListPolicyTemplatesOutputTypeDef(BaseValidatorModel):
-    policyTemplates: List[PolicyTemplateItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPolicyTemplatesOutput(BaseValidatorModel):
+    policyTemplates: List[PolicyTemplateItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class OpenIdConnectTokenSelectionDetailTypeDef(BaseValidatorModel):
-    accessTokenOnly: Optional[OpenIdConnectAccessTokenConfigurationDetailTypeDef] = None
-    identityTokenOnly: Optional[OpenIdConnectIdentityTokenConfigurationDetailTypeDef] = None
+class OpenIdConnectTokenSelectionDetail(BaseValidatorModel):
+    accessTokenOnly: Optional[OpenIdConnectAccessTokenConfigurationDetail] = None
+    identityTokenOnly: Optional[OpenIdConnectIdentityTokenConfigurationDetail] = None
 
 
-class OpenIdConnectTokenSelectionItemTypeDef(BaseValidatorModel):
-    accessTokenOnly: Optional[OpenIdConnectAccessTokenConfigurationItemTypeDef] = None
-    identityTokenOnly: Optional[OpenIdConnectIdentityTokenConfigurationItemTypeDef] = None
+class OpenIdConnectTokenSelectionItem(BaseValidatorModel):
+    accessTokenOnly: Optional[OpenIdConnectAccessTokenConfigurationItem] = None
+    identityTokenOnly: Optional[OpenIdConnectIdentityTokenConfigurationItem] = None
 
 
-class OpenIdConnectTokenSelectionTypeDef(BaseValidatorModel):
-    accessTokenOnly: Optional[OpenIdConnectAccessTokenConfigurationTypeDef] = None
-    identityTokenOnly: Optional[OpenIdConnectIdentityTokenConfigurationTypeDef] = None
+class OpenIdConnectTokenSelection(BaseValidatorModel):
+    accessTokenOnly: Optional[OpenIdConnectAccessTokenConfiguration] = None
+    identityTokenOnly: Optional[OpenIdConnectIdentityTokenConfiguration] = None
 
 
-class PutSchemaInputTypeDef(BaseValidatorModel):
+class PutSchemaInput(BaseValidatorModel):
     policyStoreId: str
-    definition: SchemaDefinitionTypeDef
+    definition: SchemaDefinition
 
 
-class UpdateCognitoUserPoolConfigurationTypeDef(BaseValidatorModel):
+class UpdateCognitoUserPoolConfiguration(BaseValidatorModel):
     userPoolArn: str
     clientIds: Optional[Sequence[str]] = None
-    groupConfiguration: Optional[UpdateCognitoGroupConfigurationTypeDef] = None
+    groupConfiguration: Optional[UpdateCognitoGroupConfiguration] = None
 
 
-class UpdateOpenIdConnectTokenSelectionTypeDef(BaseValidatorModel):
-    accessTokenOnly: Optional[UpdateOpenIdConnectAccessTokenConfigurationTypeDef] = None
-    identityTokenOnly: Optional[UpdateOpenIdConnectIdentityTokenConfigurationTypeDef] = None
+class UpdateOpenIdConnectTokenSelection(BaseValidatorModel):
+    accessTokenOnly: Optional[UpdateOpenIdConnectAccessTokenConfiguration] = None
+    identityTokenOnly: Optional[UpdateOpenIdConnectIdentityTokenConfiguration] = None
 
 
-class UpdatePolicyDefinitionTypeDef(BaseValidatorModel):
-    static: Optional[UpdateStaticPolicyDefinitionTypeDef] = None
+class UpdatePolicyDefinition(BaseValidatorModel):
+    static: Optional[UpdateStaticPolicyDefinition] = None
 
 
-class AttributeValueOutputTypeDef(BaseValidatorModel):
+class AttributeValueOutput(BaseValidatorModel):
     pass
 
 
-class ContextDefinitionOutputTypeDef(BaseValidatorModel):
-    contextMap: Optional[Dict[str, AttributeValueOutputTypeDef]] = None
+class ContextDefinitionOutput(BaseValidatorModel):
+    contextMap: Optional[Dict[str, AttributeValueOutput]] = None
     cedarJson: Optional[str] = None
 
 
-class PolicyFilterTypeDef(BaseValidatorModel):
-    principal: Optional[EntityReferenceTypeDef] = None
-    resource: Optional[EntityReferenceTypeDef] = None
+class PolicyFilter(BaseValidatorModel):
+    principal: Optional[EntityReference] = None
+    resource: Optional[EntityReference] = None
     policyType: Optional[PolicyTypeType] = None
     policyTemplateId: Optional[str] = None
 
 
-class PolicyDefinitionDetailTypeDef(BaseValidatorModel):
-    static: Optional[StaticPolicyDefinitionDetailTypeDef] = None
-    templateLinked: Optional[TemplateLinkedPolicyDefinitionDetailTypeDef] = None
+class PolicyDefinitionDetail(BaseValidatorModel):
+    static: Optional[StaticPolicyDefinitionDetail] = None
+    templateLinked: Optional[TemplateLinkedPolicyDefinitionDetail] = None
 
 
-class PolicyDefinitionItemTypeDef(BaseValidatorModel):
-    static: Optional[StaticPolicyDefinitionItemTypeDef] = None
-    templateLinked: Optional[TemplateLinkedPolicyDefinitionItemTypeDef] = None
+class PolicyDefinitionItem(BaseValidatorModel):
+    static: Optional[StaticPolicyDefinitionItem] = None
+    templateLinked: Optional[TemplateLinkedPolicyDefinitionItem] = None
 
 
-class PolicyDefinitionTypeDef(BaseValidatorModel):
-    static: Optional[StaticPolicyDefinitionTypeDef] = None
-    templateLinked: Optional[TemplateLinkedPolicyDefinitionTypeDef] = None
+class PolicyDefinition(BaseValidatorModel):
+    static: Optional[StaticPolicyDefinition] = None
+    templateLinked: Optional[TemplateLinkedPolicyDefinition] = None
 
 
-class OpenIdConnectConfigurationDetailTypeDef(BaseValidatorModel):
+class OpenIdConnectConfigurationDetail(BaseValidatorModel):
     issuer: str
-    tokenSelection: OpenIdConnectTokenSelectionDetailTypeDef
+    tokenSelection: OpenIdConnectTokenSelectionDetail
     entityIdPrefix: Optional[str] = None
-    groupConfiguration: Optional[OpenIdConnectGroupConfigurationDetailTypeDef] = None
+    groupConfiguration: Optional[OpenIdConnectGroupConfigurationDetail] = None
 
 
-class OpenIdConnectConfigurationItemTypeDef(BaseValidatorModel):
+class OpenIdConnectConfigurationItem(BaseValidatorModel):
     issuer: str
-    tokenSelection: OpenIdConnectTokenSelectionItemTypeDef
+    tokenSelection: OpenIdConnectTokenSelectionItem
     entityIdPrefix: Optional[str] = None
-    groupConfiguration: Optional[OpenIdConnectGroupConfigurationItemTypeDef] = None
+    groupConfiguration: Optional[OpenIdConnectGroupConfigurationItem] = None
 
 
-class OpenIdConnectConfigurationTypeDef(BaseValidatorModel):
+class OpenIdConnectConfiguration(BaseValidatorModel):
     issuer: str
-    tokenSelection: OpenIdConnectTokenSelectionTypeDef
+    tokenSelection: OpenIdConnectTokenSelection
     entityIdPrefix: Optional[str] = None
-    groupConfiguration: Optional[OpenIdConnectGroupConfigurationTypeDef] = None
+    groupConfiguration: Optional[OpenIdConnectGroupConfiguration] = None
 
 
-class UpdateOpenIdConnectConfigurationTypeDef(BaseValidatorModel):
+class UpdateOpenIdConnectConfiguration(BaseValidatorModel):
     issuer: str
-    tokenSelection: UpdateOpenIdConnectTokenSelectionTypeDef
+    tokenSelection: UpdateOpenIdConnectTokenSelection
     entityIdPrefix: Optional[str] = None
-    groupConfiguration: Optional[UpdateOpenIdConnectGroupConfigurationTypeDef] = None
+    groupConfiguration: Optional[UpdateOpenIdConnectGroupConfiguration] = None
 
 
-class UpdatePolicyInputTypeDef(BaseValidatorModel):
+class UpdatePolicyInput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
-    definition: UpdatePolicyDefinitionTypeDef
+    definition: UpdatePolicyDefinition
 
 
-class BatchIsAuthorizedInputItemOutputTypeDef(BaseValidatorModel):
-    principal: Optional[EntityIdentifierTypeDef] = None
-    action: Optional[ActionIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
-    context: Optional[ContextDefinitionOutputTypeDef] = None
+class BatchIsAuthorizedInputItemOutput(BaseValidatorModel):
+    principal: Optional[EntityIdentifier] = None
+    action: Optional[ActionIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
+    context: Optional[ContextDefinitionOutput] = None
 
 
-class BatchIsAuthorizedWithTokenInputItemOutputTypeDef(BaseValidatorModel):
-    action: Optional[ActionIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
-    context: Optional[ContextDefinitionOutputTypeDef] = None
+class BatchIsAuthorizedWithTokenInputItemOutput(BaseValidatorModel):
+    action: Optional[ActionIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
+    context: Optional[ContextDefinitionOutput] = None
 
 
-class AttributeValueUnionTypeDef(BaseValidatorModel):
+class AttributeValueUnion(BaseValidatorModel):
     pass
 
 
-class ContextDefinitionTypeDef(BaseValidatorModel):
-    contextMap: Optional[Mapping[str, AttributeValueUnionTypeDef]] = None
+class ContextDefinition(BaseValidatorModel):
+    contextMap: Optional[Mapping[str, AttributeValueUnion]] = None
     cedarJson: Optional[str] = None
 
 
-class EntityItemTypeDef(BaseValidatorModel):
-    identifier: EntityIdentifierTypeDef
-    attributes: Optional[Mapping[str, AttributeValueUnionTypeDef]] = None
-    parents: Optional[Sequence[EntityIdentifierTypeDef]] = None
+class EntityItem(BaseValidatorModel):
+    identifier: EntityIdentifier
+    attributes: Optional[Mapping[str, AttributeValueUnion]] = None
+    parents: Optional[Sequence[EntityIdentifier]] = None
 
 
-class BatchGetPolicyOutputItemTypeDef(BaseValidatorModel):
+class BatchGetPolicyOutputItem(BaseValidatorModel):
     policyStoreId: str
     policyId: str
     policyType: PolicyTypeType
-    definition: PolicyDefinitionDetailTypeDef
+    definition: PolicyDefinitionDetail
     createdDate: datetime
     lastUpdatedDate: datetime
 
 
-class GetPolicyOutputTypeDef(BaseValidatorModel):
+class GetPolicyOutput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
     policyType: PolicyTypeType
-    principal: EntityIdentifierTypeDef
-    resource: EntityIdentifierTypeDef
-    actions: List[ActionIdentifierTypeDef]
-    definition: PolicyDefinitionDetailTypeDef
+    principal: EntityIdentifier
+    resource: EntityIdentifier
+    actions: List[ActionIdentifier]
+    definition: PolicyDefinitionDetail
     createdDate: datetime
     lastUpdatedDate: datetime
     effect: PolicyEffectType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PolicyItemTypeDef(BaseValidatorModel):
+class PolicyItem(BaseValidatorModel):
     policyStoreId: str
     policyId: str
     policyType: PolicyTypeType
-    definition: PolicyDefinitionItemTypeDef
+    definition: PolicyDefinitionItem
     createdDate: datetime
     lastUpdatedDate: datetime
-    principal: Optional[EntityIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
-    actions: Optional[List[ActionIdentifierTypeDef]] = None
+    principal: Optional[EntityIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
+    actions: Optional[List[ActionIdentifier]] = None
     effect: Optional[PolicyEffectType] = None
 
 
-class CreatePolicyInputTypeDef(BaseValidatorModel):
+class CreatePolicyInput(BaseValidatorModel):
     policyStoreId: str
-    definition: PolicyDefinitionTypeDef
+    definition: PolicyDefinition
     clientToken: Optional[str] = None
 
 
-class ConfigurationDetailTypeDef(BaseValidatorModel):
-    cognitoUserPoolConfiguration: Optional[CognitoUserPoolConfigurationDetailTypeDef] = None
-    openIdConnectConfiguration: Optional[OpenIdConnectConfigurationDetailTypeDef] = None
+class ConfigurationDetail(BaseValidatorModel):
+    cognitoUserPoolConfiguration: Optional[CognitoUserPoolConfigurationDetail] = None
+    openIdConnectConfiguration: Optional[OpenIdConnectConfigurationDetail] = None
 
 
-class ConfigurationItemTypeDef(BaseValidatorModel):
-    cognitoUserPoolConfiguration: Optional[CognitoUserPoolConfigurationItemTypeDef] = None
-    openIdConnectConfiguration: Optional[OpenIdConnectConfigurationItemTypeDef] = None
+class ConfigurationItem(BaseValidatorModel):
+    cognitoUserPoolConfiguration: Optional[CognitoUserPoolConfigurationItem] = None
+    openIdConnectConfiguration: Optional[OpenIdConnectConfigurationItem] = None
 
 
-class ConfigurationTypeDef(BaseValidatorModel):
-    cognitoUserPoolConfiguration: Optional[CognitoUserPoolConfigurationTypeDef] = None
-    openIdConnectConfiguration: Optional[OpenIdConnectConfigurationTypeDef] = None
+class Configuration(BaseValidatorModel):
+    cognitoUserPoolConfiguration: Optional[CognitoUserPoolConfiguration] = None
+    openIdConnectConfiguration: Optional[OpenIdConnectConfiguration] = None
 
 
-class UpdateConfigurationTypeDef(BaseValidatorModel):
-    cognitoUserPoolConfiguration: Optional[UpdateCognitoUserPoolConfigurationTypeDef] = None
-    openIdConnectConfiguration: Optional[UpdateOpenIdConnectConfigurationTypeDef] = None
+class UpdateConfiguration(BaseValidatorModel):
+    cognitoUserPoolConfiguration: Optional[UpdateCognitoUserPoolConfiguration] = None
+    openIdConnectConfiguration: Optional[UpdateOpenIdConnectConfiguration] = None
 
 
-class BatchIsAuthorizedOutputItemTypeDef(BaseValidatorModel):
-    request: BatchIsAuthorizedInputItemOutputTypeDef
+class BatchIsAuthorizedOutputItem(BaseValidatorModel):
+    request: BatchIsAuthorizedInputItemOutput
     decision: DecisionType
-    determiningPolicies: List[DeterminingPolicyItemTypeDef]
-    errors: List[EvaluationErrorItemTypeDef]
+    determiningPolicies: List[DeterminingPolicyItem]
+    errors: List[EvaluationErrorItem]
 
 
-class BatchIsAuthorizedWithTokenOutputItemTypeDef(BaseValidatorModel):
-    request: BatchIsAuthorizedWithTokenInputItemOutputTypeDef
+class BatchIsAuthorizedWithTokenOutputItem(BaseValidatorModel):
+    request: BatchIsAuthorizedWithTokenInputItemOutput
     decision: DecisionType
-    determiningPolicies: List[DeterminingPolicyItemTypeDef]
-    errors: List[EvaluationErrorItemTypeDef]
+    determiningPolicies: List[DeterminingPolicyItem]
+    errors: List[EvaluationErrorItem]
 
 
-class EntitiesDefinitionTypeDef(BaseValidatorModel):
-    entityList: Optional[Sequence[EntityItemTypeDef]] = None
+class EntitiesDefinition(BaseValidatorModel):
+    entityList: Optional[Sequence[EntityItem]] = None
     cedarJson: Optional[str] = None
 
 
-class BatchGetPolicyOutputTypeDef(BaseValidatorModel):
-    results: List[BatchGetPolicyOutputItemTypeDef]
-    errors: List[BatchGetPolicyErrorItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetPolicyOutput(BaseValidatorModel):
+    results: List[BatchGetPolicyOutputItem]
+    errors: List[BatchGetPolicyErrorItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPoliciesOutputTypeDef(BaseValidatorModel):
-    policies: List[PolicyItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPoliciesOutput(BaseValidatorModel):
+    policies: List[PolicyItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetIdentitySourceOutputTypeDef(BaseValidatorModel):
+class GetIdentitySourceOutput(BaseValidatorModel):
     createdDate: datetime
-    details: IdentitySourceDetailsTypeDef
+    details: IdentitySourceDetails
     identitySourceId: str
     lastUpdatedDate: datetime
     policyStoreId: str
     principalEntityType: str
-    configuration: ConfigurationDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    configuration: ConfigurationDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class IdentitySourceItemTypeDef(BaseValidatorModel):
+class IdentitySourceItem(BaseValidatorModel):
     createdDate: datetime
     identitySourceId: str
     lastUpdatedDate: datetime
     policyStoreId: str
     principalEntityType: str
-    details: Optional[IdentitySourceItemDetailsTypeDef] = None
-    configuration: Optional[ConfigurationItemTypeDef] = None
+    details: Optional[IdentitySourceItemDetails] = None
+    configuration: Optional[ConfigurationItem] = None
 
 
-class CreateIdentitySourceInputTypeDef(BaseValidatorModel):
+class CreateIdentitySourceInput(BaseValidatorModel):
     policyStoreId: str
-    configuration: ConfigurationTypeDef
+    configuration: Configuration
     clientToken: Optional[str] = None
     principalEntityType: Optional[str] = None
 
 
-class UpdateIdentitySourceInputTypeDef(BaseValidatorModel):
+class UpdateIdentitySourceInput(BaseValidatorModel):
     policyStoreId: str
     identitySourceId: str
-    updateConfiguration: UpdateConfigurationTypeDef
+    updateConfiguration: UpdateConfiguration
     principalEntityType: Optional[str] = None
 
 
-class BatchIsAuthorizedOutputTypeDef(BaseValidatorModel):
-    results: List[BatchIsAuthorizedOutputItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchIsAuthorizedOutput(BaseValidatorModel):
+    results: List[BatchIsAuthorizedOutputItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchIsAuthorizedWithTokenOutputTypeDef(BaseValidatorModel):
-    principal: EntityIdentifierTypeDef
-    results: List[BatchIsAuthorizedWithTokenOutputItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchIsAuthorizedWithTokenOutput(BaseValidatorModel):
+    principal: EntityIdentifier
+    results: List[BatchIsAuthorizedWithTokenOutputItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class ContextDefinitionUnionTypeDef(BaseValidatorModel):
+class ContextDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class BatchIsAuthorizedInputItemTypeDef(BaseValidatorModel):
-    principal: Optional[EntityIdentifierTypeDef] = None
-    action: Optional[ActionIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
-    context: Optional[ContextDefinitionUnionTypeDef] = None
+class BatchIsAuthorizedInputItem(BaseValidatorModel):
+    principal: Optional[EntityIdentifier] = None
+    action: Optional[ActionIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
+    context: Optional[ContextDefinitionUnion] = None
 
 
-class BatchIsAuthorizedWithTokenInputItemTypeDef(BaseValidatorModel):
-    action: Optional[ActionIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
-    context: Optional[ContextDefinitionUnionTypeDef] = None
+class BatchIsAuthorizedWithTokenInputItem(BaseValidatorModel):
+    action: Optional[ActionIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
+    context: Optional[ContextDefinitionUnion] = None
 
 
-class IsAuthorizedInputTypeDef(BaseValidatorModel):
+class IsAuthorizedInput(BaseValidatorModel):
     policyStoreId: str
-    principal: Optional[EntityIdentifierTypeDef] = None
-    action: Optional[ActionIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
-    context: Optional[ContextDefinitionUnionTypeDef] = None
-    entities: Optional[EntitiesDefinitionTypeDef] = None
+    principal: Optional[EntityIdentifier] = None
+    action: Optional[ActionIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
+    context: Optional[ContextDefinitionUnion] = None
+    entities: Optional[EntitiesDefinition] = None
 
 
-class IsAuthorizedWithTokenInputTypeDef(BaseValidatorModel):
+class IsAuthorizedWithTokenInput(BaseValidatorModel):
     policyStoreId: str
     identityToken: Optional[str] = None
     accessToken: Optional[str] = None
-    action: Optional[ActionIdentifierTypeDef] = None
-    resource: Optional[EntityIdentifierTypeDef] = None
-    context: Optional[ContextDefinitionUnionTypeDef] = None
-    entities: Optional[EntitiesDefinitionTypeDef] = None
+    action: Optional[ActionIdentifier] = None
+    resource: Optional[EntityIdentifier] = None
+    context: Optional[ContextDefinitionUnion] = None
+    entities: Optional[EntitiesDefinition] = None
 
 
-class ListIdentitySourcesOutputTypeDef(BaseValidatorModel):
-    identitySources: List[IdentitySourceItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdentitySourcesOutput(BaseValidatorModel):
+    identitySources: List[IdentitySourceItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchIsAuthorizedInputItemUnionTypeDef(BaseValidatorModel):
+class BatchIsAuthorizedInputItemUnion(BaseValidatorModel):
     pass
 
 
-class BatchIsAuthorizedInputTypeDef(BaseValidatorModel):
+class BatchIsAuthorizedInput(BaseValidatorModel):
     policyStoreId: str
-    requests: Sequence[BatchIsAuthorizedInputItemUnionTypeDef]
-    entities: Optional[EntitiesDefinitionTypeDef] = None
+    requests: Sequence[BatchIsAuthorizedInputItemUnion]
+    entities: Optional[EntitiesDefinition] = None
 
 
-class BatchIsAuthorizedWithTokenInputItemUnionTypeDef(BaseValidatorModel):
+class BatchIsAuthorizedWithTokenInputItemUnion(BaseValidatorModel):
     pass
 
 
-class BatchIsAuthorizedWithTokenInputTypeDef(BaseValidatorModel):
+class BatchIsAuthorizedWithTokenInput(BaseValidatorModel):
     policyStoreId: str
-    requests: Sequence[BatchIsAuthorizedWithTokenInputItemUnionTypeDef]
+    requests: Sequence[BatchIsAuthorizedWithTokenInputItemUnion]
     identityToken: Optional[str] = None
     accessToken: Optional[str] = None
-    entities: Optional[EntitiesDefinitionTypeDef] = None
+    entities: Optional[EntitiesDefinition] = None
 
 

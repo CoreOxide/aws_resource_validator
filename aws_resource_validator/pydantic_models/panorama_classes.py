@@ -12,26 +12,26 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.panorama_constants import *
 
-class AlternateSoftwareMetadataTypeDef(BaseValidatorModel):
+class AlternateSoftwareMetadata(BaseValidatorModel):
     Version: Optional[str] = None
 
 
-class ReportedRuntimeContextStateTypeDef(BaseValidatorModel):
+class ReportedRuntimeContextState(BaseValidatorModel):
     DesiredState: DesiredStateType
     DeviceReportedStatus: DeviceReportedStatusType
     DeviceReportedTime: datetime
     RuntimeContextName: str
 
 
-class ManifestOverridesPayloadTypeDef(BaseValidatorModel):
+class ManifestOverridesPayload(BaseValidatorModel):
     PayloadData: Optional[str] = None
 
 
-class ManifestPayloadTypeDef(BaseValidatorModel):
+class ManifestPayload(BaseValidatorModel):
     PayloadData: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -39,17 +39,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class JobTypeDef(BaseValidatorModel):
+class Job(BaseValidatorModel):
     DeviceId: Optional[str] = None
     JobId: Optional[str] = None
 
 
-class CreatePackageRequestTypeDef(BaseValidatorModel):
+class CreatePackageRequest(BaseValidatorModel):
     PackageName: str
     Tags: Optional[Mapping[str, str]] = None
 
 
-class StorageLocationTypeDef(BaseValidatorModel):
+class StorageLocation(BaseValidatorModel):
     BinaryPrefixLocation: str
     Bucket: str
     GeneratedPrefixLocation: str
@@ -57,16 +57,16 @@ class StorageLocationTypeDef(BaseValidatorModel):
     RepoPrefixLocation: str
 
 
-class DeleteDeviceRequestTypeDef(BaseValidatorModel):
+class DeleteDeviceRequest(BaseValidatorModel):
     DeviceId: str
 
 
-class DeletePackageRequestTypeDef(BaseValidatorModel):
+class DeletePackageRequest(BaseValidatorModel):
     PackageId: str
     ForceDelete: Optional[bool] = None
 
 
-class DeregisterPackageVersionRequestTypeDef(BaseValidatorModel):
+class DeregisterPackageVersionRequest(BaseValidatorModel):
     PackageId: str
     PackageVersion: str
     PatchVersion: str
@@ -74,63 +74,63 @@ class DeregisterPackageVersionRequestTypeDef(BaseValidatorModel):
     UpdatedLatestPatchVersion: Optional[str] = None
 
 
-class DescribeApplicationInstanceDetailsRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationInstanceDetailsRequest(BaseValidatorModel):
     ApplicationInstanceId: str
 
 
-class DescribeApplicationInstanceRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationInstanceRequest(BaseValidatorModel):
     ApplicationInstanceId: str
 
 
-class DescribeDeviceJobRequestTypeDef(BaseValidatorModel):
+class DescribeDeviceJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeDeviceRequestTypeDef(BaseValidatorModel):
+class DescribeDeviceRequest(BaseValidatorModel):
     DeviceId: str
 
 
-class LatestDeviceJobTypeDef(BaseValidatorModel):
+class LatestDeviceJob(BaseValidatorModel):
     ImageVersion: Optional[str] = None
     JobType: Optional[JobTypeType] = None
     Status: Optional[UpdateProgressType] = None
 
 
-class DescribeNodeFromTemplateJobRequestTypeDef(BaseValidatorModel):
+class DescribeNodeFromTemplateJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class JobResourceTagsOutputTypeDef(BaseValidatorModel):
+class JobResourceTagsOutput(BaseValidatorModel):
     ResourceType: Literal["PACKAGE"]
     Tags: Dict[str, str]
 
 
-class DescribeNodeRequestTypeDef(BaseValidatorModel):
+class DescribeNodeRequest(BaseValidatorModel):
     NodeId: str
     OwnerAccount: Optional[str] = None
 
 
-class DescribePackageImportJobRequestTypeDef(BaseValidatorModel):
+class DescribePackageImportJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribePackageRequestTypeDef(BaseValidatorModel):
+class DescribePackageRequest(BaseValidatorModel):
     PackageId: str
 
 
-class DescribePackageVersionRequestTypeDef(BaseValidatorModel):
+class DescribePackageVersionRequest(BaseValidatorModel):
     PackageId: str
     PackageVersion: str
     OwnerAccount: Optional[str] = None
     PatchVersion: Optional[str] = None
 
 
-class OTAJobConfigTypeDef(BaseValidatorModel):
+class OTAJobConfig(BaseValidatorModel):
     ImageVersion: str
     AllowMajorVersionUpdate: Optional[bool] = None
 
 
-class DeviceJobTypeDef(BaseValidatorModel):
+class DeviceJob(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
     DeviceId: Optional[str] = None
     DeviceName: Optional[str] = None
@@ -138,50 +138,50 @@ class DeviceJobTypeDef(BaseValidatorModel):
     JobType: Optional[JobTypeType] = None
 
 
-class StaticIpConnectionInfoOutputTypeDef(BaseValidatorModel):
+class StaticIpConnectionInfoOutput(BaseValidatorModel):
     DefaultGateway: str
     Dns: List[str]
     IpAddress: str
     Mask: str
 
 
-class StaticIpConnectionInfoTypeDef(BaseValidatorModel):
+class StaticIpConnectionInfo(BaseValidatorModel):
     DefaultGateway: str
     Dns: Sequence[str]
     IpAddress: str
     Mask: str
 
 
-class EthernetStatusTypeDef(BaseValidatorModel):
+class EthernetStatus(BaseValidatorModel):
     ConnectionStatus: Optional[NetworkConnectionStatusType] = None
     HwAddress: Optional[str] = None
     IpAddress: Optional[str] = None
 
 
-class JobResourceTagsTypeDef(BaseValidatorModel):
+class JobResourceTags(BaseValidatorModel):
     ResourceType: Literal["PACKAGE"]
     Tags: Mapping[str, str]
 
 
-class ListApplicationInstanceDependenciesRequestTypeDef(BaseValidatorModel):
+class ListApplicationInstanceDependenciesRequest(BaseValidatorModel):
     ApplicationInstanceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class PackageObjectTypeDef(BaseValidatorModel):
+class PackageObject(BaseValidatorModel):
     Name: str
     PackageVersion: str
     PatchVersion: str
 
 
-class ListApplicationInstanceNodeInstancesRequestTypeDef(BaseValidatorModel):
+class ListApplicationInstanceNodeInstancesRequest(BaseValidatorModel):
     ApplicationInstanceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class NodeInstanceTypeDef(BaseValidatorModel):
+class NodeInstance(BaseValidatorModel):
     CurrentStatus: NodeInstanceStatusType
     NodeInstanceId: str
     NodeId: Optional[str] = None
@@ -191,20 +191,20 @@ class NodeInstanceTypeDef(BaseValidatorModel):
     PackageVersion: Optional[str] = None
 
 
-class ListApplicationInstancesRequestTypeDef(BaseValidatorModel):
+class ListApplicationInstancesRequest(BaseValidatorModel):
     DeviceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     StatusFilter: Optional[StatusFilterType] = None
 
 
-class ListDevicesJobsRequestTypeDef(BaseValidatorModel):
+class ListDevicesJobsRequest(BaseValidatorModel):
     DeviceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListDevicesRequestTypeDef(BaseValidatorModel):
+class ListDevicesRequest(BaseValidatorModel):
     DeviceAggregatedStatusFilter: Optional[DeviceAggregatedStatusType] = None
     MaxResults: Optional[int] = None
     NameFilter: Optional[str] = None
@@ -213,12 +213,12 @@ class ListDevicesRequestTypeDef(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListNodeFromTemplateJobsRequestTypeDef(BaseValidatorModel):
+class ListNodeFromTemplateJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class NodeFromTemplateJobTypeDef(BaseValidatorModel):
+class NodeFromTemplateJob(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
     JobId: Optional[str] = None
     NodeName: Optional[str] = None
@@ -227,7 +227,7 @@ class NodeFromTemplateJobTypeDef(BaseValidatorModel):
     TemplateType: Optional[Literal["RTSP_CAMERA_STREAM"]] = None
 
 
-class ListNodesRequestTypeDef(BaseValidatorModel):
+class ListNodesRequest(BaseValidatorModel):
     Category: Optional[NodeCategoryType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -237,7 +237,7 @@ class ListNodesRequestTypeDef(BaseValidatorModel):
     PatchVersion: Optional[str] = None
 
 
-class NodeTypeDef(BaseValidatorModel):
+class Node(BaseValidatorModel):
     Category: NodeCategoryType
     CreatedTime: datetime
     Name: str
@@ -251,12 +251,12 @@ class NodeTypeDef(BaseValidatorModel):
     PackageArn: Optional[str] = None
 
 
-class ListPackageImportJobsRequestTypeDef(BaseValidatorModel):
+class ListPackageImportJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class PackageImportJobTypeDef(BaseValidatorModel):
+class PackageImportJob(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
     JobId: Optional[str] = None
     JobType: Optional[PackageImportJobTypeType] = None
@@ -265,12 +265,12 @@ class PackageImportJobTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
-class ListPackagesRequestTypeDef(BaseValidatorModel):
+class ListPackagesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class PackageListItemTypeDef(BaseValidatorModel):
+class PackageListItem(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     PackageId: Optional[str] = None
@@ -278,47 +278,47 @@ class PackageListItemTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class NtpPayloadOutputTypeDef(BaseValidatorModel):
+class NtpPayloadOutput(BaseValidatorModel):
     NtpServers: List[str]
 
 
-class NtpPayloadTypeDef(BaseValidatorModel):
+class NtpPayload(BaseValidatorModel):
     NtpServers: Sequence[str]
 
 
-class NtpStatusTypeDef(BaseValidatorModel):
+class NtpStatus(BaseValidatorModel):
     ConnectionStatus: Optional[NetworkConnectionStatusType] = None
     IpAddress: Optional[str] = None
     NtpServerName: Optional[str] = None
 
 
-class NodeSignalTypeDef(BaseValidatorModel):
+class NodeSignal(BaseValidatorModel):
     NodeInstanceId: str
     Signal: NodeSignalValueType
 
 
-class OutPutS3LocationTypeDef(BaseValidatorModel):
+class OutPutS3Location(BaseValidatorModel):
     BucketName: str
     ObjectKey: str
 
 
-class PackageVersionOutputConfigTypeDef(BaseValidatorModel):
+class PackageVersionOutputConfig(BaseValidatorModel):
     PackageName: str
     PackageVersion: str
     MarkLatest: Optional[bool] = None
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     BucketName: str
     ObjectKey: str
     Region: Optional[str] = None
 
 
-class RegisterPackageVersionRequestTypeDef(BaseValidatorModel):
+class RegisterPackageVersionRequest(BaseValidatorModel):
     PackageId: str
     PackageVersion: str
     PatchVersion: str
@@ -326,26 +326,26 @@ class RegisterPackageVersionRequestTypeDef(BaseValidatorModel):
     OwnerAccount: Optional[str] = None
 
 
-class RemoveApplicationInstanceRequestTypeDef(BaseValidatorModel):
+class RemoveApplicationInstanceRequest(BaseValidatorModel):
     ApplicationInstanceId: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateDeviceMetadataRequestTypeDef(BaseValidatorModel):
+class UpdateDeviceMetadataRequest(BaseValidatorModel):
     DeviceId: str
     Description: Optional[str] = None
 
 
-class ApplicationInstanceTypeDef(BaseValidatorModel):
+class ApplicationInstance(BaseValidatorModel):
     ApplicationInstanceId: Optional[str] = None
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
@@ -354,56 +354,56 @@ class ApplicationInstanceTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     HealthStatus: Optional[ApplicationInstanceHealthStatusType] = None
     Name: Optional[str] = None
-    RuntimeContextStates: Optional[List[ReportedRuntimeContextStateTypeDef]] = None
+    RuntimeContextStates: Optional[List[ReportedRuntimeContextState]] = None
     Status: Optional[ApplicationInstanceStatusType] = None
     StatusDescription: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
-class CreateApplicationInstanceRequestTypeDef(BaseValidatorModel):
+class CreateApplicationInstanceRequest(BaseValidatorModel):
     DefaultRuntimeContextDevice: str
-    ManifestPayload: ManifestPayloadTypeDef
+    ManifestPayload: ManifestPayload
     ApplicationInstanceIdToReplace: Optional[str] = None
     Description: Optional[str] = None
-    ManifestOverridesPayload: Optional[ManifestOverridesPayloadTypeDef] = None
+    ManifestOverridesPayload: Optional[ManifestOverridesPayload] = None
     Name: Optional[str] = None
     RuntimeRoleArn: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class CreateApplicationInstanceResponseTypeDef(BaseValidatorModel):
+class CreateApplicationInstanceResponse(BaseValidatorModel):
     ApplicationInstanceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNodeFromTemplateJobResponseTypeDef(BaseValidatorModel):
+class CreateNodeFromTemplateJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePackageImportJobResponseTypeDef(BaseValidatorModel):
+class CreatePackageImportJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDeviceResponseTypeDef(BaseValidatorModel):
+class DeleteDeviceResponse(BaseValidatorModel):
     DeviceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeApplicationInstanceDetailsResponseTypeDef(BaseValidatorModel):
+class DescribeApplicationInstanceDetailsResponse(BaseValidatorModel):
     ApplicationInstanceId: str
     ApplicationInstanceIdToReplace: str
     CreatedTime: datetime
     DefaultRuntimeContextDevice: str
     Description: str
-    ManifestOverridesPayload: ManifestOverridesPayloadTypeDef
-    ManifestPayload: ManifestPayloadTypeDef
+    ManifestOverridesPayload: ManifestOverridesPayload
+    ManifestPayload: ManifestPayload
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeApplicationInstanceResponseTypeDef(BaseValidatorModel):
+class DescribeApplicationInstanceResponse(BaseValidatorModel):
     ApplicationInstanceId: str
     ApplicationInstanceIdToReplace: str
     Arn: str
@@ -414,15 +414,15 @@ class DescribeApplicationInstanceResponseTypeDef(BaseValidatorModel):
     HealthStatus: ApplicationInstanceHealthStatusType
     LastUpdatedTime: datetime
     Name: str
-    RuntimeContextStates: List[ReportedRuntimeContextStateTypeDef]
+    RuntimeContextStates: List[ReportedRuntimeContextState]
     RuntimeRoleArn: str
     Status: ApplicationInstanceStatusType
     StatusDescription: str
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDeviceJobResponseTypeDef(BaseValidatorModel):
+class DescribeDeviceJobResponse(BaseValidatorModel):
     CreatedTime: datetime
     DeviceArn: str
     DeviceId: str
@@ -432,10 +432,10 @@ class DescribeDeviceJobResponseTypeDef(BaseValidatorModel):
     JobId: str
     JobType: JobTypeType
     Status: UpdateProgressType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePackageVersionResponseTypeDef(BaseValidatorModel):
+class DescribePackageVersionResponse(BaseValidatorModel):
     IsLatestPatch: bool
     OwnerAccount: str
     PackageArn: str
@@ -446,61 +446,61 @@ class DescribePackageVersionResponseTypeDef(BaseValidatorModel):
     RegisteredTime: datetime
     Status: PackageVersionStatusType
     StatusDescription: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ProvisionDeviceResponseTypeDef(BaseValidatorModel):
+class ProvisionDeviceResponse(BaseValidatorModel):
     Arn: str
     Certificates: bytes
     DeviceId: str
     IotThingName: str
     Status: DeviceStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SignalApplicationInstanceNodeInstancesResponseTypeDef(BaseValidatorModel):
+class SignalApplicationInstanceNodeInstancesResponse(BaseValidatorModel):
     ApplicationInstanceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDeviceMetadataResponseTypeDef(BaseValidatorModel):
+class UpdateDeviceMetadataResponse(BaseValidatorModel):
     DeviceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateJobForDevicesResponseTypeDef(BaseValidatorModel):
-    Jobs: List[JobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateJobForDevicesResponse(BaseValidatorModel):
+    Jobs: List[Job]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePackageResponseTypeDef(BaseValidatorModel):
+class CreatePackageResponse(BaseValidatorModel):
     Arn: str
     PackageId: str
-    StorageLocation: StorageLocationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    StorageLocation: StorageLocation
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePackageResponseTypeDef(BaseValidatorModel):
+class DescribePackageResponse(BaseValidatorModel):
     Arn: str
     CreatedTime: datetime
     PackageId: str
     PackageName: str
     ReadAccessPrincipalArns: List[str]
-    StorageLocation: StorageLocationTypeDef
+    StorageLocation: StorageLocation
     Tags: Dict[str, str]
     WriteAccessPrincipalArns: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeNodeFromTemplateJobResponseTypeDef(BaseValidatorModel):
+class DescribeNodeFromTemplateJobResponse(BaseValidatorModel):
     CreatedTime: datetime
     JobId: str
-    JobTags: List[JobResourceTagsOutputTypeDef]
+    JobTags: List[JobResourceTagsOutput]
     LastUpdatedTime: datetime
     NodeDescription: str
     NodeName: str
@@ -510,154 +510,154 @@ class DescribeNodeFromTemplateJobResponseTypeDef(BaseValidatorModel):
     StatusMessage: str
     TemplateParameters: Dict[str, str]
     TemplateType: Literal["RTSP_CAMERA_STREAM"]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeviceJobConfigTypeDef(BaseValidatorModel):
-    OTAJobConfig: Optional[OTAJobConfigTypeDef] = None
+class DeviceJobConfig(BaseValidatorModel):
+    OTAJobConfig: Optional[OTAJobConfig] = None
 
 
-class ListDevicesJobsResponseTypeDef(BaseValidatorModel):
-    DeviceJobs: List[DeviceJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDevicesJobsResponse(BaseValidatorModel):
+    DeviceJobs: List[DeviceJob]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EthernetPayloadOutputTypeDef(BaseValidatorModel):
+class EthernetPayloadOutput(BaseValidatorModel):
     ConnectionType: ConnectionTypeType
-    StaticIpConnectionInfo: Optional[StaticIpConnectionInfoOutputTypeDef] = None
+    StaticIpConnectionInfo: Optional[StaticIpConnectionInfoOutput] = None
 
 
-class EthernetPayloadTypeDef(BaseValidatorModel):
+class EthernetPayload(BaseValidatorModel):
     ConnectionType: ConnectionTypeType
-    StaticIpConnectionInfo: Optional[StaticIpConnectionInfoTypeDef] = None
+    StaticIpConnectionInfo: Optional[StaticIpConnectionInfo] = None
 
 
-class ListApplicationInstanceDependenciesResponseTypeDef(BaseValidatorModel):
-    PackageObjects: List[PackageObjectTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationInstanceDependenciesResponse(BaseValidatorModel):
+    PackageObjects: List[PackageObject]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListApplicationInstanceNodeInstancesResponseTypeDef(BaseValidatorModel):
-    NodeInstances: List[NodeInstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationInstanceNodeInstancesResponse(BaseValidatorModel):
+    NodeInstances: List[NodeInstance]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNodeFromTemplateJobsResponseTypeDef(BaseValidatorModel):
-    NodeFromTemplateJobs: List[NodeFromTemplateJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNodeFromTemplateJobsResponse(BaseValidatorModel):
+    NodeFromTemplateJobs: List[NodeFromTemplateJob]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNodesResponseTypeDef(BaseValidatorModel):
-    Nodes: List[NodeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNodesResponse(BaseValidatorModel):
+    Nodes: List[Node]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPackageImportJobsResponseTypeDef(BaseValidatorModel):
-    PackageImportJobs: List[PackageImportJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPackageImportJobsResponse(BaseValidatorModel):
+    PackageImportJobs: List[PackageImportJob]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPackagesResponseTypeDef(BaseValidatorModel):
-    Packages: List[PackageListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPackagesResponse(BaseValidatorModel):
+    Packages: List[PackageListItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class NetworkStatusTypeDef(BaseValidatorModel):
-    Ethernet0Status: Optional[EthernetStatusTypeDef] = None
-    Ethernet1Status: Optional[EthernetStatusTypeDef] = None
+class NetworkStatus(BaseValidatorModel):
+    Ethernet0Status: Optional[EthernetStatus] = None
+    Ethernet1Status: Optional[EthernetStatus] = None
     LastUpdatedTime: Optional[datetime] = None
-    NtpStatus: Optional[NtpStatusTypeDef] = None
+    NtpStatus: Optional[NtpStatus] = None
 
 
-class NodeOutputPortTypeDef(BaseValidatorModel):
+class NodeOutputPort(BaseValidatorModel):
     pass
 
 
-class NodeInputPortTypeDef(BaseValidatorModel):
+class NodeInputPort(BaseValidatorModel):
     pass
 
 
-class NodeInterfaceTypeDef(BaseValidatorModel):
-    Inputs: List[NodeInputPortTypeDef]
-    Outputs: List[NodeOutputPortTypeDef]
+class NodeInterface(BaseValidatorModel):
+    Inputs: List[NodeInputPort]
+    Outputs: List[NodeOutputPort]
 
 
-class SignalApplicationInstanceNodeInstancesRequestTypeDef(BaseValidatorModel):
+class SignalApplicationInstanceNodeInstancesRequest(BaseValidatorModel):
     ApplicationInstanceId: str
-    NodeSignals: Sequence[NodeSignalTypeDef]
+    NodeSignals: Sequence[NodeSignal]
 
 
-class PackageImportJobOutputTypeDef(BaseValidatorModel):
-    OutputS3Location: OutPutS3LocationTypeDef
+class PackageImportJobOutput(BaseValidatorModel):
+    OutputS3Location: OutPutS3Location
     PackageId: str
     PackageVersion: str
     PatchVersion: str
 
 
-class PackageImportJobOutputConfigTypeDef(BaseValidatorModel):
-    PackageVersionOutputConfig: Optional[PackageVersionOutputConfigTypeDef] = None
+class PackageImportJobOutputConfig(BaseValidatorModel):
+    PackageVersionOutputConfig: Optional[PackageVersionOutputConfig] = None
 
 
-class PackageVersionInputConfigTypeDef(BaseValidatorModel):
-    S3Location: S3LocationTypeDef
+class PackageVersionInputConfig(BaseValidatorModel):
+    S3Location: S3Location
 
 
-class ListApplicationInstancesResponseTypeDef(BaseValidatorModel):
-    ApplicationInstances: List[ApplicationInstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationInstancesResponse(BaseValidatorModel):
+    ApplicationInstances: List[ApplicationInstance]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DeviceTypeDef(BaseValidatorModel):
+class Device(BaseValidatorModel):
     pass
 
 
-class ListDevicesResponseTypeDef(BaseValidatorModel):
-    Devices: List[DeviceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDevicesResponse(BaseValidatorModel):
+    Devices: List[Device]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateJobForDevicesRequestTypeDef(BaseValidatorModel):
+class CreateJobForDevicesRequest(BaseValidatorModel):
     DeviceIds: Sequence[str]
     JobType: JobTypeType
-    DeviceJobConfig: Optional[DeviceJobConfigTypeDef] = None
+    DeviceJobConfig: Optional[DeviceJobConfig] = None
 
 
-class NetworkPayloadOutputTypeDef(BaseValidatorModel):
-    Ethernet0: Optional[EthernetPayloadOutputTypeDef] = None
-    Ethernet1: Optional[EthernetPayloadOutputTypeDef] = None
-    Ntp: Optional[NtpPayloadOutputTypeDef] = None
+class NetworkPayloadOutput(BaseValidatorModel):
+    Ethernet0: Optional[EthernetPayloadOutput] = None
+    Ethernet1: Optional[EthernetPayloadOutput] = None
+    Ntp: Optional[NtpPayloadOutput] = None
 
 
-class NetworkPayloadTypeDef(BaseValidatorModel):
-    Ethernet0: Optional[EthernetPayloadTypeDef] = None
-    Ethernet1: Optional[EthernetPayloadTypeDef] = None
-    Ntp: Optional[NtpPayloadTypeDef] = None
+class NetworkPayload(BaseValidatorModel):
+    Ethernet0: Optional[EthernetPayload] = None
+    Ethernet1: Optional[EthernetPayload] = None
+    Ntp: Optional[NtpPayload] = None
 
 
-class JobResourceTagsUnionTypeDef(BaseValidatorModel):
+class JobResourceTagsUnion(BaseValidatorModel):
     pass
 
 
-class CreateNodeFromTemplateJobRequestTypeDef(BaseValidatorModel):
+class CreateNodeFromTemplateJobRequest(BaseValidatorModel):
     NodeName: str
     OutputPackageName: str
     OutputPackageVersion: str
     TemplateParameters: Mapping[str, str]
     TemplateType: Literal["RTSP_CAMERA_STREAM"]
-    JobTags: Optional[Sequence[JobResourceTagsUnionTypeDef]] = None
+    JobTags: Optional[Sequence[JobResourceTagsUnion]] = None
     NodeDescription: Optional[str] = None
 
 
-class DescribeNodeResponseTypeDef(BaseValidatorModel):
+class DescribeNodeResponse(BaseValidatorModel):
     AssetName: str
     Category: NodeCategoryType
     CreatedTime: datetime
@@ -665,51 +665,51 @@ class DescribeNodeResponseTypeDef(BaseValidatorModel):
     LastUpdatedTime: datetime
     Name: str
     NodeId: str
-    NodeInterface: NodeInterfaceTypeDef
+    NodeInterface: NodeInterface
     OwnerAccount: str
     PackageArn: str
     PackageId: str
     PackageName: str
     PackageVersion: str
     PatchVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PackageImportJobInputConfigTypeDef(BaseValidatorModel):
-    PackageVersionInputConfig: Optional[PackageVersionInputConfigTypeDef] = None
+class PackageImportJobInputConfig(BaseValidatorModel):
+    PackageVersionInputConfig: Optional[PackageVersionInputConfig] = None
 
 
-class CreatePackageImportJobRequestTypeDef(BaseValidatorModel):
+class CreatePackageImportJobRequest(BaseValidatorModel):
     ClientToken: str
-    InputConfig: PackageImportJobInputConfigTypeDef
+    InputConfig: PackageImportJobInputConfig
     JobType: PackageImportJobTypeType
-    OutputConfig: PackageImportJobOutputConfigTypeDef
-    JobTags: Optional[Sequence[JobResourceTagsUnionTypeDef]] = None
+    OutputConfig: PackageImportJobOutputConfig
+    JobTags: Optional[Sequence[JobResourceTagsUnion]] = None
 
 
-class DescribePackageImportJobResponseTypeDef(BaseValidatorModel):
+class DescribePackageImportJobResponse(BaseValidatorModel):
     ClientToken: str
     CreatedTime: datetime
-    InputConfig: PackageImportJobInputConfigTypeDef
+    InputConfig: PackageImportJobInputConfig
     JobId: str
-    JobTags: List[JobResourceTagsOutputTypeDef]
+    JobTags: List[JobResourceTagsOutput]
     JobType: PackageImportJobTypeType
     LastUpdatedTime: datetime
-    Output: PackageImportJobOutputTypeDef
-    OutputConfig: PackageImportJobOutputConfigTypeDef
+    Output: PackageImportJobOutput
+    OutputConfig: PackageImportJobOutputConfig
     Status: PackageImportJobStatusType
     StatusMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class NetworkPayloadUnionTypeDef(BaseValidatorModel):
+class NetworkPayloadUnion(BaseValidatorModel):
     pass
 
 
-class ProvisionDeviceRequestTypeDef(BaseValidatorModel):
+class ProvisionDeviceRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
-    NetworkingConfiguration: Optional[NetworkPayloadUnionTypeDef] = None
+    NetworkingConfiguration: Optional[NetworkPayloadUnion] = None
     Tags: Optional[Mapping[str, str]] = None
 
 

@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mailmanager_constants import *
 
-class AddHeaderActionTypeDef(BaseValidatorModel):
+class AddHeaderAction(BaseValidatorModel):
     HeaderName: str
     HeaderValue: str
 
 
-class AddonInstanceTypeDef(BaseValidatorModel):
+class AddonInstance(BaseValidatorModel):
     AddonInstanceArn: Optional[str] = None
     AddonInstanceId: Optional[str] = None
     AddonName: Optional[str] = None
@@ -25,18 +25,18 @@ class AddonInstanceTypeDef(BaseValidatorModel):
     CreatedTimestamp: Optional[datetime] = None
 
 
-class AddonSubscriptionTypeDef(BaseValidatorModel):
+class AddonSubscription(BaseValidatorModel):
     AddonName: Optional[str] = None
     AddonSubscriptionArn: Optional[str] = None
     AddonSubscriptionId: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
 
 
-class AddressFilterTypeDef(BaseValidatorModel):
+class AddressFilter(BaseValidatorModel):
     AddressPrefix: Optional[str] = None
 
 
-class AddressListTypeDef(BaseValidatorModel):
+class AddressList(BaseValidatorModel):
     AddressListArn: str
     AddressListId: str
     AddressListName: str
@@ -44,41 +44,41 @@ class AddressListTypeDef(BaseValidatorModel):
     LastUpdatedTimestamp: datetime
 
 
-class AnalysisTypeDef(BaseValidatorModel):
+class Analysis(BaseValidatorModel):
     Analyzer: str
     ResultField: str
 
 
-class ArchiveActionTypeDef(BaseValidatorModel):
+class ArchiveAction(BaseValidatorModel):
     TargetArchive: str
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
 
 
-class ArchiveBooleanToEvaluateTypeDef(BaseValidatorModel):
+class ArchiveBooleanToEvaluate(BaseValidatorModel):
     Attribute: Optional[Literal["HAS_ATTACHMENTS"]] = None
 
 
-class ArchiveRetentionTypeDef(BaseValidatorModel):
+class ArchiveRetention(BaseValidatorModel):
     RetentionPeriod: Optional[RetentionPeriodType] = None
 
 
-class ArchiveStringToEvaluateTypeDef(BaseValidatorModel):
+class ArchiveStringToEvaluate(BaseValidatorModel):
     Attribute: Optional[ArchiveStringEmailAttributeType] = None
 
 
-class ArchiveTypeDef(BaseValidatorModel):
+class Archive(BaseValidatorModel):
     ArchiveId: str
     ArchiveName: Optional[str] = None
     ArchiveState: Optional[ArchiveStateType] = None
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -86,111 +86,111 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ImportDataFormatTypeDef(BaseValidatorModel):
+class ImportDataFormat(BaseValidatorModel):
     ImportDataType: ImportDataTypeType
 
 
-class IngressPointConfigurationTypeDef(BaseValidatorModel):
+class IngressPointConfiguration(BaseValidatorModel):
     SecretArn: Optional[str] = None
     SmtpPassword: Optional[str] = None
 
 
-class DeleteAddonInstanceRequestTypeDef(BaseValidatorModel):
+class DeleteAddonInstanceRequest(BaseValidatorModel):
     AddonInstanceId: str
 
 
-class DeleteAddonSubscriptionRequestTypeDef(BaseValidatorModel):
+class DeleteAddonSubscriptionRequest(BaseValidatorModel):
     AddonSubscriptionId: str
 
 
-class DeleteAddressListRequestTypeDef(BaseValidatorModel):
+class DeleteAddressListRequest(BaseValidatorModel):
     AddressListId: str
 
 
-class DeleteArchiveRequestTypeDef(BaseValidatorModel):
+class DeleteArchiveRequest(BaseValidatorModel):
     ArchiveId: str
 
 
-class DeleteIngressPointRequestTypeDef(BaseValidatorModel):
+class DeleteIngressPointRequest(BaseValidatorModel):
     IngressPointId: str
 
 
-class DeleteRelayRequestTypeDef(BaseValidatorModel):
+class DeleteRelayRequest(BaseValidatorModel):
     RelayId: str
 
 
-class DeleteRuleSetRequestTypeDef(BaseValidatorModel):
+class DeleteRuleSetRequest(BaseValidatorModel):
     RuleSetId: str
 
 
-class DeleteTrafficPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteTrafficPolicyRequest(BaseValidatorModel):
     TrafficPolicyId: str
 
 
-class DeliverToMailboxActionTypeDef(BaseValidatorModel):
+class DeliverToMailboxAction(BaseValidatorModel):
     MailboxArn: str
     RoleArn: str
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
 
 
-class DeliverToQBusinessActionTypeDef(BaseValidatorModel):
+class DeliverToQBusinessAction(BaseValidatorModel):
     ApplicationId: str
     IndexId: str
     RoleArn: str
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
 
 
-class DeregisterMemberFromAddressListRequestTypeDef(BaseValidatorModel):
+class DeregisterMemberFromAddressListRequest(BaseValidatorModel):
     Address: str
     AddressListId: str
 
 
-class EnvelopeTypeDef(BaseValidatorModel):
+class Envelope(BaseValidatorModel):
     From: Optional[str] = None
     Helo: Optional[str] = None
     To: Optional[List[str]] = None
 
 
-class S3ExportDestinationConfigurationTypeDef(BaseValidatorModel):
+class S3ExportDestinationConfiguration(BaseValidatorModel):
     S3Location: Optional[str] = None
 
 
-class ExportStatusTypeDef(BaseValidatorModel):
+class ExportStatus(BaseValidatorModel):
     CompletionTimestamp: Optional[datetime] = None
     ErrorMessage: Optional[str] = None
     State: Optional[ExportStateType] = None
     SubmissionTimestamp: Optional[datetime] = None
 
 
-class GetAddonInstanceRequestTypeDef(BaseValidatorModel):
+class GetAddonInstanceRequest(BaseValidatorModel):
     AddonInstanceId: str
 
 
-class GetAddonSubscriptionRequestTypeDef(BaseValidatorModel):
+class GetAddonSubscriptionRequest(BaseValidatorModel):
     AddonSubscriptionId: str
 
 
-class GetAddressListImportJobRequestTypeDef(BaseValidatorModel):
+class GetAddressListImportJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class GetAddressListRequestTypeDef(BaseValidatorModel):
+class GetAddressListRequest(BaseValidatorModel):
     AddressListId: str
 
 
-class GetArchiveExportRequestTypeDef(BaseValidatorModel):
+class GetArchiveExportRequest(BaseValidatorModel):
     ExportId: str
 
 
-class GetArchiveMessageContentRequestTypeDef(BaseValidatorModel):
+class GetArchiveMessageContentRequest(BaseValidatorModel):
     ArchivedMessageId: str
 
 
-class GetArchiveMessageRequestTypeDef(BaseValidatorModel):
+class GetArchiveMessageRequest(BaseValidatorModel):
     ArchivedMessageId: str
 
 
-class MetadataTypeDef(BaseValidatorModel):
+class Metadata(BaseValidatorModel):
     ConfigurationSet: Optional[str] = None
     IngressPointId: Optional[str] = None
     RuleSetId: Optional[str] = None
@@ -206,200 +206,200 @@ class MetadataTypeDef(BaseValidatorModel):
     TrafficPolicyId: Optional[str] = None
 
 
-class GetArchiveRequestTypeDef(BaseValidatorModel):
+class GetArchiveRequest(BaseValidatorModel):
     ArchiveId: str
 
 
-class GetArchiveSearchRequestTypeDef(BaseValidatorModel):
+class GetArchiveSearchRequest(BaseValidatorModel):
     SearchId: str
 
 
-class SearchStatusTypeDef(BaseValidatorModel):
+class SearchStatus(BaseValidatorModel):
     CompletionTimestamp: Optional[datetime] = None
     ErrorMessage: Optional[str] = None
     State: Optional[SearchStateType] = None
     SubmissionTimestamp: Optional[datetime] = None
 
 
-class GetArchiveSearchResultsRequestTypeDef(BaseValidatorModel):
+class GetArchiveSearchResultsRequest(BaseValidatorModel):
     SearchId: str
 
 
-class GetIngressPointRequestTypeDef(BaseValidatorModel):
+class GetIngressPointRequest(BaseValidatorModel):
     IngressPointId: str
 
 
-class GetMemberOfAddressListRequestTypeDef(BaseValidatorModel):
+class GetMemberOfAddressListRequest(BaseValidatorModel):
     Address: str
     AddressListId: str
 
 
-class GetRelayRequestTypeDef(BaseValidatorModel):
+class GetRelayRequest(BaseValidatorModel):
     RelayId: str
 
 
-class RelayAuthenticationOutputTypeDef(BaseValidatorModel):
+class RelayAuthenticationOutput(BaseValidatorModel):
     NoAuthentication: Optional[Dict[str, Any]] = None
     SecretArn: Optional[str] = None
 
 
-class GetRuleSetRequestTypeDef(BaseValidatorModel):
+class GetRuleSetRequest(BaseValidatorModel):
     RuleSetId: str
 
 
-class GetTrafficPolicyRequestTypeDef(BaseValidatorModel):
+class GetTrafficPolicyRequest(BaseValidatorModel):
     TrafficPolicyId: str
 
 
-class IngressAnalysisTypeDef(BaseValidatorModel):
+class IngressAnalysis(BaseValidatorModel):
     Analyzer: str
     ResultField: str
 
 
-class IngressIsInAddressListOutputTypeDef(BaseValidatorModel):
+class IngressIsInAddressListOutput(BaseValidatorModel):
     AddressLists: List[str]
     Attribute: Literal["RECIPIENT"]
 
 
-class IngressIpToEvaluateTypeDef(BaseValidatorModel):
+class IngressIpToEvaluate(BaseValidatorModel):
     Attribute: Optional[Literal["SENDER_IP"]] = None
 
 
-class IngressIsInAddressListTypeDef(BaseValidatorModel):
+class IngressIsInAddressList(BaseValidatorModel):
     AddressLists: Sequence[str]
     Attribute: Literal["RECIPIENT"]
 
 
-class IngressPointPasswordConfigurationTypeDef(BaseValidatorModel):
+class IngressPointPasswordConfiguration(BaseValidatorModel):
     PreviousSmtpPasswordExpiryTimestamp: Optional[datetime] = None
     PreviousSmtpPasswordVersion: Optional[str] = None
     SmtpPasswordVersion: Optional[str] = None
 
 
-class IngressStringToEvaluateTypeDef(BaseValidatorModel):
+class IngressStringToEvaluate(BaseValidatorModel):
     Attribute: Optional[Literal["RECIPIENT"]] = None
 
 
-class IngressTlsProtocolToEvaluateTypeDef(BaseValidatorModel):
+class IngressTlsProtocolToEvaluate(BaseValidatorModel):
     Attribute: Optional[Literal["TLS_PROTOCOL"]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAddonInstancesRequestTypeDef(BaseValidatorModel):
+class ListAddonInstancesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class ListAddonSubscriptionsRequestTypeDef(BaseValidatorModel):
+class ListAddonSubscriptionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class ListAddressListImportJobsRequestTypeDef(BaseValidatorModel):
+class ListAddressListImportJobsRequest(BaseValidatorModel):
     AddressListId: str
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class ListAddressListsRequestTypeDef(BaseValidatorModel):
+class ListAddressListsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class ListArchiveExportsRequestTypeDef(BaseValidatorModel):
+class ListArchiveExportsRequest(BaseValidatorModel):
     ArchiveId: str
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class ListArchiveSearchesRequestTypeDef(BaseValidatorModel):
+class ListArchiveSearchesRequest(BaseValidatorModel):
     ArchiveId: str
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class ListArchivesRequestTypeDef(BaseValidatorModel):
+class ListArchivesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class ListIngressPointsRequestTypeDef(BaseValidatorModel):
+class ListIngressPointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class SavedAddressTypeDef(BaseValidatorModel):
+class SavedAddress(BaseValidatorModel):
     Address: str
     CreatedTimestamp: datetime
 
 
-class ListRelaysRequestTypeDef(BaseValidatorModel):
+class ListRelaysRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class RelayTypeDef(BaseValidatorModel):
+class Relay(BaseValidatorModel):
     LastModifiedTimestamp: Optional[datetime] = None
     RelayId: Optional[str] = None
     RelayName: Optional[str] = None
 
 
-class ListRuleSetsRequestTypeDef(BaseValidatorModel):
+class ListRuleSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class RuleSetTypeDef(BaseValidatorModel):
+class RuleSet(BaseValidatorModel):
     LastModificationDate: Optional[datetime] = None
     RuleSetId: Optional[str] = None
     RuleSetName: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class ListTrafficPoliciesRequestTypeDef(BaseValidatorModel):
+class ListTrafficPoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class TrafficPolicyTypeDef(BaseValidatorModel):
+class TrafficPolicy(BaseValidatorModel):
     DefaultAction: AcceptActionType
     TrafficPolicyId: str
     TrafficPolicyName: str
 
 
-class RegisterMemberToAddressListRequestTypeDef(BaseValidatorModel):
+class RegisterMemberToAddressListRequest(BaseValidatorModel):
     Address: str
     AddressListId: str
 
 
-class RelayActionTypeDef(BaseValidatorModel):
+class RelayAction(BaseValidatorModel):
     Relay: str
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
     MailFrom: Optional[MailFromType] = None
 
 
-class RelayAuthenticationTypeDef(BaseValidatorModel):
+class RelayAuthentication(BaseValidatorModel):
     NoAuthentication: Optional[Mapping[str, Any]] = None
     SecretArn: Optional[str] = None
 
 
-class ReplaceRecipientActionOutputTypeDef(BaseValidatorModel):
+class ReplaceRecipientActionOutput(BaseValidatorModel):
     ReplaceWith: Optional[List[str]] = None
 
 
-class ReplaceRecipientActionTypeDef(BaseValidatorModel):
+class ReplaceRecipientAction(BaseValidatorModel):
     ReplaceWith: Optional[Sequence[str]] = None
 
 
-class S3ActionTypeDef(BaseValidatorModel):
+class S3Action(BaseValidatorModel):
     RoleArn: str
     S3Bucket: str
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
@@ -407,202 +407,202 @@ class S3ActionTypeDef(BaseValidatorModel):
     S3SseKmsKeyId: Optional[str] = None
 
 
-class SendActionTypeDef(BaseValidatorModel):
+class SendAction(BaseValidatorModel):
     RoleArn: str
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
 
 
-class RuleIsInAddressListOutputTypeDef(BaseValidatorModel):
+class RuleIsInAddressListOutput(BaseValidatorModel):
     AddressLists: List[str]
     Attribute: RuleAddressListEmailAttributeType
 
 
-class RuleDmarcExpressionOutputTypeDef(BaseValidatorModel):
+class RuleDmarcExpressionOutput(BaseValidatorModel):
     Operator: RuleDmarcOperatorType
     Values: List[RuleDmarcPolicyType]
 
 
-class RuleDmarcExpressionTypeDef(BaseValidatorModel):
+class RuleDmarcExpression(BaseValidatorModel):
     Operator: RuleDmarcOperatorType
     Values: Sequence[RuleDmarcPolicyType]
 
 
-class RuleIpToEvaluateTypeDef(BaseValidatorModel):
+class RuleIpToEvaluate(BaseValidatorModel):
     Attribute: Optional[Literal["SOURCE_IP"]] = None
 
 
-class RuleIsInAddressListTypeDef(BaseValidatorModel):
+class RuleIsInAddressList(BaseValidatorModel):
     AddressLists: Sequence[str]
     Attribute: RuleAddressListEmailAttributeType
 
 
-class RuleNumberToEvaluateTypeDef(BaseValidatorModel):
+class RuleNumberToEvaluate(BaseValidatorModel):
     Attribute: Optional[Literal["MESSAGE_SIZE"]] = None
 
 
-class RuleStringToEvaluateTypeDef(BaseValidatorModel):
+class RuleStringToEvaluate(BaseValidatorModel):
     Attribute: Optional[RuleStringEmailAttributeType] = None
     MimeHeaderAttribute: Optional[str] = None
 
 
-class StartAddressListImportJobRequestTypeDef(BaseValidatorModel):
+class StartAddressListImportJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopAddressListImportJobRequestTypeDef(BaseValidatorModel):
+class StopAddressListImportJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopArchiveExportRequestTypeDef(BaseValidatorModel):
+class StopArchiveExportRequest(BaseValidatorModel):
     ExportId: str
 
 
-class StopArchiveSearchRequestTypeDef(BaseValidatorModel):
+class StopArchiveSearchRequest(BaseValidatorModel):
     SearchId: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class ListMembersOfAddressListRequestTypeDef(BaseValidatorModel):
+class ListMembersOfAddressListRequest(BaseValidatorModel):
     AddressListId: str
-    Filter: Optional[AddressFilterTypeDef] = None
+    Filter: Optional[AddressFilter] = None
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class RuleVerdictToEvaluateTypeDef(BaseValidatorModel):
-    Analysis: Optional[AnalysisTypeDef] = None
+class RuleVerdictToEvaluate(BaseValidatorModel):
+    Analysis: Optional[Analysis] = None
     Attribute: Optional[RuleVerdictAttributeType] = None
 
 
-class ArchiveBooleanExpressionTypeDef(BaseValidatorModel):
-    Evaluate: ArchiveBooleanToEvaluateTypeDef
+class ArchiveBooleanExpression(BaseValidatorModel):
+    Evaluate: ArchiveBooleanToEvaluate
     Operator: ArchiveBooleanOperatorType
 
 
-class UpdateArchiveRequestTypeDef(BaseValidatorModel):
+class UpdateArchiveRequest(BaseValidatorModel):
     ArchiveId: str
     ArchiveName: Optional[str] = None
-    Retention: Optional[ArchiveRetentionTypeDef] = None
+    Retention: Optional[ArchiveRetention] = None
 
 
-class ArchiveStringExpressionOutputTypeDef(BaseValidatorModel):
-    Evaluate: ArchiveStringToEvaluateTypeDef
+class ArchiveStringExpressionOutput(BaseValidatorModel):
+    Evaluate: ArchiveStringToEvaluate
     Operator: Literal["CONTAINS"]
     Values: List[str]
 
 
-class ArchiveStringExpressionTypeDef(BaseValidatorModel):
-    Evaluate: ArchiveStringToEvaluateTypeDef
+class ArchiveStringExpression(BaseValidatorModel):
+    Evaluate: ArchiveStringToEvaluate
     Operator: Literal["CONTAINS"]
     Values: Sequence[str]
 
 
-class CreateAddonInstanceRequestTypeDef(BaseValidatorModel):
+class CreateAddonInstanceRequest(BaseValidatorModel):
     AddonSubscriptionId: str
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateAddonSubscriptionRequestTypeDef(BaseValidatorModel):
+class CreateAddonSubscriptionRequest(BaseValidatorModel):
     AddonName: str
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateAddressListRequestTypeDef(BaseValidatorModel):
+class CreateAddressListRequest(BaseValidatorModel):
     AddressListName: str
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateArchiveRequestTypeDef(BaseValidatorModel):
+class CreateArchiveRequest(BaseValidatorModel):
     ArchiveName: str
     ClientToken: Optional[str] = None
     KmsKeyArn: Optional[str] = None
-    Retention: Optional[ArchiveRetentionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Retention: Optional[ArchiveRetention] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateAddonInstanceResponseTypeDef(BaseValidatorModel):
+class CreateAddonInstanceResponse(BaseValidatorModel):
     AddonInstanceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAddonSubscriptionResponseTypeDef(BaseValidatorModel):
+class CreateAddonSubscriptionResponse(BaseValidatorModel):
     AddonSubscriptionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAddressListImportJobResponseTypeDef(BaseValidatorModel):
+class CreateAddressListImportJobResponse(BaseValidatorModel):
     JobId: str
     PreSignedUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAddressListResponseTypeDef(BaseValidatorModel):
+class CreateAddressListResponse(BaseValidatorModel):
     AddressListId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateArchiveResponseTypeDef(BaseValidatorModel):
+class CreateArchiveResponse(BaseValidatorModel):
     ArchiveId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIngressPointResponseTypeDef(BaseValidatorModel):
+class CreateIngressPointResponse(BaseValidatorModel):
     IngressPointId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRelayResponseTypeDef(BaseValidatorModel):
+class CreateRelayResponse(BaseValidatorModel):
     RelayId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRuleSetResponseTypeDef(BaseValidatorModel):
+class CreateRuleSetResponse(BaseValidatorModel):
     RuleSetId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrafficPolicyResponseTypeDef(BaseValidatorModel):
+class CreateTrafficPolicyResponse(BaseValidatorModel):
     TrafficPolicyId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAddonInstanceResponseTypeDef(BaseValidatorModel):
+class GetAddonInstanceResponse(BaseValidatorModel):
     AddonInstanceArn: str
     AddonName: str
     AddonSubscriptionId: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAddonSubscriptionResponseTypeDef(BaseValidatorModel):
+class GetAddonSubscriptionResponse(BaseValidatorModel):
     AddonName: str
     AddonSubscriptionArn: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAddressListResponseTypeDef(BaseValidatorModel):
+class GetAddressListResponse(BaseValidatorModel):
     AddressListArn: str
     AddressListId: str
     AddressListName: str
     CreatedTimestamp: datetime
     LastUpdatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetArchiveResponseTypeDef(BaseValidatorModel):
+class GetArchiveResponse(BaseValidatorModel):
     ArchiveArn: str
     ArchiveId: str
     ArchiveName: str
@@ -610,82 +610,82 @@ class GetArchiveResponseTypeDef(BaseValidatorModel):
     CreatedTimestamp: datetime
     KmsKeyArn: str
     LastUpdatedTimestamp: datetime
-    Retention: ArchiveRetentionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Retention: ArchiveRetention
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMemberOfAddressListResponseTypeDef(BaseValidatorModel):
+class GetMemberOfAddressListResponse(BaseValidatorModel):
     Address: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAddonInstancesResponseTypeDef(BaseValidatorModel):
-    AddonInstances: List[AddonInstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAddonInstancesResponse(BaseValidatorModel):
+    AddonInstances: List[AddonInstance]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAddonSubscriptionsResponseTypeDef(BaseValidatorModel):
-    AddonSubscriptions: List[AddonSubscriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAddonSubscriptionsResponse(BaseValidatorModel):
+    AddonSubscriptions: List[AddonSubscription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAddressListsResponseTypeDef(BaseValidatorModel):
-    AddressLists: List[AddressListTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAddressListsResponse(BaseValidatorModel):
+    AddressLists: List[AddressList]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListArchivesResponseTypeDef(BaseValidatorModel):
-    Archives: List[ArchiveTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListArchivesResponse(BaseValidatorModel):
+    Archives: List[Archive]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class StartArchiveExportResponseTypeDef(BaseValidatorModel):
+class StartArchiveExportResponse(BaseValidatorModel):
     ExportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartArchiveSearchResponseTypeDef(BaseValidatorModel):
+class StartArchiveSearchResponse(BaseValidatorModel):
     SearchId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAddressListImportJobRequestTypeDef(BaseValidatorModel):
+class CreateAddressListImportJobRequest(BaseValidatorModel):
     AddressListId: str
-    ImportDataFormat: ImportDataFormatTypeDef
+    ImportDataFormat: ImportDataFormat
     Name: str
     ClientToken: Optional[str] = None
 
 
-class GetAddressListImportJobResponseTypeDef(BaseValidatorModel):
+class GetAddressListImportJobResponse(BaseValidatorModel):
     AddressListId: str
     CompletedTimestamp: datetime
     CreatedTimestamp: datetime
     Error: str
     FailedItemsCount: int
-    ImportDataFormat: ImportDataFormatTypeDef
+    ImportDataFormat: ImportDataFormat
     ImportedItemsCount: int
     JobId: str
     Name: str
     PreSignedUrl: str
     StartTimestamp: datetime
     Status: ImportJobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportJobTypeDef(BaseValidatorModel):
+class ImportJob(BaseValidatorModel):
     AddressListId: str
     CreatedTimestamp: datetime
-    ImportDataFormat: ImportDataFormatTypeDef
+    ImportDataFormat: ImportDataFormat
     JobId: str
     Name: str
     PreSignedUrl: str
@@ -697,20 +697,20 @@ class ImportJobTypeDef(BaseValidatorModel):
     StartTimestamp: Optional[datetime] = None
 
 
-class UpdateIngressPointRequestTypeDef(BaseValidatorModel):
+class UpdateIngressPointRequest(BaseValidatorModel):
     IngressPointId: str
-    IngressPointConfiguration: Optional[IngressPointConfigurationTypeDef] = None
+    IngressPointConfiguration: Optional[IngressPointConfiguration] = None
     IngressPointName: Optional[str] = None
     RuleSetId: Optional[str] = None
     StatusToUpdate: Optional[IngressPointStatusToUpdateType] = None
     TrafficPolicyId: Optional[str] = None
 
 
-class RowTypeDef(BaseValidatorModel):
+class Row(BaseValidatorModel):
     ArchivedMessageId: Optional[str] = None
     Cc: Optional[str] = None
     Date: Optional[str] = None
-    Envelope: Optional[EnvelopeTypeDef] = None
+    Envelope: Optional[Envelope] = None
     From: Optional[str] = None
     HasAttachments: Optional[bool] = None
     InReplyTo: Optional[str] = None
@@ -728,38 +728,38 @@ class RowTypeDef(BaseValidatorModel):
     XPriority: Optional[str] = None
 
 
-class ExportDestinationConfigurationTypeDef(BaseValidatorModel):
-    S3: Optional[S3ExportDestinationConfigurationTypeDef] = None
+class ExportDestinationConfiguration(BaseValidatorModel):
+    S3: Optional[S3ExportDestinationConfiguration] = None
 
 
-class ExportSummaryTypeDef(BaseValidatorModel):
+class ExportSummary(BaseValidatorModel):
     ExportId: Optional[str] = None
-    Status: Optional[ExportStatusTypeDef] = None
+    Status: Optional[ExportStatus] = None
 
 
-class MessageBodyTypeDef(BaseValidatorModel):
+class MessageBody(BaseValidatorModel):
     pass
 
 
-class GetArchiveMessageContentResponseTypeDef(BaseValidatorModel):
-    Body: MessageBodyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetArchiveMessageContentResponse(BaseValidatorModel):
+    Body: MessageBody
+    ResponseMetadata: ResponseMetadata
 
 
-class GetArchiveMessageResponseTypeDef(BaseValidatorModel):
-    Envelope: EnvelopeTypeDef
+class GetArchiveMessageResponse(BaseValidatorModel):
+    Envelope: Envelope
     MessageDownloadLink: str
-    Metadata: MetadataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Metadata: Metadata
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchSummaryTypeDef(BaseValidatorModel):
+class SearchSummary(BaseValidatorModel):
     SearchId: Optional[str] = None
-    Status: Optional[SearchStatusTypeDef] = None
+    Status: Optional[SearchStatus] = None
 
 
-class GetRelayResponseTypeDef(BaseValidatorModel):
-    Authentication: RelayAuthenticationOutputTypeDef
+class GetRelayResponse(BaseValidatorModel):
+    Authentication: RelayAuthenticationOutput
     CreatedTimestamp: datetime
     LastModifiedTimestamp: datetime
     RelayArn: str
@@ -767,525 +767,525 @@ class GetRelayResponseTypeDef(BaseValidatorModel):
     RelayName: str
     ServerName: str
     ServerPort: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class IngressBooleanToEvaluateOutputTypeDef(BaseValidatorModel):
-    Analysis: Optional[IngressAnalysisTypeDef] = None
-    IsInAddressList: Optional[IngressIsInAddressListOutputTypeDef] = None
+class IngressBooleanToEvaluateOutput(BaseValidatorModel):
+    Analysis: Optional[IngressAnalysis] = None
+    IsInAddressList: Optional[IngressIsInAddressListOutput] = None
 
 
-class IngressIpv4ExpressionOutputTypeDef(BaseValidatorModel):
-    Evaluate: IngressIpToEvaluateTypeDef
+class IngressIpv4ExpressionOutput(BaseValidatorModel):
+    Evaluate: IngressIpToEvaluate
     Operator: IngressIpOperatorType
     Values: List[str]
 
 
-class IngressIpv4ExpressionTypeDef(BaseValidatorModel):
-    Evaluate: IngressIpToEvaluateTypeDef
+class IngressIpv4Expression(BaseValidatorModel):
+    Evaluate: IngressIpToEvaluate
     Operator: IngressIpOperatorType
     Values: Sequence[str]
 
 
-class IngressPointAuthConfigurationTypeDef(BaseValidatorModel):
-    IngressPointPasswordConfiguration: Optional[IngressPointPasswordConfigurationTypeDef] = None
+class IngressPointAuthConfiguration(BaseValidatorModel):
+    IngressPointPasswordConfiguration: Optional[IngressPointPasswordConfiguration] = None
     SecretArn: Optional[str] = None
 
 
-class IngressPointTypeDef(BaseValidatorModel):
+class IngressPoint(BaseValidatorModel):
     pass
 
 
-class ListIngressPointsResponseTypeDef(BaseValidatorModel):
-    IngressPoints: List[IngressPointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIngressPointsResponse(BaseValidatorModel):
+    IngressPoints: List[IngressPoint]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class IngressStringExpressionOutputTypeDef(BaseValidatorModel):
-    Evaluate: IngressStringToEvaluateTypeDef
+class IngressStringExpressionOutput(BaseValidatorModel):
+    Evaluate: IngressStringToEvaluate
     Operator: IngressStringOperatorType
     Values: List[str]
 
 
-class IngressStringExpressionTypeDef(BaseValidatorModel):
-    Evaluate: IngressStringToEvaluateTypeDef
+class IngressStringExpression(BaseValidatorModel):
+    Evaluate: IngressStringToEvaluate
     Operator: IngressStringOperatorType
     Values: Sequence[str]
 
 
-class IngressTlsProtocolExpressionTypeDef(BaseValidatorModel):
-    Evaluate: IngressTlsProtocolToEvaluateTypeDef
+class IngressTlsProtocolExpression(BaseValidatorModel):
+    Evaluate: IngressTlsProtocolToEvaluate
     Operator: IngressTlsProtocolOperatorType
     Value: IngressTlsProtocolAttributeType
 
 
-class ListAddonInstancesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAddonInstancesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAddonSubscriptionsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAddonSubscriptionsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAddressListImportJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAddressListImportJobsRequestPaginate(BaseValidatorModel):
     AddressListId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAddressListsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAddressListsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListArchiveExportsRequestPaginateTypeDef(BaseValidatorModel):
+class ListArchiveExportsRequestPaginate(BaseValidatorModel):
     ArchiveId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListArchiveSearchesRequestPaginateTypeDef(BaseValidatorModel):
+class ListArchiveSearchesRequestPaginate(BaseValidatorModel):
     ArchiveId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListArchivesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListArchivesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIngressPointsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListIngressPointsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembersOfAddressListRequestPaginateTypeDef(BaseValidatorModel):
+class ListMembersOfAddressListRequestPaginate(BaseValidatorModel):
     AddressListId: str
-    Filter: Optional[AddressFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filter: Optional[AddressFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRelaysRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListRelaysRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRuleSetsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListRuleSetsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrafficPoliciesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListTrafficPoliciesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembersOfAddressListResponseTypeDef(BaseValidatorModel):
-    Addresses: List[SavedAddressTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMembersOfAddressListResponse(BaseValidatorModel):
+    Addresses: List[SavedAddress]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListRelaysResponseTypeDef(BaseValidatorModel):
-    Relays: List[RelayTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRelaysResponse(BaseValidatorModel):
+    Relays: List[Relay]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListRuleSetsResponseTypeDef(BaseValidatorModel):
-    RuleSets: List[RuleSetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRuleSetsResponse(BaseValidatorModel):
+    RuleSets: List[RuleSet]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTrafficPoliciesResponseTypeDef(BaseValidatorModel):
-    TrafficPolicies: List[TrafficPolicyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrafficPoliciesResponse(BaseValidatorModel):
+    TrafficPolicies: List[TrafficPolicy]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RuleActionOutputTypeDef(BaseValidatorModel):
-    AddHeader: Optional[AddHeaderActionTypeDef] = None
-    Archive: Optional[ArchiveActionTypeDef] = None
-    DeliverToMailbox: Optional[DeliverToMailboxActionTypeDef] = None
-    DeliverToQBusiness: Optional[DeliverToQBusinessActionTypeDef] = None
+class RuleActionOutput(BaseValidatorModel):
+    AddHeader: Optional[AddHeaderAction] = None
+    Archive: Optional[ArchiveAction] = None
+    DeliverToMailbox: Optional[DeliverToMailboxAction] = None
+    DeliverToQBusiness: Optional[DeliverToQBusinessAction] = None
     Drop: Optional[Dict[str, Any]] = None
-    Relay: Optional[RelayActionTypeDef] = None
-    ReplaceRecipient: Optional[ReplaceRecipientActionOutputTypeDef] = None
-    Send: Optional[SendActionTypeDef] = None
-    WriteToS3: Optional[S3ActionTypeDef] = None
+    Relay: Optional[RelayAction] = None
+    ReplaceRecipient: Optional[ReplaceRecipientActionOutput] = None
+    Send: Optional[SendAction] = None
+    WriteToS3: Optional[S3Action] = None
 
 
-class RuleBooleanToEvaluateOutputTypeDef(BaseValidatorModel):
+class RuleBooleanToEvaluateOutput(BaseValidatorModel):
     Attribute: Optional[RuleBooleanEmailAttributeType] = None
-    IsInAddressList: Optional[RuleIsInAddressListOutputTypeDef] = None
+    IsInAddressList: Optional[RuleIsInAddressListOutput] = None
 
 
-class RuleIpExpressionOutputTypeDef(BaseValidatorModel):
-    Evaluate: RuleIpToEvaluateTypeDef
+class RuleIpExpressionOutput(BaseValidatorModel):
+    Evaluate: RuleIpToEvaluate
     Operator: RuleIpOperatorType
     Values: List[str]
 
 
-class RuleIpExpressionTypeDef(BaseValidatorModel):
-    Evaluate: RuleIpToEvaluateTypeDef
+class RuleIpExpression(BaseValidatorModel):
+    Evaluate: RuleIpToEvaluate
     Operator: RuleIpOperatorType
     Values: Sequence[str]
 
 
-class RuleNumberExpressionTypeDef(BaseValidatorModel):
-    Evaluate: RuleNumberToEvaluateTypeDef
+class RuleNumberExpression(BaseValidatorModel):
+    Evaluate: RuleNumberToEvaluate
     Operator: RuleNumberOperatorType
     Value: float
 
 
-class RuleStringExpressionOutputTypeDef(BaseValidatorModel):
-    Evaluate: RuleStringToEvaluateTypeDef
+class RuleStringExpressionOutput(BaseValidatorModel):
+    Evaluate: RuleStringToEvaluate
     Operator: RuleStringOperatorType
     Values: List[str]
 
 
-class RuleStringExpressionTypeDef(BaseValidatorModel):
-    Evaluate: RuleStringToEvaluateTypeDef
+class RuleStringExpression(BaseValidatorModel):
+    Evaluate: RuleStringToEvaluate
     Operator: RuleStringOperatorType
     Values: Sequence[str]
 
 
-class RuleVerdictExpressionOutputTypeDef(BaseValidatorModel):
-    Evaluate: RuleVerdictToEvaluateTypeDef
+class RuleVerdictExpressionOutput(BaseValidatorModel):
+    Evaluate: RuleVerdictToEvaluate
     Operator: RuleVerdictOperatorType
     Values: List[RuleVerdictType]
 
 
-class RuleVerdictExpressionTypeDef(BaseValidatorModel):
-    Evaluate: RuleVerdictToEvaluateTypeDef
+class RuleVerdictExpression(BaseValidatorModel):
+    Evaluate: RuleVerdictToEvaluate
     Operator: RuleVerdictOperatorType
     Values: Sequence[RuleVerdictType]
 
 
-class ArchiveFilterConditionOutputTypeDef(BaseValidatorModel):
-    BooleanExpression: Optional[ArchiveBooleanExpressionTypeDef] = None
-    StringExpression: Optional[ArchiveStringExpressionOutputTypeDef] = None
+class ArchiveFilterConditionOutput(BaseValidatorModel):
+    BooleanExpression: Optional[ArchiveBooleanExpression] = None
+    StringExpression: Optional[ArchiveStringExpressionOutput] = None
 
 
-class ArchiveFilterConditionTypeDef(BaseValidatorModel):
-    BooleanExpression: Optional[ArchiveBooleanExpressionTypeDef] = None
-    StringExpression: Optional[ArchiveStringExpressionTypeDef] = None
+class ArchiveFilterCondition(BaseValidatorModel):
+    BooleanExpression: Optional[ArchiveBooleanExpression] = None
+    StringExpression: Optional[ArchiveStringExpression] = None
 
 
-class ListAddressListImportJobsResponseTypeDef(BaseValidatorModel):
-    ImportJobs: List[ImportJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAddressListImportJobsResponse(BaseValidatorModel):
+    ImportJobs: List[ImportJob]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetArchiveSearchResultsResponseTypeDef(BaseValidatorModel):
-    Rows: List[RowTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetArchiveSearchResultsResponse(BaseValidatorModel):
+    Rows: List[Row]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListArchiveExportsResponseTypeDef(BaseValidatorModel):
-    Exports: List[ExportSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListArchiveExportsResponse(BaseValidatorModel):
+    Exports: List[ExportSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListArchiveSearchesResponseTypeDef(BaseValidatorModel):
-    Searches: List[SearchSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListArchiveSearchesResponse(BaseValidatorModel):
+    Searches: List[SearchSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class IngressBooleanExpressionOutputTypeDef(BaseValidatorModel):
-    Evaluate: IngressBooleanToEvaluateOutputTypeDef
+class IngressBooleanExpressionOutput(BaseValidatorModel):
+    Evaluate: IngressBooleanToEvaluateOutput
     Operator: IngressBooleanOperatorType
 
 
-class IngressIsInAddressListUnionTypeDef(BaseValidatorModel):
+class IngressIsInAddressListUnion(BaseValidatorModel):
     pass
 
 
-class IngressBooleanToEvaluateTypeDef(BaseValidatorModel):
-    Analysis: Optional[IngressAnalysisTypeDef] = None
-    IsInAddressList: Optional[IngressIsInAddressListUnionTypeDef] = None
+class IngressBooleanToEvaluate(BaseValidatorModel):
+    Analysis: Optional[IngressAnalysis] = None
+    IsInAddressList: Optional[IngressIsInAddressListUnion] = None
 
 
-class RelayAuthenticationUnionTypeDef(BaseValidatorModel):
+class RelayAuthenticationUnion(BaseValidatorModel):
     pass
 
 
-class CreateRelayRequestTypeDef(BaseValidatorModel):
-    Authentication: RelayAuthenticationUnionTypeDef
+class CreateRelayRequest(BaseValidatorModel):
+    Authentication: RelayAuthenticationUnion
     RelayName: str
     ServerName: str
     ServerPort: int
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateRelayRequestTypeDef(BaseValidatorModel):
+class UpdateRelayRequest(BaseValidatorModel):
     RelayId: str
-    Authentication: Optional[RelayAuthenticationUnionTypeDef] = None
+    Authentication: Optional[RelayAuthenticationUnion] = None
     RelayName: Optional[str] = None
     ServerName: Optional[str] = None
     ServerPort: Optional[int] = None
 
 
-class ReplaceRecipientActionUnionTypeDef(BaseValidatorModel):
+class ReplaceRecipientActionUnion(BaseValidatorModel):
     pass
 
 
-class RuleActionTypeDef(BaseValidatorModel):
-    AddHeader: Optional[AddHeaderActionTypeDef] = None
-    Archive: Optional[ArchiveActionTypeDef] = None
-    DeliverToMailbox: Optional[DeliverToMailboxActionTypeDef] = None
-    DeliverToQBusiness: Optional[DeliverToQBusinessActionTypeDef] = None
+class RuleAction(BaseValidatorModel):
+    AddHeader: Optional[AddHeaderAction] = None
+    Archive: Optional[ArchiveAction] = None
+    DeliverToMailbox: Optional[DeliverToMailboxAction] = None
+    DeliverToQBusiness: Optional[DeliverToQBusinessAction] = None
     Drop: Optional[Mapping[str, Any]] = None
-    Relay: Optional[RelayActionTypeDef] = None
-    ReplaceRecipient: Optional[ReplaceRecipientActionUnionTypeDef] = None
-    Send: Optional[SendActionTypeDef] = None
-    WriteToS3: Optional[S3ActionTypeDef] = None
+    Relay: Optional[RelayAction] = None
+    ReplaceRecipient: Optional[ReplaceRecipientActionUnion] = None
+    Send: Optional[SendAction] = None
+    WriteToS3: Optional[S3Action] = None
 
 
-class RuleBooleanExpressionOutputTypeDef(BaseValidatorModel):
-    Evaluate: RuleBooleanToEvaluateOutputTypeDef
+class RuleBooleanExpressionOutput(BaseValidatorModel):
+    Evaluate: RuleBooleanToEvaluateOutput
     Operator: RuleBooleanOperatorType
 
 
-class RuleIsInAddressListUnionTypeDef(BaseValidatorModel):
+class RuleIsInAddressListUnion(BaseValidatorModel):
     pass
 
 
-class RuleBooleanToEvaluateTypeDef(BaseValidatorModel):
+class RuleBooleanToEvaluate(BaseValidatorModel):
     Attribute: Optional[RuleBooleanEmailAttributeType] = None
-    IsInAddressList: Optional[RuleIsInAddressListUnionTypeDef] = None
+    IsInAddressList: Optional[RuleIsInAddressListUnion] = None
 
 
-class ArchiveFiltersOutputTypeDef(BaseValidatorModel):
-    Include: Optional[List[ArchiveFilterConditionOutputTypeDef]] = None
-    Unless: Optional[List[ArchiveFilterConditionOutputTypeDef]] = None
+class ArchiveFiltersOutput(BaseValidatorModel):
+    Include: Optional[List[ArchiveFilterConditionOutput]] = None
+    Unless: Optional[List[ArchiveFilterConditionOutput]] = None
 
 
-class ArchiveFiltersTypeDef(BaseValidatorModel):
-    Include: Optional[Sequence[ArchiveFilterConditionTypeDef]] = None
-    Unless: Optional[Sequence[ArchiveFilterConditionTypeDef]] = None
+class ArchiveFilters(BaseValidatorModel):
+    Include: Optional[Sequence[ArchiveFilterCondition]] = None
+    Unless: Optional[Sequence[ArchiveFilterCondition]] = None
 
 
-class PolicyConditionOutputTypeDef(BaseValidatorModel):
-    BooleanExpression: Optional[IngressBooleanExpressionOutputTypeDef] = None
-    IpExpression: Optional[IngressIpv4ExpressionOutputTypeDef] = None
-    StringExpression: Optional[IngressStringExpressionOutputTypeDef] = None
-    TlsExpression: Optional[IngressTlsProtocolExpressionTypeDef] = None
+class PolicyConditionOutput(BaseValidatorModel):
+    BooleanExpression: Optional[IngressBooleanExpressionOutput] = None
+    IpExpression: Optional[IngressIpv4ExpressionOutput] = None
+    StringExpression: Optional[IngressStringExpressionOutput] = None
+    TlsExpression: Optional[IngressTlsProtocolExpression] = None
 
 
-class RuleConditionOutputTypeDef(BaseValidatorModel):
-    BooleanExpression: Optional[RuleBooleanExpressionOutputTypeDef] = None
-    DmarcExpression: Optional[RuleDmarcExpressionOutputTypeDef] = None
-    IpExpression: Optional[RuleIpExpressionOutputTypeDef] = None
-    NumberExpression: Optional[RuleNumberExpressionTypeDef] = None
-    StringExpression: Optional[RuleStringExpressionOutputTypeDef] = None
-    VerdictExpression: Optional[RuleVerdictExpressionOutputTypeDef] = None
+class RuleConditionOutput(BaseValidatorModel):
+    BooleanExpression: Optional[RuleBooleanExpressionOutput] = None
+    DmarcExpression: Optional[RuleDmarcExpressionOutput] = None
+    IpExpression: Optional[RuleIpExpressionOutput] = None
+    NumberExpression: Optional[RuleNumberExpression] = None
+    StringExpression: Optional[RuleStringExpressionOutput] = None
+    VerdictExpression: Optional[RuleVerdictExpressionOutput] = None
 
 
-class GetArchiveExportResponseTypeDef(BaseValidatorModel):
+class GetArchiveExportResponse(BaseValidatorModel):
     ArchiveId: str
-    ExportDestinationConfiguration: ExportDestinationConfigurationTypeDef
-    Filters: ArchiveFiltersOutputTypeDef
+    ExportDestinationConfiguration: ExportDestinationConfiguration
+    Filters: ArchiveFiltersOutput
     FromTimestamp: datetime
     MaxResults: int
-    Status: ExportStatusTypeDef
+    Status: ExportStatus
     ToTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetArchiveSearchResponseTypeDef(BaseValidatorModel):
+class GetArchiveSearchResponse(BaseValidatorModel):
     ArchiveId: str
-    Filters: ArchiveFiltersOutputTypeDef
+    Filters: ArchiveFiltersOutput
     FromTimestamp: datetime
     MaxResults: int
-    Status: SearchStatusTypeDef
+    Status: SearchStatus
     ToTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PolicyStatementOutputTypeDef(BaseValidatorModel):
+class PolicyStatementOutput(BaseValidatorModel):
     Action: AcceptActionType
-    Conditions: List[PolicyConditionOutputTypeDef]
+    Conditions: List[PolicyConditionOutput]
 
 
-class IngressBooleanToEvaluateUnionTypeDef(BaseValidatorModel):
+class IngressBooleanToEvaluateUnion(BaseValidatorModel):
     pass
 
 
-class IngressBooleanExpressionTypeDef(BaseValidatorModel):
-    Evaluate: IngressBooleanToEvaluateUnionTypeDef
+class IngressBooleanExpression(BaseValidatorModel):
+    Evaluate: IngressBooleanToEvaluateUnion
     Operator: IngressBooleanOperatorType
 
 
-class RuleOutputTypeDef(BaseValidatorModel):
-    Actions: List[RuleActionOutputTypeDef]
-    Conditions: Optional[List[RuleConditionOutputTypeDef]] = None
+class RuleOutput(BaseValidatorModel):
+    Actions: List[RuleActionOutput]
+    Conditions: Optional[List[RuleConditionOutput]] = None
     Name: Optional[str] = None
-    Unless: Optional[List[RuleConditionOutputTypeDef]] = None
+    Unless: Optional[List[RuleConditionOutput]] = None
 
 
-class RuleBooleanToEvaluateUnionTypeDef(BaseValidatorModel):
+class RuleBooleanToEvaluateUnion(BaseValidatorModel):
     pass
 
 
-class RuleBooleanExpressionTypeDef(BaseValidatorModel):
-    Evaluate: RuleBooleanToEvaluateUnionTypeDef
+class RuleBooleanExpression(BaseValidatorModel):
+    Evaluate: RuleBooleanToEvaluateUnion
     Operator: RuleBooleanOperatorType
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ArchiveFiltersUnionTypeDef(BaseValidatorModel):
+class ArchiveFiltersUnion(BaseValidatorModel):
     pass
 
 
-class StartArchiveExportRequestTypeDef(BaseValidatorModel):
+class StartArchiveExportRequest(BaseValidatorModel):
     ArchiveId: str
-    ExportDestinationConfiguration: ExportDestinationConfigurationTypeDef
-    FromTimestamp: TimestampTypeDef
-    ToTimestamp: TimestampTypeDef
-    Filters: Optional[ArchiveFiltersUnionTypeDef] = None
+    ExportDestinationConfiguration: ExportDestinationConfiguration
+    FromTimestamp: Timestamp
+    ToTimestamp: Timestamp
+    Filters: Optional[ArchiveFiltersUnion] = None
     IncludeMetadata: Optional[bool] = None
     MaxResults: Optional[int] = None
 
 
-class StartArchiveSearchRequestTypeDef(BaseValidatorModel):
+class StartArchiveSearchRequest(BaseValidatorModel):
     ArchiveId: str
-    FromTimestamp: TimestampTypeDef
+    FromTimestamp: Timestamp
     MaxResults: int
-    ToTimestamp: TimestampTypeDef
-    Filters: Optional[ArchiveFiltersUnionTypeDef] = None
+    ToTimestamp: Timestamp
+    Filters: Optional[ArchiveFiltersUnion] = None
 
 
-class GetTrafficPolicyResponseTypeDef(BaseValidatorModel):
+class GetTrafficPolicyResponse(BaseValidatorModel):
     CreatedTimestamp: datetime
     DefaultAction: AcceptActionType
     LastUpdatedTimestamp: datetime
     MaxMessageSizeBytes: int
-    PolicyStatements: List[PolicyStatementOutputTypeDef]
+    PolicyStatements: List[PolicyStatementOutput]
     TrafficPolicyArn: str
     TrafficPolicyId: str
     TrafficPolicyName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRuleSetResponseTypeDef(BaseValidatorModel):
+class GetRuleSetResponse(BaseValidatorModel):
     CreatedDate: datetime
     LastModificationDate: datetime
     RuleSetArn: str
     RuleSetId: str
     RuleSetName: str
-    Rules: List[RuleOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Rules: List[RuleOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class IngressBooleanExpressionUnionTypeDef(BaseValidatorModel):
+class IngressBooleanExpressionUnion(BaseValidatorModel):
     pass
 
 
-class IngressStringExpressionUnionTypeDef(BaseValidatorModel):
+class IngressStringExpressionUnion(BaseValidatorModel):
     pass
 
 
-class IngressIpv4ExpressionUnionTypeDef(BaseValidatorModel):
+class IngressIpv4ExpressionUnion(BaseValidatorModel):
     pass
 
 
-class PolicyConditionTypeDef(BaseValidatorModel):
-    BooleanExpression: Optional[IngressBooleanExpressionUnionTypeDef] = None
-    IpExpression: Optional[IngressIpv4ExpressionUnionTypeDef] = None
-    StringExpression: Optional[IngressStringExpressionUnionTypeDef] = None
-    TlsExpression: Optional[IngressTlsProtocolExpressionTypeDef] = None
+class PolicyCondition(BaseValidatorModel):
+    BooleanExpression: Optional[IngressBooleanExpressionUnion] = None
+    IpExpression: Optional[IngressIpv4ExpressionUnion] = None
+    StringExpression: Optional[IngressStringExpressionUnion] = None
+    TlsExpression: Optional[IngressTlsProtocolExpression] = None
 
 
-class RuleStringExpressionUnionTypeDef(BaseValidatorModel):
+class RuleStringExpressionUnion(BaseValidatorModel):
     pass
 
 
-class RuleDmarcExpressionUnionTypeDef(BaseValidatorModel):
+class RuleDmarcExpressionUnion(BaseValidatorModel):
     pass
 
 
-class RuleVerdictExpressionUnionTypeDef(BaseValidatorModel):
+class RuleVerdictExpressionUnion(BaseValidatorModel):
     pass
 
 
-class RuleBooleanExpressionUnionTypeDef(BaseValidatorModel):
+class RuleBooleanExpressionUnion(BaseValidatorModel):
     pass
 
 
-class RuleIpExpressionUnionTypeDef(BaseValidatorModel):
+class RuleIpExpressionUnion(BaseValidatorModel):
     pass
 
 
-class RuleConditionTypeDef(BaseValidatorModel):
-    BooleanExpression: Optional[RuleBooleanExpressionUnionTypeDef] = None
-    DmarcExpression: Optional[RuleDmarcExpressionUnionTypeDef] = None
-    IpExpression: Optional[RuleIpExpressionUnionTypeDef] = None
-    NumberExpression: Optional[RuleNumberExpressionTypeDef] = None
-    StringExpression: Optional[RuleStringExpressionUnionTypeDef] = None
-    VerdictExpression: Optional[RuleVerdictExpressionUnionTypeDef] = None
+class RuleCondition(BaseValidatorModel):
+    BooleanExpression: Optional[RuleBooleanExpressionUnion] = None
+    DmarcExpression: Optional[RuleDmarcExpressionUnion] = None
+    IpExpression: Optional[RuleIpExpressionUnion] = None
+    NumberExpression: Optional[RuleNumberExpression] = None
+    StringExpression: Optional[RuleStringExpressionUnion] = None
+    VerdictExpression: Optional[RuleVerdictExpressionUnion] = None
 
 
-class PolicyConditionUnionTypeDef(BaseValidatorModel):
+class PolicyConditionUnion(BaseValidatorModel):
     pass
 
 
-class PolicyStatementTypeDef(BaseValidatorModel):
+class PolicyStatement(BaseValidatorModel):
     Action: AcceptActionType
-    Conditions: Sequence[PolicyConditionUnionTypeDef]
+    Conditions: Sequence[PolicyConditionUnion]
 
 
-class RuleConditionUnionTypeDef(BaseValidatorModel):
+class RuleConditionUnion(BaseValidatorModel):
     pass
 
 
-class RuleActionUnionTypeDef(BaseValidatorModel):
+class RuleActionUnion(BaseValidatorModel):
     pass
 
 
-class RuleTypeDef(BaseValidatorModel):
-    Actions: Sequence[RuleActionUnionTypeDef]
-    Conditions: Optional[Sequence[RuleConditionUnionTypeDef]] = None
+class Rule(BaseValidatorModel):
+    Actions: Sequence[RuleActionUnion]
+    Conditions: Optional[Sequence[RuleConditionUnion]] = None
     Name: Optional[str] = None
-    Unless: Optional[Sequence[RuleConditionUnionTypeDef]] = None
+    Unless: Optional[Sequence[RuleConditionUnion]] = None
 
 
-class PolicyStatementUnionTypeDef(BaseValidatorModel):
+class PolicyStatementUnion(BaseValidatorModel):
     pass
 
 
-class CreateTrafficPolicyRequestTypeDef(BaseValidatorModel):
+class CreateTrafficPolicyRequest(BaseValidatorModel):
     DefaultAction: AcceptActionType
-    PolicyStatements: Sequence[PolicyStatementUnionTypeDef]
+    PolicyStatements: Sequence[PolicyStatementUnion]
     TrafficPolicyName: str
     ClientToken: Optional[str] = None
     MaxMessageSizeBytes: Optional[int] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateTrafficPolicyRequestTypeDef(BaseValidatorModel):
+class UpdateTrafficPolicyRequest(BaseValidatorModel):
     TrafficPolicyId: str
     DefaultAction: Optional[AcceptActionType] = None
     MaxMessageSizeBytes: Optional[int] = None
-    PolicyStatements: Optional[Sequence[PolicyStatementUnionTypeDef]] = None
+    PolicyStatements: Optional[Sequence[PolicyStatementUnion]] = None
     TrafficPolicyName: Optional[str] = None
 
 
-class RuleUnionTypeDef(BaseValidatorModel):
+class RuleUnion(BaseValidatorModel):
     pass
 
 
-class CreateRuleSetRequestTypeDef(BaseValidatorModel):
+class CreateRuleSetRequest(BaseValidatorModel):
     RuleSetName: str
-    Rules: Sequence[RuleUnionTypeDef]
+    Rules: Sequence[RuleUnion]
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateRuleSetRequestTypeDef(BaseValidatorModel):
+class UpdateRuleSetRequest(BaseValidatorModel):
     RuleSetId: str
     RuleSetName: Optional[str] = None
-    Rules: Optional[Sequence[RuleUnionTypeDef]] = None
+    Rules: Optional[Sequence[RuleUnion]] = None
 
 

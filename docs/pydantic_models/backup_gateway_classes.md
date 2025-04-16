@@ -1,6 +1,6 @@
 # Backup Gateway Classes
 
-# AssociateGatewayToServerInputTypeDef
+# AssociateGatewayToServerInput
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -11,44 +11,18 @@
 - **Required**: Yes
 
 
-# AssociateGatewayToServerOutputTypeDef
+# AssociateGatewayToServerOutput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BandwidthRateLimitIntervalOutputTypeDef
-
-### DaysOfWeek
-- **Type**: typing.List[int]
-- **Required**: Yes
-
-### EndHourOfDay
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### EndMinuteOfHour
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### StartHourOfDay
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### StartMinuteOfHour
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### AverageUploadRateLimitInBitsPerSec
-- **Type**: typing.Optional[int]
-
-
-# BandwidthRateLimitIntervalTypeDef
+# BandwidthRateLimitInterval
 
 ### DaysOfWeek
 - **Type**: typing.Sequence[int]
@@ -74,7 +48,33 @@
 - **Type**: typing.Optional[int]
 
 
-# BandwidthRateLimitIntervalUnionTypeDef
+# BandwidthRateLimitIntervalOutput
+
+### DaysOfWeek
+- **Type**: typing.List[int]
+- **Required**: Yes
+
+### EndHourOfDay
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### EndMinuteOfHour
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### StartHourOfDay
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### StartMinuteOfHour
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### AverageUploadRateLimitInBitsPerSec
+- **Type**: typing.Optional[int]
+
+
+# BandwidthRateLimitIntervalUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateGatewayInputTypeDef
+# CreateGatewayInput
 
 ### ActivationKey
 - **Type**: <class 'str'>
@@ -101,75 +101,93 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.Tag]]
 
 
-# CreateGatewayOutputTypeDef
-
-### GatewayArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeleteGatewayInputTypeDef
-
-### GatewayArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteGatewayOutputTypeDef
+# CreateGatewayOutput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteHypervisorInputTypeDef
+# DeleteGatewayInput
+
+### GatewayArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteGatewayOutput
+
+### GatewayArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# DeleteHypervisorInput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHypervisorOutputTypeDef
+# DeleteHypervisorOutput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateGatewayFromServerInputTypeDef
+# DisassociateGatewayFromServerInput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateGatewayFromServerOutputTypeDef
+# DisassociateGatewayFromServerOutput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GatewayDetailsTypeDef
+# Gateway
+
+### GatewayArn
+- **Type**: typing.Optional[str]
+
+### GatewayDisplayName
+- **Type**: typing.Optional[str]
+
+### GatewayType
+- **Type**: typing.Optional[typing.Literal['BACKUP_VM']]
+
+### HypervisorId
+- **Type**: typing.Optional[str]
+
+### LastSeenTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# GatewayDetails
 
 ### GatewayArn
 - **Type**: typing.Optional[str]
@@ -187,7 +205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### MaintenanceStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.MaintenanceStartTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### NextUpdateAvailabilityTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -196,35 +214,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GatewayTypeDef
-
-### GatewayArn
-- **Type**: typing.Optional[str]
-
-### GatewayDisplayName
-- **Type**: typing.Optional[str]
-
-### GatewayType
-- **Type**: typing.Optional[typing.Literal['BACKUP_VM']]
-
-### HypervisorId
-- **Type**: typing.Optional[str]
-
-### LastSeenTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# GetBandwidthRateLimitScheduleInputTypeDef
+# GetBandwidthRateLimitScheduleInput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetBandwidthRateLimitScheduleOutputTypeDef
+# GetBandwidthRateLimitScheduleOutput
 
 ### BandwidthRateLimitIntervals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalOutput]
 - **Required**: Yes
 
 ### GatewayArn
@@ -232,54 +232,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGatewayInputTypeDef
+# GetGatewayInput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetGatewayOutputTypeDef
+# GetGatewayOutput
 
 ### Gateway
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.GatewayDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.GatewayDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHypervisorInputTypeDef
+# GetHypervisorInput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetHypervisorOutputTypeDef
+# GetHypervisorOutput
 
 ### Hypervisor
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.HypervisorDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.HypervisorDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHypervisorPropertyMappingsInputTypeDef
+# GetHypervisorPropertyMappingsInput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetHypervisorPropertyMappingsOutputTypeDef
+# GetHypervisorPropertyMappingsOutput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
@@ -290,33 +290,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VmwareToAwsTagMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VmwareToAwsTagMappingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VmwareToAwsTagMapping]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetVirtualMachineInputTypeDef
+# GetVirtualMachineInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetVirtualMachineOutputTypeDef
+# GetVirtualMachineOutput
 
 ### VirtualMachine
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.VirtualMachineDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.VirtualMachineDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HypervisorDetailsTypeDef
+# Hypervisor
+
+### Host
+- **Type**: typing.Optional[str]
+
+### HypervisorArn
+- **Type**: typing.Optional[str]
+
+### KmsKeyArn
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['ERROR', 'OFFLINE', 'ONLINE', 'PENDING']]
+
+
+# HypervisorDetails
 
 ### Host
 - **Type**: typing.Optional[str]
@@ -346,25 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ERROR', 'OFFLINE', 'ONLINE', 'PENDING']]
 
 
-# HypervisorTypeDef
-
-### Host
-- **Type**: typing.Optional[str]
-
-### HypervisorArn
-- **Type**: typing.Optional[str]
-
-### KmsKeyArn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['ERROR', 'OFFLINE', 'ONLINE', 'PENDING']]
-
-
-# ImportHypervisorConfigurationInputTypeDef
+# ImportHypervisorConfigurationInput
 
 ### Host
 - **Type**: <class 'str'>
@@ -381,30 +381,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.Tag]]
 
 ### Username
 - **Type**: typing.Optional[str]
 
 
-# ImportHypervisorConfigurationOutputTypeDef
+# ImportHypervisorConfigurationOutput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListGatewaysInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfigTypeDef]
-
-
-# ListGatewaysInputTypeDef
+# ListGatewaysInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -413,27 +407,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGatewaysOutputTypeDef
+# ListGatewaysInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfig]
+
+
+# ListGatewaysOutput
 
 ### Gateways
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.GatewayTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.Gateway]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListHypervisorsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfigTypeDef]
-
-
-# ListHypervisorsInputTypeDef
+# ListHypervisorsInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -442,52 +436,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHypervisorsOutputTypeDef
+# ListHypervisorsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfig]
+
+
+# ListHypervisorsOutput
 
 ### Hypervisors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.HypervisorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.Hypervisor]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVirtualMachinesInputPaginateTypeDef
-
-### HypervisorArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfigTypeDef]
-
-
-# ListVirtualMachinesInputTypeDef
+# ListVirtualMachinesInput
 
 ### HypervisorArn
 - **Type**: typing.Optional[str]
@@ -499,21 +490,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVirtualMachinesOutputTypeDef
+# ListVirtualMachinesInputPaginate
+
+### HypervisorArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfig]
+
+
+# ListVirtualMachinesOutput
 
 ### VirtualMachines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VirtualMachineTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VirtualMachine]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MaintenanceStartTimeTypeDef
+# MaintenanceStartTime
 
 ### HourOfDay
 - **Type**: <class 'int'>
@@ -530,7 +530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -542,10 +542,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutBandwidthRateLimitScheduleInputTypeDef
+# PutBandwidthRateLimitScheduleInput
 
 ### BandwidthRateLimitIntervals
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalUnion]
 - **Required**: Yes
 
 ### GatewayArn
@@ -553,18 +553,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutBandwidthRateLimitScheduleOutputTypeDef
+# PutBandwidthRateLimitScheduleOutput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutHypervisorPropertyMappingsInputTypeDef
+# PutHypervisorPropertyMappingsInput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
@@ -575,22 +575,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VmwareToAwsTagMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.VmwareToAwsTagMappingTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.VmwareToAwsTagMapping]
 - **Required**: Yes
 
 
-# PutHypervisorPropertyMappingsOutputTypeDef
+# PutHypervisorPropertyMappingsOutput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutMaintenanceStartTimeInputTypeDef
+# PutMaintenanceStartTimeInput
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -611,18 +611,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PutMaintenanceStartTimeOutputTypeDef
+# PutMaintenanceStartTimeOutput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -644,47 +644,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartVirtualMachinesMetadataSyncInputTypeDef
+# StartVirtualMachinesMetadataSyncInput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartVirtualMachinesMetadataSyncOutputTypeDef
+# StartVirtualMachinesMetadataSyncOutput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceInputTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagResourceOutputTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -695,7 +673,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestHypervisorConfigurationInputTypeDef
+# TagResourceInput
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.Tag]
+- **Required**: Yes
+
+
+# TagResourceOutput
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# TestHypervisorConfigurationInput
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -712,7 +712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -723,18 +723,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceOutputTypeDef
+# UntagResourceOutput
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGatewayInformationInputTypeDef
+# UpdateGatewayInformationInput
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -744,36 +744,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateGatewayInformationOutputTypeDef
+# UpdateGatewayInformationOutput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGatewaySoftwareNowInputTypeDef
+# UpdateGatewaySoftwareNowInput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# UpdateGatewaySoftwareNowOutputTypeDef
+# UpdateGatewaySoftwareNowOutput
 
 ### GatewayArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateHypervisorInputTypeDef
+# UpdateHypervisorInput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
@@ -795,18 +795,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateHypervisorOutputTypeDef
+# UpdateHypervisorOutput
 
 ### HypervisorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VirtualMachineDetailsTypeDef
+# VirtualMachine
+
+### HostName
+- **Type**: typing.Optional[str]
+
+### HypervisorId
+- **Type**: typing.Optional[str]
+
+### LastBackupDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Path
+- **Type**: typing.Optional[str]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+
+# VirtualMachineDetails
 
 ### HostName
 - **Type**: typing.Optional[str]
@@ -827,31 +848,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VmwareTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VmwareTagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VmwareTag]]
 
 
-# VirtualMachineTypeDef
-
-### HostName
-- **Type**: typing.Optional[str]
-
-### HypervisorId
-- **Type**: typing.Optional[str]
-
-### LastBackupDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Path
-- **Type**: typing.Optional[str]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-
-# VmwareTagTypeDef
+# VmwareTag
 
 ### VmwareCategory
 - **Type**: typing.Optional[str]
@@ -863,7 +863,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VmwareToAwsTagMappingTypeDef
+# VmwareToAwsTagMapping
 
 ### AwsTagKey
 - **Type**: <class 'str'>

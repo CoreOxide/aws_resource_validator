@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateEnvironmentRequestTypeDef
+# CreateEnvironmentRequest
 
 ### desktopArn
 - **Type**: <class 'str'>
@@ -22,7 +22,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['APPLY_IMMEDIATELY', 'USE_MAINTENANCE_WINDOW']]
 
 ### maintenanceWindow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.MaintenanceWindowUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.MaintenanceWindowUnion]
 
 ### softwareSetUpdateMode
 - **Type**: typing.Optional[typing.Literal['USE_DESIRED', 'USE_LATEST']]
@@ -43,81 +43,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateEnvironmentResponseTypeDef
+# CreateEnvironmentResponse
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.EnvironmentSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.EnvironmentSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeviceSummaryTypeDef
+# Device
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeviceTypeDef
+# DeviceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EnvironmentSummaryTypeDef
+# Environment
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EnvironmentTypeDef
+# EnvironmentSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetDeviceResponseTypeDef
+# GetDeviceResponse
 
 ### device
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.DeviceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.Device'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEnvironmentResponseTypeDef
+# GetEnvironmentResponse
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.EnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSoftwareSetResponseTypeDef
+# GetSoftwareSetResponse
 
 ### softwareSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.SoftwareSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.SoftwareSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDevicesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.PaginatorConfigTypeDef]
-
-
-# ListDevicesRequestTypeDef
+# ListDevicesRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -126,27 +120,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDevicesResponseTypeDef
+# ListDevicesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.PaginatorConfig]
+
+
+# ListDevicesResponse
 
 ### devices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.DeviceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.DeviceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.PaginatorConfigTypeDef]
-
-
-# ListEnvironmentsRequestTypeDef
+# ListEnvironmentsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -155,27 +149,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEnvironmentsResponseTypeDef
+# ListEnvironmentsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.PaginatorConfig]
+
+
+# ListEnvironmentsResponse
 
 ### environments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.EnvironmentSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.EnvironmentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSoftwareSetsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.PaginatorConfigTypeDef]
-
-
-# ListSoftwareSetsRequestTypeDef
+# ListSoftwareSetsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -184,45 +178,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListSoftwareSetsResponseTypeDef
+# ListSoftwareSetsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.PaginatorConfig]
+
+
+# ListSoftwareSetsResponse
 
 ### softwareSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.SoftwareSetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_thin_client_classes.SoftwareSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MaintenanceWindowUnionTypeDef
+# MaintenanceWindowUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -234,7 +234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -256,19 +256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SoftwareSetSummaryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# SoftwareSetTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# SoftwareTypeDef
+# Software
 
 ### name
 - **Type**: typing.Optional[str]
@@ -277,7 +265,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# SoftwareSet
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SoftwareSetSummary
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -288,7 +288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -299,25 +299,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDeviceResponseTypeDef
+# UpdateDeviceResponse
 
 ### device
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.DeviceSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.DeviceSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEnvironmentResponseTypeDef
+# UpdateEnvironmentResponse
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.EnvironmentSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.EnvironmentSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_thin_client_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

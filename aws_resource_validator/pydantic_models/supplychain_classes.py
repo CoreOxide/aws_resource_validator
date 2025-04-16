@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.supplychain_constants import *
 
-class BillOfMaterialsImportJobTypeDef(BaseValidatorModel):
+class BillOfMaterialsImportJob(BaseValidatorModel):
     instanceId: str
     jobId: str
     status: ConfigurationJobStatusType
@@ -20,13 +20,13 @@ class BillOfMaterialsImportJobTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class CreateBillOfMaterialsImportJobRequestTypeDef(BaseValidatorModel):
+class CreateBillOfMaterialsImportJobRequest(BaseValidatorModel):
     instanceId: str
     s3uri: str
     clientToken: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -34,7 +34,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateInstanceRequestTypeDef(BaseValidatorModel):
+class CreateInstanceRequest(BaseValidatorModel):
     instanceName: Optional[str] = None
     instanceDescription: Optional[str] = None
     kmsKeyArn: Optional[str] = None
@@ -43,7 +43,7 @@ class CreateInstanceRequestTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
-class InstanceTypeDef(BaseValidatorModel):
+class Instance(BaseValidatorModel):
     instanceId: str
     awsAccountId: str
     state: InstanceStateType
@@ -57,341 +57,341 @@ class InstanceTypeDef(BaseValidatorModel):
     versionNumber: Optional[float] = None
 
 
-class DataIntegrationFlowDatasetOptionsTypeDef(BaseValidatorModel):
+class DataIntegrationFlowDatasetOptions(BaseValidatorModel):
     loadType: Optional[DataIntegrationFlowLoadTypeType] = None
     dedupeRecords: Optional[bool] = None
 
 
-class DataIntegrationFlowS3OptionsTypeDef(BaseValidatorModel):
+class DataIntegrationFlowS3Options(BaseValidatorModel):
     fileType: Optional[DataIntegrationFlowFileTypeType] = None
 
 
-class DataIntegrationFlowSQLTransformationConfigurationTypeDef(BaseValidatorModel):
+class DataIntegrationFlowSQLTransformationConfiguration(BaseValidatorModel):
     query: str
 
 
-class DeleteDataIntegrationFlowRequestTypeDef(BaseValidatorModel):
+class DeleteDataIntegrationFlowRequest(BaseValidatorModel):
     instanceId: str
     name: str
 
 
-class DeleteDataLakeDatasetRequestTypeDef(BaseValidatorModel):
+class DeleteDataLakeDatasetRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
     name: str
 
 
-class DeleteInstanceRequestTypeDef(BaseValidatorModel):
+class DeleteInstanceRequest(BaseValidatorModel):
     instanceId: str
 
 
-class GetBillOfMaterialsImportJobRequestTypeDef(BaseValidatorModel):
+class GetBillOfMaterialsImportJobRequest(BaseValidatorModel):
     instanceId: str
     jobId: str
 
 
-class GetDataIntegrationFlowRequestTypeDef(BaseValidatorModel):
+class GetDataIntegrationFlowRequest(BaseValidatorModel):
     instanceId: str
     name: str
 
 
-class GetDataLakeDatasetRequestTypeDef(BaseValidatorModel):
+class GetDataLakeDatasetRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
     name: str
 
 
-class GetInstanceRequestTypeDef(BaseValidatorModel):
+class GetInstanceRequest(BaseValidatorModel):
     instanceId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListDataIntegrationFlowsRequestTypeDef(BaseValidatorModel):
+class ListDataIntegrationFlowsRequest(BaseValidatorModel):
     instanceId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDataLakeDatasetsRequestTypeDef(BaseValidatorModel):
+class ListDataLakeDatasetsRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListInstancesRequestTypeDef(BaseValidatorModel):
+class ListInstancesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     instanceNameFilter: Optional[Sequence[str]] = None
     instanceStateFilter: Optional[Sequence[InstanceStateType]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateDataLakeDatasetRequestTypeDef(BaseValidatorModel):
+class UpdateDataLakeDatasetRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
     name: str
     description: Optional[str] = None
 
 
-class UpdateInstanceRequestTypeDef(BaseValidatorModel):
+class UpdateInstanceRequest(BaseValidatorModel):
     instanceId: str
     instanceName: Optional[str] = None
     instanceDescription: Optional[str] = None
 
 
-class CreateBillOfMaterialsImportJobResponseTypeDef(BaseValidatorModel):
+class CreateBillOfMaterialsImportJobResponse(BaseValidatorModel):
     jobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataIntegrationFlowResponseTypeDef(BaseValidatorModel):
+class CreateDataIntegrationFlowResponse(BaseValidatorModel):
     instanceId: str
     name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDataIntegrationFlowResponseTypeDef(BaseValidatorModel):
+class DeleteDataIntegrationFlowResponse(BaseValidatorModel):
     instanceId: str
     name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDataLakeDatasetResponseTypeDef(BaseValidatorModel):
+class DeleteDataLakeDatasetResponse(BaseValidatorModel):
     instanceId: str
     namespace: str
     name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBillOfMaterialsImportJobResponseTypeDef(BaseValidatorModel):
-    job: BillOfMaterialsImportJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetBillOfMaterialsImportJobResponse(BaseValidatorModel):
+    job: BillOfMaterialsImportJob
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendDataIntegrationEventResponseTypeDef(BaseValidatorModel):
+class SendDataIntegrationEventResponse(BaseValidatorModel):
     eventId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateInstanceResponseTypeDef(BaseValidatorModel):
-    instance: InstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateInstanceResponse(BaseValidatorModel):
+    instance: Instance
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteInstanceResponseTypeDef(BaseValidatorModel):
-    instance: InstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteInstanceResponse(BaseValidatorModel):
+    instance: Instance
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInstanceResponseTypeDef(BaseValidatorModel):
-    instance: InstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInstanceResponse(BaseValidatorModel):
+    instance: Instance
+    ResponseMetadata: ResponseMetadata
 
 
-class ListInstancesResponseTypeDef(BaseValidatorModel):
-    instances: List[InstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInstancesResponse(BaseValidatorModel):
+    instances: List[Instance]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateInstanceResponseTypeDef(BaseValidatorModel):
-    instance: InstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateInstanceResponse(BaseValidatorModel):
+    instance: Instance
+    ResponseMetadata: ResponseMetadata
 
 
-class DataIntegrationFlowDatasetSourceConfigurationTypeDef(BaseValidatorModel):
+class DataIntegrationFlowDatasetSourceConfiguration(BaseValidatorModel):
     datasetIdentifier: str
-    options: Optional[DataIntegrationFlowDatasetOptionsTypeDef] = None
+    options: Optional[DataIntegrationFlowDatasetOptions] = None
 
 
-class DataIntegrationFlowDatasetTargetConfigurationTypeDef(BaseValidatorModel):
+class DataIntegrationFlowDatasetTargetConfiguration(BaseValidatorModel):
     datasetIdentifier: str
-    options: Optional[DataIntegrationFlowDatasetOptionsTypeDef] = None
+    options: Optional[DataIntegrationFlowDatasetOptions] = None
 
 
-class DataIntegrationFlowS3SourceConfigurationTypeDef(BaseValidatorModel):
+class DataIntegrationFlowS3SourceConfiguration(BaseValidatorModel):
     bucketName: str
     prefix: str
-    options: Optional[DataIntegrationFlowS3OptionsTypeDef] = None
+    options: Optional[DataIntegrationFlowS3Options] = None
 
 
-class DataIntegrationFlowS3TargetConfigurationTypeDef(BaseValidatorModel):
+class DataIntegrationFlowS3TargetConfiguration(BaseValidatorModel):
     bucketName: str
     prefix: str
-    options: Optional[DataIntegrationFlowS3OptionsTypeDef] = None
+    options: Optional[DataIntegrationFlowS3Options] = None
 
 
-class DataIntegrationFlowTransformationTypeDef(BaseValidatorModel):
+class DataIntegrationFlowTransformation(BaseValidatorModel):
     transformationType: DataIntegrationFlowTransformationTypeType
-    sqlTransformation: Optional[DataIntegrationFlowSQLTransformationConfigurationTypeDef] = None
+    sqlTransformation: Optional[DataIntegrationFlowSQLTransformationConfiguration] = None
 
 
-class DataLakeDatasetSchemaFieldTypeDef(BaseValidatorModel):
+class DataLakeDatasetSchemaField(BaseValidatorModel):
     pass
 
 
-class DataLakeDatasetSchemaOutputTypeDef(BaseValidatorModel):
+class DataLakeDatasetSchemaOutput(BaseValidatorModel):
     name: str
-    fields: List[DataLakeDatasetSchemaFieldTypeDef]
+    fields: List[DataLakeDatasetSchemaField]
 
 
-class DataLakeDatasetSchemaTypeDef(BaseValidatorModel):
+class DataLakeDatasetSchema(BaseValidatorModel):
     name: str
-    fields: Sequence[DataLakeDatasetSchemaFieldTypeDef]
+    fields: Sequence[DataLakeDatasetSchemaField]
 
 
-class ListDataIntegrationFlowsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataIntegrationFlowsRequestPaginate(BaseValidatorModel):
     instanceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataLakeDatasetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataLakeDatasetsRequestPaginate(BaseValidatorModel):
     instanceId: str
     namespace: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInstancesRequestPaginateTypeDef(BaseValidatorModel):
+class ListInstancesRequestPaginate(BaseValidatorModel):
     instanceNameFilter: Optional[Sequence[str]] = None
     instanceStateFilter: Optional[Sequence[InstanceStateType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class SendDataIntegrationEventRequestTypeDef(BaseValidatorModel):
+class SendDataIntegrationEventRequest(BaseValidatorModel):
     instanceId: str
     eventType: DataIntegrationEventTypeType
     data: str
     eventGroupId: str
-    eventTimestamp: Optional[TimestampTypeDef] = None
+    eventTimestamp: Optional[Timestamp] = None
     clientToken: Optional[str] = None
 
 
-class DataIntegrationFlowSourceTypeDef(BaseValidatorModel):
+class DataIntegrationFlowSource(BaseValidatorModel):
     sourceType: DataIntegrationFlowSourceTypeType
     sourceName: str
-    s3Source: Optional[DataIntegrationFlowS3SourceConfigurationTypeDef] = None
-    datasetSource: Optional[DataIntegrationFlowDatasetSourceConfigurationTypeDef] = None
+    s3Source: Optional[DataIntegrationFlowS3SourceConfiguration] = None
+    datasetSource: Optional[DataIntegrationFlowDatasetSourceConfiguration] = None
 
 
-class DataIntegrationFlowTargetTypeDef(BaseValidatorModel):
+class DataIntegrationFlowTarget(BaseValidatorModel):
     targetType: DataIntegrationFlowTargetTypeType
-    s3Target: Optional[DataIntegrationFlowS3TargetConfigurationTypeDef] = None
-    datasetTarget: Optional[DataIntegrationFlowDatasetTargetConfigurationTypeDef] = None
+    s3Target: Optional[DataIntegrationFlowS3TargetConfiguration] = None
+    datasetTarget: Optional[DataIntegrationFlowDatasetTargetConfiguration] = None
 
 
-class DataLakeDatasetTypeDef(BaseValidatorModel):
+class DataLakeDataset(BaseValidatorModel):
     instanceId: str
     namespace: str
     name: str
     arn: str
-    schema: DataLakeDatasetSchemaOutputTypeDef
+    schema: DataLakeDatasetSchemaOutput
     createdTime: datetime
     lastModifiedTime: datetime
     description: Optional[str] = None
 
 
-class CreateDataIntegrationFlowRequestTypeDef(BaseValidatorModel):
+class CreateDataIntegrationFlowRequest(BaseValidatorModel):
     instanceId: str
     name: str
-    sources: Sequence[DataIntegrationFlowSourceTypeDef]
-    transformation: DataIntegrationFlowTransformationTypeDef
-    target: DataIntegrationFlowTargetTypeDef
+    sources: Sequence[DataIntegrationFlowSource]
+    transformation: DataIntegrationFlowTransformation
+    target: DataIntegrationFlowTarget
     tags: Optional[Mapping[str, str]] = None
 
 
-class DataIntegrationFlowTypeDef(BaseValidatorModel):
+class DataIntegrationFlow(BaseValidatorModel):
     instanceId: str
     name: str
-    sources: List[DataIntegrationFlowSourceTypeDef]
-    transformation: DataIntegrationFlowTransformationTypeDef
-    target: DataIntegrationFlowTargetTypeDef
+    sources: List[DataIntegrationFlowSource]
+    transformation: DataIntegrationFlowTransformation
+    target: DataIntegrationFlowTarget
     createdTime: datetime
     lastModifiedTime: datetime
 
 
-class UpdateDataIntegrationFlowRequestTypeDef(BaseValidatorModel):
+class UpdateDataIntegrationFlowRequest(BaseValidatorModel):
     instanceId: str
     name: str
-    sources: Optional[Sequence[DataIntegrationFlowSourceTypeDef]] = None
-    transformation: Optional[DataIntegrationFlowTransformationTypeDef] = None
-    target: Optional[DataIntegrationFlowTargetTypeDef] = None
+    sources: Optional[Sequence[DataIntegrationFlowSource]] = None
+    transformation: Optional[DataIntegrationFlowTransformation] = None
+    target: Optional[DataIntegrationFlowTarget] = None
 
 
-class CreateDataLakeDatasetResponseTypeDef(BaseValidatorModel):
-    dataset: DataLakeDatasetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDataLakeDatasetResponse(BaseValidatorModel):
+    dataset: DataLakeDataset
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDataLakeDatasetResponseTypeDef(BaseValidatorModel):
-    dataset: DataLakeDatasetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDataLakeDatasetResponse(BaseValidatorModel):
+    dataset: DataLakeDataset
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDataLakeDatasetsResponseTypeDef(BaseValidatorModel):
-    datasets: List[DataLakeDatasetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataLakeDatasetsResponse(BaseValidatorModel):
+    datasets: List[DataLakeDataset]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateDataLakeDatasetResponseTypeDef(BaseValidatorModel):
-    dataset: DataLakeDatasetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDataLakeDatasetResponse(BaseValidatorModel):
+    dataset: DataLakeDataset
+    ResponseMetadata: ResponseMetadata
 
 
-class DataLakeDatasetSchemaUnionTypeDef(BaseValidatorModel):
+class DataLakeDatasetSchemaUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataLakeDatasetRequestTypeDef(BaseValidatorModel):
+class CreateDataLakeDatasetRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
     name: str
-    schema: Optional[DataLakeDatasetSchemaUnionTypeDef] = None
+    schema: Optional[DataLakeDatasetSchemaUnion] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetDataIntegrationFlowResponseTypeDef(BaseValidatorModel):
-    flow: DataIntegrationFlowTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDataIntegrationFlowResponse(BaseValidatorModel):
+    flow: DataIntegrationFlow
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDataIntegrationFlowsResponseTypeDef(BaseValidatorModel):
-    flows: List[DataIntegrationFlowTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataIntegrationFlowsResponse(BaseValidatorModel):
+    flows: List[DataIntegrationFlow]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateDataIntegrationFlowResponseTypeDef(BaseValidatorModel):
-    flow: DataIntegrationFlowTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDataIntegrationFlowResponse(BaseValidatorModel):
+    flow: DataIntegrationFlow
+    ResponseMetadata: ResponseMetadata
 
 

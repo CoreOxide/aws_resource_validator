@@ -12,19 +12,19 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_constants import *
 
-class ActionSourceTypeDef(BaseValidatorModel):
+class ActionSource(BaseValidatorModel):
     SourceUri: str
     SourceType: Optional[str] = None
     SourceId: Optional[str] = None
 
 
-class AddAssociationRequestTypeDef(BaseValidatorModel):
+class AddAssociationRequest(BaseValidatorModel):
     SourceArn: str
     DestinationArn: str
     AssociationType: Optional[AssociationEdgeTypeType] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -32,39 +32,39 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class AdditionalS3DataSourceTypeDef(BaseValidatorModel):
+class AdditionalS3DataSource(BaseValidatorModel):
     S3DataType: AdditionalS3DataSourceDataTypeType
     S3Uri: str
     CompressionType: Optional[CompressionTypeType] = None
     ETag: Optional[str] = None
 
 
-class AgentVersionTypeDef(BaseValidatorModel):
+class AgentVersion(BaseValidatorModel):
     Version: str
     AgentCount: int
 
 
-class AlarmTypeDef(BaseValidatorModel):
+class Alarm(BaseValidatorModel):
     AlarmName: Optional[str] = None
 
 
-class MetricDefinitionTypeDef(BaseValidatorModel):
+class MetricDefinition(BaseValidatorModel):
     Name: str
     Regex: str
 
 
-class AlgorithmStatusItemTypeDef(BaseValidatorModel):
+class AlgorithmStatusItem(BaseValidatorModel):
     Name: str
     Status: DetailedAlgorithmStatusType
     FailureReason: Optional[str] = None
 
 
-class AlgorithmSummaryTypeDef(BaseValidatorModel):
+class AlgorithmSummary(BaseValidatorModel):
     AlgorithmName: str
     AlgorithmArn: str
     CreationTime: datetime
@@ -72,16 +72,16 @@ class AlgorithmSummaryTypeDef(BaseValidatorModel):
     AlgorithmDescription: Optional[str] = None
 
 
-class AmazonQSettingsTypeDef(BaseValidatorModel):
+class AmazonQSettings(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
     QProfileArn: Optional[str] = None
 
 
-class AnnotationConsolidationConfigTypeDef(BaseValidatorModel):
+class AnnotationConsolidationConfig(BaseValidatorModel):
     AnnotationConsolidationLambdaArn: str
 
 
-class ResourceSpecTypeDef(BaseValidatorModel):
+class ResourceSpec(BaseValidatorModel):
     SageMakerImageArn: Optional[str] = None
     SageMakerImageVersionArn: Optional[str] = None
     SageMakerImageVersionAlias: Optional[str] = None
@@ -89,52 +89,52 @@ class ResourceSpecTypeDef(BaseValidatorModel):
     LifecycleConfigArn: Optional[str] = None
 
 
-class IdleSettingsTypeDef(BaseValidatorModel):
+class IdleSettings(BaseValidatorModel):
     LifecycleManagement: Optional[LifecycleManagementType] = None
     IdleTimeoutInMinutes: Optional[int] = None
     MinIdleTimeoutInMinutes: Optional[int] = None
     MaxIdleTimeoutInMinutes: Optional[int] = None
 
 
-class AppSpecificationOutputTypeDef(BaseValidatorModel):
+class AppSpecificationOutput(BaseValidatorModel):
     ImageUri: str
     ContainerEntrypoint: Optional[List[str]] = None
     ContainerArguments: Optional[List[str]] = None
 
 
-class AppSpecificationTypeDef(BaseValidatorModel):
+class AppSpecification(BaseValidatorModel):
     ImageUri: str
     ContainerEntrypoint: Optional[Sequence[str]] = None
     ContainerArguments: Optional[Sequence[str]] = None
 
 
-class ArtifactSourceTypeTypeDef(BaseValidatorModel):
+class ArtifactSourceType(BaseValidatorModel):
     SourceIdType: ArtifactSourceIdTypeType
     Value: str
 
 
-class AssociateTrialComponentRequestTypeDef(BaseValidatorModel):
+class AssociateTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
     TrialName: str
 
 
-class AsyncInferenceClientConfigTypeDef(BaseValidatorModel):
+class AsyncInferenceClientConfig(BaseValidatorModel):
     MaxConcurrentInvocationsPerInstance: Optional[int] = None
 
 
-class AsyncInferenceNotificationConfigOutputTypeDef(BaseValidatorModel):
+class AsyncInferenceNotificationConfigOutput(BaseValidatorModel):
     SuccessTopic: Optional[str] = None
     ErrorTopic: Optional[str] = None
     IncludeInferenceResponseIn: Optional[List[AsyncNotificationTopicTypesType]] = None
 
 
-class AsyncInferenceNotificationConfigTypeDef(BaseValidatorModel):
+class AsyncInferenceNotificationConfig(BaseValidatorModel):
     SuccessTopic: Optional[str] = None
     ErrorTopic: Optional[str] = None
     IncludeInferenceResponseIn: Optional[Sequence[AsyncNotificationTopicTypesType]] = None
 
 
-class AthenaDatasetDefinitionTypeDef(BaseValidatorModel):
+class AthenaDatasetDefinition(BaseValidatorModel):
     Catalog: str
     Database: str
     QueryString: str
@@ -145,230 +145,230 @@ class AthenaDatasetDefinitionTypeDef(BaseValidatorModel):
     OutputCompression: Optional[AthenaResultCompressionTypeType] = None
 
 
-class AutoMLAlgorithmConfigOutputTypeDef(BaseValidatorModel):
+class AutoMLAlgorithmConfigOutput(BaseValidatorModel):
     AutoMLAlgorithms: List[AutoMLAlgorithmType]
 
 
-class AutoMLAlgorithmConfigTypeDef(BaseValidatorModel):
+class AutoMLAlgorithmConfig(BaseValidatorModel):
     AutoMLAlgorithms: Sequence[AutoMLAlgorithmType]
 
 
-class AutoMLCandidateStepTypeDef(BaseValidatorModel):
+class AutoMLCandidateStep(BaseValidatorModel):
     CandidateStepType: CandidateStepTypeType
     CandidateStepArn: str
     CandidateStepName: str
 
 
-class AutoMLContainerDefinitionTypeDef(BaseValidatorModel):
+class AutoMLContainerDefinition(BaseValidatorModel):
     Image: str
     ModelDataUrl: str
     Environment: Optional[Dict[str, str]] = None
 
 
-class EmrServerlessComputeConfigTypeDef(BaseValidatorModel):
+class EmrServerlessComputeConfig(BaseValidatorModel):
     ExecutionRoleARN: str
 
 
-class AutoMLS3DataSourceTypeDef(BaseValidatorModel):
+class AutoMLS3DataSource(BaseValidatorModel):
     S3DataType: AutoMLS3DataTypeType
     S3Uri: str
 
 
-class AutoMLDataSplitConfigTypeDef(BaseValidatorModel):
+class AutoMLDataSplitConfig(BaseValidatorModel):
     ValidationFraction: Optional[float] = None
 
 
-class AutoMLJobArtifactsTypeDef(BaseValidatorModel):
+class AutoMLJobArtifacts(BaseValidatorModel):
     CandidateDefinitionNotebookLocation: Optional[str] = None
     DataExplorationNotebookLocation: Optional[str] = None
 
 
-class AutoMLJobCompletionCriteriaTypeDef(BaseValidatorModel):
+class AutoMLJobCompletionCriteria(BaseValidatorModel):
     MaxCandidates: Optional[int] = None
     MaxRuntimePerTrainingJobInSeconds: Optional[int] = None
     MaxAutoMLJobRuntimeInSeconds: Optional[int] = None
 
 
-class AutoMLJobObjectiveTypeDef(BaseValidatorModel):
+class AutoMLJobObjective(BaseValidatorModel):
     MetricName: AutoMLMetricEnumType
 
 
-class AutoMLJobStepMetadataTypeDef(BaseValidatorModel):
+class AutoMLJobStepMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class AutoMLPartialFailureReasonTypeDef(BaseValidatorModel):
+class AutoMLPartialFailureReason(BaseValidatorModel):
     PartialFailureMessage: Optional[str] = None
 
 
-class AutoMLOutputDataConfigTypeDef(BaseValidatorModel):
+class AutoMLOutputDataConfig(BaseValidatorModel):
     S3OutputPath: str
     KmsKeyId: Optional[str] = None
 
 
-class TabularResolvedAttributesTypeDef(BaseValidatorModel):
+class TabularResolvedAttributes(BaseValidatorModel):
     ProblemType: Optional[ProblemTypeType] = None
 
 
-class TextGenerationResolvedAttributesTypeDef(BaseValidatorModel):
+class TextGenerationResolvedAttributes(BaseValidatorModel):
     BaseModelName: Optional[str] = None
 
 
-class VpcConfigOutputTypeDef(BaseValidatorModel):
+class VpcConfigOutput(BaseValidatorModel):
     SecurityGroupIds: List[str]
     Subnets: List[str]
 
 
-class VpcConfigTypeDef(BaseValidatorModel):
+class VpcConfig(BaseValidatorModel):
     SecurityGroupIds: Sequence[str]
     Subnets: Sequence[str]
 
 
-class AutoParameterTypeDef(BaseValidatorModel):
+class AutoParameter(BaseValidatorModel):
     Name: str
     ValueHint: str
 
 
-class AutotuneTypeDef(BaseValidatorModel):
+class Autotune(BaseValidatorModel):
     Mode: Literal["Enabled"]
 
 
-class BatchDataCaptureConfigTypeDef(BaseValidatorModel):
+class BatchDataCaptureConfig(BaseValidatorModel):
     DestinationS3Uri: str
     KmsKeyId: Optional[str] = None
     GenerateInferenceId: Optional[bool] = None
 
 
-class BatchDeleteClusterNodesErrorTypeDef(BaseValidatorModel):
+class BatchDeleteClusterNodesError(BaseValidatorModel):
     Code: BatchDeleteClusterNodesErrorCodeType
     Message: str
     NodeId: str
 
 
-class BatchDeleteClusterNodesRequestTypeDef(BaseValidatorModel):
+class BatchDeleteClusterNodesRequest(BaseValidatorModel):
     ClusterName: str
     NodeIds: Sequence[str]
 
 
-class BatchDescribeModelPackageErrorTypeDef(BaseValidatorModel):
+class BatchDescribeModelPackageError(BaseValidatorModel):
     ErrorCode: str
     ErrorResponse: str
 
 
-class BatchDescribeModelPackageInputTypeDef(BaseValidatorModel):
+class BatchDescribeModelPackageInput(BaseValidatorModel):
     ModelPackageArnList: Sequence[str]
 
 
-class BestObjectiveNotImprovingTypeDef(BaseValidatorModel):
+class BestObjectiveNotImproving(BaseValidatorModel):
     MaxNumberOfTrainingJobsNotImproving: Optional[int] = None
 
 
-class MetricsSourceTypeDef(BaseValidatorModel):
+class MetricsSource(BaseValidatorModel):
     ContentType: str
     S3Uri: str
     ContentDigest: Optional[str] = None
 
 
-class CacheHitResultTypeDef(BaseValidatorModel):
+class CacheHitResult(BaseValidatorModel):
     SourcePipelineExecutionArn: Optional[str] = None
 
 
-class OutputParameterTypeDef(BaseValidatorModel):
+class OutputParameter(BaseValidatorModel):
     Name: str
     Value: str
 
 
-class CandidateArtifactLocationsTypeDef(BaseValidatorModel):
+class CandidateArtifactLocations(BaseValidatorModel):
     Explainability: str
     ModelInsights: Optional[str] = None
     BacktestResults: Optional[str] = None
 
 
-class DirectDeploySettingsTypeDef(BaseValidatorModel):
+class DirectDeploySettings(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
 
 
-class EmrServerlessSettingsTypeDef(BaseValidatorModel):
+class EmrServerlessSettings(BaseValidatorModel):
     ExecutionRoleArn: Optional[str] = None
     Status: Optional[FeatureStatusType] = None
 
 
-class GenerativeAiSettingsTypeDef(BaseValidatorModel):
+class GenerativeAiSettings(BaseValidatorModel):
     AmazonBedrockRoleArn: Optional[str] = None
 
 
-class IdentityProviderOAuthSettingTypeDef(BaseValidatorModel):
+class IdentityProviderOAuthSetting(BaseValidatorModel):
     DataSourceName: Optional[DataSourceNameType] = None
     Status: Optional[FeatureStatusType] = None
     SecretArn: Optional[str] = None
 
 
-class KendraSettingsTypeDef(BaseValidatorModel):
+class KendraSettings(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
 
 
-class ModelRegisterSettingsTypeDef(BaseValidatorModel):
+class ModelRegisterSettings(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
     CrossAccountModelRegisterRoleArn: Optional[str] = None
 
 
-class TimeSeriesForecastingSettingsTypeDef(BaseValidatorModel):
+class TimeSeriesForecastingSettings(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
     AmazonForecastRoleArn: Optional[str] = None
 
 
-class WorkspaceSettingsTypeDef(BaseValidatorModel):
+class WorkspaceSettings(BaseValidatorModel):
     S3ArtifactPath: Optional[str] = None
     S3KmsKeyId: Optional[str] = None
 
 
-class CaptureContentTypeHeaderOutputTypeDef(BaseValidatorModel):
+class CaptureContentTypeHeaderOutput(BaseValidatorModel):
     CsvContentTypes: Optional[List[str]] = None
     JsonContentTypes: Optional[List[str]] = None
 
 
-class CaptureContentTypeHeaderTypeDef(BaseValidatorModel):
+class CaptureContentTypeHeader(BaseValidatorModel):
     CsvContentTypes: Optional[Sequence[str]] = None
     JsonContentTypes: Optional[Sequence[str]] = None
 
 
-class CaptureOptionTypeDef(BaseValidatorModel):
+class CaptureOption(BaseValidatorModel):
     CaptureMode: CaptureModeType
 
 
-class CategoricalParameterOutputTypeDef(BaseValidatorModel):
+class CategoricalParameterOutput(BaseValidatorModel):
     Name: str
     Value: List[str]
 
 
-class CategoricalParameterRangeOutputTypeDef(BaseValidatorModel):
+class CategoricalParameterRangeOutput(BaseValidatorModel):
     Name: str
     Values: List[str]
 
 
-class CategoricalParameterRangeSpecificationOutputTypeDef(BaseValidatorModel):
+class CategoricalParameterRangeSpecificationOutput(BaseValidatorModel):
     Values: List[str]
 
 
-class CategoricalParameterRangeSpecificationTypeDef(BaseValidatorModel):
+class CategoricalParameterRangeSpecification(BaseValidatorModel):
     Values: Sequence[str]
 
 
-class CategoricalParameterRangeTypeDef(BaseValidatorModel):
+class CategoricalParameterRange(BaseValidatorModel):
     Name: str
     Values: Sequence[str]
 
 
-class CategoricalParameterTypeDef(BaseValidatorModel):
+class CategoricalParameter(BaseValidatorModel):
     Name: str
     Value: Sequence[str]
 
 
-class ShuffleConfigTypeDef(BaseValidatorModel):
+class ShuffleConfig(BaseValidatorModel):
     Seed: int
 
 
-class ChannelSpecificationOutputTypeDef(BaseValidatorModel):
+class ChannelSpecificationOutput(BaseValidatorModel):
     Name: str
     SupportedContentTypes: List[str]
     SupportedInputModes: List[TrainingInputModeType]
@@ -377,7 +377,7 @@ class ChannelSpecificationOutputTypeDef(BaseValidatorModel):
     SupportedCompressionTypes: Optional[List[CompressionTypeType]] = None
 
 
-class ChannelSpecificationTypeDef(BaseValidatorModel):
+class ChannelSpecification(BaseValidatorModel):
     Name: str
     SupportedContentTypes: Sequence[str]
     SupportedInputModes: Sequence[TrainingInputModeType]
@@ -386,12 +386,12 @@ class ChannelSpecificationTypeDef(BaseValidatorModel):
     SupportedCompressionTypes: Optional[Sequence[CompressionTypeType]] = None
 
 
-class CheckpointConfigTypeDef(BaseValidatorModel):
+class CheckpointConfig(BaseValidatorModel):
     S3Uri: str
     LocalPath: Optional[str] = None
 
 
-class ClarifyCheckStepMetadataTypeDef(BaseValidatorModel):
+class ClarifyCheckStepMetadata(BaseValidatorModel):
     CheckType: Optional[str] = None
     BaselineUsedForDriftCheckConstraints: Optional[str] = None
     CalculatedBaselineConstraints: Optional[str] = None
@@ -402,7 +402,7 @@ class ClarifyCheckStepMetadataTypeDef(BaseValidatorModel):
     RegisterNewBaseline: Optional[bool] = None
 
 
-class ClarifyInferenceConfigOutputTypeDef(BaseValidatorModel):
+class ClarifyInferenceConfigOutput(BaseValidatorModel):
     FeaturesAttribute: Optional[str] = None
     ContentTemplate: Optional[str] = None
     MaxRecordCount: Optional[int] = None
@@ -416,7 +416,7 @@ class ClarifyInferenceConfigOutputTypeDef(BaseValidatorModel):
     FeatureTypes: Optional[List[ClarifyFeatureTypeType]] = None
 
 
-class ClarifyInferenceConfigTypeDef(BaseValidatorModel):
+class ClarifyInferenceConfig(BaseValidatorModel):
     FeaturesAttribute: Optional[str] = None
     ContentTemplate: Optional[str] = None
     MaxRecordCount: Optional[int] = None
@@ -430,41 +430,41 @@ class ClarifyInferenceConfigTypeDef(BaseValidatorModel):
     FeatureTypes: Optional[Sequence[ClarifyFeatureTypeType]] = None
 
 
-class ClarifyShapBaselineConfigTypeDef(BaseValidatorModel):
+class ClarifyShapBaselineConfig(BaseValidatorModel):
     MimeType: Optional[str] = None
     ShapBaseline: Optional[str] = None
     ShapBaselineUri: Optional[str] = None
 
 
-class ClarifyTextConfigTypeDef(BaseValidatorModel):
+class ClarifyTextConfig(BaseValidatorModel):
     Language: ClarifyTextLanguageType
     Granularity: ClarifyTextGranularityType
 
 
-class ClusterEbsVolumeConfigTypeDef(BaseValidatorModel):
+class ClusterEbsVolumeConfig(BaseValidatorModel):
     VolumeSizeInGB: int
 
 
-class ClusterLifeCycleConfigTypeDef(BaseValidatorModel):
+class ClusterLifeCycleConfig(BaseValidatorModel):
     SourceS3Uri: str
     OnCreate: str
 
 
-class ClusterInstancePlacementTypeDef(BaseValidatorModel):
+class ClusterInstancePlacement(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
 
 
-class ClusterInstanceStatusDetailsTypeDef(BaseValidatorModel):
+class ClusterInstanceStatusDetails(BaseValidatorModel):
     Status: ClusterInstanceStatusType
     Message: Optional[str] = None
 
 
-class ClusterOrchestratorEksConfigTypeDef(BaseValidatorModel):
+class ClusterOrchestratorEksConfig(BaseValidatorModel):
     ClusterArn: str
 
 
-class ClusterSchedulerConfigSummaryTypeDef(BaseValidatorModel):
+class ClusterSchedulerConfigSummary(BaseValidatorModel):
     ClusterSchedulerConfigArn: str
     ClusterSchedulerConfigId: str
     Name: str
@@ -475,7 +475,7 @@ class ClusterSchedulerConfigSummaryTypeDef(BaseValidatorModel):
     ClusterArn: Optional[str] = None
 
 
-class ClusterSummaryTypeDef(BaseValidatorModel):
+class ClusterSummary(BaseValidatorModel):
     ClusterArn: str
     ClusterName: str
     CreationTime: datetime
@@ -483,66 +483,66 @@ class ClusterSummaryTypeDef(BaseValidatorModel):
     TrainingPlanArns: Optional[List[str]] = None
 
 
-class ContainerConfigOutputTypeDef(BaseValidatorModel):
+class ContainerConfigOutput(BaseValidatorModel):
     ContainerArguments: Optional[List[str]] = None
     ContainerEntrypoint: Optional[List[str]] = None
     ContainerEnvironmentVariables: Optional[Dict[str, str]] = None
 
 
-class FileSystemConfigTypeDef(BaseValidatorModel):
+class FileSystemConfig(BaseValidatorModel):
     MountPath: Optional[str] = None
     DefaultUid: Optional[int] = None
     DefaultGid: Optional[int] = None
 
 
-class ContainerConfigTypeDef(BaseValidatorModel):
+class ContainerConfig(BaseValidatorModel):
     ContainerArguments: Optional[Sequence[str]] = None
     ContainerEntrypoint: Optional[Sequence[str]] = None
     ContainerEnvironmentVariables: Optional[Mapping[str, str]] = None
 
 
-class CustomImageTypeDef(BaseValidatorModel):
+class CustomImage(BaseValidatorModel):
     ImageName: str
     AppImageConfigName: str
     ImageVersionNumber: Optional[int] = None
 
 
-class GitConfigTypeDef(BaseValidatorModel):
+class GitConfig(BaseValidatorModel):
     RepositoryUrl: str
     Branch: Optional[str] = None
     SecretArn: Optional[str] = None
 
 
-class CodeRepositoryTypeDef(BaseValidatorModel):
+class CodeRepository(BaseValidatorModel):
     RepositoryUrl: str
 
 
-class CognitoConfigTypeDef(BaseValidatorModel):
+class CognitoConfig(BaseValidatorModel):
     UserPool: str
     ClientId: str
 
 
-class CognitoMemberDefinitionTypeDef(BaseValidatorModel):
+class CognitoMemberDefinition(BaseValidatorModel):
     UserPool: str
     UserGroup: str
     ClientId: str
 
 
-class VectorConfigTypeDef(BaseValidatorModel):
+class VectorConfig(BaseValidatorModel):
     Dimension: int
 
 
-class CollectionConfigurationOutputTypeDef(BaseValidatorModel):
+class CollectionConfigurationOutput(BaseValidatorModel):
     CollectionName: Optional[str] = None
     CollectionParameters: Optional[Dict[str, str]] = None
 
 
-class CollectionConfigurationTypeDef(BaseValidatorModel):
+class CollectionConfiguration(BaseValidatorModel):
     CollectionName: Optional[str] = None
     CollectionParameters: Optional[Mapping[str, str]] = None
 
 
-class CompilationJobSummaryTypeDef(BaseValidatorModel):
+class CompilationJobSummary(BaseValidatorModel):
     CompilationJobName: str
     CompilationJobArn: str
     CreationTime: datetime
@@ -556,116 +556,116 @@ class CompilationJobSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class ComputeQuotaResourceConfigTypeDef(BaseValidatorModel):
+class ComputeQuotaResourceConfig(BaseValidatorModel):
     InstanceType: ClusterInstanceTypeType
     Count: int
 
 
-class ResourceSharingConfigTypeDef(BaseValidatorModel):
+class ResourceSharingConfig(BaseValidatorModel):
     Strategy: ResourceSharingStrategyType
     BorrowLimit: Optional[int] = None
 
 
-class ComputeQuotaTargetTypeDef(BaseValidatorModel):
+class ComputeQuotaTarget(BaseValidatorModel):
     TeamName: str
     FairShareWeight: Optional[int] = None
 
 
-class ConditionStepMetadataTypeDef(BaseValidatorModel):
+class ConditionStepMetadata(BaseValidatorModel):
     Outcome: Optional[ConditionOutcomeType] = None
 
 
-class MultiModelConfigTypeDef(BaseValidatorModel):
+class MultiModelConfig(BaseValidatorModel):
     ModelCacheSetting: Optional[ModelCacheSettingType] = None
 
 
-class ContextSourceTypeDef(BaseValidatorModel):
+class ContextSource(BaseValidatorModel):
     SourceUri: str
     SourceType: Optional[str] = None
     SourceId: Optional[str] = None
 
 
-class ContinuousParameterRangeSpecificationTypeDef(BaseValidatorModel):
+class ContinuousParameterRangeSpecification(BaseValidatorModel):
     MinValue: str
     MaxValue: str
 
 
-class ContinuousParameterRangeTypeDef(BaseValidatorModel):
+class ContinuousParameterRange(BaseValidatorModel):
     Name: str
     MinValue: str
     MaxValue: str
     ScalingType: Optional[HyperParameterScalingTypeType] = None
 
 
-class ConvergenceDetectedTypeDef(BaseValidatorModel):
+class ConvergenceDetected(BaseValidatorModel):
     CompleteOnConvergence: Optional[CompleteOnConvergenceType] = None
 
 
-class MetadataPropertiesTypeDef(BaseValidatorModel):
+class MetadataProperties(BaseValidatorModel):
     CommitId: Optional[str] = None
     Repository: Optional[str] = None
     GeneratedBy: Optional[str] = None
     ProjectId: Optional[str] = None
 
 
-class ModelDeployConfigTypeDef(BaseValidatorModel):
+class ModelDeployConfig(BaseValidatorModel):
     AutoGenerateEndpointName: Optional[bool] = None
     EndpointName: Optional[str] = None
 
 
-class InputConfigTypeDef(BaseValidatorModel):
+class InputConfig(BaseValidatorModel):
     S3Uri: str
     Framework: FrameworkType
     DataInputConfig: Optional[str] = None
     FrameworkVersion: Optional[str] = None
 
 
-class StoppingConditionTypeDef(BaseValidatorModel):
+class StoppingCondition(BaseValidatorModel):
     MaxRuntimeInSeconds: Optional[int] = None
     MaxWaitTimeInSeconds: Optional[int] = None
     MaxPendingTimeInSeconds: Optional[int] = None
 
 
-class MonitoringStoppingConditionTypeDef(BaseValidatorModel):
+class MonitoringStoppingCondition(BaseValidatorModel):
     MaxRuntimeInSeconds: int
 
 
-class EdgeOutputConfigTypeDef(BaseValidatorModel):
+class EdgeOutputConfig(BaseValidatorModel):
     S3OutputLocation: str
     KmsKeyId: Optional[str] = None
     PresetDeploymentType: Optional[Literal["GreengrassV2Component"]] = None
     PresetDeploymentConfig: Optional[str] = None
 
 
-class EdgeDeploymentModelConfigTypeDef(BaseValidatorModel):
+class EdgeDeploymentModelConfig(BaseValidatorModel):
     ModelHandle: str
     EdgePackagingJobName: str
 
 
-class ThroughputConfigTypeDef(BaseValidatorModel):
+class ThroughputConfig(BaseValidatorModel):
     ThroughputMode: ThroughputModeType
     ProvisionedReadCapacityUnits: Optional[int] = None
     ProvisionedWriteCapacityUnits: Optional[int] = None
 
 
-class FlowDefinitionOutputConfigTypeDef(BaseValidatorModel):
+class FlowDefinitionOutputConfig(BaseValidatorModel):
     S3OutputPath: str
     KmsKeyId: Optional[str] = None
 
 
-class HumanLoopRequestSourceTypeDef(BaseValidatorModel):
+class HumanLoopRequestSource(BaseValidatorModel):
     AwsManagedHumanLoopRequestSource: AwsManagedHumanLoopRequestSourceType
 
 
-class HubS3StorageConfigTypeDef(BaseValidatorModel):
+class HubS3StorageConfig(BaseValidatorModel):
     S3OutputPath: Optional[str] = None
 
 
-class UiTemplateTypeDef(BaseValidatorModel):
+class UiTemplate(BaseValidatorModel):
     Content: str
 
 
-class CreateImageVersionRequestTypeDef(BaseValidatorModel):
+class CreateImageVersionRequest(BaseValidatorModel):
     BaseImage: str
     ClientToken: str
     ImageName: str
@@ -679,82 +679,82 @@ class CreateImageVersionRequestTypeDef(BaseValidatorModel):
     ReleaseNotes: Optional[str] = None
 
 
-class InferenceComponentRuntimeConfigTypeDef(BaseValidatorModel):
+class InferenceComponentRuntimeConfig(BaseValidatorModel):
     CopyCount: int
 
 
-class LabelingJobOutputConfigTypeDef(BaseValidatorModel):
+class LabelingJobOutputConfig(BaseValidatorModel):
     S3OutputPath: str
     KmsKeyId: Optional[str] = None
     SnsTopicArn: Optional[str] = None
 
 
-class LabelingJobStoppingConditionsTypeDef(BaseValidatorModel):
+class LabelingJobStoppingConditions(BaseValidatorModel):
     MaxHumanLabeledObjectCount: Optional[int] = None
     MaxPercentageOfInputDatasetLabeled: Optional[int] = None
 
 
-class ModelCardExportOutputConfigTypeDef(BaseValidatorModel):
+class ModelCardExportOutputConfig(BaseValidatorModel):
     S3OutputPath: str
 
 
-class ModelCardSecurityConfigTypeDef(BaseValidatorModel):
+class ModelCardSecurityConfig(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
-class InferenceExecutionConfigTypeDef(BaseValidatorModel):
+class InferenceExecutionConfig(BaseValidatorModel):
     Mode: InferenceExecutionModeType
 
 
-class ModelLifeCycleTypeDef(BaseValidatorModel):
+class ModelLifeCycle(BaseValidatorModel):
     Stage: str
     StageStatus: str
     StageDescription: Optional[str] = None
 
 
-class ModelPackageModelCardTypeDef(BaseValidatorModel):
+class ModelPackageModelCard(BaseValidatorModel):
     ModelCardContent: Optional[str] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
 
 
-class ModelPackageSecurityConfigTypeDef(BaseValidatorModel):
+class ModelPackageSecurityConfig(BaseValidatorModel):
     KmsKeyId: str
 
 
-class InstanceMetadataServiceConfigurationTypeDef(BaseValidatorModel):
+class InstanceMetadataServiceConfiguration(BaseValidatorModel):
     MinimumInstanceMetadataServiceVersion: str
 
 
-class NotebookInstanceLifecycleHookTypeDef(BaseValidatorModel):
+class NotebookInstanceLifecycleHook(BaseValidatorModel):
     Content: Optional[str] = None
 
 
-class OptimizationJobOutputConfigTypeDef(BaseValidatorModel):
+class OptimizationJobOutputConfig(BaseValidatorModel):
     S3OutputLocation: str
     KmsKeyId: Optional[str] = None
 
 
-class CreatePartnerAppPresignedUrlRequestTypeDef(BaseValidatorModel):
+class CreatePartnerAppPresignedUrlRequest(BaseValidatorModel):
     Arn: str
     ExpiresInSeconds: Optional[int] = None
     SessionExpirationDurationInSeconds: Optional[int] = None
 
 
-class PartnerAppMaintenanceConfigTypeDef(BaseValidatorModel):
+class PartnerAppMaintenanceConfig(BaseValidatorModel):
     MaintenanceWindowStart: Optional[str] = None
 
 
-class ParallelismConfigurationTypeDef(BaseValidatorModel):
+class ParallelismConfiguration(BaseValidatorModel):
     MaxParallelExecutionSteps: int
 
 
-class PipelineDefinitionS3LocationTypeDef(BaseValidatorModel):
+class PipelineDefinitionS3Location(BaseValidatorModel):
     Bucket: str
     ObjectKey: str
     VersionId: Optional[str] = None
 
 
-class CreatePresignedDomainUrlRequestTypeDef(BaseValidatorModel):
+class CreatePresignedDomainUrlRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
     SessionExpirationDurationInSeconds: Optional[int] = None
@@ -763,103 +763,103 @@ class CreatePresignedDomainUrlRequestTypeDef(BaseValidatorModel):
     LandingUri: Optional[str] = None
 
 
-class CreatePresignedMlflowTrackingServerUrlRequestTypeDef(BaseValidatorModel):
+class CreatePresignedMlflowTrackingServerUrlRequest(BaseValidatorModel):
     TrackingServerName: str
     ExpiresInSeconds: Optional[int] = None
     SessionExpirationDurationInSeconds: Optional[int] = None
 
 
-class CreatePresignedNotebookInstanceUrlInputTypeDef(BaseValidatorModel):
+class CreatePresignedNotebookInstanceUrlInput(BaseValidatorModel):
     NotebookInstanceName: str
     SessionExpirationDurationInSeconds: Optional[int] = None
 
 
-class ExperimentConfigTypeDef(BaseValidatorModel):
+class ExperimentConfig(BaseValidatorModel):
     ExperimentName: Optional[str] = None
     TrialName: Optional[str] = None
     TrialComponentDisplayName: Optional[str] = None
     RunName: Optional[str] = None
 
 
-class ProcessingStoppingConditionTypeDef(BaseValidatorModel):
+class ProcessingStoppingCondition(BaseValidatorModel):
     MaxRuntimeInSeconds: int
 
 
-class OwnershipSettingsTypeDef(BaseValidatorModel):
+class OwnershipSettings(BaseValidatorModel):
     OwnerUserProfileName: str
 
 
-class SpaceSharingSettingsTypeDef(BaseValidatorModel):
+class SpaceSharingSettings(BaseValidatorModel):
     SharingType: SharingTypeType
 
 
-class InfraCheckConfigTypeDef(BaseValidatorModel):
+class InfraCheckConfig(BaseValidatorModel):
     EnableInfraCheck: Optional[bool] = None
 
 
-class OutputDataConfigTypeDef(BaseValidatorModel):
+class OutputDataConfig(BaseValidatorModel):
     S3OutputPath: str
     KmsKeyId: Optional[str] = None
     CompressionType: Optional[OutputCompressionTypeType] = None
 
 
-class RemoteDebugConfigTypeDef(BaseValidatorModel):
+class RemoteDebugConfig(BaseValidatorModel):
     EnableRemoteDebug: Optional[bool] = None
 
 
-class RetryStrategyTypeDef(BaseValidatorModel):
+class RetryStrategy(BaseValidatorModel):
     MaximumRetryAttempts: int
 
 
-class SessionChainingConfigTypeDef(BaseValidatorModel):
+class SessionChainingConfig(BaseValidatorModel):
     EnableSessionTagChaining: Optional[bool] = None
 
 
-class TensorBoardOutputConfigTypeDef(BaseValidatorModel):
+class TensorBoardOutputConfig(BaseValidatorModel):
     S3OutputPath: str
     LocalPath: Optional[str] = None
 
 
-class DataProcessingTypeDef(BaseValidatorModel):
+class DataProcessing(BaseValidatorModel):
     InputFilter: Optional[str] = None
     OutputFilter: Optional[str] = None
     JoinSource: Optional[JoinSourceType] = None
 
 
-class ModelClientConfigTypeDef(BaseValidatorModel):
+class ModelClientConfig(BaseValidatorModel):
     InvocationsTimeoutInSeconds: Optional[int] = None
     InvocationsMaxRetries: Optional[int] = None
 
 
-class TransformOutputTypeDef(BaseValidatorModel):
+class TransformOutput(BaseValidatorModel):
     S3OutputPath: str
     Accept: Optional[str] = None
     AssembleWith: Optional[AssemblyTypeType] = None
     KmsKeyId: Optional[str] = None
 
 
-class TransformResourcesTypeDef(BaseValidatorModel):
+class TransformResources(BaseValidatorModel):
     InstanceType: TransformInstanceTypeType
     InstanceCount: int
     VolumeKmsKeyId: Optional[str] = None
 
 
-class TrialComponentArtifactTypeDef(BaseValidatorModel):
+class TrialComponentArtifact(BaseValidatorModel):
     Value: str
     MediaType: Optional[str] = None
 
 
-class TrialComponentParameterValueTypeDef(BaseValidatorModel):
+class TrialComponentParameterValue(BaseValidatorModel):
     StringValue: Optional[str] = None
     NumberValue: Optional[float] = None
 
 
-class TrialComponentStatusTypeDef(BaseValidatorModel):
+class TrialComponentStatus(BaseValidatorModel):
     PrimaryStatus: Optional[TrialComponentPrimaryStatusType] = None
     Message: Optional[str] = None
 
 
-class OidcConfigTypeDef(BaseValidatorModel):
+class OidcConfig(BaseValidatorModel):
     ClientId: str
     ClientSecret: str
     Issuer: str
@@ -872,46 +872,46 @@ class OidcConfigTypeDef(BaseValidatorModel):
     AuthenticationRequestExtraParams: Optional[Mapping[str, str]] = None
 
 
-class WorkforceVpcConfigRequestTypeDef(BaseValidatorModel):
+class WorkforceVpcConfigRequest(BaseValidatorModel):
     VpcId: Optional[str] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
     Subnets: Optional[Sequence[str]] = None
 
 
-class NotificationConfigurationTypeDef(BaseValidatorModel):
+class NotificationConfiguration(BaseValidatorModel):
     NotificationTopicArn: Optional[str] = None
 
 
-class EFSFileSystemConfigTypeDef(BaseValidatorModel):
+class EFSFileSystemConfig(BaseValidatorModel):
     FileSystemId: str
     FileSystemPath: Optional[str] = None
 
 
-class FSxLustreFileSystemConfigTypeDef(BaseValidatorModel):
+class FSxLustreFileSystemConfig(BaseValidatorModel):
     FileSystemId: str
     FileSystemPath: Optional[str] = None
 
 
-class EFSFileSystemTypeDef(BaseValidatorModel):
+class EFSFileSystem(BaseValidatorModel):
     FileSystemId: str
 
 
-class FSxLustreFileSystemTypeDef(BaseValidatorModel):
+class FSxLustreFileSystem(BaseValidatorModel):
     FileSystemId: str
 
 
-class CustomPosixUserConfigTypeDef(BaseValidatorModel):
+class CustomPosixUserConfig(BaseValidatorModel):
     Uid: int
     Gid: int
 
 
-class CustomizedMetricSpecificationTypeDef(BaseValidatorModel):
+class CustomizedMetricSpecification(BaseValidatorModel):
     MetricName: Optional[str] = None
     Namespace: Optional[str] = None
     Statistic: Optional[StatisticType] = None
 
 
-class DataCaptureConfigSummaryTypeDef(BaseValidatorModel):
+class DataCaptureConfigSummary(BaseValidatorModel):
     EnableCapture: bool
     CaptureStatus: CaptureStatusType
     CurrentSamplingPercentage: int
@@ -919,13 +919,13 @@ class DataCaptureConfigSummaryTypeDef(BaseValidatorModel):
     KmsKeyId: str
 
 
-class DataCatalogConfigTypeDef(BaseValidatorModel):
+class DataCatalogConfig(BaseValidatorModel):
     TableName: str
     Catalog: str
     Database: str
 
 
-class DataQualityAppSpecificationOutputTypeDef(BaseValidatorModel):
+class DataQualityAppSpecificationOutput(BaseValidatorModel):
     ImageUri: str
     ContainerEntrypoint: Optional[List[str]] = None
     ContainerArguments: Optional[List[str]] = None
@@ -934,7 +934,7 @@ class DataQualityAppSpecificationOutputTypeDef(BaseValidatorModel):
     Environment: Optional[Dict[str, str]] = None
 
 
-class DataQualityAppSpecificationTypeDef(BaseValidatorModel):
+class DataQualityAppSpecification(BaseValidatorModel):
     ImageUri: str
     ContainerEntrypoint: Optional[Sequence[str]] = None
     ContainerArguments: Optional[Sequence[str]] = None
@@ -943,22 +943,22 @@ class DataQualityAppSpecificationTypeDef(BaseValidatorModel):
     Environment: Optional[Mapping[str, str]] = None
 
 
-class MonitoringConstraintsResourceTypeDef(BaseValidatorModel):
+class MonitoringConstraintsResource(BaseValidatorModel):
     S3Uri: Optional[str] = None
 
 
-class MonitoringStatisticsResourceTypeDef(BaseValidatorModel):
+class MonitoringStatisticsResource(BaseValidatorModel):
     S3Uri: Optional[str] = None
 
 
-class FileSystemDataSourceTypeDef(BaseValidatorModel):
+class FileSystemDataSource(BaseValidatorModel):
     FileSystemId: str
     FileSystemAccessMode: FileSystemAccessModeType
     FileSystemType: FileSystemTypeType
     DirectoryPath: str
 
 
-class RedshiftDatasetDefinitionTypeDef(BaseValidatorModel):
+class RedshiftDatasetDefinition(BaseValidatorModel):
     ClusterId: str
     Database: str
     DbUser: str
@@ -970,7 +970,7 @@ class RedshiftDatasetDefinitionTypeDef(BaseValidatorModel):
     OutputCompression: Optional[RedshiftResultCompressionTypeType] = None
 
 
-class DebugRuleConfigurationOutputTypeDef(BaseValidatorModel):
+class DebugRuleConfigurationOutput(BaseValidatorModel):
     RuleConfigurationName: str
     RuleEvaluatorImage: str
     LocalPath: Optional[str] = None
@@ -980,7 +980,7 @@ class DebugRuleConfigurationOutputTypeDef(BaseValidatorModel):
     RuleParameters: Optional[Dict[str, str]] = None
 
 
-class DebugRuleConfigurationTypeDef(BaseValidatorModel):
+class DebugRuleConfiguration(BaseValidatorModel):
     RuleConfigurationName: str
     RuleEvaluatorImage: str
     LocalPath: Optional[str] = None
@@ -990,7 +990,7 @@ class DebugRuleConfigurationTypeDef(BaseValidatorModel):
     RuleParameters: Optional[Mapping[str, str]] = None
 
 
-class DebugRuleEvaluationStatusTypeDef(BaseValidatorModel):
+class DebugRuleEvaluationStatus(BaseValidatorModel):
     RuleConfigurationName: Optional[str] = None
     RuleEvaluationJobArn: Optional[str] = None
     RuleEvaluationStatus: Optional[RuleEvaluationStatusType] = None
@@ -998,24 +998,24 @@ class DebugRuleEvaluationStatusTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class DefaultEbsStorageSettingsTypeDef(BaseValidatorModel):
+class DefaultEbsStorageSettings(BaseValidatorModel):
     DefaultEbsVolumeSizeInGb: int
     MaximumEbsVolumeSizeInGb: int
 
 
-class DeleteActionRequestTypeDef(BaseValidatorModel):
+class DeleteActionRequest(BaseValidatorModel):
     ActionName: str
 
 
-class DeleteAlgorithmInputTypeDef(BaseValidatorModel):
+class DeleteAlgorithmInput(BaseValidatorModel):
     AlgorithmName: str
 
 
-class DeleteAppImageConfigRequestTypeDef(BaseValidatorModel):
+class DeleteAppImageConfigRequest(BaseValidatorModel):
     AppImageConfigName: str
 
 
-class DeleteAppRequestTypeDef(BaseValidatorModel):
+class DeleteAppRequest(BaseValidatorModel):
     DomainId: str
     AppType: AppTypeType
     AppName: str
@@ -1023,244 +1023,244 @@ class DeleteAppRequestTypeDef(BaseValidatorModel):
     SpaceName: Optional[str] = None
 
 
-class DeleteAssociationRequestTypeDef(BaseValidatorModel):
+class DeleteAssociationRequest(BaseValidatorModel):
     SourceArn: str
     DestinationArn: str
 
 
-class DeleteClusterRequestTypeDef(BaseValidatorModel):
+class DeleteClusterRequest(BaseValidatorModel):
     ClusterName: str
 
 
-class DeleteClusterSchedulerConfigRequestTypeDef(BaseValidatorModel):
+class DeleteClusterSchedulerConfigRequest(BaseValidatorModel):
     ClusterSchedulerConfigId: str
 
 
-class DeleteCodeRepositoryInputTypeDef(BaseValidatorModel):
+class DeleteCodeRepositoryInput(BaseValidatorModel):
     CodeRepositoryName: str
 
 
-class DeleteCompilationJobRequestTypeDef(BaseValidatorModel):
+class DeleteCompilationJobRequest(BaseValidatorModel):
     CompilationJobName: str
 
 
-class DeleteComputeQuotaRequestTypeDef(BaseValidatorModel):
+class DeleteComputeQuotaRequest(BaseValidatorModel):
     ComputeQuotaId: str
 
 
-class DeleteContextRequestTypeDef(BaseValidatorModel):
+class DeleteContextRequest(BaseValidatorModel):
     ContextName: str
 
 
-class DeleteDataQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteDataQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
-class DeleteDeviceFleetRequestTypeDef(BaseValidatorModel):
+class DeleteDeviceFleetRequest(BaseValidatorModel):
     DeviceFleetName: str
 
 
-class RetentionPolicyTypeDef(BaseValidatorModel):
+class RetentionPolicy(BaseValidatorModel):
     HomeEfsFileSystem: Optional[RetentionTypeType] = None
 
 
-class DeleteEdgeDeploymentPlanRequestTypeDef(BaseValidatorModel):
+class DeleteEdgeDeploymentPlanRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
 
 
-class DeleteEdgeDeploymentStageRequestTypeDef(BaseValidatorModel):
+class DeleteEdgeDeploymentStageRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     StageName: str
 
 
-class DeleteEndpointConfigInputTypeDef(BaseValidatorModel):
+class DeleteEndpointConfigInput(BaseValidatorModel):
     EndpointConfigName: str
 
 
-class DeleteEndpointInputTypeDef(BaseValidatorModel):
+class DeleteEndpointInput(BaseValidatorModel):
     EndpointName: str
 
 
-class DeleteExperimentRequestTypeDef(BaseValidatorModel):
+class DeleteExperimentRequest(BaseValidatorModel):
     ExperimentName: str
 
 
-class DeleteFeatureGroupRequestTypeDef(BaseValidatorModel):
+class DeleteFeatureGroupRequest(BaseValidatorModel):
     FeatureGroupName: str
 
 
-class DeleteFlowDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteFlowDefinitionRequest(BaseValidatorModel):
     FlowDefinitionName: str
 
 
-class DeleteHubContentReferenceRequestTypeDef(BaseValidatorModel):
+class DeleteHubContentReferenceRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
     HubContentName: str
 
 
-class DeleteHubContentRequestTypeDef(BaseValidatorModel):
+class DeleteHubContentRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
     HubContentName: str
     HubContentVersion: str
 
 
-class DeleteHubRequestTypeDef(BaseValidatorModel):
+class DeleteHubRequest(BaseValidatorModel):
     HubName: str
 
 
-class DeleteHumanTaskUiRequestTypeDef(BaseValidatorModel):
+class DeleteHumanTaskUiRequest(BaseValidatorModel):
     HumanTaskUiName: str
 
 
-class DeleteHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
+class DeleteHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
 
 
-class DeleteImageRequestTypeDef(BaseValidatorModel):
+class DeleteImageRequest(BaseValidatorModel):
     ImageName: str
 
 
-class DeleteImageVersionRequestTypeDef(BaseValidatorModel):
+class DeleteImageVersionRequest(BaseValidatorModel):
     ImageName: str
     Version: Optional[int] = None
     Alias: Optional[str] = None
 
 
-class DeleteInferenceComponentInputTypeDef(BaseValidatorModel):
+class DeleteInferenceComponentInput(BaseValidatorModel):
     InferenceComponentName: str
 
 
-class DeleteInferenceExperimentRequestTypeDef(BaseValidatorModel):
+class DeleteInferenceExperimentRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
+class DeleteMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
 
 
-class DeleteModelBiasJobDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteModelBiasJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
-class DeleteModelCardRequestTypeDef(BaseValidatorModel):
+class DeleteModelCardRequest(BaseValidatorModel):
     ModelCardName: str
 
 
-class DeleteModelExplainabilityJobDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteModelExplainabilityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
-class DeleteModelInputTypeDef(BaseValidatorModel):
+class DeleteModelInput(BaseValidatorModel):
     ModelName: str
 
 
-class DeleteModelPackageGroupInputTypeDef(BaseValidatorModel):
+class DeleteModelPackageGroupInput(BaseValidatorModel):
     ModelPackageGroupName: str
 
 
-class DeleteModelPackageGroupPolicyInputTypeDef(BaseValidatorModel):
+class DeleteModelPackageGroupPolicyInput(BaseValidatorModel):
     ModelPackageGroupName: str
 
 
-class DeleteModelPackageInputTypeDef(BaseValidatorModel):
+class DeleteModelPackageInput(BaseValidatorModel):
     ModelPackageName: str
 
 
-class DeleteModelQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteModelQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
-class DeleteMonitoringScheduleRequestTypeDef(BaseValidatorModel):
+class DeleteMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
 
 
-class DeleteNotebookInstanceInputTypeDef(BaseValidatorModel):
+class DeleteNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
 
 
-class DeleteNotebookInstanceLifecycleConfigInputTypeDef(BaseValidatorModel):
+class DeleteNotebookInstanceLifecycleConfigInput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigName: str
 
 
-class DeleteOptimizationJobRequestTypeDef(BaseValidatorModel):
+class DeleteOptimizationJobRequest(BaseValidatorModel):
     OptimizationJobName: str
 
 
-class DeletePartnerAppRequestTypeDef(BaseValidatorModel):
+class DeletePartnerAppRequest(BaseValidatorModel):
     Arn: str
     ClientToken: Optional[str] = None
 
 
-class DeletePipelineRequestTypeDef(BaseValidatorModel):
+class DeletePipelineRequest(BaseValidatorModel):
     PipelineName: str
     ClientRequestToken: str
 
 
-class DeleteProjectInputTypeDef(BaseValidatorModel):
+class DeleteProjectInput(BaseValidatorModel):
     ProjectName: str
 
 
-class DeleteSpaceRequestTypeDef(BaseValidatorModel):
+class DeleteSpaceRequest(BaseValidatorModel):
     DomainId: str
     SpaceName: str
 
 
-class DeleteStudioLifecycleConfigRequestTypeDef(BaseValidatorModel):
+class DeleteStudioLifecycleConfigRequest(BaseValidatorModel):
     StudioLifecycleConfigName: str
 
 
-class DeleteTagsInputTypeDef(BaseValidatorModel):
+class DeleteTagsInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class DeleteTrialComponentRequestTypeDef(BaseValidatorModel):
+class DeleteTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
 
 
-class DeleteTrialRequestTypeDef(BaseValidatorModel):
+class DeleteTrialRequest(BaseValidatorModel):
     TrialName: str
 
 
-class DeleteUserProfileRequestTypeDef(BaseValidatorModel):
+class DeleteUserProfileRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
 
 
-class DeleteWorkforceRequestTypeDef(BaseValidatorModel):
+class DeleteWorkforceRequest(BaseValidatorModel):
     WorkforceName: str
 
 
-class DeleteWorkteamRequestTypeDef(BaseValidatorModel):
+class DeleteWorkteamRequest(BaseValidatorModel):
     WorkteamName: str
 
 
-class DeployedImageTypeDef(BaseValidatorModel):
+class DeployedImage(BaseValidatorModel):
     SpecifiedImage: Optional[str] = None
     ResolvedImage: Optional[str] = None
     ResolutionTime: Optional[datetime] = None
 
 
-class RealTimeInferenceRecommendationTypeDef(BaseValidatorModel):
+class RealTimeInferenceRecommendation(BaseValidatorModel):
     RecommendationId: str
     InstanceType: ProductionVariantInstanceTypeType
     Environment: Optional[Dict[str, str]] = None
 
 
-class DeviceSelectionConfigOutputTypeDef(BaseValidatorModel):
+class DeviceSelectionConfigOutput(BaseValidatorModel):
     DeviceSubsetType: DeviceSubsetTypeType
     Percentage: Optional[int] = None
     DeviceNames: Optional[List[str]] = None
     DeviceNameContains: Optional[str] = None
 
 
-class EdgeDeploymentConfigTypeDef(BaseValidatorModel):
+class EdgeDeploymentConfig(BaseValidatorModel):
     FailureHandlingPolicy: FailureHandlingPolicyType
 
 
-class EdgeDeploymentStatusTypeDef(BaseValidatorModel):
+class EdgeDeploymentStatus(BaseValidatorModel):
     StageStatus: StageStatusType
     EdgeDeploymentSuccessInStage: int
     EdgeDeploymentPendingInStage: int
@@ -1269,28 +1269,28 @@ class EdgeDeploymentStatusTypeDef(BaseValidatorModel):
     EdgeDeploymentStageStartTime: Optional[datetime] = None
 
 
-class DeregisterDevicesRequestTypeDef(BaseValidatorModel):
+class DeregisterDevicesRequest(BaseValidatorModel):
     DeviceFleetName: str
     DeviceNames: Sequence[str]
 
 
-class DerivedInformationTypeDef(BaseValidatorModel):
+class DerivedInformation(BaseValidatorModel):
     DerivedDataInputConfig: Optional[str] = None
 
 
-class DescribeActionRequestTypeDef(BaseValidatorModel):
+class DescribeActionRequest(BaseValidatorModel):
     ActionName: str
 
 
-class DescribeAlgorithmInputTypeDef(BaseValidatorModel):
+class DescribeAlgorithmInput(BaseValidatorModel):
     AlgorithmName: str
 
 
-class DescribeAppImageConfigRequestTypeDef(BaseValidatorModel):
+class DescribeAppImageConfigRequest(BaseValidatorModel):
     AppImageConfigName: str
 
 
-class DescribeAppRequestTypeDef(BaseValidatorModel):
+class DescribeAppRequest(BaseValidatorModel):
     DomainId: str
     AppType: AppTypeType
     AppName: str
@@ -1298,203 +1298,203 @@ class DescribeAppRequestTypeDef(BaseValidatorModel):
     SpaceName: Optional[str] = None
 
 
-class DescribeArtifactRequestTypeDef(BaseValidatorModel):
+class DescribeArtifactRequest(BaseValidatorModel):
     ArtifactArn: str
 
 
-class DescribeAutoMLJobRequestTypeDef(BaseValidatorModel):
+class DescribeAutoMLJobRequest(BaseValidatorModel):
     AutoMLJobName: str
 
 
-class ModelDeployResultTypeDef(BaseValidatorModel):
+class ModelDeployResult(BaseValidatorModel):
     EndpointName: Optional[str] = None
 
 
-class DescribeAutoMLJobV2RequestTypeDef(BaseValidatorModel):
+class DescribeAutoMLJobV2Request(BaseValidatorModel):
     AutoMLJobName: str
 
 
-class DescribeClusterNodeRequestTypeDef(BaseValidatorModel):
+class DescribeClusterNodeRequest(BaseValidatorModel):
     ClusterName: str
     NodeId: str
 
 
-class DescribeClusterRequestTypeDef(BaseValidatorModel):
+class DescribeClusterRequest(BaseValidatorModel):
     ClusterName: str
 
 
-class DescribeClusterSchedulerConfigRequestTypeDef(BaseValidatorModel):
+class DescribeClusterSchedulerConfigRequest(BaseValidatorModel):
     ClusterSchedulerConfigId: str
     ClusterSchedulerConfigVersion: Optional[int] = None
 
 
-class DescribeCodeRepositoryInputTypeDef(BaseValidatorModel):
+class DescribeCodeRepositoryInput(BaseValidatorModel):
     CodeRepositoryName: str
 
 
-class DescribeCompilationJobRequestTypeDef(BaseValidatorModel):
+class DescribeCompilationJobRequest(BaseValidatorModel):
     CompilationJobName: str
 
 
-class ModelArtifactsTypeDef(BaseValidatorModel):
+class ModelArtifacts(BaseValidatorModel):
     S3ModelArtifacts: str
 
 
-class ModelDigestsTypeDef(BaseValidatorModel):
+class ModelDigests(BaseValidatorModel):
     ArtifactDigest: Optional[str] = None
 
 
-class NeoVpcConfigOutputTypeDef(BaseValidatorModel):
+class NeoVpcConfigOutput(BaseValidatorModel):
     SecurityGroupIds: List[str]
     Subnets: List[str]
 
 
-class DescribeComputeQuotaRequestTypeDef(BaseValidatorModel):
+class DescribeComputeQuotaRequest(BaseValidatorModel):
     ComputeQuotaId: str
     ComputeQuotaVersion: Optional[int] = None
 
 
-class DescribeContextRequestTypeDef(BaseValidatorModel):
+class DescribeContextRequest(BaseValidatorModel):
     ContextName: str
 
 
-class DescribeDataQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
+class DescribeDataQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
-class DescribeDeviceFleetRequestTypeDef(BaseValidatorModel):
+class DescribeDeviceFleetRequest(BaseValidatorModel):
     DeviceFleetName: str
 
 
-class DescribeDeviceRequestTypeDef(BaseValidatorModel):
+class DescribeDeviceRequest(BaseValidatorModel):
     DeviceName: str
     DeviceFleetName: str
     NextToken: Optional[str] = None
 
 
-class EdgeModelTypeDef(BaseValidatorModel):
+class EdgeModel(BaseValidatorModel):
     ModelName: str
     ModelVersion: str
     LatestSampleTime: Optional[datetime] = None
     LatestInference: Optional[datetime] = None
 
 
-class DescribeDomainRequestTypeDef(BaseValidatorModel):
+class DescribeDomainRequest(BaseValidatorModel):
     DomainId: str
 
 
-class DescribeEdgeDeploymentPlanRequestTypeDef(BaseValidatorModel):
+class DescribeEdgeDeploymentPlanRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeEdgePackagingJobRequestTypeDef(BaseValidatorModel):
+class DescribeEdgePackagingJobRequest(BaseValidatorModel):
     EdgePackagingJobName: str
 
 
-class DescribeEndpointConfigInputTypeDef(BaseValidatorModel):
+class DescribeEndpointConfigInput(BaseValidatorModel):
     EndpointConfigName: str
 
 
-class DescribeEndpointInputTypeDef(BaseValidatorModel):
+class DescribeEndpointInput(BaseValidatorModel):
     EndpointName: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeExperimentRequestTypeDef(BaseValidatorModel):
+class DescribeExperimentRequest(BaseValidatorModel):
     ExperimentName: str
 
 
-class ExperimentSourceTypeDef(BaseValidatorModel):
+class ExperimentSource(BaseValidatorModel):
     SourceArn: str
     SourceType: Optional[str] = None
 
 
-class DescribeFeatureGroupRequestTypeDef(BaseValidatorModel):
+class DescribeFeatureGroupRequest(BaseValidatorModel):
     FeatureGroupName: str
     NextToken: Optional[str] = None
 
 
-class LastUpdateStatusTypeDef(BaseValidatorModel):
+class LastUpdateStatus(BaseValidatorModel):
     Status: LastUpdateStatusValueType
     FailureReason: Optional[str] = None
 
 
-class OfflineStoreStatusTypeDef(BaseValidatorModel):
+class OfflineStoreStatus(BaseValidatorModel):
     Status: OfflineStoreStatusValueType
     BlockedReason: Optional[str] = None
 
 
-class ThroughputConfigDescriptionTypeDef(BaseValidatorModel):
+class ThroughputConfigDescription(BaseValidatorModel):
     ThroughputMode: ThroughputModeType
     ProvisionedReadCapacityUnits: Optional[int] = None
     ProvisionedWriteCapacityUnits: Optional[int] = None
 
 
-class DescribeFeatureMetadataRequestTypeDef(BaseValidatorModel):
+class DescribeFeatureMetadataRequest(BaseValidatorModel):
     FeatureGroupName: str
     FeatureName: str
 
 
-class FeatureParameterTypeDef(BaseValidatorModel):
+class FeatureParameter(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class DescribeFlowDefinitionRequestTypeDef(BaseValidatorModel):
+class DescribeFlowDefinitionRequest(BaseValidatorModel):
     FlowDefinitionName: str
 
 
-class DescribeHubContentRequestTypeDef(BaseValidatorModel):
+class DescribeHubContentRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
     HubContentName: str
     HubContentVersion: Optional[str] = None
 
 
-class HubContentDependencyTypeDef(BaseValidatorModel):
+class HubContentDependency(BaseValidatorModel):
     DependencyOriginPath: Optional[str] = None
     DependencyCopyPath: Optional[str] = None
 
 
-class DescribeHubRequestTypeDef(BaseValidatorModel):
+class DescribeHubRequest(BaseValidatorModel):
     HubName: str
 
 
-class DescribeHumanTaskUiRequestTypeDef(BaseValidatorModel):
+class DescribeHumanTaskUiRequest(BaseValidatorModel):
     HumanTaskUiName: str
 
 
-class UiTemplateInfoTypeDef(BaseValidatorModel):
+class UiTemplateInfo(BaseValidatorModel):
     Url: Optional[str] = None
     ContentSha256: Optional[str] = None
 
 
-class DescribeHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
+class DescribeHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
 
 
-class HyperParameterTuningJobCompletionDetailsTypeDef(BaseValidatorModel):
+class HyperParameterTuningJobCompletionDetails(BaseValidatorModel):
     NumberOfTrainingJobsObjectiveNotImproving: Optional[int] = None
     ConvergenceDetectedTime: Optional[datetime] = None
 
 
-class HyperParameterTuningJobConsumedResourcesTypeDef(BaseValidatorModel):
+class HyperParameterTuningJobConsumedResources(BaseValidatorModel):
     RuntimeInSeconds: Optional[int] = None
 
 
-class ObjectiveStatusCountersTypeDef(BaseValidatorModel):
+class ObjectiveStatusCounters(BaseValidatorModel):
     Succeeded: Optional[int] = None
     Pending: Optional[int] = None
     Failed: Optional[int] = None
 
 
-class TrainingJobStatusCountersTypeDef(BaseValidatorModel):
+class TrainingJobStatusCounters(BaseValidatorModel):
     Completed: Optional[int] = None
     InProgress: Optional[int] = None
     RetryableError: Optional[int] = None
@@ -1502,50 +1502,50 @@ class TrainingJobStatusCountersTypeDef(BaseValidatorModel):
     Stopped: Optional[int] = None
 
 
-class DescribeImageRequestTypeDef(BaseValidatorModel):
+class DescribeImageRequest(BaseValidatorModel):
     ImageName: str
 
 
-class DescribeImageVersionRequestTypeDef(BaseValidatorModel):
+class DescribeImageVersionRequest(BaseValidatorModel):
     ImageName: str
     Version: Optional[int] = None
     Alias: Optional[str] = None
 
 
-class DescribeInferenceComponentInputTypeDef(BaseValidatorModel):
+class DescribeInferenceComponentInput(BaseValidatorModel):
     InferenceComponentName: str
 
 
-class InferenceComponentRuntimeConfigSummaryTypeDef(BaseValidatorModel):
+class InferenceComponentRuntimeConfigSummary(BaseValidatorModel):
     DesiredCopyCount: Optional[int] = None
     CurrentCopyCount: Optional[int] = None
 
 
-class DescribeInferenceExperimentRequestTypeDef(BaseValidatorModel):
+class DescribeInferenceExperimentRequest(BaseValidatorModel):
     Name: str
 
 
-class EndpointMetadataTypeDef(BaseValidatorModel):
+class EndpointMetadata(BaseValidatorModel):
     EndpointName: str
     EndpointConfigName: Optional[str] = None
     EndpointStatus: Optional[EndpointStatusType] = None
     FailureReason: Optional[str] = None
 
 
-class InferenceExperimentScheduleOutputTypeDef(BaseValidatorModel):
+class InferenceExperimentScheduleOutput(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
 
-class DescribeInferenceRecommendationsJobRequestTypeDef(BaseValidatorModel):
+class DescribeInferenceRecommendationsJobRequest(BaseValidatorModel):
     JobName: str
 
 
-class DescribeLabelingJobRequestTypeDef(BaseValidatorModel):
+class DescribeLabelingJobRequest(BaseValidatorModel):
     LabelingJobName: str
 
 
-class LabelCountersTypeDef(BaseValidatorModel):
+class LabelCounters(BaseValidatorModel):
     TotalLabeled: Optional[int] = None
     HumanLabeled: Optional[int] = None
     MachineLabeled: Optional[int] = None
@@ -1553,69 +1553,69 @@ class LabelCountersTypeDef(BaseValidatorModel):
     Unlabeled: Optional[int] = None
 
 
-class LabelingJobOutputTypeDef(BaseValidatorModel):
+class LabelingJobOutput(BaseValidatorModel):
     OutputDatasetS3Uri: str
     FinalActiveLearningModelArn: Optional[str] = None
 
 
-class DescribeLineageGroupRequestTypeDef(BaseValidatorModel):
+class DescribeLineageGroupRequest(BaseValidatorModel):
     LineageGroupName: str
 
 
-class DescribeMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
+class DescribeMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
 
 
-class DescribeModelBiasJobDefinitionRequestTypeDef(BaseValidatorModel):
+class DescribeModelBiasJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
-class ModelBiasAppSpecificationOutputTypeDef(BaseValidatorModel):
+class ModelBiasAppSpecificationOutput(BaseValidatorModel):
     ImageUri: str
     ConfigUri: str
     Environment: Optional[Dict[str, str]] = None
 
 
-class DescribeModelCardExportJobRequestTypeDef(BaseValidatorModel):
+class DescribeModelCardExportJobRequest(BaseValidatorModel):
     ModelCardExportJobArn: str
 
 
-class ModelCardExportArtifactsTypeDef(BaseValidatorModel):
+class ModelCardExportArtifacts(BaseValidatorModel):
     S3ExportArtifacts: str
 
 
-class DescribeModelCardRequestTypeDef(BaseValidatorModel):
+class DescribeModelCardRequest(BaseValidatorModel):
     ModelCardName: str
     ModelCardVersion: Optional[int] = None
 
 
-class DescribeModelExplainabilityJobDefinitionRequestTypeDef(BaseValidatorModel):
+class DescribeModelExplainabilityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
-class ModelExplainabilityAppSpecificationOutputTypeDef(BaseValidatorModel):
+class ModelExplainabilityAppSpecificationOutput(BaseValidatorModel):
     ImageUri: str
     ConfigUri: str
     Environment: Optional[Dict[str, str]] = None
 
 
-class DescribeModelInputTypeDef(BaseValidatorModel):
+class DescribeModelInput(BaseValidatorModel):
     ModelName: str
 
 
-class DescribeModelPackageGroupInputTypeDef(BaseValidatorModel):
+class DescribeModelPackageGroupInput(BaseValidatorModel):
     ModelPackageGroupName: str
 
 
-class DescribeModelPackageInputTypeDef(BaseValidatorModel):
+class DescribeModelPackageInput(BaseValidatorModel):
     ModelPackageName: str
 
 
-class DescribeModelQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
+class DescribeModelQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
-class ModelQualityAppSpecificationOutputTypeDef(BaseValidatorModel):
+class ModelQualityAppSpecificationOutput(BaseValidatorModel):
     ImageUri: str
     ContainerEntrypoint: Optional[List[str]] = None
     ContainerArguments: Optional[List[str]] = None
@@ -1625,11 +1625,11 @@ class ModelQualityAppSpecificationOutputTypeDef(BaseValidatorModel):
     Environment: Optional[Dict[str, str]] = None
 
 
-class DescribeMonitoringScheduleRequestTypeDef(BaseValidatorModel):
+class DescribeMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
 
 
-class MonitoringExecutionSummaryTypeDef(BaseValidatorModel):
+class MonitoringExecutionSummary(BaseValidatorModel):
     MonitoringScheduleName: str
     ScheduledTime: datetime
     CreationTime: datetime
@@ -1642,85 +1642,85 @@ class MonitoringExecutionSummaryTypeDef(BaseValidatorModel):
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
-class DescribeNotebookInstanceInputTypeDef(BaseValidatorModel):
+class DescribeNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
 
 
-class DescribeNotebookInstanceLifecycleConfigInputTypeDef(BaseValidatorModel):
+class DescribeNotebookInstanceLifecycleConfigInput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigName: str
 
 
-class DescribeOptimizationJobRequestTypeDef(BaseValidatorModel):
+class DescribeOptimizationJobRequest(BaseValidatorModel):
     OptimizationJobName: str
 
 
-class OptimizationOutputTypeDef(BaseValidatorModel):
+class OptimizationOutput(BaseValidatorModel):
     RecommendedInferenceImage: Optional[str] = None
 
 
-class OptimizationVpcConfigOutputTypeDef(BaseValidatorModel):
+class OptimizationVpcConfigOutput(BaseValidatorModel):
     SecurityGroupIds: List[str]
     Subnets: List[str]
 
 
-class DescribePartnerAppRequestTypeDef(BaseValidatorModel):
+class DescribePartnerAppRequest(BaseValidatorModel):
     Arn: str
 
 
-class ErrorInfoTypeDef(BaseValidatorModel):
+class ErrorInfo(BaseValidatorModel):
     Code: Optional[str] = None
     Reason: Optional[str] = None
 
 
-class PartnerAppConfigOutputTypeDef(BaseValidatorModel):
+class PartnerAppConfigOutput(BaseValidatorModel):
     AdminUsers: Optional[List[str]] = None
     Arguments: Optional[Dict[str, str]] = None
 
 
-class DescribePipelineDefinitionForExecutionRequestTypeDef(BaseValidatorModel):
+class DescribePipelineDefinitionForExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
 
 
-class DescribePipelineExecutionRequestTypeDef(BaseValidatorModel):
+class DescribePipelineExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
 
 
-class PipelineExperimentConfigTypeDef(BaseValidatorModel):
+class PipelineExperimentConfig(BaseValidatorModel):
     ExperimentName: Optional[str] = None
     TrialName: Optional[str] = None
 
 
-class DescribePipelineRequestTypeDef(BaseValidatorModel):
+class DescribePipelineRequest(BaseValidatorModel):
     PipelineName: str
 
 
-class DescribeProcessingJobRequestTypeDef(BaseValidatorModel):
+class DescribeProcessingJobRequest(BaseValidatorModel):
     ProcessingJobName: str
 
 
-class DescribeProjectInputTypeDef(BaseValidatorModel):
+class DescribeProjectInput(BaseValidatorModel):
     ProjectName: str
 
 
-class ServiceCatalogProvisionedProductDetailsTypeDef(BaseValidatorModel):
+class ServiceCatalogProvisionedProductDetails(BaseValidatorModel):
     ProvisionedProductId: Optional[str] = None
     ProvisionedProductStatusMessage: Optional[str] = None
 
 
-class DescribeSpaceRequestTypeDef(BaseValidatorModel):
+class DescribeSpaceRequest(BaseValidatorModel):
     DomainId: str
     SpaceName: str
 
 
-class DescribeStudioLifecycleConfigRequestTypeDef(BaseValidatorModel):
+class DescribeStudioLifecycleConfigRequest(BaseValidatorModel):
     StudioLifecycleConfigName: str
 
 
-class DescribeSubscribedWorkteamRequestTypeDef(BaseValidatorModel):
+class DescribeSubscribedWorkteamRequest(BaseValidatorModel):
     WorkteamArn: str
 
 
-class SubscribedWorkteamTypeDef(BaseValidatorModel):
+class SubscribedWorkteam(BaseValidatorModel):
     WorkteamArn: str
     MarketplaceTitle: Optional[str] = None
     SellerName: Optional[str] = None
@@ -1728,24 +1728,24 @@ class SubscribedWorkteamTypeDef(BaseValidatorModel):
     ListingId: Optional[str] = None
 
 
-class DescribeTrainingJobRequestTypeDef(BaseValidatorModel):
+class DescribeTrainingJobRequest(BaseValidatorModel):
     TrainingJobName: str
 
 
-class MetricDataTypeDef(BaseValidatorModel):
+class MetricData(BaseValidatorModel):
     MetricName: Optional[str] = None
     Value: Optional[float] = None
     Timestamp: Optional[datetime] = None
 
 
-class ProfilerConfigOutputTypeDef(BaseValidatorModel):
+class ProfilerConfigOutput(BaseValidatorModel):
     S3OutputPath: Optional[str] = None
     ProfilingIntervalInMilliseconds: Optional[int] = None
     ProfilingParameters: Optional[Dict[str, str]] = None
     DisableProfiler: Optional[bool] = None
 
 
-class ProfilerRuleConfigurationOutputTypeDef(BaseValidatorModel):
+class ProfilerRuleConfigurationOutput(BaseValidatorModel):
     RuleConfigurationName: str
     RuleEvaluatorImage: str
     LocalPath: Optional[str] = None
@@ -1755,7 +1755,7 @@ class ProfilerRuleConfigurationOutputTypeDef(BaseValidatorModel):
     RuleParameters: Optional[Dict[str, str]] = None
 
 
-class ProfilerRuleEvaluationStatusTypeDef(BaseValidatorModel):
+class ProfilerRuleEvaluationStatus(BaseValidatorModel):
     RuleConfigurationName: Optional[str] = None
     RuleEvaluationJobArn: Optional[str] = None
     RuleEvaluationStatus: Optional[RuleEvaluationStatusType] = None
@@ -1763,24 +1763,24 @@ class ProfilerRuleEvaluationStatusTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class SecondaryStatusTransitionTypeDef(BaseValidatorModel):
+class SecondaryStatusTransition(BaseValidatorModel):
     Status: SecondaryStatusType
     StartTime: datetime
     EndTime: Optional[datetime] = None
     StatusMessage: Optional[str] = None
 
 
-class WarmPoolStatusTypeDef(BaseValidatorModel):
+class WarmPoolStatus(BaseValidatorModel):
     Status: WarmPoolResourceStatusType
     ResourceRetainedBillableTimeInSeconds: Optional[int] = None
     ReusedByJob: Optional[str] = None
 
 
-class DescribeTrainingPlanRequestTypeDef(BaseValidatorModel):
+class DescribeTrainingPlanRequest(BaseValidatorModel):
     TrainingPlanName: str
 
 
-class ReservedCapacitySummaryTypeDef(BaseValidatorModel):
+class ReservedCapacitySummary(BaseValidatorModel):
     ReservedCapacityArn: str
     InstanceType: ReservedCapacityInstanceTypeType
     TotalInstanceCount: int
@@ -1792,15 +1792,15 @@ class ReservedCapacitySummaryTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
-class DescribeTransformJobRequestTypeDef(BaseValidatorModel):
+class DescribeTransformJobRequest(BaseValidatorModel):
     TransformJobName: str
 
 
-class DescribeTrialComponentRequestTypeDef(BaseValidatorModel):
+class DescribeTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
 
 
-class TrialComponentMetricSummaryTypeDef(BaseValidatorModel):
+class TrialComponentMetricSummary(BaseValidatorModel):
     MetricName: Optional[str] = None
     SourceArn: Optional[str] = None
     TimeStamp: Optional[datetime] = None
@@ -1812,39 +1812,39 @@ class TrialComponentMetricSummaryTypeDef(BaseValidatorModel):
     StdDev: Optional[float] = None
 
 
-class TrialComponentSourceTypeDef(BaseValidatorModel):
+class TrialComponentSource(BaseValidatorModel):
     SourceArn: str
     SourceType: Optional[str] = None
 
 
-class DescribeTrialRequestTypeDef(BaseValidatorModel):
+class DescribeTrialRequest(BaseValidatorModel):
     TrialName: str
 
 
-class TrialSourceTypeDef(BaseValidatorModel):
+class TrialSource(BaseValidatorModel):
     SourceArn: str
     SourceType: Optional[str] = None
 
 
-class DescribeUserProfileRequestTypeDef(BaseValidatorModel):
+class DescribeUserProfileRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
 
 
-class DescribeWorkforceRequestTypeDef(BaseValidatorModel):
+class DescribeWorkforceRequest(BaseValidatorModel):
     WorkforceName: str
 
 
-class DescribeWorkteamRequestTypeDef(BaseValidatorModel):
+class DescribeWorkteamRequest(BaseValidatorModel):
     WorkteamName: str
 
 
-class ProductionVariantServerlessUpdateConfigTypeDef(BaseValidatorModel):
+class ProductionVariantServerlessUpdateConfig(BaseValidatorModel):
     MaxConcurrency: Optional[int] = None
     ProvisionedConcurrency: Optional[int] = None
 
 
-class DeviceDeploymentSummaryTypeDef(BaseValidatorModel):
+class DeviceDeploymentSummary(BaseValidatorModel):
     EdgeDeploymentPlanArn: str
     EdgeDeploymentPlanName: str
     StageName: str
@@ -1858,52 +1858,52 @@ class DeviceDeploymentSummaryTypeDef(BaseValidatorModel):
     DeploymentStartTime: Optional[datetime] = None
 
 
-class DeviceFleetSummaryTypeDef(BaseValidatorModel):
+class DeviceFleetSummary(BaseValidatorModel):
     DeviceFleetArn: str
     DeviceFleetName: str
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class DeviceSelectionConfigTypeDef(BaseValidatorModel):
+class DeviceSelectionConfig(BaseValidatorModel):
     DeviceSubsetType: DeviceSubsetTypeType
     Percentage: Optional[int] = None
     DeviceNames: Optional[Sequence[str]] = None
     DeviceNameContains: Optional[str] = None
 
 
-class DeviceStatsTypeDef(BaseValidatorModel):
+class DeviceStats(BaseValidatorModel):
     ConnectedDeviceCount: int
     RegisteredDeviceCount: int
 
 
-class EdgeModelSummaryTypeDef(BaseValidatorModel):
+class EdgeModelSummary(BaseValidatorModel):
     ModelName: str
     ModelVersion: str
 
 
-class DeviceTypeDef(BaseValidatorModel):
+class Device(BaseValidatorModel):
     DeviceName: str
     Description: Optional[str] = None
     IotThingName: Optional[str] = None
 
 
-class DisassociateTrialComponentRequestTypeDef(BaseValidatorModel):
+class DisassociateTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
     TrialName: str
 
 
-class DockerSettingsOutputTypeDef(BaseValidatorModel):
+class DockerSettingsOutput(BaseValidatorModel):
     EnableDockerAccess: Optional[FeatureStatusType] = None
     VpcOnlyTrustedAccounts: Optional[List[str]] = None
 
 
-class DockerSettingsTypeDef(BaseValidatorModel):
+class DockerSettings(BaseValidatorModel):
     EnableDockerAccess: Optional[FeatureStatusType] = None
     VpcOnlyTrustedAccounts: Optional[Sequence[str]] = None
 
 
-class DomainDetailsTypeDef(BaseValidatorModel):
+class DomainDetails(BaseValidatorModel):
     DomainArn: Optional[str] = None
     DomainId: Optional[str] = None
     DomainName: Optional[str] = None
@@ -1913,24 +1913,24 @@ class DomainDetailsTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
 
 
-class FileSourceTypeDef(BaseValidatorModel):
+class FileSource(BaseValidatorModel):
     S3Uri: str
     ContentType: Optional[str] = None
     ContentDigest: Optional[str] = None
 
 
-class EMRStepMetadataTypeDef(BaseValidatorModel):
+class EMRStepMetadata(BaseValidatorModel):
     ClusterId: Optional[str] = None
     StepId: Optional[str] = None
     StepName: Optional[str] = None
     LogFilePath: Optional[str] = None
 
 
-class EbsStorageSettingsTypeDef(BaseValidatorModel):
+class EbsStorageSettings(BaseValidatorModel):
     EbsVolumeSizeInGb: int
 
 
-class EdgeDeploymentPlanSummaryTypeDef(BaseValidatorModel):
+class EdgeDeploymentPlanSummary(BaseValidatorModel):
     EdgeDeploymentPlanArn: str
     EdgeDeploymentPlanName: str
     DeviceFleetName: str
@@ -1941,7 +1941,7 @@ class EdgeDeploymentPlanSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class EdgeModelStatTypeDef(BaseValidatorModel):
+class EdgeModelStat(BaseValidatorModel):
     ModelName: str
     ModelVersion: str
     OfflineDeviceCount: int
@@ -1950,7 +1950,7 @@ class EdgeModelStatTypeDef(BaseValidatorModel):
     SamplingDeviceCount: int
 
 
-class EdgePackagingJobSummaryTypeDef(BaseValidatorModel):
+class EdgePackagingJobSummary(BaseValidatorModel):
     EdgePackagingJobArn: str
     EdgePackagingJobName: str
     EdgePackagingJobStatus: EdgePackagingJobStatusType
@@ -1961,52 +1961,52 @@ class EdgePackagingJobSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class EdgeTypeDef(BaseValidatorModel):
+class Edge(BaseValidatorModel):
     SourceArn: Optional[str] = None
     DestinationArn: Optional[str] = None
     AssociationType: Optional[AssociationEdgeTypeType] = None
 
 
-class EmrSettingsOutputTypeDef(BaseValidatorModel):
+class EmrSettingsOutput(BaseValidatorModel):
     AssumableRoleArns: Optional[List[str]] = None
     ExecutionRoleArns: Optional[List[str]] = None
 
 
-class EmrSettingsTypeDef(BaseValidatorModel):
+class EmrSettings(BaseValidatorModel):
     AssumableRoleArns: Optional[Sequence[str]] = None
     ExecutionRoleArns: Optional[Sequence[str]] = None
 
 
-class EndpointConfigStepMetadataTypeDef(BaseValidatorModel):
+class EndpointConfigStepMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class EndpointConfigSummaryTypeDef(BaseValidatorModel):
+class EndpointConfigSummary(BaseValidatorModel):
     EndpointConfigName: str
     EndpointConfigArn: str
     CreationTime: datetime
 
 
-class EndpointInfoTypeDef(BaseValidatorModel):
+class EndpointInfo(BaseValidatorModel):
     EndpointName: Optional[str] = None
 
 
-class ProductionVariantServerlessConfigTypeDef(BaseValidatorModel):
+class ProductionVariantServerlessConfig(BaseValidatorModel):
     MemorySizeInMB: int
     MaxConcurrency: int
     ProvisionedConcurrency: Optional[int] = None
 
 
-class InferenceMetricsTypeDef(BaseValidatorModel):
+class InferenceMetrics(BaseValidatorModel):
     MaxInvocations: int
     ModelLatency: int
 
 
-class EndpointStepMetadataTypeDef(BaseValidatorModel):
+class EndpointStepMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class EndpointSummaryTypeDef(BaseValidatorModel):
+class EndpointSummary(BaseValidatorModel):
     EndpointName: str
     EndpointArn: str
     CreationTime: datetime
@@ -2014,23 +2014,23 @@ class EndpointSummaryTypeDef(BaseValidatorModel):
     EndpointStatus: EndpointStatusType
 
 
-class EnvironmentParameterTypeDef(BaseValidatorModel):
+class EnvironmentParameter(BaseValidatorModel):
     Key: str
     ValueType: str
     Value: str
 
 
-class FailStepMetadataTypeDef(BaseValidatorModel):
+class FailStepMetadata(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Name: str
     Operator: Optional[OperatorType] = None
     Value: Optional[str] = None
 
 
-class FlowDefinitionSummaryTypeDef(BaseValidatorModel):
+class FlowDefinitionSummary(BaseValidatorModel):
     FlowDefinitionName: str
     FlowDefinitionArn: str
     FlowDefinitionStatus: FlowDefinitionStatusType
@@ -2038,55 +2038,55 @@ class FlowDefinitionSummaryTypeDef(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
-class GetDeviceFleetReportRequestTypeDef(BaseValidatorModel):
+class GetDeviceFleetReportRequest(BaseValidatorModel):
     DeviceFleetName: str
 
 
-class GetLineageGroupPolicyRequestTypeDef(BaseValidatorModel):
+class GetLineageGroupPolicyRequest(BaseValidatorModel):
     LineageGroupName: str
 
 
-class GetModelPackageGroupPolicyInputTypeDef(BaseValidatorModel):
+class GetModelPackageGroupPolicyInput(BaseValidatorModel):
     ModelPackageGroupName: str
 
 
-class ScalingPolicyObjectiveTypeDef(BaseValidatorModel):
+class ScalingPolicyObjective(BaseValidatorModel):
     MinInvocationsPerMinute: Optional[int] = None
     MaxInvocationsPerMinute: Optional[int] = None
 
 
-class ScalingPolicyMetricTypeDef(BaseValidatorModel):
+class ScalingPolicyMetric(BaseValidatorModel):
     InvocationsPerInstance: Optional[int] = None
     ModelLatency: Optional[int] = None
 
 
-class PropertyNameSuggestionTypeDef(BaseValidatorModel):
+class PropertyNameSuggestion(BaseValidatorModel):
     PropertyName: Optional[str] = None
 
 
-class GitConfigForUpdateTypeDef(BaseValidatorModel):
+class GitConfigForUpdate(BaseValidatorModel):
     SecretArn: Optional[str] = None
 
 
-class HiddenSageMakerImageOutputTypeDef(BaseValidatorModel):
+class HiddenSageMakerImageOutput(BaseValidatorModel):
     SageMakerImageName: Optional[Literal["sagemaker_distribution"]] = None
     VersionAliases: Optional[List[str]] = None
 
 
-class HiddenSageMakerImageTypeDef(BaseValidatorModel):
+class HiddenSageMakerImage(BaseValidatorModel):
     SageMakerImageName: Optional[Literal["sagemaker_distribution"]] = None
     VersionAliases: Optional[Sequence[str]] = None
 
 
-class HolidayConfigAttributesTypeDef(BaseValidatorModel):
+class HolidayConfigAttributes(BaseValidatorModel):
     CountryCode: Optional[str] = None
 
 
-class HubAccessConfigTypeDef(BaseValidatorModel):
+class HubAccessConfig(BaseValidatorModel):
     HubContentArn: str
 
 
-class HubContentInfoTypeDef(BaseValidatorModel):
+class HubContentInfo(BaseValidatorModel):
     HubContentName: str
     HubContentArn: str
     HubContentVersion: str
@@ -2102,7 +2102,7 @@ class HubContentInfoTypeDef(BaseValidatorModel):
     OriginalCreationTime: Optional[datetime] = None
 
 
-class HubInfoTypeDef(BaseValidatorModel):
+class HubInfo(BaseValidatorModel):
     HubName: str
     HubArn: str
     HubStatus: HubStatusType
@@ -2113,58 +2113,58 @@ class HubInfoTypeDef(BaseValidatorModel):
     HubSearchKeywords: Optional[List[str]] = None
 
 
-class HumanLoopActivationConditionsConfigTypeDef(BaseValidatorModel):
+class HumanLoopActivationConditionsConfig(BaseValidatorModel):
     HumanLoopActivationConditions: str
 
 
-class UiConfigTypeDef(BaseValidatorModel):
+class UiConfig(BaseValidatorModel):
     UiTemplateS3Uri: Optional[str] = None
     HumanTaskUiArn: Optional[str] = None
 
 
-class HumanTaskUiSummaryTypeDef(BaseValidatorModel):
+class HumanTaskUiSummary(BaseValidatorModel):
     HumanTaskUiName: str
     HumanTaskUiArn: str
     CreationTime: datetime
 
 
-class HyperParameterTuningInstanceConfigTypeDef(BaseValidatorModel):
+class HyperParameterTuningInstanceConfig(BaseValidatorModel):
     InstanceType: TrainingInstanceTypeType
     InstanceCount: int
     VolumeSizeInGB: int
 
 
-class ResourceLimitsTypeDef(BaseValidatorModel):
+class ResourceLimits(BaseValidatorModel):
     MaxParallelTrainingJobs: int
     MaxNumberOfTrainingJobs: Optional[int] = None
     MaxRuntimeInSeconds: Optional[int] = None
 
 
-class HyperbandStrategyConfigTypeDef(BaseValidatorModel):
+class HyperbandStrategyConfig(BaseValidatorModel):
     MinResource: Optional[int] = None
     MaxResource: Optional[int] = None
 
 
-class ParentHyperParameterTuningJobTypeDef(BaseValidatorModel):
+class ParentHyperParameterTuningJob(BaseValidatorModel):
     HyperParameterTuningJobName: Optional[str] = None
 
 
-class IamIdentityTypeDef(BaseValidatorModel):
+class IamIdentity(BaseValidatorModel):
     Arn: Optional[str] = None
     PrincipalId: Optional[str] = None
     SourceIdentity: Optional[str] = None
 
 
-class IamPolicyConstraintsTypeDef(BaseValidatorModel):
+class IamPolicyConstraints(BaseValidatorModel):
     SourceIp: Optional[EnabledOrDisabledType] = None
     VpcSourceIp: Optional[EnabledOrDisabledType] = None
 
 
-class RepositoryAuthConfigTypeDef(BaseValidatorModel):
+class RepositoryAuthConfig(BaseValidatorModel):
     RepositoryCredentialsProviderArn: str
 
 
-class ImageTypeDef(BaseValidatorModel):
+class Image(BaseValidatorModel):
     CreationTime: datetime
     ImageArn: str
     ImageName: str
@@ -2175,7 +2175,7 @@ class ImageTypeDef(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
-class ImageVersionTypeDef(BaseValidatorModel):
+class ImageVersion(BaseValidatorModel):
     CreationTime: datetime
     ImageArn: str
     ImageVersionArn: str
@@ -2185,25 +2185,25 @@ class ImageVersionTypeDef(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
-class InferenceComponentComputeResourceRequirementsTypeDef(BaseValidatorModel):
+class InferenceComponentComputeResourceRequirements(BaseValidatorModel):
     MinMemoryRequiredInMb: int
     NumberOfCpuCoresRequired: Optional[float] = None
     NumberOfAcceleratorDevicesRequired: Optional[float] = None
     MaxMemoryRequiredInMb: Optional[int] = None
 
 
-class InferenceComponentContainerSpecificationTypeDef(BaseValidatorModel):
+class InferenceComponentContainerSpecification(BaseValidatorModel):
     Image: Optional[str] = None
     ArtifactUrl: Optional[str] = None
     Environment: Optional[Mapping[str, str]] = None
 
 
-class InferenceComponentStartupParametersTypeDef(BaseValidatorModel):
+class InferenceComponentStartupParameters(BaseValidatorModel):
     ModelDataDownloadTimeoutInSeconds: Optional[int] = None
     ContainerStartupHealthCheckTimeoutInSeconds: Optional[int] = None
 
 
-class InferenceComponentSummaryTypeDef(BaseValidatorModel):
+class InferenceComponentSummary(BaseValidatorModel):
     CreationTime: datetime
     InferenceComponentArn: str
     InferenceComponentName: str
@@ -2214,11 +2214,11 @@ class InferenceComponentSummaryTypeDef(BaseValidatorModel):
     InferenceComponentStatus: Optional[InferenceComponentStatusType] = None
 
 
-class InferenceHubAccessConfigTypeDef(BaseValidatorModel):
+class InferenceHubAccessConfig(BaseValidatorModel):
     HubContentArn: str
 
 
-class RecommendationMetricsTypeDef(BaseValidatorModel):
+class RecommendationMetrics(BaseValidatorModel):
     CostPerHour: Optional[float] = None
     CostPerInference: Optional[float] = None
     MaxInvocations: Optional[int] = None
@@ -2228,7 +2228,7 @@ class RecommendationMetricsTypeDef(BaseValidatorModel):
     ModelSetupTime: Optional[int] = None
 
 
-class InferenceRecommendationsJobTypeDef(BaseValidatorModel):
+class InferenceRecommendationsJob(BaseValidatorModel):
     JobName: str
     JobDescription: str
     JobType: RecommendationJobTypeType
@@ -2244,52 +2244,52 @@ class InferenceRecommendationsJobTypeDef(BaseValidatorModel):
     ModelPackageVersionArn: Optional[str] = None
 
 
-class InstanceGroupTypeDef(BaseValidatorModel):
+class InstanceGroup(BaseValidatorModel):
     InstanceType: TrainingInstanceTypeType
     InstanceCount: int
     InstanceGroupName: str
 
 
-class IntegerParameterRangeSpecificationTypeDef(BaseValidatorModel):
+class IntegerParameterRangeSpecification(BaseValidatorModel):
     MinValue: str
     MaxValue: str
 
 
-class IntegerParameterRangeTypeDef(BaseValidatorModel):
+class IntegerParameterRange(BaseValidatorModel):
     Name: str
     MinValue: str
     MaxValue: str
     ScalingType: Optional[HyperParameterScalingTypeType] = None
 
 
-class KernelSpecTypeDef(BaseValidatorModel):
+class KernelSpec(BaseValidatorModel):
     Name: str
     DisplayName: Optional[str] = None
 
 
-class LabelCountersForWorkteamTypeDef(BaseValidatorModel):
+class LabelCountersForWorkteam(BaseValidatorModel):
     HumanLabeled: Optional[int] = None
     PendingHuman: Optional[int] = None
     Total: Optional[int] = None
 
 
-class LabelingJobDataAttributesOutputTypeDef(BaseValidatorModel):
+class LabelingJobDataAttributesOutput(BaseValidatorModel):
     ContentClassifiers: Optional[List[ContentClassifierType]] = None
 
 
-class LabelingJobDataAttributesTypeDef(BaseValidatorModel):
+class LabelingJobDataAttributes(BaseValidatorModel):
     ContentClassifiers: Optional[Sequence[ContentClassifierType]] = None
 
 
-class LabelingJobS3DataSourceTypeDef(BaseValidatorModel):
+class LabelingJobS3DataSource(BaseValidatorModel):
     ManifestS3Uri: str
 
 
-class LabelingJobSnsDataSourceTypeDef(BaseValidatorModel):
+class LabelingJobSnsDataSource(BaseValidatorModel):
     SnsTopicArn: str
 
 
-class LineageGroupSummaryTypeDef(BaseValidatorModel):
+class LineageGroupSummary(BaseValidatorModel):
     LineageGroupArn: Optional[str] = None
     LineageGroupName: Optional[str] = None
     DisplayName: Optional[str] = None
@@ -2297,13 +2297,13 @@ class LineageGroupSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAliasesRequestTypeDef(BaseValidatorModel):
+class ListAliasesRequest(BaseValidatorModel):
     ImageName: str
     Alias: Optional[str] = None
     Version: Optional[int] = None
@@ -2311,7 +2311,7 @@ class ListAliasesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListAppsRequestTypeDef(BaseValidatorModel):
+class ListAppsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SortOrder: Optional[SortOrderType] = None
@@ -2321,7 +2321,7 @@ class ListAppsRequestTypeDef(BaseValidatorModel):
     SpaceNameEquals: Optional[str] = None
 
 
-class ListCandidatesForAutoMLJobRequestTypeDef(BaseValidatorModel):
+class ListCandidatesForAutoMLJobRequest(BaseValidatorModel):
     AutoMLJobName: str
     StatusEquals: Optional[CandidateStatusType] = None
     CandidateNameEquals: Optional[str] = None
@@ -2331,19 +2331,19 @@ class ListCandidatesForAutoMLJobRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class MonitoringJobDefinitionSummaryTypeDef(BaseValidatorModel):
+class MonitoringJobDefinitionSummary(BaseValidatorModel):
     MonitoringJobDefinitionName: str
     MonitoringJobDefinitionArn: str
     CreationTime: datetime
     EndpointName: str
 
 
-class ListDomainsRequestTypeDef(BaseValidatorModel):
+class ListDomainsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListInferenceRecommendationsJobStepsRequestTypeDef(BaseValidatorModel):
+class ListInferenceRecommendationsJobStepsRequest(BaseValidatorModel):
     JobName: str
     Status: Optional[RecommendationJobStatusType] = None
     StepType: Optional[Literal["BENCHMARK"]] = None
@@ -2351,7 +2351,7 @@ class ListInferenceRecommendationsJobStepsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class TrackingServerSummaryTypeDef(BaseValidatorModel):
+class TrackingServerSummary(BaseValidatorModel):
     TrackingServerArn: Optional[str] = None
     TrackingServerName: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -2361,7 +2361,7 @@ class TrackingServerSummaryTypeDef(BaseValidatorModel):
     MlflowVersion: Optional[str] = None
 
 
-class ModelCardExportJobSummaryTypeDef(BaseValidatorModel):
+class ModelCardExportJobSummary(BaseValidatorModel):
     ModelCardExportJobName: str
     ModelCardExportJobArn: str
     Status: ModelCardExportJobStatusType
@@ -2371,7 +2371,7 @@ class ModelCardExportJobSummaryTypeDef(BaseValidatorModel):
     LastModifiedAt: datetime
 
 
-class ModelCardVersionSummaryTypeDef(BaseValidatorModel):
+class ModelCardVersionSummary(BaseValidatorModel):
     ModelCardName: str
     ModelCardArn: str
     ModelCardStatus: ModelCardStatusType
@@ -2380,7 +2380,7 @@ class ModelCardVersionSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class ModelCardSummaryTypeDef(BaseValidatorModel):
+class ModelCardSummary(BaseValidatorModel):
     ModelCardName: str
     ModelCardArn: str
     ModelCardStatus: ModelCardStatusType
@@ -2388,7 +2388,7 @@ class ModelCardSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class ModelMetadataSummaryTypeDef(BaseValidatorModel):
+class ModelMetadataSummary(BaseValidatorModel):
     Domain: str
     Framework: str
     Task: str
@@ -2396,7 +2396,7 @@ class ModelMetadataSummaryTypeDef(BaseValidatorModel):
     FrameworkVersion: str
 
 
-class ModelPackageGroupSummaryTypeDef(BaseValidatorModel):
+class ModelPackageGroupSummary(BaseValidatorModel):
     ModelPackageGroupName: str
     ModelPackageGroupArn: str
     CreationTime: datetime
@@ -2404,7 +2404,7 @@ class ModelPackageGroupSummaryTypeDef(BaseValidatorModel):
     ModelPackageGroupDescription: Optional[str] = None
 
 
-class ModelPackageSummaryTypeDef(BaseValidatorModel):
+class ModelPackageSummary(BaseValidatorModel):
     ModelPackageArn: str
     CreationTime: datetime
     ModelPackageStatus: ModelPackageStatusType
@@ -2415,26 +2415,26 @@ class ModelPackageSummaryTypeDef(BaseValidatorModel):
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
 
 
-class ModelSummaryTypeDef(BaseValidatorModel):
+class ModelSummary(BaseValidatorModel):
     ModelName: str
     ModelArn: str
     CreationTime: datetime
 
 
-class MonitoringAlertHistorySummaryTypeDef(BaseValidatorModel):
+class MonitoringAlertHistorySummary(BaseValidatorModel):
     MonitoringScheduleName: str
     MonitoringAlertName: str
     CreationTime: datetime
     AlertStatus: MonitoringAlertStatusType
 
 
-class ListMonitoringAlertsRequestTypeDef(BaseValidatorModel):
+class ListMonitoringAlertsRequest(BaseValidatorModel):
     MonitoringScheduleName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class MonitoringScheduleSummaryTypeDef(BaseValidatorModel):
+class MonitoringScheduleSummary(BaseValidatorModel):
     MonitoringScheduleName: str
     MonitoringScheduleArn: str
     CreationTime: datetime
@@ -2445,14 +2445,14 @@ class MonitoringScheduleSummaryTypeDef(BaseValidatorModel):
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
-class NotebookInstanceLifecycleConfigSummaryTypeDef(BaseValidatorModel):
+class NotebookInstanceLifecycleConfigSummary(BaseValidatorModel):
     NotebookInstanceLifecycleConfigName: str
     NotebookInstanceLifecycleConfigArn: str
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class NotebookInstanceSummaryTypeDef(BaseValidatorModel):
+class NotebookInstanceSummary(BaseValidatorModel):
     NotebookInstanceName: str
     NotebookInstanceArn: str
     NotebookInstanceStatus: Optional[NotebookInstanceStatusType] = None
@@ -2465,7 +2465,7 @@ class NotebookInstanceSummaryTypeDef(BaseValidatorModel):
     AdditionalCodeRepositories: Optional[List[str]] = None
 
 
-class OptimizationJobSummaryTypeDef(BaseValidatorModel):
+class OptimizationJobSummary(BaseValidatorModel):
     OptimizationJobName: str
     OptimizationJobArn: str
     CreationTime: datetime
@@ -2477,19 +2477,19 @@ class OptimizationJobSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class ListPartnerAppsRequestTypeDef(BaseValidatorModel):
+class ListPartnerAppsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListPipelineExecutionStepsRequestTypeDef(BaseValidatorModel):
+class ListPipelineExecutionStepsRequest(BaseValidatorModel):
     PipelineExecutionArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class PipelineExecutionSummaryTypeDef(BaseValidatorModel):
+class PipelineExecutionSummary(BaseValidatorModel):
     PipelineExecutionArn: Optional[str] = None
     StartTime: Optional[datetime] = None
     PipelineExecutionStatus: Optional[PipelineExecutionStatusType] = None
@@ -2498,18 +2498,18 @@ class PipelineExecutionSummaryTypeDef(BaseValidatorModel):
     PipelineExecutionFailureReason: Optional[str] = None
 
 
-class ListPipelineParametersForExecutionRequestTypeDef(BaseValidatorModel):
+class ListPipelineParametersForExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ParameterTypeDef(BaseValidatorModel):
+class Parameter(BaseValidatorModel):
     Name: str
     Value: str
 
 
-class PipelineSummaryTypeDef(BaseValidatorModel):
+class PipelineSummary(BaseValidatorModel):
     PipelineArn: Optional[str] = None
     PipelineName: Optional[str] = None
     PipelineDisplayName: Optional[str] = None
@@ -2520,7 +2520,7 @@ class PipelineSummaryTypeDef(BaseValidatorModel):
     LastExecutionTime: Optional[datetime] = None
 
 
-class ProcessingJobSummaryTypeDef(BaseValidatorModel):
+class ProcessingJobSummary(BaseValidatorModel):
     ProcessingJobName: str
     ProcessingJobArn: str
     CreationTime: datetime
@@ -2531,7 +2531,7 @@ class ProcessingJobSummaryTypeDef(BaseValidatorModel):
     ExitMessage: Optional[str] = None
 
 
-class ProjectSummaryTypeDef(BaseValidatorModel):
+class ProjectSummary(BaseValidatorModel):
     ProjectName: str
     ProjectArn: str
     ProjectId: str
@@ -2540,14 +2540,14 @@ class ProjectSummaryTypeDef(BaseValidatorModel):
     ProjectDescription: Optional[str] = None
 
 
-class ResourceCatalogTypeDef(BaseValidatorModel):
+class ResourceCatalog(BaseValidatorModel):
     ResourceCatalogArn: str
     ResourceCatalogName: str
     Description: str
     CreationTime: datetime
 
 
-class ListSpacesRequestTypeDef(BaseValidatorModel):
+class ListSpacesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SortOrder: Optional[SortOrderType] = None
@@ -2556,7 +2556,7 @@ class ListSpacesRequestTypeDef(BaseValidatorModel):
     SpaceNameContains: Optional[str] = None
 
 
-class ListStageDevicesRequestTypeDef(BaseValidatorModel):
+class ListStageDevicesRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     StageName: str
     NextToken: Optional[str] = None
@@ -2564,7 +2564,7 @@ class ListStageDevicesRequestTypeDef(BaseValidatorModel):
     ExcludeDevicesDeployedInOtherStage: Optional[bool] = None
 
 
-class StudioLifecycleConfigDetailsTypeDef(BaseValidatorModel):
+class StudioLifecycleConfigDetails(BaseValidatorModel):
     StudioLifecycleConfigArn: Optional[str] = None
     StudioLifecycleConfigName: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -2572,19 +2572,19 @@ class StudioLifecycleConfigDetailsTypeDef(BaseValidatorModel):
     StudioLifecycleConfigAppType: Optional[StudioLifecycleConfigAppTypeType] = None
 
 
-class ListSubscribedWorkteamsRequestTypeDef(BaseValidatorModel):
+class ListSubscribedWorkteamsRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsInputTypeDef(BaseValidatorModel):
+class ListTagsInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTrainingJobsForHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
+class ListTrainingJobsForHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2593,12 +2593,12 @@ class ListTrainingJobsForHyperParameterTuningJobRequestTypeDef(BaseValidatorMode
     SortOrder: Optional[SortOrderType] = None
 
 
-class TrainingPlanFilterTypeDef(BaseValidatorModel):
+class TrainingPlanFilter(BaseValidatorModel):
     Name: Literal["Status"]
     Value: str
 
 
-class TransformJobSummaryTypeDef(BaseValidatorModel):
+class TransformJobSummary(BaseValidatorModel):
     TransformJobName: str
     TransformJobArn: str
     CreationTime: datetime
@@ -2608,7 +2608,7 @@ class TransformJobSummaryTypeDef(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
-class ListUserProfilesRequestTypeDef(BaseValidatorModel):
+class ListUserProfilesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SortOrder: Optional[SortOrderType] = None
@@ -2617,7 +2617,7 @@ class ListUserProfilesRequestTypeDef(BaseValidatorModel):
     UserProfileNameContains: Optional[str] = None
 
 
-class UserProfileDetailsTypeDef(BaseValidatorModel):
+class UserProfileDetails(BaseValidatorModel):
     DomainId: Optional[str] = None
     UserProfileName: Optional[str] = None
     Status: Optional[UserProfileStatusType] = None
@@ -2625,7 +2625,7 @@ class UserProfileDetailsTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class ListWorkforcesRequestTypeDef(BaseValidatorModel):
+class ListWorkforcesRequest(BaseValidatorModel):
     SortBy: Optional[ListWorkforcesSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
@@ -2633,7 +2633,7 @@ class ListWorkforcesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListWorkteamsRequestTypeDef(BaseValidatorModel):
+class ListWorkteamsRequest(BaseValidatorModel):
     SortBy: Optional[ListWorkteamsSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
@@ -2641,39 +2641,39 @@ class ListWorkteamsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class OidcMemberDefinitionOutputTypeDef(BaseValidatorModel):
+class OidcMemberDefinitionOutput(BaseValidatorModel):
     Groups: Optional[List[str]] = None
 
 
-class PredefinedMetricSpecificationTypeDef(BaseValidatorModel):
+class PredefinedMetricSpecification(BaseValidatorModel):
     PredefinedMetricType: Optional[str] = None
 
 
-class ModelAccessConfigTypeDef(BaseValidatorModel):
+class ModelAccessConfig(BaseValidatorModel):
     AcceptEula: bool
 
 
-class ModelBiasAppSpecificationTypeDef(BaseValidatorModel):
+class ModelBiasAppSpecification(BaseValidatorModel):
     ImageUri: str
     ConfigUri: str
     Environment: Optional[Mapping[str, str]] = None
 
 
-class MonitoringGroundTruthS3InputTypeDef(BaseValidatorModel):
+class MonitoringGroundTruthS3Input(BaseValidatorModel):
     S3Uri: Optional[str] = None
 
 
-class ModelCompilationConfigOutputTypeDef(BaseValidatorModel):
+class ModelCompilationConfigOutput(BaseValidatorModel):
     Image: Optional[str] = None
     OverrideEnvironment: Optional[Dict[str, str]] = None
 
 
-class ModelCompilationConfigTypeDef(BaseValidatorModel):
+class ModelCompilationConfig(BaseValidatorModel):
     Image: Optional[str] = None
     OverrideEnvironment: Optional[Mapping[str, str]] = None
 
 
-class ModelDashboardEndpointTypeDef(BaseValidatorModel):
+class ModelDashboardEndpoint(BaseValidatorModel):
     EndpointName: str
     EndpointArn: str
     CreationTime: datetime
@@ -2681,42 +2681,42 @@ class ModelDashboardEndpointTypeDef(BaseValidatorModel):
     EndpointStatus: EndpointStatusType
 
 
-class ModelDashboardIndicatorActionTypeDef(BaseValidatorModel):
+class ModelDashboardIndicatorAction(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class ModelExplainabilityAppSpecificationTypeDef(BaseValidatorModel):
+class ModelExplainabilityAppSpecification(BaseValidatorModel):
     ImageUri: str
     ConfigUri: str
     Environment: Optional[Mapping[str, str]] = None
 
 
-class RealTimeInferenceConfigTypeDef(BaseValidatorModel):
+class RealTimeInferenceConfig(BaseValidatorModel):
     InstanceType: InstanceTypeType
     InstanceCount: int
 
 
-class ModelInputTypeDef(BaseValidatorModel):
+class ModelInput(BaseValidatorModel):
     DataInputConfig: str
 
 
-class ModelLatencyThresholdTypeDef(BaseValidatorModel):
+class ModelLatencyThreshold(BaseValidatorModel):
     Percentile: Optional[str] = None
     ValueInMilliseconds: Optional[int] = None
 
 
-class ModelMetadataFilterTypeDef(BaseValidatorModel):
+class ModelMetadataFilter(BaseValidatorModel):
     Name: ModelMetadataFilterTypeType
     Value: str
 
 
-class ModelPackageStatusItemTypeDef(BaseValidatorModel):
+class ModelPackageStatusItem(BaseValidatorModel):
     Name: str
     Status: DetailedModelPackageStatusType
     FailureReason: Optional[str] = None
 
 
-class ModelQualityAppSpecificationTypeDef(BaseValidatorModel):
+class ModelQualityAppSpecification(BaseValidatorModel):
     ImageUri: str
     ContainerEntrypoint: Optional[Sequence[str]] = None
     ContainerArguments: Optional[Sequence[str]] = None
@@ -2726,31 +2726,31 @@ class ModelQualityAppSpecificationTypeDef(BaseValidatorModel):
     Environment: Optional[Mapping[str, str]] = None
 
 
-class ModelQuantizationConfigOutputTypeDef(BaseValidatorModel):
+class ModelQuantizationConfigOutput(BaseValidatorModel):
     Image: Optional[str] = None
     OverrideEnvironment: Optional[Dict[str, str]] = None
 
 
-class ModelQuantizationConfigTypeDef(BaseValidatorModel):
+class ModelQuantizationConfig(BaseValidatorModel):
     Image: Optional[str] = None
     OverrideEnvironment: Optional[Mapping[str, str]] = None
 
 
-class ModelShardingConfigOutputTypeDef(BaseValidatorModel):
+class ModelShardingConfigOutput(BaseValidatorModel):
     Image: Optional[str] = None
     OverrideEnvironment: Optional[Dict[str, str]] = None
 
 
-class ModelShardingConfigTypeDef(BaseValidatorModel):
+class ModelShardingConfig(BaseValidatorModel):
     Image: Optional[str] = None
     OverrideEnvironment: Optional[Mapping[str, str]] = None
 
 
-class ModelStepMetadataTypeDef(BaseValidatorModel):
+class ModelStepMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class MonitoringAppSpecificationOutputTypeDef(BaseValidatorModel):
+class MonitoringAppSpecificationOutput(BaseValidatorModel):
     ImageUri: str
     ContainerEntrypoint: Optional[List[str]] = None
     ContainerArguments: Optional[List[str]] = None
@@ -2758,7 +2758,7 @@ class MonitoringAppSpecificationOutputTypeDef(BaseValidatorModel):
     PostAnalyticsProcessorSourceUri: Optional[str] = None
 
 
-class MonitoringAppSpecificationTypeDef(BaseValidatorModel):
+class MonitoringAppSpecification(BaseValidatorModel):
     ImageUri: str
     ContainerEntrypoint: Optional[Sequence[str]] = None
     ContainerArguments: Optional[Sequence[str]] = None
@@ -2766,45 +2766,45 @@ class MonitoringAppSpecificationTypeDef(BaseValidatorModel):
     PostAnalyticsProcessorSourceUri: Optional[str] = None
 
 
-class MonitoringClusterConfigTypeDef(BaseValidatorModel):
+class MonitoringClusterConfig(BaseValidatorModel):
     InstanceCount: int
     InstanceType: ProcessingInstanceTypeType
     VolumeSizeInGB: int
     VolumeKmsKeyId: Optional[str] = None
 
 
-class MonitoringCsvDatasetFormatTypeDef(BaseValidatorModel):
+class MonitoringCsvDatasetFormat(BaseValidatorModel):
     Header: Optional[bool] = None
 
 
-class MonitoringJsonDatasetFormatTypeDef(BaseValidatorModel):
+class MonitoringJsonDatasetFormat(BaseValidatorModel):
     Line: Optional[bool] = None
 
 
-class MonitoringS3OutputTypeDef(BaseValidatorModel):
+class MonitoringS3Output(BaseValidatorModel):
     S3Uri: str
     LocalPath: str
     S3UploadMode: Optional[ProcessingS3UploadModeType] = None
 
 
-class ScheduleConfigTypeDef(BaseValidatorModel):
+class ScheduleConfig(BaseValidatorModel):
     ScheduleExpression: str
     DataAnalysisStartTime: Optional[str] = None
     DataAnalysisEndTime: Optional[str] = None
 
 
-class NeoVpcConfigTypeDef(BaseValidatorModel):
+class NeoVpcConfig(BaseValidatorModel):
     SecurityGroupIds: Sequence[str]
     Subnets: Sequence[str]
 
 
-class S3StorageConfigTypeDef(BaseValidatorModel):
+class S3StorageConfig(BaseValidatorModel):
     S3Uri: str
     KmsKeyId: Optional[str] = None
     ResolvedOutputS3Uri: Optional[str] = None
 
 
-class OidcConfigForResponseTypeDef(BaseValidatorModel):
+class OidcConfigForResponse(BaseValidatorModel):
     ClientId: Optional[str] = None
     Issuer: Optional[str] = None
     AuthorizationEndpoint: Optional[str] = None
@@ -2816,75 +2816,75 @@ class OidcConfigForResponseTypeDef(BaseValidatorModel):
     AuthenticationRequestExtraParams: Optional[Dict[str, str]] = None
 
 
-class OidcMemberDefinitionTypeDef(BaseValidatorModel):
+class OidcMemberDefinition(BaseValidatorModel):
     Groups: Optional[Sequence[str]] = None
 
 
-class OnlineStoreSecurityConfigTypeDef(BaseValidatorModel):
+class OnlineStoreSecurityConfig(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
-class TtlDurationTypeDef(BaseValidatorModel):
+class TtlDuration(BaseValidatorModel):
     Unit: Optional[TtlDurationUnitType] = None
     Value: Optional[int] = None
 
 
-class OptimizationModelAccessConfigTypeDef(BaseValidatorModel):
+class OptimizationModelAccessConfig(BaseValidatorModel):
     AcceptEula: bool
 
 
-class OptimizationVpcConfigTypeDef(BaseValidatorModel):
+class OptimizationVpcConfig(BaseValidatorModel):
     SecurityGroupIds: Sequence[str]
     Subnets: Sequence[str]
 
 
-class TargetPlatformTypeDef(BaseValidatorModel):
+class TargetPlatform(BaseValidatorModel):
     Os: TargetPlatformOsType
     Arch: TargetPlatformArchType
     Accelerator: Optional[TargetPlatformAcceleratorType] = None
 
 
-class OwnershipSettingsSummaryTypeDef(BaseValidatorModel):
+class OwnershipSettingsSummary(BaseValidatorModel):
     OwnerUserProfileName: Optional[str] = None
 
 
-class ParentTypeDef(BaseValidatorModel):
+class Parent(BaseValidatorModel):
     TrialName: Optional[str] = None
     ExperimentName: Optional[str] = None
 
 
-class PartnerAppConfigTypeDef(BaseValidatorModel):
+class PartnerAppConfig(BaseValidatorModel):
     AdminUsers: Optional[Sequence[str]] = None
     Arguments: Optional[Mapping[str, str]] = None
 
 
-class ProductionVariantManagedInstanceScalingTypeDef(BaseValidatorModel):
+class ProductionVariantManagedInstanceScaling(BaseValidatorModel):
     Status: Optional[ManagedInstanceScalingStatusType] = None
     MinInstanceCount: Optional[int] = None
     MaxInstanceCount: Optional[int] = None
 
 
-class ProductionVariantRoutingConfigTypeDef(BaseValidatorModel):
+class ProductionVariantRoutingConfig(BaseValidatorModel):
     RoutingStrategy: RoutingStrategyType
 
 
-class ProductionVariantStatusTypeDef(BaseValidatorModel):
+class ProductionVariantStatus(BaseValidatorModel):
     Status: VariantStatusType
     StatusMessage: Optional[str] = None
     StartTime: Optional[datetime] = None
 
 
-class PhaseTypeDef(BaseValidatorModel):
+class Phase(BaseValidatorModel):
     InitialNumberOfUsers: Optional[int] = None
     SpawnRate: Optional[int] = None
     DurationInSeconds: Optional[int] = None
 
 
-class ProcessingJobStepMetadataTypeDef(BaseValidatorModel):
+class ProcessingJobStepMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class QualityCheckStepMetadataTypeDef(BaseValidatorModel):
+class QualityCheckStepMetadata(BaseValidatorModel):
     CheckType: Optional[str] = None
     BaselineUsedForDriftCheckStatistics: Optional[str] = None
     BaselineUsedForDriftCheckConstraints: Optional[str] = None
@@ -2897,68 +2897,68 @@ class QualityCheckStepMetadataTypeDef(BaseValidatorModel):
     RegisterNewBaseline: Optional[bool] = None
 
 
-class RegisterModelStepMetadataTypeDef(BaseValidatorModel):
+class RegisterModelStepMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class TrainingJobStepMetadataTypeDef(BaseValidatorModel):
+class TrainingJobStepMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class TransformJobStepMetadataTypeDef(BaseValidatorModel):
+class TransformJobStepMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class TuningJobStepMetaDataTypeDef(BaseValidatorModel):
+class TuningJobStepMetaData(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class SelectiveExecutionResultTypeDef(BaseValidatorModel):
+class SelectiveExecutionResult(BaseValidatorModel):
     SourcePipelineExecutionArn: Optional[str] = None
 
 
-class PriorityClassTypeDef(BaseValidatorModel):
+class PriorityClass(BaseValidatorModel):
     Name: str
     Weight: int
 
 
-class ProcessingClusterConfigTypeDef(BaseValidatorModel):
+class ProcessingClusterConfig(BaseValidatorModel):
     InstanceCount: int
     InstanceType: ProcessingInstanceTypeType
     VolumeSizeInGB: int
     VolumeKmsKeyId: Optional[str] = None
 
 
-class ProcessingFeatureStoreOutputTypeDef(BaseValidatorModel):
+class ProcessingFeatureStoreOutput(BaseValidatorModel):
     FeatureGroupName: str
 
 
-class ProcessingS3OutputTypeDef(BaseValidatorModel):
+class ProcessingS3Output(BaseValidatorModel):
     S3Uri: str
     S3UploadMode: ProcessingS3UploadModeType
     LocalPath: Optional[str] = None
 
 
-class ProductionVariantCoreDumpConfigTypeDef(BaseValidatorModel):
+class ProductionVariantCoreDumpConfig(BaseValidatorModel):
     DestinationS3Uri: str
     KmsKeyId: Optional[str] = None
 
 
-class ProfilerConfigForUpdateTypeDef(BaseValidatorModel):
+class ProfilerConfigForUpdate(BaseValidatorModel):
     S3OutputPath: Optional[str] = None
     ProfilingIntervalInMilliseconds: Optional[int] = None
     ProfilingParameters: Optional[Mapping[str, str]] = None
     DisableProfiler: Optional[bool] = None
 
 
-class ProfilerConfigTypeDef(BaseValidatorModel):
+class ProfilerConfig(BaseValidatorModel):
     S3OutputPath: Optional[str] = None
     ProfilingIntervalInMilliseconds: Optional[int] = None
     ProfilingParameters: Optional[Mapping[str, str]] = None
     DisableProfiler: Optional[bool] = None
 
 
-class ProfilerRuleConfigurationTypeDef(BaseValidatorModel):
+class ProfilerRuleConfiguration(BaseValidatorModel):
     RuleConfigurationName: str
     RuleEvaluatorImage: str
     LocalPath: Optional[str] = None
@@ -2968,74 +2968,74 @@ class ProfilerRuleConfigurationTypeDef(BaseValidatorModel):
     RuleParameters: Optional[Mapping[str, str]] = None
 
 
-class PropertyNameQueryTypeDef(BaseValidatorModel):
+class PropertyNameQuery(BaseValidatorModel):
     PropertyNameHint: str
 
 
-class ProvisioningParameterTypeDef(BaseValidatorModel):
+class ProvisioningParameter(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class USDTypeDef(BaseValidatorModel):
+class USD(BaseValidatorModel):
     Dollars: Optional[int] = None
     Cents: Optional[int] = None
     TenthFractionsOfACent: Optional[int] = None
 
 
-class PutModelPackageGroupPolicyInputTypeDef(BaseValidatorModel):
+class PutModelPackageGroupPolicyInput(BaseValidatorModel):
     ModelPackageGroupName: str
     ResourcePolicy: str
 
 
-class RStudioServerProAppSettingsTypeDef(BaseValidatorModel):
+class RStudioServerProAppSettings(BaseValidatorModel):
     AccessStatus: Optional[RStudioServerProAccessStatusType] = None
     UserGroup: Optional[RStudioServerProUserGroupType] = None
 
 
-class RecommendationJobCompiledOutputConfigTypeDef(BaseValidatorModel):
+class RecommendationJobCompiledOutputConfig(BaseValidatorModel):
     S3OutputUri: Optional[str] = None
 
 
-class RecommendationJobPayloadConfigOutputTypeDef(BaseValidatorModel):
+class RecommendationJobPayloadConfigOutput(BaseValidatorModel):
     SamplePayloadUrl: Optional[str] = None
     SupportedContentTypes: Optional[List[str]] = None
 
 
-class RecommendationJobPayloadConfigTypeDef(BaseValidatorModel):
+class RecommendationJobPayloadConfig(BaseValidatorModel):
     SamplePayloadUrl: Optional[str] = None
     SupportedContentTypes: Optional[Sequence[str]] = None
 
 
-class RecommendationJobResourceLimitTypeDef(BaseValidatorModel):
+class RecommendationJobResourceLimit(BaseValidatorModel):
     MaxNumberOfTests: Optional[int] = None
     MaxParallelOfTests: Optional[int] = None
 
 
-class RecommendationJobVpcConfigOutputTypeDef(BaseValidatorModel):
+class RecommendationJobVpcConfigOutput(BaseValidatorModel):
     SecurityGroupIds: List[str]
     Subnets: List[str]
 
 
-class RecommendationJobVpcConfigTypeDef(BaseValidatorModel):
+class RecommendationJobVpcConfig(BaseValidatorModel):
     SecurityGroupIds: Sequence[str]
     Subnets: Sequence[str]
 
 
-class RemoteDebugConfigForUpdateTypeDef(BaseValidatorModel):
+class RemoteDebugConfigForUpdate(BaseValidatorModel):
     EnableRemoteDebug: Optional[bool] = None
 
 
-class RenderableTaskTypeDef(BaseValidatorModel):
+class RenderableTask(BaseValidatorModel):
     Input: str
 
 
-class RenderingErrorTypeDef(BaseValidatorModel):
+class RenderingError(BaseValidatorModel):
     Code: str
     Message: str
 
 
-class ReservedCapacityOfferingTypeDef(BaseValidatorModel):
+class ReservedCapacityOffering(BaseValidatorModel):
     InstanceType: ReservedCapacityInstanceTypeType
     InstanceCount: int
     AvailabilityZone: Optional[str] = None
@@ -3045,181 +3045,181 @@ class ReservedCapacityOfferingTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
-class ResourceConfigForUpdateTypeDef(BaseValidatorModel):
+class ResourceConfigForUpdate(BaseValidatorModel):
     KeepAlivePeriodInSeconds: int
 
 
-class VisibilityConditionsTypeDef(BaseValidatorModel):
+class VisibilityConditions(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class SelectedStepTypeDef(BaseValidatorModel):
+class SelectedStep(BaseValidatorModel):
     StepName: str
 
 
-class SendPipelineExecutionStepFailureRequestTypeDef(BaseValidatorModel):
+class SendPipelineExecutionStepFailureRequest(BaseValidatorModel):
     CallbackToken: str
     FailureReason: Optional[str] = None
     ClientRequestToken: Optional[str] = None
 
 
-class ShadowModelVariantConfigTypeDef(BaseValidatorModel):
+class ShadowModelVariantConfig(BaseValidatorModel):
     ShadowModelVariantName: str
     SamplingPercentage: int
 
 
-class SharingSettingsTypeDef(BaseValidatorModel):
+class SharingSettings(BaseValidatorModel):
     NotebookOutputOption: Optional[NotebookOutputOptionType] = None
     S3OutputPath: Optional[str] = None
     S3KmsKeyId: Optional[str] = None
 
 
-class SourceIpConfigOutputTypeDef(BaseValidatorModel):
+class SourceIpConfigOutput(BaseValidatorModel):
     Cidrs: List[str]
 
 
-class SourceIpConfigTypeDef(BaseValidatorModel):
+class SourceIpConfig(BaseValidatorModel):
     Cidrs: Sequence[str]
 
 
-class SpaceIdleSettingsTypeDef(BaseValidatorModel):
+class SpaceIdleSettings(BaseValidatorModel):
     IdleTimeoutInMinutes: Optional[int] = None
 
 
-class SpaceSharingSettingsSummaryTypeDef(BaseValidatorModel):
+class SpaceSharingSettingsSummary(BaseValidatorModel):
     SharingType: Optional[SharingTypeType] = None
 
 
-class StairsTypeDef(BaseValidatorModel):
+class Stairs(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
     NumberOfSteps: Optional[int] = None
     UsersPerStep: Optional[int] = None
 
 
-class StartEdgeDeploymentStageRequestTypeDef(BaseValidatorModel):
+class StartEdgeDeploymentStageRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     StageName: str
 
 
-class StartInferenceExperimentRequestTypeDef(BaseValidatorModel):
+class StartInferenceExperimentRequest(BaseValidatorModel):
     Name: str
 
 
-class StartMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
+class StartMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
 
 
-class StartMonitoringScheduleRequestTypeDef(BaseValidatorModel):
+class StartMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
 
 
-class StartNotebookInstanceInputTypeDef(BaseValidatorModel):
+class StartNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
 
 
-class StopAutoMLJobRequestTypeDef(BaseValidatorModel):
+class StopAutoMLJobRequest(BaseValidatorModel):
     AutoMLJobName: str
 
 
-class StopCompilationJobRequestTypeDef(BaseValidatorModel):
+class StopCompilationJobRequest(BaseValidatorModel):
     CompilationJobName: str
 
 
-class StopEdgeDeploymentStageRequestTypeDef(BaseValidatorModel):
+class StopEdgeDeploymentStageRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     StageName: str
 
 
-class StopEdgePackagingJobRequestTypeDef(BaseValidatorModel):
+class StopEdgePackagingJobRequest(BaseValidatorModel):
     EdgePackagingJobName: str
 
 
-class StopHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
+class StopHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
 
 
-class StopInferenceRecommendationsJobRequestTypeDef(BaseValidatorModel):
+class StopInferenceRecommendationsJobRequest(BaseValidatorModel):
     JobName: str
 
 
-class StopLabelingJobRequestTypeDef(BaseValidatorModel):
+class StopLabelingJobRequest(BaseValidatorModel):
     LabelingJobName: str
 
 
-class StopMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
+class StopMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
 
 
-class StopMonitoringScheduleRequestTypeDef(BaseValidatorModel):
+class StopMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
 
 
-class StopNotebookInstanceInputTypeDef(BaseValidatorModel):
+class StopNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
 
 
-class StopOptimizationJobRequestTypeDef(BaseValidatorModel):
+class StopOptimizationJobRequest(BaseValidatorModel):
     OptimizationJobName: str
 
 
-class StopPipelineExecutionRequestTypeDef(BaseValidatorModel):
+class StopPipelineExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
     ClientRequestToken: str
 
 
-class StopProcessingJobRequestTypeDef(BaseValidatorModel):
+class StopProcessingJobRequest(BaseValidatorModel):
     ProcessingJobName: str
 
 
-class StopTrainingJobRequestTypeDef(BaseValidatorModel):
+class StopTrainingJobRequest(BaseValidatorModel):
     TrainingJobName: str
 
 
-class StopTransformJobRequestTypeDef(BaseValidatorModel):
+class StopTransformJobRequest(BaseValidatorModel):
     TransformJobName: str
 
 
-class ThroughputConfigUpdateTypeDef(BaseValidatorModel):
+class ThroughputConfigUpdate(BaseValidatorModel):
     ThroughputMode: Optional[ThroughputModeType] = None
     ProvisionedReadCapacityUnits: Optional[int] = None
     ProvisionedWriteCapacityUnits: Optional[int] = None
 
 
-class TimeSeriesConfigOutputTypeDef(BaseValidatorModel):
+class TimeSeriesConfigOutput(BaseValidatorModel):
     TargetAttributeName: str
     TimestampAttributeName: str
     ItemIdentifierAttributeName: str
     GroupingAttributeNames: Optional[List[str]] = None
 
 
-class TimeSeriesConfigTypeDef(BaseValidatorModel):
+class TimeSeriesConfig(BaseValidatorModel):
     TargetAttributeName: str
     TimestampAttributeName: str
     ItemIdentifierAttributeName: str
     GroupingAttributeNames: Optional[Sequence[str]] = None
 
 
-class TimeSeriesTransformationsOutputTypeDef(BaseValidatorModel):
+class TimeSeriesTransformationsOutput(BaseValidatorModel):
     Filling: Optional[Dict[str, Dict[FillingTypeType, str]]] = None
     Aggregation: Optional[Dict[str, AggregationTransformationValueType]] = None
 
 
-class TimeSeriesTransformationsTypeDef(BaseValidatorModel):
+class TimeSeriesTransformations(BaseValidatorModel):
     Filling: Optional[Mapping[str, Mapping[FillingTypeType, str]]] = None
     Aggregation: Optional[Mapping[str, AggregationTransformationValueType]] = None
 
 
-class TrainingRepositoryAuthConfigTypeDef(BaseValidatorModel):
+class TrainingRepositoryAuthConfig(BaseValidatorModel):
     TrainingRepositoryCredentialsProviderArn: str
 
 
-class TransformS3DataSourceTypeDef(BaseValidatorModel):
+class TransformS3DataSource(BaseValidatorModel):
     S3DataType: S3DataTypeType
     S3Uri: str
 
 
-class UpdateActionRequestTypeDef(BaseValidatorModel):
+class UpdateActionRequest(BaseValidatorModel):
     ActionName: str
     Description: Optional[str] = None
     Status: Optional[ActionStatusType] = None
@@ -3227,42 +3227,42 @@ class UpdateActionRequestTypeDef(BaseValidatorModel):
     PropertiesToRemove: Optional[Sequence[str]] = None
 
 
-class UpdateArtifactRequestTypeDef(BaseValidatorModel):
+class UpdateArtifactRequest(BaseValidatorModel):
     ArtifactArn: str
     ArtifactName: Optional[str] = None
     Properties: Optional[Mapping[str, str]] = None
     PropertiesToRemove: Optional[Sequence[str]] = None
 
 
-class UpdateClusterSoftwareRequestTypeDef(BaseValidatorModel):
+class UpdateClusterSoftwareRequest(BaseValidatorModel):
     ClusterName: str
 
 
-class UpdateContextRequestTypeDef(BaseValidatorModel):
+class UpdateContextRequest(BaseValidatorModel):
     ContextName: str
     Description: Optional[str] = None
     Properties: Optional[Mapping[str, str]] = None
     PropertiesToRemove: Optional[Sequence[str]] = None
 
 
-class VariantPropertyTypeDef(BaseValidatorModel):
+class VariantProperty(BaseValidatorModel):
     VariantPropertyType: VariantPropertyTypeType
 
 
-class UpdateExperimentRequestTypeDef(BaseValidatorModel):
+class UpdateExperimentRequest(BaseValidatorModel):
     ExperimentName: str
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
 
 
-class UpdateHubContentReferenceRequestTypeDef(BaseValidatorModel):
+class UpdateHubContentReferenceRequest(BaseValidatorModel):
     HubName: str
     HubContentName: str
     HubContentType: HubContentTypeType
     MinVersion: Optional[str] = None
 
 
-class UpdateHubContentRequestTypeDef(BaseValidatorModel):
+class UpdateHubContentRequest(BaseValidatorModel):
     HubName: str
     HubContentName: str
     HubContentType: HubContentTypeType
@@ -3274,14 +3274,14 @@ class UpdateHubContentRequestTypeDef(BaseValidatorModel):
     SupportStatus: Optional[HubContentSupportStatusType] = None
 
 
-class UpdateHubRequestTypeDef(BaseValidatorModel):
+class UpdateHubRequest(BaseValidatorModel):
     HubName: str
     HubDescription: Optional[str] = None
     HubDisplayName: Optional[str] = None
     HubSearchKeywords: Optional[Sequence[str]] = None
 
 
-class UpdateImageRequestTypeDef(BaseValidatorModel):
+class UpdateImageRequest(BaseValidatorModel):
     ImageName: str
     DeleteProperties: Optional[Sequence[str]] = None
     Description: Optional[str] = None
@@ -3289,7 +3289,7 @@ class UpdateImageRequestTypeDef(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
-class UpdateImageVersionRequestTypeDef(BaseValidatorModel):
+class UpdateImageVersionRequest(BaseValidatorModel):
     ImageName: str
     Alias: Optional[str] = None
     Version: Optional[int] = None
@@ -3304,7 +3304,7 @@ class UpdateImageVersionRequestTypeDef(BaseValidatorModel):
     ReleaseNotes: Optional[str] = None
 
 
-class UpdateMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
+class UpdateMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
     ArtifactStoreUri: Optional[str] = None
     TrackingServerSize: Optional[TrackingServerSizeType] = None
@@ -3312,436 +3312,436 @@ class UpdateMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
     WeeklyMaintenanceWindowStart: Optional[str] = None
 
 
-class UpdateModelCardRequestTypeDef(BaseValidatorModel):
+class UpdateModelCardRequest(BaseValidatorModel):
     ModelCardName: str
     Content: Optional[str] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
 
 
-class UpdateMonitoringAlertRequestTypeDef(BaseValidatorModel):
+class UpdateMonitoringAlertRequest(BaseValidatorModel):
     MonitoringScheduleName: str
     MonitoringAlertName: str
     DatapointsToAlert: int
     EvaluationPeriod: int
 
 
-class UpdateTrialRequestTypeDef(BaseValidatorModel):
+class UpdateTrialRequest(BaseValidatorModel):
     TrialName: str
     DisplayName: Optional[str] = None
 
 
-class WorkforceVpcConfigResponseTypeDef(BaseValidatorModel):
+class WorkforceVpcConfigResponse(BaseValidatorModel):
     VpcId: str
     SecurityGroupIds: List[str]
     Subnets: List[str]
     VpcEndpointId: Optional[str] = None
 
 
-class ActionSummaryTypeDef(BaseValidatorModel):
+class ActionSummary(BaseValidatorModel):
     ActionArn: Optional[str] = None
     ActionName: Optional[str] = None
-    Source: Optional[ActionSourceTypeDef] = None
+    Source: Optional[ActionSource] = None
     ActionType: Optional[str] = None
     Status: Optional[ActionStatusType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class AddAssociationResponseTypeDef(BaseValidatorModel):
+class AddAssociationResponse(BaseValidatorModel):
     SourceArn: str
     DestinationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateTrialComponentResponseTypeDef(BaseValidatorModel):
+class AssociateTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
     TrialArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateActionResponseTypeDef(BaseValidatorModel):
+class CreateActionResponse(BaseValidatorModel):
     ActionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAlgorithmOutputTypeDef(BaseValidatorModel):
+class CreateAlgorithmOutput(BaseValidatorModel):
     AlgorithmArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAppImageConfigResponseTypeDef(BaseValidatorModel):
+class CreateAppImageConfigResponse(BaseValidatorModel):
     AppImageConfigArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAppResponseTypeDef(BaseValidatorModel):
+class CreateAppResponse(BaseValidatorModel):
     AppArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateArtifactResponseTypeDef(BaseValidatorModel):
+class CreateArtifactResponse(BaseValidatorModel):
     ArtifactArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAutoMLJobResponseTypeDef(BaseValidatorModel):
+class CreateAutoMLJobResponse(BaseValidatorModel):
     AutoMLJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAutoMLJobV2ResponseTypeDef(BaseValidatorModel):
+class CreateAutoMLJobV2Response(BaseValidatorModel):
     AutoMLJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateClusterResponseTypeDef(BaseValidatorModel):
+class CreateClusterResponse(BaseValidatorModel):
     ClusterArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateClusterSchedulerConfigResponseTypeDef(BaseValidatorModel):
+class CreateClusterSchedulerConfigResponse(BaseValidatorModel):
     ClusterSchedulerConfigArn: str
     ClusterSchedulerConfigId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCodeRepositoryOutputTypeDef(BaseValidatorModel):
+class CreateCodeRepositoryOutput(BaseValidatorModel):
     CodeRepositoryArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCompilationJobResponseTypeDef(BaseValidatorModel):
+class CreateCompilationJobResponse(BaseValidatorModel):
     CompilationJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateComputeQuotaResponseTypeDef(BaseValidatorModel):
+class CreateComputeQuotaResponse(BaseValidatorModel):
     ComputeQuotaArn: str
     ComputeQuotaId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateContextResponseTypeDef(BaseValidatorModel):
+class CreateContextResponse(BaseValidatorModel):
     ContextArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
+class CreateDataQualityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDomainResponseTypeDef(BaseValidatorModel):
+class CreateDomainResponse(BaseValidatorModel):
     DomainArn: str
     DomainId: str
     Url: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEdgeDeploymentPlanResponseTypeDef(BaseValidatorModel):
+class CreateEdgeDeploymentPlanResponse(BaseValidatorModel):
     EdgeDeploymentPlanArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEndpointConfigOutputTypeDef(BaseValidatorModel):
+class CreateEndpointConfigOutput(BaseValidatorModel):
     EndpointConfigArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEndpointOutputTypeDef(BaseValidatorModel):
+class CreateEndpointOutput(BaseValidatorModel):
     EndpointArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateExperimentResponseTypeDef(BaseValidatorModel):
+class CreateExperimentResponse(BaseValidatorModel):
     ExperimentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFeatureGroupResponseTypeDef(BaseValidatorModel):
+class CreateFeatureGroupResponse(BaseValidatorModel):
     FeatureGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFlowDefinitionResponseTypeDef(BaseValidatorModel):
+class CreateFlowDefinitionResponse(BaseValidatorModel):
     FlowDefinitionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateHubContentReferenceResponseTypeDef(BaseValidatorModel):
+class CreateHubContentReferenceResponse(BaseValidatorModel):
     HubArn: str
     HubContentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateHubResponseTypeDef(BaseValidatorModel):
+class CreateHubResponse(BaseValidatorModel):
     HubArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateHumanTaskUiResponseTypeDef(BaseValidatorModel):
+class CreateHumanTaskUiResponse(BaseValidatorModel):
     HumanTaskUiArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateHyperParameterTuningJobResponseTypeDef(BaseValidatorModel):
+class CreateHyperParameterTuningJobResponse(BaseValidatorModel):
     HyperParameterTuningJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateImageResponseTypeDef(BaseValidatorModel):
+class CreateImageResponse(BaseValidatorModel):
     ImageArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateImageVersionResponseTypeDef(BaseValidatorModel):
+class CreateImageVersionResponse(BaseValidatorModel):
     ImageVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateInferenceComponentOutputTypeDef(BaseValidatorModel):
+class CreateInferenceComponentOutput(BaseValidatorModel):
     InferenceComponentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateInferenceExperimentResponseTypeDef(BaseValidatorModel):
+class CreateInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateInferenceRecommendationsJobResponseTypeDef(BaseValidatorModel):
+class CreateInferenceRecommendationsJobResponse(BaseValidatorModel):
     JobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateLabelingJobResponseTypeDef(BaseValidatorModel):
+class CreateLabelingJobResponse(BaseValidatorModel):
     LabelingJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
+class CreateMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateModelBiasJobDefinitionResponseTypeDef(BaseValidatorModel):
+class CreateModelBiasJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateModelCardExportJobResponseTypeDef(BaseValidatorModel):
+class CreateModelCardExportJobResponse(BaseValidatorModel):
     ModelCardExportJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateModelCardResponseTypeDef(BaseValidatorModel):
+class CreateModelCardResponse(BaseValidatorModel):
     ModelCardArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateModelExplainabilityJobDefinitionResponseTypeDef(BaseValidatorModel):
+class CreateModelExplainabilityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateModelOutputTypeDef(BaseValidatorModel):
+class CreateModelOutput(BaseValidatorModel):
     ModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateModelPackageGroupOutputTypeDef(BaseValidatorModel):
+class CreateModelPackageGroupOutput(BaseValidatorModel):
     ModelPackageGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateModelPackageOutputTypeDef(BaseValidatorModel):
+class CreateModelPackageOutput(BaseValidatorModel):
     ModelPackageArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateModelQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
+class CreateModelQualityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMonitoringScheduleResponseTypeDef(BaseValidatorModel):
+class CreateMonitoringScheduleResponse(BaseValidatorModel):
     MonitoringScheduleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNotebookInstanceLifecycleConfigOutputTypeDef(BaseValidatorModel):
+class CreateNotebookInstanceLifecycleConfigOutput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNotebookInstanceOutputTypeDef(BaseValidatorModel):
+class CreateNotebookInstanceOutput(BaseValidatorModel):
     NotebookInstanceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOptimizationJobResponseTypeDef(BaseValidatorModel):
+class CreateOptimizationJobResponse(BaseValidatorModel):
     OptimizationJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePartnerAppPresignedUrlResponseTypeDef(BaseValidatorModel):
+class CreatePartnerAppPresignedUrlResponse(BaseValidatorModel):
     Url: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePartnerAppResponseTypeDef(BaseValidatorModel):
+class CreatePartnerAppResponse(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePipelineResponseTypeDef(BaseValidatorModel):
+class CreatePipelineResponse(BaseValidatorModel):
     PipelineArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePresignedDomainUrlResponseTypeDef(BaseValidatorModel):
+class CreatePresignedDomainUrlResponse(BaseValidatorModel):
     AuthorizedUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePresignedMlflowTrackingServerUrlResponseTypeDef(BaseValidatorModel):
+class CreatePresignedMlflowTrackingServerUrlResponse(BaseValidatorModel):
     AuthorizedUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePresignedNotebookInstanceUrlOutputTypeDef(BaseValidatorModel):
+class CreatePresignedNotebookInstanceUrlOutput(BaseValidatorModel):
     AuthorizedUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProcessingJobResponseTypeDef(BaseValidatorModel):
+class CreateProcessingJobResponse(BaseValidatorModel):
     ProcessingJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProjectOutputTypeDef(BaseValidatorModel):
+class CreateProjectOutput(BaseValidatorModel):
     ProjectArn: str
     ProjectId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSpaceResponseTypeDef(BaseValidatorModel):
+class CreateSpaceResponse(BaseValidatorModel):
     SpaceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStudioLifecycleConfigResponseTypeDef(BaseValidatorModel):
+class CreateStudioLifecycleConfigResponse(BaseValidatorModel):
     StudioLifecycleConfigArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrainingJobResponseTypeDef(BaseValidatorModel):
+class CreateTrainingJobResponse(BaseValidatorModel):
     TrainingJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrainingPlanResponseTypeDef(BaseValidatorModel):
+class CreateTrainingPlanResponse(BaseValidatorModel):
     TrainingPlanArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTransformJobResponseTypeDef(BaseValidatorModel):
+class CreateTransformJobResponse(BaseValidatorModel):
     TransformJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrialComponentResponseTypeDef(BaseValidatorModel):
+class CreateTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrialResponseTypeDef(BaseValidatorModel):
+class CreateTrialResponse(BaseValidatorModel):
     TrialArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateUserProfileResponseTypeDef(BaseValidatorModel):
+class CreateUserProfileResponse(BaseValidatorModel):
     UserProfileArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWorkforceResponseTypeDef(BaseValidatorModel):
+class CreateWorkforceResponse(BaseValidatorModel):
     WorkforceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWorkteamResponseTypeDef(BaseValidatorModel):
+class CreateWorkteamResponse(BaseValidatorModel):
     WorkteamArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteActionResponseTypeDef(BaseValidatorModel):
+class DeleteActionResponse(BaseValidatorModel):
     ActionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteArtifactResponseTypeDef(BaseValidatorModel):
+class DeleteArtifactResponse(BaseValidatorModel):
     ArtifactArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAssociationResponseTypeDef(BaseValidatorModel):
+class DeleteAssociationResponse(BaseValidatorModel):
     SourceArn: str
     DestinationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteClusterResponseTypeDef(BaseValidatorModel):
+class DeleteClusterResponse(BaseValidatorModel):
     ClusterArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteContextResponseTypeDef(BaseValidatorModel):
+class DeleteContextResponse(BaseValidatorModel):
     ContextArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteExperimentResponseTypeDef(BaseValidatorModel):
+class DeleteExperimentResponse(BaseValidatorModel):
     ExperimentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteInferenceExperimentResponseTypeDef(BaseValidatorModel):
+class DeleteInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
+class DeleteMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePartnerAppResponseTypeDef(BaseValidatorModel):
+class DeletePartnerAppResponse(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePipelineResponseTypeDef(BaseValidatorModel):
+class DeletePipelineResponse(BaseValidatorModel):
     PipelineArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTrialComponentResponseTypeDef(BaseValidatorModel):
+class DeleteTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTrialResponseTypeDef(BaseValidatorModel):
+class DeleteTrialResponse(BaseValidatorModel):
     TrialArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteWorkteamResponseTypeDef(BaseValidatorModel):
+class DeleteWorkteamResponse(BaseValidatorModel):
     Success: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeImageResponseTypeDef(BaseValidatorModel):
+class DescribeImageResponse(BaseValidatorModel):
     CreationTime: datetime
     Description: str
     DisplayName: str
@@ -3751,10 +3751,10 @@ class DescribeImageResponseTypeDef(BaseValidatorModel):
     ImageStatus: ImageStatusType
     LastModifiedTime: datetime
     RoleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeImageVersionResponseTypeDef(BaseValidatorModel):
+class DescribeImageVersionResponse(BaseValidatorModel):
     BaseImage: str
     ContainerImage: str
     CreationTime: datetime
@@ -3771,332 +3771,332 @@ class DescribeImageVersionResponseTypeDef(BaseValidatorModel):
     Processor: ProcessorType
     Horovod: bool
     ReleaseNotes: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePipelineDefinitionForExecutionResponseTypeDef(BaseValidatorModel):
+class DescribePipelineDefinitionForExecutionResponse(BaseValidatorModel):
     PipelineDefinition: str
     CreationTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStudioLifecycleConfigResponseTypeDef(BaseValidatorModel):
+class DescribeStudioLifecycleConfigResponse(BaseValidatorModel):
     StudioLifecycleConfigArn: str
     StudioLifecycleConfigName: str
     CreationTime: datetime
     LastModifiedTime: datetime
     StudioLifecycleConfigContent: str
     StudioLifecycleConfigAppType: StudioLifecycleConfigAppTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateTrialComponentResponseTypeDef(BaseValidatorModel):
+class DisassociateTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
     TrialArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetLineageGroupPolicyResponseTypeDef(BaseValidatorModel):
+class GetLineageGroupPolicyResponse(BaseValidatorModel):
     LineageGroupArn: str
     ResourcePolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetModelPackageGroupPolicyOutputTypeDef(BaseValidatorModel):
+class GetModelPackageGroupPolicyOutput(BaseValidatorModel):
     ResourcePolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSagemakerServicecatalogPortfolioStatusOutputTypeDef(BaseValidatorModel):
+class GetSagemakerServicecatalogPortfolioStatusOutput(BaseValidatorModel):
     Status: SagemakerServicecatalogStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportHubContentResponseTypeDef(BaseValidatorModel):
+class ImportHubContentResponse(BaseValidatorModel):
     HubArn: str
     HubContentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAliasesResponseTypeDef(BaseValidatorModel):
+class ListAliasesResponse(BaseValidatorModel):
     SageMakerImageVersionAliases: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutModelPackageGroupPolicyOutputTypeDef(BaseValidatorModel):
+class PutModelPackageGroupPolicyOutput(BaseValidatorModel):
     ModelPackageGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RetryPipelineExecutionResponseTypeDef(BaseValidatorModel):
+class RetryPipelineExecutionResponse(BaseValidatorModel):
     PipelineExecutionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendPipelineExecutionStepFailureResponseTypeDef(BaseValidatorModel):
+class SendPipelineExecutionStepFailureResponse(BaseValidatorModel):
     PipelineExecutionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendPipelineExecutionStepSuccessResponseTypeDef(BaseValidatorModel):
+class SendPipelineExecutionStepSuccessResponse(BaseValidatorModel):
     PipelineExecutionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartInferenceExperimentResponseTypeDef(BaseValidatorModel):
+class StartInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
+class StartMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartPipelineExecutionResponseTypeDef(BaseValidatorModel):
+class StartPipelineExecutionResponse(BaseValidatorModel):
     PipelineExecutionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopInferenceExperimentResponseTypeDef(BaseValidatorModel):
+class StopInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
+class StopMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopPipelineExecutionResponseTypeDef(BaseValidatorModel):
+class StopPipelineExecutionResponse(BaseValidatorModel):
     PipelineExecutionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateActionResponseTypeDef(BaseValidatorModel):
+class UpdateActionResponse(BaseValidatorModel):
     ActionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAppImageConfigResponseTypeDef(BaseValidatorModel):
+class UpdateAppImageConfigResponse(BaseValidatorModel):
     AppImageConfigArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateArtifactResponseTypeDef(BaseValidatorModel):
+class UpdateArtifactResponse(BaseValidatorModel):
     ArtifactArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateClusterResponseTypeDef(BaseValidatorModel):
+class UpdateClusterResponse(BaseValidatorModel):
     ClusterArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateClusterSchedulerConfigResponseTypeDef(BaseValidatorModel):
+class UpdateClusterSchedulerConfigResponse(BaseValidatorModel):
     ClusterSchedulerConfigArn: str
     ClusterSchedulerConfigVersion: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateClusterSoftwareResponseTypeDef(BaseValidatorModel):
+class UpdateClusterSoftwareResponse(BaseValidatorModel):
     ClusterArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCodeRepositoryOutputTypeDef(BaseValidatorModel):
+class UpdateCodeRepositoryOutput(BaseValidatorModel):
     CodeRepositoryArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateComputeQuotaResponseTypeDef(BaseValidatorModel):
+class UpdateComputeQuotaResponse(BaseValidatorModel):
     ComputeQuotaArn: str
     ComputeQuotaVersion: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateContextResponseTypeDef(BaseValidatorModel):
+class UpdateContextResponse(BaseValidatorModel):
     ContextArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDomainResponseTypeDef(BaseValidatorModel):
+class UpdateDomainResponse(BaseValidatorModel):
     DomainArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEndpointOutputTypeDef(BaseValidatorModel):
+class UpdateEndpointOutput(BaseValidatorModel):
     EndpointArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEndpointWeightsAndCapacitiesOutputTypeDef(BaseValidatorModel):
+class UpdateEndpointWeightsAndCapacitiesOutput(BaseValidatorModel):
     EndpointArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateExperimentResponseTypeDef(BaseValidatorModel):
+class UpdateExperimentResponse(BaseValidatorModel):
     ExperimentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFeatureGroupResponseTypeDef(BaseValidatorModel):
+class UpdateFeatureGroupResponse(BaseValidatorModel):
     FeatureGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateHubContentReferenceResponseTypeDef(BaseValidatorModel):
+class UpdateHubContentReferenceResponse(BaseValidatorModel):
     HubArn: str
     HubContentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateHubContentResponseTypeDef(BaseValidatorModel):
+class UpdateHubContentResponse(BaseValidatorModel):
     HubArn: str
     HubContentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateHubResponseTypeDef(BaseValidatorModel):
+class UpdateHubResponse(BaseValidatorModel):
     HubArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateImageResponseTypeDef(BaseValidatorModel):
+class UpdateImageResponse(BaseValidatorModel):
     ImageArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateImageVersionResponseTypeDef(BaseValidatorModel):
+class UpdateImageVersionResponse(BaseValidatorModel):
     ImageVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateInferenceComponentOutputTypeDef(BaseValidatorModel):
+class UpdateInferenceComponentOutput(BaseValidatorModel):
     InferenceComponentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateInferenceComponentRuntimeConfigOutputTypeDef(BaseValidatorModel):
+class UpdateInferenceComponentRuntimeConfigOutput(BaseValidatorModel):
     InferenceComponentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateInferenceExperimentResponseTypeDef(BaseValidatorModel):
+class UpdateInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
+class UpdateMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateModelCardResponseTypeDef(BaseValidatorModel):
+class UpdateModelCardResponse(BaseValidatorModel):
     ModelCardArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateModelPackageOutputTypeDef(BaseValidatorModel):
+class UpdateModelPackageOutput(BaseValidatorModel):
     ModelPackageArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMonitoringAlertResponseTypeDef(BaseValidatorModel):
+class UpdateMonitoringAlertResponse(BaseValidatorModel):
     MonitoringScheduleArn: str
     MonitoringAlertName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMonitoringScheduleResponseTypeDef(BaseValidatorModel):
+class UpdateMonitoringScheduleResponse(BaseValidatorModel):
     MonitoringScheduleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePartnerAppResponseTypeDef(BaseValidatorModel):
+class UpdatePartnerAppResponse(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePipelineExecutionResponseTypeDef(BaseValidatorModel):
+class UpdatePipelineExecutionResponse(BaseValidatorModel):
     PipelineExecutionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePipelineResponseTypeDef(BaseValidatorModel):
+class UpdatePipelineResponse(BaseValidatorModel):
     PipelineArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProjectOutputTypeDef(BaseValidatorModel):
+class UpdateProjectOutput(BaseValidatorModel):
     ProjectArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSpaceResponseTypeDef(BaseValidatorModel):
+class UpdateSpaceResponse(BaseValidatorModel):
     SpaceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTrainingJobResponseTypeDef(BaseValidatorModel):
+class UpdateTrainingJobResponse(BaseValidatorModel):
     TrainingJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTrialComponentResponseTypeDef(BaseValidatorModel):
+class UpdateTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTrialResponseTypeDef(BaseValidatorModel):
+class UpdateTrialResponse(BaseValidatorModel):
     TrialArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateUserProfileResponseTypeDef(BaseValidatorModel):
+class UpdateUserProfileResponse(BaseValidatorModel):
     UserProfileArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddTagsInputTypeDef(BaseValidatorModel):
+class AddTagsInput(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AddTagsOutputTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class AddTagsOutput(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateExperimentRequestTypeDef(BaseValidatorModel):
+class CreateExperimentRequest(BaseValidatorModel):
     ExperimentName: str
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateHubContentReferenceRequestTypeDef(BaseValidatorModel):
+class CreateHubContentReferenceRequest(BaseValidatorModel):
     HubName: str
     SageMakerPublicHubContentArn: str
     HubContentName: Optional[str] = None
     MinVersion: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateImageRequestTypeDef(BaseValidatorModel):
+class CreateImageRequest(BaseValidatorModel):
     ImageName: str
     RoleArn: str
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
+class CreateMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
     ArtifactStoreUri: str
     RoleArn: str
@@ -4104,29 +4104,29 @@ class CreateMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
     MlflowVersion: Optional[str] = None
     AutomaticModelRegistration: Optional[bool] = None
     WeeklyMaintenanceWindowStart: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateModelPackageGroupInputTypeDef(BaseValidatorModel):
+class CreateModelPackageGroupInput(BaseValidatorModel):
     ModelPackageGroupName: str
     ModelPackageGroupDescription: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateStudioLifecycleConfigRequestTypeDef(BaseValidatorModel):
+class CreateStudioLifecycleConfigRequest(BaseValidatorModel):
     StudioLifecycleConfigName: str
     StudioLifecycleConfigContent: str
     StudioLifecycleConfigAppType: StudioLifecycleConfigAppTypeType
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateTrainingPlanRequestTypeDef(BaseValidatorModel):
+class CreateTrainingPlanRequest(BaseValidatorModel):
     TrainingPlanName: str
     TrainingPlanOfferingId: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ImportHubContentRequestTypeDef(BaseValidatorModel):
+class ImportHubContentRequest(BaseValidatorModel):
     HubContentName: str
     HubContentType: HubContentTypeType
     DocumentSchemaVersion: str
@@ -4138,49 +4138,49 @@ class ImportHubContentRequestTypeDef(BaseValidatorModel):
     HubContentMarkdown: Optional[str] = None
     SupportStatus: Optional[HubContentSupportStatusType] = None
     HubContentSearchKeywords: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ListTagsOutputTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsOutput(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AutoRollbackConfigOutputTypeDef(BaseValidatorModel):
-    Alarms: Optional[List[AlarmTypeDef]] = None
+class AutoRollbackConfigOutput(BaseValidatorModel):
+    Alarms: Optional[List[Alarm]] = None
 
 
-class AutoRollbackConfigTypeDef(BaseValidatorModel):
-    Alarms: Optional[Sequence[AlarmTypeDef]] = None
+class AutoRollbackConfig(BaseValidatorModel):
+    Alarms: Optional[Sequence[Alarm]] = None
 
 
-class HyperParameterAlgorithmSpecificationOutputTypeDef(BaseValidatorModel):
+class HyperParameterAlgorithmSpecificationOutput(BaseValidatorModel):
     TrainingInputMode: TrainingInputModeType
     TrainingImage: Optional[str] = None
     AlgorithmName: Optional[str] = None
-    MetricDefinitions: Optional[List[MetricDefinitionTypeDef]] = None
+    MetricDefinitions: Optional[List[MetricDefinition]] = None
 
 
-class HyperParameterAlgorithmSpecificationTypeDef(BaseValidatorModel):
+class HyperParameterAlgorithmSpecification(BaseValidatorModel):
     TrainingInputMode: TrainingInputModeType
     TrainingImage: Optional[str] = None
     AlgorithmName: Optional[str] = None
-    MetricDefinitions: Optional[Sequence[MetricDefinitionTypeDef]] = None
+    MetricDefinitions: Optional[Sequence[MetricDefinition]] = None
 
 
-class AlgorithmStatusDetailsTypeDef(BaseValidatorModel):
-    ValidationStatuses: Optional[List[AlgorithmStatusItemTypeDef]] = None
-    ImageScanStatuses: Optional[List[AlgorithmStatusItemTypeDef]] = None
+class AlgorithmStatusDetails(BaseValidatorModel):
+    ValidationStatuses: Optional[List[AlgorithmStatusItem]] = None
+    ImageScanStatuses: Optional[List[AlgorithmStatusItem]] = None
 
 
-class ListAlgorithmsOutputTypeDef(BaseValidatorModel):
-    AlgorithmSummaryList: List[AlgorithmSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAlgorithmsOutput(BaseValidatorModel):
+    AlgorithmSummaryList: List[AlgorithmSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AppDetailsTypeDef(BaseValidatorModel):
+class AppDetails(BaseValidatorModel):
     DomainId: Optional[str] = None
     UserProfileName: Optional[str] = None
     SpaceName: Optional[str] = None
@@ -4188,20 +4188,20 @@ class AppDetailsTypeDef(BaseValidatorModel):
     AppName: Optional[str] = None
     Status: Optional[AppStatusType] = None
     CreationTime: Optional[datetime] = None
-    ResourceSpec: Optional[ResourceSpecTypeDef] = None
+    ResourceSpec: Optional[ResourceSpec] = None
 
 
-class CreateAppRequestTypeDef(BaseValidatorModel):
+class CreateAppRequest(BaseValidatorModel):
     DomainId: str
     AppType: AppTypeType
     AppName: str
     UserProfileName: Optional[str] = None
     SpaceName: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    ResourceSpec: Optional[ResourceSpecTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    ResourceSpec: Optional[ResourceSpec] = None
 
 
-class DescribeAppResponseTypeDef(BaseValidatorModel):
+class DescribeAppResponse(BaseValidatorModel):
     AppArn: str
     AppType: AppTypeType
     AppName: str
@@ -4213,100 +4213,100 @@ class DescribeAppResponseTypeDef(BaseValidatorModel):
     LastUserActivityTimestamp: datetime
     CreationTime: datetime
     FailureReason: str
-    ResourceSpec: ResourceSpecTypeDef
+    ResourceSpec: ResourceSpec
     BuiltInLifecycleConfigArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RStudioServerProDomainSettingsForUpdateTypeDef(BaseValidatorModel):
+class RStudioServerProDomainSettingsForUpdate(BaseValidatorModel):
     DomainExecutionRoleArn: str
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
+    DefaultResourceSpec: Optional[ResourceSpec] = None
     RStudioConnectUrl: Optional[str] = None
     RStudioPackageManagerUrl: Optional[str] = None
 
 
-class RStudioServerProDomainSettingsTypeDef(BaseValidatorModel):
+class RStudioServerProDomainSettings(BaseValidatorModel):
     DomainExecutionRoleArn: str
     RStudioConnectUrl: Optional[str] = None
     RStudioPackageManagerUrl: Optional[str] = None
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
+    DefaultResourceSpec: Optional[ResourceSpec] = None
 
 
-class TensorBoardAppSettingsTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
+class TensorBoardAppSettings(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
 
 
-class AppLifecycleManagementTypeDef(BaseValidatorModel):
-    IdleSettings: Optional[IdleSettingsTypeDef] = None
+class AppLifecycleManagement(BaseValidatorModel):
+    IdleSettings: Optional[IdleSettings] = None
 
 
-class ArtifactSourceOutputTypeDef(BaseValidatorModel):
+class ArtifactSourceOutput(BaseValidatorModel):
     SourceUri: str
-    SourceTypes: Optional[List[ArtifactSourceTypeTypeDef]] = None
+    SourceTypes: Optional[List[ArtifactSourceType]] = None
 
 
-class ArtifactSourceTypeDef(BaseValidatorModel):
+class ArtifactSource(BaseValidatorModel):
     SourceUri: str
-    SourceTypes: Optional[Sequence[ArtifactSourceTypeTypeDef]] = None
+    SourceTypes: Optional[Sequence[ArtifactSourceType]] = None
 
 
-class AsyncInferenceOutputConfigOutputTypeDef(BaseValidatorModel):
+class AsyncInferenceOutputConfigOutput(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
     S3OutputPath: Optional[str] = None
-    NotificationConfig: Optional[AsyncInferenceNotificationConfigOutputTypeDef] = None
+    NotificationConfig: Optional[AsyncInferenceNotificationConfigOutput] = None
     S3FailurePath: Optional[str] = None
 
 
-class AsyncInferenceOutputConfigTypeDef(BaseValidatorModel):
+class AsyncInferenceOutputConfig(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
     S3OutputPath: Optional[str] = None
-    NotificationConfig: Optional[AsyncInferenceNotificationConfigTypeDef] = None
+    NotificationConfig: Optional[AsyncInferenceNotificationConfig] = None
     S3FailurePath: Optional[str] = None
 
 
-class AutoMLCandidateGenerationConfigOutputTypeDef(BaseValidatorModel):
+class AutoMLCandidateGenerationConfigOutput(BaseValidatorModel):
     FeatureSpecificationS3Uri: Optional[str] = None
-    AlgorithmsConfig: Optional[List[AutoMLAlgorithmConfigOutputTypeDef]] = None
+    AlgorithmsConfig: Optional[List[AutoMLAlgorithmConfigOutput]] = None
 
 
-class CandidateGenerationConfigOutputTypeDef(BaseValidatorModel):
-    AlgorithmsConfig: Optional[List[AutoMLAlgorithmConfigOutputTypeDef]] = None
+class CandidateGenerationConfigOutput(BaseValidatorModel):
+    AlgorithmsConfig: Optional[List[AutoMLAlgorithmConfigOutput]] = None
 
 
-class AutoMLCandidateGenerationConfigTypeDef(BaseValidatorModel):
+class AutoMLCandidateGenerationConfig(BaseValidatorModel):
     FeatureSpecificationS3Uri: Optional[str] = None
-    AlgorithmsConfig: Optional[Sequence[AutoMLAlgorithmConfigTypeDef]] = None
+    AlgorithmsConfig: Optional[Sequence[AutoMLAlgorithmConfig]] = None
 
 
-class CandidateGenerationConfigTypeDef(BaseValidatorModel):
-    AlgorithmsConfig: Optional[Sequence[AutoMLAlgorithmConfigTypeDef]] = None
+class CandidateGenerationConfig(BaseValidatorModel):
+    AlgorithmsConfig: Optional[Sequence[AutoMLAlgorithmConfig]] = None
 
 
-class AutoMLComputeConfigTypeDef(BaseValidatorModel):
-    EmrServerlessComputeConfig: Optional[EmrServerlessComputeConfigTypeDef] = None
+class AutoMLComputeConfig(BaseValidatorModel):
+    EmrServerlessComputeConfig: Optional[EmrServerlessComputeConfig] = None
 
 
-class AutoMLDataSourceTypeDef(BaseValidatorModel):
-    S3DataSource: AutoMLS3DataSourceTypeDef
+class AutoMLDataSource(BaseValidatorModel):
+    S3DataSource: AutoMLS3DataSource
 
 
-class ImageClassificationJobConfigTypeDef(BaseValidatorModel):
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
+class ImageClassificationJobConfig(BaseValidatorModel):
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
 
 
-class TextClassificationJobConfigTypeDef(BaseValidatorModel):
+class TextClassificationJobConfig(BaseValidatorModel):
     ContentColumn: str
     TargetLabelColumn: str
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
 
 
-class ResolvedAttributesTypeDef(BaseValidatorModel):
-    AutoMLJobObjective: Optional[AutoMLJobObjectiveTypeDef] = None
+class ResolvedAttributes(BaseValidatorModel):
+    AutoMLJobObjective: Optional[AutoMLJobObjective] = None
     ProblemType: Optional[ProblemTypeType] = None
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
 
 
-class AutoMLJobSummaryTypeDef(BaseValidatorModel):
+class AutoMLJobSummary(BaseValidatorModel):
     AutoMLJobName: str
     AutoMLJobArn: str
     AutoMLJobStatus: AutoMLJobStatusType
@@ -4315,482 +4315,482 @@ class AutoMLJobSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: datetime
     EndTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
-    PartialFailureReasons: Optional[List[AutoMLPartialFailureReasonTypeDef]] = None
+    PartialFailureReasons: Optional[List[AutoMLPartialFailureReason]] = None
 
 
-class AutoMLProblemTypeResolvedAttributesTypeDef(BaseValidatorModel):
-    TabularResolvedAttributes: Optional[TabularResolvedAttributesTypeDef] = None
-    TextGenerationResolvedAttributes: Optional[TextGenerationResolvedAttributesTypeDef] = None
+class AutoMLProblemTypeResolvedAttributes(BaseValidatorModel):
+    TabularResolvedAttributes: Optional[TabularResolvedAttributes] = None
+    TextGenerationResolvedAttributes: Optional[TextGenerationResolvedAttributes] = None
 
 
-class AutoMLSecurityConfigOutputTypeDef(BaseValidatorModel):
+class AutoMLSecurityConfigOutput(BaseValidatorModel):
     VolumeKmsKeyId: Optional[str] = None
     EnableInterContainerTrafficEncryption: Optional[bool] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class LabelingJobResourceConfigOutputTypeDef(BaseValidatorModel):
+class LabelingJobResourceConfigOutput(BaseValidatorModel):
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class MonitoringNetworkConfigOutputTypeDef(BaseValidatorModel):
+class MonitoringNetworkConfigOutput(BaseValidatorModel):
     EnableInterContainerTrafficEncryption: Optional[bool] = None
     EnableNetworkIsolation: Optional[bool] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class NetworkConfigOutputTypeDef(BaseValidatorModel):
+class NetworkConfigOutput(BaseValidatorModel):
     EnableInterContainerTrafficEncryption: Optional[bool] = None
     EnableNetworkIsolation: Optional[bool] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class AutoMLSecurityConfigTypeDef(BaseValidatorModel):
+class AutoMLSecurityConfig(BaseValidatorModel):
     VolumeKmsKeyId: Optional[str] = None
     EnableInterContainerTrafficEncryption: Optional[bool] = None
-    VpcConfig: Optional[VpcConfigTypeDef] = None
+    VpcConfig: Optional[VpcConfig] = None
 
 
-class LabelingJobResourceConfigTypeDef(BaseValidatorModel):
+class LabelingJobResourceConfig(BaseValidatorModel):
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigTypeDef] = None
+    VpcConfig: Optional[VpcConfig] = None
 
 
-class MonitoringNetworkConfigTypeDef(BaseValidatorModel):
+class MonitoringNetworkConfig(BaseValidatorModel):
     EnableInterContainerTrafficEncryption: Optional[bool] = None
     EnableNetworkIsolation: Optional[bool] = None
-    VpcConfig: Optional[VpcConfigTypeDef] = None
+    VpcConfig: Optional[VpcConfig] = None
 
 
-class NetworkConfigTypeDef(BaseValidatorModel):
+class NetworkConfig(BaseValidatorModel):
     EnableInterContainerTrafficEncryption: Optional[bool] = None
     EnableNetworkIsolation: Optional[bool] = None
-    VpcConfig: Optional[VpcConfigTypeDef] = None
+    VpcConfig: Optional[VpcConfig] = None
 
 
-class BatchDeleteClusterNodesResponseTypeDef(BaseValidatorModel):
-    Failed: List[BatchDeleteClusterNodesErrorTypeDef]
+class BatchDeleteClusterNodesResponse(BaseValidatorModel):
+    Failed: List[BatchDeleteClusterNodesError]
     Successful: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BiasTypeDef(BaseValidatorModel):
-    Report: Optional[MetricsSourceTypeDef] = None
-    PreTrainingReport: Optional[MetricsSourceTypeDef] = None
-    PostTrainingReport: Optional[MetricsSourceTypeDef] = None
+class Bias(BaseValidatorModel):
+    Report: Optional[MetricsSource] = None
+    PreTrainingReport: Optional[MetricsSource] = None
+    PostTrainingReport: Optional[MetricsSource] = None
 
 
-class DriftCheckModelDataQualityTypeDef(BaseValidatorModel):
-    Statistics: Optional[MetricsSourceTypeDef] = None
-    Constraints: Optional[MetricsSourceTypeDef] = None
+class DriftCheckModelDataQuality(BaseValidatorModel):
+    Statistics: Optional[MetricsSource] = None
+    Constraints: Optional[MetricsSource] = None
 
 
-class DriftCheckModelQualityTypeDef(BaseValidatorModel):
-    Statistics: Optional[MetricsSourceTypeDef] = None
-    Constraints: Optional[MetricsSourceTypeDef] = None
+class DriftCheckModelQuality(BaseValidatorModel):
+    Statistics: Optional[MetricsSource] = None
+    Constraints: Optional[MetricsSource] = None
 
 
-class ExplainabilityTypeDef(BaseValidatorModel):
-    Report: Optional[MetricsSourceTypeDef] = None
+class Explainability(BaseValidatorModel):
+    Report: Optional[MetricsSource] = None
 
 
-class ModelDataQualityTypeDef(BaseValidatorModel):
-    Statistics: Optional[MetricsSourceTypeDef] = None
-    Constraints: Optional[MetricsSourceTypeDef] = None
+class ModelDataQuality(BaseValidatorModel):
+    Statistics: Optional[MetricsSource] = None
+    Constraints: Optional[MetricsSource] = None
 
 
-class ModelQualityTypeDef(BaseValidatorModel):
-    Statistics: Optional[MetricsSourceTypeDef] = None
-    Constraints: Optional[MetricsSourceTypeDef] = None
+class ModelQuality(BaseValidatorModel):
+    Statistics: Optional[MetricsSource] = None
+    Constraints: Optional[MetricsSource] = None
 
 
-class CallbackStepMetadataTypeDef(BaseValidatorModel):
+class CallbackStepMetadata(BaseValidatorModel):
     CallbackToken: Optional[str] = None
     SqsQueueUrl: Optional[str] = None
-    OutputParameters: Optional[List[OutputParameterTypeDef]] = None
+    OutputParameters: Optional[List[OutputParameter]] = None
 
 
-class LambdaStepMetadataTypeDef(BaseValidatorModel):
+class LambdaStepMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
-    OutputParameters: Optional[List[OutputParameterTypeDef]] = None
+    OutputParameters: Optional[List[OutputParameter]] = None
 
 
-class SendPipelineExecutionStepSuccessRequestTypeDef(BaseValidatorModel):
+class SendPipelineExecutionStepSuccessRequest(BaseValidatorModel):
     CallbackToken: str
-    OutputParameters: Optional[Sequence[OutputParameterTypeDef]] = None
+    OutputParameters: Optional[Sequence[OutputParameter]] = None
     ClientRequestToken: Optional[str] = None
 
 
-class MetricDatumTypeDef(BaseValidatorModel):
+class MetricDatum(BaseValidatorModel):
     pass
 
 
-class CandidatePropertiesTypeDef(BaseValidatorModel):
-    CandidateArtifactLocations: Optional[CandidateArtifactLocationsTypeDef] = None
-    CandidateMetrics: Optional[List[MetricDatumTypeDef]] = None
+class CandidateProperties(BaseValidatorModel):
+    CandidateArtifactLocations: Optional[CandidateArtifactLocations] = None
+    CandidateMetrics: Optional[List[MetricDatum]] = None
 
 
-class CanvasAppSettingsOutputTypeDef(BaseValidatorModel):
-    TimeSeriesForecastingSettings: Optional[TimeSeriesForecastingSettingsTypeDef] = None
-    ModelRegisterSettings: Optional[ModelRegisterSettingsTypeDef] = None
-    WorkspaceSettings: Optional[WorkspaceSettingsTypeDef] = None
-    IdentityProviderOAuthSettings: Optional[List[IdentityProviderOAuthSettingTypeDef]] = None
-    DirectDeploySettings: Optional[DirectDeploySettingsTypeDef] = None
-    KendraSettings: Optional[KendraSettingsTypeDef] = None
-    GenerativeAiSettings: Optional[GenerativeAiSettingsTypeDef] = None
-    EmrServerlessSettings: Optional[EmrServerlessSettingsTypeDef] = None
+class CanvasAppSettingsOutput(BaseValidatorModel):
+    TimeSeriesForecastingSettings: Optional[TimeSeriesForecastingSettings] = None
+    ModelRegisterSettings: Optional[ModelRegisterSettings] = None
+    WorkspaceSettings: Optional[WorkspaceSettings] = None
+    IdentityProviderOAuthSettings: Optional[List[IdentityProviderOAuthSetting]] = None
+    DirectDeploySettings: Optional[DirectDeploySettings] = None
+    KendraSettings: Optional[KendraSettings] = None
+    GenerativeAiSettings: Optional[GenerativeAiSettings] = None
+    EmrServerlessSettings: Optional[EmrServerlessSettings] = None
 
 
-class CanvasAppSettingsTypeDef(BaseValidatorModel):
-    TimeSeriesForecastingSettings: Optional[TimeSeriesForecastingSettingsTypeDef] = None
-    ModelRegisterSettings: Optional[ModelRegisterSettingsTypeDef] = None
-    WorkspaceSettings: Optional[WorkspaceSettingsTypeDef] = None
-    IdentityProviderOAuthSettings: Optional[Sequence[IdentityProviderOAuthSettingTypeDef]] = None
-    DirectDeploySettings: Optional[DirectDeploySettingsTypeDef] = None
-    KendraSettings: Optional[KendraSettingsTypeDef] = None
-    GenerativeAiSettings: Optional[GenerativeAiSettingsTypeDef] = None
-    EmrServerlessSettings: Optional[EmrServerlessSettingsTypeDef] = None
+class CanvasAppSettings(BaseValidatorModel):
+    TimeSeriesForecastingSettings: Optional[TimeSeriesForecastingSettings] = None
+    ModelRegisterSettings: Optional[ModelRegisterSettings] = None
+    WorkspaceSettings: Optional[WorkspaceSettings] = None
+    IdentityProviderOAuthSettings: Optional[Sequence[IdentityProviderOAuthSetting]] = None
+    DirectDeploySettings: Optional[DirectDeploySettings] = None
+    KendraSettings: Optional[KendraSettings] = None
+    GenerativeAiSettings: Optional[GenerativeAiSettings] = None
+    EmrServerlessSettings: Optional[EmrServerlessSettings] = None
 
 
-class CapacitySizeTypeDef(BaseValidatorModel):
+class CapacitySize(BaseValidatorModel):
     pass
 
 
-class RollingUpdatePolicyTypeDef(BaseValidatorModel):
-    MaximumBatchSize: CapacitySizeTypeDef
+class RollingUpdatePolicy(BaseValidatorModel):
+    MaximumBatchSize: CapacitySize
     WaitIntervalInSeconds: int
     MaximumExecutionTimeoutInSeconds: Optional[int] = None
-    RollbackMaximumBatchSize: Optional[CapacitySizeTypeDef] = None
+    RollbackMaximumBatchSize: Optional[CapacitySize] = None
 
 
-class InferenceExperimentDataStorageConfigOutputTypeDef(BaseValidatorModel):
+class InferenceExperimentDataStorageConfigOutput(BaseValidatorModel):
     Destination: str
     KmsKey: Optional[str] = None
-    ContentType: Optional[CaptureContentTypeHeaderOutputTypeDef] = None
+    ContentType: Optional[CaptureContentTypeHeaderOutput] = None
 
 
-class InferenceExperimentDataStorageConfigTypeDef(BaseValidatorModel):
+class InferenceExperimentDataStorageConfig(BaseValidatorModel):
     Destination: str
     KmsKey: Optional[str] = None
-    ContentType: Optional[CaptureContentTypeHeaderTypeDef] = None
+    ContentType: Optional[CaptureContentTypeHeader] = None
 
 
-class DataCaptureConfigOutputTypeDef(BaseValidatorModel):
+class DataCaptureConfigOutput(BaseValidatorModel):
     InitialSamplingPercentage: int
     DestinationS3Uri: str
-    CaptureOptions: List[CaptureOptionTypeDef]
+    CaptureOptions: List[CaptureOption]
     EnableCapture: Optional[bool] = None
     KmsKeyId: Optional[str] = None
-    CaptureContentTypeHeader: Optional[CaptureContentTypeHeaderOutputTypeDef] = None
+    CaptureContentTypeHeader: Optional[CaptureContentTypeHeaderOutput] = None
 
 
-class DataCaptureConfigTypeDef(BaseValidatorModel):
+class DataCaptureConfig(BaseValidatorModel):
     InitialSamplingPercentage: int
     DestinationS3Uri: str
-    CaptureOptions: Sequence[CaptureOptionTypeDef]
+    CaptureOptions: Sequence[CaptureOption]
     EnableCapture: Optional[bool] = None
     KmsKeyId: Optional[str] = None
-    CaptureContentTypeHeader: Optional[CaptureContentTypeHeaderTypeDef] = None
+    CaptureContentTypeHeader: Optional[CaptureContentTypeHeader] = None
 
 
-class EnvironmentParameterRangesOutputTypeDef(BaseValidatorModel):
-    CategoricalParameterRanges: Optional[List[CategoricalParameterOutputTypeDef]] = None
+class EnvironmentParameterRangesOutput(BaseValidatorModel):
+    CategoricalParameterRanges: Optional[List[CategoricalParameterOutput]] = None
 
 
-class EnvironmentParameterRangesTypeDef(BaseValidatorModel):
-    CategoricalParameterRanges: Optional[Sequence[CategoricalParameterTypeDef]] = None
+class EnvironmentParameterRanges(BaseValidatorModel):
+    CategoricalParameterRanges: Optional[Sequence[CategoricalParameter]] = None
 
 
-class ClarifyShapConfigTypeDef(BaseValidatorModel):
-    ShapBaselineConfig: ClarifyShapBaselineConfigTypeDef
+class ClarifyShapConfig(BaseValidatorModel):
+    ShapBaselineConfig: ClarifyShapBaselineConfig
     NumberOfSamples: Optional[int] = None
     UseLogit: Optional[bool] = None
     Seed: Optional[int] = None
-    TextConfig: Optional[ClarifyTextConfigTypeDef] = None
+    TextConfig: Optional[ClarifyTextConfig] = None
 
 
-class ClusterInstanceStorageConfigTypeDef(BaseValidatorModel):
-    EbsVolumeConfig: Optional[ClusterEbsVolumeConfigTypeDef] = None
+class ClusterInstanceStorageConfig(BaseValidatorModel):
+    EbsVolumeConfig: Optional[ClusterEbsVolumeConfig] = None
 
 
-class ClusterNodeSummaryTypeDef(BaseValidatorModel):
+class ClusterNodeSummary(BaseValidatorModel):
     InstanceGroupName: str
     InstanceId: str
     InstanceType: ClusterInstanceTypeType
     LaunchTime: datetime
-    InstanceStatus: ClusterInstanceStatusDetailsTypeDef
+    InstanceStatus: ClusterInstanceStatusDetails
 
 
-class ClusterOrchestratorTypeDef(BaseValidatorModel):
-    Eks: ClusterOrchestratorEksConfigTypeDef
+class ClusterOrchestrator(BaseValidatorModel):
+    Eks: ClusterOrchestratorEksConfig
 
 
-class ListClusterSchedulerConfigsResponseTypeDef(BaseValidatorModel):
-    ClusterSchedulerConfigSummaries: List[ClusterSchedulerConfigSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClusterSchedulerConfigsResponse(BaseValidatorModel):
+    ClusterSchedulerConfigSummaries: List[ClusterSchedulerConfigSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListClustersResponseTypeDef(BaseValidatorModel):
+class ListClustersResponse(BaseValidatorModel):
     NextToken: str
-    ClusterSummaries: List[ClusterSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ClusterSummaries: List[ClusterSummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class CodeEditorAppImageConfigOutputTypeDef(BaseValidatorModel):
-    FileSystemConfig: Optional[FileSystemConfigTypeDef] = None
-    ContainerConfig: Optional[ContainerConfigOutputTypeDef] = None
+class CodeEditorAppImageConfigOutput(BaseValidatorModel):
+    FileSystemConfig: Optional[FileSystemConfig] = None
+    ContainerConfig: Optional[ContainerConfigOutput] = None
 
 
-class JupyterLabAppImageConfigOutputTypeDef(BaseValidatorModel):
-    FileSystemConfig: Optional[FileSystemConfigTypeDef] = None
-    ContainerConfig: Optional[ContainerConfigOutputTypeDef] = None
+class JupyterLabAppImageConfigOutput(BaseValidatorModel):
+    FileSystemConfig: Optional[FileSystemConfig] = None
+    ContainerConfig: Optional[ContainerConfigOutput] = None
 
 
-class CodeEditorAppImageConfigTypeDef(BaseValidatorModel):
-    FileSystemConfig: Optional[FileSystemConfigTypeDef] = None
-    ContainerConfig: Optional[ContainerConfigTypeDef] = None
+class CodeEditorAppImageConfig(BaseValidatorModel):
+    FileSystemConfig: Optional[FileSystemConfig] = None
+    ContainerConfig: Optional[ContainerConfig] = None
 
 
-class JupyterLabAppImageConfigTypeDef(BaseValidatorModel):
-    FileSystemConfig: Optional[FileSystemConfigTypeDef] = None
-    ContainerConfig: Optional[ContainerConfigTypeDef] = None
+class JupyterLabAppImageConfig(BaseValidatorModel):
+    FileSystemConfig: Optional[FileSystemConfig] = None
+    ContainerConfig: Optional[ContainerConfig] = None
 
 
-class KernelGatewayAppSettingsOutputTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CustomImages: Optional[List[CustomImageTypeDef]] = None
+class KernelGatewayAppSettingsOutput(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CustomImages: Optional[List[CustomImage]] = None
     LifecycleConfigArns: Optional[List[str]] = None
 
 
-class KernelGatewayAppSettingsTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CustomImages: Optional[Sequence[CustomImageTypeDef]] = None
+class KernelGatewayAppSettings(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CustomImages: Optional[Sequence[CustomImage]] = None
     LifecycleConfigArns: Optional[Sequence[str]] = None
 
 
-class RSessionAppSettingsOutputTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CustomImages: Optional[List[CustomImageTypeDef]] = None
+class RSessionAppSettingsOutput(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CustomImages: Optional[List[CustomImage]] = None
 
 
-class RSessionAppSettingsTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CustomImages: Optional[Sequence[CustomImageTypeDef]] = None
+class RSessionAppSettings(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CustomImages: Optional[Sequence[CustomImage]] = None
 
 
-class CodeRepositorySummaryTypeDef(BaseValidatorModel):
+class CodeRepositorySummary(BaseValidatorModel):
     CodeRepositoryName: str
     CodeRepositoryArn: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    GitConfig: Optional[GitConfigTypeDef] = None
+    GitConfig: Optional[GitConfig] = None
 
 
-class CreateCodeRepositoryInputTypeDef(BaseValidatorModel):
+class CreateCodeRepositoryInput(BaseValidatorModel):
     CodeRepositoryName: str
-    GitConfig: GitConfigTypeDef
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    GitConfig: GitConfig
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeCodeRepositoryOutputTypeDef(BaseValidatorModel):
+class DescribeCodeRepositoryOutput(BaseValidatorModel):
     CodeRepositoryName: str
     CodeRepositoryArn: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    GitConfig: GitConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    GitConfig: GitConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class JupyterServerAppSettingsOutputTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
+class JupyterServerAppSettingsOutput(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
     LifecycleConfigArns: Optional[List[str]] = None
-    CodeRepositories: Optional[List[CodeRepositoryTypeDef]] = None
+    CodeRepositories: Optional[List[CodeRepository]] = None
 
 
-class JupyterServerAppSettingsTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
+class JupyterServerAppSettings(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
     LifecycleConfigArns: Optional[Sequence[str]] = None
-    CodeRepositories: Optional[Sequence[CodeRepositoryTypeDef]] = None
+    CodeRepositories: Optional[Sequence[CodeRepository]] = None
 
 
-class CollectionConfigTypeDef(BaseValidatorModel):
-    VectorConfig: Optional[VectorConfigTypeDef] = None
+class CollectionConfig(BaseValidatorModel):
+    VectorConfig: Optional[VectorConfig] = None
 
 
-class DebugHookConfigOutputTypeDef(BaseValidatorModel):
+class DebugHookConfigOutput(BaseValidatorModel):
     S3OutputPath: str
     LocalPath: Optional[str] = None
     HookParameters: Optional[Dict[str, str]] = None
-    CollectionConfigurations: Optional[List[CollectionConfigurationOutputTypeDef]] = None
+    CollectionConfigurations: Optional[List[CollectionConfigurationOutput]] = None
 
 
-class DebugHookConfigTypeDef(BaseValidatorModel):
+class DebugHookConfig(BaseValidatorModel):
     S3OutputPath: str
     LocalPath: Optional[str] = None
     HookParameters: Optional[Mapping[str, str]] = None
-    CollectionConfigurations: Optional[Sequence[CollectionConfigurationTypeDef]] = None
+    CollectionConfigurations: Optional[Sequence[CollectionConfiguration]] = None
 
 
-class ListCompilationJobsResponseTypeDef(BaseValidatorModel):
-    CompilationJobSummaries: List[CompilationJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCompilationJobsResponse(BaseValidatorModel):
+    CompilationJobSummaries: List[CompilationJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ComputeQuotaConfigOutputTypeDef(BaseValidatorModel):
-    ComputeQuotaResources: Optional[List[ComputeQuotaResourceConfigTypeDef]] = None
-    ResourceSharingConfig: Optional[ResourceSharingConfigTypeDef] = None
+class ComputeQuotaConfigOutput(BaseValidatorModel):
+    ComputeQuotaResources: Optional[List[ComputeQuotaResourceConfig]] = None
+    ResourceSharingConfig: Optional[ResourceSharingConfig] = None
     PreemptTeamTasks: Optional[PreemptTeamTasksType] = None
 
 
-class ComputeQuotaConfigTypeDef(BaseValidatorModel):
-    ComputeQuotaResources: Optional[Sequence[ComputeQuotaResourceConfigTypeDef]] = None
-    ResourceSharingConfig: Optional[ResourceSharingConfigTypeDef] = None
+class ComputeQuotaConfig(BaseValidatorModel):
+    ComputeQuotaResources: Optional[Sequence[ComputeQuotaResourceConfig]] = None
+    ResourceSharingConfig: Optional[ResourceSharingConfig] = None
     PreemptTeamTasks: Optional[PreemptTeamTasksType] = None
 
 
-class ContextSummaryTypeDef(BaseValidatorModel):
+class ContextSummary(BaseValidatorModel):
     ContextArn: Optional[str] = None
     ContextName: Optional[str] = None
-    Source: Optional[ContextSourceTypeDef] = None
+    Source: Optional[ContextSource] = None
     ContextType: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class CreateContextRequestTypeDef(BaseValidatorModel):
+class CreateContextRequest(BaseValidatorModel):
     ContextName: str
-    Source: ContextSourceTypeDef
+    Source: ContextSource
     ContextType: str
     Description: Optional[str] = None
     Properties: Optional[Mapping[str, str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class TuningJobCompletionCriteriaTypeDef(BaseValidatorModel):
+class TuningJobCompletionCriteria(BaseValidatorModel):
     TargetObjectiveMetricValue: Optional[float] = None
-    BestObjectiveNotImproving: Optional[BestObjectiveNotImprovingTypeDef] = None
-    ConvergenceDetected: Optional[ConvergenceDetectedTypeDef] = None
+    BestObjectiveNotImproving: Optional[BestObjectiveNotImproving] = None
+    ConvergenceDetected: Optional[ConvergenceDetected] = None
 
 
-class CreateActionRequestTypeDef(BaseValidatorModel):
+class CreateActionRequest(BaseValidatorModel):
     ActionName: str
-    Source: ActionSourceTypeDef
+    Source: ActionSource
     ActionType: str
     Description: Optional[str] = None
     Status: Optional[ActionStatusType] = None
     Properties: Optional[Mapping[str, str]] = None
-    MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    MetadataProperties: Optional[MetadataProperties] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateTrialRequestTypeDef(BaseValidatorModel):
+class CreateTrialRequest(BaseValidatorModel):
     TrialName: str
     ExperimentName: str
     DisplayName: Optional[str] = None
-    MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    MetadataProperties: Optional[MetadataProperties] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDeviceFleetRequestTypeDef(BaseValidatorModel):
+class CreateDeviceFleetRequest(BaseValidatorModel):
     DeviceFleetName: str
-    OutputConfig: EdgeOutputConfigTypeDef
+    OutputConfig: EdgeOutputConfig
     RoleArn: Optional[str] = None
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     EnableIotRoleAlias: Optional[bool] = None
 
 
-class CreateEdgePackagingJobRequestTypeDef(BaseValidatorModel):
+class CreateEdgePackagingJobRequest(BaseValidatorModel):
     EdgePackagingJobName: str
     CompilationJobName: str
     ModelName: str
     ModelVersion: str
     RoleArn: str
-    OutputConfig: EdgeOutputConfigTypeDef
+    OutputConfig: EdgeOutputConfig
     ResourceKey: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeDeviceFleetResponseTypeDef(BaseValidatorModel):
+class DescribeDeviceFleetResponse(BaseValidatorModel):
     DeviceFleetName: str
     DeviceFleetArn: str
-    OutputConfig: EdgeOutputConfigTypeDef
+    OutputConfig: EdgeOutputConfig
     Description: str
     CreationTime: datetime
     LastModifiedTime: datetime
     RoleArn: str
     IotRoleAlias: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDeviceFleetRequestTypeDef(BaseValidatorModel):
+class UpdateDeviceFleetRequest(BaseValidatorModel):
     DeviceFleetName: str
-    OutputConfig: EdgeOutputConfigTypeDef
+    OutputConfig: EdgeOutputConfig
     RoleArn: Optional[str] = None
     Description: Optional[str] = None
     EnableIotRoleAlias: Optional[bool] = None
 
 
-class CreateHubRequestTypeDef(BaseValidatorModel):
+class CreateHubRequest(BaseValidatorModel):
     HubName: str
     HubDescription: str
     HubDisplayName: Optional[str] = None
     HubSearchKeywords: Optional[Sequence[str]] = None
-    S3StorageConfig: Optional[HubS3StorageConfigTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    S3StorageConfig: Optional[HubS3StorageConfig] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeHubResponseTypeDef(BaseValidatorModel):
+class DescribeHubResponse(BaseValidatorModel):
     HubName: str
     HubArn: str
     HubDisplayName: str
     HubDescription: str
     HubSearchKeywords: List[str]
-    S3StorageConfig: HubS3StorageConfigTypeDef
+    S3StorageConfig: HubS3StorageConfig
     HubStatus: HubStatusType
     FailureReason: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateHumanTaskUiRequestTypeDef(BaseValidatorModel):
+class CreateHumanTaskUiRequest(BaseValidatorModel):
     HumanTaskUiName: str
-    UiTemplate: UiTemplateTypeDef
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    UiTemplate: UiTemplate
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateInferenceComponentRuntimeConfigInputTypeDef(BaseValidatorModel):
+class UpdateInferenceComponentRuntimeConfigInput(BaseValidatorModel):
     InferenceComponentName: str
-    DesiredRuntimeConfig: InferenceComponentRuntimeConfigTypeDef
+    DesiredRuntimeConfig: InferenceComponentRuntimeConfig
 
 
-class CreateModelCardExportJobRequestTypeDef(BaseValidatorModel):
+class CreateModelCardExportJobRequest(BaseValidatorModel):
     ModelCardName: str
     ModelCardExportJobName: str
-    OutputConfig: ModelCardExportOutputConfigTypeDef
+    OutputConfig: ModelCardExportOutputConfig
     ModelCardVersion: Optional[int] = None
 
 
-class CreateModelCardRequestTypeDef(BaseValidatorModel):
+class CreateModelCardRequest(BaseValidatorModel):
     ModelCardName: str
     Content: str
     ModelCardStatus: ModelCardStatusType
-    SecurityConfig: Optional[ModelCardSecurityConfigTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    SecurityConfig: Optional[ModelCardSecurityConfig] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateNotebookInstanceInputTypeDef(BaseValidatorModel):
+class CreateNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
     InstanceType: InstanceTypeType
     RoleArn: str
     SubnetId: Optional[str] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
     KmsKeyId: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     LifecycleConfigName: Optional[str] = None
     DirectInternetAccess: Optional[DirectInternetAccessType] = None
     VolumeSizeInGB: Optional[int] = None
@@ -4799,10 +4799,10 @@ class CreateNotebookInstanceInputTypeDef(BaseValidatorModel):
     AdditionalCodeRepositories: Optional[Sequence[str]] = None
     RootAccess: Optional[RootAccessType] = None
     PlatformIdentifier: Optional[str] = None
-    InstanceMetadataServiceConfiguration: Optional[InstanceMetadataServiceConfigurationTypeDef] = None
+    InstanceMetadataServiceConfiguration: Optional[InstanceMetadataServiceConfiguration] = None
 
 
-class DescribeNotebookInstanceOutputTypeDef(BaseValidatorModel):
+class DescribeNotebookInstanceOutput(BaseValidatorModel):
     NotebookInstanceArn: str
     NotebookInstanceName: str
     NotebookInstanceStatus: NotebookInstanceStatusType
@@ -4824,11 +4824,11 @@ class DescribeNotebookInstanceOutputTypeDef(BaseValidatorModel):
     AdditionalCodeRepositories: List[str]
     RootAccess: RootAccessType
     PlatformIdentifier: str
-    InstanceMetadataServiceConfiguration: InstanceMetadataServiceConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    InstanceMetadataServiceConfiguration: InstanceMetadataServiceConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateNotebookInstanceInputTypeDef(BaseValidatorModel):
+class UpdateNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
     InstanceType: Optional[InstanceTypeType] = None
     RoleArn: Optional[str] = None
@@ -4842,89 +4842,89 @@ class UpdateNotebookInstanceInputTypeDef(BaseValidatorModel):
     DisassociateDefaultCodeRepository: Optional[bool] = None
     DisassociateAdditionalCodeRepositories: Optional[bool] = None
     RootAccess: Optional[RootAccessType] = None
-    InstanceMetadataServiceConfiguration: Optional[InstanceMetadataServiceConfigurationTypeDef] = None
+    InstanceMetadataServiceConfiguration: Optional[InstanceMetadataServiceConfiguration] = None
 
 
-class CreateNotebookInstanceLifecycleConfigInputTypeDef(BaseValidatorModel):
+class CreateNotebookInstanceLifecycleConfigInput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigName: str
-    OnCreate: Optional[Sequence[NotebookInstanceLifecycleHookTypeDef]] = None
-    OnStart: Optional[Sequence[NotebookInstanceLifecycleHookTypeDef]] = None
+    OnCreate: Optional[Sequence[NotebookInstanceLifecycleHook]] = None
+    OnStart: Optional[Sequence[NotebookInstanceLifecycleHook]] = None
 
 
-class DescribeNotebookInstanceLifecycleConfigOutputTypeDef(BaseValidatorModel):
+class DescribeNotebookInstanceLifecycleConfigOutput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigArn: str
     NotebookInstanceLifecycleConfigName: str
-    OnCreate: List[NotebookInstanceLifecycleHookTypeDef]
-    OnStart: List[NotebookInstanceLifecycleHookTypeDef]
+    OnCreate: List[NotebookInstanceLifecycleHook]
+    OnStart: List[NotebookInstanceLifecycleHook]
     LastModifiedTime: datetime
     CreationTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateNotebookInstanceLifecycleConfigInputTypeDef(BaseValidatorModel):
+class UpdateNotebookInstanceLifecycleConfigInput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigName: str
-    OnCreate: Optional[Sequence[NotebookInstanceLifecycleHookTypeDef]] = None
-    OnStart: Optional[Sequence[NotebookInstanceLifecycleHookTypeDef]] = None
+    OnCreate: Optional[Sequence[NotebookInstanceLifecycleHook]] = None
+    OnStart: Optional[Sequence[NotebookInstanceLifecycleHook]] = None
 
 
-class RetryPipelineExecutionRequestTypeDef(BaseValidatorModel):
+class RetryPipelineExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
     ClientRequestToken: str
-    ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
+    ParallelismConfiguration: Optional[ParallelismConfiguration] = None
 
 
-class UpdatePipelineExecutionRequestTypeDef(BaseValidatorModel):
+class UpdatePipelineExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
     PipelineExecutionDescription: Optional[str] = None
     PipelineExecutionDisplayName: Optional[str] = None
-    ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
+    ParallelismConfiguration: Optional[ParallelismConfiguration] = None
 
 
-class CreatePipelineRequestTypeDef(BaseValidatorModel):
+class CreatePipelineRequest(BaseValidatorModel):
     PipelineName: str
     ClientRequestToken: str
     RoleArn: str
     PipelineDisplayName: Optional[str] = None
     PipelineDefinition: Optional[str] = None
-    PipelineDefinitionS3Location: Optional[PipelineDefinitionS3LocationTypeDef] = None
+    PipelineDefinitionS3Location: Optional[PipelineDefinitionS3Location] = None
     PipelineDescription: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    ParallelismConfiguration: Optional[ParallelismConfiguration] = None
 
 
-class UpdatePipelineRequestTypeDef(BaseValidatorModel):
+class UpdatePipelineRequest(BaseValidatorModel):
     PipelineName: str
     PipelineDisplayName: Optional[str] = None
     PipelineDefinition: Optional[str] = None
-    PipelineDefinitionS3Location: Optional[PipelineDefinitionS3LocationTypeDef] = None
+    PipelineDefinitionS3Location: Optional[PipelineDefinitionS3Location] = None
     PipelineDescription: Optional[str] = None
     RoleArn: Optional[str] = None
-    ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
+    ParallelismConfiguration: Optional[ParallelismConfiguration] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class InferenceExperimentScheduleTypeDef(BaseValidatorModel):
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+class InferenceExperimentSchedule(BaseValidatorModel):
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
 
 
-class ListActionsRequestTypeDef(BaseValidatorModel):
+class ListActionsRequest(BaseValidatorModel):
     SourceUri: Optional[str] = None
     ActionType: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortActionsByType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAlgorithmsInputTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListAlgorithmsInput(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
     NextToken: Optional[str] = None
@@ -4932,48 +4932,48 @@ class ListAlgorithmsInputTypeDef(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListAppImageConfigsRequestTypeDef(BaseValidatorModel):
+class ListAppImageConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    ModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    ModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    ModifiedTimeBefore: Optional[Timestamp] = None
+    ModifiedTimeAfter: Optional[Timestamp] = None
     SortBy: Optional[AppImageConfigSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListArtifactsRequestTypeDef(BaseValidatorModel):
+class ListArtifactsRequest(BaseValidatorModel):
     SourceUri: Optional[str] = None
     ArtifactType: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[Literal["CreationTime"]] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAssociationsRequestTypeDef(BaseValidatorModel):
+class ListAssociationsRequest(BaseValidatorModel):
     SourceArn: Optional[str] = None
     DestinationArn: Optional[str] = None
     SourceType: Optional[str] = None
     DestinationType: Optional[str] = None
     AssociationType: Optional[AssociationEdgeTypeType] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortAssociationsByType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAutoMLJobsRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListAutoMLJobsRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[AutoMLJobStatusType] = None
     SortOrder: Optional[AutoMLSortOrderType] = None
@@ -4982,10 +4982,10 @@ class ListAutoMLJobsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListClusterNodesRequestTypeDef(BaseValidatorModel):
+class ListClusterNodesRequest(BaseValidatorModel):
     ClusterName: str
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     InstanceGroupNameContains: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -4993,9 +4993,9 @@ class ListClusterNodesRequestTypeDef(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListClusterSchedulerConfigsRequestTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListClusterSchedulerConfigsRequest(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     ClusterArn: Optional[str] = None
     Status: Optional[SchedulerResourceStatusType] = None
@@ -5005,9 +5005,9 @@ class ListClusterSchedulerConfigsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListClustersRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListClustersRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
     NextToken: Optional[str] = None
@@ -5016,11 +5016,11 @@ class ListClustersRequestTypeDef(BaseValidatorModel):
     TrainingPlanArn: Optional[str] = None
 
 
-class ListCodeRepositoriesInputTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListCodeRepositoriesInput(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
     NextToken: Optional[str] = None
@@ -5028,22 +5028,22 @@ class ListCodeRepositoriesInputTypeDef(BaseValidatorModel):
     SortOrder: Optional[CodeRepositorySortOrderType] = None
 
 
-class ListCompilationJobsRequestTypeDef(BaseValidatorModel):
+class ListCompilationJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[CompilationJobStatusType] = None
     SortBy: Optional[ListCompilationJobsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListComputeQuotasRequestTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListComputeQuotasRequest(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     Status: Optional[SchedulerResourceStatusType] = None
     ClusterArn: Optional[str] = None
@@ -5053,68 +5053,68 @@ class ListComputeQuotasRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListContextsRequestTypeDef(BaseValidatorModel):
+class ListContextsRequest(BaseValidatorModel):
     SourceUri: Optional[str] = None
     ContextType: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortContextsByType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDataQualityJobDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListDataQualityJobDefinitionsRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
 
 
-class ListDeviceFleetsRequestTypeDef(BaseValidatorModel):
+class ListDeviceFleetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     SortBy: Optional[ListDeviceFleetsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListDevicesRequestTypeDef(BaseValidatorModel):
+class ListDevicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    LatestHeartbeatAfter: Optional[TimestampTypeDef] = None
+    LatestHeartbeatAfter: Optional[Timestamp] = None
     ModelName: Optional[str] = None
     DeviceFleetName: Optional[str] = None
 
 
-class ListEdgeDeploymentPlansRequestTypeDef(BaseValidatorModel):
+class ListEdgeDeploymentPlansRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     DeviceFleetNameContains: Optional[str] = None
     SortBy: Optional[ListEdgeDeploymentPlansSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListEdgePackagingJobsRequestTypeDef(BaseValidatorModel):
+class ListEdgePackagingJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     ModelNameContains: Optional[str] = None
     StatusEquals: Optional[EdgePackagingJobStatusType] = None
@@ -5122,135 +5122,135 @@ class ListEdgePackagingJobsRequestTypeDef(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListEndpointConfigsInputTypeDef(BaseValidatorModel):
+class ListEndpointConfigsInput(BaseValidatorModel):
     SortBy: Optional[EndpointConfigSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
 
 
-class ListEndpointsInputTypeDef(BaseValidatorModel):
+class ListEndpointsInput(BaseValidatorModel):
     SortBy: Optional[EndpointSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[EndpointStatusType] = None
 
 
-class ListExperimentsRequestTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListExperimentsRequest(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortExperimentsByType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListFeatureGroupsRequestTypeDef(BaseValidatorModel):
+class ListFeatureGroupsRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
     FeatureGroupStatusEquals: Optional[FeatureGroupStatusType] = None
     OfflineStoreStatusEquals: Optional[OfflineStoreStatusValueType] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[FeatureGroupSortOrderType] = None
     SortBy: Optional[FeatureGroupSortByType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListFlowDefinitionsRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListFlowDefinitionsRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListHubContentVersionsRequestTypeDef(BaseValidatorModel):
+class ListHubContentVersionsRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
     HubContentName: str
     MinVersion: Optional[str] = None
     MaxSchemaVersion: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
     SortBy: Optional[HubContentSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListHubContentsRequestTypeDef(BaseValidatorModel):
+class ListHubContentsRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
     NameContains: Optional[str] = None
     MaxSchemaVersion: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
     SortBy: Optional[HubContentSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListHubsRequestTypeDef(BaseValidatorModel):
+class ListHubsRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     SortBy: Optional[HubSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListHumanTaskUisRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListHumanTaskUisRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListHyperParameterTuningJobsRequestTypeDef(BaseValidatorModel):
+class ListHyperParameterTuningJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SortBy: Optional[HyperParameterTuningJobSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     StatusEquals: Optional[HyperParameterTuningJobStatusType] = None
 
 
-class ListImageVersionsRequestTypeDef(BaseValidatorModel):
+class ListImageVersionsRequest(BaseValidatorModel):
     ImageName: str
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[ImageVersionSortByType] = None
     SortOrder: Optional[ImageVersionSortOrderType] = None
 
 
-class ListImagesRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListImagesRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
     NextToken: Optional[str] = None
@@ -5258,26 +5258,26 @@ class ListImagesRequestTypeDef(BaseValidatorModel):
     SortOrder: Optional[ImageSortOrderType] = None
 
 
-class ListInferenceComponentsInputTypeDef(BaseValidatorModel):
+class ListInferenceComponentsInput(BaseValidatorModel):
     SortBy: Optional[InferenceComponentSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[InferenceComponentStatusType] = None
     EndpointNameEquals: Optional[str] = None
     VariantNameEquals: Optional[str] = None
 
 
-class ListInferenceRecommendationsJobsRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListInferenceRecommendationsJobsRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[RecommendationJobStatusType] = None
     SortBy: Optional[ListInferenceRecommendationsJobsSortByType] = None
@@ -5288,22 +5288,22 @@ class ListInferenceRecommendationsJobsRequestTypeDef(BaseValidatorModel):
     ModelPackageVersionArnEquals: Optional[str] = None
 
 
-class ListLabelingJobsForWorkteamRequestTypeDef(BaseValidatorModel):
+class ListLabelingJobsForWorkteamRequest(BaseValidatorModel):
     WorkteamArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     JobReferenceCodeContains: Optional[str] = None
     SortBy: Optional[Literal["CreationTime"]] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListLabelingJobsRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListLabelingJobsRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     NameContains: Optional[str] = None
@@ -5312,18 +5312,18 @@ class ListLabelingJobsRequestTypeDef(BaseValidatorModel):
     StatusEquals: Optional[LabelingJobStatusType] = None
 
 
-class ListLineageGroupsRequestTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListLineageGroupsRequest(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortLineageGroupsByType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListMlflowTrackingServersRequestTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListMlflowTrackingServersRequest(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     TrackingServerStatus: Optional[TrackingServerStatusType] = None
     MlflowVersion: Optional[str] = None
     SortBy: Optional[SortTrackingServerByType] = None
@@ -5332,22 +5332,22 @@ class ListMlflowTrackingServersRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListModelBiasJobDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListModelBiasJobDefinitionsRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
 
 
-class ListModelCardExportJobsRequestTypeDef(BaseValidatorModel):
+class ListModelCardExportJobsRequest(BaseValidatorModel):
     ModelCardName: str
     ModelCardVersion: Optional[int] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     ModelCardExportJobNameContains: Optional[str] = None
     StatusEquals: Optional[ModelCardExportJobStatusType] = None
     SortBy: Optional[ModelCardExportJobSortByType] = None
@@ -5356,10 +5356,10 @@ class ListModelCardExportJobsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListModelCardVersionsRequestTypeDef(BaseValidatorModel):
+class ListModelCardVersionsRequest(BaseValidatorModel):
     ModelCardName: str
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
     NextToken: Optional[str] = None
@@ -5367,9 +5367,9 @@ class ListModelCardVersionsRequestTypeDef(BaseValidatorModel):
     SortOrder: Optional[ModelCardSortOrderType] = None
 
 
-class ListModelCardsRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListModelCardsRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
@@ -5378,20 +5378,20 @@ class ListModelCardsRequestTypeDef(BaseValidatorModel):
     SortOrder: Optional[ModelCardSortOrderType] = None
 
 
-class ListModelExplainabilityJobDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListModelExplainabilityJobDefinitionsRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
 
 
-class ListModelPackageGroupsInputTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListModelPackageGroupsInput(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
     NextToken: Optional[str] = None
@@ -5400,9 +5400,9 @@ class ListModelPackageGroupsInputTypeDef(BaseValidatorModel):
     CrossAccountFilterOption: Optional[CrossAccountFilterOptionType] = None
 
 
-class ListModelPackagesInputTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListModelPackagesInput(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
@@ -5413,108 +5413,108 @@ class ListModelPackagesInputTypeDef(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListModelQualityJobDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListModelQualityJobDefinitionsRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
 
 
-class ListModelsInputTypeDef(BaseValidatorModel):
+class ListModelsInput(BaseValidatorModel):
     SortBy: Optional[ModelSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
 
 
-class ListMonitoringAlertHistoryRequestTypeDef(BaseValidatorModel):
+class ListMonitoringAlertHistoryRequest(BaseValidatorModel):
     MonitoringScheduleName: Optional[str] = None
     MonitoringAlertName: Optional[str] = None
     SortBy: Optional[MonitoringAlertHistorySortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[MonitoringAlertStatusType] = None
 
 
-class ListMonitoringExecutionsRequestTypeDef(BaseValidatorModel):
+class ListMonitoringExecutionsRequest(BaseValidatorModel):
     MonitoringScheduleName: Optional[str] = None
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringExecutionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    ScheduledTimeBefore: Optional[TimestampTypeDef] = None
-    ScheduledTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    ScheduledTimeBefore: Optional[Timestamp] = None
+    ScheduledTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[ExecutionStatusType] = None
     MonitoringJobDefinitionName: Optional[str] = None
     MonitoringTypeEquals: Optional[MonitoringTypeType] = None
 
 
-class ListMonitoringSchedulesRequestTypeDef(BaseValidatorModel):
+class ListMonitoringSchedulesRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringScheduleSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[ScheduleStatusType] = None
     MonitoringJobDefinitionName: Optional[str] = None
     MonitoringTypeEquals: Optional[MonitoringTypeType] = None
 
 
-class ListNotebookInstanceLifecycleConfigsInputTypeDef(BaseValidatorModel):
+class ListNotebookInstanceLifecycleConfigsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SortBy: Optional[NotebookInstanceLifecycleConfigSortKeyType] = None
     SortOrder: Optional[NotebookInstanceLifecycleConfigSortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
 
 
-class ListNotebookInstancesInputTypeDef(BaseValidatorModel):
+class ListNotebookInstancesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SortBy: Optional[NotebookInstanceSortKeyType] = None
     SortOrder: Optional[NotebookInstanceSortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[NotebookInstanceStatusType] = None
     NotebookInstanceLifecycleConfigNameContains: Optional[str] = None
     DefaultCodeRepositoryContains: Optional[str] = None
     AdditionalCodeRepositoryEquals: Optional[str] = None
 
 
-class ListOptimizationJobsRequestTypeDef(BaseValidatorModel):
+class ListOptimizationJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     OptimizationContains: Optional[str] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[OptimizationJobStatusType] = None
@@ -5522,31 +5522,31 @@ class ListOptimizationJobsRequestTypeDef(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListPipelineExecutionsRequestTypeDef(BaseValidatorModel):
+class ListPipelineExecutionsRequest(BaseValidatorModel):
     PipelineName: str
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortPipelineExecutionsByType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListPipelinesRequestTypeDef(BaseValidatorModel):
+class ListPipelinesRequest(BaseValidatorModel):
     PipelineNamePrefix: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortPipelinesByType] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListProcessingJobsRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListProcessingJobsRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[ProcessingJobStatusType] = None
     SortBy: Optional[SortByType] = None
@@ -5555,9 +5555,9 @@ class ListProcessingJobsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListProjectsInputTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListProjectsInput(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
     NextToken: Optional[str] = None
@@ -5565,36 +5565,36 @@ class ListProjectsInputTypeDef(BaseValidatorModel):
     SortOrder: Optional[ProjectSortOrderType] = None
 
 
-class ListResourceCatalogsRequestTypeDef(BaseValidatorModel):
+class ListResourceCatalogsRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[ResourceCatalogSortOrderType] = None
     SortBy: Optional[Literal["CreationTime"]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListStudioLifecycleConfigsRequestTypeDef(BaseValidatorModel):
+class ListStudioLifecycleConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     NameContains: Optional[str] = None
     AppTypeEquals: Optional[StudioLifecycleConfigAppTypeType] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    ModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    ModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    ModifiedTimeBefore: Optional[Timestamp] = None
+    ModifiedTimeAfter: Optional[Timestamp] = None
     SortBy: Optional[StudioLifecycleConfigSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListTrainingJobsRequestTypeDef(BaseValidatorModel):
+class ListTrainingJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[TrainingJobStatusType] = None
     SortBy: Optional[SortByType] = None
@@ -5603,11 +5603,11 @@ class ListTrainingJobsRequestTypeDef(BaseValidatorModel):
     TrainingPlanArnEquals: Optional[str] = None
 
 
-class ListTransformJobsRequestTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListTransformJobsRequest(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[TransformJobStatusType] = None
     SortBy: Optional[SortByType] = None
@@ -5616,148 +5616,148 @@ class ListTransformJobsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListTrialComponentsRequestTypeDef(BaseValidatorModel):
+class ListTrialComponentsRequest(BaseValidatorModel):
     ExperimentName: Optional[str] = None
     TrialName: Optional[str] = None
     SourceArn: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortTrialComponentsByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTrialsRequestTypeDef(BaseValidatorModel):
+class ListTrialsRequest(BaseValidatorModel):
     ExperimentName: Optional[str] = None
     TrialComponentName: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortTrialsByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class QueryFiltersTypeDef(BaseValidatorModel):
+class QueryFilters(BaseValidatorModel):
     Types: Optional[Sequence[str]] = None
     LineageTypes: Optional[Sequence[LineageTypeType]] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    ModifiedBefore: Optional[TimestampTypeDef] = None
-    ModifiedAfter: Optional[TimestampTypeDef] = None
+    CreatedBefore: Optional[Timestamp] = None
+    CreatedAfter: Optional[Timestamp] = None
+    ModifiedBefore: Optional[Timestamp] = None
+    ModifiedAfter: Optional[Timestamp] = None
     Properties: Optional[Mapping[str, str]] = None
 
 
-class SearchTrainingPlanOfferingsRequestTypeDef(BaseValidatorModel):
+class SearchTrainingPlanOfferingsRequest(BaseValidatorModel):
     InstanceType: ReservedCapacityInstanceTypeType
     InstanceCount: int
     TargetResources: Sequence[SageMakerResourceNameType]
-    StartTimeAfter: Optional[TimestampTypeDef] = None
-    EndTimeBefore: Optional[TimestampTypeDef] = None
+    StartTimeAfter: Optional[Timestamp] = None
+    EndTimeBefore: Optional[Timestamp] = None
     DurationHours: Optional[int] = None
 
 
-class CreateTrialComponentRequestTypeDef(BaseValidatorModel):
+class CreateTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
     DisplayName: Optional[str] = None
-    Status: Optional[TrialComponentStatusTypeDef] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
-    Parameters: Optional[Mapping[str, TrialComponentParameterValueTypeDef]] = None
-    InputArtifacts: Optional[Mapping[str, TrialComponentArtifactTypeDef]] = None
-    OutputArtifacts: Optional[Mapping[str, TrialComponentArtifactTypeDef]] = None
-    MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Status: Optional[TrialComponentStatus] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
+    Parameters: Optional[Mapping[str, TrialComponentParameterValue]] = None
+    InputArtifacts: Optional[Mapping[str, TrialComponentArtifact]] = None
+    OutputArtifacts: Optional[Mapping[str, TrialComponentArtifact]] = None
+    MetadataProperties: Optional[MetadataProperties] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateTrialComponentRequestTypeDef(BaseValidatorModel):
+class UpdateTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
     DisplayName: Optional[str] = None
-    Status: Optional[TrialComponentStatusTypeDef] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
-    Parameters: Optional[Mapping[str, TrialComponentParameterValueTypeDef]] = None
+    Status: Optional[TrialComponentStatus] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
+    Parameters: Optional[Mapping[str, TrialComponentParameterValue]] = None
     ParametersToRemove: Optional[Sequence[str]] = None
-    InputArtifacts: Optional[Mapping[str, TrialComponentArtifactTypeDef]] = None
+    InputArtifacts: Optional[Mapping[str, TrialComponentArtifact]] = None
     InputArtifactsToRemove: Optional[Sequence[str]] = None
-    OutputArtifacts: Optional[Mapping[str, TrialComponentArtifactTypeDef]] = None
+    OutputArtifacts: Optional[Mapping[str, TrialComponentArtifact]] = None
     OutputArtifactsToRemove: Optional[Sequence[str]] = None
 
 
-class CustomFileSystemConfigTypeDef(BaseValidatorModel):
-    EFSFileSystemConfig: Optional[EFSFileSystemConfigTypeDef] = None
-    FSxLustreFileSystemConfig: Optional[FSxLustreFileSystemConfigTypeDef] = None
+class CustomFileSystemConfig(BaseValidatorModel):
+    EFSFileSystemConfig: Optional[EFSFileSystemConfig] = None
+    FSxLustreFileSystemConfig: Optional[FSxLustreFileSystemConfig] = None
 
 
-class CustomFileSystemTypeDef(BaseValidatorModel):
-    EFSFileSystem: Optional[EFSFileSystemTypeDef] = None
-    FSxLustreFileSystem: Optional[FSxLustreFileSystemTypeDef] = None
+class CustomFileSystem(BaseValidatorModel):
+    EFSFileSystem: Optional[EFSFileSystem] = None
+    FSxLustreFileSystem: Optional[FSxLustreFileSystem] = None
 
 
-class ModelBiasBaselineConfigTypeDef(BaseValidatorModel):
+class ModelBiasBaselineConfig(BaseValidatorModel):
     BaseliningJobName: Optional[str] = None
-    ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
+    ConstraintsResource: Optional[MonitoringConstraintsResource] = None
 
 
-class ModelExplainabilityBaselineConfigTypeDef(BaseValidatorModel):
+class ModelExplainabilityBaselineConfig(BaseValidatorModel):
     BaseliningJobName: Optional[str] = None
-    ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
+    ConstraintsResource: Optional[MonitoringConstraintsResource] = None
 
 
-class ModelQualityBaselineConfigTypeDef(BaseValidatorModel):
+class ModelQualityBaselineConfig(BaseValidatorModel):
     BaseliningJobName: Optional[str] = None
-    ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
+    ConstraintsResource: Optional[MonitoringConstraintsResource] = None
 
 
-class DataQualityBaselineConfigTypeDef(BaseValidatorModel):
+class DataQualityBaselineConfig(BaseValidatorModel):
     BaseliningJobName: Optional[str] = None
-    ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
-    StatisticsResource: Optional[MonitoringStatisticsResourceTypeDef] = None
+    ConstraintsResource: Optional[MonitoringConstraintsResource] = None
+    StatisticsResource: Optional[MonitoringStatisticsResource] = None
 
 
-class MonitoringBaselineConfigTypeDef(BaseValidatorModel):
+class MonitoringBaselineConfig(BaseValidatorModel):
     BaseliningJobName: Optional[str] = None
-    ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
-    StatisticsResource: Optional[MonitoringStatisticsResourceTypeDef] = None
+    ConstraintsResource: Optional[MonitoringConstraintsResource] = None
+    StatisticsResource: Optional[MonitoringStatisticsResource] = None
 
 
-class DatasetDefinitionTypeDef(BaseValidatorModel):
-    AthenaDatasetDefinition: Optional[AthenaDatasetDefinitionTypeDef] = None
-    RedshiftDatasetDefinition: Optional[RedshiftDatasetDefinitionTypeDef] = None
+class DatasetDefinition(BaseValidatorModel):
+    AthenaDatasetDefinition: Optional[AthenaDatasetDefinition] = None
+    RedshiftDatasetDefinition: Optional[RedshiftDatasetDefinition] = None
     LocalPath: Optional[str] = None
     DataDistributionType: Optional[DataDistributionTypeType] = None
     InputMode: Optional[InputModeType] = None
 
 
-class DefaultSpaceStorageSettingsTypeDef(BaseValidatorModel):
-    DefaultEbsStorageSettings: Optional[DefaultEbsStorageSettingsTypeDef] = None
+class DefaultSpaceStorageSettings(BaseValidatorModel):
+    DefaultEbsStorageSettings: Optional[DefaultEbsStorageSettings] = None
 
 
-class DeleteDomainRequestTypeDef(BaseValidatorModel):
+class DeleteDomainRequest(BaseValidatorModel):
     DomainId: str
-    RetentionPolicy: Optional[RetentionPolicyTypeDef] = None
+    RetentionPolicy: Optional[RetentionPolicy] = None
 
 
-class InferenceComponentContainerSpecificationSummaryTypeDef(BaseValidatorModel):
-    DeployedImage: Optional[DeployedImageTypeDef] = None
+class InferenceComponentContainerSpecificationSummary(BaseValidatorModel):
+    DeployedImage: Optional[DeployedImage] = None
     ArtifactUrl: Optional[str] = None
     Environment: Optional[Dict[str, str]] = None
 
 
-class DeploymentRecommendationTypeDef(BaseValidatorModel):
+class DeploymentRecommendation(BaseValidatorModel):
     RecommendationStatus: RecommendationStatusType
-    RealTimeInferenceRecommendations: Optional[List[RealTimeInferenceRecommendationTypeDef]] = None
+    RealTimeInferenceRecommendations: Optional[List[RealTimeInferenceRecommendation]] = None
 
 
-class DeploymentStageStatusSummaryTypeDef(BaseValidatorModel):
+class DeploymentStageStatusSummary(BaseValidatorModel):
     StageName: str
-    DeviceSelectionConfig: DeviceSelectionConfigOutputTypeDef
-    DeploymentConfig: EdgeDeploymentConfigTypeDef
-    DeploymentStatus: EdgeDeploymentStatusTypeDef
+    DeviceSelectionConfig: DeviceSelectionConfigOutput
+    DeploymentConfig: EdgeDeploymentConfig
+    DeploymentStatus: EdgeDeploymentStatus
 
 
-class DescribeDeviceResponseTypeDef(BaseValidatorModel):
+class DescribeDeviceResponse(BaseValidatorModel):
     DeviceArn: str
     DeviceName: str
     Description: str
@@ -5765,25 +5765,25 @@ class DescribeDeviceResponseTypeDef(BaseValidatorModel):
     IotThingName: str
     RegistrationTime: datetime
     LatestHeartbeat: datetime
-    Models: List[EdgeModelTypeDef]
+    Models: List[EdgeModel]
     MaxModels: int
     AgentVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EdgePresetDeploymentOutputTypeDef(BaseValidatorModel):
+class EdgePresetDeploymentOutput(BaseValidatorModel):
     pass
 
 
-class DescribeEdgePackagingJobResponseTypeDef(BaseValidatorModel):
+class DescribeEdgePackagingJobResponse(BaseValidatorModel):
     EdgePackagingJobArn: str
     EdgePackagingJobName: str
     CompilationJobName: str
     ModelName: str
     ModelVersion: str
     RoleArn: str
-    OutputConfig: EdgeOutputConfigTypeDef
+    OutputConfig: EdgeOutputConfig
     ResourceKey: str
     EdgePackagingJobStatus: EdgePackagingJobStatusType
     EdgePackagingJobStatusMessage: str
@@ -5791,97 +5791,97 @@ class DescribeEdgePackagingJobResponseTypeDef(BaseValidatorModel):
     LastModifiedTime: datetime
     ModelArtifact: str
     ModelSignature: str
-    PresetDeploymentOutput: EdgePresetDeploymentOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    PresetDeploymentOutput: EdgePresetDeploymentOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEndpointInputWaitExtraTypeDef(BaseValidatorModel):
+class DescribeEndpointInputWaitExtra(BaseValidatorModel):
     EndpointName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeEndpointInputWaitTypeDef(BaseValidatorModel):
+class DescribeEndpointInputWait(BaseValidatorModel):
     EndpointName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeImageRequestWaitExtraExtraTypeDef(BaseValidatorModel):
+class DescribeImageRequestWaitExtraExtra(BaseValidatorModel):
     ImageName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeImageRequestWaitExtraTypeDef(BaseValidatorModel):
+class DescribeImageRequestWaitExtra(BaseValidatorModel):
     ImageName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeImageRequestWaitTypeDef(BaseValidatorModel):
+class DescribeImageRequestWait(BaseValidatorModel):
     ImageName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeImageVersionRequestWaitExtraTypeDef(BaseValidatorModel):
+class DescribeImageVersionRequestWaitExtra(BaseValidatorModel):
     ImageName: str
     Version: Optional[int] = None
     Alias: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeImageVersionRequestWaitTypeDef(BaseValidatorModel):
+class DescribeImageVersionRequestWait(BaseValidatorModel):
     ImageName: str
     Version: Optional[int] = None
     Alias: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeNotebookInstanceInputWaitExtraExtraTypeDef(BaseValidatorModel):
+class DescribeNotebookInstanceInputWaitExtraExtra(BaseValidatorModel):
     NotebookInstanceName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeNotebookInstanceInputWaitExtraTypeDef(BaseValidatorModel):
+class DescribeNotebookInstanceInputWaitExtra(BaseValidatorModel):
     NotebookInstanceName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeNotebookInstanceInputWaitTypeDef(BaseValidatorModel):
+class DescribeNotebookInstanceInputWait(BaseValidatorModel):
     NotebookInstanceName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeProcessingJobRequestWaitTypeDef(BaseValidatorModel):
+class DescribeProcessingJobRequestWait(BaseValidatorModel):
     ProcessingJobName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeTrainingJobRequestWaitTypeDef(BaseValidatorModel):
+class DescribeTrainingJobRequestWait(BaseValidatorModel):
     TrainingJobName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeTransformJobRequestWaitTypeDef(BaseValidatorModel):
+class DescribeTransformJobRequestWait(BaseValidatorModel):
     TransformJobName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class ExperimentSummaryTypeDef(BaseValidatorModel):
+class ExperimentSummary(BaseValidatorModel):
     ExperimentArn: Optional[str] = None
     ExperimentName: Optional[str] = None
     DisplayName: Optional[str] = None
-    ExperimentSource: Optional[ExperimentSourceTypeDef] = None
+    ExperimentSource: Optional[ExperimentSource] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class FeatureGroupSummaryTypeDef(BaseValidatorModel):
+class FeatureGroupSummary(BaseValidatorModel):
     FeatureGroupName: str
     FeatureGroupArn: str
     CreationTime: datetime
     FeatureGroupStatus: Optional[FeatureGroupStatusType] = None
-    OfflineStoreStatus: Optional[OfflineStoreStatusTypeDef] = None
+    OfflineStoreStatus: Optional[OfflineStoreStatus] = None
 
 
-class DescribeFeatureMetadataResponseTypeDef(BaseValidatorModel):
+class DescribeFeatureMetadataResponse(BaseValidatorModel):
     FeatureGroupArn: str
     FeatureGroupName: str
     FeatureName: str
@@ -5889,11 +5889,11 @@ class DescribeFeatureMetadataResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
     LastModifiedTime: datetime
     Description: str
-    Parameters: List[FeatureParameterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Parameters: List[FeatureParameter]
+    ResponseMetadata: ResponseMetadata
 
 
-class FeatureMetadataTypeDef(BaseValidatorModel):
+class FeatureMetadata(BaseValidatorModel):
     FeatureGroupArn: Optional[str] = None
     FeatureGroupName: Optional[str] = None
     FeatureName: Optional[str] = None
@@ -5901,18 +5901,18 @@ class FeatureMetadataTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     Description: Optional[str] = None
-    Parameters: Optional[List[FeatureParameterTypeDef]] = None
+    Parameters: Optional[List[FeatureParameter]] = None
 
 
-class UpdateFeatureMetadataRequestTypeDef(BaseValidatorModel):
+class UpdateFeatureMetadataRequest(BaseValidatorModel):
     FeatureGroupName: str
     FeatureName: str
     Description: Optional[str] = None
-    ParameterAdditions: Optional[Sequence[FeatureParameterTypeDef]] = None
+    ParameterAdditions: Optional[Sequence[FeatureParameter]] = None
     ParameterRemovals: Optional[Sequence[str]] = None
 
 
-class DescribeHubContentResponseTypeDef(BaseValidatorModel):
+class DescribeHubContentResponse(BaseValidatorModel):
     HubContentName: str
     HubContentArn: str
     HubContentVersion: str
@@ -5928,55 +5928,55 @@ class DescribeHubContentResponseTypeDef(BaseValidatorModel):
     ReferenceMinVersion: str
     SupportStatus: HubContentSupportStatusType
     HubContentSearchKeywords: List[str]
-    HubContentDependencies: List[HubContentDependencyTypeDef]
+    HubContentDependencies: List[HubContentDependency]
     HubContentStatus: HubContentStatusType
     FailureReason: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeHumanTaskUiResponseTypeDef(BaseValidatorModel):
+class DescribeHumanTaskUiResponse(BaseValidatorModel):
     HumanTaskUiArn: str
     HumanTaskUiName: str
     HumanTaskUiStatus: HumanTaskUiStatusType
     CreationTime: datetime
-    UiTemplate: UiTemplateInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    UiTemplate: UiTemplateInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeModelCardExportJobResponseTypeDef(BaseValidatorModel):
+class DescribeModelCardExportJobResponse(BaseValidatorModel):
     ModelCardExportJobName: str
     ModelCardExportJobArn: str
     Status: ModelCardExportJobStatusType
     ModelCardName: str
     ModelCardVersion: int
-    OutputConfig: ModelCardExportOutputConfigTypeDef
+    OutputConfig: ModelCardExportOutputConfig
     CreatedAt: datetime
     LastModifiedAt: datetime
     FailureReason: str
-    ExportArtifacts: ModelCardExportArtifactsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ExportArtifacts: ModelCardExportArtifacts
+    ResponseMetadata: ResponseMetadata
 
 
-class ListMonitoringExecutionsResponseTypeDef(BaseValidatorModel):
-    MonitoringExecutionSummaries: List[MonitoringExecutionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMonitoringExecutionsResponse(BaseValidatorModel):
+    MonitoringExecutionSummaries: List[MonitoringExecutionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeSubscribedWorkteamResponseTypeDef(BaseValidatorModel):
-    SubscribedWorkteam: SubscribedWorkteamTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSubscribedWorkteamResponse(BaseValidatorModel):
+    SubscribedWorkteam: SubscribedWorkteam
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSubscribedWorkteamsResponseTypeDef(BaseValidatorModel):
-    SubscribedWorkteams: List[SubscribedWorkteamTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSubscribedWorkteamsResponse(BaseValidatorModel):
+    SubscribedWorkteams: List[SubscribedWorkteam]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TrainingJobSummaryTypeDef(BaseValidatorModel):
+class TrainingJobSummary(BaseValidatorModel):
     TrainingJobName: str
     TrainingJobArn: str
     CreationTime: datetime
@@ -5984,11 +5984,11 @@ class TrainingJobSummaryTypeDef(BaseValidatorModel):
     TrainingEndTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     SecondaryStatus: Optional[SecondaryStatusType] = None
-    WarmPoolStatus: Optional[WarmPoolStatusTypeDef] = None
+    WarmPoolStatus: Optional[WarmPoolStatus] = None
     TrainingPlanArn: Optional[str] = None
 
 
-class DescribeTrainingPlanResponseTypeDef(BaseValidatorModel):
+class DescribeTrainingPlanResponse(BaseValidatorModel):
     TrainingPlanArn: str
     TrainingPlanName: str
     Status: TrainingPlanStatusType
@@ -6003,11 +6003,11 @@ class DescribeTrainingPlanResponseTypeDef(BaseValidatorModel):
     AvailableInstanceCount: int
     InUseInstanceCount: int
     TargetResources: List[SageMakerResourceNameType]
-    ReservedCapacitySummaries: List[ReservedCapacitySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReservedCapacitySummaries: List[ReservedCapacitySummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class TrainingPlanSummaryTypeDef(BaseValidatorModel):
+class TrainingPlanSummary(BaseValidatorModel):
     TrainingPlanArn: str
     TrainingPlanName: str
     Status: TrainingPlanStatusType
@@ -6022,38 +6022,38 @@ class TrainingPlanSummaryTypeDef(BaseValidatorModel):
     AvailableInstanceCount: Optional[int] = None
     InUseInstanceCount: Optional[int] = None
     TargetResources: Optional[List[SageMakerResourceNameType]] = None
-    ReservedCapacitySummaries: Optional[List[ReservedCapacitySummaryTypeDef]] = None
+    ReservedCapacitySummaries: Optional[List[ReservedCapacitySummary]] = None
 
 
-class TrialSummaryTypeDef(BaseValidatorModel):
+class TrialSummary(BaseValidatorModel):
     TrialArn: Optional[str] = None
     TrialName: Optional[str] = None
     DisplayName: Optional[str] = None
-    TrialSource: Optional[TrialSourceTypeDef] = None
+    TrialSource: Optional[TrialSource] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class DesiredWeightAndCapacityTypeDef(BaseValidatorModel):
+class DesiredWeightAndCapacity(BaseValidatorModel):
     VariantName: str
     DesiredWeight: Optional[float] = None
     DesiredInstanceCount: Optional[int] = None
-    ServerlessUpdateConfig: Optional[ProductionVariantServerlessUpdateConfigTypeDef] = None
+    ServerlessUpdateConfig: Optional[ProductionVariantServerlessUpdateConfig] = None
 
 
-class ListStageDevicesResponseTypeDef(BaseValidatorModel):
-    DeviceDeploymentSummaries: List[DeviceDeploymentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStageDevicesResponse(BaseValidatorModel):
+    DeviceDeploymentSummaries: List[DeviceDeploymentSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDeviceFleetsResponseTypeDef(BaseValidatorModel):
-    DeviceFleetSummaries: List[DeviceFleetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDeviceFleetsResponse(BaseValidatorModel):
+    DeviceFleetSummaries: List[DeviceFleetSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DeviceSummaryTypeDef(BaseValidatorModel):
+class DeviceSummary(BaseValidatorModel):
     DeviceName: str
     DeviceArn: str
     Description: Optional[str] = None
@@ -6061,107 +6061,107 @@ class DeviceSummaryTypeDef(BaseValidatorModel):
     IotThingName: Optional[str] = None
     RegistrationTime: Optional[datetime] = None
     LatestHeartbeat: Optional[datetime] = None
-    Models: Optional[List[EdgeModelSummaryTypeDef]] = None
+    Models: Optional[List[EdgeModelSummary]] = None
     AgentVersion: Optional[str] = None
 
 
-class RegisterDevicesRequestTypeDef(BaseValidatorModel):
+class RegisterDevicesRequest(BaseValidatorModel):
     DeviceFleetName: str
-    Devices: Sequence[DeviceTypeDef]
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Devices: Sequence[Device]
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateDevicesRequestTypeDef(BaseValidatorModel):
+class UpdateDevicesRequest(BaseValidatorModel):
     DeviceFleetName: str
-    Devices: Sequence[DeviceTypeDef]
+    Devices: Sequence[Device]
 
 
-class ListDomainsResponseTypeDef(BaseValidatorModel):
-    Domains: List[DomainDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainsResponse(BaseValidatorModel):
+    Domains: List[DomainDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DriftCheckBiasTypeDef(BaseValidatorModel):
-    ConfigFile: Optional[FileSourceTypeDef] = None
-    PreTrainingConstraints: Optional[MetricsSourceTypeDef] = None
-    PostTrainingConstraints: Optional[MetricsSourceTypeDef] = None
+class DriftCheckBias(BaseValidatorModel):
+    ConfigFile: Optional[FileSource] = None
+    PreTrainingConstraints: Optional[MetricsSource] = None
+    PostTrainingConstraints: Optional[MetricsSource] = None
 
 
-class DriftCheckExplainabilityTypeDef(BaseValidatorModel):
-    Constraints: Optional[MetricsSourceTypeDef] = None
-    ConfigFile: Optional[FileSourceTypeDef] = None
+class DriftCheckExplainability(BaseValidatorModel):
+    Constraints: Optional[MetricsSource] = None
+    ConfigFile: Optional[FileSource] = None
 
 
-class SpaceStorageSettingsTypeDef(BaseValidatorModel):
-    EbsStorageSettings: Optional[EbsStorageSettingsTypeDef] = None
+class SpaceStorageSettings(BaseValidatorModel):
+    EbsStorageSettings: Optional[EbsStorageSettings] = None
 
 
-class ListEdgeDeploymentPlansResponseTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanSummaries: List[EdgeDeploymentPlanSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEdgeDeploymentPlansResponse(BaseValidatorModel):
+    EdgeDeploymentPlanSummaries: List[EdgeDeploymentPlanSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetDeviceFleetReportResponseTypeDef(BaseValidatorModel):
+class GetDeviceFleetReportResponse(BaseValidatorModel):
     DeviceFleetArn: str
     DeviceFleetName: str
-    OutputConfig: EdgeOutputConfigTypeDef
+    OutputConfig: EdgeOutputConfig
     Description: str
     ReportGenerated: datetime
-    DeviceStats: DeviceStatsTypeDef
-    AgentVersions: List[AgentVersionTypeDef]
-    ModelStats: List[EdgeModelStatTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DeviceStats: DeviceStats
+    AgentVersions: List[AgentVersion]
+    ModelStats: List[EdgeModelStat]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEdgePackagingJobsResponseTypeDef(BaseValidatorModel):
-    EdgePackagingJobSummaries: List[EdgePackagingJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEdgePackagingJobsResponse(BaseValidatorModel):
+    EdgePackagingJobSummaries: List[EdgePackagingJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEndpointConfigsOutputTypeDef(BaseValidatorModel):
-    EndpointConfigs: List[EndpointConfigSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEndpointConfigsOutput(BaseValidatorModel):
+    EndpointConfigs: List[EndpointConfigSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EndpointOutputConfigurationTypeDef(BaseValidatorModel):
+class EndpointOutputConfiguration(BaseValidatorModel):
     EndpointName: str
     VariantName: str
     InstanceType: Optional[ProductionVariantInstanceTypeType] = None
     InitialInstanceCount: Optional[int] = None
-    ServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
+    ServerlessConfig: Optional[ProductionVariantServerlessConfig] = None
 
 
-class EndpointPerformanceTypeDef(BaseValidatorModel):
-    Metrics: InferenceMetricsTypeDef
-    EndpointInfo: EndpointInfoTypeDef
+class EndpointPerformance(BaseValidatorModel):
+    Metrics: InferenceMetrics
+    EndpointInfo: EndpointInfo
 
 
-class ListEndpointsOutputTypeDef(BaseValidatorModel):
-    Endpoints: List[EndpointSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEndpointsOutput(BaseValidatorModel):
+    Endpoints: List[EndpointSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ModelConfigurationTypeDef(BaseValidatorModel):
+class ModelConfiguration(BaseValidatorModel):
     InferenceSpecificationName: Optional[str] = None
-    EnvironmentParameters: Optional[List[EnvironmentParameterTypeDef]] = None
+    EnvironmentParameters: Optional[List[EnvironmentParameter]] = None
     CompilationJobName: Optional[str] = None
 
 
-class NestedFiltersTypeDef(BaseValidatorModel):
+class NestedFilters(BaseValidatorModel):
     NestedPropertyName: str
-    Filters: Sequence[FilterTypeDef]
+    Filters: Sequence[Filter]
 
 
-class FinalHyperParameterTuningJobObjectiveMetricTypeDef(BaseValidatorModel):
+class FinalHyperParameterTuningJobObjectiveMetric(BaseValidatorModel):
     pass
 
 
-class HyperParameterTrainingJobSummaryTypeDef(BaseValidatorModel):
+class HyperParameterTrainingJobSummary(BaseValidatorModel):
     TrainingJobName: str
     TrainingJobArn: str
     CreationTime: datetime
@@ -6172,1399 +6172,1399 @@ class HyperParameterTrainingJobSummaryTypeDef(BaseValidatorModel):
     TrainingStartTime: Optional[datetime] = None
     TrainingEndTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
-    FinalHyperParameterTuningJobObjectiveMetric: Optional[ FinalHyperParameterTuningJobObjectiveMetricTypeDef ] = None
+    FinalHyperParameterTuningJobObjectiveMetric: Optional[ FinalHyperParameterTuningJobObjectiveMetric ] = None
     ObjectiveStatus: Optional[ObjectiveStatusType] = None
 
 
-class ListFlowDefinitionsResponseTypeDef(BaseValidatorModel):
-    FlowDefinitionSummaries: List[FlowDefinitionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFlowDefinitionsResponse(BaseValidatorModel):
+    FlowDefinitionSummaries: List[FlowDefinitionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetScalingConfigurationRecommendationRequestTypeDef(BaseValidatorModel):
+class GetScalingConfigurationRecommendationRequest(BaseValidatorModel):
     InferenceRecommendationsJobName: str
     RecommendationId: Optional[str] = None
     EndpointName: Optional[str] = None
     TargetCpuUtilizationPerCore: Optional[int] = None
-    ScalingPolicyObjective: Optional[ScalingPolicyObjectiveTypeDef] = None
+    ScalingPolicyObjective: Optional[ScalingPolicyObjective] = None
 
 
-class GetSearchSuggestionsResponseTypeDef(BaseValidatorModel):
-    PropertyNameSuggestions: List[PropertyNameSuggestionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSearchSuggestionsResponse(BaseValidatorModel):
+    PropertyNameSuggestions: List[PropertyNameSuggestion]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCodeRepositoryInputTypeDef(BaseValidatorModel):
+class UpdateCodeRepositoryInput(BaseValidatorModel):
     CodeRepositoryName: str
-    GitConfig: Optional[GitConfigForUpdateTypeDef] = None
+    GitConfig: Optional[GitConfigForUpdate] = None
 
 
-class StudioWebPortalSettingsOutputTypeDef(BaseValidatorModel):
+class StudioWebPortalSettingsOutput(BaseValidatorModel):
     HiddenMlTools: Optional[List[MlToolsType]] = None
     HiddenAppTypes: Optional[List[AppTypeType]] = None
     HiddenInstanceTypes: Optional[List[AppInstanceTypeType]] = None
-    HiddenSageMakerImageVersionAliases: Optional[List[HiddenSageMakerImageOutputTypeDef]] = None
+    HiddenSageMakerImageVersionAliases: Optional[List[HiddenSageMakerImageOutput]] = None
 
 
-class StudioWebPortalSettingsTypeDef(BaseValidatorModel):
+class StudioWebPortalSettings(BaseValidatorModel):
     HiddenMlTools: Optional[Sequence[MlToolsType]] = None
     HiddenAppTypes: Optional[Sequence[AppTypeType]] = None
     HiddenInstanceTypes: Optional[Sequence[AppInstanceTypeType]] = None
-    HiddenSageMakerImageVersionAliases: Optional[Sequence[HiddenSageMakerImageTypeDef]] = None
+    HiddenSageMakerImageVersionAliases: Optional[Sequence[HiddenSageMakerImage]] = None
 
 
-class ListHubContentVersionsResponseTypeDef(BaseValidatorModel):
-    HubContentSummaries: List[HubContentInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListHubContentVersionsResponse(BaseValidatorModel):
+    HubContentSummaries: List[HubContentInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListHubContentsResponseTypeDef(BaseValidatorModel):
-    HubContentSummaries: List[HubContentInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListHubContentsResponse(BaseValidatorModel):
+    HubContentSummaries: List[HubContentInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListHubsResponseTypeDef(BaseValidatorModel):
-    HubSummaries: List[HubInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListHubsResponse(BaseValidatorModel):
+    HubSummaries: List[HubInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class HumanLoopActivationConfigTypeDef(BaseValidatorModel):
-    HumanLoopActivationConditionsConfig: HumanLoopActivationConditionsConfigTypeDef
+class HumanLoopActivationConfig(BaseValidatorModel):
+    HumanLoopActivationConditionsConfig: HumanLoopActivationConditionsConfig
 
 
-class ListHumanTaskUisResponseTypeDef(BaseValidatorModel):
-    HumanTaskUiSummaries: List[HumanTaskUiSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListHumanTaskUisResponse(BaseValidatorModel):
+    HumanTaskUiSummaries: List[HumanTaskUiSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class HyperParameterTuningResourceConfigOutputTypeDef(BaseValidatorModel):
+class HyperParameterTuningResourceConfigOutput(BaseValidatorModel):
     InstanceType: Optional[TrainingInstanceTypeType] = None
     InstanceCount: Optional[int] = None
     VolumeSizeInGB: Optional[int] = None
     VolumeKmsKeyId: Optional[str] = None
     AllocationStrategy: Optional[Literal["Prioritized"]] = None
-    InstanceConfigs: Optional[List[HyperParameterTuningInstanceConfigTypeDef]] = None
+    InstanceConfigs: Optional[List[HyperParameterTuningInstanceConfig]] = None
 
 
-class HyperParameterTuningResourceConfigTypeDef(BaseValidatorModel):
+class HyperParameterTuningResourceConfig(BaseValidatorModel):
     InstanceType: Optional[TrainingInstanceTypeType] = None
     InstanceCount: Optional[int] = None
     VolumeSizeInGB: Optional[int] = None
     VolumeKmsKeyId: Optional[str] = None
     AllocationStrategy: Optional[Literal["Prioritized"]] = None
-    InstanceConfigs: Optional[Sequence[HyperParameterTuningInstanceConfigTypeDef]] = None
+    InstanceConfigs: Optional[Sequence[HyperParameterTuningInstanceConfig]] = None
 
 
-class HyperParameterTuningJobSummaryTypeDef(BaseValidatorModel):
+class HyperParameterTuningJobSummary(BaseValidatorModel):
     HyperParameterTuningJobName: str
     HyperParameterTuningJobArn: str
     HyperParameterTuningJobStatus: HyperParameterTuningJobStatusType
     Strategy: HyperParameterTuningJobStrategyTypeType
     CreationTime: datetime
-    TrainingJobStatusCounters: TrainingJobStatusCountersTypeDef
-    ObjectiveStatusCounters: ObjectiveStatusCountersTypeDef
+    TrainingJobStatusCounters: TrainingJobStatusCounters
+    ObjectiveStatusCounters: ObjectiveStatusCounters
     HyperParameterTuningEndTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    ResourceLimits: Optional[ResourceLimitsTypeDef] = None
+    ResourceLimits: Optional[ResourceLimits] = None
 
 
-class HyperParameterTuningJobStrategyConfigTypeDef(BaseValidatorModel):
-    HyperbandStrategyConfig: Optional[HyperbandStrategyConfigTypeDef] = None
+class HyperParameterTuningJobStrategyConfig(BaseValidatorModel):
+    HyperbandStrategyConfig: Optional[HyperbandStrategyConfig] = None
 
 
-class HyperParameterTuningJobWarmStartConfigOutputTypeDef(BaseValidatorModel):
-    ParentHyperParameterTuningJobs: List[ParentHyperParameterTuningJobTypeDef]
+class HyperParameterTuningJobWarmStartConfigOutput(BaseValidatorModel):
+    ParentHyperParameterTuningJobs: List[ParentHyperParameterTuningJob]
     WarmStartType: HyperParameterTuningJobWarmStartTypeType
 
 
-class HyperParameterTuningJobWarmStartConfigTypeDef(BaseValidatorModel):
-    ParentHyperParameterTuningJobs: Sequence[ParentHyperParameterTuningJobTypeDef]
+class HyperParameterTuningJobWarmStartConfig(BaseValidatorModel):
+    ParentHyperParameterTuningJobs: Sequence[ParentHyperParameterTuningJob]
     WarmStartType: HyperParameterTuningJobWarmStartTypeType
 
 
-class UserContextTypeDef(BaseValidatorModel):
+class UserContext(BaseValidatorModel):
     UserProfileArn: Optional[str] = None
     UserProfileName: Optional[str] = None
     DomainId: Optional[str] = None
-    IamIdentity: Optional[IamIdentityTypeDef] = None
+    IamIdentity: Optional[IamIdentity] = None
 
 
-class S3PresignTypeDef(BaseValidatorModel):
-    IamPolicyConstraints: Optional[IamPolicyConstraintsTypeDef] = None
+class S3Presign(BaseValidatorModel):
+    IamPolicyConstraints: Optional[IamPolicyConstraints] = None
 
 
-class ImageConfigTypeDef(BaseValidatorModel):
+class ImageConfig(BaseValidatorModel):
     RepositoryAccessMode: RepositoryAccessModeType
-    RepositoryAuthConfig: Optional[RepositoryAuthConfigTypeDef] = None
+    RepositoryAuthConfig: Optional[RepositoryAuthConfig] = None
 
 
-class ListImagesResponseTypeDef(BaseValidatorModel):
-    Images: List[ImageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImagesResponse(BaseValidatorModel):
+    Images: List[Image]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListImageVersionsResponseTypeDef(BaseValidatorModel):
-    ImageVersions: List[ImageVersionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImageVersionsResponse(BaseValidatorModel):
+    ImageVersions: List[ImageVersion]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class InferenceComponentCapacitySizeTypeDef(BaseValidatorModel):
+class InferenceComponentCapacitySize(BaseValidatorModel):
     pass
 
 
-class InferenceComponentRollingUpdatePolicyTypeDef(BaseValidatorModel):
-    MaximumBatchSize: InferenceComponentCapacitySizeTypeDef
+class InferenceComponentRollingUpdatePolicy(BaseValidatorModel):
+    MaximumBatchSize: InferenceComponentCapacitySize
     WaitIntervalInSeconds: int
     MaximumExecutionTimeoutInSeconds: Optional[int] = None
-    RollbackMaximumBatchSize: Optional[InferenceComponentCapacitySizeTypeDef] = None
+    RollbackMaximumBatchSize: Optional[InferenceComponentCapacitySize] = None
 
 
-class ListInferenceComponentsOutputTypeDef(BaseValidatorModel):
-    InferenceComponents: List[InferenceComponentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInferenceComponentsOutput(BaseValidatorModel):
+    InferenceComponents: List[InferenceComponentSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListInferenceRecommendationsJobsResponseTypeDef(BaseValidatorModel):
-    InferenceRecommendationsJobs: List[InferenceRecommendationsJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInferenceRecommendationsJobsResponse(BaseValidatorModel):
+    InferenceRecommendationsJobs: List[InferenceRecommendationsJob]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ResourceConfigOutputTypeDef(BaseValidatorModel):
+class ResourceConfigOutput(BaseValidatorModel):
     VolumeSizeInGB: int
     InstanceType: Optional[TrainingInstanceTypeType] = None
     InstanceCount: Optional[int] = None
     VolumeKmsKeyId: Optional[str] = None
     KeepAlivePeriodInSeconds: Optional[int] = None
-    InstanceGroups: Optional[List[InstanceGroupTypeDef]] = None
+    InstanceGroups: Optional[List[InstanceGroup]] = None
     TrainingPlanArn: Optional[str] = None
 
 
-class ResourceConfigTypeDef(BaseValidatorModel):
+class ResourceConfig(BaseValidatorModel):
     VolumeSizeInGB: int
     InstanceType: Optional[TrainingInstanceTypeType] = None
     InstanceCount: Optional[int] = None
     VolumeKmsKeyId: Optional[str] = None
     KeepAlivePeriodInSeconds: Optional[int] = None
-    InstanceGroups: Optional[Sequence[InstanceGroupTypeDef]] = None
+    InstanceGroups: Optional[Sequence[InstanceGroup]] = None
     TrainingPlanArn: Optional[str] = None
 
 
-class ParameterRangeOutputTypeDef(BaseValidatorModel):
-    IntegerParameterRangeSpecification: Optional[IntegerParameterRangeSpecificationTypeDef] = None
-    ContinuousParameterRangeSpecification: Optional[ContinuousParameterRangeSpecificationTypeDef] = None
-    CategoricalParameterRangeSpecification: Optional[ CategoricalParameterRangeSpecificationOutputTypeDef ] = None
+class ParameterRangeOutput(BaseValidatorModel):
+    IntegerParameterRangeSpecification: Optional[IntegerParameterRangeSpecification] = None
+    ContinuousParameterRangeSpecification: Optional[ContinuousParameterRangeSpecification] = None
+    CategoricalParameterRangeSpecification: Optional[ CategoricalParameterRangeSpecificationOutput ] = None
 
 
-class ParameterRangeTypeDef(BaseValidatorModel):
-    IntegerParameterRangeSpecification: Optional[IntegerParameterRangeSpecificationTypeDef] = None
-    ContinuousParameterRangeSpecification: Optional[ContinuousParameterRangeSpecificationTypeDef] = None
-    CategoricalParameterRangeSpecification: Optional[ CategoricalParameterRangeSpecificationTypeDef ] = None
+class ParameterRange(BaseValidatorModel):
+    IntegerParameterRangeSpecification: Optional[IntegerParameterRangeSpecification] = None
+    ContinuousParameterRangeSpecification: Optional[ContinuousParameterRangeSpecification] = None
+    CategoricalParameterRangeSpecification: Optional[ CategoricalParameterRangeSpecification ] = None
 
 
-class ParameterRangesOutputTypeDef(BaseValidatorModel):
-    IntegerParameterRanges: Optional[List[IntegerParameterRangeTypeDef]] = None
-    ContinuousParameterRanges: Optional[List[ContinuousParameterRangeTypeDef]] = None
-    CategoricalParameterRanges: Optional[List[CategoricalParameterRangeOutputTypeDef]] = None
-    AutoParameters: Optional[List[AutoParameterTypeDef]] = None
+class ParameterRangesOutput(BaseValidatorModel):
+    IntegerParameterRanges: Optional[List[IntegerParameterRange]] = None
+    ContinuousParameterRanges: Optional[List[ContinuousParameterRange]] = None
+    CategoricalParameterRanges: Optional[List[CategoricalParameterRangeOutput]] = None
+    AutoParameters: Optional[List[AutoParameter]] = None
 
 
-class KernelGatewayImageConfigOutputTypeDef(BaseValidatorModel):
-    KernelSpecs: List[KernelSpecTypeDef]
-    FileSystemConfig: Optional[FileSystemConfigTypeDef] = None
+class KernelGatewayImageConfigOutput(BaseValidatorModel):
+    KernelSpecs: List[KernelSpec]
+    FileSystemConfig: Optional[FileSystemConfig] = None
 
 
-class KernelGatewayImageConfigTypeDef(BaseValidatorModel):
-    KernelSpecs: Sequence[KernelSpecTypeDef]
-    FileSystemConfig: Optional[FileSystemConfigTypeDef] = None
+class KernelGatewayImageConfig(BaseValidatorModel):
+    KernelSpecs: Sequence[KernelSpec]
+    FileSystemConfig: Optional[FileSystemConfig] = None
 
 
-class LabelingJobForWorkteamSummaryTypeDef(BaseValidatorModel):
+class LabelingJobForWorkteamSummary(BaseValidatorModel):
     JobReferenceCode: str
     WorkRequesterAccountId: str
     CreationTime: datetime
     LabelingJobName: Optional[str] = None
-    LabelCounters: Optional[LabelCountersForWorkteamTypeDef] = None
+    LabelCounters: Optional[LabelCountersForWorkteam] = None
     NumberOfHumanWorkersPerDataObject: Optional[int] = None
 
 
-class LabelingJobDataSourceTypeDef(BaseValidatorModel):
-    S3DataSource: Optional[LabelingJobS3DataSourceTypeDef] = None
-    SnsDataSource: Optional[LabelingJobSnsDataSourceTypeDef] = None
+class LabelingJobDataSource(BaseValidatorModel):
+    S3DataSource: Optional[LabelingJobS3DataSource] = None
+    SnsDataSource: Optional[LabelingJobSnsDataSource] = None
 
 
-class ListLineageGroupsResponseTypeDef(BaseValidatorModel):
-    LineageGroupSummaries: List[LineageGroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLineageGroupsResponse(BaseValidatorModel):
+    LineageGroupSummaries: List[LineageGroupSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListActionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListActionsRequestPaginate(BaseValidatorModel):
     SourceUri: Optional[str] = None
     ActionType: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortActionsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAlgorithmsInputPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListAlgorithmsInputPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     SortBy: Optional[AlgorithmSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAliasesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAliasesRequestPaginate(BaseValidatorModel):
     ImageName: str
     Alias: Optional[str] = None
     Version: Optional[int] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAppImageConfigsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAppImageConfigsRequestPaginate(BaseValidatorModel):
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    ModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    ModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    ModifiedTimeBefore: Optional[Timestamp] = None
+    ModifiedTimeAfter: Optional[Timestamp] = None
     SortBy: Optional[AppImageConfigSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAppsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAppsRequestPaginate(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
     SortBy: Optional[Literal["CreationTime"]] = None
     DomainIdEquals: Optional[str] = None
     UserProfileNameEquals: Optional[str] = None
     SpaceNameEquals: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListArtifactsRequestPaginateTypeDef(BaseValidatorModel):
+class ListArtifactsRequestPaginate(BaseValidatorModel):
     SourceUri: Optional[str] = None
     ArtifactType: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[Literal["CreationTime"]] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssociationsRequestPaginate(BaseValidatorModel):
     SourceArn: Optional[str] = None
     DestinationArn: Optional[str] = None
     SourceType: Optional[str] = None
     DestinationType: Optional[str] = None
     AssociationType: Optional[AssociationEdgeTypeType] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortAssociationsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAutoMLJobsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListAutoMLJobsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[AutoMLJobStatusType] = None
     SortOrder: Optional[AutoMLSortOrderType] = None
     SortBy: Optional[AutoMLSortByType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCandidatesForAutoMLJobRequestPaginateTypeDef(BaseValidatorModel):
+class ListCandidatesForAutoMLJobRequestPaginate(BaseValidatorModel):
     AutoMLJobName: str
     StatusEquals: Optional[CandidateStatusType] = None
     CandidateNameEquals: Optional[str] = None
     SortOrder: Optional[AutoMLSortOrderType] = None
     SortBy: Optional[CandidateSortByType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClusterNodesRequestPaginateTypeDef(BaseValidatorModel):
+class ListClusterNodesRequestPaginate(BaseValidatorModel):
     ClusterName: str
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     InstanceGroupNameContains: Optional[str] = None
     SortBy: Optional[ClusterSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClusterSchedulerConfigsRequestPaginateTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListClusterSchedulerConfigsRequestPaginate(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     ClusterArn: Optional[str] = None
     Status: Optional[SchedulerResourceStatusType] = None
     SortBy: Optional[SortClusterSchedulerConfigByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClustersRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListClustersRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     SortBy: Optional[ClusterSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     TrainingPlanArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCodeRepositoriesInputPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListCodeRepositoriesInputPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     SortBy: Optional[CodeRepositorySortByType] = None
     SortOrder: Optional[CodeRepositorySortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCompilationJobsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListCompilationJobsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[CompilationJobStatusType] = None
     SortBy: Optional[ListCompilationJobsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListComputeQuotasRequestPaginateTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListComputeQuotasRequestPaginate(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     Status: Optional[SchedulerResourceStatusType] = None
     ClusterArn: Optional[str] = None
     SortBy: Optional[SortQuotaByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListContextsRequestPaginateTypeDef(BaseValidatorModel):
+class ListContextsRequestPaginate(BaseValidatorModel):
     SourceUri: Optional[str] = None
     ContextType: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortContextsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataQualityJobDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataQualityJobDefinitionsRequestPaginate(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDeviceFleetsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListDeviceFleetsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     SortBy: Optional[ListDeviceFleetsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDevicesRequestPaginateTypeDef(BaseValidatorModel):
-    LatestHeartbeatAfter: Optional[TimestampTypeDef] = None
+class ListDevicesRequestPaginate(BaseValidatorModel):
+    LatestHeartbeatAfter: Optional[Timestamp] = None
     ModelName: Optional[str] = None
     DeviceFleetName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDomainsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDomainsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEdgeDeploymentPlansRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListEdgeDeploymentPlansRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     DeviceFleetNameContains: Optional[str] = None
     SortBy: Optional[ListEdgeDeploymentPlansSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEdgePackagingJobsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListEdgePackagingJobsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     ModelNameContains: Optional[str] = None
     StatusEquals: Optional[EdgePackagingJobStatusType] = None
     SortBy: Optional[ListEdgePackagingJobsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEndpointConfigsInputPaginateTypeDef(BaseValidatorModel):
+class ListEndpointConfigsInputPaginate(BaseValidatorModel):
     SortBy: Optional[EndpointConfigSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEndpointsInputPaginateTypeDef(BaseValidatorModel):
+class ListEndpointsInputPaginate(BaseValidatorModel):
     SortBy: Optional[EndpointSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[EndpointStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListExperimentsRequestPaginateTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListExperimentsRequestPaginate(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortExperimentsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFeatureGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListFeatureGroupsRequestPaginate(BaseValidatorModel):
     NameContains: Optional[str] = None
     FeatureGroupStatusEquals: Optional[FeatureGroupStatusType] = None
     OfflineStoreStatusEquals: Optional[OfflineStoreStatusValueType] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[FeatureGroupSortOrderType] = None
     SortBy: Optional[FeatureGroupSortByType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFlowDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListFlowDefinitionsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListHumanTaskUisRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListHumanTaskUisRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListHyperParameterTuningJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListHyperParameterTuningJobsRequestPaginate(BaseValidatorModel):
     SortBy: Optional[HyperParameterTuningJobSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     StatusEquals: Optional[HyperParameterTuningJobStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListImageVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListImageVersionsRequestPaginate(BaseValidatorModel):
     ImageName: str
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     SortBy: Optional[ImageVersionSortByType] = None
     SortOrder: Optional[ImageVersionSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListImagesRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListImagesRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     SortBy: Optional[ImageSortByType] = None
     SortOrder: Optional[ImageSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInferenceComponentsInputPaginateTypeDef(BaseValidatorModel):
+class ListInferenceComponentsInputPaginate(BaseValidatorModel):
     SortBy: Optional[InferenceComponentSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[InferenceComponentStatusType] = None
     EndpointNameEquals: Optional[str] = None
     VariantNameEquals: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInferenceRecommendationsJobStepsRequestPaginateTypeDef(BaseValidatorModel):
+class ListInferenceRecommendationsJobStepsRequestPaginate(BaseValidatorModel):
     JobName: str
     Status: Optional[RecommendationJobStatusType] = None
     StepType: Optional[Literal["BENCHMARK"]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInferenceRecommendationsJobsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListInferenceRecommendationsJobsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[RecommendationJobStatusType] = None
     SortBy: Optional[ListInferenceRecommendationsJobsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     ModelNameEquals: Optional[str] = None
     ModelPackageVersionArnEquals: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLabelingJobsForWorkteamRequestPaginateTypeDef(BaseValidatorModel):
+class ListLabelingJobsForWorkteamRequestPaginate(BaseValidatorModel):
     WorkteamArn: str
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     JobReferenceCodeContains: Optional[str] = None
     SortBy: Optional[Literal["CreationTime"]] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLabelingJobsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListLabelingJobsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     SortBy: Optional[SortByType] = None
     SortOrder: Optional[SortOrderType] = None
     StatusEquals: Optional[LabelingJobStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLineageGroupsRequestPaginateTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListLineageGroupsRequestPaginate(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortLineageGroupsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMlflowTrackingServersRequestPaginateTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListMlflowTrackingServersRequestPaginate(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     TrackingServerStatus: Optional[TrackingServerStatusType] = None
     MlflowVersion: Optional[str] = None
     SortBy: Optional[SortTrackingServerByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelBiasJobDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListModelBiasJobDefinitionsRequestPaginate(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelCardExportJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListModelCardExportJobsRequestPaginate(BaseValidatorModel):
     ModelCardName: str
     ModelCardVersion: Optional[int] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     ModelCardExportJobNameContains: Optional[str] = None
     StatusEquals: Optional[ModelCardExportJobStatusType] = None
     SortBy: Optional[ModelCardExportJobSortByType] = None
     SortOrder: Optional[ModelCardExportJobSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelCardVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListModelCardVersionsRequestPaginate(BaseValidatorModel):
     ModelCardName: str
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
     SortBy: Optional[Literal["Version"]] = None
     SortOrder: Optional[ModelCardSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelCardsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListModelCardsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
     SortBy: Optional[ModelCardSortByType] = None
     SortOrder: Optional[ModelCardSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelExplainabilityJobDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListModelExplainabilityJobDefinitionsRequestPaginate(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelPackageGroupsInputPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListModelPackageGroupsInputPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     SortBy: Optional[ModelPackageGroupSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     CrossAccountFilterOption: Optional[CrossAccountFilterOptionType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelPackagesInputPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class ListModelPackagesInputPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
     ModelPackageGroupName: Optional[str] = None
     ModelPackageType: Optional[ModelPackageTypeType] = None
     SortBy: Optional[ModelPackageSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelQualityJobDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListModelQualityJobDefinitionsRequestPaginate(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelsInputPaginateTypeDef(BaseValidatorModel):
+class ListModelsInputPaginate(BaseValidatorModel):
     SortBy: Optional[ModelSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMonitoringAlertHistoryRequestPaginateTypeDef(BaseValidatorModel):
+class ListMonitoringAlertHistoryRequestPaginate(BaseValidatorModel):
     MonitoringScheduleName: Optional[str] = None
     MonitoringAlertName: Optional[str] = None
     SortBy: Optional[MonitoringAlertHistorySortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[MonitoringAlertStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMonitoringAlertsRequestPaginateTypeDef(BaseValidatorModel):
+class ListMonitoringAlertsRequestPaginate(BaseValidatorModel):
     MonitoringScheduleName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMonitoringExecutionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListMonitoringExecutionsRequestPaginate(BaseValidatorModel):
     MonitoringScheduleName: Optional[str] = None
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringExecutionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    ScheduledTimeBefore: Optional[TimestampTypeDef] = None
-    ScheduledTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    ScheduledTimeBefore: Optional[Timestamp] = None
+    ScheduledTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[ExecutionStatusType] = None
     MonitoringJobDefinitionName: Optional[str] = None
     MonitoringTypeEquals: Optional[MonitoringTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMonitoringSchedulesRequestPaginateTypeDef(BaseValidatorModel):
+class ListMonitoringSchedulesRequestPaginate(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringScheduleSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[ScheduleStatusType] = None
     MonitoringJobDefinitionName: Optional[str] = None
     MonitoringTypeEquals: Optional[MonitoringTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNotebookInstanceLifecycleConfigsInputPaginateTypeDef(BaseValidatorModel):
+class ListNotebookInstanceLifecycleConfigsInputPaginate(BaseValidatorModel):
     SortBy: Optional[NotebookInstanceLifecycleConfigSortKeyType] = None
     SortOrder: Optional[NotebookInstanceLifecycleConfigSortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNotebookInstancesInputPaginateTypeDef(BaseValidatorModel):
+class ListNotebookInstancesInputPaginate(BaseValidatorModel):
     SortBy: Optional[NotebookInstanceSortKeyType] = None
     SortOrder: Optional[NotebookInstanceSortOrderType] = None
     NameContains: Optional[str] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
     StatusEquals: Optional[NotebookInstanceStatusType] = None
     NotebookInstanceLifecycleConfigNameContains: Optional[str] = None
     DefaultCodeRepositoryContains: Optional[str] = None
     AdditionalCodeRepositoryEquals: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOptimizationJobsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListOptimizationJobsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     OptimizationContains: Optional[str] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[OptimizationJobStatusType] = None
     SortBy: Optional[ListOptimizationJobsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPartnerAppsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPartnerAppsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPipelineExecutionStepsRequestPaginateTypeDef(BaseValidatorModel):
+class ListPipelineExecutionStepsRequestPaginate(BaseValidatorModel):
     PipelineExecutionArn: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPipelineExecutionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListPipelineExecutionsRequestPaginate(BaseValidatorModel):
     PipelineName: str
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortPipelineExecutionsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPipelineParametersForExecutionRequestPaginateTypeDef(BaseValidatorModel):
+class ListPipelineParametersForExecutionRequestPaginate(BaseValidatorModel):
     PipelineExecutionArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPipelinesRequestPaginateTypeDef(BaseValidatorModel):
+class ListPipelinesRequestPaginate(BaseValidatorModel):
     PipelineNamePrefix: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortPipelinesByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProcessingJobsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListProcessingJobsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[ProcessingJobStatusType] = None
     SortBy: Optional[SortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceCatalogsRequestPaginateTypeDef(BaseValidatorModel):
+class ListResourceCatalogsRequestPaginate(BaseValidatorModel):
     NameContains: Optional[str] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[ResourceCatalogSortOrderType] = None
     SortBy: Optional[Literal["CreationTime"]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSpacesRequestPaginateTypeDef(BaseValidatorModel):
+class ListSpacesRequestPaginate(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
     SortBy: Optional[SpaceSortKeyType] = None
     DomainIdEquals: Optional[str] = None
     SpaceNameContains: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStageDevicesRequestPaginateTypeDef(BaseValidatorModel):
+class ListStageDevicesRequestPaginate(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     StageName: str
     ExcludeDevicesDeployedInOtherStage: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStudioLifecycleConfigsRequestPaginateTypeDef(BaseValidatorModel):
+class ListStudioLifecycleConfigsRequestPaginate(BaseValidatorModel):
     NameContains: Optional[str] = None
     AppTypeEquals: Optional[StudioLifecycleConfigAppTypeType] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    ModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    ModifiedTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    ModifiedTimeBefore: Optional[Timestamp] = None
+    ModifiedTimeAfter: Optional[Timestamp] = None
     SortBy: Optional[StudioLifecycleConfigSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSubscribedWorkteamsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSubscribedWorkteamsRequestPaginate(BaseValidatorModel):
     NameContains: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsInputPaginateTypeDef(BaseValidatorModel):
+class ListTagsInputPaginate(BaseValidatorModel):
     ResourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrainingJobsForHyperParameterTuningJobRequestPaginateTypeDef(BaseValidatorModel):
+class ListTrainingJobsForHyperParameterTuningJobRequestPaginate(BaseValidatorModel):
     HyperParameterTuningJobName: str
     StatusEquals: Optional[TrainingJobStatusType] = None
     SortBy: Optional[TrainingJobSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrainingJobsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListTrainingJobsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[TrainingJobStatusType] = None
     SortBy: Optional[SortByType] = None
     SortOrder: Optional[SortOrderType] = None
     WarmPoolStatusEquals: Optional[WarmPoolResourceStatusType] = None
     TrainingPlanArnEquals: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTransformJobsRequestPaginateTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
-    LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
+class ListTransformJobsRequestPaginate(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    LastModifiedTimeAfter: Optional[Timestamp] = None
+    LastModifiedTimeBefore: Optional[Timestamp] = None
     NameContains: Optional[str] = None
     StatusEquals: Optional[TransformJobStatusType] = None
     SortBy: Optional[SortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrialComponentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTrialComponentsRequestPaginate(BaseValidatorModel):
     ExperimentName: Optional[str] = None
     TrialName: Optional[str] = None
     SourceArn: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortTrialComponentsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrialsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTrialsRequestPaginate(BaseValidatorModel):
     ExperimentName: Optional[str] = None
     TrialComponentName: Optional[str] = None
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     SortBy: Optional[SortTrialsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListUserProfilesRequestPaginateTypeDef(BaseValidatorModel):
+class ListUserProfilesRequestPaginate(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
     SortBy: Optional[UserProfileSortKeyType] = None
     DomainIdEquals: Optional[str] = None
     UserProfileNameContains: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkforcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListWorkforcesRequestPaginate(BaseValidatorModel):
     SortBy: Optional[ListWorkforcesSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkteamsRequestPaginateTypeDef(BaseValidatorModel):
+class ListWorkteamsRequestPaginate(BaseValidatorModel):
     SortBy: Optional[ListWorkteamsSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
     NameContains: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataQualityJobDefinitionsResponseTypeDef(BaseValidatorModel):
-    JobDefinitionSummaries: List[MonitoringJobDefinitionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataQualityJobDefinitionsResponse(BaseValidatorModel):
+    JobDefinitionSummaries: List[MonitoringJobDefinitionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelBiasJobDefinitionsResponseTypeDef(BaseValidatorModel):
-    JobDefinitionSummaries: List[MonitoringJobDefinitionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelBiasJobDefinitionsResponse(BaseValidatorModel):
+    JobDefinitionSummaries: List[MonitoringJobDefinitionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelExplainabilityJobDefinitionsResponseTypeDef(BaseValidatorModel):
-    JobDefinitionSummaries: List[MonitoringJobDefinitionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelExplainabilityJobDefinitionsResponse(BaseValidatorModel):
+    JobDefinitionSummaries: List[MonitoringJobDefinitionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelQualityJobDefinitionsResponseTypeDef(BaseValidatorModel):
-    JobDefinitionSummaries: List[MonitoringJobDefinitionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelQualityJobDefinitionsResponse(BaseValidatorModel):
+    JobDefinitionSummaries: List[MonitoringJobDefinitionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMlflowTrackingServersResponseTypeDef(BaseValidatorModel):
-    TrackingServerSummaries: List[TrackingServerSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMlflowTrackingServersResponse(BaseValidatorModel):
+    TrackingServerSummaries: List[TrackingServerSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelCardExportJobsResponseTypeDef(BaseValidatorModel):
-    ModelCardExportJobSummaries: List[ModelCardExportJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelCardExportJobsResponse(BaseValidatorModel):
+    ModelCardExportJobSummaries: List[ModelCardExportJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelCardVersionsResponseTypeDef(BaseValidatorModel):
-    ModelCardVersionSummaryList: List[ModelCardVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelCardVersionsResponse(BaseValidatorModel):
+    ModelCardVersionSummaryList: List[ModelCardVersionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelCardsResponseTypeDef(BaseValidatorModel):
-    ModelCardSummaries: List[ModelCardSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelCardsResponse(BaseValidatorModel):
+    ModelCardSummaries: List[ModelCardSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelMetadataResponseTypeDef(BaseValidatorModel):
-    ModelMetadataSummaries: List[ModelMetadataSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelMetadataResponse(BaseValidatorModel):
+    ModelMetadataSummaries: List[ModelMetadataSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelPackageGroupsOutputTypeDef(BaseValidatorModel):
-    ModelPackageGroupSummaryList: List[ModelPackageGroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelPackageGroupsOutput(BaseValidatorModel):
+    ModelPackageGroupSummaryList: List[ModelPackageGroupSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelPackagesOutputTypeDef(BaseValidatorModel):
-    ModelPackageSummaryList: List[ModelPackageSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelPackagesOutput(BaseValidatorModel):
+    ModelPackageSummaryList: List[ModelPackageSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListModelsOutputTypeDef(BaseValidatorModel):
-    Models: List[ModelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelsOutput(BaseValidatorModel):
+    Models: List[ModelSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMonitoringAlertHistoryResponseTypeDef(BaseValidatorModel):
-    MonitoringAlertHistory: List[MonitoringAlertHistorySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMonitoringAlertHistoryResponse(BaseValidatorModel):
+    MonitoringAlertHistory: List[MonitoringAlertHistorySummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMonitoringSchedulesResponseTypeDef(BaseValidatorModel):
-    MonitoringScheduleSummaries: List[MonitoringScheduleSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMonitoringSchedulesResponse(BaseValidatorModel):
+    MonitoringScheduleSummaries: List[MonitoringScheduleSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNotebookInstanceLifecycleConfigsOutputTypeDef(BaseValidatorModel):
-    NotebookInstanceLifecycleConfigs: List[NotebookInstanceLifecycleConfigSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNotebookInstanceLifecycleConfigsOutput(BaseValidatorModel):
+    NotebookInstanceLifecycleConfigs: List[NotebookInstanceLifecycleConfigSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNotebookInstancesOutputTypeDef(BaseValidatorModel):
-    NotebookInstances: List[NotebookInstanceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNotebookInstancesOutput(BaseValidatorModel):
+    NotebookInstances: List[NotebookInstanceSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListOptimizationJobsResponseTypeDef(BaseValidatorModel):
-    OptimizationJobSummaries: List[OptimizationJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOptimizationJobsResponse(BaseValidatorModel):
+    OptimizationJobSummaries: List[OptimizationJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PartnerAppSummaryTypeDef(BaseValidatorModel):
+class PartnerAppSummary(BaseValidatorModel):
     pass
 
 
-class ListPartnerAppsResponseTypeDef(BaseValidatorModel):
-    Summaries: List[PartnerAppSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPartnerAppsResponse(BaseValidatorModel):
+    Summaries: List[PartnerAppSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPipelineExecutionsResponseTypeDef(BaseValidatorModel):
-    PipelineExecutionSummaries: List[PipelineExecutionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPipelineExecutionsResponse(BaseValidatorModel):
+    PipelineExecutionSummaries: List[PipelineExecutionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPipelineParametersForExecutionResponseTypeDef(BaseValidatorModel):
-    PipelineParameters: List[ParameterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPipelineParametersForExecutionResponse(BaseValidatorModel):
+    PipelineParameters: List[Parameter]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPipelinesResponseTypeDef(BaseValidatorModel):
-    PipelineSummaries: List[PipelineSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPipelinesResponse(BaseValidatorModel):
+    PipelineSummaries: List[PipelineSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProcessingJobsResponseTypeDef(BaseValidatorModel):
-    ProcessingJobSummaries: List[ProcessingJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProcessingJobsResponse(BaseValidatorModel):
+    ProcessingJobSummaries: List[ProcessingJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProjectsOutputTypeDef(BaseValidatorModel):
-    ProjectSummaryList: List[ProjectSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProjectsOutput(BaseValidatorModel):
+    ProjectSummaryList: List[ProjectSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListResourceCatalogsResponseTypeDef(BaseValidatorModel):
-    ResourceCatalogs: List[ResourceCatalogTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceCatalogsResponse(BaseValidatorModel):
+    ResourceCatalogs: List[ResourceCatalog]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListStudioLifecycleConfigsResponseTypeDef(BaseValidatorModel):
-    StudioLifecycleConfigs: List[StudioLifecycleConfigDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStudioLifecycleConfigsResponse(BaseValidatorModel):
+    StudioLifecycleConfigs: List[StudioLifecycleConfigDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTrainingPlansRequestPaginateTypeDef(BaseValidatorModel):
-    StartTimeAfter: Optional[TimestampTypeDef] = None
-    StartTimeBefore: Optional[TimestampTypeDef] = None
+class ListTrainingPlansRequestPaginate(BaseValidatorModel):
+    StartTimeAfter: Optional[Timestamp] = None
+    StartTimeBefore: Optional[Timestamp] = None
     SortBy: Optional[TrainingPlanSortByType] = None
     SortOrder: Optional[TrainingPlanSortOrderType] = None
-    Filters: Optional[Sequence[TrainingPlanFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[TrainingPlanFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrainingPlansRequestTypeDef(BaseValidatorModel):
+class ListTrainingPlansRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    StartTimeAfter: Optional[TimestampTypeDef] = None
-    StartTimeBefore: Optional[TimestampTypeDef] = None
+    StartTimeAfter: Optional[Timestamp] = None
+    StartTimeBefore: Optional[Timestamp] = None
     SortBy: Optional[TrainingPlanSortByType] = None
     SortOrder: Optional[TrainingPlanSortOrderType] = None
-    Filters: Optional[Sequence[TrainingPlanFilterTypeDef]] = None
+    Filters: Optional[Sequence[TrainingPlanFilter]] = None
 
 
-class ListTransformJobsResponseTypeDef(BaseValidatorModel):
-    TransformJobSummaries: List[TransformJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTransformJobsResponse(BaseValidatorModel):
+    TransformJobSummaries: List[TransformJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListUserProfilesResponseTypeDef(BaseValidatorModel):
-    UserProfiles: List[UserProfileDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListUserProfilesResponse(BaseValidatorModel):
+    UserProfiles: List[UserProfileDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MemberDefinitionOutputTypeDef(BaseValidatorModel):
-    CognitoMemberDefinition: Optional[CognitoMemberDefinitionTypeDef] = None
-    OidcMemberDefinition: Optional[OidcMemberDefinitionOutputTypeDef] = None
+class MemberDefinitionOutput(BaseValidatorModel):
+    CognitoMemberDefinition: Optional[CognitoMemberDefinition] = None
+    OidcMemberDefinition: Optional[OidcMemberDefinitionOutput] = None
 
 
-class MetricSpecificationTypeDef(BaseValidatorModel):
-    Predefined: Optional[PredefinedMetricSpecificationTypeDef] = None
-    Customized: Optional[CustomizedMetricSpecificationTypeDef] = None
+class MetricSpecification(BaseValidatorModel):
+    Predefined: Optional[PredefinedMetricSpecification] = None
+    Customized: Optional[CustomizedMetricSpecification] = None
 
 
-class S3ModelDataSourceTypeDef(BaseValidatorModel):
+class S3ModelDataSource(BaseValidatorModel):
     S3Uri: str
     S3DataType: S3ModelDataTypeType
     CompressionType: ModelCompressionTypeType
-    ModelAccessConfig: Optional[ModelAccessConfigTypeDef] = None
-    HubAccessConfig: Optional[InferenceHubAccessConfigTypeDef] = None
+    ModelAccessConfig: Optional[ModelAccessConfig] = None
+    HubAccessConfig: Optional[InferenceHubAccessConfig] = None
     ManifestS3Uri: Optional[str] = None
     ETag: Optional[str] = None
     ManifestEtag: Optional[str] = None
 
 
-class TextGenerationJobConfigOutputTypeDef(BaseValidatorModel):
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
+class TextGenerationJobConfigOutput(BaseValidatorModel):
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
     BaseModelName: Optional[str] = None
     TextGenerationHyperParameters: Optional[Dict[str, str]] = None
-    ModelAccessConfig: Optional[ModelAccessConfigTypeDef] = None
+    ModelAccessConfig: Optional[ModelAccessConfig] = None
 
 
-class TextGenerationJobConfigTypeDef(BaseValidatorModel):
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
+class TextGenerationJobConfig(BaseValidatorModel):
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
     BaseModelName: Optional[str] = None
     TextGenerationHyperParameters: Optional[Mapping[str, str]] = None
-    ModelAccessConfig: Optional[ModelAccessConfigTypeDef] = None
+    ModelAccessConfig: Optional[ModelAccessConfig] = None
 
 
-class MonitoringAlertActionsTypeDef(BaseValidatorModel):
-    ModelDashboardIndicator: Optional[ModelDashboardIndicatorActionTypeDef] = None
+class MonitoringAlertActions(BaseValidatorModel):
+    ModelDashboardIndicator: Optional[ModelDashboardIndicatorAction] = None
 
 
-class ModelInfrastructureConfigTypeDef(BaseValidatorModel):
+class ModelInfrastructureConfig(BaseValidatorModel):
     InfrastructureType: Literal["RealTimeInference"]
-    RealTimeInferenceConfig: RealTimeInferenceConfigTypeDef
+    RealTimeInferenceConfig: RealTimeInferenceConfig
 
 
-class RecommendationJobStoppingConditionsOutputTypeDef(BaseValidatorModel):
+class RecommendationJobStoppingConditionsOutput(BaseValidatorModel):
     MaxInvocations: Optional[int] = None
-    ModelLatencyThresholds: Optional[List[ModelLatencyThresholdTypeDef]] = None
+    ModelLatencyThresholds: Optional[List[ModelLatencyThreshold]] = None
     FlatInvocations: Optional[FlatInvocationsType] = None
 
 
-class RecommendationJobStoppingConditionsTypeDef(BaseValidatorModel):
+class RecommendationJobStoppingConditions(BaseValidatorModel):
     MaxInvocations: Optional[int] = None
-    ModelLatencyThresholds: Optional[Sequence[ModelLatencyThresholdTypeDef]] = None
+    ModelLatencyThresholds: Optional[Sequence[ModelLatencyThreshold]] = None
     FlatInvocations: Optional[FlatInvocationsType] = None
 
 
-class ModelMetadataSearchExpressionTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ModelMetadataFilterTypeDef]] = None
+class ModelMetadataSearchExpression(BaseValidatorModel):
+    Filters: Optional[Sequence[ModelMetadataFilter]] = None
 
 
-class ModelPackageStatusDetailsTypeDef(BaseValidatorModel):
-    ValidationStatuses: List[ModelPackageStatusItemTypeDef]
-    ImageScanStatuses: Optional[List[ModelPackageStatusItemTypeDef]] = None
+class ModelPackageStatusDetails(BaseValidatorModel):
+    ValidationStatuses: List[ModelPackageStatusItem]
+    ImageScanStatuses: Optional[List[ModelPackageStatusItem]] = None
 
 
-class OptimizationConfigOutputTypeDef(BaseValidatorModel):
-    ModelQuantizationConfig: Optional[ModelQuantizationConfigOutputTypeDef] = None
-    ModelCompilationConfig: Optional[ModelCompilationConfigOutputTypeDef] = None
-    ModelShardingConfig: Optional[ModelShardingConfigOutputTypeDef] = None
+class OptimizationConfigOutput(BaseValidatorModel):
+    ModelQuantizationConfig: Optional[ModelQuantizationConfigOutput] = None
+    ModelCompilationConfig: Optional[ModelCompilationConfigOutput] = None
+    ModelShardingConfig: Optional[ModelShardingConfigOutput] = None
 
 
-class MonitoringResourcesTypeDef(BaseValidatorModel):
-    ClusterConfig: MonitoringClusterConfigTypeDef
+class MonitoringResources(BaseValidatorModel):
+    ClusterConfig: MonitoringClusterConfig
 
 
-class MonitoringDatasetFormatOutputTypeDef(BaseValidatorModel):
-    Csv: Optional[MonitoringCsvDatasetFormatTypeDef] = None
-    Json: Optional[MonitoringJsonDatasetFormatTypeDef] = None
+class MonitoringDatasetFormatOutput(BaseValidatorModel):
+    Csv: Optional[MonitoringCsvDatasetFormat] = None
+    Json: Optional[MonitoringJsonDatasetFormat] = None
     Parquet: Optional[Dict[str, Any]] = None
 
 
-class MonitoringDatasetFormatTypeDef(BaseValidatorModel):
-    Csv: Optional[MonitoringCsvDatasetFormatTypeDef] = None
-    Json: Optional[MonitoringJsonDatasetFormatTypeDef] = None
+class MonitoringDatasetFormat(BaseValidatorModel):
+    Csv: Optional[MonitoringCsvDatasetFormat] = None
+    Json: Optional[MonitoringJsonDatasetFormat] = None
     Parquet: Optional[Mapping[str, Any]] = None
 
 
-class MonitoringOutputTypeDef(BaseValidatorModel):
-    S3Output: MonitoringS3OutputTypeDef
+class MonitoringOutput(BaseValidatorModel):
+    S3Output: MonitoringS3Output
 
 
-class OfflineStoreConfigTypeDef(BaseValidatorModel):
-    S3StorageConfig: S3StorageConfigTypeDef
+class OfflineStoreConfig(BaseValidatorModel):
+    S3StorageConfig: S3StorageConfig
     DisableGlueTableCreation: Optional[bool] = None
-    DataCatalogConfig: Optional[DataCatalogConfigTypeDef] = None
+    DataCatalogConfig: Optional[DataCatalogConfig] = None
     TableFormat: Optional[TableFormatType] = None
 
 
-class OnlineStoreConfigTypeDef(BaseValidatorModel):
-    SecurityConfig: Optional[OnlineStoreSecurityConfigTypeDef] = None
+class OnlineStoreConfig(BaseValidatorModel):
+    SecurityConfig: Optional[OnlineStoreSecurityConfig] = None
     EnableOnlineStore: Optional[bool] = None
-    TtlDuration: Optional[TtlDurationTypeDef] = None
+    TtlDuration: Optional[TtlDuration] = None
     StorageType: Optional[StorageTypeType] = None
 
 
-class OnlineStoreConfigUpdateTypeDef(BaseValidatorModel):
-    TtlDuration: Optional[TtlDurationTypeDef] = None
+class OnlineStoreConfigUpdate(BaseValidatorModel):
+    TtlDuration: Optional[TtlDuration] = None
 
 
-class OptimizationJobModelSourceS3TypeDef(BaseValidatorModel):
+class OptimizationJobModelSourceS3(BaseValidatorModel):
     S3Uri: Optional[str] = None
-    ModelAccessConfig: Optional[OptimizationModelAccessConfigTypeDef] = None
+    ModelAccessConfig: Optional[OptimizationModelAccessConfig] = None
 
 
-class OutputConfigTypeDef(BaseValidatorModel):
+class OutputConfig(BaseValidatorModel):
     S3OutputLocation: str
     TargetDevice: Optional[TargetDeviceType] = None
-    TargetPlatform: Optional[TargetPlatformTypeDef] = None
+    TargetPlatform: Optional[TargetPlatform] = None
     CompilerOptions: Optional[str] = None
     KmsKeyId: Optional[str] = None
 
 
-class PendingProductionVariantSummaryTypeDef(BaseValidatorModel):
+class PendingProductionVariantSummary(BaseValidatorModel):
     VariantName: str
-    DeployedImages: Optional[List[DeployedImageTypeDef]] = None
+    DeployedImages: Optional[List[DeployedImage]] = None
     CurrentWeight: Optional[float] = None
     DesiredWeight: Optional[float] = None
     CurrentInstanceCount: Optional[int] = None
     DesiredInstanceCount: Optional[int] = None
     InstanceType: Optional[ProductionVariantInstanceTypeType] = None
     AcceleratorType: Optional[ProductionVariantAcceleratorTypeType] = None
-    VariantStatus: Optional[List[ProductionVariantStatusTypeDef]] = None
-    CurrentServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
-    DesiredServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
-    ManagedInstanceScaling: Optional[ProductionVariantManagedInstanceScalingTypeDef] = None
-    RoutingConfig: Optional[ProductionVariantRoutingConfigTypeDef] = None
+    VariantStatus: Optional[List[ProductionVariantStatus]] = None
+    CurrentServerlessConfig: Optional[ProductionVariantServerlessConfig] = None
+    DesiredServerlessConfig: Optional[ProductionVariantServerlessConfig] = None
+    ManagedInstanceScaling: Optional[ProductionVariantManagedInstanceScaling] = None
+    RoutingConfig: Optional[ProductionVariantRoutingConfig] = None
 
 
-class ProductionVariantSummaryTypeDef(BaseValidatorModel):
+class ProductionVariantSummary(BaseValidatorModel):
     VariantName: str
-    DeployedImages: Optional[List[DeployedImageTypeDef]] = None
+    DeployedImages: Optional[List[DeployedImage]] = None
     CurrentWeight: Optional[float] = None
     DesiredWeight: Optional[float] = None
     CurrentInstanceCount: Optional[int] = None
     DesiredInstanceCount: Optional[int] = None
-    VariantStatus: Optional[List[ProductionVariantStatusTypeDef]] = None
-    CurrentServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
-    DesiredServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
-    ManagedInstanceScaling: Optional[ProductionVariantManagedInstanceScalingTypeDef] = None
-    RoutingConfig: Optional[ProductionVariantRoutingConfigTypeDef] = None
+    VariantStatus: Optional[List[ProductionVariantStatus]] = None
+    CurrentServerlessConfig: Optional[ProductionVariantServerlessConfig] = None
+    DesiredServerlessConfig: Optional[ProductionVariantServerlessConfig] = None
+    ManagedInstanceScaling: Optional[ProductionVariantManagedInstanceScaling] = None
+    RoutingConfig: Optional[ProductionVariantRoutingConfig] = None
 
 
-class SchedulerConfigOutputTypeDef(BaseValidatorModel):
-    PriorityClasses: Optional[List[PriorityClassTypeDef]] = None
+class SchedulerConfigOutput(BaseValidatorModel):
+    PriorityClasses: Optional[List[PriorityClass]] = None
     FairShare: Optional[FairShareType] = None
 
 
-class SchedulerConfigTypeDef(BaseValidatorModel):
-    PriorityClasses: Optional[Sequence[PriorityClassTypeDef]] = None
+class SchedulerConfig(BaseValidatorModel):
+    PriorityClasses: Optional[Sequence[PriorityClass]] = None
     FairShare: Optional[FairShareType] = None
 
 
-class ProcessingResourcesTypeDef(BaseValidatorModel):
-    ClusterConfig: ProcessingClusterConfigTypeDef
+class ProcessingResources(BaseValidatorModel):
+    ClusterConfig: ProcessingClusterConfig
 
 
-class ProcessingOutputTypeDef(BaseValidatorModel):
+class ProcessingOutput(BaseValidatorModel):
     OutputName: str
-    S3Output: Optional[ProcessingS3OutputTypeDef] = None
-    FeatureStoreOutput: Optional[ProcessingFeatureStoreOutputTypeDef] = None
+    S3Output: Optional[ProcessingS3Output] = None
+    FeatureStoreOutput: Optional[ProcessingFeatureStoreOutput] = None
     AppManaged: Optional[bool] = None
 
 
-class ProductionVariantTypeDef(BaseValidatorModel):
+class ProductionVariant(BaseValidatorModel):
     VariantName: str
     ModelName: Optional[str] = None
     InitialInstanceCount: Optional[int] = None
     InstanceType: Optional[ProductionVariantInstanceTypeType] = None
     InitialVariantWeight: Optional[float] = None
     AcceleratorType: Optional[ProductionVariantAcceleratorTypeType] = None
-    CoreDumpConfig: Optional[ProductionVariantCoreDumpConfigTypeDef] = None
-    ServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
+    CoreDumpConfig: Optional[ProductionVariantCoreDumpConfig] = None
+    ServerlessConfig: Optional[ProductionVariantServerlessConfig] = None
     VolumeSizeInGB: Optional[int] = None
     ModelDataDownloadTimeoutInSeconds: Optional[int] = None
     ContainerStartupHealthCheckTimeoutInSeconds: Optional[int] = None
     EnableSSMAccess: Optional[bool] = None
-    ManagedInstanceScaling: Optional[ProductionVariantManagedInstanceScalingTypeDef] = None
-    RoutingConfig: Optional[ProductionVariantRoutingConfigTypeDef] = None
+    ManagedInstanceScaling: Optional[ProductionVariantManagedInstanceScaling] = None
+    RoutingConfig: Optional[ProductionVariantRoutingConfig] = None
     InferenceAmiVersion: Optional[ProductionVariantInferenceAmiVersionType] = None
 
 
-class SuggestionQueryTypeDef(BaseValidatorModel):
-    PropertyNameQuery: Optional[PropertyNameQueryTypeDef] = None
+class SuggestionQuery(BaseValidatorModel):
+    PropertyNameQuery: Optional[PropertyNameQuery] = None
 
 
-class ServiceCatalogProvisioningDetailsOutputTypeDef(BaseValidatorModel):
+class ServiceCatalogProvisioningDetailsOutput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: Optional[str] = None
     PathId: Optional[str] = None
-    ProvisioningParameters: Optional[List[ProvisioningParameterTypeDef]] = None
+    ProvisioningParameters: Optional[List[ProvisioningParameter]] = None
 
 
-class ServiceCatalogProvisioningDetailsTypeDef(BaseValidatorModel):
+class ServiceCatalogProvisioningDetails(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: Optional[str] = None
     PathId: Optional[str] = None
-    ProvisioningParameters: Optional[Sequence[ProvisioningParameterTypeDef]] = None
+    ProvisioningParameters: Optional[Sequence[ProvisioningParameter]] = None
 
 
-class ServiceCatalogProvisioningUpdateDetailsTypeDef(BaseValidatorModel):
+class ServiceCatalogProvisioningUpdateDetails(BaseValidatorModel):
     ProvisioningArtifactId: Optional[str] = None
-    ProvisioningParameters: Optional[Sequence[ProvisioningParameterTypeDef]] = None
+    ProvisioningParameters: Optional[Sequence[ProvisioningParameter]] = None
 
 
-class PublicWorkforceTaskPriceTypeDef(BaseValidatorModel):
-    AmountInUsd: Optional[USDTypeDef] = None
+class PublicWorkforceTaskPrice(BaseValidatorModel):
+    AmountInUsd: Optional[USD] = None
 
 
-class VertexTypeDef(BaseValidatorModel):
+class Vertex(BaseValidatorModel):
     pass
 
 
-class QueryLineageResponseTypeDef(BaseValidatorModel):
-    Vertices: List[VertexTypeDef]
-    Edges: List[EdgeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class QueryLineageResponse(BaseValidatorModel):
+    Vertices: List[Vertex]
+    Edges: List[Edge]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RecommendationJobOutputConfigTypeDef(BaseValidatorModel):
+class RecommendationJobOutputConfig(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
-    CompiledOutputConfig: Optional[RecommendationJobCompiledOutputConfigTypeDef] = None
+    CompiledOutputConfig: Optional[RecommendationJobCompiledOutputConfig] = None
 
 
-class RecommendationJobContainerConfigOutputTypeDef(BaseValidatorModel):
+class RecommendationJobContainerConfigOutput(BaseValidatorModel):
     Domain: Optional[str] = None
     Task: Optional[str] = None
     Framework: Optional[str] = None
     FrameworkVersion: Optional[str] = None
-    PayloadConfig: Optional[RecommendationJobPayloadConfigOutputTypeDef] = None
+    PayloadConfig: Optional[RecommendationJobPayloadConfigOutput] = None
     NearestModelName: Optional[str] = None
     SupportedInstanceTypes: Optional[List[str]] = None
     SupportedEndpointType: Optional[RecommendationJobSupportedEndpointTypeType] = None
@@ -7572,12 +7572,12 @@ class RecommendationJobContainerConfigOutputTypeDef(BaseValidatorModel):
     SupportedResponseMIMETypes: Optional[List[str]] = None
 
 
-class RecommendationJobContainerConfigTypeDef(BaseValidatorModel):
+class RecommendationJobContainerConfig(BaseValidatorModel):
     Domain: Optional[str] = None
     Task: Optional[str] = None
     Framework: Optional[str] = None
     FrameworkVersion: Optional[str] = None
-    PayloadConfig: Optional[RecommendationJobPayloadConfigTypeDef] = None
+    PayloadConfig: Optional[RecommendationJobPayloadConfig] = None
     NearestModelName: Optional[str] = None
     SupportedInstanceTypes: Optional[Sequence[str]] = None
     SupportedEndpointType: Optional[RecommendationJobSupportedEndpointTypeType] = None
@@ -7585,20 +7585,20 @@ class RecommendationJobContainerConfigTypeDef(BaseValidatorModel):
     SupportedResponseMIMETypes: Optional[Sequence[str]] = None
 
 
-class RenderUiTemplateRequestTypeDef(BaseValidatorModel):
-    Task: RenderableTaskTypeDef
+class RenderUiTemplateRequest(BaseValidatorModel):
+    Task: RenderableTask
     RoleArn: str
-    UiTemplate: Optional[UiTemplateTypeDef] = None
+    UiTemplate: Optional[UiTemplate] = None
     HumanTaskUiArn: Optional[str] = None
 
 
-class RenderUiTemplateResponseTypeDef(BaseValidatorModel):
+class RenderUiTemplateResponse(BaseValidatorModel):
     RenderedContent: str
-    Errors: List[RenderingErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Errors: List[RenderingError]
+    ResponseMetadata: ResponseMetadata
 
 
-class TrainingPlanOfferingTypeDef(BaseValidatorModel):
+class TrainingPlanOffering(BaseValidatorModel):
     TrainingPlanOfferingId: str
     TargetResources: List[SageMakerResourceNameType]
     RequestedStartTimeAfter: Optional[datetime] = None
@@ -7607,155 +7607,155 @@ class TrainingPlanOfferingTypeDef(BaseValidatorModel):
     DurationMinutes: Optional[int] = None
     UpfrontFee: Optional[str] = None
     CurrencyCode: Optional[str] = None
-    ReservedCapacityOfferings: Optional[List[ReservedCapacityOfferingTypeDef]] = None
+    ReservedCapacityOfferings: Optional[List[ReservedCapacityOffering]] = None
 
 
-class SelectiveExecutionConfigOutputTypeDef(BaseValidatorModel):
-    SelectedSteps: List[SelectedStepTypeDef]
+class SelectiveExecutionConfigOutput(BaseValidatorModel):
+    SelectedSteps: List[SelectedStep]
     SourcePipelineExecutionArn: Optional[str] = None
 
 
-class SelectiveExecutionConfigTypeDef(BaseValidatorModel):
-    SelectedSteps: Sequence[SelectedStepTypeDef]
+class SelectiveExecutionConfig(BaseValidatorModel):
+    SelectedSteps: Sequence[SelectedStep]
     SourcePipelineExecutionArn: Optional[str] = None
 
 
-class ShadowModeConfigOutputTypeDef(BaseValidatorModel):
+class ShadowModeConfigOutput(BaseValidatorModel):
     SourceModelVariantName: str
-    ShadowModelVariants: List[ShadowModelVariantConfigTypeDef]
+    ShadowModelVariants: List[ShadowModelVariantConfig]
 
 
-class ShadowModeConfigTypeDef(BaseValidatorModel):
+class ShadowModeConfig(BaseValidatorModel):
     SourceModelVariantName: str
-    ShadowModelVariants: Sequence[ShadowModelVariantConfigTypeDef]
+    ShadowModelVariants: Sequence[ShadowModelVariantConfig]
 
 
-class SpaceAppLifecycleManagementTypeDef(BaseValidatorModel):
-    IdleSettings: Optional[SpaceIdleSettingsTypeDef] = None
+class SpaceAppLifecycleManagement(BaseValidatorModel):
+    IdleSettings: Optional[SpaceIdleSettings] = None
 
 
-class TrafficPatternOutputTypeDef(BaseValidatorModel):
+class TrafficPatternOutput(BaseValidatorModel):
     TrafficType: Optional[TrafficTypeType] = None
-    Phases: Optional[List[PhaseTypeDef]] = None
-    Stairs: Optional[StairsTypeDef] = None
+    Phases: Optional[List[Phase]] = None
+    Stairs: Optional[Stairs] = None
 
 
-class TrafficPatternTypeDef(BaseValidatorModel):
+class TrafficPattern(BaseValidatorModel):
     TrafficType: Optional[TrafficTypeType] = None
-    Phases: Optional[Sequence[PhaseTypeDef]] = None
-    Stairs: Optional[StairsTypeDef] = None
+    Phases: Optional[Sequence[Phase]] = None
+    Stairs: Optional[Stairs] = None
 
 
-class TrainingImageConfigTypeDef(BaseValidatorModel):
+class TrainingImageConfig(BaseValidatorModel):
     TrainingRepositoryAccessMode: TrainingRepositoryAccessModeType
-    TrainingRepositoryAuthConfig: Optional[TrainingRepositoryAuthConfigTypeDef] = None
+    TrainingRepositoryAuthConfig: Optional[TrainingRepositoryAuthConfig] = None
 
 
-class TransformDataSourceTypeDef(BaseValidatorModel):
-    S3DataSource: TransformS3DataSourceTypeDef
+class TransformDataSource(BaseValidatorModel):
+    S3DataSource: TransformS3DataSource
 
 
-class WorkforceTypeDef(BaseValidatorModel):
+class Workforce(BaseValidatorModel):
     WorkforceName: str
     WorkforceArn: str
     LastUpdatedDate: Optional[datetime] = None
-    SourceIpConfig: Optional[SourceIpConfigOutputTypeDef] = None
+    SourceIpConfig: Optional[SourceIpConfigOutput] = None
     SubDomain: Optional[str] = None
-    CognitoConfig: Optional[CognitoConfigTypeDef] = None
-    OidcConfig: Optional[OidcConfigForResponseTypeDef] = None
+    CognitoConfig: Optional[CognitoConfig] = None
+    OidcConfig: Optional[OidcConfigForResponse] = None
     CreateDate: Optional[datetime] = None
-    WorkforceVpcConfig: Optional[WorkforceVpcConfigResponseTypeDef] = None
+    WorkforceVpcConfig: Optional[WorkforceVpcConfigResponse] = None
     Status: Optional[WorkforceStatusType] = None
     FailureReason: Optional[str] = None
 
 
-class ListActionsResponseTypeDef(BaseValidatorModel):
-    ActionSummaries: List[ActionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListActionsResponse(BaseValidatorModel):
+    ActionSummaries: List[ActionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAppsResponseTypeDef(BaseValidatorModel):
-    Apps: List[AppDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppsResponse(BaseValidatorModel):
+    Apps: List[AppDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DomainSettingsOutputTypeDef(BaseValidatorModel):
+class DomainSettingsOutput(BaseValidatorModel):
     SecurityGroupIds: Optional[List[str]] = None
-    RStudioServerProDomainSettings: Optional[RStudioServerProDomainSettingsTypeDef] = None
+    RStudioServerProDomainSettings: Optional[RStudioServerProDomainSettings] = None
     ExecutionRoleIdentityConfig: Optional[ExecutionRoleIdentityConfigType] = None
-    DockerSettings: Optional[DockerSettingsOutputTypeDef] = None
-    AmazonQSettings: Optional[AmazonQSettingsTypeDef] = None
+    DockerSettings: Optional[DockerSettingsOutput] = None
+    AmazonQSettings: Optional[AmazonQSettings] = None
 
 
-class DomainSettingsTypeDef(BaseValidatorModel):
+class DomainSettings(BaseValidatorModel):
     SecurityGroupIds: Optional[Sequence[str]] = None
-    RStudioServerProDomainSettings: Optional[RStudioServerProDomainSettingsTypeDef] = None
+    RStudioServerProDomainSettings: Optional[RStudioServerProDomainSettings] = None
     ExecutionRoleIdentityConfig: Optional[ExecutionRoleIdentityConfigType] = None
-    DockerSettings: Optional[DockerSettingsTypeDef] = None
-    AmazonQSettings: Optional[AmazonQSettingsTypeDef] = None
+    DockerSettings: Optional[DockerSettings] = None
+    AmazonQSettings: Optional[AmazonQSettings] = None
 
 
-class CodeEditorAppSettingsOutputTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CustomImages: Optional[List[CustomImageTypeDef]] = None
+class CodeEditorAppSettingsOutput(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CustomImages: Optional[List[CustomImage]] = None
     LifecycleConfigArns: Optional[List[str]] = None
-    AppLifecycleManagement: Optional[AppLifecycleManagementTypeDef] = None
+    AppLifecycleManagement: Optional[AppLifecycleManagement] = None
     BuiltInLifecycleConfigArn: Optional[str] = None
 
 
-class CodeEditorAppSettingsTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CustomImages: Optional[Sequence[CustomImageTypeDef]] = None
+class CodeEditorAppSettings(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CustomImages: Optional[Sequence[CustomImage]] = None
     LifecycleConfigArns: Optional[Sequence[str]] = None
-    AppLifecycleManagement: Optional[AppLifecycleManagementTypeDef] = None
+    AppLifecycleManagement: Optional[AppLifecycleManagement] = None
     BuiltInLifecycleConfigArn: Optional[str] = None
 
 
-class JupyterLabAppSettingsOutputTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CustomImages: Optional[List[CustomImageTypeDef]] = None
+class JupyterLabAppSettingsOutput(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CustomImages: Optional[List[CustomImage]] = None
     LifecycleConfigArns: Optional[List[str]] = None
-    CodeRepositories: Optional[List[CodeRepositoryTypeDef]] = None
-    AppLifecycleManagement: Optional[AppLifecycleManagementTypeDef] = None
-    EmrSettings: Optional[EmrSettingsOutputTypeDef] = None
+    CodeRepositories: Optional[List[CodeRepository]] = None
+    AppLifecycleManagement: Optional[AppLifecycleManagement] = None
+    EmrSettings: Optional[EmrSettingsOutput] = None
     BuiltInLifecycleConfigArn: Optional[str] = None
 
 
-class JupyterLabAppSettingsTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CustomImages: Optional[Sequence[CustomImageTypeDef]] = None
+class JupyterLabAppSettings(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CustomImages: Optional[Sequence[CustomImage]] = None
     LifecycleConfigArns: Optional[Sequence[str]] = None
-    CodeRepositories: Optional[Sequence[CodeRepositoryTypeDef]] = None
-    AppLifecycleManagement: Optional[AppLifecycleManagementTypeDef] = None
-    EmrSettings: Optional[EmrSettingsTypeDef] = None
+    CodeRepositories: Optional[Sequence[CodeRepository]] = None
+    AppLifecycleManagement: Optional[AppLifecycleManagement] = None
+    EmrSettings: Optional[EmrSettings] = None
     BuiltInLifecycleConfigArn: Optional[str] = None
 
 
-class ArtifactSummaryTypeDef(BaseValidatorModel):
+class ArtifactSummary(BaseValidatorModel):
     ArtifactArn: Optional[str] = None
     ArtifactName: Optional[str] = None
-    Source: Optional[ArtifactSourceOutputTypeDef] = None
+    Source: Optional[ArtifactSourceOutput] = None
     ArtifactType: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class AsyncInferenceConfigOutputTypeDef(BaseValidatorModel):
-    OutputConfig: AsyncInferenceOutputConfigOutputTypeDef
-    ClientConfig: Optional[AsyncInferenceClientConfigTypeDef] = None
+class AsyncInferenceConfigOutput(BaseValidatorModel):
+    OutputConfig: AsyncInferenceOutputConfigOutput
+    ClientConfig: Optional[AsyncInferenceClientConfig] = None
 
 
-class AsyncInferenceConfigTypeDef(BaseValidatorModel):
-    OutputConfig: AsyncInferenceOutputConfigTypeDef
-    ClientConfig: Optional[AsyncInferenceClientConfigTypeDef] = None
+class AsyncInferenceConfig(BaseValidatorModel):
+    OutputConfig: AsyncInferenceOutputConfig
+    ClientConfig: Optional[AsyncInferenceClientConfig] = None
 
 
-class TabularJobConfigOutputTypeDef(BaseValidatorModel):
+class TabularJobConfigOutput(BaseValidatorModel):
     TargetAttributeName: str
-    CandidateGenerationConfig: Optional[CandidateGenerationConfigOutputTypeDef] = None
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
+    CandidateGenerationConfig: Optional[CandidateGenerationConfigOutput] = None
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
     FeatureSpecificationS3Uri: Optional[str] = None
     Mode: Optional[AutoMLModeType] = None
     GenerateCandidateDefinitionsOnly: Optional[bool] = None
@@ -7763,22 +7763,22 @@ class TabularJobConfigOutputTypeDef(BaseValidatorModel):
     SampleWeightAttributeName: Optional[str] = None
 
 
-class TimeSeriesForecastingJobConfigOutputTypeDef(BaseValidatorModel):
+class TimeSeriesForecastingJobConfigOutput(BaseValidatorModel):
     ForecastFrequency: str
     ForecastHorizon: int
-    TimeSeriesConfig: TimeSeriesConfigOutputTypeDef
+    TimeSeriesConfig: TimeSeriesConfigOutput
     FeatureSpecificationS3Uri: Optional[str] = None
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
     ForecastQuantiles: Optional[List[str]] = None
-    Transformations: Optional[TimeSeriesTransformationsOutputTypeDef] = None
-    HolidayConfig: Optional[List[HolidayConfigAttributesTypeDef]] = None
-    CandidateGenerationConfig: Optional[CandidateGenerationConfigOutputTypeDef] = None
+    Transformations: Optional[TimeSeriesTransformationsOutput] = None
+    HolidayConfig: Optional[List[HolidayConfigAttributes]] = None
+    CandidateGenerationConfig: Optional[CandidateGenerationConfigOutput] = None
 
 
-class TabularJobConfigTypeDef(BaseValidatorModel):
+class TabularJobConfig(BaseValidatorModel):
     TargetAttributeName: str
-    CandidateGenerationConfig: Optional[CandidateGenerationConfigTypeDef] = None
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
+    CandidateGenerationConfig: Optional[CandidateGenerationConfig] = None
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
     FeatureSpecificationS3Uri: Optional[str] = None
     Mode: Optional[AutoMLModeType] = None
     GenerateCandidateDefinitionsOnly: Optional[bool] = None
@@ -7786,421 +7786,421 @@ class TabularJobConfigTypeDef(BaseValidatorModel):
     SampleWeightAttributeName: Optional[str] = None
 
 
-class TimeSeriesForecastingJobConfigTypeDef(BaseValidatorModel):
+class TimeSeriesForecastingJobConfig(BaseValidatorModel):
     ForecastFrequency: str
     ForecastHorizon: int
-    TimeSeriesConfig: TimeSeriesConfigTypeDef
+    TimeSeriesConfig: TimeSeriesConfig
     FeatureSpecificationS3Uri: Optional[str] = None
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
     ForecastQuantiles: Optional[Sequence[str]] = None
-    Transformations: Optional[TimeSeriesTransformationsTypeDef] = None
-    HolidayConfig: Optional[Sequence[HolidayConfigAttributesTypeDef]] = None
-    CandidateGenerationConfig: Optional[CandidateGenerationConfigTypeDef] = None
+    Transformations: Optional[TimeSeriesTransformations] = None
+    HolidayConfig: Optional[Sequence[HolidayConfigAttributes]] = None
+    CandidateGenerationConfig: Optional[CandidateGenerationConfig] = None
 
 
-class AutoMLChannelTypeDef(BaseValidatorModel):
+class AutoMLChannel(BaseValidatorModel):
     TargetAttributeName: str
-    DataSource: Optional[AutoMLDataSourceTypeDef] = None
+    DataSource: Optional[AutoMLDataSource] = None
     CompressionType: Optional[CompressionTypeType] = None
     ContentType: Optional[str] = None
     ChannelType: Optional[AutoMLChannelTypeType] = None
     SampleWeightAttributeName: Optional[str] = None
 
 
-class AutoMLJobChannelTypeDef(BaseValidatorModel):
+class AutoMLJobChannel(BaseValidatorModel):
     ChannelType: Optional[AutoMLChannelTypeType] = None
     ContentType: Optional[str] = None
     CompressionType: Optional[CompressionTypeType] = None
-    DataSource: Optional[AutoMLDataSourceTypeDef] = None
+    DataSource: Optional[AutoMLDataSource] = None
 
 
-class ListAutoMLJobsResponseTypeDef(BaseValidatorModel):
-    AutoMLJobSummaries: List[AutoMLJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAutoMLJobsResponse(BaseValidatorModel):
+    AutoMLJobSummaries: List[AutoMLJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AutoMLResolvedAttributesTypeDef(BaseValidatorModel):
-    AutoMLJobObjective: Optional[AutoMLJobObjectiveTypeDef] = None
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
-    AutoMLProblemTypeResolvedAttributes: Optional[AutoMLProblemTypeResolvedAttributesTypeDef] = None
+class AutoMLResolvedAttributes(BaseValidatorModel):
+    AutoMLJobObjective: Optional[AutoMLJobObjective] = None
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
+    AutoMLProblemTypeResolvedAttributes: Optional[AutoMLProblemTypeResolvedAttributes] = None
 
 
-class AutoMLJobConfigOutputTypeDef(BaseValidatorModel):
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
-    SecurityConfig: Optional[AutoMLSecurityConfigOutputTypeDef] = None
-    CandidateGenerationConfig: Optional[AutoMLCandidateGenerationConfigOutputTypeDef] = None
-    DataSplitConfig: Optional[AutoMLDataSplitConfigTypeDef] = None
+class AutoMLJobConfigOutput(BaseValidatorModel):
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
+    SecurityConfig: Optional[AutoMLSecurityConfigOutput] = None
+    CandidateGenerationConfig: Optional[AutoMLCandidateGenerationConfigOutput] = None
+    DataSplitConfig: Optional[AutoMLDataSplitConfig] = None
     Mode: Optional[AutoMLModeType] = None
 
 
-class LabelingJobAlgorithmsConfigOutputTypeDef(BaseValidatorModel):
+class LabelingJobAlgorithmsConfigOutput(BaseValidatorModel):
     LabelingJobAlgorithmSpecificationArn: str
     InitialActiveLearningModelArn: Optional[str] = None
-    LabelingJobResourceConfig: Optional[LabelingJobResourceConfigOutputTypeDef] = None
+    LabelingJobResourceConfig: Optional[LabelingJobResourceConfigOutput] = None
 
 
-class AutoMLJobConfigTypeDef(BaseValidatorModel):
-    CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
-    SecurityConfig: Optional[AutoMLSecurityConfigTypeDef] = None
-    CandidateGenerationConfig: Optional[AutoMLCandidateGenerationConfigTypeDef] = None
-    DataSplitConfig: Optional[AutoMLDataSplitConfigTypeDef] = None
+class AutoMLJobConfig(BaseValidatorModel):
+    CompletionCriteria: Optional[AutoMLJobCompletionCriteria] = None
+    SecurityConfig: Optional[AutoMLSecurityConfig] = None
+    CandidateGenerationConfig: Optional[AutoMLCandidateGenerationConfig] = None
+    DataSplitConfig: Optional[AutoMLDataSplitConfig] = None
     Mode: Optional[AutoMLModeType] = None
 
 
-class LabelingJobAlgorithmsConfigTypeDef(BaseValidatorModel):
+class LabelingJobAlgorithmsConfig(BaseValidatorModel):
     LabelingJobAlgorithmSpecificationArn: str
     InitialActiveLearningModelArn: Optional[str] = None
-    LabelingJobResourceConfig: Optional[LabelingJobResourceConfigTypeDef] = None
+    LabelingJobResourceConfig: Optional[LabelingJobResourceConfig] = None
 
 
-class ModelMetricsTypeDef(BaseValidatorModel):
-    ModelQuality: Optional[ModelQualityTypeDef] = None
-    ModelDataQuality: Optional[ModelDataQualityTypeDef] = None
-    Bias: Optional[BiasTypeDef] = None
-    Explainability: Optional[ExplainabilityTypeDef] = None
+class ModelMetrics(BaseValidatorModel):
+    ModelQuality: Optional[ModelQuality] = None
+    ModelDataQuality: Optional[ModelDataQuality] = None
+    Bias: Optional[Bias] = None
+    Explainability: Optional[Explainability] = None
 
 
-class PipelineExecutionStepMetadataTypeDef(BaseValidatorModel):
-    TrainingJob: Optional[TrainingJobStepMetadataTypeDef] = None
-    ProcessingJob: Optional[ProcessingJobStepMetadataTypeDef] = None
-    TransformJob: Optional[TransformJobStepMetadataTypeDef] = None
-    TuningJob: Optional[TuningJobStepMetaDataTypeDef] = None
-    Model: Optional[ModelStepMetadataTypeDef] = None
-    RegisterModel: Optional[RegisterModelStepMetadataTypeDef] = None
-    Condition: Optional[ConditionStepMetadataTypeDef] = None
-    Callback: Optional[CallbackStepMetadataTypeDef] = None
-    Lambda: Optional[LambdaStepMetadataTypeDef] = None
-    EMR: Optional[EMRStepMetadataTypeDef] = None
-    QualityCheck: Optional[QualityCheckStepMetadataTypeDef] = None
-    ClarifyCheck: Optional[ClarifyCheckStepMetadataTypeDef] = None
-    Fail: Optional[FailStepMetadataTypeDef] = None
-    AutoMLJob: Optional[AutoMLJobStepMetadataTypeDef] = None
-    Endpoint: Optional[EndpointStepMetadataTypeDef] = None
-    EndpointConfig: Optional[EndpointConfigStepMetadataTypeDef] = None
+class PipelineExecutionStepMetadata(BaseValidatorModel):
+    TrainingJob: Optional[TrainingJobStepMetadata] = None
+    ProcessingJob: Optional[ProcessingJobStepMetadata] = None
+    TransformJob: Optional[TransformJobStepMetadata] = None
+    TuningJob: Optional[TuningJobStepMetaData] = None
+    Model: Optional[ModelStepMetadata] = None
+    RegisterModel: Optional[RegisterModelStepMetadata] = None
+    Condition: Optional[ConditionStepMetadata] = None
+    Callback: Optional[CallbackStepMetadata] = None
+    Lambda: Optional[LambdaStepMetadata] = None
+    EMR: Optional[EMRStepMetadata] = None
+    QualityCheck: Optional[QualityCheckStepMetadata] = None
+    ClarifyCheck: Optional[ClarifyCheckStepMetadata] = None
+    Fail: Optional[FailStepMetadata] = None
+    AutoMLJob: Optional[AutoMLJobStepMetadata] = None
+    Endpoint: Optional[EndpointStepMetadata] = None
+    EndpointConfig: Optional[EndpointConfigStepMetadata] = None
 
 
-class FinalAutoMLJobObjectiveMetricTypeDef(BaseValidatorModel):
+class FinalAutoMLJobObjectiveMetric(BaseValidatorModel):
     pass
 
 
-class AutoMLCandidateTypeDef(BaseValidatorModel):
+class AutoMLCandidate(BaseValidatorModel):
     CandidateName: str
     ObjectiveStatus: ObjectiveStatusType
-    CandidateSteps: List[AutoMLCandidateStepTypeDef]
+    CandidateSteps: List[AutoMLCandidateStep]
     CandidateStatus: CandidateStatusType
     CreationTime: datetime
     LastModifiedTime: datetime
-    FinalAutoMLJobObjectiveMetric: Optional[FinalAutoMLJobObjectiveMetricTypeDef] = None
-    InferenceContainers: Optional[List[AutoMLContainerDefinitionTypeDef]] = None
+    FinalAutoMLJobObjectiveMetric: Optional[FinalAutoMLJobObjectiveMetric] = None
+    InferenceContainers: Optional[List[AutoMLContainerDefinition]] = None
     EndTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
-    CandidateProperties: Optional[CandidatePropertiesTypeDef] = None
-    InferenceContainerDefinitions: Optional[ Dict[AutoMLProcessingUnitType, List[AutoMLContainerDefinitionTypeDef]] ] = None
+    CandidateProperties: Optional[CandidateProperties] = None
+    InferenceContainerDefinitions: Optional[ Dict[AutoMLProcessingUnitType, List[AutoMLContainerDefinition]] ] = None
 
 
-class TrafficRoutingConfigTypeDef(BaseValidatorModel):
+class TrafficRoutingConfig(BaseValidatorModel):
     pass
 
 
-class BlueGreenUpdatePolicyTypeDef(BaseValidatorModel):
-    TrafficRoutingConfiguration: TrafficRoutingConfigTypeDef
+class BlueGreenUpdatePolicy(BaseValidatorModel):
+    TrafficRoutingConfiguration: TrafficRoutingConfig
     TerminationWaitInSeconds: Optional[int] = None
     MaximumExecutionTimeoutInSeconds: Optional[int] = None
 
 
-class EndpointInputConfigurationOutputTypeDef(BaseValidatorModel):
+class EndpointInputConfigurationOutput(BaseValidatorModel):
     InstanceType: Optional[ProductionVariantInstanceTypeType] = None
-    ServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
+    ServerlessConfig: Optional[ProductionVariantServerlessConfig] = None
     InferenceSpecificationName: Optional[str] = None
-    EnvironmentParameterRanges: Optional[EnvironmentParameterRangesOutputTypeDef] = None
+    EnvironmentParameterRanges: Optional[EnvironmentParameterRangesOutput] = None
 
 
-class CategoricalParameterRangeUnionTypeDef(BaseValidatorModel):
+class CategoricalParameterRangeUnion(BaseValidatorModel):
     pass
 
 
-class ParameterRangesTypeDef(BaseValidatorModel):
-    IntegerParameterRanges: Optional[Sequence[IntegerParameterRangeTypeDef]] = None
-    ContinuousParameterRanges: Optional[Sequence[ContinuousParameterRangeTypeDef]] = None
-    CategoricalParameterRanges: Optional[Sequence[CategoricalParameterRangeUnionTypeDef]] = None
-    AutoParameters: Optional[Sequence[AutoParameterTypeDef]] = None
+class ParameterRanges(BaseValidatorModel):
+    IntegerParameterRanges: Optional[Sequence[IntegerParameterRange]] = None
+    ContinuousParameterRanges: Optional[Sequence[ContinuousParameterRange]] = None
+    CategoricalParameterRanges: Optional[Sequence[CategoricalParameterRangeUnion]] = None
+    AutoParameters: Optional[Sequence[AutoParameter]] = None
 
 
-class EndpointInputConfigurationTypeDef(BaseValidatorModel):
+class EndpointInputConfiguration(BaseValidatorModel):
     InstanceType: Optional[ProductionVariantInstanceTypeType] = None
-    ServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
+    ServerlessConfig: Optional[ProductionVariantServerlessConfig] = None
     InferenceSpecificationName: Optional[str] = None
-    EnvironmentParameterRanges: Optional[EnvironmentParameterRangesTypeDef] = None
+    EnvironmentParameterRanges: Optional[EnvironmentParameterRanges] = None
 
 
-class ClarifyExplainerConfigOutputTypeDef(BaseValidatorModel):
-    ShapConfig: ClarifyShapConfigTypeDef
+class ClarifyExplainerConfigOutput(BaseValidatorModel):
+    ShapConfig: ClarifyShapConfig
     EnableExplanations: Optional[str] = None
-    InferenceConfig: Optional[ClarifyInferenceConfigOutputTypeDef] = None
+    InferenceConfig: Optional[ClarifyInferenceConfigOutput] = None
 
 
-class ClarifyExplainerConfigTypeDef(BaseValidatorModel):
-    ShapConfig: ClarifyShapConfigTypeDef
+class ClarifyExplainerConfig(BaseValidatorModel):
+    ShapConfig: ClarifyShapConfig
     EnableExplanations: Optional[str] = None
-    InferenceConfig: Optional[ClarifyInferenceConfigTypeDef] = None
+    InferenceConfig: Optional[ClarifyInferenceConfig] = None
 
 
-class ClusterInstanceGroupDetailsTypeDef(BaseValidatorModel):
+class ClusterInstanceGroupDetails(BaseValidatorModel):
     CurrentCount: Optional[int] = None
     TargetCount: Optional[int] = None
     InstanceGroupName: Optional[str] = None
     InstanceType: Optional[ClusterInstanceTypeType] = None
-    LifeCycleConfig: Optional[ClusterLifeCycleConfigTypeDef] = None
+    LifeCycleConfig: Optional[ClusterLifeCycleConfig] = None
     ExecutionRole: Optional[str] = None
     ThreadsPerCore: Optional[int] = None
-    InstanceStorageConfigs: Optional[List[ClusterInstanceStorageConfigTypeDef]] = None
+    InstanceStorageConfigs: Optional[List[ClusterInstanceStorageConfig]] = None
     OnStartDeepHealthChecks: Optional[List[DeepHealthCheckTypeType]] = None
     Status: Optional[InstanceGroupStatusType] = None
     TrainingPlanArn: Optional[str] = None
     TrainingPlanStatus: Optional[str] = None
-    OverrideVpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    OverrideVpcConfig: Optional[VpcConfigOutput] = None
 
 
-class VpcConfigUnionTypeDef(BaseValidatorModel):
+class VpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class ClusterInstanceGroupSpecificationTypeDef(BaseValidatorModel):
+class ClusterInstanceGroupSpecification(BaseValidatorModel):
     InstanceCount: int
     InstanceGroupName: str
     InstanceType: ClusterInstanceTypeType
-    LifeCycleConfig: ClusterLifeCycleConfigTypeDef
+    LifeCycleConfig: ClusterLifeCycleConfig
     ExecutionRole: str
     ThreadsPerCore: Optional[int] = None
-    InstanceStorageConfigs: Optional[Sequence[ClusterInstanceStorageConfigTypeDef]] = None
+    InstanceStorageConfigs: Optional[Sequence[ClusterInstanceStorageConfig]] = None
     OnStartDeepHealthChecks: Optional[Sequence[DeepHealthCheckTypeType]] = None
     TrainingPlanArn: Optional[str] = None
-    OverrideVpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    OverrideVpcConfig: Optional[VpcConfigUnion] = None
 
 
-class ClusterNodeDetailsTypeDef(BaseValidatorModel):
+class ClusterNodeDetails(BaseValidatorModel):
     InstanceGroupName: Optional[str] = None
     InstanceId: Optional[str] = None
-    InstanceStatus: Optional[ClusterInstanceStatusDetailsTypeDef] = None
+    InstanceStatus: Optional[ClusterInstanceStatusDetails] = None
     InstanceType: Optional[ClusterInstanceTypeType] = None
     LaunchTime: Optional[datetime] = None
-    LifeCycleConfig: Optional[ClusterLifeCycleConfigTypeDef] = None
-    OverrideVpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    LifeCycleConfig: Optional[ClusterLifeCycleConfig] = None
+    OverrideVpcConfig: Optional[VpcConfigOutput] = None
     ThreadsPerCore: Optional[int] = None
-    InstanceStorageConfigs: Optional[List[ClusterInstanceStorageConfigTypeDef]] = None
+    InstanceStorageConfigs: Optional[List[ClusterInstanceStorageConfig]] = None
     PrivatePrimaryIp: Optional[str] = None
     PrivatePrimaryIpv6: Optional[str] = None
     PrivateDnsHostname: Optional[str] = None
-    Placement: Optional[ClusterInstancePlacementTypeDef] = None
+    Placement: Optional[ClusterInstancePlacement] = None
 
 
-class ListClusterNodesResponseTypeDef(BaseValidatorModel):
+class ListClusterNodesResponse(BaseValidatorModel):
     NextToken: str
-    ClusterNodeSummaries: List[ClusterNodeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ClusterNodeSummaries: List[ClusterNodeSummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCodeRepositoriesOutputTypeDef(BaseValidatorModel):
-    CodeRepositorySummaryList: List[CodeRepositorySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCodeRepositoriesOutput(BaseValidatorModel):
+    CodeRepositorySummaryList: List[CodeRepositorySummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FeatureDefinitionTypeDef(BaseValidatorModel):
+class FeatureDefinition(BaseValidatorModel):
     FeatureName: str
     FeatureType: FeatureTypeType
     CollectionType: Optional[CollectionTypeType] = None
-    CollectionConfig: Optional[CollectionConfigTypeDef] = None
+    CollectionConfig: Optional[CollectionConfig] = None
 
 
-class ComputeQuotaSummaryTypeDef(BaseValidatorModel):
+class ComputeQuotaSummary(BaseValidatorModel):
     ComputeQuotaArn: str
     ComputeQuotaId: str
     Name: str
     Status: SchedulerResourceStatusType
-    ComputeQuotaTarget: ComputeQuotaTargetTypeDef
+    ComputeQuotaTarget: ComputeQuotaTarget
     CreationTime: datetime
     ComputeQuotaVersion: Optional[int] = None
     ClusterArn: Optional[str] = None
-    ComputeQuotaConfig: Optional[ComputeQuotaConfigOutputTypeDef] = None
+    ComputeQuotaConfig: Optional[ComputeQuotaConfigOutput] = None
     ActivationState: Optional[ActivationStateType] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class ListContextsResponseTypeDef(BaseValidatorModel):
-    ContextSummaries: List[ContextSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListContextsResponse(BaseValidatorModel):
+    ContextSummaries: List[ContextSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class QueryLineageRequestTypeDef(BaseValidatorModel):
+class QueryLineageRequest(BaseValidatorModel):
     StartArns: Optional[Sequence[str]] = None
     Direction: Optional[DirectionType] = None
     IncludeEdges: Optional[bool] = None
-    Filters: Optional[QueryFiltersTypeDef] = None
+    Filters: Optional[QueryFilters] = None
     MaxDepth: Optional[int] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ProcessingS3InputTypeDef(BaseValidatorModel):
+class ProcessingS3Input(BaseValidatorModel):
     pass
 
 
-class ProcessingInputTypeDef(BaseValidatorModel):
+class ProcessingInput(BaseValidatorModel):
     InputName: str
     AppManaged: Optional[bool] = None
-    S3Input: Optional[ProcessingS3InputTypeDef] = None
-    DatasetDefinition: Optional[DatasetDefinitionTypeDef] = None
+    S3Input: Optional[ProcessingS3Input] = None
+    DatasetDefinition: Optional[DatasetDefinition] = None
 
 
-class DescribeEdgeDeploymentPlanResponseTypeDef(BaseValidatorModel):
+class DescribeEdgeDeploymentPlanResponse(BaseValidatorModel):
     EdgeDeploymentPlanArn: str
     EdgeDeploymentPlanName: str
-    ModelConfigs: List[EdgeDeploymentModelConfigTypeDef]
+    ModelConfigs: List[EdgeDeploymentModelConfig]
     DeviceFleetName: str
     EdgeDeploymentSuccess: int
     EdgeDeploymentPending: int
     EdgeDeploymentFailed: int
-    Stages: List[DeploymentStageStatusSummaryTypeDef]
+    Stages: List[DeploymentStageStatusSummary]
     CreationTime: datetime
     LastModifiedTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListExperimentsResponseTypeDef(BaseValidatorModel):
-    ExperimentSummaries: List[ExperimentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExperimentsResponse(BaseValidatorModel):
+    ExperimentSummaries: List[ExperimentSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListFeatureGroupsResponseTypeDef(BaseValidatorModel):
-    FeatureGroupSummaries: List[FeatureGroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFeatureGroupsResponse(BaseValidatorModel):
+    FeatureGroupSummaries: List[FeatureGroupSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class InferenceExperimentSummaryTypeDef(BaseValidatorModel):
+class InferenceExperimentSummary(BaseValidatorModel):
     pass
 
 
-class ListInferenceExperimentsResponseTypeDef(BaseValidatorModel):
-    InferenceExperiments: List[InferenceExperimentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInferenceExperimentsResponse(BaseValidatorModel):
+    InferenceExperiments: List[InferenceExperimentSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTrainingJobsResponseTypeDef(BaseValidatorModel):
-    TrainingJobSummaries: List[TrainingJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrainingJobsResponse(BaseValidatorModel):
+    TrainingJobSummaries: List[TrainingJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTrainingPlansResponseTypeDef(BaseValidatorModel):
-    TrainingPlanSummaries: List[TrainingPlanSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrainingPlansResponse(BaseValidatorModel):
+    TrainingPlanSummaries: List[TrainingPlanSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTrialsResponseTypeDef(BaseValidatorModel):
-    TrialSummaries: List[TrialSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrialsResponse(BaseValidatorModel):
+    TrialSummaries: List[TrialSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateEndpointWeightsAndCapacitiesInputTypeDef(BaseValidatorModel):
+class UpdateEndpointWeightsAndCapacitiesInput(BaseValidatorModel):
     EndpointName: str
-    DesiredWeightsAndCapacities: Sequence[DesiredWeightAndCapacityTypeDef]
+    DesiredWeightsAndCapacities: Sequence[DesiredWeightAndCapacity]
 
 
-class DeviceSelectionConfigUnionTypeDef(BaseValidatorModel):
+class DeviceSelectionConfigUnion(BaseValidatorModel):
     pass
 
 
-class DeploymentStageTypeDef(BaseValidatorModel):
+class DeploymentStage(BaseValidatorModel):
     StageName: str
-    DeviceSelectionConfig: DeviceSelectionConfigUnionTypeDef
-    DeploymentConfig: Optional[EdgeDeploymentConfigTypeDef] = None
+    DeviceSelectionConfig: DeviceSelectionConfigUnion
+    DeploymentConfig: Optional[EdgeDeploymentConfig] = None
 
 
-class ListDevicesResponseTypeDef(BaseValidatorModel):
-    DeviceSummaries: List[DeviceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDevicesResponse(BaseValidatorModel):
+    DeviceSummaries: List[DeviceSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DockerSettingsUnionTypeDef(BaseValidatorModel):
+class DockerSettingsUnion(BaseValidatorModel):
     pass
 
 
-class DomainSettingsForUpdateTypeDef(BaseValidatorModel):
-    RStudioServerProDomainSettingsForUpdate: Optional[ RStudioServerProDomainSettingsForUpdateTypeDef ] = None
+class DomainSettingsForUpdate(BaseValidatorModel):
+    RStudioServerProDomainSettingsForUpdate: Optional[ RStudioServerProDomainSettingsForUpdate ] = None
     ExecutionRoleIdentityConfig: Optional[ExecutionRoleIdentityConfigType] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
-    DockerSettings: Optional[DockerSettingsUnionTypeDef] = None
-    AmazonQSettings: Optional[AmazonQSettingsTypeDef] = None
+    DockerSettings: Optional[DockerSettingsUnion] = None
+    AmazonQSettings: Optional[AmazonQSettings] = None
 
 
-class DriftCheckBaselinesTypeDef(BaseValidatorModel):
-    Bias: Optional[DriftCheckBiasTypeDef] = None
-    Explainability: Optional[DriftCheckExplainabilityTypeDef] = None
-    ModelQuality: Optional[DriftCheckModelQualityTypeDef] = None
-    ModelDataQuality: Optional[DriftCheckModelDataQualityTypeDef] = None
+class DriftCheckBaselines(BaseValidatorModel):
+    Bias: Optional[DriftCheckBias] = None
+    Explainability: Optional[DriftCheckExplainability] = None
+    ModelQuality: Optional[DriftCheckModelQuality] = None
+    ModelDataQuality: Optional[DriftCheckModelDataQuality] = None
 
 
-class SpaceSettingsSummaryTypeDef(BaseValidatorModel):
+class SpaceSettingsSummary(BaseValidatorModel):
     AppType: Optional[AppTypeType] = None
-    SpaceStorageSettings: Optional[SpaceStorageSettingsTypeDef] = None
+    SpaceStorageSettings: Optional[SpaceStorageSettings] = None
 
 
-class InferenceRecommendationTypeDef(BaseValidatorModel):
-    EndpointConfiguration: EndpointOutputConfigurationTypeDef
-    ModelConfiguration: ModelConfigurationTypeDef
+class InferenceRecommendation(BaseValidatorModel):
+    EndpointConfiguration: EndpointOutputConfiguration
+    ModelConfiguration: ModelConfiguration
     RecommendationId: Optional[str] = None
-    Metrics: Optional[RecommendationMetricsTypeDef] = None
+    Metrics: Optional[RecommendationMetrics] = None
     InvocationEndTime: Optional[datetime] = None
     InvocationStartTime: Optional[datetime] = None
 
 
-class RecommendationJobInferenceBenchmarkTypeDef(BaseValidatorModel):
-    ModelConfiguration: ModelConfigurationTypeDef
-    Metrics: Optional[RecommendationMetricsTypeDef] = None
-    EndpointMetrics: Optional[InferenceMetricsTypeDef] = None
-    EndpointConfiguration: Optional[EndpointOutputConfigurationTypeDef] = None
+class RecommendationJobInferenceBenchmark(BaseValidatorModel):
+    ModelConfiguration: ModelConfiguration
+    Metrics: Optional[RecommendationMetrics] = None
+    EndpointMetrics: Optional[InferenceMetrics] = None
+    EndpointConfiguration: Optional[EndpointOutputConfiguration] = None
     FailureReason: Optional[str] = None
     InvocationEndTime: Optional[datetime] = None
     InvocationStartTime: Optional[datetime] = None
 
 
-class SearchExpressionPaginatorTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    NestedFilters: Optional[Sequence[NestedFiltersTypeDef]] = None
+class SearchExpressionPaginator(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    NestedFilters: Optional[Sequence[NestedFilters]] = None
     SubExpressions: Optional[Sequence[Mapping[str, Any]]] = None
     Operator: Optional[BooleanOperatorType] = None
 
 
-class SearchExpressionTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    NestedFilters: Optional[Sequence[NestedFiltersTypeDef]] = None
+class SearchExpression(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    NestedFilters: Optional[Sequence[NestedFilters]] = None
     SubExpressions: Optional[Sequence[Mapping[str, Any]]] = None
     Operator: Optional[BooleanOperatorType] = None
 
 
-class ListTrainingJobsForHyperParameterTuningJobResponseTypeDef(BaseValidatorModel):
-    TrainingJobSummaries: List[HyperParameterTrainingJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrainingJobsForHyperParameterTuningJobResponse(BaseValidatorModel):
+    TrainingJobSummaries: List[HyperParameterTrainingJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListHyperParameterTuningJobsResponseTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobSummaries: List[HyperParameterTuningJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListHyperParameterTuningJobsResponse(BaseValidatorModel):
+    HyperParameterTuningJobSummaries: List[HyperParameterTuningJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AssociationSummaryTypeDef(BaseValidatorModel):
+class AssociationSummary(BaseValidatorModel):
     SourceArn: Optional[str] = None
     DestinationArn: Optional[str] = None
     SourceType: Optional[str] = None
@@ -8209,42 +8209,42 @@ class AssociationSummaryTypeDef(BaseValidatorModel):
     SourceName: Optional[str] = None
     DestinationName: Optional[str] = None
     CreationTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
 
 
-class DescribeActionResponseTypeDef(BaseValidatorModel):
+class DescribeActionResponse(BaseValidatorModel):
     ActionName: str
     ActionArn: str
-    Source: ActionSourceTypeDef
+    Source: ActionSource
     ActionType: str
     Description: str
     Status: ActionStatusType
     Properties: Dict[str, str]
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    MetadataProperties: MetadataPropertiesTypeDef
+    LastModifiedBy: UserContext
+    MetadataProperties: MetadataProperties
     LineageGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeArtifactResponseTypeDef(BaseValidatorModel):
+class DescribeArtifactResponse(BaseValidatorModel):
     ArtifactName: str
     ArtifactArn: str
-    Source: ArtifactSourceOutputTypeDef
+    Source: ArtifactSourceOutput
     ArtifactType: str
     Properties: Dict[str, str]
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    MetadataProperties: MetadataPropertiesTypeDef
+    LastModifiedBy: UserContext
+    MetadataProperties: MetadataProperties
     LineageGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeComputeQuotaResponseTypeDef(BaseValidatorModel):
+class DescribeComputeQuotaResponse(BaseValidatorModel):
     ComputeQuotaArn: str
     ComputeQuotaId: str
     Name: str
@@ -8253,57 +8253,57 @@ class DescribeComputeQuotaResponseTypeDef(BaseValidatorModel):
     Status: SchedulerResourceStatusType
     FailureReason: str
     ClusterArn: str
-    ComputeQuotaConfig: ComputeQuotaConfigOutputTypeDef
-    ComputeQuotaTarget: ComputeQuotaTargetTypeDef
+    ComputeQuotaConfig: ComputeQuotaConfigOutput
+    ComputeQuotaTarget: ComputeQuotaTarget
     ActivationState: ActivationStateType
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastModifiedBy: UserContext
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeContextResponseTypeDef(BaseValidatorModel):
+class DescribeContextResponse(BaseValidatorModel):
     ContextName: str
     ContextArn: str
-    Source: ContextSourceTypeDef
+    Source: ContextSource
     ContextType: str
     Description: str
     Properties: Dict[str, str]
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
+    LastModifiedBy: UserContext
     LineageGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeExperimentResponseTypeDef(BaseValidatorModel):
+class DescribeExperimentResponse(BaseValidatorModel):
     ExperimentName: str
     ExperimentArn: str
     DisplayName: str
-    Source: ExperimentSourceTypeDef
+    Source: ExperimentSource
     Description: str
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastModifiedBy: UserContext
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeLineageGroupResponseTypeDef(BaseValidatorModel):
+class DescribeLineageGroupResponse(BaseValidatorModel):
     LineageGroupName: str
     LineageGroupArn: str
     DisplayName: str
     Description: str
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastModifiedBy: UserContext
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
+class DescribeMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
     TrackingServerName: str
     ArtifactStoreUri: str
@@ -8316,38 +8316,38 @@ class DescribeMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
     WeeklyMaintenanceWindowStart: str
     AutomaticModelRegistration: bool
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastModifiedBy: UserContext
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeModelCardResponseTypeDef(BaseValidatorModel):
+class DescribeModelCardResponse(BaseValidatorModel):
     ModelCardArn: str
     ModelCardName: str
     ModelCardVersion: int
     Content: str
     ModelCardStatus: ModelCardStatusType
-    SecurityConfig: ModelCardSecurityConfigTypeDef
+    SecurityConfig: ModelCardSecurityConfig
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
+    LastModifiedBy: UserContext
     ModelCardProcessingStatus: ModelCardProcessingStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeModelPackageGroupOutputTypeDef(BaseValidatorModel):
+class DescribeModelPackageGroupOutput(BaseValidatorModel):
     ModelPackageGroupName: str
     ModelPackageGroupArn: str
     ModelPackageGroupDescription: str
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     ModelPackageGroupStatus: ModelPackageGroupStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePipelineResponseTypeDef(BaseValidatorModel):
+class DescribePipelineResponse(BaseValidatorModel):
     PipelineArn: str
     PipelineName: str
     PipelineDisplayName: str
@@ -8358,104 +8358,104 @@ class DescribePipelineResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
     LastModifiedTime: datetime
     LastRunTime: datetime
-    CreatedBy: UserContextTypeDef
-    LastModifiedBy: UserContextTypeDef
-    ParallelismConfiguration: ParallelismConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    CreatedBy: UserContext
+    LastModifiedBy: UserContext
+    ParallelismConfiguration: ParallelismConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTrialComponentResponseTypeDef(BaseValidatorModel):
+class DescribeTrialComponentResponse(BaseValidatorModel):
     TrialComponentName: str
     TrialComponentArn: str
     DisplayName: str
-    Source: TrialComponentSourceTypeDef
-    Status: TrialComponentStatusTypeDef
+    Source: TrialComponentSource
+    Status: TrialComponentStatus
     StartTime: datetime
     EndTime: datetime
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    Parameters: Dict[str, TrialComponentParameterValueTypeDef]
-    InputArtifacts: Dict[str, TrialComponentArtifactTypeDef]
-    OutputArtifacts: Dict[str, TrialComponentArtifactTypeDef]
-    MetadataProperties: MetadataPropertiesTypeDef
-    Metrics: List[TrialComponentMetricSummaryTypeDef]
+    LastModifiedBy: UserContext
+    Parameters: Dict[str, TrialComponentParameterValue]
+    InputArtifacts: Dict[str, TrialComponentArtifact]
+    OutputArtifacts: Dict[str, TrialComponentArtifact]
+    MetadataProperties: MetadataProperties
+    Metrics: List[TrialComponentMetricSummary]
     LineageGroupArn: str
-    Sources: List[TrialComponentSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Sources: List[TrialComponentSource]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTrialResponseTypeDef(BaseValidatorModel):
+class DescribeTrialResponse(BaseValidatorModel):
     TrialName: str
     TrialArn: str
     DisplayName: str
     ExperimentName: str
-    Source: TrialSourceTypeDef
+    Source: TrialSource
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    MetadataProperties: MetadataPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastModifiedBy: UserContext
+    MetadataProperties: MetadataProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ExperimentTypeDef(BaseValidatorModel):
+class Experiment(BaseValidatorModel):
     ExperimentName: Optional[str] = None
     ExperimentArn: Optional[str] = None
     DisplayName: Optional[str] = None
-    Source: Optional[ExperimentSourceTypeDef] = None
+    Source: Optional[ExperimentSource] = None
     Description: Optional[str] = None
     CreationTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    LastModifiedBy: Optional[UserContext] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class ModelCardTypeDef(BaseValidatorModel):
+class ModelCard(BaseValidatorModel):
     ModelCardArn: Optional[str] = None
     ModelCardName: Optional[str] = None
     ModelCardVersion: Optional[int] = None
     Content: Optional[str] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
-    SecurityConfig: Optional[ModelCardSecurityConfigTypeDef] = None
+    SecurityConfig: Optional[ModelCardSecurityConfig] = None
     CreationTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    LastModifiedBy: Optional[UserContext] = None
+    Tags: Optional[List[Tag]] = None
     ModelId: Optional[str] = None
     RiskRating: Optional[str] = None
     ModelPackageGroupName: Optional[str] = None
 
 
-class ModelDashboardModelCardTypeDef(BaseValidatorModel):
+class ModelDashboardModelCard(BaseValidatorModel):
     ModelCardArn: Optional[str] = None
     ModelCardName: Optional[str] = None
     ModelCardVersion: Optional[int] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
-    SecurityConfig: Optional[ModelCardSecurityConfigTypeDef] = None
+    SecurityConfig: Optional[ModelCardSecurityConfig] = None
     CreationTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    LastModifiedBy: Optional[UserContext] = None
+    Tags: Optional[List[Tag]] = None
     ModelId: Optional[str] = None
     RiskRating: Optional[str] = None
 
 
-class ModelPackageGroupTypeDef(BaseValidatorModel):
+class ModelPackageGroup(BaseValidatorModel):
     ModelPackageGroupName: Optional[str] = None
     ModelPackageGroupArn: Optional[str] = None
     ModelPackageGroupDescription: Optional[str] = None
     CreationTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
     ModelPackageGroupStatus: Optional[ModelPackageGroupStatusType] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class PipelineTypeDef(BaseValidatorModel):
+class Pipeline(BaseValidatorModel):
     PipelineArn: Optional[str] = None
     PipelineName: Optional[str] = None
     PipelineDisplayName: Optional[str] = None
@@ -8465,270 +8465,270 @@ class PipelineTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     LastRunTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
-    ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    CreatedBy: Optional[UserContext] = None
+    LastModifiedBy: Optional[UserContext] = None
+    ParallelismConfiguration: Optional[ParallelismConfiguration] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class TrialComponentSimpleSummaryTypeDef(BaseValidatorModel):
+class TrialComponentSimpleSummary(BaseValidatorModel):
     TrialComponentName: Optional[str] = None
     TrialComponentArn: Optional[str] = None
-    TrialComponentSource: Optional[TrialComponentSourceTypeDef] = None
+    TrialComponentSource: Optional[TrialComponentSource] = None
     CreationTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
 
 
-class TrialComponentSummaryTypeDef(BaseValidatorModel):
+class TrialComponentSummary(BaseValidatorModel):
     TrialComponentName: Optional[str] = None
     TrialComponentArn: Optional[str] = None
     DisplayName: Optional[str] = None
-    TrialComponentSource: Optional[TrialComponentSourceTypeDef] = None
-    Status: Optional[TrialComponentStatusTypeDef] = None
+    TrialComponentSource: Optional[TrialComponentSource] = None
+    Status: Optional[TrialComponentStatus] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     CreationTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
+    LastModifiedBy: Optional[UserContext] = None
 
 
-class WorkerAccessConfigurationTypeDef(BaseValidatorModel):
-    S3Presign: Optional[S3PresignTypeDef] = None
+class WorkerAccessConfiguration(BaseValidatorModel):
+    S3Presign: Optional[S3Presign] = None
 
 
-class InferenceComponentDeploymentConfigOutputTypeDef(BaseValidatorModel):
-    RollingUpdatePolicy: InferenceComponentRollingUpdatePolicyTypeDef
-    AutoRollbackConfiguration: Optional[AutoRollbackConfigOutputTypeDef] = None
+class InferenceComponentDeploymentConfigOutput(BaseValidatorModel):
+    RollingUpdatePolicy: InferenceComponentRollingUpdatePolicy
+    AutoRollbackConfiguration: Optional[AutoRollbackConfigOutput] = None
 
 
-class InferenceComponentDeploymentConfigTypeDef(BaseValidatorModel):
-    RollingUpdatePolicy: InferenceComponentRollingUpdatePolicyTypeDef
-    AutoRollbackConfiguration: Optional[AutoRollbackConfigTypeDef] = None
+class InferenceComponentDeploymentConfig(BaseValidatorModel):
+    RollingUpdatePolicy: InferenceComponentRollingUpdatePolicy
+    AutoRollbackConfiguration: Optional[AutoRollbackConfig] = None
 
 
-class InferenceComponentSpecificationTypeDef(BaseValidatorModel):
+class InferenceComponentSpecification(BaseValidatorModel):
     pass
 
 
-class CreateInferenceComponentInputTypeDef(BaseValidatorModel):
+class CreateInferenceComponentInput(BaseValidatorModel):
     InferenceComponentName: str
     EndpointName: str
-    Specification: InferenceComponentSpecificationTypeDef
+    Specification: InferenceComponentSpecification
     VariantName: Optional[str] = None
-    RuntimeConfig: Optional[InferenceComponentRuntimeConfigTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    RuntimeConfig: Optional[InferenceComponentRuntimeConfig] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class HyperParameterTuningJobObjectiveTypeDef(BaseValidatorModel):
+class HyperParameterTuningJobObjective(BaseValidatorModel):
     pass
 
 
-class HyperParameterTuningJobConfigOutputTypeDef(BaseValidatorModel):
+class HyperParameterTuningJobConfigOutput(BaseValidatorModel):
     Strategy: HyperParameterTuningJobStrategyTypeType
-    ResourceLimits: ResourceLimitsTypeDef
-    StrategyConfig: Optional[HyperParameterTuningJobStrategyConfigTypeDef] = None
-    HyperParameterTuningJobObjective: Optional[HyperParameterTuningJobObjectiveTypeDef] = None
-    ParameterRanges: Optional[ParameterRangesOutputTypeDef] = None
+    ResourceLimits: ResourceLimits
+    StrategyConfig: Optional[HyperParameterTuningJobStrategyConfig] = None
+    HyperParameterTuningJobObjective: Optional[HyperParameterTuningJobObjective] = None
+    ParameterRanges: Optional[ParameterRangesOutput] = None
     TrainingJobEarlyStoppingType: Optional[TrainingJobEarlyStoppingTypeType] = None
-    TuningJobCompletionCriteria: Optional[TuningJobCompletionCriteriaTypeDef] = None
+    TuningJobCompletionCriteria: Optional[TuningJobCompletionCriteria] = None
     RandomSeed: Optional[int] = None
 
 
-class AppImageConfigDetailsTypeDef(BaseValidatorModel):
+class AppImageConfigDetails(BaseValidatorModel):
     AppImageConfigArn: Optional[str] = None
     AppImageConfigName: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    KernelGatewayImageConfig: Optional[KernelGatewayImageConfigOutputTypeDef] = None
-    JupyterLabAppImageConfig: Optional[JupyterLabAppImageConfigOutputTypeDef] = None
-    CodeEditorAppImageConfig: Optional[CodeEditorAppImageConfigOutputTypeDef] = None
+    KernelGatewayImageConfig: Optional[KernelGatewayImageConfigOutput] = None
+    JupyterLabAppImageConfig: Optional[JupyterLabAppImageConfigOutput] = None
+    CodeEditorAppImageConfig: Optional[CodeEditorAppImageConfigOutput] = None
 
 
-class DescribeAppImageConfigResponseTypeDef(BaseValidatorModel):
+class DescribeAppImageConfigResponse(BaseValidatorModel):
     AppImageConfigArn: str
     AppImageConfigName: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    KernelGatewayImageConfig: KernelGatewayImageConfigOutputTypeDef
-    JupyterLabAppImageConfig: JupyterLabAppImageConfigOutputTypeDef
-    CodeEditorAppImageConfig: CodeEditorAppImageConfigOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    KernelGatewayImageConfig: KernelGatewayImageConfigOutput
+    JupyterLabAppImageConfig: JupyterLabAppImageConfigOutput
+    CodeEditorAppImageConfig: CodeEditorAppImageConfigOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class ListLabelingJobsForWorkteamResponseTypeDef(BaseValidatorModel):
-    LabelingJobSummaryList: List[LabelingJobForWorkteamSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLabelingJobsForWorkteamResponse(BaseValidatorModel):
+    LabelingJobSummaryList: List[LabelingJobForWorkteamSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class LabelingJobInputConfigOutputTypeDef(BaseValidatorModel):
-    DataSource: LabelingJobDataSourceTypeDef
-    DataAttributes: Optional[LabelingJobDataAttributesOutputTypeDef] = None
+class LabelingJobInputConfigOutput(BaseValidatorModel):
+    DataSource: LabelingJobDataSource
+    DataAttributes: Optional[LabelingJobDataAttributesOutput] = None
 
 
-class LabelingJobInputConfigTypeDef(BaseValidatorModel):
-    DataSource: LabelingJobDataSourceTypeDef
-    DataAttributes: Optional[LabelingJobDataAttributesTypeDef] = None
+class LabelingJobInputConfig(BaseValidatorModel):
+    DataSource: LabelingJobDataSource
+    DataAttributes: Optional[LabelingJobDataAttributes] = None
 
 
-class TargetTrackingScalingPolicyConfigurationTypeDef(BaseValidatorModel):
-    MetricSpecification: Optional[MetricSpecificationTypeDef] = None
+class TargetTrackingScalingPolicyConfiguration(BaseValidatorModel):
+    MetricSpecification: Optional[MetricSpecification] = None
     TargetValue: Optional[float] = None
 
 
-class S3DataSourceOutputTypeDef(BaseValidatorModel):
+class S3DataSourceOutput(BaseValidatorModel):
     pass
 
 
-class DataSourceOutputTypeDef(BaseValidatorModel):
-    S3DataSource: Optional[S3DataSourceOutputTypeDef] = None
-    FileSystemDataSource: Optional[FileSystemDataSourceTypeDef] = None
+class DataSourceOutput(BaseValidatorModel):
+    S3DataSource: Optional[S3DataSourceOutput] = None
+    FileSystemDataSource: Optional[FileSystemDataSource] = None
 
 
-class AdditionalModelDataSourceTypeDef(BaseValidatorModel):
+class AdditionalModelDataSource(BaseValidatorModel):
     ChannelName: str
-    S3DataSource: S3ModelDataSourceTypeDef
+    S3DataSource: S3ModelDataSource
 
 
-class ModelDataSourceTypeDef(BaseValidatorModel):
-    S3DataSource: Optional[S3ModelDataSourceTypeDef] = None
+class ModelDataSource(BaseValidatorModel):
+    S3DataSource: Optional[S3ModelDataSource] = None
 
 
-class MonitoringAlertSummaryTypeDef(BaseValidatorModel):
+class MonitoringAlertSummary(BaseValidatorModel):
     MonitoringAlertName: str
     CreationTime: datetime
     LastModifiedTime: datetime
     AlertStatus: MonitoringAlertStatusType
     DatapointsToAlert: int
     EvaluationPeriod: int
-    Actions: MonitoringAlertActionsTypeDef
+    Actions: MonitoringAlertActions
 
 
-class ModelVariantConfigSummaryTypeDef(BaseValidatorModel):
+class ModelVariantConfigSummary(BaseValidatorModel):
     ModelName: str
     VariantName: str
-    InfrastructureConfig: ModelInfrastructureConfigTypeDef
+    InfrastructureConfig: ModelInfrastructureConfig
     Status: ModelVariantStatusType
 
 
-class ModelVariantConfigTypeDef(BaseValidatorModel):
+class ModelVariantConfig(BaseValidatorModel):
     ModelName: str
     VariantName: str
-    InfrastructureConfig: ModelInfrastructureConfigTypeDef
+    InfrastructureConfig: ModelInfrastructureConfig
 
 
-class ListModelMetadataRequestPaginateTypeDef(BaseValidatorModel):
-    SearchExpression: Optional[ModelMetadataSearchExpressionTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListModelMetadataRequestPaginate(BaseValidatorModel):
+    SearchExpression: Optional[ModelMetadataSearchExpression] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelMetadataRequestTypeDef(BaseValidatorModel):
-    SearchExpression: Optional[ModelMetadataSearchExpressionTypeDef] = None
+class ListModelMetadataRequest(BaseValidatorModel):
+    SearchExpression: Optional[ModelMetadataSearchExpression] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ModelQuantizationConfigUnionTypeDef(BaseValidatorModel):
+class ModelQuantizationConfigUnion(BaseValidatorModel):
     pass
 
 
-class ModelCompilationConfigUnionTypeDef(BaseValidatorModel):
+class ModelCompilationConfigUnion(BaseValidatorModel):
     pass
 
 
-class ModelShardingConfigUnionTypeDef(BaseValidatorModel):
+class ModelShardingConfigUnion(BaseValidatorModel):
     pass
 
 
-class OptimizationConfigTypeDef(BaseValidatorModel):
-    ModelQuantizationConfig: Optional[ModelQuantizationConfigUnionTypeDef] = None
-    ModelCompilationConfig: Optional[ModelCompilationConfigUnionTypeDef] = None
-    ModelShardingConfig: Optional[ModelShardingConfigUnionTypeDef] = None
+class OptimizationConfig(BaseValidatorModel):
+    ModelQuantizationConfig: Optional[ModelQuantizationConfigUnion] = None
+    ModelCompilationConfig: Optional[ModelCompilationConfigUnion] = None
+    ModelShardingConfig: Optional[ModelShardingConfigUnion] = None
 
 
-class MonitoringOutputConfigOutputTypeDef(BaseValidatorModel):
-    MonitoringOutputs: List[MonitoringOutputTypeDef]
+class MonitoringOutputConfigOutput(BaseValidatorModel):
+    MonitoringOutputs: List[MonitoringOutput]
     KmsKeyId: Optional[str] = None
 
 
-class MonitoringOutputConfigTypeDef(BaseValidatorModel):
-    MonitoringOutputs: Sequence[MonitoringOutputTypeDef]
+class MonitoringOutputConfig(BaseValidatorModel):
+    MonitoringOutputs: Sequence[MonitoringOutput]
     KmsKeyId: Optional[str] = None
 
 
-class OidcMemberDefinitionUnionTypeDef(BaseValidatorModel):
+class OidcMemberDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class MemberDefinitionTypeDef(BaseValidatorModel):
-    CognitoMemberDefinition: Optional[CognitoMemberDefinitionTypeDef] = None
-    OidcMemberDefinition: Optional[OidcMemberDefinitionUnionTypeDef] = None
+class MemberDefinition(BaseValidatorModel):
+    CognitoMemberDefinition: Optional[CognitoMemberDefinition] = None
+    OidcMemberDefinition: Optional[OidcMemberDefinitionUnion] = None
 
 
-class OptimizationJobModelSourceTypeDef(BaseValidatorModel):
-    S3: Optional[OptimizationJobModelSourceS3TypeDef] = None
+class OptimizationJobModelSource(BaseValidatorModel):
+    S3: Optional[OptimizationJobModelSourceS3] = None
 
 
-class NeoVpcConfigUnionTypeDef(BaseValidatorModel):
+class NeoVpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateCompilationJobRequestTypeDef(BaseValidatorModel):
+class CreateCompilationJobRequest(BaseValidatorModel):
     CompilationJobName: str
     RoleArn: str
-    OutputConfig: OutputConfigTypeDef
-    StoppingCondition: StoppingConditionTypeDef
+    OutputConfig: OutputConfig
+    StoppingCondition: StoppingCondition
     ModelPackageVersionArn: Optional[str] = None
-    InputConfig: Optional[InputConfigTypeDef] = None
-    VpcConfig: Optional[NeoVpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    InputConfig: Optional[InputConfig] = None
+    VpcConfig: Optional[NeoVpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeCompilationJobResponseTypeDef(BaseValidatorModel):
+class DescribeCompilationJobResponse(BaseValidatorModel):
     CompilationJobName: str
     CompilationJobArn: str
     CompilationJobStatus: CompilationJobStatusType
     CompilationStartTime: datetime
     CompilationEndTime: datetime
-    StoppingCondition: StoppingConditionTypeDef
+    StoppingCondition: StoppingCondition
     InferenceImage: str
     ModelPackageVersionArn: str
     CreationTime: datetime
     LastModifiedTime: datetime
     FailureReason: str
-    ModelArtifacts: ModelArtifactsTypeDef
-    ModelDigests: ModelDigestsTypeDef
+    ModelArtifacts: ModelArtifacts
+    ModelDigests: ModelDigests
     RoleArn: str
-    InputConfig: InputConfigTypeDef
-    OutputConfig: OutputConfigTypeDef
-    VpcConfig: NeoVpcConfigOutputTypeDef
-    DerivedInformation: DerivedInformationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    InputConfig: InputConfig
+    OutputConfig: OutputConfig
+    VpcConfig: NeoVpcConfigOutput
+    DerivedInformation: DerivedInformation
+    ResponseMetadata: ResponseMetadata
 
 
-class PartnerAppConfigUnionTypeDef(BaseValidatorModel):
+class PartnerAppConfigUnion(BaseValidatorModel):
     pass
 
 
-class UpdatePartnerAppRequestTypeDef(BaseValidatorModel):
+class UpdatePartnerAppRequest(BaseValidatorModel):
     Arn: str
-    MaintenanceConfig: Optional[PartnerAppMaintenanceConfigTypeDef] = None
+    MaintenanceConfig: Optional[PartnerAppMaintenanceConfig] = None
     Tier: Optional[str] = None
-    ApplicationConfig: Optional[PartnerAppConfigUnionTypeDef] = None
+    ApplicationConfig: Optional[PartnerAppConfigUnion] = None
     EnableIamSessionBasedIdentity: Optional[bool] = None
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class PendingDeploymentSummaryTypeDef(BaseValidatorModel):
+class PendingDeploymentSummary(BaseValidatorModel):
     EndpointConfigName: str
-    ProductionVariants: Optional[List[PendingProductionVariantSummaryTypeDef]] = None
+    ProductionVariants: Optional[List[PendingProductionVariantSummary]] = None
     StartTime: Optional[datetime] = None
-    ShadowProductionVariants: Optional[List[PendingProductionVariantSummaryTypeDef]] = None
+    ShadowProductionVariants: Optional[List[PendingProductionVariantSummary]] = None
 
 
-class DescribeClusterSchedulerConfigResponseTypeDef(BaseValidatorModel):
+class DescribeClusterSchedulerConfigResponse(BaseValidatorModel):
     ClusterSchedulerConfigArn: str
     ClusterSchedulerConfigId: str
     Name: str
@@ -8736,80 +8736,80 @@ class DescribeClusterSchedulerConfigResponseTypeDef(BaseValidatorModel):
     Status: SchedulerResourceStatusType
     FailureReason: str
     ClusterArn: str
-    SchedulerConfig: SchedulerConfigOutputTypeDef
+    SchedulerConfig: SchedulerConfigOutput
     Description: str
     CreationTime: datetime
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastModifiedBy: UserContext
+    ResponseMetadata: ResponseMetadata
 
 
-class ProcessingOutputConfigOutputTypeDef(BaseValidatorModel):
-    Outputs: List[ProcessingOutputTypeDef]
+class ProcessingOutputConfigOutput(BaseValidatorModel):
+    Outputs: List[ProcessingOutput]
     KmsKeyId: Optional[str] = None
 
 
-class ProcessingOutputConfigTypeDef(BaseValidatorModel):
-    Outputs: Sequence[ProcessingOutputTypeDef]
+class ProcessingOutputConfig(BaseValidatorModel):
+    Outputs: Sequence[ProcessingOutput]
     KmsKeyId: Optional[str] = None
 
 
-class ProfilerRuleConfigurationUnionTypeDef(BaseValidatorModel):
+class ProfilerRuleConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateTrainingJobRequestTypeDef(BaseValidatorModel):
+class UpdateTrainingJobRequest(BaseValidatorModel):
     TrainingJobName: str
-    ProfilerConfig: Optional[ProfilerConfigForUpdateTypeDef] = None
-    ProfilerRuleConfigurations: Optional[Sequence[ProfilerRuleConfigurationUnionTypeDef]] = None
-    ResourceConfig: Optional[ResourceConfigForUpdateTypeDef] = None
-    RemoteDebugConfig: Optional[RemoteDebugConfigForUpdateTypeDef] = None
+    ProfilerConfig: Optional[ProfilerConfigForUpdate] = None
+    ProfilerRuleConfigurations: Optional[Sequence[ProfilerRuleConfigurationUnion]] = None
+    ResourceConfig: Optional[ResourceConfigForUpdate] = None
+    RemoteDebugConfig: Optional[RemoteDebugConfigForUpdate] = None
 
 
-class GetSearchSuggestionsRequestTypeDef(BaseValidatorModel):
+class GetSearchSuggestionsRequest(BaseValidatorModel):
     Resource: ResourceTypeType
-    SuggestionQuery: Optional[SuggestionQueryTypeDef] = None
+    SuggestionQuery: Optional[SuggestionQuery] = None
 
 
-class DescribeProjectOutputTypeDef(BaseValidatorModel):
+class DescribeProjectOutput(BaseValidatorModel):
     ProjectArn: str
     ProjectName: str
     ProjectId: str
     ProjectDescription: str
-    ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetailsOutputTypeDef
-    ServiceCatalogProvisionedProductDetails: ServiceCatalogProvisionedProductDetailsTypeDef
+    ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetailsOutput
+    ServiceCatalogProvisionedProductDetails: ServiceCatalogProvisionedProductDetails
     ProjectStatus: ProjectStatusType
-    CreatedBy: UserContextTypeDef
+    CreatedBy: UserContext
     CreationTime: datetime
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastModifiedBy: UserContext
+    ResponseMetadata: ResponseMetadata
 
 
-class ProjectTypeDef(BaseValidatorModel):
+class Project(BaseValidatorModel):
     ProjectArn: Optional[str] = None
     ProjectName: Optional[str] = None
     ProjectId: Optional[str] = None
     ProjectDescription: Optional[str] = None
-    ServiceCatalogProvisioningDetails: Optional[ServiceCatalogProvisioningDetailsOutputTypeDef] = None
-    ServiceCatalogProvisionedProductDetails: Optional[ ServiceCatalogProvisionedProductDetailsTypeDef ] = None
+    ServiceCatalogProvisioningDetails: Optional[ServiceCatalogProvisioningDetailsOutput] = None
+    ServiceCatalogProvisionedProductDetails: Optional[ ServiceCatalogProvisionedProductDetails ] = None
     ProjectStatus: Optional[ProjectStatusType] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
     CreationTime: Optional[datetime] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
+    LastModifiedBy: Optional[UserContext] = None
 
 
-class UpdateProjectInputTypeDef(BaseValidatorModel):
+class UpdateProjectInput(BaseValidatorModel):
     ProjectName: str
     ProjectDescription: Optional[str] = None
-    ServiceCatalogProvisioningUpdateDetails: Optional[ ServiceCatalogProvisioningUpdateDetailsTypeDef ] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ServiceCatalogProvisioningUpdateDetails: Optional[ ServiceCatalogProvisioningUpdateDetails ] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class HumanLoopConfigOutputTypeDef(BaseValidatorModel):
+class HumanLoopConfigOutput(BaseValidatorModel):
     WorkteamArn: str
     HumanTaskUiArn: str
     TaskTitle: str
@@ -8818,10 +8818,10 @@ class HumanLoopConfigOutputTypeDef(BaseValidatorModel):
     TaskAvailabilityLifetimeInSeconds: Optional[int] = None
     TaskTimeLimitInSeconds: Optional[int] = None
     TaskKeywords: Optional[List[str]] = None
-    PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPriceTypeDef] = None
+    PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPrice] = None
 
 
-class HumanLoopConfigTypeDef(BaseValidatorModel):
+class HumanLoopConfig(BaseValidatorModel):
     WorkteamArn: str
     HumanTaskUiArn: str
     TaskTitle: str
@@ -8830,12 +8830,12 @@ class HumanLoopConfigTypeDef(BaseValidatorModel):
     TaskAvailabilityLifetimeInSeconds: Optional[int] = None
     TaskTimeLimitInSeconds: Optional[int] = None
     TaskKeywords: Optional[Sequence[str]] = None
-    PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPriceTypeDef] = None
+    PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPrice] = None
 
 
-class HumanTaskConfigOutputTypeDef(BaseValidatorModel):
+class HumanTaskConfigOutput(BaseValidatorModel):
     WorkteamArn: str
-    UiConfig: UiConfigTypeDef
+    UiConfig: UiConfig
     TaskTitle: str
     TaskDescription: str
     NumberOfHumanWorkersPerDataObject: int
@@ -8844,13 +8844,13 @@ class HumanTaskConfigOutputTypeDef(BaseValidatorModel):
     TaskKeywords: Optional[List[str]] = None
     TaskAvailabilityLifetimeInSeconds: Optional[int] = None
     MaxConcurrentTaskCount: Optional[int] = None
-    AnnotationConsolidationConfig: Optional[AnnotationConsolidationConfigTypeDef] = None
-    PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPriceTypeDef] = None
+    AnnotationConsolidationConfig: Optional[AnnotationConsolidationConfig] = None
+    PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPrice] = None
 
 
-class HumanTaskConfigTypeDef(BaseValidatorModel):
+class HumanTaskConfig(BaseValidatorModel):
     WorkteamArn: str
-    UiConfig: UiConfigTypeDef
+    UiConfig: UiConfig
     TaskTitle: str
     TaskDescription: str
     NumberOfHumanWorkersPerDataObject: int
@@ -8859,544 +8859,544 @@ class HumanTaskConfigTypeDef(BaseValidatorModel):
     TaskKeywords: Optional[Sequence[str]] = None
     TaskAvailabilityLifetimeInSeconds: Optional[int] = None
     MaxConcurrentTaskCount: Optional[int] = None
-    AnnotationConsolidationConfig: Optional[AnnotationConsolidationConfigTypeDef] = None
-    PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPriceTypeDef] = None
+    AnnotationConsolidationConfig: Optional[AnnotationConsolidationConfig] = None
+    PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPrice] = None
 
 
-class SearchTrainingPlanOfferingsResponseTypeDef(BaseValidatorModel):
-    TrainingPlanOfferings: List[TrainingPlanOfferingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchTrainingPlanOfferingsResponse(BaseValidatorModel):
+    TrainingPlanOfferings: List[TrainingPlanOffering]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePipelineExecutionResponseTypeDef(BaseValidatorModel):
+class DescribePipelineExecutionResponse(BaseValidatorModel):
     PipelineArn: str
     PipelineExecutionArn: str
     PipelineExecutionDisplayName: str
     PipelineExecutionStatus: PipelineExecutionStatusType
     PipelineExecutionDescription: str
-    PipelineExperimentConfig: PipelineExperimentConfigTypeDef
+    PipelineExperimentConfig: PipelineExperimentConfig
     FailureReason: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    CreatedBy: UserContextTypeDef
-    LastModifiedBy: UserContextTypeDef
-    ParallelismConfiguration: ParallelismConfigurationTypeDef
-    SelectiveExecutionConfig: SelectiveExecutionConfigOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    CreatedBy: UserContext
+    LastModifiedBy: UserContext
+    ParallelismConfiguration: ParallelismConfiguration
+    SelectiveExecutionConfig: SelectiveExecutionConfigOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class PipelineExecutionTypeDef(BaseValidatorModel):
+class PipelineExecution(BaseValidatorModel):
     PipelineArn: Optional[str] = None
     PipelineExecutionArn: Optional[str] = None
     PipelineExecutionDisplayName: Optional[str] = None
     PipelineExecutionStatus: Optional[PipelineExecutionStatusType] = None
     PipelineExecutionDescription: Optional[str] = None
-    PipelineExperimentConfig: Optional[PipelineExperimentConfigTypeDef] = None
+    PipelineExperimentConfig: Optional[PipelineExperimentConfig] = None
     FailureReason: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
-    ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
-    SelectiveExecutionConfig: Optional[SelectiveExecutionConfigOutputTypeDef] = None
-    PipelineParameters: Optional[List[ParameterTypeDef]] = None
+    CreatedBy: Optional[UserContext] = None
+    LastModifiedBy: Optional[UserContext] = None
+    ParallelismConfiguration: Optional[ParallelismConfiguration] = None
+    SelectiveExecutionConfig: Optional[SelectiveExecutionConfigOutput] = None
+    PipelineParameters: Optional[List[Parameter]] = None
 
 
-class SourceIpConfigUnionTypeDef(BaseValidatorModel):
+class SourceIpConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateWorkforceRequestTypeDef(BaseValidatorModel):
+class CreateWorkforceRequest(BaseValidatorModel):
     WorkforceName: str
-    CognitoConfig: Optional[CognitoConfigTypeDef] = None
-    OidcConfig: Optional[OidcConfigTypeDef] = None
-    SourceIpConfig: Optional[SourceIpConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    WorkforceVpcConfig: Optional[WorkforceVpcConfigRequestTypeDef] = None
+    CognitoConfig: Optional[CognitoConfig] = None
+    OidcConfig: Optional[OidcConfig] = None
+    SourceIpConfig: Optional[SourceIpConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
+    WorkforceVpcConfig: Optional[WorkforceVpcConfigRequest] = None
 
 
-class UpdateWorkforceRequestTypeDef(BaseValidatorModel):
+class UpdateWorkforceRequest(BaseValidatorModel):
     WorkforceName: str
-    SourceIpConfig: Optional[SourceIpConfigUnionTypeDef] = None
-    OidcConfig: Optional[OidcConfigTypeDef] = None
-    WorkforceVpcConfig: Optional[WorkforceVpcConfigRequestTypeDef] = None
+    SourceIpConfig: Optional[SourceIpConfigUnion] = None
+    OidcConfig: Optional[OidcConfig] = None
+    WorkforceVpcConfig: Optional[WorkforceVpcConfigRequest] = None
 
 
-class SpaceCodeEditorAppSettingsTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    AppLifecycleManagement: Optional[SpaceAppLifecycleManagementTypeDef] = None
+class SpaceCodeEditorAppSettings(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    AppLifecycleManagement: Optional[SpaceAppLifecycleManagement] = None
 
 
-class SpaceJupyterLabAppSettingsOutputTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CodeRepositories: Optional[List[CodeRepositoryTypeDef]] = None
-    AppLifecycleManagement: Optional[SpaceAppLifecycleManagementTypeDef] = None
+class SpaceJupyterLabAppSettingsOutput(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CodeRepositories: Optional[List[CodeRepository]] = None
+    AppLifecycleManagement: Optional[SpaceAppLifecycleManagement] = None
 
 
-class SpaceJupyterLabAppSettingsTypeDef(BaseValidatorModel):
-    DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    CodeRepositories: Optional[Sequence[CodeRepositoryTypeDef]] = None
-    AppLifecycleManagement: Optional[SpaceAppLifecycleManagementTypeDef] = None
+class SpaceJupyterLabAppSettings(BaseValidatorModel):
+    DefaultResourceSpec: Optional[ResourceSpec] = None
+    CodeRepositories: Optional[Sequence[CodeRepository]] = None
+    AppLifecycleManagement: Optional[SpaceAppLifecycleManagement] = None
 
 
-class AlgorithmSpecificationOutputTypeDef(BaseValidatorModel):
+class AlgorithmSpecificationOutput(BaseValidatorModel):
     TrainingInputMode: TrainingInputModeType
     TrainingImage: Optional[str] = None
     AlgorithmName: Optional[str] = None
-    MetricDefinitions: Optional[List[MetricDefinitionTypeDef]] = None
+    MetricDefinitions: Optional[List[MetricDefinition]] = None
     EnableSageMakerMetricsTimeSeries: Optional[bool] = None
     ContainerEntrypoint: Optional[List[str]] = None
     ContainerArguments: Optional[List[str]] = None
-    TrainingImageConfig: Optional[TrainingImageConfigTypeDef] = None
+    TrainingImageConfig: Optional[TrainingImageConfig] = None
 
 
-class AlgorithmSpecificationTypeDef(BaseValidatorModel):
+class AlgorithmSpecification(BaseValidatorModel):
     TrainingInputMode: TrainingInputModeType
     TrainingImage: Optional[str] = None
     AlgorithmName: Optional[str] = None
-    MetricDefinitions: Optional[Sequence[MetricDefinitionTypeDef]] = None
+    MetricDefinitions: Optional[Sequence[MetricDefinition]] = None
     EnableSageMakerMetricsTimeSeries: Optional[bool] = None
     ContainerEntrypoint: Optional[Sequence[str]] = None
     ContainerArguments: Optional[Sequence[str]] = None
-    TrainingImageConfig: Optional[TrainingImageConfigTypeDef] = None
+    TrainingImageConfig: Optional[TrainingImageConfig] = None
 
 
-class TransformInputTypeDef(BaseValidatorModel):
-    DataSource: TransformDataSourceTypeDef
+class TransformInput(BaseValidatorModel):
+    DataSource: TransformDataSource
     ContentType: Optional[str] = None
     CompressionType: Optional[CompressionTypeType] = None
     SplitType: Optional[SplitTypeType] = None
 
 
-class DescribeWorkforceResponseTypeDef(BaseValidatorModel):
-    Workforce: WorkforceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkforceResponse(BaseValidatorModel):
+    Workforce: Workforce
+    ResponseMetadata: ResponseMetadata
 
 
-class ListWorkforcesResponseTypeDef(BaseValidatorModel):
-    Workforces: List[WorkforceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkforcesResponse(BaseValidatorModel):
+    Workforces: List[Workforce]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateWorkforceResponseTypeDef(BaseValidatorModel):
-    Workforce: WorkforceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateWorkforceResponse(BaseValidatorModel):
+    Workforce: Workforce
+    ResponseMetadata: ResponseMetadata
 
 
-class DefaultSpaceSettingsOutputTypeDef(BaseValidatorModel):
+class DefaultSpaceSettingsOutput(BaseValidatorModel):
     ExecutionRole: Optional[str] = None
     SecurityGroups: Optional[List[str]] = None
-    JupyterServerAppSettings: Optional[JupyterServerAppSettingsOutputTypeDef] = None
-    KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsOutputTypeDef] = None
-    JupyterLabAppSettings: Optional[JupyterLabAppSettingsOutputTypeDef] = None
-    SpaceStorageSettings: Optional[DefaultSpaceStorageSettingsTypeDef] = None
-    CustomPosixUserConfig: Optional[CustomPosixUserConfigTypeDef] = None
-    CustomFileSystemConfigs: Optional[List[CustomFileSystemConfigTypeDef]] = None
+    JupyterServerAppSettings: Optional[JupyterServerAppSettingsOutput] = None
+    KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsOutput] = None
+    JupyterLabAppSettings: Optional[JupyterLabAppSettingsOutput] = None
+    SpaceStorageSettings: Optional[DefaultSpaceStorageSettings] = None
+    CustomPosixUserConfig: Optional[CustomPosixUserConfig] = None
+    CustomFileSystemConfigs: Optional[List[CustomFileSystemConfig]] = None
 
 
-class UserSettingsOutputTypeDef(BaseValidatorModel):
+class UserSettingsOutput(BaseValidatorModel):
     ExecutionRole: Optional[str] = None
     SecurityGroups: Optional[List[str]] = None
-    SharingSettings: Optional[SharingSettingsTypeDef] = None
-    JupyterServerAppSettings: Optional[JupyterServerAppSettingsOutputTypeDef] = None
-    KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsOutputTypeDef] = None
-    TensorBoardAppSettings: Optional[TensorBoardAppSettingsTypeDef] = None
-    RStudioServerProAppSettings: Optional[RStudioServerProAppSettingsTypeDef] = None
-    RSessionAppSettings: Optional[RSessionAppSettingsOutputTypeDef] = None
-    CanvasAppSettings: Optional[CanvasAppSettingsOutputTypeDef] = None
-    CodeEditorAppSettings: Optional[CodeEditorAppSettingsOutputTypeDef] = None
-    JupyterLabAppSettings: Optional[JupyterLabAppSettingsOutputTypeDef] = None
-    SpaceStorageSettings: Optional[DefaultSpaceStorageSettingsTypeDef] = None
+    SharingSettings: Optional[SharingSettings] = None
+    JupyterServerAppSettings: Optional[JupyterServerAppSettingsOutput] = None
+    KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsOutput] = None
+    TensorBoardAppSettings: Optional[TensorBoardAppSettings] = None
+    RStudioServerProAppSettings: Optional[RStudioServerProAppSettings] = None
+    RSessionAppSettings: Optional[RSessionAppSettingsOutput] = None
+    CanvasAppSettings: Optional[CanvasAppSettingsOutput] = None
+    CodeEditorAppSettings: Optional[CodeEditorAppSettingsOutput] = None
+    JupyterLabAppSettings: Optional[JupyterLabAppSettingsOutput] = None
+    SpaceStorageSettings: Optional[DefaultSpaceStorageSettings] = None
     DefaultLandingUri: Optional[str] = None
     StudioWebPortal: Optional[StudioWebPortalType] = None
-    CustomPosixUserConfig: Optional[CustomPosixUserConfigTypeDef] = None
-    CustomFileSystemConfigs: Optional[List[CustomFileSystemConfigTypeDef]] = None
-    StudioWebPortalSettings: Optional[StudioWebPortalSettingsOutputTypeDef] = None
+    CustomPosixUserConfig: Optional[CustomPosixUserConfig] = None
+    CustomFileSystemConfigs: Optional[List[CustomFileSystemConfig]] = None
+    StudioWebPortalSettings: Optional[StudioWebPortalSettingsOutput] = None
     AutoMountHomeEFS: Optional[AutoMountHomeEFSType] = None
 
 
-class DefaultSpaceSettingsTypeDef(BaseValidatorModel):
+class DefaultSpaceSettings(BaseValidatorModel):
     ExecutionRole: Optional[str] = None
     SecurityGroups: Optional[Sequence[str]] = None
-    JupyterServerAppSettings: Optional[JupyterServerAppSettingsTypeDef] = None
-    KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsTypeDef] = None
-    JupyterLabAppSettings: Optional[JupyterLabAppSettingsTypeDef] = None
-    SpaceStorageSettings: Optional[DefaultSpaceStorageSettingsTypeDef] = None
-    CustomPosixUserConfig: Optional[CustomPosixUserConfigTypeDef] = None
-    CustomFileSystemConfigs: Optional[Sequence[CustomFileSystemConfigTypeDef]] = None
+    JupyterServerAppSettings: Optional[JupyterServerAppSettings] = None
+    KernelGatewayAppSettings: Optional[KernelGatewayAppSettings] = None
+    JupyterLabAppSettings: Optional[JupyterLabAppSettings] = None
+    SpaceStorageSettings: Optional[DefaultSpaceStorageSettings] = None
+    CustomPosixUserConfig: Optional[CustomPosixUserConfig] = None
+    CustomFileSystemConfigs: Optional[Sequence[CustomFileSystemConfig]] = None
 
 
-class UserSettingsTypeDef(BaseValidatorModel):
+class UserSettings(BaseValidatorModel):
     ExecutionRole: Optional[str] = None
     SecurityGroups: Optional[Sequence[str]] = None
-    SharingSettings: Optional[SharingSettingsTypeDef] = None
-    JupyterServerAppSettings: Optional[JupyterServerAppSettingsTypeDef] = None
-    KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsTypeDef] = None
-    TensorBoardAppSettings: Optional[TensorBoardAppSettingsTypeDef] = None
-    RStudioServerProAppSettings: Optional[RStudioServerProAppSettingsTypeDef] = None
-    RSessionAppSettings: Optional[RSessionAppSettingsTypeDef] = None
-    CanvasAppSettings: Optional[CanvasAppSettingsTypeDef] = None
-    CodeEditorAppSettings: Optional[CodeEditorAppSettingsTypeDef] = None
-    JupyterLabAppSettings: Optional[JupyterLabAppSettingsTypeDef] = None
-    SpaceStorageSettings: Optional[DefaultSpaceStorageSettingsTypeDef] = None
+    SharingSettings: Optional[SharingSettings] = None
+    JupyterServerAppSettings: Optional[JupyterServerAppSettings] = None
+    KernelGatewayAppSettings: Optional[KernelGatewayAppSettings] = None
+    TensorBoardAppSettings: Optional[TensorBoardAppSettings] = None
+    RStudioServerProAppSettings: Optional[RStudioServerProAppSettings] = None
+    RSessionAppSettings: Optional[RSessionAppSettings] = None
+    CanvasAppSettings: Optional[CanvasAppSettings] = None
+    CodeEditorAppSettings: Optional[CodeEditorAppSettings] = None
+    JupyterLabAppSettings: Optional[JupyterLabAppSettings] = None
+    SpaceStorageSettings: Optional[DefaultSpaceStorageSettings] = None
     DefaultLandingUri: Optional[str] = None
     StudioWebPortal: Optional[StudioWebPortalType] = None
-    CustomPosixUserConfig: Optional[CustomPosixUserConfigTypeDef] = None
-    CustomFileSystemConfigs: Optional[Sequence[CustomFileSystemConfigTypeDef]] = None
-    StudioWebPortalSettings: Optional[StudioWebPortalSettingsTypeDef] = None
+    CustomPosixUserConfig: Optional[CustomPosixUserConfig] = None
+    CustomFileSystemConfigs: Optional[Sequence[CustomFileSystemConfig]] = None
+    StudioWebPortalSettings: Optional[StudioWebPortalSettings] = None
     AutoMountHomeEFS: Optional[AutoMountHomeEFSType] = None
 
 
-class ListArtifactsResponseTypeDef(BaseValidatorModel):
-    ArtifactSummaries: List[ArtifactSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListArtifactsResponse(BaseValidatorModel):
+    ArtifactSummaries: List[ArtifactSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ArtifactSourceUnionTypeDef(BaseValidatorModel):
+class ArtifactSourceUnion(BaseValidatorModel):
     pass
 
 
-class CreateArtifactRequestTypeDef(BaseValidatorModel):
-    Source: ArtifactSourceUnionTypeDef
+class CreateArtifactRequest(BaseValidatorModel):
+    Source: ArtifactSourceUnion
     ArtifactType: str
     ArtifactName: Optional[str] = None
     Properties: Optional[Mapping[str, str]] = None
-    MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    MetadataProperties: Optional[MetadataProperties] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DeleteArtifactRequestTypeDef(BaseValidatorModel):
+class DeleteArtifactRequest(BaseValidatorModel):
     ArtifactArn: Optional[str] = None
-    Source: Optional[ArtifactSourceUnionTypeDef] = None
+    Source: Optional[ArtifactSourceUnion] = None
 
 
-class AutoMLProblemTypeConfigOutputTypeDef(BaseValidatorModel):
-    ImageClassificationJobConfig: Optional[ImageClassificationJobConfigTypeDef] = None
-    TextClassificationJobConfig: Optional[TextClassificationJobConfigTypeDef] = None
-    TimeSeriesForecastingJobConfig: Optional[TimeSeriesForecastingJobConfigOutputTypeDef] = None
-    TabularJobConfig: Optional[TabularJobConfigOutputTypeDef] = None
-    TextGenerationJobConfig: Optional[TextGenerationJobConfigOutputTypeDef] = None
+class AutoMLProblemTypeConfigOutput(BaseValidatorModel):
+    ImageClassificationJobConfig: Optional[ImageClassificationJobConfig] = None
+    TextClassificationJobConfig: Optional[TextClassificationJobConfig] = None
+    TimeSeriesForecastingJobConfig: Optional[TimeSeriesForecastingJobConfigOutput] = None
+    TabularJobConfig: Optional[TabularJobConfigOutput] = None
+    TextGenerationJobConfig: Optional[TextGenerationJobConfigOutput] = None
 
 
-class AutoMLProblemTypeConfigTypeDef(BaseValidatorModel):
-    ImageClassificationJobConfig: Optional[ImageClassificationJobConfigTypeDef] = None
-    TextClassificationJobConfig: Optional[TextClassificationJobConfigTypeDef] = None
-    TimeSeriesForecastingJobConfig: Optional[TimeSeriesForecastingJobConfigTypeDef] = None
-    TabularJobConfig: Optional[TabularJobConfigTypeDef] = None
-    TextGenerationJobConfig: Optional[TextGenerationJobConfigTypeDef] = None
+class AutoMLProblemTypeConfig(BaseValidatorModel):
+    ImageClassificationJobConfig: Optional[ImageClassificationJobConfig] = None
+    TextClassificationJobConfig: Optional[TextClassificationJobConfig] = None
+    TimeSeriesForecastingJobConfig: Optional[TimeSeriesForecastingJobConfig] = None
+    TabularJobConfig: Optional[TabularJobConfig] = None
+    TextGenerationJobConfig: Optional[TextGenerationJobConfig] = None
 
 
-class PipelineExecutionStepTypeDef(BaseValidatorModel):
+class PipelineExecutionStep(BaseValidatorModel):
     StepName: Optional[str] = None
     StepDisplayName: Optional[str] = None
     StepDescription: Optional[str] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     StepStatus: Optional[StepStatusType] = None
-    CacheHitResult: Optional[CacheHitResultTypeDef] = None
+    CacheHitResult: Optional[CacheHitResult] = None
     FailureReason: Optional[str] = None
-    Metadata: Optional[PipelineExecutionStepMetadataTypeDef] = None
+    Metadata: Optional[PipelineExecutionStepMetadata] = None
     AttemptCount: Optional[int] = None
-    SelectiveExecutionResult: Optional[SelectiveExecutionResultTypeDef] = None
+    SelectiveExecutionResult: Optional[SelectiveExecutionResult] = None
 
 
-class DescribeAutoMLJobResponseTypeDef(BaseValidatorModel):
+class DescribeAutoMLJobResponse(BaseValidatorModel):
     AutoMLJobName: str
     AutoMLJobArn: str
-    InputDataConfig: List[AutoMLChannelTypeDef]
-    OutputDataConfig: AutoMLOutputDataConfigTypeDef
+    InputDataConfig: List[AutoMLChannel]
+    OutputDataConfig: AutoMLOutputDataConfig
     RoleArn: str
-    AutoMLJobObjective: AutoMLJobObjectiveTypeDef
+    AutoMLJobObjective: AutoMLJobObjective
     ProblemType: ProblemTypeType
-    AutoMLJobConfig: AutoMLJobConfigOutputTypeDef
+    AutoMLJobConfig: AutoMLJobConfigOutput
     CreationTime: datetime
     EndTime: datetime
     LastModifiedTime: datetime
     FailureReason: str
-    PartialFailureReasons: List[AutoMLPartialFailureReasonTypeDef]
-    BestCandidate: AutoMLCandidateTypeDef
+    PartialFailureReasons: List[AutoMLPartialFailureReason]
+    BestCandidate: AutoMLCandidate
     AutoMLJobStatus: AutoMLJobStatusType
     AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatusType
     GenerateCandidateDefinitionsOnly: bool
-    AutoMLJobArtifacts: AutoMLJobArtifactsTypeDef
-    ResolvedAttributes: ResolvedAttributesTypeDef
-    ModelDeployConfig: ModelDeployConfigTypeDef
-    ModelDeployResult: ModelDeployResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AutoMLJobArtifacts: AutoMLJobArtifacts
+    ResolvedAttributes: ResolvedAttributes
+    ModelDeployConfig: ModelDeployConfig
+    ModelDeployResult: ModelDeployResult
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCandidatesForAutoMLJobResponseTypeDef(BaseValidatorModel):
-    Candidates: List[AutoMLCandidateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCandidatesForAutoMLJobResponse(BaseValidatorModel):
+    Candidates: List[AutoMLCandidate]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DeploymentConfigOutputTypeDef(BaseValidatorModel):
-    BlueGreenUpdatePolicy: Optional[BlueGreenUpdatePolicyTypeDef] = None
-    RollingUpdatePolicy: Optional[RollingUpdatePolicyTypeDef] = None
-    AutoRollbackConfiguration: Optional[AutoRollbackConfigOutputTypeDef] = None
+class DeploymentConfigOutput(BaseValidatorModel):
+    BlueGreenUpdatePolicy: Optional[BlueGreenUpdatePolicy] = None
+    RollingUpdatePolicy: Optional[RollingUpdatePolicy] = None
+    AutoRollbackConfiguration: Optional[AutoRollbackConfigOutput] = None
 
 
-class DeploymentConfigTypeDef(BaseValidatorModel):
-    BlueGreenUpdatePolicy: Optional[BlueGreenUpdatePolicyTypeDef] = None
-    RollingUpdatePolicy: Optional[RollingUpdatePolicyTypeDef] = None
-    AutoRollbackConfiguration: Optional[AutoRollbackConfigTypeDef] = None
+class DeploymentConfig(BaseValidatorModel):
+    BlueGreenUpdatePolicy: Optional[BlueGreenUpdatePolicy] = None
+    RollingUpdatePolicy: Optional[RollingUpdatePolicy] = None
+    AutoRollbackConfiguration: Optional[AutoRollbackConfig] = None
 
 
-class RecommendationJobInputConfigOutputTypeDef(BaseValidatorModel):
+class RecommendationJobInputConfigOutput(BaseValidatorModel):
     ModelPackageVersionArn: Optional[str] = None
     ModelName: Optional[str] = None
     JobDurationInSeconds: Optional[int] = None
-    TrafficPattern: Optional[TrafficPatternOutputTypeDef] = None
-    ResourceLimit: Optional[RecommendationJobResourceLimitTypeDef] = None
-    EndpointConfigurations: Optional[List[EndpointInputConfigurationOutputTypeDef]] = None
+    TrafficPattern: Optional[TrafficPatternOutput] = None
+    ResourceLimit: Optional[RecommendationJobResourceLimit] = None
+    EndpointConfigurations: Optional[List[EndpointInputConfigurationOutput]] = None
     VolumeKmsKeyId: Optional[str] = None
-    ContainerConfig: Optional[RecommendationJobContainerConfigOutputTypeDef] = None
-    Endpoints: Optional[List[EndpointInfoTypeDef]] = None
-    VpcConfig: Optional[RecommendationJobVpcConfigOutputTypeDef] = None
+    ContainerConfig: Optional[RecommendationJobContainerConfigOutput] = None
+    Endpoints: Optional[List[EndpointInfo]] = None
+    VpcConfig: Optional[RecommendationJobVpcConfigOutput] = None
 
 
-class HyperParameterTuningJobConfigTypeDef(BaseValidatorModel):
+class HyperParameterTuningJobConfig(BaseValidatorModel):
     Strategy: HyperParameterTuningJobStrategyTypeType
-    ResourceLimits: ResourceLimitsTypeDef
-    StrategyConfig: Optional[HyperParameterTuningJobStrategyConfigTypeDef] = None
-    HyperParameterTuningJobObjective: Optional[HyperParameterTuningJobObjectiveTypeDef] = None
-    ParameterRanges: Optional[ParameterRangesTypeDef] = None
+    ResourceLimits: ResourceLimits
+    StrategyConfig: Optional[HyperParameterTuningJobStrategyConfig] = None
+    HyperParameterTuningJobObjective: Optional[HyperParameterTuningJobObjective] = None
+    ParameterRanges: Optional[ParameterRanges] = None
     TrainingJobEarlyStoppingType: Optional[TrainingJobEarlyStoppingTypeType] = None
-    TuningJobCompletionCriteria: Optional[TuningJobCompletionCriteriaTypeDef] = None
+    TuningJobCompletionCriteria: Optional[TuningJobCompletionCriteria] = None
     RandomSeed: Optional[int] = None
 
 
-class RecommendationJobInputConfigTypeDef(BaseValidatorModel):
+class RecommendationJobInputConfig(BaseValidatorModel):
     ModelPackageVersionArn: Optional[str] = None
     ModelName: Optional[str] = None
     JobDurationInSeconds: Optional[int] = None
-    TrafficPattern: Optional[TrafficPatternTypeDef] = None
-    ResourceLimit: Optional[RecommendationJobResourceLimitTypeDef] = None
-    EndpointConfigurations: Optional[Sequence[EndpointInputConfigurationTypeDef]] = None
+    TrafficPattern: Optional[TrafficPattern] = None
+    ResourceLimit: Optional[RecommendationJobResourceLimit] = None
+    EndpointConfigurations: Optional[Sequence[EndpointInputConfiguration]] = None
     VolumeKmsKeyId: Optional[str] = None
-    ContainerConfig: Optional[RecommendationJobContainerConfigTypeDef] = None
-    Endpoints: Optional[Sequence[EndpointInfoTypeDef]] = None
-    VpcConfig: Optional[RecommendationJobVpcConfigTypeDef] = None
+    ContainerConfig: Optional[RecommendationJobContainerConfig] = None
+    Endpoints: Optional[Sequence[EndpointInfo]] = None
+    VpcConfig: Optional[RecommendationJobVpcConfig] = None
 
 
-class ExplainerConfigOutputTypeDef(BaseValidatorModel):
-    ClarifyExplainerConfig: Optional[ClarifyExplainerConfigOutputTypeDef] = None
+class ExplainerConfigOutput(BaseValidatorModel):
+    ClarifyExplainerConfig: Optional[ClarifyExplainerConfigOutput] = None
 
 
-class ExplainerConfigTypeDef(BaseValidatorModel):
-    ClarifyExplainerConfig: Optional[ClarifyExplainerConfigTypeDef] = None
+class ExplainerConfig(BaseValidatorModel):
+    ClarifyExplainerConfig: Optional[ClarifyExplainerConfig] = None
 
 
-class DescribeClusterResponseTypeDef(BaseValidatorModel):
+class DescribeClusterResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterName: str
     ClusterStatus: ClusterStatusType
     CreationTime: datetime
     FailureMessage: str
-    InstanceGroups: List[ClusterInstanceGroupDetailsTypeDef]
-    VpcConfig: VpcConfigOutputTypeDef
-    Orchestrator: ClusterOrchestratorTypeDef
+    InstanceGroups: List[ClusterInstanceGroupDetails]
+    VpcConfig: VpcConfigOutput
+    Orchestrator: ClusterOrchestrator
     NodeRecovery: ClusterNodeRecoveryType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateClusterRequestTypeDef(BaseValidatorModel):
+class CreateClusterRequest(BaseValidatorModel):
     ClusterName: str
-    InstanceGroups: Sequence[ClusterInstanceGroupSpecificationTypeDef]
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    Orchestrator: Optional[ClusterOrchestratorTypeDef] = None
+    InstanceGroups: Sequence[ClusterInstanceGroupSpecification]
+    VpcConfig: Optional[VpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
+    Orchestrator: Optional[ClusterOrchestrator] = None
     NodeRecovery: Optional[ClusterNodeRecoveryType] = None
 
 
-class UpdateClusterRequestTypeDef(BaseValidatorModel):
+class UpdateClusterRequest(BaseValidatorModel):
     ClusterName: str
-    InstanceGroups: Sequence[ClusterInstanceGroupSpecificationTypeDef]
+    InstanceGroups: Sequence[ClusterInstanceGroupSpecification]
     NodeRecovery: Optional[ClusterNodeRecoveryType] = None
     InstanceGroupsToDelete: Optional[Sequence[str]] = None
 
 
-class DescribeClusterNodeResponseTypeDef(BaseValidatorModel):
-    NodeDetails: ClusterNodeDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClusterNodeResponse(BaseValidatorModel):
+    NodeDetails: ClusterNodeDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFeatureGroupRequestTypeDef(BaseValidatorModel):
+class CreateFeatureGroupRequest(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierFeatureName: str
     EventTimeFeatureName: str
-    FeatureDefinitions: Sequence[FeatureDefinitionTypeDef]
-    OnlineStoreConfig: Optional[OnlineStoreConfigTypeDef] = None
-    OfflineStoreConfig: Optional[OfflineStoreConfigTypeDef] = None
-    ThroughputConfig: Optional[ThroughputConfigTypeDef] = None
+    FeatureDefinitions: Sequence[FeatureDefinition]
+    OnlineStoreConfig: Optional[OnlineStoreConfig] = None
+    OfflineStoreConfig: Optional[OfflineStoreConfig] = None
+    ThroughputConfig: Optional[ThroughputConfig] = None
     RoleArn: Optional[str] = None
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeFeatureGroupResponseTypeDef(BaseValidatorModel):
+class DescribeFeatureGroupResponse(BaseValidatorModel):
     FeatureGroupArn: str
     FeatureGroupName: str
     RecordIdentifierFeatureName: str
     EventTimeFeatureName: str
-    FeatureDefinitions: List[FeatureDefinitionTypeDef]
+    FeatureDefinitions: List[FeatureDefinition]
     CreationTime: datetime
     LastModifiedTime: datetime
-    OnlineStoreConfig: OnlineStoreConfigTypeDef
-    OfflineStoreConfig: OfflineStoreConfigTypeDef
-    ThroughputConfig: ThroughputConfigDescriptionTypeDef
+    OnlineStoreConfig: OnlineStoreConfig
+    OfflineStoreConfig: OfflineStoreConfig
+    ThroughputConfig: ThroughputConfigDescription
     RoleArn: str
     FeatureGroupStatus: FeatureGroupStatusType
-    OfflineStoreStatus: OfflineStoreStatusTypeDef
-    LastUpdateStatus: LastUpdateStatusTypeDef
+    OfflineStoreStatus: OfflineStoreStatus
+    LastUpdateStatus: LastUpdateStatus
     FailureReason: str
     Description: str
     NextToken: str
     OnlineStoreTotalSizeBytes: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FeatureGroupTypeDef(BaseValidatorModel):
+class FeatureGroup(BaseValidatorModel):
     FeatureGroupArn: Optional[str] = None
     FeatureGroupName: Optional[str] = None
     RecordIdentifierFeatureName: Optional[str] = None
     EventTimeFeatureName: Optional[str] = None
-    FeatureDefinitions: Optional[List[FeatureDefinitionTypeDef]] = None
+    FeatureDefinitions: Optional[List[FeatureDefinition]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    OnlineStoreConfig: Optional[OnlineStoreConfigTypeDef] = None
-    OfflineStoreConfig: Optional[OfflineStoreConfigTypeDef] = None
+    OnlineStoreConfig: Optional[OnlineStoreConfig] = None
+    OfflineStoreConfig: Optional[OfflineStoreConfig] = None
     RoleArn: Optional[str] = None
     FeatureGroupStatus: Optional[FeatureGroupStatusType] = None
-    OfflineStoreStatus: Optional[OfflineStoreStatusTypeDef] = None
-    LastUpdateStatus: Optional[LastUpdateStatusTypeDef] = None
+    OfflineStoreStatus: Optional[OfflineStoreStatus] = None
+    LastUpdateStatus: Optional[LastUpdateStatus] = None
     FailureReason: Optional[str] = None
     Description: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class UpdateFeatureGroupRequestTypeDef(BaseValidatorModel):
+class UpdateFeatureGroupRequest(BaseValidatorModel):
     FeatureGroupName: str
-    FeatureAdditions: Optional[Sequence[FeatureDefinitionTypeDef]] = None
-    OnlineStoreConfig: Optional[OnlineStoreConfigUpdateTypeDef] = None
-    ThroughputConfig: Optional[ThroughputConfigUpdateTypeDef] = None
+    FeatureAdditions: Optional[Sequence[FeatureDefinition]] = None
+    OnlineStoreConfig: Optional[OnlineStoreConfigUpdate] = None
+    ThroughputConfig: Optional[ThroughputConfigUpdate] = None
 
 
-class ListComputeQuotasResponseTypeDef(BaseValidatorModel):
-    ComputeQuotaSummaries: List[ComputeQuotaSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComputeQuotasResponse(BaseValidatorModel):
+    ComputeQuotaSummaries: List[ComputeQuotaSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ComputeQuotaConfigUnionTypeDef(BaseValidatorModel):
+class ComputeQuotaConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateComputeQuotaRequestTypeDef(BaseValidatorModel):
+class CreateComputeQuotaRequest(BaseValidatorModel):
     Name: str
     ClusterArn: str
-    ComputeQuotaConfig: ComputeQuotaConfigUnionTypeDef
-    ComputeQuotaTarget: ComputeQuotaTargetTypeDef
+    ComputeQuotaConfig: ComputeQuotaConfigUnion
+    ComputeQuotaTarget: ComputeQuotaTarget
     Description: Optional[str] = None
     ActivationState: Optional[ActivationStateType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateComputeQuotaRequestTypeDef(BaseValidatorModel):
+class UpdateComputeQuotaRequest(BaseValidatorModel):
     ComputeQuotaId: str
     TargetVersion: int
-    ComputeQuotaConfig: Optional[ComputeQuotaConfigUnionTypeDef] = None
-    ComputeQuotaTarget: Optional[ComputeQuotaTargetTypeDef] = None
+    ComputeQuotaConfig: Optional[ComputeQuotaConfigUnion] = None
+    ComputeQuotaTarget: Optional[ComputeQuotaTarget] = None
     ActivationState: Optional[ActivationStateType] = None
     Description: Optional[str] = None
 
 
-class CreateEdgeDeploymentPlanRequestTypeDef(BaseValidatorModel):
+class CreateEdgeDeploymentPlanRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
-    ModelConfigs: Sequence[EdgeDeploymentModelConfigTypeDef]
+    ModelConfigs: Sequence[EdgeDeploymentModelConfig]
     DeviceFleetName: str
-    Stages: Optional[Sequence[DeploymentStageTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Stages: Optional[Sequence[DeploymentStage]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateEdgeDeploymentStageRequestTypeDef(BaseValidatorModel):
+class CreateEdgeDeploymentStageRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
-    Stages: Sequence[DeploymentStageTypeDef]
+    Stages: Sequence[DeploymentStage]
 
 
-class SpaceDetailsTypeDef(BaseValidatorModel):
+class SpaceDetails(BaseValidatorModel):
     DomainId: Optional[str] = None
     SpaceName: Optional[str] = None
     Status: Optional[SpaceStatusType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    SpaceSettingsSummary: Optional[SpaceSettingsSummaryTypeDef] = None
-    SpaceSharingSettingsSummary: Optional[SpaceSharingSettingsSummaryTypeDef] = None
-    OwnershipSettingsSummary: Optional[OwnershipSettingsSummaryTypeDef] = None
+    SpaceSettingsSummary: Optional[SpaceSettingsSummary] = None
+    SpaceSharingSettingsSummary: Optional[SpaceSharingSettingsSummary] = None
+    OwnershipSettingsSummary: Optional[OwnershipSettingsSummary] = None
     SpaceDisplayName: Optional[str] = None
 
 
-class InferenceRecommendationsJobStepTypeDef(BaseValidatorModel):
+class InferenceRecommendationsJobStep(BaseValidatorModel):
     StepType: Literal["BENCHMARK"]
     JobName: str
     Status: RecommendationJobStatusType
-    InferenceBenchmark: Optional[RecommendationJobInferenceBenchmarkTypeDef] = None
+    InferenceBenchmark: Optional[RecommendationJobInferenceBenchmark] = None
 
 
-class SearchRequestPaginateTypeDef(BaseValidatorModel):
+class SearchRequestPaginate(BaseValidatorModel):
     Resource: ResourceTypeType
-    SearchExpression: Optional[SearchExpressionPaginatorTypeDef] = None
+    SearchExpression: Optional[SearchExpressionPaginator] = None
     SortBy: Optional[str] = None
     SortOrder: Optional[SearchSortOrderType] = None
     CrossAccountFilterOption: Optional[CrossAccountFilterOptionType] = None
-    VisibilityConditions: Optional[Sequence[VisibilityConditionsTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    VisibilityConditions: Optional[Sequence[VisibilityConditions]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchRequestTypeDef(BaseValidatorModel):
+class SearchRequest(BaseValidatorModel):
     Resource: ResourceTypeType
-    SearchExpression: Optional[SearchExpressionTypeDef] = None
+    SearchExpression: Optional[SearchExpression] = None
     SortBy: Optional[str] = None
     SortOrder: Optional[SearchSortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     CrossAccountFilterOption: Optional[CrossAccountFilterOptionType] = None
-    VisibilityConditions: Optional[Sequence[VisibilityConditionsTypeDef]] = None
+    VisibilityConditions: Optional[Sequence[VisibilityConditions]] = None
 
 
-class ListAssociationsResponseTypeDef(BaseValidatorModel):
-    AssociationSummaries: List[AssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssociationsResponse(BaseValidatorModel):
+    AssociationSummaries: List[AssociationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TrialTypeDef(BaseValidatorModel):
+class Trial(BaseValidatorModel):
     TrialName: Optional[str] = None
     TrialArn: Optional[str] = None
     DisplayName: Optional[str] = None
     ExperimentName: Optional[str] = None
-    Source: Optional[TrialSourceTypeDef] = None
+    Source: Optional[TrialSource] = None
     CreationTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
-    MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    TrialComponentSummaries: Optional[List[TrialComponentSimpleSummaryTypeDef]] = None
+    LastModifiedBy: Optional[UserContext] = None
+    MetadataProperties: Optional[MetadataProperties] = None
+    Tags: Optional[List[Tag]] = None
+    TrialComponentSummaries: Optional[List[TrialComponentSimpleSummary]] = None
 
 
-class ListTrialComponentsResponseTypeDef(BaseValidatorModel):
-    TrialComponentSummaries: List[TrialComponentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrialComponentsResponse(BaseValidatorModel):
+    TrialComponentSummaries: List[TrialComponentSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class WorkteamTypeDef(BaseValidatorModel):
+class Workteam(BaseValidatorModel):
     WorkteamName: str
-    MemberDefinitions: List[MemberDefinitionOutputTypeDef]
+    MemberDefinitions: List[MemberDefinitionOutput]
     WorkteamArn: str
     Description: str
     WorkforceArn: Optional[str] = None
@@ -9404,271 +9404,271 @@ class WorkteamTypeDef(BaseValidatorModel):
     SubDomain: Optional[str] = None
     CreateDate: Optional[datetime] = None
     LastUpdatedDate: Optional[datetime] = None
-    NotificationConfiguration: Optional[NotificationConfigurationTypeDef] = None
-    WorkerAccessConfiguration: Optional[WorkerAccessConfigurationTypeDef] = None
+    NotificationConfiguration: Optional[NotificationConfiguration] = None
+    WorkerAccessConfiguration: Optional[WorkerAccessConfiguration] = None
 
 
-class InferenceComponentSpecificationSummaryTypeDef(BaseValidatorModel):
+class InferenceComponentSpecificationSummary(BaseValidatorModel):
     pass
 
 
-class DescribeInferenceComponentOutputTypeDef(BaseValidatorModel):
+class DescribeInferenceComponentOutput(BaseValidatorModel):
     InferenceComponentName: str
     InferenceComponentArn: str
     EndpointName: str
     EndpointArn: str
     VariantName: str
     FailureReason: str
-    Specification: InferenceComponentSpecificationSummaryTypeDef
-    RuntimeConfig: InferenceComponentRuntimeConfigSummaryTypeDef
+    Specification: InferenceComponentSpecificationSummary
+    RuntimeConfig: InferenceComponentRuntimeConfigSummary
     CreationTime: datetime
     LastModifiedTime: datetime
     InferenceComponentStatus: InferenceComponentStatusType
-    LastDeploymentConfig: InferenceComponentDeploymentConfigOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastDeploymentConfig: InferenceComponentDeploymentConfigOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class HyperParameterSpecificationOutputTypeDef(BaseValidatorModel):
+class HyperParameterSpecificationOutput(BaseValidatorModel):
     pass
 
 
-class TrainingSpecificationOutputTypeDef(BaseValidatorModel):
+class TrainingSpecificationOutput(BaseValidatorModel):
     TrainingImage: str
     SupportedTrainingInstanceTypes: List[TrainingInstanceTypeType]
-    TrainingChannels: List[ChannelSpecificationOutputTypeDef]
+    TrainingChannels: List[ChannelSpecificationOutput]
     TrainingImageDigest: Optional[str] = None
-    SupportedHyperParameters: Optional[List[HyperParameterSpecificationOutputTypeDef]] = None
+    SupportedHyperParameters: Optional[List[HyperParameterSpecificationOutput]] = None
     SupportsDistributedTraining: Optional[bool] = None
-    MetricDefinitions: Optional[List[MetricDefinitionTypeDef]] = None
-    SupportedTuningJobObjectiveMetrics: Optional[List[HyperParameterTuningJobObjectiveTypeDef]] = None
-    AdditionalS3DataSource: Optional[AdditionalS3DataSourceTypeDef] = None
+    MetricDefinitions: Optional[List[MetricDefinition]] = None
+    SupportedTuningJobObjectiveMetrics: Optional[List[HyperParameterTuningJobObjective]] = None
+    AdditionalS3DataSource: Optional[AdditionalS3DataSource] = None
 
 
-class HyperParameterSpecificationTypeDef(BaseValidatorModel):
+class HyperParameterSpecification(BaseValidatorModel):
     pass
 
 
-class TrainingSpecificationTypeDef(BaseValidatorModel):
+class TrainingSpecification(BaseValidatorModel):
     TrainingImage: str
     SupportedTrainingInstanceTypes: Sequence[TrainingInstanceTypeType]
-    TrainingChannels: Sequence[ChannelSpecificationTypeDef]
+    TrainingChannels: Sequence[ChannelSpecification]
     TrainingImageDigest: Optional[str] = None
-    SupportedHyperParameters: Optional[Sequence[HyperParameterSpecificationTypeDef]] = None
+    SupportedHyperParameters: Optional[Sequence[HyperParameterSpecification]] = None
     SupportsDistributedTraining: Optional[bool] = None
-    MetricDefinitions: Optional[Sequence[MetricDefinitionTypeDef]] = None
-    SupportedTuningJobObjectiveMetrics: Optional[ Sequence[HyperParameterTuningJobObjectiveTypeDef] ] = None
-    AdditionalS3DataSource: Optional[AdditionalS3DataSourceTypeDef] = None
+    MetricDefinitions: Optional[Sequence[MetricDefinition]] = None
+    SupportedTuningJobObjectiveMetrics: Optional[ Sequence[HyperParameterTuningJobObjective] ] = None
+    AdditionalS3DataSource: Optional[AdditionalS3DataSource] = None
 
 
-class ListAppImageConfigsResponseTypeDef(BaseValidatorModel):
-    AppImageConfigs: List[AppImageConfigDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppImageConfigsResponse(BaseValidatorModel):
+    AppImageConfigs: List[AppImageConfigDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class KernelGatewayImageConfigUnionTypeDef(BaseValidatorModel):
+class KernelGatewayImageConfigUnion(BaseValidatorModel):
     pass
 
 
-class CodeEditorAppImageConfigUnionTypeDef(BaseValidatorModel):
+class CodeEditorAppImageConfigUnion(BaseValidatorModel):
     pass
 
 
-class JupyterLabAppImageConfigUnionTypeDef(BaseValidatorModel):
+class JupyterLabAppImageConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateAppImageConfigRequestTypeDef(BaseValidatorModel):
+class CreateAppImageConfigRequest(BaseValidatorModel):
     AppImageConfigName: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    KernelGatewayImageConfig: Optional[KernelGatewayImageConfigUnionTypeDef] = None
-    JupyterLabAppImageConfig: Optional[JupyterLabAppImageConfigUnionTypeDef] = None
-    CodeEditorAppImageConfig: Optional[CodeEditorAppImageConfigUnionTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    KernelGatewayImageConfig: Optional[KernelGatewayImageConfigUnion] = None
+    JupyterLabAppImageConfig: Optional[JupyterLabAppImageConfigUnion] = None
+    CodeEditorAppImageConfig: Optional[CodeEditorAppImageConfigUnion] = None
 
 
-class UpdateAppImageConfigRequestTypeDef(BaseValidatorModel):
+class UpdateAppImageConfigRequest(BaseValidatorModel):
     AppImageConfigName: str
-    KernelGatewayImageConfig: Optional[KernelGatewayImageConfigUnionTypeDef] = None
-    JupyterLabAppImageConfig: Optional[JupyterLabAppImageConfigUnionTypeDef] = None
-    CodeEditorAppImageConfig: Optional[CodeEditorAppImageConfigUnionTypeDef] = None
+    KernelGatewayImageConfig: Optional[KernelGatewayImageConfigUnion] = None
+    JupyterLabAppImageConfig: Optional[JupyterLabAppImageConfigUnion] = None
+    CodeEditorAppImageConfig: Optional[CodeEditorAppImageConfigUnion] = None
 
 
-class LabelingJobSummaryTypeDef(BaseValidatorModel):
+class LabelingJobSummary(BaseValidatorModel):
     LabelingJobName: str
     LabelingJobArn: str
     CreationTime: datetime
     LastModifiedTime: datetime
     LabelingJobStatus: LabelingJobStatusType
-    LabelCounters: LabelCountersTypeDef
+    LabelCounters: LabelCounters
     WorkteamArn: str
     PreHumanTaskLambdaArn: Optional[str] = None
     AnnotationConsolidationLambdaArn: Optional[str] = None
     FailureReason: Optional[str] = None
-    LabelingJobOutput: Optional[LabelingJobOutputTypeDef] = None
-    InputConfig: Optional[LabelingJobInputConfigOutputTypeDef] = None
+    LabelingJobOutput: Optional[LabelingJobOutput] = None
+    InputConfig: Optional[LabelingJobInputConfigOutput] = None
 
 
-class ScalingPolicyTypeDef(BaseValidatorModel):
-    TargetTracking: Optional[TargetTrackingScalingPolicyConfigurationTypeDef] = None
+class ScalingPolicy(BaseValidatorModel):
+    TargetTracking: Optional[TargetTrackingScalingPolicyConfiguration] = None
 
 
-class S3DataSourceUnionTypeDef(BaseValidatorModel):
+class S3DataSourceUnion(BaseValidatorModel):
     pass
 
 
-class DataSourceTypeDef(BaseValidatorModel):
-    S3DataSource: Optional[S3DataSourceUnionTypeDef] = None
-    FileSystemDataSource: Optional[FileSystemDataSourceTypeDef] = None
+class DataSource(BaseValidatorModel):
+    S3DataSource: Optional[S3DataSourceUnion] = None
+    FileSystemDataSource: Optional[FileSystemDataSource] = None
 
 
-class ContainerDefinitionOutputTypeDef(BaseValidatorModel):
+class ContainerDefinitionOutput(BaseValidatorModel):
     ContainerHostname: Optional[str] = None
     Image: Optional[str] = None
-    ImageConfig: Optional[ImageConfigTypeDef] = None
+    ImageConfig: Optional[ImageConfig] = None
     Mode: Optional[ContainerModeType] = None
     ModelDataUrl: Optional[str] = None
-    ModelDataSource: Optional[ModelDataSourceTypeDef] = None
-    AdditionalModelDataSources: Optional[List[AdditionalModelDataSourceTypeDef]] = None
+    ModelDataSource: Optional[ModelDataSource] = None
+    AdditionalModelDataSources: Optional[List[AdditionalModelDataSource]] = None
     Environment: Optional[Dict[str, str]] = None
     ModelPackageName: Optional[str] = None
     InferenceSpecificationName: Optional[str] = None
-    MultiModelConfig: Optional[MultiModelConfigTypeDef] = None
+    MultiModelConfig: Optional[MultiModelConfig] = None
 
 
-class ContainerDefinitionTypeDef(BaseValidatorModel):
+class ContainerDefinition(BaseValidatorModel):
     ContainerHostname: Optional[str] = None
     Image: Optional[str] = None
-    ImageConfig: Optional[ImageConfigTypeDef] = None
+    ImageConfig: Optional[ImageConfig] = None
     Mode: Optional[ContainerModeType] = None
     ModelDataUrl: Optional[str] = None
-    ModelDataSource: Optional[ModelDataSourceTypeDef] = None
-    AdditionalModelDataSources: Optional[Sequence[AdditionalModelDataSourceTypeDef]] = None
+    ModelDataSource: Optional[ModelDataSource] = None
+    AdditionalModelDataSources: Optional[Sequence[AdditionalModelDataSource]] = None
     Environment: Optional[Mapping[str, str]] = None
     ModelPackageName: Optional[str] = None
     InferenceSpecificationName: Optional[str] = None
-    MultiModelConfig: Optional[MultiModelConfigTypeDef] = None
+    MultiModelConfig: Optional[MultiModelConfig] = None
 
 
-class ModelPackageContainerDefinitionOutputTypeDef(BaseValidatorModel):
+class ModelPackageContainerDefinitionOutput(BaseValidatorModel):
     Image: str
     ContainerHostname: Optional[str] = None
     ImageDigest: Optional[str] = None
     ModelDataUrl: Optional[str] = None
-    ModelDataSource: Optional[ModelDataSourceTypeDef] = None
+    ModelDataSource: Optional[ModelDataSource] = None
     ProductId: Optional[str] = None
     Environment: Optional[Dict[str, str]] = None
-    ModelInput: Optional[ModelInputTypeDef] = None
+    ModelInput: Optional[ModelInput] = None
     Framework: Optional[str] = None
     FrameworkVersion: Optional[str] = None
     NearestModelName: Optional[str] = None
-    AdditionalS3DataSource: Optional[AdditionalS3DataSourceTypeDef] = None
+    AdditionalS3DataSource: Optional[AdditionalS3DataSource] = None
     ModelDataETag: Optional[str] = None
 
 
-class ModelPackageContainerDefinitionTypeDef(BaseValidatorModel):
+class ModelPackageContainerDefinition(BaseValidatorModel):
     Image: str
     ContainerHostname: Optional[str] = None
     ImageDigest: Optional[str] = None
     ModelDataUrl: Optional[str] = None
-    ModelDataSource: Optional[ModelDataSourceTypeDef] = None
+    ModelDataSource: Optional[ModelDataSource] = None
     ProductId: Optional[str] = None
     Environment: Optional[Mapping[str, str]] = None
-    ModelInput: Optional[ModelInputTypeDef] = None
+    ModelInput: Optional[ModelInput] = None
     Framework: Optional[str] = None
     FrameworkVersion: Optional[str] = None
     NearestModelName: Optional[str] = None
-    AdditionalS3DataSource: Optional[AdditionalS3DataSourceTypeDef] = None
+    AdditionalS3DataSource: Optional[AdditionalS3DataSource] = None
     ModelDataETag: Optional[str] = None
 
 
-class SourceAlgorithmTypeDef(BaseValidatorModel):
+class SourceAlgorithm(BaseValidatorModel):
     AlgorithmName: str
     ModelDataUrl: Optional[str] = None
-    ModelDataSource: Optional[ModelDataSourceTypeDef] = None
+    ModelDataSource: Optional[ModelDataSource] = None
     ModelDataETag: Optional[str] = None
 
 
-class ListMonitoringAlertsResponseTypeDef(BaseValidatorModel):
-    MonitoringAlertSummaries: List[MonitoringAlertSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMonitoringAlertsResponse(BaseValidatorModel):
+    MonitoringAlertSummaries: List[MonitoringAlertSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StopInferenceExperimentRequestTypeDef(BaseValidatorModel):
+class StopInferenceExperimentRequest(BaseValidatorModel):
     Name: str
     ModelVariantActions: Mapping[str, ModelVariantActionType]
-    DesiredModelVariants: Optional[Sequence[ModelVariantConfigTypeDef]] = None
+    DesiredModelVariants: Optional[Sequence[ModelVariantConfig]] = None
     DesiredState: Optional[InferenceExperimentStopDesiredStateType] = None
     Reason: Optional[str] = None
 
 
-class BatchTransformInputOutputTypeDef(BaseValidatorModel):
+class BatchTransformInputOutput(BaseValidatorModel):
     pass
 
 
-class EndpointInputTypeDef(BaseValidatorModel):
+class EndpointInput(BaseValidatorModel):
     pass
 
 
-class DataQualityJobInputOutputTypeDef(BaseValidatorModel):
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputOutputTypeDef] = None
+class DataQualityJobInputOutput(BaseValidatorModel):
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInputOutput] = None
 
 
-class ModelBiasJobInputOutputTypeDef(BaseValidatorModel):
-    GroundTruthS3Input: MonitoringGroundTruthS3InputTypeDef
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputOutputTypeDef] = None
+class ModelBiasJobInputOutput(BaseValidatorModel):
+    GroundTruthS3Input: MonitoringGroundTruthS3Input
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInputOutput] = None
 
 
-class ModelExplainabilityJobInputOutputTypeDef(BaseValidatorModel):
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputOutputTypeDef] = None
+class ModelExplainabilityJobInputOutput(BaseValidatorModel):
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInputOutput] = None
 
 
-class ModelQualityJobInputOutputTypeDef(BaseValidatorModel):
-    GroundTruthS3Input: MonitoringGroundTruthS3InputTypeDef
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputOutputTypeDef] = None
+class ModelQualityJobInputOutput(BaseValidatorModel):
+    GroundTruthS3Input: MonitoringGroundTruthS3Input
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInputOutput] = None
 
 
-class MonitoringInputOutputTypeDef(BaseValidatorModel):
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputOutputTypeDef] = None
+class MonitoringInputOutput(BaseValidatorModel):
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInputOutput] = None
 
 
-class BatchTransformInputTypeDef(BaseValidatorModel):
+class BatchTransformInput(BaseValidatorModel):
     pass
 
 
-class DataQualityJobInputTypeDef(BaseValidatorModel):
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputTypeDef] = None
+class DataQualityJobInput(BaseValidatorModel):
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInput] = None
 
 
-class ModelBiasJobInputTypeDef(BaseValidatorModel):
-    GroundTruthS3Input: MonitoringGroundTruthS3InputTypeDef
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputTypeDef] = None
+class ModelBiasJobInput(BaseValidatorModel):
+    GroundTruthS3Input: MonitoringGroundTruthS3Input
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInput] = None
 
 
-class ModelExplainabilityJobInputTypeDef(BaseValidatorModel):
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputTypeDef] = None
+class ModelExplainabilityJobInput(BaseValidatorModel):
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInput] = None
 
 
-class ModelQualityJobInputTypeDef(BaseValidatorModel):
-    GroundTruthS3Input: MonitoringGroundTruthS3InputTypeDef
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputTypeDef] = None
+class ModelQualityJobInput(BaseValidatorModel):
+    GroundTruthS3Input: MonitoringGroundTruthS3Input
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInput] = None
 
 
-class MonitoringInputTypeDef(BaseValidatorModel):
-    EndpointInput: Optional[EndpointInputTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputTypeDef] = None
+class MonitoringInput(BaseValidatorModel):
+    EndpointInput: Optional[EndpointInput] = None
+    BatchTransformInput: Optional[BatchTransformInput] = None
 
 
-class DescribeOptimizationJobResponseTypeDef(BaseValidatorModel):
+class DescribeOptimizationJobResponse(BaseValidatorModel):
     OptimizationJobArn: str
     OptimizationJobStatus: OptimizationJobStatusType
     OptimizationStartTime: datetime
@@ -9677,48 +9677,48 @@ class DescribeOptimizationJobResponseTypeDef(BaseValidatorModel):
     LastModifiedTime: datetime
     FailureReason: str
     OptimizationJobName: str
-    ModelSource: OptimizationJobModelSourceTypeDef
+    ModelSource: OptimizationJobModelSource
     OptimizationEnvironment: Dict[str, str]
     DeploymentInstanceType: OptimizationJobDeploymentInstanceTypeType
-    OptimizationConfigs: List[OptimizationConfigOutputTypeDef]
-    OutputConfig: OptimizationJobOutputConfigTypeDef
-    OptimizationOutput: OptimizationOutputTypeDef
+    OptimizationConfigs: List[OptimizationConfigOutput]
+    OutputConfig: OptimizationJobOutputConfig
+    OptimizationOutput: OptimizationOutput
     RoleArn: str
-    StoppingCondition: StoppingConditionTypeDef
-    VpcConfig: OptimizationVpcConfigOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    StoppingCondition: StoppingCondition
+    VpcConfig: OptimizationVpcConfigOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class SchedulerConfigUnionTypeDef(BaseValidatorModel):
+class SchedulerConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateClusterSchedulerConfigRequestTypeDef(BaseValidatorModel):
+class CreateClusterSchedulerConfigRequest(BaseValidatorModel):
     Name: str
     ClusterArn: str
-    SchedulerConfig: SchedulerConfigUnionTypeDef
+    SchedulerConfig: SchedulerConfigUnion
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateClusterSchedulerConfigRequestTypeDef(BaseValidatorModel):
+class UpdateClusterSchedulerConfigRequest(BaseValidatorModel):
     ClusterSchedulerConfigId: str
     TargetVersion: int
-    SchedulerConfig: Optional[SchedulerConfigUnionTypeDef] = None
+    SchedulerConfig: Optional[SchedulerConfigUnion] = None
     Description: Optional[str] = None
 
 
-class DescribeProcessingJobResponseTypeDef(BaseValidatorModel):
-    ProcessingInputs: List[ProcessingInputTypeDef]
-    ProcessingOutputConfig: ProcessingOutputConfigOutputTypeDef
+class DescribeProcessingJobResponse(BaseValidatorModel):
+    ProcessingInputs: List[ProcessingInput]
+    ProcessingOutputConfig: ProcessingOutputConfigOutput
     ProcessingJobName: str
-    ProcessingResources: ProcessingResourcesTypeDef
-    StoppingCondition: ProcessingStoppingConditionTypeDef
-    AppSpecification: AppSpecificationOutputTypeDef
+    ProcessingResources: ProcessingResources
+    StoppingCondition: ProcessingStoppingCondition
+    AppSpecification: AppSpecificationOutput
     Environment: Dict[str, str]
-    NetworkConfig: NetworkConfigOutputTypeDef
+    NetworkConfig: NetworkConfigOutput
     RoleArn: str
-    ExperimentConfig: ExperimentConfigTypeDef
+    ExperimentConfig: ExperimentConfig
     ProcessingJobArn: str
     ProcessingJobStatus: ProcessingJobStatusType
     ExitMessage: str
@@ -9730,20 +9730,20 @@ class DescribeProcessingJobResponseTypeDef(BaseValidatorModel):
     MonitoringScheduleArn: str
     AutoMLJobArn: str
     TrainingJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ProcessingJobTypeDef(BaseValidatorModel):
-    ProcessingInputs: Optional[List[ProcessingInputTypeDef]] = None
-    ProcessingOutputConfig: Optional[ProcessingOutputConfigOutputTypeDef] = None
+class ProcessingJob(BaseValidatorModel):
+    ProcessingInputs: Optional[List[ProcessingInput]] = None
+    ProcessingOutputConfig: Optional[ProcessingOutputConfigOutput] = None
     ProcessingJobName: Optional[str] = None
-    ProcessingResources: Optional[ProcessingResourcesTypeDef] = None
-    StoppingCondition: Optional[ProcessingStoppingConditionTypeDef] = None
-    AppSpecification: Optional[AppSpecificationOutputTypeDef] = None
+    ProcessingResources: Optional[ProcessingResources] = None
+    StoppingCondition: Optional[ProcessingStoppingCondition] = None
+    AppSpecification: Optional[AppSpecificationOutput] = None
     Environment: Optional[Dict[str, str]] = None
-    NetworkConfig: Optional[NetworkConfigOutputTypeDef] = None
+    NetworkConfig: Optional[NetworkConfigOutput] = None
     RoleArn: Optional[str] = None
-    ExperimentConfig: Optional[ExperimentConfigTypeDef] = None
+    ExperimentConfig: Optional[ExperimentConfig] = None
     ProcessingJobArn: Optional[str] = None
     ProcessingJobStatus: Optional[ProcessingJobStatusType] = None
     ExitMessage: Optional[str] = None
@@ -9755,37 +9755,37 @@ class ProcessingJobTypeDef(BaseValidatorModel):
     MonitoringScheduleArn: Optional[str] = None
     AutoMLJobArn: Optional[str] = None
     TrainingJobArn: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class ServiceCatalogProvisioningDetailsUnionTypeDef(BaseValidatorModel):
+class ServiceCatalogProvisioningDetailsUnion(BaseValidatorModel):
     pass
 
 
-class CreateProjectInputTypeDef(BaseValidatorModel):
+class CreateProjectInput(BaseValidatorModel):
     ProjectName: str
-    ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetailsUnionTypeDef
+    ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetailsUnion
     ProjectDescription: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeFlowDefinitionResponseTypeDef(BaseValidatorModel):
+class DescribeFlowDefinitionResponse(BaseValidatorModel):
     FlowDefinitionArn: str
     FlowDefinitionName: str
     FlowDefinitionStatus: FlowDefinitionStatusType
     CreationTime: datetime
-    HumanLoopRequestSource: HumanLoopRequestSourceTypeDef
-    HumanLoopActivationConfig: HumanLoopActivationConfigTypeDef
-    HumanLoopConfig: HumanLoopConfigOutputTypeDef
-    OutputConfig: FlowDefinitionOutputConfigTypeDef
+    HumanLoopRequestSource: HumanLoopRequestSource
+    HumanLoopActivationConfig: HumanLoopActivationConfig
+    HumanLoopConfig: HumanLoopConfigOutput
+    OutputConfig: FlowDefinitionOutputConfig
     RoleArn: str
     FailureReason: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeLabelingJobResponseTypeDef(BaseValidatorModel):
+class DescribeLabelingJobResponse(BaseValidatorModel):
     LabelingJobStatus: LabelingJobStatusType
-    LabelCounters: LabelCountersTypeDef
+    LabelCounters: LabelCounters
     FailureReason: str
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -9793,161 +9793,161 @@ class DescribeLabelingJobResponseTypeDef(BaseValidatorModel):
     LabelingJobName: str
     LabelingJobArn: str
     LabelAttributeName: str
-    InputConfig: LabelingJobInputConfigOutputTypeDef
-    OutputConfig: LabelingJobOutputConfigTypeDef
+    InputConfig: LabelingJobInputConfigOutput
+    OutputConfig: LabelingJobOutputConfig
     RoleArn: str
     LabelCategoryConfigS3Uri: str
-    StoppingConditions: LabelingJobStoppingConditionsTypeDef
-    LabelingJobAlgorithmsConfig: LabelingJobAlgorithmsConfigOutputTypeDef
-    HumanTaskConfig: HumanTaskConfigOutputTypeDef
-    Tags: List[TagTypeDef]
-    LabelingJobOutput: LabelingJobOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    StoppingConditions: LabelingJobStoppingConditions
+    LabelingJobAlgorithmsConfig: LabelingJobAlgorithmsConfigOutput
+    HumanTaskConfig: HumanTaskConfigOutput
+    Tags: List[Tag]
+    LabelingJobOutput: LabelingJobOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class SelectiveExecutionConfigUnionTypeDef(BaseValidatorModel):
+class SelectiveExecutionConfigUnion(BaseValidatorModel):
     pass
 
 
-class StartPipelineExecutionRequestTypeDef(BaseValidatorModel):
+class StartPipelineExecutionRequest(BaseValidatorModel):
     PipelineName: str
     ClientRequestToken: str
     PipelineExecutionDisplayName: Optional[str] = None
-    PipelineParameters: Optional[Sequence[ParameterTypeDef]] = None
+    PipelineParameters: Optional[Sequence[Parameter]] = None
     PipelineExecutionDescription: Optional[str] = None
-    ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
-    SelectiveExecutionConfig: Optional[SelectiveExecutionConfigUnionTypeDef] = None
+    ParallelismConfiguration: Optional[ParallelismConfiguration] = None
+    SelectiveExecutionConfig: Optional[SelectiveExecutionConfigUnion] = None
 
 
-class ShadowModeConfigUnionTypeDef(BaseValidatorModel):
+class ShadowModeConfigUnion(BaseValidatorModel):
     pass
 
 
-class InferenceExperimentDataStorageConfigUnionTypeDef(BaseValidatorModel):
+class InferenceExperimentDataStorageConfigUnion(BaseValidatorModel):
     pass
 
 
-class InferenceExperimentScheduleUnionTypeDef(BaseValidatorModel):
+class InferenceExperimentScheduleUnion(BaseValidatorModel):
     pass
 
 
-class UpdateInferenceExperimentRequestTypeDef(BaseValidatorModel):
+class UpdateInferenceExperimentRequest(BaseValidatorModel):
     Name: str
-    Schedule: Optional[InferenceExperimentScheduleUnionTypeDef] = None
+    Schedule: Optional[InferenceExperimentScheduleUnion] = None
     Description: Optional[str] = None
-    ModelVariants: Optional[Sequence[ModelVariantConfigTypeDef]] = None
-    DataStorageConfig: Optional[InferenceExperimentDataStorageConfigUnionTypeDef] = None
-    ShadowModeConfig: Optional[ShadowModeConfigUnionTypeDef] = None
+    ModelVariants: Optional[Sequence[ModelVariantConfig]] = None
+    DataStorageConfig: Optional[InferenceExperimentDataStorageConfigUnion] = None
+    ShadowModeConfig: Optional[ShadowModeConfigUnion] = None
 
 
-class SpaceSettingsOutputTypeDef(BaseValidatorModel):
-    JupyterServerAppSettings: Optional[JupyterServerAppSettingsOutputTypeDef] = None
-    KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsOutputTypeDef] = None
-    CodeEditorAppSettings: Optional[SpaceCodeEditorAppSettingsTypeDef] = None
-    JupyterLabAppSettings: Optional[SpaceJupyterLabAppSettingsOutputTypeDef] = None
+class SpaceSettingsOutput(BaseValidatorModel):
+    JupyterServerAppSettings: Optional[JupyterServerAppSettingsOutput] = None
+    KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsOutput] = None
+    CodeEditorAppSettings: Optional[SpaceCodeEditorAppSettings] = None
+    JupyterLabAppSettings: Optional[SpaceJupyterLabAppSettingsOutput] = None
     AppType: Optional[AppTypeType] = None
-    SpaceStorageSettings: Optional[SpaceStorageSettingsTypeDef] = None
-    CustomFileSystems: Optional[List[CustomFileSystemTypeDef]] = None
+    SpaceStorageSettings: Optional[SpaceStorageSettings] = None
+    CustomFileSystems: Optional[List[CustomFileSystem]] = None
 
 
-class SpaceSettingsTypeDef(BaseValidatorModel):
-    JupyterServerAppSettings: Optional[JupyterServerAppSettingsTypeDef] = None
-    KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsTypeDef] = None
-    CodeEditorAppSettings: Optional[SpaceCodeEditorAppSettingsTypeDef] = None
-    JupyterLabAppSettings: Optional[SpaceJupyterLabAppSettingsTypeDef] = None
+class SpaceSettings(BaseValidatorModel):
+    JupyterServerAppSettings: Optional[JupyterServerAppSettings] = None
+    KernelGatewayAppSettings: Optional[KernelGatewayAppSettings] = None
+    CodeEditorAppSettings: Optional[SpaceCodeEditorAppSettings] = None
+    JupyterLabAppSettings: Optional[SpaceJupyterLabAppSettings] = None
     AppType: Optional[AppTypeType] = None
-    SpaceStorageSettings: Optional[SpaceStorageSettingsTypeDef] = None
-    CustomFileSystems: Optional[Sequence[CustomFileSystemTypeDef]] = None
+    SpaceStorageSettings: Optional[SpaceStorageSettings] = None
+    CustomFileSystems: Optional[Sequence[CustomFileSystem]] = None
 
 
-class CreateTransformJobRequestTypeDef(BaseValidatorModel):
+class CreateTransformJobRequest(BaseValidatorModel):
     TransformJobName: str
     ModelName: str
-    TransformInput: TransformInputTypeDef
-    TransformOutput: TransformOutputTypeDef
-    TransformResources: TransformResourcesTypeDef
+    TransformInput: TransformInput
+    TransformOutput: TransformOutput
+    TransformResources: TransformResources
     MaxConcurrentTransforms: Optional[int] = None
-    ModelClientConfig: Optional[ModelClientConfigTypeDef] = None
+    ModelClientConfig: Optional[ModelClientConfig] = None
     MaxPayloadInMB: Optional[int] = None
     BatchStrategy: Optional[BatchStrategyType] = None
     Environment: Optional[Mapping[str, str]] = None
-    DataCaptureConfig: Optional[BatchDataCaptureConfigTypeDef] = None
-    DataProcessing: Optional[DataProcessingTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    ExperimentConfig: Optional[ExperimentConfigTypeDef] = None
+    DataCaptureConfig: Optional[BatchDataCaptureConfig] = None
+    DataProcessing: Optional[DataProcessing] = None
+    Tags: Optional[Sequence[Tag]] = None
+    ExperimentConfig: Optional[ExperimentConfig] = None
 
 
-class DescribeTransformJobResponseTypeDef(BaseValidatorModel):
+class DescribeTransformJobResponse(BaseValidatorModel):
     TransformJobName: str
     TransformJobArn: str
     TransformJobStatus: TransformJobStatusType
     FailureReason: str
     ModelName: str
     MaxConcurrentTransforms: int
-    ModelClientConfig: ModelClientConfigTypeDef
+    ModelClientConfig: ModelClientConfig
     MaxPayloadInMB: int
     BatchStrategy: BatchStrategyType
     Environment: Dict[str, str]
-    TransformInput: TransformInputTypeDef
-    TransformOutput: TransformOutputTypeDef
-    DataCaptureConfig: BatchDataCaptureConfigTypeDef
-    TransformResources: TransformResourcesTypeDef
+    TransformInput: TransformInput
+    TransformOutput: TransformOutput
+    DataCaptureConfig: BatchDataCaptureConfig
+    TransformResources: TransformResources
     CreationTime: datetime
     TransformStartTime: datetime
     TransformEndTime: datetime
     LabelingJobArn: str
     AutoMLJobArn: str
-    DataProcessing: DataProcessingTypeDef
-    ExperimentConfig: ExperimentConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    DataProcessing: DataProcessing
+    ExperimentConfig: ExperimentConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class TransformJobDefinitionOutputTypeDef(BaseValidatorModel):
-    TransformInput: TransformInputTypeDef
-    TransformOutput: TransformOutputTypeDef
-    TransformResources: TransformResourcesTypeDef
+class TransformJobDefinitionOutput(BaseValidatorModel):
+    TransformInput: TransformInput
+    TransformOutput: TransformOutput
+    TransformResources: TransformResources
     MaxConcurrentTransforms: Optional[int] = None
     MaxPayloadInMB: Optional[int] = None
     BatchStrategy: Optional[BatchStrategyType] = None
     Environment: Optional[Dict[str, str]] = None
 
 
-class TransformJobDefinitionTypeDef(BaseValidatorModel):
-    TransformInput: TransformInputTypeDef
-    TransformOutput: TransformOutputTypeDef
-    TransformResources: TransformResourcesTypeDef
+class TransformJobDefinition(BaseValidatorModel):
+    TransformInput: TransformInput
+    TransformOutput: TransformOutput
+    TransformResources: TransformResources
     MaxConcurrentTransforms: Optional[int] = None
     MaxPayloadInMB: Optional[int] = None
     BatchStrategy: Optional[BatchStrategyType] = None
     Environment: Optional[Mapping[str, str]] = None
 
 
-class TransformJobTypeDef(BaseValidatorModel):
+class TransformJob(BaseValidatorModel):
     TransformJobName: Optional[str] = None
     TransformJobArn: Optional[str] = None
     TransformJobStatus: Optional[TransformJobStatusType] = None
     FailureReason: Optional[str] = None
     ModelName: Optional[str] = None
     MaxConcurrentTransforms: Optional[int] = None
-    ModelClientConfig: Optional[ModelClientConfigTypeDef] = None
+    ModelClientConfig: Optional[ModelClientConfig] = None
     MaxPayloadInMB: Optional[int] = None
     BatchStrategy: Optional[BatchStrategyType] = None
     Environment: Optional[Dict[str, str]] = None
-    TransformInput: Optional[TransformInputTypeDef] = None
-    TransformOutput: Optional[TransformOutputTypeDef] = None
-    DataCaptureConfig: Optional[BatchDataCaptureConfigTypeDef] = None
-    TransformResources: Optional[TransformResourcesTypeDef] = None
+    TransformInput: Optional[TransformInput] = None
+    TransformOutput: Optional[TransformOutput] = None
+    DataCaptureConfig: Optional[BatchDataCaptureConfig] = None
+    TransformResources: Optional[TransformResources] = None
     CreationTime: Optional[datetime] = None
     TransformStartTime: Optional[datetime] = None
     TransformEndTime: Optional[datetime] = None
     LabelingJobArn: Optional[str] = None
     AutoMLJobArn: Optional[str] = None
-    DataProcessing: Optional[DataProcessingTypeDef] = None
-    ExperimentConfig: Optional[ExperimentConfigTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    DataProcessing: Optional[DataProcessing] = None
+    ExperimentConfig: Optional[ExperimentConfig] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class DescribeDomainResponseTypeDef(BaseValidatorModel):
+class DescribeDomainResponse(BaseValidatorModel):
     DomainArn: str
     DomainId: str
     DomainName: str
@@ -9960,8 +9960,8 @@ class DescribeDomainResponseTypeDef(BaseValidatorModel):
     FailureReason: str
     SecurityGroupIdForDomainBoundary: str
     AuthMode: AuthModeType
-    DefaultUserSettings: UserSettingsOutputTypeDef
-    DomainSettings: DomainSettingsOutputTypeDef
+    DefaultUserSettings: UserSettingsOutput
+    DomainSettings: DomainSettingsOutput
     AppNetworkAccessType: AppNetworkAccessTypeType
     HomeEfsFileSystemKmsKeyId: str
     SubnetIds: List[str]
@@ -9970,11 +9970,11 @@ class DescribeDomainResponseTypeDef(BaseValidatorModel):
     KmsKeyId: str
     AppSecurityGroupManagement: AppSecurityGroupManagementType
     TagPropagation: TagPropagationType
-    DefaultSpaceSettings: DefaultSpaceSettingsOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    DefaultSpaceSettings: DefaultSpaceSettingsOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeUserProfileResponseTypeDef(BaseValidatorModel):
+class DescribeUserProfileResponse(BaseValidatorModel):
     DomainId: str
     UserProfileArn: str
     UserProfileName: str
@@ -9985,61 +9985,61 @@ class DescribeUserProfileResponseTypeDef(BaseValidatorModel):
     FailureReason: str
     SingleSignOnUserIdentifier: str
     SingleSignOnUserValue: str
-    UserSettings: UserSettingsOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    UserSettings: UserSettingsOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAutoMLJobV2ResponseTypeDef(BaseValidatorModel):
+class DescribeAutoMLJobV2Response(BaseValidatorModel):
     AutoMLJobName: str
     AutoMLJobArn: str
-    AutoMLJobInputDataConfig: List[AutoMLJobChannelTypeDef]
-    OutputDataConfig: AutoMLOutputDataConfigTypeDef
+    AutoMLJobInputDataConfig: List[AutoMLJobChannel]
+    OutputDataConfig: AutoMLOutputDataConfig
     RoleArn: str
-    AutoMLJobObjective: AutoMLJobObjectiveTypeDef
-    AutoMLProblemTypeConfig: AutoMLProblemTypeConfigOutputTypeDef
+    AutoMLJobObjective: AutoMLJobObjective
+    AutoMLProblemTypeConfig: AutoMLProblemTypeConfigOutput
     AutoMLProblemTypeConfigName: AutoMLProblemTypeConfigNameType
     CreationTime: datetime
     EndTime: datetime
     LastModifiedTime: datetime
     FailureReason: str
-    PartialFailureReasons: List[AutoMLPartialFailureReasonTypeDef]
-    BestCandidate: AutoMLCandidateTypeDef
+    PartialFailureReasons: List[AutoMLPartialFailureReason]
+    BestCandidate: AutoMLCandidate
     AutoMLJobStatus: AutoMLJobStatusType
     AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatusType
-    AutoMLJobArtifacts: AutoMLJobArtifactsTypeDef
-    ResolvedAttributes: AutoMLResolvedAttributesTypeDef
-    ModelDeployConfig: ModelDeployConfigTypeDef
-    ModelDeployResult: ModelDeployResultTypeDef
-    DataSplitConfig: AutoMLDataSplitConfigTypeDef
-    SecurityConfig: AutoMLSecurityConfigOutputTypeDef
-    AutoMLComputeConfig: AutoMLComputeConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AutoMLJobArtifacts: AutoMLJobArtifacts
+    ResolvedAttributes: AutoMLResolvedAttributes
+    ModelDeployConfig: ModelDeployConfig
+    ModelDeployResult: ModelDeployResult
+    DataSplitConfig: AutoMLDataSplitConfig
+    SecurityConfig: AutoMLSecurityConfigOutput
+    AutoMLComputeConfig: AutoMLComputeConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class AutoMLJobConfigUnionTypeDef(BaseValidatorModel):
+class AutoMLJobConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateAutoMLJobRequestTypeDef(BaseValidatorModel):
+class CreateAutoMLJobRequest(BaseValidatorModel):
     AutoMLJobName: str
-    InputDataConfig: Sequence[AutoMLChannelTypeDef]
-    OutputDataConfig: AutoMLOutputDataConfigTypeDef
+    InputDataConfig: Sequence[AutoMLChannel]
+    OutputDataConfig: AutoMLOutputDataConfig
     RoleArn: str
     ProblemType: Optional[ProblemTypeType] = None
-    AutoMLJobObjective: Optional[AutoMLJobObjectiveTypeDef] = None
-    AutoMLJobConfig: Optional[AutoMLJobConfigUnionTypeDef] = None
+    AutoMLJobObjective: Optional[AutoMLJobObjective] = None
+    AutoMLJobConfig: Optional[AutoMLJobConfigUnion] = None
     GenerateCandidateDefinitionsOnly: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    ModelDeployConfig: Optional[ModelDeployConfigTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    ModelDeployConfig: Optional[ModelDeployConfig] = None
 
 
-class ListPipelineExecutionStepsResponseTypeDef(BaseValidatorModel):
-    PipelineExecutionSteps: List[PipelineExecutionStepTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPipelineExecutionStepsResponse(BaseValidatorModel):
+    PipelineExecutionSteps: List[PipelineExecutionStep]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeInferenceRecommendationsJobResponseTypeDef(BaseValidatorModel):
+class DescribeInferenceRecommendationsJobResponse(BaseValidatorModel):
     JobName: str
     JobDescription: str
     JobType: RecommendationJobTypeType
@@ -10050,253 +10050,253 @@ class DescribeInferenceRecommendationsJobResponseTypeDef(BaseValidatorModel):
     CompletionTime: datetime
     LastModifiedTime: datetime
     FailureReason: str
-    InputConfig: RecommendationJobInputConfigOutputTypeDef
-    StoppingConditions: RecommendationJobStoppingConditionsOutputTypeDef
-    InferenceRecommendations: List[InferenceRecommendationTypeDef]
-    EndpointPerformances: List[EndpointPerformanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    InputConfig: RecommendationJobInputConfigOutput
+    StoppingConditions: RecommendationJobStoppingConditionsOutput
+    InferenceRecommendations: List[InferenceRecommendation]
+    EndpointPerformances: List[EndpointPerformance]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEndpointConfigOutputTypeDef(BaseValidatorModel):
+class DescribeEndpointConfigOutput(BaseValidatorModel):
     EndpointConfigName: str
     EndpointConfigArn: str
-    ProductionVariants: List[ProductionVariantTypeDef]
-    DataCaptureConfig: DataCaptureConfigOutputTypeDef
+    ProductionVariants: List[ProductionVariant]
+    DataCaptureConfig: DataCaptureConfigOutput
     KmsKeyId: str
     CreationTime: datetime
-    AsyncInferenceConfig: AsyncInferenceConfigOutputTypeDef
-    ExplainerConfig: ExplainerConfigOutputTypeDef
-    ShadowProductionVariants: List[ProductionVariantTypeDef]
+    AsyncInferenceConfig: AsyncInferenceConfigOutput
+    ExplainerConfig: ExplainerConfigOutput
+    ShadowProductionVariants: List[ProductionVariant]
     ExecutionRoleArn: str
-    VpcConfig: VpcConfigOutputTypeDef
+    VpcConfig: VpcConfigOutput
     EnableNetworkIsolation: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEndpointOutputTypeDef(BaseValidatorModel):
+class DescribeEndpointOutput(BaseValidatorModel):
     EndpointName: str
     EndpointArn: str
     EndpointConfigName: str
-    ProductionVariants: List[ProductionVariantSummaryTypeDef]
-    DataCaptureConfig: DataCaptureConfigSummaryTypeDef
+    ProductionVariants: List[ProductionVariantSummary]
+    DataCaptureConfig: DataCaptureConfigSummary
     EndpointStatus: EndpointStatusType
     FailureReason: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    LastDeploymentConfig: DeploymentConfigOutputTypeDef
-    AsyncInferenceConfig: AsyncInferenceConfigOutputTypeDef
-    PendingDeploymentSummary: PendingDeploymentSummaryTypeDef
-    ExplainerConfig: ExplainerConfigOutputTypeDef
-    ShadowProductionVariants: List[ProductionVariantSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastDeploymentConfig: DeploymentConfigOutput
+    AsyncInferenceConfig: AsyncInferenceConfigOutput
+    PendingDeploymentSummary: PendingDeploymentSummary
+    ExplainerConfig: ExplainerConfigOutput
+    ShadowProductionVariants: List[ProductionVariantSummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSpacesResponseTypeDef(BaseValidatorModel):
-    Spaces: List[SpaceDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSpacesResponse(BaseValidatorModel):
+    Spaces: List[SpaceDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListInferenceRecommendationsJobStepsResponseTypeDef(BaseValidatorModel):
-    Steps: List[InferenceRecommendationsJobStepTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInferenceRecommendationsJobStepsResponse(BaseValidatorModel):
+    Steps: List[InferenceRecommendationsJobStep]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeWorkteamResponseTypeDef(BaseValidatorModel):
-    Workteam: WorkteamTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkteamResponse(BaseValidatorModel):
+    Workteam: Workteam
+    ResponseMetadata: ResponseMetadata
 
 
-class ListWorkteamsResponseTypeDef(BaseValidatorModel):
-    Workteams: List[WorkteamTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkteamsResponse(BaseValidatorModel):
+    Workteams: List[Workteam]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateWorkteamResponseTypeDef(BaseValidatorModel):
-    Workteam: WorkteamTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateWorkteamResponse(BaseValidatorModel):
+    Workteam: Workteam
+    ResponseMetadata: ResponseMetadata
 
 
-class InferenceComponentDeploymentConfigUnionTypeDef(BaseValidatorModel):
+class InferenceComponentDeploymentConfigUnion(BaseValidatorModel):
     pass
 
 
-class UpdateInferenceComponentInputTypeDef(BaseValidatorModel):
+class UpdateInferenceComponentInput(BaseValidatorModel):
     InferenceComponentName: str
-    Specification: Optional[InferenceComponentSpecificationTypeDef] = None
-    RuntimeConfig: Optional[InferenceComponentRuntimeConfigTypeDef] = None
-    DeploymentConfig: Optional[InferenceComponentDeploymentConfigUnionTypeDef] = None
+    Specification: Optional[InferenceComponentSpecification] = None
+    RuntimeConfig: Optional[InferenceComponentRuntimeConfig] = None
+    DeploymentConfig: Optional[InferenceComponentDeploymentConfigUnion] = None
 
 
-class ListLabelingJobsResponseTypeDef(BaseValidatorModel):
-    LabelingJobSummaryList: List[LabelingJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLabelingJobsResponse(BaseValidatorModel):
+    LabelingJobSummaryList: List[LabelingJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DynamicScalingConfigurationTypeDef(BaseValidatorModel):
+class DynamicScalingConfiguration(BaseValidatorModel):
     MinCapacity: Optional[int] = None
     MaxCapacity: Optional[int] = None
     ScaleInCooldown: Optional[int] = None
     ScaleOutCooldown: Optional[int] = None
-    ScalingPolicies: Optional[List[ScalingPolicyTypeDef]] = None
+    ScalingPolicies: Optional[List[ScalingPolicy]] = None
 
 
-class ChannelOutputTypeDef(BaseValidatorModel):
+class ChannelOutput(BaseValidatorModel):
     pass
 
 
-class DescribeTrainingJobResponseTypeDef(BaseValidatorModel):
+class DescribeTrainingJobResponse(BaseValidatorModel):
     TrainingJobName: str
     TrainingJobArn: str
     TuningJobArn: str
     LabelingJobArn: str
     AutoMLJobArn: str
-    ModelArtifacts: ModelArtifactsTypeDef
+    ModelArtifacts: ModelArtifacts
     TrainingJobStatus: TrainingJobStatusType
     SecondaryStatus: SecondaryStatusType
     FailureReason: str
     HyperParameters: Dict[str, str]
-    AlgorithmSpecification: AlgorithmSpecificationOutputTypeDef
+    AlgorithmSpecification: AlgorithmSpecificationOutput
     RoleArn: str
-    InputDataConfig: List[ChannelOutputTypeDef]
-    OutputDataConfig: OutputDataConfigTypeDef
-    ResourceConfig: ResourceConfigOutputTypeDef
-    WarmPoolStatus: WarmPoolStatusTypeDef
-    VpcConfig: VpcConfigOutputTypeDef
-    StoppingCondition: StoppingConditionTypeDef
+    InputDataConfig: List[ChannelOutput]
+    OutputDataConfig: OutputDataConfig
+    ResourceConfig: ResourceConfigOutput
+    WarmPoolStatus: WarmPoolStatus
+    VpcConfig: VpcConfigOutput
+    StoppingCondition: StoppingCondition
     CreationTime: datetime
     TrainingStartTime: datetime
     TrainingEndTime: datetime
     LastModifiedTime: datetime
-    SecondaryStatusTransitions: List[SecondaryStatusTransitionTypeDef]
-    FinalMetricDataList: List[MetricDataTypeDef]
+    SecondaryStatusTransitions: List[SecondaryStatusTransition]
+    FinalMetricDataList: List[MetricData]
     EnableNetworkIsolation: bool
     EnableInterContainerTrafficEncryption: bool
     EnableManagedSpotTraining: bool
-    CheckpointConfig: CheckpointConfigTypeDef
+    CheckpointConfig: CheckpointConfig
     TrainingTimeInSeconds: int
     BillableTimeInSeconds: int
-    DebugHookConfig: DebugHookConfigOutputTypeDef
-    ExperimentConfig: ExperimentConfigTypeDef
-    DebugRuleConfigurations: List[DebugRuleConfigurationOutputTypeDef]
-    TensorBoardOutputConfig: TensorBoardOutputConfigTypeDef
-    DebugRuleEvaluationStatuses: List[DebugRuleEvaluationStatusTypeDef]
-    ProfilerConfig: ProfilerConfigOutputTypeDef
-    ProfilerRuleConfigurations: List[ProfilerRuleConfigurationOutputTypeDef]
-    ProfilerRuleEvaluationStatuses: List[ProfilerRuleEvaluationStatusTypeDef]
+    DebugHookConfig: DebugHookConfigOutput
+    ExperimentConfig: ExperimentConfig
+    DebugRuleConfigurations: List[DebugRuleConfigurationOutput]
+    TensorBoardOutputConfig: TensorBoardOutputConfig
+    DebugRuleEvaluationStatuses: List[DebugRuleEvaluationStatus]
+    ProfilerConfig: ProfilerConfigOutput
+    ProfilerRuleConfigurations: List[ProfilerRuleConfigurationOutput]
+    ProfilerRuleEvaluationStatuses: List[ProfilerRuleEvaluationStatus]
     ProfilingStatus: ProfilingStatusType
     Environment: Dict[str, str]
-    RetryStrategy: RetryStrategyTypeDef
-    RemoteDebugConfig: RemoteDebugConfigTypeDef
-    InfraCheckConfig: InfraCheckConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    RetryStrategy: RetryStrategy
+    RemoteDebugConfig: RemoteDebugConfig
+    InfraCheckConfig: InfraCheckConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class HyperParameterTrainingJobDefinitionOutputTypeDef(BaseValidatorModel):
-    AlgorithmSpecification: HyperParameterAlgorithmSpecificationOutputTypeDef
+class HyperParameterTrainingJobDefinitionOutput(BaseValidatorModel):
+    AlgorithmSpecification: HyperParameterAlgorithmSpecificationOutput
     RoleArn: str
-    OutputDataConfig: OutputDataConfigTypeDef
-    StoppingCondition: StoppingConditionTypeDef
+    OutputDataConfig: OutputDataConfig
+    StoppingCondition: StoppingCondition
     DefinitionName: Optional[str] = None
-    TuningObjective: Optional[HyperParameterTuningJobObjectiveTypeDef] = None
-    HyperParameterRanges: Optional[ParameterRangesOutputTypeDef] = None
+    TuningObjective: Optional[HyperParameterTuningJobObjective] = None
+    HyperParameterRanges: Optional[ParameterRangesOutput] = None
     StaticHyperParameters: Optional[Dict[str, str]] = None
-    InputDataConfig: Optional[List[ChannelOutputTypeDef]] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
-    ResourceConfig: Optional[ResourceConfigOutputTypeDef] = None
-    HyperParameterTuningResourceConfig: Optional[HyperParameterTuningResourceConfigOutputTypeDef] = None
+    InputDataConfig: Optional[List[ChannelOutput]] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
+    ResourceConfig: Optional[ResourceConfigOutput] = None
+    HyperParameterTuningResourceConfig: Optional[HyperParameterTuningResourceConfigOutput] = None
     EnableNetworkIsolation: Optional[bool] = None
     EnableInterContainerTrafficEncryption: Optional[bool] = None
     EnableManagedSpotTraining: Optional[bool] = None
-    CheckpointConfig: Optional[CheckpointConfigTypeDef] = None
-    RetryStrategy: Optional[RetryStrategyTypeDef] = None
+    CheckpointConfig: Optional[CheckpointConfig] = None
+    RetryStrategy: Optional[RetryStrategy] = None
     Environment: Optional[Dict[str, str]] = None
 
 
-class TrainingJobDefinitionOutputTypeDef(BaseValidatorModel):
+class TrainingJobDefinitionOutput(BaseValidatorModel):
     TrainingInputMode: TrainingInputModeType
-    InputDataConfig: List[ChannelOutputTypeDef]
-    OutputDataConfig: OutputDataConfigTypeDef
-    ResourceConfig: ResourceConfigOutputTypeDef
-    StoppingCondition: StoppingConditionTypeDef
+    InputDataConfig: List[ChannelOutput]
+    OutputDataConfig: OutputDataConfig
+    ResourceConfig: ResourceConfigOutput
+    StoppingCondition: StoppingCondition
     HyperParameters: Optional[Dict[str, str]] = None
 
 
-class TrainingJobTypeDef(BaseValidatorModel):
+class TrainingJob(BaseValidatorModel):
     TrainingJobName: Optional[str] = None
     TrainingJobArn: Optional[str] = None
     TuningJobArn: Optional[str] = None
     LabelingJobArn: Optional[str] = None
     AutoMLJobArn: Optional[str] = None
-    ModelArtifacts: Optional[ModelArtifactsTypeDef] = None
+    ModelArtifacts: Optional[ModelArtifacts] = None
     TrainingJobStatus: Optional[TrainingJobStatusType] = None
     SecondaryStatus: Optional[SecondaryStatusType] = None
     FailureReason: Optional[str] = None
     HyperParameters: Optional[Dict[str, str]] = None
-    AlgorithmSpecification: Optional[AlgorithmSpecificationOutputTypeDef] = None
+    AlgorithmSpecification: Optional[AlgorithmSpecificationOutput] = None
     RoleArn: Optional[str] = None
-    InputDataConfig: Optional[List[ChannelOutputTypeDef]] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
-    ResourceConfig: Optional[ResourceConfigOutputTypeDef] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
-    StoppingCondition: Optional[StoppingConditionTypeDef] = None
+    InputDataConfig: Optional[List[ChannelOutput]] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
+    ResourceConfig: Optional[ResourceConfigOutput] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
+    StoppingCondition: Optional[StoppingCondition] = None
     CreationTime: Optional[datetime] = None
     TrainingStartTime: Optional[datetime] = None
     TrainingEndTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    SecondaryStatusTransitions: Optional[List[SecondaryStatusTransitionTypeDef]] = None
-    FinalMetricDataList: Optional[List[MetricDataTypeDef]] = None
+    SecondaryStatusTransitions: Optional[List[SecondaryStatusTransition]] = None
+    FinalMetricDataList: Optional[List[MetricData]] = None
     EnableNetworkIsolation: Optional[bool] = None
     EnableInterContainerTrafficEncryption: Optional[bool] = None
     EnableManagedSpotTraining: Optional[bool] = None
-    CheckpointConfig: Optional[CheckpointConfigTypeDef] = None
+    CheckpointConfig: Optional[CheckpointConfig] = None
     TrainingTimeInSeconds: Optional[int] = None
     BillableTimeInSeconds: Optional[int] = None
-    DebugHookConfig: Optional[DebugHookConfigOutputTypeDef] = None
-    ExperimentConfig: Optional[ExperimentConfigTypeDef] = None
-    DebugRuleConfigurations: Optional[List[DebugRuleConfigurationOutputTypeDef]] = None
-    TensorBoardOutputConfig: Optional[TensorBoardOutputConfigTypeDef] = None
-    DebugRuleEvaluationStatuses: Optional[List[DebugRuleEvaluationStatusTypeDef]] = None
-    ProfilerConfig: Optional[ProfilerConfigOutputTypeDef] = None
+    DebugHookConfig: Optional[DebugHookConfigOutput] = None
+    ExperimentConfig: Optional[ExperimentConfig] = None
+    DebugRuleConfigurations: Optional[List[DebugRuleConfigurationOutput]] = None
+    TensorBoardOutputConfig: Optional[TensorBoardOutputConfig] = None
+    DebugRuleEvaluationStatuses: Optional[List[DebugRuleEvaluationStatus]] = None
+    ProfilerConfig: Optional[ProfilerConfigOutput] = None
     Environment: Optional[Dict[str, str]] = None
-    RetryStrategy: Optional[RetryStrategyTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    RetryStrategy: Optional[RetryStrategy] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class DescribeModelOutputTypeDef(BaseValidatorModel):
+class DescribeModelOutput(BaseValidatorModel):
     ModelName: str
-    PrimaryContainer: ContainerDefinitionOutputTypeDef
-    Containers: List[ContainerDefinitionOutputTypeDef]
-    InferenceExecutionConfig: InferenceExecutionConfigTypeDef
+    PrimaryContainer: ContainerDefinitionOutput
+    Containers: List[ContainerDefinitionOutput]
+    InferenceExecutionConfig: InferenceExecutionConfig
     ExecutionRoleArn: str
-    VpcConfig: VpcConfigOutputTypeDef
+    VpcConfig: VpcConfigOutput
     CreationTime: datetime
     ModelArn: str
     EnableNetworkIsolation: bool
-    DeploymentRecommendation: DeploymentRecommendationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    DeploymentRecommendation: DeploymentRecommendation
+    ResponseMetadata: ResponseMetadata
 
 
-class ModelTypeDef(BaseValidatorModel):
+class Model(BaseValidatorModel):
     ModelName: Optional[str] = None
-    PrimaryContainer: Optional[ContainerDefinitionOutputTypeDef] = None
-    Containers: Optional[List[ContainerDefinitionOutputTypeDef]] = None
-    InferenceExecutionConfig: Optional[InferenceExecutionConfigTypeDef] = None
+    PrimaryContainer: Optional[ContainerDefinitionOutput] = None
+    Containers: Optional[List[ContainerDefinitionOutput]] = None
+    InferenceExecutionConfig: Optional[InferenceExecutionConfig] = None
     ExecutionRoleArn: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
     CreationTime: Optional[datetime] = None
     ModelArn: Optional[str] = None
     EnableNetworkIsolation: Optional[bool] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    DeploymentRecommendation: Optional[DeploymentRecommendationTypeDef] = None
+    Tags: Optional[List[Tag]] = None
+    DeploymentRecommendation: Optional[DeploymentRecommendation] = None
 
 
-class AdditionalInferenceSpecificationDefinitionOutputTypeDef(BaseValidatorModel):
+class AdditionalInferenceSpecificationDefinitionOutput(BaseValidatorModel):
     Name: str
-    Containers: List[ModelPackageContainerDefinitionOutputTypeDef]
+    Containers: List[ModelPackageContainerDefinitionOutput]
     Description: Optional[str] = None
     SupportedTransformInstanceTypes: Optional[List[TransformInstanceTypeType]] = None
     SupportedRealtimeInferenceInstanceTypes: Optional[List[ProductionVariantInstanceTypeType]] = None
@@ -10304,223 +10304,223 @@ class AdditionalInferenceSpecificationDefinitionOutputTypeDef(BaseValidatorModel
     SupportedResponseMIMETypes: Optional[List[str]] = None
 
 
-class InferenceSpecificationOutputTypeDef(BaseValidatorModel):
-    Containers: List[ModelPackageContainerDefinitionOutputTypeDef]
+class InferenceSpecificationOutput(BaseValidatorModel):
+    Containers: List[ModelPackageContainerDefinitionOutput]
     SupportedTransformInstanceTypes: Optional[List[TransformInstanceTypeType]] = None
     SupportedRealtimeInferenceInstanceTypes: Optional[List[ProductionVariantInstanceTypeType]] = None
     SupportedContentTypes: Optional[List[str]] = None
     SupportedResponseMIMETypes: Optional[List[str]] = None
 
 
-class InferenceSpecificationTypeDef(BaseValidatorModel):
-    Containers: Sequence[ModelPackageContainerDefinitionTypeDef]
+class InferenceSpecification(BaseValidatorModel):
+    Containers: Sequence[ModelPackageContainerDefinition]
     SupportedTransformInstanceTypes: Optional[Sequence[TransformInstanceTypeType]] = None
     SupportedRealtimeInferenceInstanceTypes: Optional[ Sequence[ProductionVariantInstanceTypeType] ] = None
     SupportedContentTypes: Optional[Sequence[str]] = None
     SupportedResponseMIMETypes: Optional[Sequence[str]] = None
 
 
-class SourceAlgorithmSpecificationOutputTypeDef(BaseValidatorModel):
-    SourceAlgorithms: List[SourceAlgorithmTypeDef]
+class SourceAlgorithmSpecificationOutput(BaseValidatorModel):
+    SourceAlgorithms: List[SourceAlgorithm]
 
 
-class SourceAlgorithmSpecificationTypeDef(BaseValidatorModel):
-    SourceAlgorithms: Sequence[SourceAlgorithmTypeDef]
+class SourceAlgorithmSpecification(BaseValidatorModel):
+    SourceAlgorithms: Sequence[SourceAlgorithm]
 
 
-class OptimizationVpcConfigUnionTypeDef(BaseValidatorModel):
+class OptimizationVpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class OptimizationConfigUnionTypeDef(BaseValidatorModel):
+class OptimizationConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateOptimizationJobRequestTypeDef(BaseValidatorModel):
+class CreateOptimizationJobRequest(BaseValidatorModel):
     OptimizationJobName: str
     RoleArn: str
-    ModelSource: OptimizationJobModelSourceTypeDef
+    ModelSource: OptimizationJobModelSource
     DeploymentInstanceType: OptimizationJobDeploymentInstanceTypeType
-    OptimizationConfigs: Sequence[OptimizationConfigUnionTypeDef]
-    OutputConfig: OptimizationJobOutputConfigTypeDef
-    StoppingCondition: StoppingConditionTypeDef
+    OptimizationConfigs: Sequence[OptimizationConfigUnion]
+    OutputConfig: OptimizationJobOutputConfig
+    StoppingCondition: StoppingCondition
     OptimizationEnvironment: Optional[Mapping[str, str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    VpcConfig: Optional[OptimizationVpcConfigUnionTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    VpcConfig: Optional[OptimizationVpcConfigUnion] = None
 
 
-class DescribeDataQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
+class DescribeDataQualityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     JobDefinitionName: str
     CreationTime: datetime
-    DataQualityBaselineConfig: DataQualityBaselineConfigTypeDef
-    DataQualityAppSpecification: DataQualityAppSpecificationOutputTypeDef
-    DataQualityJobInput: DataQualityJobInputOutputTypeDef
-    DataQualityJobOutputConfig: MonitoringOutputConfigOutputTypeDef
-    JobResources: MonitoringResourcesTypeDef
-    NetworkConfig: MonitoringNetworkConfigOutputTypeDef
+    DataQualityBaselineConfig: DataQualityBaselineConfig
+    DataQualityAppSpecification: DataQualityAppSpecificationOutput
+    DataQualityJobInput: DataQualityJobInputOutput
+    DataQualityJobOutputConfig: MonitoringOutputConfigOutput
+    JobResources: MonitoringResources
+    NetworkConfig: MonitoringNetworkConfigOutput
     RoleArn: str
-    StoppingCondition: MonitoringStoppingConditionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    StoppingCondition: MonitoringStoppingCondition
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeModelBiasJobDefinitionResponseTypeDef(BaseValidatorModel):
+class DescribeModelBiasJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     JobDefinitionName: str
     CreationTime: datetime
-    ModelBiasBaselineConfig: ModelBiasBaselineConfigTypeDef
-    ModelBiasAppSpecification: ModelBiasAppSpecificationOutputTypeDef
-    ModelBiasJobInput: ModelBiasJobInputOutputTypeDef
-    ModelBiasJobOutputConfig: MonitoringOutputConfigOutputTypeDef
-    JobResources: MonitoringResourcesTypeDef
-    NetworkConfig: MonitoringNetworkConfigOutputTypeDef
+    ModelBiasBaselineConfig: ModelBiasBaselineConfig
+    ModelBiasAppSpecification: ModelBiasAppSpecificationOutput
+    ModelBiasJobInput: ModelBiasJobInputOutput
+    ModelBiasJobOutputConfig: MonitoringOutputConfigOutput
+    JobResources: MonitoringResources
+    NetworkConfig: MonitoringNetworkConfigOutput
     RoleArn: str
-    StoppingCondition: MonitoringStoppingConditionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    StoppingCondition: MonitoringStoppingCondition
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeModelExplainabilityJobDefinitionResponseTypeDef(BaseValidatorModel):
+class DescribeModelExplainabilityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     JobDefinitionName: str
     CreationTime: datetime
-    ModelExplainabilityBaselineConfig: ModelExplainabilityBaselineConfigTypeDef
-    ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecificationOutputTypeDef
-    ModelExplainabilityJobInput: ModelExplainabilityJobInputOutputTypeDef
-    ModelExplainabilityJobOutputConfig: MonitoringOutputConfigOutputTypeDef
-    JobResources: MonitoringResourcesTypeDef
-    NetworkConfig: MonitoringNetworkConfigOutputTypeDef
+    ModelExplainabilityBaselineConfig: ModelExplainabilityBaselineConfig
+    ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecificationOutput
+    ModelExplainabilityJobInput: ModelExplainabilityJobInputOutput
+    ModelExplainabilityJobOutputConfig: MonitoringOutputConfigOutput
+    JobResources: MonitoringResources
+    NetworkConfig: MonitoringNetworkConfigOutput
     RoleArn: str
-    StoppingCondition: MonitoringStoppingConditionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    StoppingCondition: MonitoringStoppingCondition
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeModelQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
+class DescribeModelQualityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     JobDefinitionName: str
     CreationTime: datetime
-    ModelQualityBaselineConfig: ModelQualityBaselineConfigTypeDef
-    ModelQualityAppSpecification: ModelQualityAppSpecificationOutputTypeDef
-    ModelQualityJobInput: ModelQualityJobInputOutputTypeDef
-    ModelQualityJobOutputConfig: MonitoringOutputConfigOutputTypeDef
-    JobResources: MonitoringResourcesTypeDef
-    NetworkConfig: MonitoringNetworkConfigOutputTypeDef
+    ModelQualityBaselineConfig: ModelQualityBaselineConfig
+    ModelQualityAppSpecification: ModelQualityAppSpecificationOutput
+    ModelQualityJobInput: ModelQualityJobInputOutput
+    ModelQualityJobOutputConfig: MonitoringOutputConfigOutput
+    JobResources: MonitoringResources
+    NetworkConfig: MonitoringNetworkConfigOutput
     RoleArn: str
-    StoppingCondition: MonitoringStoppingConditionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    StoppingCondition: MonitoringStoppingCondition
+    ResponseMetadata: ResponseMetadata
 
 
-class MonitoringJobDefinitionOutputTypeDef(BaseValidatorModel):
-    MonitoringInputs: List[MonitoringInputOutputTypeDef]
-    MonitoringOutputConfig: MonitoringOutputConfigOutputTypeDef
-    MonitoringResources: MonitoringResourcesTypeDef
-    MonitoringAppSpecification: MonitoringAppSpecificationOutputTypeDef
+class MonitoringJobDefinitionOutput(BaseValidatorModel):
+    MonitoringInputs: List[MonitoringInputOutput]
+    MonitoringOutputConfig: MonitoringOutputConfigOutput
+    MonitoringResources: MonitoringResources
+    MonitoringAppSpecification: MonitoringAppSpecificationOutput
     RoleArn: str
-    BaselineConfig: Optional[MonitoringBaselineConfigTypeDef] = None
-    StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
+    BaselineConfig: Optional[MonitoringBaselineConfig] = None
+    StoppingCondition: Optional[MonitoringStoppingCondition] = None
     Environment: Optional[Dict[str, str]] = None
-    NetworkConfig: Optional[NetworkConfigOutputTypeDef] = None
+    NetworkConfig: Optional[NetworkConfigOutput] = None
 
 
-class MonitoringJobDefinitionTypeDef(BaseValidatorModel):
-    MonitoringInputs: Sequence[MonitoringInputTypeDef]
-    MonitoringOutputConfig: MonitoringOutputConfigTypeDef
-    MonitoringResources: MonitoringResourcesTypeDef
-    MonitoringAppSpecification: MonitoringAppSpecificationTypeDef
+class MonitoringJobDefinition(BaseValidatorModel):
+    MonitoringInputs: Sequence[MonitoringInput]
+    MonitoringOutputConfig: MonitoringOutputConfig
+    MonitoringResources: MonitoringResources
+    MonitoringAppSpecification: MonitoringAppSpecification
     RoleArn: str
-    BaselineConfig: Optional[MonitoringBaselineConfigTypeDef] = None
-    StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
+    BaselineConfig: Optional[MonitoringBaselineConfig] = None
+    StoppingCondition: Optional[MonitoringStoppingCondition] = None
     Environment: Optional[Mapping[str, str]] = None
-    NetworkConfig: Optional[NetworkConfigTypeDef] = None
+    NetworkConfig: Optional[NetworkConfig] = None
 
 
-class MemberDefinitionUnionTypeDef(BaseValidatorModel):
+class MemberDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class CreateWorkteamRequestTypeDef(BaseValidatorModel):
+class CreateWorkteamRequest(BaseValidatorModel):
     WorkteamName: str
-    MemberDefinitions: Sequence[MemberDefinitionUnionTypeDef]
+    MemberDefinitions: Sequence[MemberDefinitionUnion]
     Description: str
     WorkforceName: Optional[str] = None
-    NotificationConfiguration: Optional[NotificationConfigurationTypeDef] = None
-    WorkerAccessConfiguration: Optional[WorkerAccessConfigurationTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    NotificationConfiguration: Optional[NotificationConfiguration] = None
+    WorkerAccessConfiguration: Optional[WorkerAccessConfiguration] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateWorkteamRequestTypeDef(BaseValidatorModel):
+class UpdateWorkteamRequest(BaseValidatorModel):
     WorkteamName: str
-    MemberDefinitions: Optional[Sequence[MemberDefinitionUnionTypeDef]] = None
+    MemberDefinitions: Optional[Sequence[MemberDefinitionUnion]] = None
     Description: Optional[str] = None
-    NotificationConfiguration: Optional[NotificationConfigurationTypeDef] = None
-    WorkerAccessConfiguration: Optional[WorkerAccessConfigurationTypeDef] = None
+    NotificationConfiguration: Optional[NotificationConfiguration] = None
+    WorkerAccessConfiguration: Optional[WorkerAccessConfiguration] = None
 
 
-class ProcessingOutputConfigUnionTypeDef(BaseValidatorModel):
+class ProcessingOutputConfigUnion(BaseValidatorModel):
     pass
 
 
-class AppSpecificationUnionTypeDef(BaseValidatorModel):
+class AppSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class NetworkConfigUnionTypeDef(BaseValidatorModel):
+class NetworkConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateProcessingJobRequestTypeDef(BaseValidatorModel):
+class CreateProcessingJobRequest(BaseValidatorModel):
     ProcessingJobName: str
-    ProcessingResources: ProcessingResourcesTypeDef
-    AppSpecification: AppSpecificationUnionTypeDef
+    ProcessingResources: ProcessingResources
+    AppSpecification: AppSpecificationUnion
     RoleArn: str
-    ProcessingInputs: Optional[Sequence[ProcessingInputTypeDef]] = None
-    ProcessingOutputConfig: Optional[ProcessingOutputConfigUnionTypeDef] = None
-    StoppingCondition: Optional[ProcessingStoppingConditionTypeDef] = None
+    ProcessingInputs: Optional[Sequence[ProcessingInput]] = None
+    ProcessingOutputConfig: Optional[ProcessingOutputConfigUnion] = None
+    StoppingCondition: Optional[ProcessingStoppingCondition] = None
     Environment: Optional[Mapping[str, str]] = None
-    NetworkConfig: Optional[NetworkConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    ExperimentConfig: Optional[ExperimentConfigTypeDef] = None
+    NetworkConfig: Optional[NetworkConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
+    ExperimentConfig: Optional[ExperimentConfig] = None
 
 
-class HumanLoopConfigUnionTypeDef(BaseValidatorModel):
+class HumanLoopConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateFlowDefinitionRequestTypeDef(BaseValidatorModel):
+class CreateFlowDefinitionRequest(BaseValidatorModel):
     FlowDefinitionName: str
-    OutputConfig: FlowDefinitionOutputConfigTypeDef
+    OutputConfig: FlowDefinitionOutputConfig
     RoleArn: str
-    HumanLoopRequestSource: Optional[HumanLoopRequestSourceTypeDef] = None
-    HumanLoopActivationConfig: Optional[HumanLoopActivationConfigTypeDef] = None
-    HumanLoopConfig: Optional[HumanLoopConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    HumanLoopRequestSource: Optional[HumanLoopRequestSource] = None
+    HumanLoopActivationConfig: Optional[HumanLoopActivationConfig] = None
+    HumanLoopConfig: Optional[HumanLoopConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class HumanTaskConfigUnionTypeDef(BaseValidatorModel):
+class HumanTaskConfigUnion(BaseValidatorModel):
     pass
 
 
-class LabelingJobAlgorithmsConfigUnionTypeDef(BaseValidatorModel):
+class LabelingJobAlgorithmsConfigUnion(BaseValidatorModel):
     pass
 
 
-class LabelingJobInputConfigUnionTypeDef(BaseValidatorModel):
+class LabelingJobInputConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateLabelingJobRequestTypeDef(BaseValidatorModel):
+class CreateLabelingJobRequest(BaseValidatorModel):
     LabelingJobName: str
     LabelAttributeName: str
-    InputConfig: LabelingJobInputConfigUnionTypeDef
-    OutputConfig: LabelingJobOutputConfigTypeDef
+    InputConfig: LabelingJobInputConfigUnion
+    OutputConfig: LabelingJobOutputConfig
     RoleArn: str
-    HumanTaskConfig: HumanTaskConfigUnionTypeDef
+    HumanTaskConfig: HumanTaskConfigUnion
     LabelCategoryConfigS3Uri: Optional[str] = None
-    StoppingConditions: Optional[LabelingJobStoppingConditionsTypeDef] = None
-    LabelingJobAlgorithmsConfig: Optional[LabelingJobAlgorithmsConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    StoppingConditions: Optional[LabelingJobStoppingConditions] = None
+    LabelingJobAlgorithmsConfig: Optional[LabelingJobAlgorithmsConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeSpaceResponseTypeDef(BaseValidatorModel):
+class DescribeSpaceResponse(BaseValidatorModel):
     DomainId: str
     SpaceArn: str
     SpaceName: str
@@ -10529,265 +10529,265 @@ class DescribeSpaceResponseTypeDef(BaseValidatorModel):
     LastModifiedTime: datetime
     CreationTime: datetime
     FailureReason: str
-    SpaceSettings: SpaceSettingsOutputTypeDef
-    OwnershipSettings: OwnershipSettingsTypeDef
-    SpaceSharingSettings: SpaceSharingSettingsTypeDef
+    SpaceSettings: SpaceSettingsOutput
+    OwnershipSettings: OwnershipSettings
+    SpaceSharingSettings: SpaceSharingSettings
     SpaceDisplayName: str
     Url: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ModelPackageValidationProfileOutputTypeDef(BaseValidatorModel):
+class ModelPackageValidationProfileOutput(BaseValidatorModel):
     ProfileName: str
-    TransformJobDefinition: TransformJobDefinitionOutputTypeDef
+    TransformJobDefinition: TransformJobDefinitionOutput
 
 
-class ModelPackageValidationProfileTypeDef(BaseValidatorModel):
+class ModelPackageValidationProfile(BaseValidatorModel):
     ProfileName: str
-    TransformJobDefinition: TransformJobDefinitionTypeDef
+    TransformJobDefinition: TransformJobDefinition
 
 
-class UserSettingsUnionTypeDef(BaseValidatorModel):
+class UserSettingsUnion(BaseValidatorModel):
     pass
 
 
-class DomainSettingsUnionTypeDef(BaseValidatorModel):
+class DomainSettingsUnion(BaseValidatorModel):
     pass
 
 
-class DefaultSpaceSettingsUnionTypeDef(BaseValidatorModel):
+class DefaultSpaceSettingsUnion(BaseValidatorModel):
     pass
 
 
-class CreateDomainRequestTypeDef(BaseValidatorModel):
+class CreateDomainRequest(BaseValidatorModel):
     DomainName: str
     AuthMode: AuthModeType
-    DefaultUserSettings: UserSettingsUnionTypeDef
+    DefaultUserSettings: UserSettingsUnion
     SubnetIds: Sequence[str]
     VpcId: str
-    DomainSettings: Optional[DomainSettingsUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    DomainSettings: Optional[DomainSettingsUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
     AppNetworkAccessType: Optional[AppNetworkAccessTypeType] = None
     HomeEfsFileSystemKmsKeyId: Optional[str] = None
     KmsKeyId: Optional[str] = None
     AppSecurityGroupManagement: Optional[AppSecurityGroupManagementType] = None
     TagPropagation: Optional[TagPropagationType] = None
-    DefaultSpaceSettings: Optional[DefaultSpaceSettingsUnionTypeDef] = None
+    DefaultSpaceSettings: Optional[DefaultSpaceSettingsUnion] = None
 
 
-class CreateUserProfileRequestTypeDef(BaseValidatorModel):
+class CreateUserProfileRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
     SingleSignOnUserIdentifier: Optional[str] = None
     SingleSignOnUserValue: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    UserSettings: Optional[UserSettingsUnionTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    UserSettings: Optional[UserSettingsUnion] = None
 
 
-class UpdateDomainRequestTypeDef(BaseValidatorModel):
+class UpdateDomainRequest(BaseValidatorModel):
     DomainId: str
-    DefaultUserSettings: Optional[UserSettingsUnionTypeDef] = None
-    DomainSettingsForUpdate: Optional[DomainSettingsForUpdateTypeDef] = None
+    DefaultUserSettings: Optional[UserSettingsUnion] = None
+    DomainSettingsForUpdate: Optional[DomainSettingsForUpdate] = None
     AppSecurityGroupManagement: Optional[AppSecurityGroupManagementType] = None
-    DefaultSpaceSettings: Optional[DefaultSpaceSettingsUnionTypeDef] = None
+    DefaultSpaceSettings: Optional[DefaultSpaceSettingsUnion] = None
     SubnetIds: Optional[Sequence[str]] = None
     AppNetworkAccessType: Optional[AppNetworkAccessTypeType] = None
     TagPropagation: Optional[TagPropagationType] = None
 
 
-class UpdateUserProfileRequestTypeDef(BaseValidatorModel):
+class UpdateUserProfileRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
-    UserSettings: Optional[UserSettingsUnionTypeDef] = None
+    UserSettings: Optional[UserSettingsUnion] = None
 
 
-class AutoMLProblemTypeConfigUnionTypeDef(BaseValidatorModel):
+class AutoMLProblemTypeConfigUnion(BaseValidatorModel):
     pass
 
 
-class AutoMLSecurityConfigUnionTypeDef(BaseValidatorModel):
+class AutoMLSecurityConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateAutoMLJobV2RequestTypeDef(BaseValidatorModel):
+class CreateAutoMLJobV2Request(BaseValidatorModel):
     AutoMLJobName: str
-    AutoMLJobInputDataConfig: Sequence[AutoMLJobChannelTypeDef]
-    OutputDataConfig: AutoMLOutputDataConfigTypeDef
-    AutoMLProblemTypeConfig: AutoMLProblemTypeConfigUnionTypeDef
+    AutoMLJobInputDataConfig: Sequence[AutoMLJobChannel]
+    OutputDataConfig: AutoMLOutputDataConfig
+    AutoMLProblemTypeConfig: AutoMLProblemTypeConfigUnion
     RoleArn: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    SecurityConfig: Optional[AutoMLSecurityConfigUnionTypeDef] = None
-    AutoMLJobObjective: Optional[AutoMLJobObjectiveTypeDef] = None
-    ModelDeployConfig: Optional[ModelDeployConfigTypeDef] = None
-    DataSplitConfig: Optional[AutoMLDataSplitConfigTypeDef] = None
-    AutoMLComputeConfig: Optional[AutoMLComputeConfigTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    SecurityConfig: Optional[AutoMLSecurityConfigUnion] = None
+    AutoMLJobObjective: Optional[AutoMLJobObjective] = None
+    ModelDeployConfig: Optional[ModelDeployConfig] = None
+    DataSplitConfig: Optional[AutoMLDataSplitConfig] = None
+    AutoMLComputeConfig: Optional[AutoMLComputeConfig] = None
 
 
-class DeploymentConfigUnionTypeDef(BaseValidatorModel):
+class DeploymentConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateEndpointInputTypeDef(BaseValidatorModel):
+class CreateEndpointInput(BaseValidatorModel):
     EndpointName: str
     EndpointConfigName: str
-    DeploymentConfig: Optional[DeploymentConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    DeploymentConfig: Optional[DeploymentConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateEndpointInputTypeDef(BaseValidatorModel):
+class UpdateEndpointInput(BaseValidatorModel):
     EndpointName: str
     EndpointConfigName: str
     RetainAllVariantProperties: Optional[bool] = None
-    ExcludeRetainedVariantProperties: Optional[Sequence[VariantPropertyTypeDef]] = None
-    DeploymentConfig: Optional[DeploymentConfigUnionTypeDef] = None
+    ExcludeRetainedVariantProperties: Optional[Sequence[VariantProperty]] = None
+    DeploymentConfig: Optional[DeploymentConfigUnion] = None
     RetainDeploymentConfig: Optional[bool] = None
 
 
-class RecommendationJobInputConfigUnionTypeDef(BaseValidatorModel):
+class RecommendationJobInputConfigUnion(BaseValidatorModel):
     pass
 
 
-class RecommendationJobStoppingConditionsUnionTypeDef(BaseValidatorModel):
+class RecommendationJobStoppingConditionsUnion(BaseValidatorModel):
     pass
 
 
-class CreateInferenceRecommendationsJobRequestTypeDef(BaseValidatorModel):
+class CreateInferenceRecommendationsJobRequest(BaseValidatorModel):
     JobName: str
     JobType: RecommendationJobTypeType
     RoleArn: str
-    InputConfig: RecommendationJobInputConfigUnionTypeDef
+    InputConfig: RecommendationJobInputConfigUnion
     JobDescription: Optional[str] = None
-    StoppingConditions: Optional[RecommendationJobStoppingConditionsUnionTypeDef] = None
-    OutputConfig: Optional[RecommendationJobOutputConfigTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    StoppingConditions: Optional[RecommendationJobStoppingConditionsUnion] = None
+    OutputConfig: Optional[RecommendationJobOutputConfig] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class AsyncInferenceConfigUnionTypeDef(BaseValidatorModel):
+class AsyncInferenceConfigUnion(BaseValidatorModel):
     pass
 
 
-class DataCaptureConfigUnionTypeDef(BaseValidatorModel):
+class DataCaptureConfigUnion(BaseValidatorModel):
     pass
 
 
-class ExplainerConfigUnionTypeDef(BaseValidatorModel):
+class ExplainerConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateEndpointConfigInputTypeDef(BaseValidatorModel):
+class CreateEndpointConfigInput(BaseValidatorModel):
     EndpointConfigName: str
-    ProductionVariants: Sequence[ProductionVariantTypeDef]
-    DataCaptureConfig: Optional[DataCaptureConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ProductionVariants: Sequence[ProductionVariant]
+    DataCaptureConfig: Optional[DataCaptureConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
     KmsKeyId: Optional[str] = None
-    AsyncInferenceConfig: Optional[AsyncInferenceConfigUnionTypeDef] = None
-    ExplainerConfig: Optional[ExplainerConfigUnionTypeDef] = None
-    ShadowProductionVariants: Optional[Sequence[ProductionVariantTypeDef]] = None
+    AsyncInferenceConfig: Optional[AsyncInferenceConfigUnion] = None
+    ExplainerConfig: Optional[ExplainerConfigUnion] = None
+    ShadowProductionVariants: Optional[Sequence[ProductionVariant]] = None
     ExecutionRoleArn: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
     EnableNetworkIsolation: Optional[bool] = None
 
 
-class GetScalingConfigurationRecommendationResponseTypeDef(BaseValidatorModel):
+class GetScalingConfigurationRecommendationResponse(BaseValidatorModel):
     InferenceRecommendationsJobName: str
     RecommendationId: str
     EndpointName: str
     TargetCpuUtilizationPerCore: int
-    ScalingPolicyObjective: ScalingPolicyObjectiveTypeDef
-    Metric: ScalingPolicyMetricTypeDef
-    DynamicScalingConfiguration: DynamicScalingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ScalingPolicyObjective: ScalingPolicyObjective
+    Metric: ScalingPolicyMetric
+    DynamicScalingConfiguration: DynamicScalingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeHyperParameterTuningJobResponseTypeDef(BaseValidatorModel):
+class DescribeHyperParameterTuningJobResponse(BaseValidatorModel):
     HyperParameterTuningJobName: str
     HyperParameterTuningJobArn: str
-    HyperParameterTuningJobConfig: HyperParameterTuningJobConfigOutputTypeDef
-    TrainingJobDefinition: HyperParameterTrainingJobDefinitionOutputTypeDef
-    TrainingJobDefinitions: List[HyperParameterTrainingJobDefinitionOutputTypeDef]
+    HyperParameterTuningJobConfig: HyperParameterTuningJobConfigOutput
+    TrainingJobDefinition: HyperParameterTrainingJobDefinitionOutput
+    TrainingJobDefinitions: List[HyperParameterTrainingJobDefinitionOutput]
     HyperParameterTuningJobStatus: HyperParameterTuningJobStatusType
     CreationTime: datetime
     HyperParameterTuningEndTime: datetime
     LastModifiedTime: datetime
-    TrainingJobStatusCounters: TrainingJobStatusCountersTypeDef
-    ObjectiveStatusCounters: ObjectiveStatusCountersTypeDef
-    BestTrainingJob: HyperParameterTrainingJobSummaryTypeDef
-    OverallBestTrainingJob: HyperParameterTrainingJobSummaryTypeDef
-    WarmStartConfig: HyperParameterTuningJobWarmStartConfigOutputTypeDef
-    Autotune: AutotuneTypeDef
+    TrainingJobStatusCounters: TrainingJobStatusCounters
+    ObjectiveStatusCounters: ObjectiveStatusCounters
+    BestTrainingJob: HyperParameterTrainingJobSummary
+    OverallBestTrainingJob: HyperParameterTrainingJobSummary
+    WarmStartConfig: HyperParameterTuningJobWarmStartConfigOutput
+    Autotune: Autotune
     FailureReason: str
-    TuningJobCompletionDetails: HyperParameterTuningJobCompletionDetailsTypeDef
-    ConsumedResources: HyperParameterTuningJobConsumedResourcesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    TuningJobCompletionDetails: HyperParameterTuningJobCompletionDetails
+    ConsumedResources: HyperParameterTuningJobConsumedResources
+    ResponseMetadata: ResponseMetadata
 
 
-class HyperParameterTuningJobSearchEntityTypeDef(BaseValidatorModel):
+class HyperParameterTuningJobSearchEntity(BaseValidatorModel):
     HyperParameterTuningJobName: Optional[str] = None
     HyperParameterTuningJobArn: Optional[str] = None
-    HyperParameterTuningJobConfig: Optional[HyperParameterTuningJobConfigOutputTypeDef] = None
-    TrainingJobDefinition: Optional[HyperParameterTrainingJobDefinitionOutputTypeDef] = None
-    TrainingJobDefinitions: Optional[List[HyperParameterTrainingJobDefinitionOutputTypeDef]] = None
+    HyperParameterTuningJobConfig: Optional[HyperParameterTuningJobConfigOutput] = None
+    TrainingJobDefinition: Optional[HyperParameterTrainingJobDefinitionOutput] = None
+    TrainingJobDefinitions: Optional[List[HyperParameterTrainingJobDefinitionOutput]] = None
     HyperParameterTuningJobStatus: Optional[HyperParameterTuningJobStatusType] = None
     CreationTime: Optional[datetime] = None
     HyperParameterTuningEndTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    TrainingJobStatusCounters: Optional[TrainingJobStatusCountersTypeDef] = None
-    ObjectiveStatusCounters: Optional[ObjectiveStatusCountersTypeDef] = None
-    BestTrainingJob: Optional[HyperParameterTrainingJobSummaryTypeDef] = None
-    OverallBestTrainingJob: Optional[HyperParameterTrainingJobSummaryTypeDef] = None
-    WarmStartConfig: Optional[HyperParameterTuningJobWarmStartConfigOutputTypeDef] = None
+    TrainingJobStatusCounters: Optional[TrainingJobStatusCounters] = None
+    ObjectiveStatusCounters: Optional[ObjectiveStatusCounters] = None
+    BestTrainingJob: Optional[HyperParameterTrainingJobSummary] = None
+    OverallBestTrainingJob: Optional[HyperParameterTrainingJobSummary] = None
+    WarmStartConfig: Optional[HyperParameterTuningJobWarmStartConfigOutput] = None
     FailureReason: Optional[str] = None
-    TuningJobCompletionDetails: Optional[HyperParameterTuningJobCompletionDetailsTypeDef] = None
-    ConsumedResources: Optional[HyperParameterTuningJobConsumedResourcesTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    TuningJobCompletionDetails: Optional[HyperParameterTuningJobCompletionDetails] = None
+    ConsumedResources: Optional[HyperParameterTuningJobConsumedResources] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class AlgorithmValidationProfileOutputTypeDef(BaseValidatorModel):
+class AlgorithmValidationProfileOutput(BaseValidatorModel):
     ProfileName: str
-    TrainingJobDefinition: TrainingJobDefinitionOutputTypeDef
-    TransformJobDefinition: Optional[TransformJobDefinitionOutputTypeDef] = None
+    TrainingJobDefinition: TrainingJobDefinitionOutput
+    TransformJobDefinition: Optional[TransformJobDefinitionOutput] = None
 
 
-class TrialComponentSourceDetailTypeDef(BaseValidatorModel):
+class TrialComponentSourceDetail(BaseValidatorModel):
     SourceArn: Optional[str] = None
-    TrainingJob: Optional[TrainingJobTypeDef] = None
-    ProcessingJob: Optional[ProcessingJobTypeDef] = None
-    TransformJob: Optional[TransformJobTypeDef] = None
+    TrainingJob: Optional[TrainingJob] = None
+    ProcessingJob: Optional[ProcessingJob] = None
+    TransformJob: Optional[TransformJob] = None
 
 
-class ContainerDefinitionUnionTypeDef(BaseValidatorModel):
+class ContainerDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class CreateModelInputTypeDef(BaseValidatorModel):
+class CreateModelInput(BaseValidatorModel):
     ModelName: str
-    PrimaryContainer: Optional[ContainerDefinitionUnionTypeDef] = None
-    Containers: Optional[Sequence[ContainerDefinitionUnionTypeDef]] = None
-    InferenceExecutionConfig: Optional[InferenceExecutionConfigTypeDef] = None
+    PrimaryContainer: Optional[ContainerDefinitionUnion] = None
+    Containers: Optional[Sequence[ContainerDefinitionUnion]] = None
+    InferenceExecutionConfig: Optional[InferenceExecutionConfig] = None
     ExecutionRoleArn: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
     EnableNetworkIsolation: Optional[bool] = None
 
 
-class BatchDescribeModelPackageSummaryTypeDef(BaseValidatorModel):
+class BatchDescribeModelPackageSummary(BaseValidatorModel):
     ModelPackageGroupName: str
     ModelPackageArn: str
     CreationTime: datetime
-    InferenceSpecification: InferenceSpecificationOutputTypeDef
+    InferenceSpecification: InferenceSpecificationOutput
     ModelPackageStatus: ModelPackageStatusType
     ModelPackageVersion: Optional[int] = None
     ModelPackageDescription: Optional[str] = None
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
 
 
-class ModelPackageContainerDefinitionUnionTypeDef(BaseValidatorModel):
+class ModelPackageContainerDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class AdditionalInferenceSpecificationDefinitionTypeDef(BaseValidatorModel):
+class AdditionalInferenceSpecificationDefinition(BaseValidatorModel):
     Name: str
-    Containers: Sequence[ModelPackageContainerDefinitionUnionTypeDef]
+    Containers: Sequence[ModelPackageContainerDefinitionUnion]
     Description: Optional[str] = None
     SupportedTransformInstanceTypes: Optional[Sequence[TransformInstanceTypeType]] = None
     SupportedRealtimeInferenceInstanceTypes: Optional[ Sequence[ProductionVariantInstanceTypeType] ] = None
@@ -10795,192 +10795,192 @@ class AdditionalInferenceSpecificationDefinitionTypeDef(BaseValidatorModel):
     SupportedResponseMIMETypes: Optional[Sequence[str]] = None
 
 
-class MonitoringScheduleConfigOutputTypeDef(BaseValidatorModel):
-    ScheduleConfig: Optional[ScheduleConfigTypeDef] = None
-    MonitoringJobDefinition: Optional[MonitoringJobDefinitionOutputTypeDef] = None
+class MonitoringScheduleConfigOutput(BaseValidatorModel):
+    ScheduleConfig: Optional[ScheduleConfig] = None
+    MonitoringJobDefinition: Optional[MonitoringJobDefinitionOutput] = None
     MonitoringJobDefinitionName: Optional[str] = None
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
-class MonitoringNetworkConfigUnionTypeDef(BaseValidatorModel):
+class MonitoringNetworkConfigUnion(BaseValidatorModel):
     pass
 
 
-class DataQualityJobInputUnionTypeDef(BaseValidatorModel):
+class DataQualityJobInputUnion(BaseValidatorModel):
     pass
 
 
-class DataQualityAppSpecificationUnionTypeDef(BaseValidatorModel):
+class DataQualityAppSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class MonitoringOutputConfigUnionTypeDef(BaseValidatorModel):
+class MonitoringOutputConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
+class CreateDataQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
-    DataQualityAppSpecification: DataQualityAppSpecificationUnionTypeDef
-    DataQualityJobInput: DataQualityJobInputUnionTypeDef
-    DataQualityJobOutputConfig: MonitoringOutputConfigUnionTypeDef
-    JobResources: MonitoringResourcesTypeDef
+    DataQualityAppSpecification: DataQualityAppSpecificationUnion
+    DataQualityJobInput: DataQualityJobInputUnion
+    DataQualityJobOutputConfig: MonitoringOutputConfigUnion
+    JobResources: MonitoringResources
     RoleArn: str
-    DataQualityBaselineConfig: Optional[DataQualityBaselineConfigTypeDef] = None
-    NetworkConfig: Optional[MonitoringNetworkConfigUnionTypeDef] = None
-    StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    DataQualityBaselineConfig: Optional[DataQualityBaselineConfig] = None
+    NetworkConfig: Optional[MonitoringNetworkConfigUnion] = None
+    StoppingCondition: Optional[MonitoringStoppingCondition] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ModelBiasJobInputUnionTypeDef(BaseValidatorModel):
+class ModelBiasJobInputUnion(BaseValidatorModel):
     pass
 
 
-class ModelBiasAppSpecificationUnionTypeDef(BaseValidatorModel):
+class ModelBiasAppSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class CreateModelBiasJobDefinitionRequestTypeDef(BaseValidatorModel):
+class CreateModelBiasJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
-    ModelBiasAppSpecification: ModelBiasAppSpecificationUnionTypeDef
-    ModelBiasJobInput: ModelBiasJobInputUnionTypeDef
-    ModelBiasJobOutputConfig: MonitoringOutputConfigUnionTypeDef
-    JobResources: MonitoringResourcesTypeDef
+    ModelBiasAppSpecification: ModelBiasAppSpecificationUnion
+    ModelBiasJobInput: ModelBiasJobInputUnion
+    ModelBiasJobOutputConfig: MonitoringOutputConfigUnion
+    JobResources: MonitoringResources
     RoleArn: str
-    ModelBiasBaselineConfig: Optional[ModelBiasBaselineConfigTypeDef] = None
-    NetworkConfig: Optional[MonitoringNetworkConfigUnionTypeDef] = None
-    StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ModelBiasBaselineConfig: Optional[ModelBiasBaselineConfig] = None
+    NetworkConfig: Optional[MonitoringNetworkConfigUnion] = None
+    StoppingCondition: Optional[MonitoringStoppingCondition] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ModelExplainabilityJobInputUnionTypeDef(BaseValidatorModel):
+class ModelExplainabilityJobInputUnion(BaseValidatorModel):
     pass
 
 
-class ModelExplainabilityAppSpecificationUnionTypeDef(BaseValidatorModel):
+class ModelExplainabilityAppSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class CreateModelExplainabilityJobDefinitionRequestTypeDef(BaseValidatorModel):
+class CreateModelExplainabilityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
-    ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecificationUnionTypeDef
-    ModelExplainabilityJobInput: ModelExplainabilityJobInputUnionTypeDef
-    ModelExplainabilityJobOutputConfig: MonitoringOutputConfigUnionTypeDef
-    JobResources: MonitoringResourcesTypeDef
+    ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecificationUnion
+    ModelExplainabilityJobInput: ModelExplainabilityJobInputUnion
+    ModelExplainabilityJobOutputConfig: MonitoringOutputConfigUnion
+    JobResources: MonitoringResources
     RoleArn: str
-    ModelExplainabilityBaselineConfig: Optional[ModelExplainabilityBaselineConfigTypeDef] = None
-    NetworkConfig: Optional[MonitoringNetworkConfigUnionTypeDef] = None
-    StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ModelExplainabilityBaselineConfig: Optional[ModelExplainabilityBaselineConfig] = None
+    NetworkConfig: Optional[MonitoringNetworkConfigUnion] = None
+    StoppingCondition: Optional[MonitoringStoppingCondition] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ModelQualityAppSpecificationUnionTypeDef(BaseValidatorModel):
+class ModelQualityAppSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class ModelQualityJobInputUnionTypeDef(BaseValidatorModel):
+class ModelQualityJobInputUnion(BaseValidatorModel):
     pass
 
 
-class CreateModelQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
+class CreateModelQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
-    ModelQualityAppSpecification: ModelQualityAppSpecificationUnionTypeDef
-    ModelQualityJobInput: ModelQualityJobInputUnionTypeDef
-    ModelQualityJobOutputConfig: MonitoringOutputConfigUnionTypeDef
-    JobResources: MonitoringResourcesTypeDef
+    ModelQualityAppSpecification: ModelQualityAppSpecificationUnion
+    ModelQualityJobInput: ModelQualityJobInputUnion
+    ModelQualityJobOutputConfig: MonitoringOutputConfigUnion
+    JobResources: MonitoringResources
     RoleArn: str
-    ModelQualityBaselineConfig: Optional[ModelQualityBaselineConfigTypeDef] = None
-    NetworkConfig: Optional[MonitoringNetworkConfigUnionTypeDef] = None
-    StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ModelQualityBaselineConfig: Optional[ModelQualityBaselineConfig] = None
+    NetworkConfig: Optional[MonitoringNetworkConfigUnion] = None
+    StoppingCondition: Optional[MonitoringStoppingCondition] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class MonitoringScheduleConfigTypeDef(BaseValidatorModel):
-    ScheduleConfig: Optional[ScheduleConfigTypeDef] = None
-    MonitoringJobDefinition: Optional[MonitoringJobDefinitionTypeDef] = None
+class MonitoringScheduleConfig(BaseValidatorModel):
+    ScheduleConfig: Optional[ScheduleConfig] = None
+    MonitoringJobDefinition: Optional[MonitoringJobDefinition] = None
     MonitoringJobDefinitionName: Optional[str] = None
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
-class SpaceSettingsUnionTypeDef(BaseValidatorModel):
+class SpaceSettingsUnion(BaseValidatorModel):
     pass
 
 
-class CreateSpaceRequestTypeDef(BaseValidatorModel):
+class CreateSpaceRequest(BaseValidatorModel):
     DomainId: str
     SpaceName: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    SpaceSettings: Optional[SpaceSettingsUnionTypeDef] = None
-    OwnershipSettings: Optional[OwnershipSettingsTypeDef] = None
-    SpaceSharingSettings: Optional[SpaceSharingSettingsTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    SpaceSettings: Optional[SpaceSettingsUnion] = None
+    OwnershipSettings: Optional[OwnershipSettings] = None
+    SpaceSharingSettings: Optional[SpaceSharingSettings] = None
     SpaceDisplayName: Optional[str] = None
 
 
-class UpdateSpaceRequestTypeDef(BaseValidatorModel):
+class UpdateSpaceRequest(BaseValidatorModel):
     DomainId: str
     SpaceName: str
-    SpaceSettings: Optional[SpaceSettingsUnionTypeDef] = None
+    SpaceSettings: Optional[SpaceSettingsUnion] = None
     SpaceDisplayName: Optional[str] = None
 
 
-class ModelPackageValidationSpecificationOutputTypeDef(BaseValidatorModel):
+class ModelPackageValidationSpecificationOutput(BaseValidatorModel):
     ValidationRole: str
-    ValidationProfiles: List[ModelPackageValidationProfileOutputTypeDef]
+    ValidationProfiles: List[ModelPackageValidationProfileOutput]
 
 
-class ModelPackageValidationSpecificationTypeDef(BaseValidatorModel):
+class ModelPackageValidationSpecification(BaseValidatorModel):
     ValidationRole: str
-    ValidationProfiles: Sequence[ModelPackageValidationProfileTypeDef]
+    ValidationProfiles: Sequence[ModelPackageValidationProfile]
 
 
-class AlgorithmValidationSpecificationOutputTypeDef(BaseValidatorModel):
+class AlgorithmValidationSpecificationOutput(BaseValidatorModel):
     ValidationRole: str
-    ValidationProfiles: List[AlgorithmValidationProfileOutputTypeDef]
+    ValidationProfiles: List[AlgorithmValidationProfileOutput]
 
 
-class TrialComponentTypeDef(BaseValidatorModel):
+class TrialComponent(BaseValidatorModel):
     TrialComponentName: Optional[str] = None
     DisplayName: Optional[str] = None
     TrialComponentArn: Optional[str] = None
-    Source: Optional[TrialComponentSourceTypeDef] = None
-    Status: Optional[TrialComponentStatusTypeDef] = None
+    Source: Optional[TrialComponentSource] = None
+    Status: Optional[TrialComponentStatus] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     CreationTime: Optional[datetime] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
-    Parameters: Optional[Dict[str, TrialComponentParameterValueTypeDef]] = None
-    InputArtifacts: Optional[Dict[str, TrialComponentArtifactTypeDef]] = None
-    OutputArtifacts: Optional[Dict[str, TrialComponentArtifactTypeDef]] = None
-    Metrics: Optional[List[TrialComponentMetricSummaryTypeDef]] = None
-    MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
-    SourceDetail: Optional[TrialComponentSourceDetailTypeDef] = None
+    LastModifiedBy: Optional[UserContext] = None
+    Parameters: Optional[Dict[str, TrialComponentParameterValue]] = None
+    InputArtifacts: Optional[Dict[str, TrialComponentArtifact]] = None
+    OutputArtifacts: Optional[Dict[str, TrialComponentArtifact]] = None
+    Metrics: Optional[List[TrialComponentMetricSummary]] = None
+    MetadataProperties: Optional[MetadataProperties] = None
+    SourceDetail: Optional[TrialComponentSourceDetail] = None
     LineageGroupArn: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    Parents: Optional[List[ParentTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
+    Parents: Optional[List[Parent]] = None
     RunName: Optional[str] = None
 
 
-class ChannelTypeDef(BaseValidatorModel):
+class Channel(BaseValidatorModel):
     pass
 
 
-class TrainingJobDefinitionTypeDef(BaseValidatorModel):
+class TrainingJobDefinition(BaseValidatorModel):
     TrainingInputMode: TrainingInputModeType
-    InputDataConfig: Sequence[ChannelTypeDef]
-    OutputDataConfig: OutputDataConfigTypeDef
-    ResourceConfig: ResourceConfigTypeDef
-    StoppingCondition: StoppingConditionTypeDef
+    InputDataConfig: Sequence[Channel]
+    OutputDataConfig: OutputDataConfig
+    ResourceConfig: ResourceConfig
+    StoppingCondition: StoppingCondition
     HyperParameters: Optional[Mapping[str, str]] = None
 
 
-class BatchDescribeModelPackageOutputTypeDef(BaseValidatorModel):
-    ModelPackageSummaries: Dict[str, BatchDescribeModelPackageSummaryTypeDef]
-    BatchDescribeModelPackageErrorMap: Dict[str, BatchDescribeModelPackageErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDescribeModelPackageOutput(BaseValidatorModel):
+    ModelPackageSummaries: Dict[str, BatchDescribeModelPackageSummary]
+    BatchDescribeModelPackageErrorMap: Dict[str, BatchDescribeModelPackageError]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMonitoringScheduleResponseTypeDef(BaseValidatorModel):
+class DescribeMonitoringScheduleResponse(BaseValidatorModel):
     MonitoringScheduleArn: str
     MonitoringScheduleName: str
     MonitoringScheduleStatus: ScheduleStatusType
@@ -10988,13 +10988,13 @@ class DescribeMonitoringScheduleResponseTypeDef(BaseValidatorModel):
     FailureReason: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    MonitoringScheduleConfig: MonitoringScheduleConfigOutputTypeDef
+    MonitoringScheduleConfig: MonitoringScheduleConfigOutput
     EndpointName: str
-    LastMonitoringExecutionSummary: MonitoringExecutionSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LastMonitoringExecutionSummary: MonitoringExecutionSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ModelDashboardMonitoringScheduleTypeDef(BaseValidatorModel):
+class ModelDashboardMonitoringSchedule(BaseValidatorModel):
     MonitoringScheduleArn: Optional[str] = None
     MonitoringScheduleName: Optional[str] = None
     MonitoringScheduleStatus: Optional[ScheduleStatusType] = None
@@ -11002,14 +11002,14 @@ class ModelDashboardMonitoringScheduleTypeDef(BaseValidatorModel):
     FailureReason: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    MonitoringScheduleConfig: Optional[MonitoringScheduleConfigOutputTypeDef] = None
+    MonitoringScheduleConfig: Optional[MonitoringScheduleConfigOutput] = None
     EndpointName: Optional[str] = None
-    MonitoringAlertSummaries: Optional[List[MonitoringAlertSummaryTypeDef]] = None
-    LastMonitoringExecutionSummary: Optional[MonitoringExecutionSummaryTypeDef] = None
-    BatchTransformInput: Optional[BatchTransformInputOutputTypeDef] = None
+    MonitoringAlertSummaries: Optional[List[MonitoringAlertSummary]] = None
+    LastMonitoringExecutionSummary: Optional[MonitoringExecutionSummary] = None
+    BatchTransformInput: Optional[BatchTransformInputOutput] = None
 
 
-class MonitoringScheduleTypeDef(BaseValidatorModel):
+class MonitoringSchedule(BaseValidatorModel):
     MonitoringScheduleArn: Optional[str] = None
     MonitoringScheduleName: Optional[str] = None
     MonitoringScheduleStatus: Optional[ScheduleStatusType] = None
@@ -11017,346 +11017,346 @@ class MonitoringScheduleTypeDef(BaseValidatorModel):
     FailureReason: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    MonitoringScheduleConfig: Optional[MonitoringScheduleConfigOutputTypeDef] = None
+    MonitoringScheduleConfig: Optional[MonitoringScheduleConfigOutput] = None
     EndpointName: Optional[str] = None
-    LastMonitoringExecutionSummary: Optional[MonitoringExecutionSummaryTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    LastMonitoringExecutionSummary: Optional[MonitoringExecutionSummary] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class DescribeModelPackageOutputTypeDef(BaseValidatorModel):
+class DescribeModelPackageOutput(BaseValidatorModel):
     ModelPackageName: str
     ModelPackageGroupName: str
     ModelPackageVersion: int
     ModelPackageArn: str
     ModelPackageDescription: str
     CreationTime: datetime
-    InferenceSpecification: InferenceSpecificationOutputTypeDef
-    SourceAlgorithmSpecification: SourceAlgorithmSpecificationOutputTypeDef
-    ValidationSpecification: ModelPackageValidationSpecificationOutputTypeDef
+    InferenceSpecification: InferenceSpecificationOutput
+    SourceAlgorithmSpecification: SourceAlgorithmSpecificationOutput
+    ValidationSpecification: ModelPackageValidationSpecificationOutput
     ModelPackageStatus: ModelPackageStatusType
-    ModelPackageStatusDetails: ModelPackageStatusDetailsTypeDef
+    ModelPackageStatusDetails: ModelPackageStatusDetails
     CertifyForMarketplace: bool
     ModelApprovalStatus: ModelApprovalStatusType
-    CreatedBy: UserContextTypeDef
-    MetadataProperties: MetadataPropertiesTypeDef
-    ModelMetrics: ModelMetricsTypeDef
+    CreatedBy: UserContext
+    MetadataProperties: MetadataProperties
+    ModelMetrics: ModelMetrics
     LastModifiedTime: datetime
-    LastModifiedBy: UserContextTypeDef
+    LastModifiedBy: UserContext
     ApprovalDescription: str
     Domain: str
     Task: str
     SamplePayloadUrl: str
     CustomerMetadataProperties: Dict[str, str]
-    DriftCheckBaselines: DriftCheckBaselinesTypeDef
-    AdditionalInferenceSpecifications: List[AdditionalInferenceSpecificationDefinitionOutputTypeDef]
+    DriftCheckBaselines: DriftCheckBaselines
+    AdditionalInferenceSpecifications: List[AdditionalInferenceSpecificationDefinitionOutput]
     SkipModelValidation: SkipModelValidationType
     SourceUri: str
-    SecurityConfig: ModelPackageSecurityConfigTypeDef
-    ModelCard: ModelPackageModelCardTypeDef
-    ModelLifeCycle: ModelLifeCycleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    SecurityConfig: ModelPackageSecurityConfig
+    ModelCard: ModelPackageModelCard
+    ModelLifeCycle: ModelLifeCycle
+    ResponseMetadata: ResponseMetadata
 
 
-class ModelPackageTypeDef(BaseValidatorModel):
+class ModelPackage(BaseValidatorModel):
     ModelPackageName: Optional[str] = None
     ModelPackageGroupName: Optional[str] = None
     ModelPackageVersion: Optional[int] = None
     ModelPackageArn: Optional[str] = None
     ModelPackageDescription: Optional[str] = None
     CreationTime: Optional[datetime] = None
-    InferenceSpecification: Optional[InferenceSpecificationOutputTypeDef] = None
-    SourceAlgorithmSpecification: Optional[SourceAlgorithmSpecificationOutputTypeDef] = None
-    ValidationSpecification: Optional[ModelPackageValidationSpecificationOutputTypeDef] = None
+    InferenceSpecification: Optional[InferenceSpecificationOutput] = None
+    SourceAlgorithmSpecification: Optional[SourceAlgorithmSpecificationOutput] = None
+    ValidationSpecification: Optional[ModelPackageValidationSpecificationOutput] = None
     ModelPackageStatus: Optional[ModelPackageStatusType] = None
-    ModelPackageStatusDetails: Optional[ModelPackageStatusDetailsTypeDef] = None
+    ModelPackageStatusDetails: Optional[ModelPackageStatusDetails] = None
     CertifyForMarketplace: Optional[bool] = None
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
-    CreatedBy: Optional[UserContextTypeDef] = None
-    MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
-    ModelMetrics: Optional[ModelMetricsTypeDef] = None
+    CreatedBy: Optional[UserContext] = None
+    MetadataProperties: Optional[MetadataProperties] = None
+    ModelMetrics: Optional[ModelMetrics] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedBy: Optional[UserContextTypeDef] = None
+    LastModifiedBy: Optional[UserContext] = None
     ApprovalDescription: Optional[str] = None
     Domain: Optional[str] = None
     Task: Optional[str] = None
     SamplePayloadUrl: Optional[str] = None
-    AdditionalInferenceSpecifications: Optional[ List[AdditionalInferenceSpecificationDefinitionOutputTypeDef] ] = None
+    AdditionalInferenceSpecifications: Optional[ List[AdditionalInferenceSpecificationDefinitionOutput] ] = None
     SourceUri: Optional[str] = None
-    SecurityConfig: Optional[ModelPackageSecurityConfigTypeDef] = None
-    ModelCard: Optional[ModelPackageModelCardTypeDef] = None
-    ModelLifeCycle: Optional[ModelLifeCycleTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    SecurityConfig: Optional[ModelPackageSecurityConfig] = None
+    ModelCard: Optional[ModelPackageModelCard] = None
+    ModelLifeCycle: Optional[ModelLifeCycle] = None
+    Tags: Optional[List[Tag]] = None
     CustomerMetadataProperties: Optional[Dict[str, str]] = None
-    DriftCheckBaselines: Optional[DriftCheckBaselinesTypeDef] = None
+    DriftCheckBaselines: Optional[DriftCheckBaselines] = None
     SkipModelValidation: Optional[SkipModelValidationType] = None
 
 
-class DescribeAlgorithmOutputTypeDef(BaseValidatorModel):
+class DescribeAlgorithmOutput(BaseValidatorModel):
     AlgorithmName: str
     AlgorithmArn: str
     AlgorithmDescription: str
     CreationTime: datetime
-    TrainingSpecification: TrainingSpecificationOutputTypeDef
-    InferenceSpecification: InferenceSpecificationOutputTypeDef
-    ValidationSpecification: AlgorithmValidationSpecificationOutputTypeDef
+    TrainingSpecification: TrainingSpecificationOutput
+    InferenceSpecification: InferenceSpecificationOutput
+    ValidationSpecification: AlgorithmValidationSpecificationOutput
     AlgorithmStatus: AlgorithmStatusType
-    AlgorithmStatusDetails: AlgorithmStatusDetailsTypeDef
+    AlgorithmStatusDetails: AlgorithmStatusDetails
     ProductId: str
     CertifyForMarketplace: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResourceConfigUnionTypeDef(BaseValidatorModel):
+class ResourceConfigUnion(BaseValidatorModel):
     pass
 
 
-class ChannelUnionTypeDef(BaseValidatorModel):
+class ChannelUnion(BaseValidatorModel):
     pass
 
 
-class DebugHookConfigUnionTypeDef(BaseValidatorModel):
+class DebugHookConfigUnion(BaseValidatorModel):
     pass
 
 
-class DebugRuleConfigurationUnionTypeDef(BaseValidatorModel):
+class DebugRuleConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class ProfilerConfigUnionTypeDef(BaseValidatorModel):
+class ProfilerConfigUnion(BaseValidatorModel):
     pass
 
 
-class AlgorithmSpecificationUnionTypeDef(BaseValidatorModel):
+class AlgorithmSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class CreateTrainingJobRequestTypeDef(BaseValidatorModel):
+class CreateTrainingJobRequest(BaseValidatorModel):
     TrainingJobName: str
-    AlgorithmSpecification: AlgorithmSpecificationUnionTypeDef
+    AlgorithmSpecification: AlgorithmSpecificationUnion
     RoleArn: str
-    OutputDataConfig: OutputDataConfigTypeDef
-    ResourceConfig: ResourceConfigUnionTypeDef
-    StoppingCondition: StoppingConditionTypeDef
+    OutputDataConfig: OutputDataConfig
+    ResourceConfig: ResourceConfigUnion
+    StoppingCondition: StoppingCondition
     HyperParameters: Optional[Mapping[str, str]] = None
-    InputDataConfig: Optional[Sequence[ChannelUnionTypeDef]] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    InputDataConfig: Optional[Sequence[ChannelUnion]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
     EnableNetworkIsolation: Optional[bool] = None
     EnableInterContainerTrafficEncryption: Optional[bool] = None
     EnableManagedSpotTraining: Optional[bool] = None
-    CheckpointConfig: Optional[CheckpointConfigTypeDef] = None
-    DebugHookConfig: Optional[DebugHookConfigUnionTypeDef] = None
-    DebugRuleConfigurations: Optional[Sequence[DebugRuleConfigurationUnionTypeDef]] = None
-    TensorBoardOutputConfig: Optional[TensorBoardOutputConfigTypeDef] = None
-    ExperimentConfig: Optional[ExperimentConfigTypeDef] = None
-    ProfilerConfig: Optional[ProfilerConfigUnionTypeDef] = None
-    ProfilerRuleConfigurations: Optional[Sequence[ProfilerRuleConfigurationUnionTypeDef]] = None
+    CheckpointConfig: Optional[CheckpointConfig] = None
+    DebugHookConfig: Optional[DebugHookConfigUnion] = None
+    DebugRuleConfigurations: Optional[Sequence[DebugRuleConfigurationUnion]] = None
+    TensorBoardOutputConfig: Optional[TensorBoardOutputConfig] = None
+    ExperimentConfig: Optional[ExperimentConfig] = None
+    ProfilerConfig: Optional[ProfilerConfigUnion] = None
+    ProfilerRuleConfigurations: Optional[Sequence[ProfilerRuleConfigurationUnion]] = None
     Environment: Optional[Mapping[str, str]] = None
-    RetryStrategy: Optional[RetryStrategyTypeDef] = None
-    RemoteDebugConfig: Optional[RemoteDebugConfigTypeDef] = None
-    InfraCheckConfig: Optional[InfraCheckConfigTypeDef] = None
-    SessionChainingConfig: Optional[SessionChainingConfigTypeDef] = None
+    RetryStrategy: Optional[RetryStrategy] = None
+    RemoteDebugConfig: Optional[RemoteDebugConfig] = None
+    InfraCheckConfig: Optional[InfraCheckConfig] = None
+    SessionChainingConfig: Optional[SessionChainingConfig] = None
 
 
-class HyperParameterTuningResourceConfigUnionTypeDef(BaseValidatorModel):
+class HyperParameterTuningResourceConfigUnion(BaseValidatorModel):
     pass
 
 
-class ParameterRangesUnionTypeDef(BaseValidatorModel):
+class ParameterRangesUnion(BaseValidatorModel):
     pass
 
 
-class HyperParameterAlgorithmSpecificationUnionTypeDef(BaseValidatorModel):
+class HyperParameterAlgorithmSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class HyperParameterTrainingJobDefinitionTypeDef(BaseValidatorModel):
-    AlgorithmSpecification: HyperParameterAlgorithmSpecificationUnionTypeDef
+class HyperParameterTrainingJobDefinition(BaseValidatorModel):
+    AlgorithmSpecification: HyperParameterAlgorithmSpecificationUnion
     RoleArn: str
-    OutputDataConfig: OutputDataConfigTypeDef
-    StoppingCondition: StoppingConditionTypeDef
+    OutputDataConfig: OutputDataConfig
+    StoppingCondition: StoppingCondition
     DefinitionName: Optional[str] = None
-    TuningObjective: Optional[HyperParameterTuningJobObjectiveTypeDef] = None
-    HyperParameterRanges: Optional[ParameterRangesUnionTypeDef] = None
+    TuningObjective: Optional[HyperParameterTuningJobObjective] = None
+    HyperParameterRanges: Optional[ParameterRangesUnion] = None
     StaticHyperParameters: Optional[Mapping[str, str]] = None
-    InputDataConfig: Optional[Sequence[ChannelUnionTypeDef]] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    ResourceConfig: Optional[ResourceConfigUnionTypeDef] = None
-    HyperParameterTuningResourceConfig: Optional[HyperParameterTuningResourceConfigUnionTypeDef] = None
+    InputDataConfig: Optional[Sequence[ChannelUnion]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
+    ResourceConfig: Optional[ResourceConfigUnion] = None
+    HyperParameterTuningResourceConfig: Optional[HyperParameterTuningResourceConfigUnion] = None
     EnableNetworkIsolation: Optional[bool] = None
     EnableInterContainerTrafficEncryption: Optional[bool] = None
     EnableManagedSpotTraining: Optional[bool] = None
-    CheckpointConfig: Optional[CheckpointConfigTypeDef] = None
-    RetryStrategy: Optional[RetryStrategyTypeDef] = None
+    CheckpointConfig: Optional[CheckpointConfig] = None
+    RetryStrategy: Optional[RetryStrategy] = None
     Environment: Optional[Mapping[str, str]] = None
 
 
-class AlgorithmValidationProfileTypeDef(BaseValidatorModel):
+class AlgorithmValidationProfile(BaseValidatorModel):
     ProfileName: str
-    TrainingJobDefinition: TrainingJobDefinitionTypeDef
-    TransformJobDefinition: Optional[TransformJobDefinitionTypeDef] = None
+    TrainingJobDefinition: TrainingJobDefinition
+    TransformJobDefinition: Optional[TransformJobDefinition] = None
 
 
-class AdditionalInferenceSpecificationDefinitionUnionTypeDef(BaseValidatorModel):
+class AdditionalInferenceSpecificationDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class InferenceSpecificationUnionTypeDef(BaseValidatorModel):
+class InferenceSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateModelPackageInputTypeDef(BaseValidatorModel):
+class UpdateModelPackageInput(BaseValidatorModel):
     ModelPackageArn: str
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
     ApprovalDescription: Optional[str] = None
     CustomerMetadataProperties: Optional[Mapping[str, str]] = None
     CustomerMetadataPropertiesToRemove: Optional[Sequence[str]] = None
-    AdditionalInferenceSpecificationsToAdd: Optional[ Sequence[AdditionalInferenceSpecificationDefinitionUnionTypeDef] ] = None
-    InferenceSpecification: Optional[InferenceSpecificationUnionTypeDef] = None
+    AdditionalInferenceSpecificationsToAdd: Optional[ Sequence[AdditionalInferenceSpecificationDefinitionUnion] ] = None
+    InferenceSpecification: Optional[InferenceSpecificationUnion] = None
     SourceUri: Optional[str] = None
-    ModelCard: Optional[ModelPackageModelCardTypeDef] = None
-    ModelLifeCycle: Optional[ModelLifeCycleTypeDef] = None
+    ModelCard: Optional[ModelPackageModelCard] = None
+    ModelLifeCycle: Optional[ModelLifeCycle] = None
     ClientToken: Optional[str] = None
 
 
-class ModelDashboardModelTypeDef(BaseValidatorModel):
-    Model: Optional[ModelTypeDef] = None
-    Endpoints: Optional[List[ModelDashboardEndpointTypeDef]] = None
-    LastBatchTransformJob: Optional[TransformJobTypeDef] = None
-    MonitoringSchedules: Optional[List[ModelDashboardMonitoringScheduleTypeDef]] = None
-    ModelCard: Optional[ModelDashboardModelCardTypeDef] = None
+class ModelDashboardModel(BaseValidatorModel):
+    Model: Optional[Model] = None
+    Endpoints: Optional[List[ModelDashboardEndpoint]] = None
+    LastBatchTransformJob: Optional[TransformJob] = None
+    MonitoringSchedules: Optional[List[ModelDashboardMonitoringSchedule]] = None
+    ModelCard: Optional[ModelDashboardModelCard] = None
 
 
-class EndpointTypeDef(BaseValidatorModel):
+class Endpoint(BaseValidatorModel):
     EndpointName: str
     EndpointArn: str
     EndpointConfigName: str
     EndpointStatus: EndpointStatusType
     CreationTime: datetime
     LastModifiedTime: datetime
-    ProductionVariants: Optional[List[ProductionVariantSummaryTypeDef]] = None
-    DataCaptureConfig: Optional[DataCaptureConfigSummaryTypeDef] = None
+    ProductionVariants: Optional[List[ProductionVariantSummary]] = None
+    DataCaptureConfig: Optional[DataCaptureConfigSummary] = None
     FailureReason: Optional[str] = None
-    MonitoringSchedules: Optional[List[MonitoringScheduleTypeDef]] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    ShadowProductionVariants: Optional[List[ProductionVariantSummaryTypeDef]] = None
+    MonitoringSchedules: Optional[List[MonitoringSchedule]] = None
+    Tags: Optional[List[Tag]] = None
+    ShadowProductionVariants: Optional[List[ProductionVariantSummary]] = None
 
 
-class MonitoringScheduleConfigUnionTypeDef(BaseValidatorModel):
+class MonitoringScheduleConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateMonitoringScheduleRequestTypeDef(BaseValidatorModel):
+class CreateMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
-    MonitoringScheduleConfig: MonitoringScheduleConfigUnionTypeDef
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    MonitoringScheduleConfig: MonitoringScheduleConfigUnion
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateMonitoringScheduleRequestTypeDef(BaseValidatorModel):
+class UpdateMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
-    MonitoringScheduleConfig: MonitoringScheduleConfigUnionTypeDef
+    MonitoringScheduleConfig: MonitoringScheduleConfigUnion
 
 
-class ModelPackageValidationSpecificationUnionTypeDef(BaseValidatorModel):
+class ModelPackageValidationSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class SourceAlgorithmSpecificationUnionTypeDef(BaseValidatorModel):
+class SourceAlgorithmSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class CreateModelPackageInputTypeDef(BaseValidatorModel):
+class CreateModelPackageInput(BaseValidatorModel):
     ModelPackageName: Optional[str] = None
     ModelPackageGroupName: Optional[str] = None
     ModelPackageDescription: Optional[str] = None
-    InferenceSpecification: Optional[InferenceSpecificationUnionTypeDef] = None
-    ValidationSpecification: Optional[ModelPackageValidationSpecificationUnionTypeDef] = None
-    SourceAlgorithmSpecification: Optional[SourceAlgorithmSpecificationUnionTypeDef] = None
+    InferenceSpecification: Optional[InferenceSpecificationUnion] = None
+    ValidationSpecification: Optional[ModelPackageValidationSpecificationUnion] = None
+    SourceAlgorithmSpecification: Optional[SourceAlgorithmSpecificationUnion] = None
     CertifyForMarketplace: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
-    MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
-    ModelMetrics: Optional[ModelMetricsTypeDef] = None
+    MetadataProperties: Optional[MetadataProperties] = None
+    ModelMetrics: Optional[ModelMetrics] = None
     ClientToken: Optional[str] = None
     Domain: Optional[str] = None
     Task: Optional[str] = None
     SamplePayloadUrl: Optional[str] = None
     CustomerMetadataProperties: Optional[Mapping[str, str]] = None
-    DriftCheckBaselines: Optional[DriftCheckBaselinesTypeDef] = None
-    AdditionalInferenceSpecifications: Optional[ Sequence[AdditionalInferenceSpecificationDefinitionUnionTypeDef] ] = None
+    DriftCheckBaselines: Optional[DriftCheckBaselines] = None
+    AdditionalInferenceSpecifications: Optional[ Sequence[AdditionalInferenceSpecificationDefinitionUnion] ] = None
     SkipModelValidation: Optional[SkipModelValidationType] = None
     SourceUri: Optional[str] = None
-    SecurityConfig: Optional[ModelPackageSecurityConfigTypeDef] = None
-    ModelCard: Optional[ModelPackageModelCardTypeDef] = None
-    ModelLifeCycle: Optional[ModelLifeCycleTypeDef] = None
+    SecurityConfig: Optional[ModelPackageSecurityConfig] = None
+    ModelCard: Optional[ModelPackageModelCard] = None
+    ModelLifeCycle: Optional[ModelLifeCycle] = None
 
 
-class AlgorithmValidationSpecificationTypeDef(BaseValidatorModel):
+class AlgorithmValidationSpecification(BaseValidatorModel):
     ValidationRole: str
-    ValidationProfiles: Sequence[AlgorithmValidationProfileTypeDef]
+    ValidationProfiles: Sequence[AlgorithmValidationProfile]
 
 
-class SearchRecordTypeDef(BaseValidatorModel):
-    TrainingJob: Optional[TrainingJobTypeDef] = None
-    Experiment: Optional[ExperimentTypeDef] = None
-    Trial: Optional[TrialTypeDef] = None
-    TrialComponent: Optional[TrialComponentTypeDef] = None
-    Endpoint: Optional[EndpointTypeDef] = None
-    ModelPackage: Optional[ModelPackageTypeDef] = None
-    ModelPackageGroup: Optional[ModelPackageGroupTypeDef] = None
-    Pipeline: Optional[PipelineTypeDef] = None
-    PipelineExecution: Optional[PipelineExecutionTypeDef] = None
-    FeatureGroup: Optional[FeatureGroupTypeDef] = None
-    FeatureMetadata: Optional[FeatureMetadataTypeDef] = None
-    Project: Optional[ProjectTypeDef] = None
-    HyperParameterTuningJob: Optional[HyperParameterTuningJobSearchEntityTypeDef] = None
-    ModelCard: Optional[ModelCardTypeDef] = None
-    Model: Optional[ModelDashboardModelTypeDef] = None
+class SearchRecord(BaseValidatorModel):
+    TrainingJob: Optional[TrainingJob] = None
+    Experiment: Optional[Experiment] = None
+    Trial: Optional[Trial] = None
+    TrialComponent: Optional[TrialComponent] = None
+    Endpoint: Optional[Endpoint] = None
+    ModelPackage: Optional[ModelPackage] = None
+    ModelPackageGroup: Optional[ModelPackageGroup] = None
+    Pipeline: Optional[Pipeline] = None
+    PipelineExecution: Optional[PipelineExecution] = None
+    FeatureGroup: Optional[FeatureGroup] = None
+    FeatureMetadata: Optional[FeatureMetadata] = None
+    Project: Optional[Project] = None
+    HyperParameterTuningJob: Optional[HyperParameterTuningJobSearchEntity] = None
+    ModelCard: Optional[ModelCard] = None
+    Model: Optional[ModelDashboardModel] = None
 
 
-class HyperParameterTrainingJobDefinitionUnionTypeDef(BaseValidatorModel):
+class HyperParameterTrainingJobDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class HyperParameterTuningJobWarmStartConfigUnionTypeDef(BaseValidatorModel):
+class HyperParameterTuningJobWarmStartConfigUnion(BaseValidatorModel):
     pass
 
 
-class HyperParameterTuningJobConfigUnionTypeDef(BaseValidatorModel):
+class HyperParameterTuningJobConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
+class CreateHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
-    HyperParameterTuningJobConfig: HyperParameterTuningJobConfigUnionTypeDef
-    TrainingJobDefinition: Optional[HyperParameterTrainingJobDefinitionUnionTypeDef] = None
-    TrainingJobDefinitions: Optional[Sequence[HyperParameterTrainingJobDefinitionUnionTypeDef]] = None
-    WarmStartConfig: Optional[HyperParameterTuningJobWarmStartConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    Autotune: Optional[AutotuneTypeDef] = None
+    HyperParameterTuningJobConfig: HyperParameterTuningJobConfigUnion
+    TrainingJobDefinition: Optional[HyperParameterTrainingJobDefinitionUnion] = None
+    TrainingJobDefinitions: Optional[Sequence[HyperParameterTrainingJobDefinitionUnion]] = None
+    WarmStartConfig: Optional[HyperParameterTuningJobWarmStartConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
+    Autotune: Optional[Autotune] = None
 
 
-class SearchResponseTypeDef(BaseValidatorModel):
-    Results: List[SearchRecordTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchResponse(BaseValidatorModel):
+    Results: List[SearchRecord]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TrainingSpecificationUnionTypeDef(BaseValidatorModel):
+class TrainingSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class AlgorithmValidationSpecificationUnionTypeDef(BaseValidatorModel):
+class AlgorithmValidationSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class CreateAlgorithmInputTypeDef(BaseValidatorModel):
+class CreateAlgorithmInput(BaseValidatorModel):
     AlgorithmName: str
-    TrainingSpecification: TrainingSpecificationUnionTypeDef
+    TrainingSpecification: TrainingSpecificationUnion
     AlgorithmDescription: Optional[str] = None
-    InferenceSpecification: Optional[InferenceSpecificationUnionTypeDef] = None
-    ValidationSpecification: Optional[AlgorithmValidationSpecificationUnionTypeDef] = None
+    InferenceSpecification: Optional[InferenceSpecificationUnion] = None
+    ValidationSpecification: Optional[AlgorithmValidationSpecificationUnion] = None
     CertifyForMarketplace: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 

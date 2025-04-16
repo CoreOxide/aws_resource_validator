@@ -1,31 +1,31 @@
 # Shield Classes
 
-# ApplicationLayerAutomaticResponseConfigurationTypeDef
+# ApplicationLayerAutomaticResponseConfiguration
 
 ### Status
 - **Type**: typing.Literal['DISABLED', 'ENABLED']
 - **Required**: Yes
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseActionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseActionOutput'>
 - **Required**: Yes
 
 
-# AssociateDRTLogBucketRequestTypeDef
+# AssociateDRTLogBucketRequest
 
 ### LogBucket
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AssociateDRTRoleRequestTypeDef
+# AssociateDRTRoleRequest
 
 ### RoleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AssociateHealthCheckRequestTypeDef
+# AssociateHealthCheckRequest
 
 ### ProtectionId
 - **Type**: <class 'str'>
@@ -36,14 +36,14 @@
 - **Required**: Yes
 
 
-# AssociateProactiveEngagementDetailsRequestTypeDef
+# AssociateProactiveEngagementDetailsRequest
 
 ### EmergencyContactList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.shield_classes.EmergencyContactTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.shield_classes.EmergencyContact]
 - **Required**: Yes
 
 
-# AttackDetailTypeDef
+# AttackDetail
 
 ### AttackId
 - **Type**: typing.Optional[str]
@@ -52,7 +52,7 @@
 - **Type**: typing.Optional[str]
 
 ### SubResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.SubResourceSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.SubResourceSummary]]
 
 ### StartTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -61,16 +61,16 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 ### AttackCounters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.SummarizedCounterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.SummarizedCounter]]
 
 ### AttackProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.AttackPropertyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.AttackProperty]]
 
 ### Mitigations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.MitigationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.Mitigation]]
 
 
-# AttackPropertyTypeDef
+# AttackProperty
 
 ### AttackLayer
 - **Type**: typing.Optional[typing.Literal['APPLICATION', 'NETWORK']]
@@ -79,7 +79,7 @@
 - **Type**: typing.Optional[typing.Literal['DESTINATION_URL', 'REFERRER', 'SOURCE_ASN', 'SOURCE_COUNTRY', 'SOURCE_IP_ADDRESS', 'SOURCE_USER_AGENT', 'WORDPRESS_PINGBACK_REFLECTOR', 'WORDPRESS_PINGBACK_SOURCE']]
 
 ### TopContributors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.ContributorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.Contributor]]
 
 ### Unit
 - **Type**: typing.Optional[typing.Literal['BITS', 'BYTES', 'PACKETS', 'REQUESTS']]
@@ -88,17 +88,17 @@
 - **Type**: typing.Optional[int]
 
 
-# AttackStatisticsDataItemTypeDef
+# AttackStatisticsDataItem
 
 ### AttackCount
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### AttackVolume
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.AttackVolumeTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AttackSummaryTypeDef
+# AttackSummary
 
 ### AttackId
 - **Type**: typing.Optional[str]
@@ -113,33 +113,33 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 ### AttackVectors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.AttackVectorDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.AttackVectorDescription]]
 
 
-# AttackVectorDescriptionTypeDef
+# AttackVectorDescription
 
 ### VectorType
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AttackVolumeStatisticsTypeDef
+# AttackVolume
+
+### BitsPerSecond
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.AttackVolumeStatistics]
+
+### PacketsPerSecond
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.AttackVolumeStatistics]
+
+### RequestsPerSecond
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.AttackVolumeStatistics]
+
+
+# AttackVolumeStatistics
 
 ### Max
 - **Type**: <class 'float'>
 - **Required**: Yes
-
-
-# AttackVolumeTypeDef
-
-### BitsPerSecond
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.AttackVolumeStatisticsTypeDef]
-
-### PacketsPerSecond
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.AttackVolumeStatisticsTypeDef]
-
-### RequestsPerSecond
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.AttackVolumeStatisticsTypeDef]
 
 
 # BaseValidatorModel
@@ -148,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContributorTypeDef
+# Contributor
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -157,7 +157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateProtectionRequestTypeDef
+# CreateProtectionRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -168,68 +168,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.shield_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.shield_classes.Tag]]
 
 
-# CreateProtectionResponseTypeDef
+# CreateProtectionResponse
 
 ### ProtectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteProtectionGroupRequestTypeDef
+# DeleteProtectionGroupRequest
 
 ### ProtectionGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteProtectionRequestTypeDef
+# DeleteProtectionRequest
 
 ### ProtectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAttackRequestTypeDef
+# DescribeAttackRequest
 
 ### AttackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAttackResponseTypeDef
+# DescribeAttackResponse
 
 ### Attack
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.AttackDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.AttackDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAttackStatisticsResponseTypeDef
+# DescribeAttackStatisticsResponse
 
 ### TimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.TimeRangeOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.TimeRangeOutput'>
 - **Required**: Yes
 
 ### DataItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.AttackStatisticsDataItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.AttackStatisticsDataItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDRTAccessResponseTypeDef
+# DescribeDRTAccessResponse
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -240,40 +240,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEmergencyContactSettingsResponseTypeDef
+# DescribeEmergencyContactSettingsResponse
 
 ### EmergencyContactList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.EmergencyContactTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.EmergencyContact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeProtectionGroupRequestTypeDef
+# DescribeProtectionGroupRequest
 
 ### ProtectionGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeProtectionGroupResponseTypeDef
+# DescribeProtectionGroupResponse
 
 ### ProtectionGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeProtectionRequestTypeDef
+# DescribeProtectionRequest
 
 ### ProtectionId
 - **Type**: typing.Optional[str]
@@ -282,43 +282,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeProtectionResponseTypeDef
+# DescribeProtectionResponse
 
 ### Protection
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.Protection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSubscriptionResponseTypeDef
+# DescribeSubscriptionResponse
 
 ### Subscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.SubscriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.Subscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisableApplicationLayerAutomaticResponseRequestTypeDef
+# DisableApplicationLayerAutomaticResponseRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateDRTLogBucketRequestTypeDef
+# DisassociateDRTLogBucketRequest
 
 ### LogBucket
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateHealthCheckRequestTypeDef
+# DisassociateHealthCheckRequest
 
 ### ProtectionId
 - **Type**: <class 'str'>
@@ -329,7 +329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EmergencyContactTypeDef
+# EmergencyContact
 
 ### EmailAddress
 - **Type**: <class 'str'>
@@ -342,29 +342,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnableApplicationLayerAutomaticResponseRequestTypeDef
+# EnableApplicationLayerAutomaticResponseRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseActionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseActionUnion'>
 - **Required**: Yes
 
 
-# GetSubscriptionStateResponseTypeDef
+# GetSubscriptionStateResponse
 
 ### SubscriptionState
 - **Type**: typing.Literal['ACTIVE', 'INACTIVE']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InclusionProtectionFiltersTypeDef
+# InclusionProtectionFilters
 
 ### ResourceArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -376,7 +376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['APPLICATION_LOAD_BALANCER', 'CLASSIC_LOAD_BALANCER', 'CLOUDFRONT_DISTRIBUTION', 'ELASTIC_IP_ALLOCATION', 'GLOBAL_ACCELERATOR', 'ROUTE_53_HOSTED_ZONE']]]
 
 
-# InclusionProtectionGroupFiltersTypeDef
+# InclusionProtectionGroupFilters
 
 ### ProtectionGroupIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -391,37 +391,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['MAX', 'MEAN', 'SUM']]]
 
 
-# LimitTypeDef
+# Limit
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListAttacksRequestPaginateTypeDef
+# ListAttacksRequest
 
 ### ResourceArns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimeRangeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimeRangeUnion]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimeRangeUnionTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.PaginatorConfigTypeDef]
-
-
-# ListAttacksRequestTypeDef
-
-### ResourceArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimeRangeUnionTypeDef]
-
-### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimeRangeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimeRangeUnion]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -430,21 +415,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAttacksResponseTypeDef
+# ListAttacksRequestPaginate
+
+### ResourceArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimeRangeUnion]
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimeRangeUnion]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.PaginatorConfig]
+
+
+# ListAttacksResponse
 
 ### AttackSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.AttackSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.AttackSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProtectionGroupsRequestTypeDef
+# ListProtectionGroupsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -453,33 +453,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InclusionFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.InclusionProtectionGroupFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.InclusionProtectionGroupFilters]
 
 
-# ListProtectionGroupsResponseTypeDef
+# ListProtectionGroupsResponse
 
 ### ProtectionGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.ProtectionGroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.ProtectionGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProtectionsRequestPaginateTypeDef
-
-### InclusionFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.InclusionProtectionFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.PaginatorConfigTypeDef]
-
-
-# ListProtectionsRequestTypeDef
+# ListProtectionsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -488,24 +479,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InclusionFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.InclusionProtectionFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.InclusionProtectionFilters]
 
 
-# ListProtectionsResponseTypeDef
+# ListProtectionsRequestPaginate
+
+### InclusionFilters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.InclusionProtectionFilters]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.PaginatorConfig]
+
+
+# ListProtectionsResponse
 
 ### Protections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.ProtectionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.Protection]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourcesInProtectionGroupRequestTypeDef
+# ListResourcesInProtectionGroupRequest
 
 ### ProtectionGroupId
 - **Type**: <class 'str'>
@@ -518,45 +518,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListResourcesInProtectionGroupResponseTypeDef
+# ListResourcesInProtectionGroupResponse
 
 ### ResourceArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MitigationTypeDef
+# Mitigation
 
 ### MitigationName
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -568,45 +568,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProtectionGroupArbitraryPatternLimitsTypeDef
-
-### MaxMembers
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-
-# ProtectionGroupLimitsTypeDef
-
-### MaxProtectionGroups
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### PatternTypeLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionGroupPatternTypeLimitsTypeDef'>
-- **Required**: Yes
-
-
-# ProtectionGroupPatternTypeLimitsTypeDef
-
-### ArbitraryPatternLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionGroupArbitraryPatternLimitsTypeDef'>
-- **Required**: Yes
-
-
-# ProtectionGroupTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ProtectionLimitsTypeDef
-
-### ProtectedResourceTypeLimits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.LimitTypeDef]
-- **Required**: Yes
-
-
-# ProtectionTypeDef
+# Protection
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -624,34 +586,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ApplicationLayerAutomaticResponseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.ApplicationLayerAutomaticResponseConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ResponseActionOutputTypeDef
-
-### Block
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### Count
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-
-# ResponseActionTypeDef
-
-### Block
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
-
-### Count
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
-
-
-# ResponseActionUnionTypeDef
+# ProtectionGroup
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ProtectionGroupArbitraryPatternLimits
+
+### MaxMembers
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# ProtectionGroupLimits
+
+### MaxProtectionGroups
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### PatternTypeLimits
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionGroupPatternTypeLimits'>
+- **Required**: Yes
+
+
+# ProtectionGroupPatternTypeLimits
+
+### ArbitraryPatternLimits
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionGroupArbitraryPatternLimits'>
+- **Required**: Yes
+
+
+# ProtectionLimits
+
+### ProtectedResourceTypeLimits
+- **Type**: typing.List[aws_resource_validator.pydantic_models.shield_classes.Limit]
+- **Required**: Yes
+
+
+# ResponseAction
+
+### Block
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### Count
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+
+# ResponseActionOutput
+
+### Block
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### Count
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+
+# ResponseActionUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -673,27 +673,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SubResourceSummaryTypeDef
+# SubResourceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SubscriptionLimitsTypeDef
-
-### ProtectionLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionLimitsTypeDef'>
-- **Required**: Yes
-
-### ProtectionGroupLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionGroupLimitsTypeDef'>
-- **Required**: Yes
-
-
-# SubscriptionTypeDef
+# Subscription
 
 ### SubscriptionLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.SubscriptionLimitsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.SubscriptionLimits'>
 - **Required**: Yes
 
 ### StartTime
@@ -709,7 +698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### Limits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.LimitTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.Limit]]
 
 ### ProactiveEngagementStatus
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'PENDING']]
@@ -718,17 +707,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SummarizedAttackVectorTypeDef
+# SubscriptionLimits
+
+### ProtectionLimits
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionLimits'>
+- **Required**: Yes
+
+### ProtectionGroupLimits
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ProtectionGroupLimits'>
+- **Required**: Yes
+
+
+# SummarizedAttackVector
 
 ### VectorType
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VectorCounters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.SummarizedCounterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.shield_classes.SummarizedCounter]]
 
 
-# SummarizedCounterTypeDef
+# SummarizedCounter
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -749,18 +749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.shield_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -769,7 +758,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimeRangeOutputTypeDef
+# TagResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.shield_classes.Tag]
+- **Required**: Yes
+
+
+# TimeRange
+
+### FromInclusive
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.Timestamp]
+
+### ToExclusive
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.Timestamp]
+
+
+# TimeRangeOutput
 
 ### FromInclusive
 - **Type**: typing.Optional[datetime.datetime]
@@ -778,28 +787,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TimeRangeTypeDef
-
-### FromInclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimestampTypeDef]
-
-### ToExclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.shield_classes.TimestampTypeDef]
-
-
-# TimeRangeUnionTypeDef
+# TimeRangeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -810,24 +810,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationLayerAutomaticResponseRequestTypeDef
+# UpdateApplicationLayerAutomaticResponseRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseActionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.shield_classes.ResponseActionUnion'>
 - **Required**: Yes
 
 
-# UpdateEmergencyContactSettingsRequestTypeDef
+# UpdateEmergencyContactSettingsRequest
 
 ### EmergencyContactList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.shield_classes.EmergencyContactTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.shield_classes.EmergencyContact]]
 
 
-# UpdateSubscriptionRequestTypeDef
+# UpdateSubscriptionRequest
 
 ### AutoRenew
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]

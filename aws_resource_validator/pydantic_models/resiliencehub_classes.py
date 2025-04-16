@@ -12,16 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.resiliencehub_constants import *
 
-class AcceptGroupingRecommendationEntryTypeDef(BaseValidatorModel):
+class AcceptGroupingRecommendationEntry(BaseValidatorModel):
     groupingRecommendationId: str
 
 
-class FailedGroupingRecommendationEntryTypeDef(BaseValidatorModel):
+class FailedGroupingRecommendationEntry(BaseValidatorModel):
     errorMessage: str
     groupingRecommendationId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -29,18 +29,18 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AlarmTypeDef(BaseValidatorModel):
+class Alarm(BaseValidatorModel):
     alarmArn: Optional[str] = None
     source: Optional[str] = None
 
 
-class CostTypeDef(BaseValidatorModel):
+class Cost(BaseValidatorModel):
     amount: float
     currency: str
     frequency: CostFrequencyType
 
 
-class DisruptionComplianceTypeDef(BaseValidatorModel):
+class DisruptionCompliance(BaseValidatorModel):
     complianceStatus: ComplianceStatusType
     achievableRpoInSecs: Optional[int] = None
     achievableRtoInSecs: Optional[int] = None
@@ -53,16 +53,16 @@ class DisruptionComplianceTypeDef(BaseValidatorModel):
     rtoReferenceId: Optional[str] = None
 
 
-class EksSourceClusterNamespaceTypeDef(BaseValidatorModel):
+class EksSourceClusterNamespace(BaseValidatorModel):
     eksClusterArn: str
     namespace: str
 
 
-class TerraformSourceTypeDef(BaseValidatorModel):
+class TerraformSource(BaseValidatorModel):
     s3StateFileUrl: str
 
 
-class AppSummaryTypeDef(BaseValidatorModel):
+class AppSummary(BaseValidatorModel):
     appArn: str
     creationTime: datetime
     name: str
@@ -78,37 +78,37 @@ class AppSummaryTypeDef(BaseValidatorModel):
     status: Optional[AppStatusTypeType] = None
 
 
-class EventSubscriptionTypeDef(BaseValidatorModel):
+class EventSubscription(BaseValidatorModel):
     eventType: EventTypeType
     name: str
     snsTopicArn: Optional[str] = None
 
 
-class AppVersionSummaryTypeDef(BaseValidatorModel):
+class AppVersionSummary(BaseValidatorModel):
     appVersion: str
     creationTime: Optional[datetime] = None
     identifier: Optional[int] = None
     versionName: Optional[str] = None
 
 
-class AssessmentRiskRecommendationTypeDef(BaseValidatorModel):
+class AssessmentRiskRecommendation(BaseValidatorModel):
     appComponents: Optional[List[str]] = None
     recommendation: Optional[str] = None
     risk: Optional[str] = None
 
 
-class BatchUpdateRecommendationStatusFailedEntryTypeDef(BaseValidatorModel):
+class BatchUpdateRecommendationStatusFailedEntry(BaseValidatorModel):
     entryId: str
     errorMessage: str
 
 
-class UpdateRecommendationStatusItemTypeDef(BaseValidatorModel):
+class UpdateRecommendationStatusItem(BaseValidatorModel):
     resourceId: Optional[str] = None
     targetAccountId: Optional[str] = None
     targetRegion: Optional[str] = None
 
 
-class RecommendationDisruptionComplianceTypeDef(BaseValidatorModel):
+class RecommendationDisruptionCompliance(BaseValidatorModel):
     expectedComplianceStatus: ComplianceStatusType
     expectedRpoDescription: Optional[str] = None
     expectedRpoInSecs: Optional[int] = None
@@ -116,7 +116,7 @@ class RecommendationDisruptionComplianceTypeDef(BaseValidatorModel):
     expectedRtoInSecs: Optional[int] = None
 
 
-class LogicalResourceIdTypeDef(BaseValidatorModel):
+class LogicalResourceId(BaseValidatorModel):
     identifier: str
     eksSourceName: Optional[str] = None
     logicalStackName: Optional[str] = None
@@ -124,133 +124,133 @@ class LogicalResourceIdTypeDef(BaseValidatorModel):
     terraformSourceName: Optional[str] = None
 
 
-class FailurePolicyTypeDef(BaseValidatorModel):
+class FailurePolicy(BaseValidatorModel):
     rpoInSecs: int
     rtoInSecs: int
 
 
-class DeleteAppAssessmentRequestTypeDef(BaseValidatorModel):
+class DeleteAppAssessmentRequest(BaseValidatorModel):
     assessmentArn: str
     clientToken: Optional[str] = None
 
 
-class DeleteAppRequestTypeDef(BaseValidatorModel):
+class DeleteAppRequest(BaseValidatorModel):
     appArn: str
     clientToken: Optional[str] = None
     forceDelete: Optional[bool] = None
 
 
-class DeleteRecommendationTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteRecommendationTemplateRequest(BaseValidatorModel):
     recommendationTemplateArn: str
     clientToken: Optional[str] = None
 
 
-class DeleteResiliencyPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResiliencyPolicyRequest(BaseValidatorModel):
     policyArn: str
     clientToken: Optional[str] = None
 
 
-class DescribeAppAssessmentRequestTypeDef(BaseValidatorModel):
+class DescribeAppAssessmentRequest(BaseValidatorModel):
     assessmentArn: str
 
 
-class DescribeAppRequestTypeDef(BaseValidatorModel):
+class DescribeAppRequest(BaseValidatorModel):
     appArn: str
 
 
-class DescribeAppVersionRequestTypeDef(BaseValidatorModel):
+class DescribeAppVersionRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
 
 
-class DescribeAppVersionResourcesResolutionStatusRequestTypeDef(BaseValidatorModel):
+class DescribeAppVersionResourcesResolutionStatusRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     resolutionId: Optional[str] = None
 
 
-class DescribeAppVersionTemplateRequestTypeDef(BaseValidatorModel):
+class DescribeAppVersionTemplateRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
 
 
-class DescribeDraftAppVersionResourcesImportStatusRequestTypeDef(BaseValidatorModel):
+class DescribeDraftAppVersionResourcesImportStatusRequest(BaseValidatorModel):
     appArn: str
 
 
-class ErrorDetailTypeDef(BaseValidatorModel):
+class ErrorDetail(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
-class DescribeMetricsExportRequestTypeDef(BaseValidatorModel):
+class DescribeMetricsExportRequest(BaseValidatorModel):
     metricsExportId: str
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     bucket: Optional[str] = None
     prefix: Optional[str] = None
 
 
-class DescribeResiliencyPolicyRequestTypeDef(BaseValidatorModel):
+class DescribeResiliencyPolicyRequest(BaseValidatorModel):
     policyArn: str
 
 
-class DescribeResourceGroupingRecommendationTaskRequestTypeDef(BaseValidatorModel):
+class DescribeResourceGroupingRecommendationTaskRequest(BaseValidatorModel):
     appArn: str
     groupingId: Optional[str] = None
 
 
-class EksSourceOutputTypeDef(BaseValidatorModel):
+class EksSourceOutput(BaseValidatorModel):
     eksClusterArn: str
     namespaces: List[str]
 
 
-class EksSourceTypeDef(BaseValidatorModel):
+class EksSource(BaseValidatorModel):
     eksClusterArn: str
     namespaces: Sequence[str]
 
 
-class ExperimentTypeDef(BaseValidatorModel):
+class Experiment(BaseValidatorModel):
     experimentArn: Optional[str] = None
     experimentTemplateId: Optional[str] = None
 
 
-class FieldTypeDef(BaseValidatorModel):
+class Field(BaseValidatorModel):
     name: str
     aggregation: Optional[FieldAggregationTypeType] = None
 
 
-class GroupingAppComponentTypeDef(BaseValidatorModel):
+class GroupingAppComponent(BaseValidatorModel):
     appComponentId: str
     appComponentName: str
     appComponentType: str
 
 
-class ListAlarmRecommendationsRequestTypeDef(BaseValidatorModel):
+class ListAlarmRecommendationsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAppAssessmentComplianceDriftsRequestTypeDef(BaseValidatorModel):
+class ListAppAssessmentComplianceDriftsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAppAssessmentResourceDriftsRequestTypeDef(BaseValidatorModel):
+class ListAppAssessmentResourceDriftsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAppAssessmentsRequestTypeDef(BaseValidatorModel):
+class ListAppAssessmentsRequest(BaseValidatorModel):
     appArn: Optional[str] = None
     assessmentName: Optional[str] = None
     assessmentStatus: Optional[Sequence[AssessmentStatusType]] = None
@@ -261,40 +261,40 @@ class ListAppAssessmentsRequestTypeDef(BaseValidatorModel):
     reverseOrder: Optional[bool] = None
 
 
-class ListAppComponentCompliancesRequestTypeDef(BaseValidatorModel):
+class ListAppComponentCompliancesRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAppComponentRecommendationsRequestTypeDef(BaseValidatorModel):
+class ListAppComponentRecommendationsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAppInputSourcesRequestTypeDef(BaseValidatorModel):
+class ListAppInputSourcesRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAppVersionAppComponentsRequestTypeDef(BaseValidatorModel):
+class ListAppVersionAppComponentsRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAppVersionResourceMappingsRequestTypeDef(BaseValidatorModel):
+class ListAppVersionResourceMappingsRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAppVersionResourcesRequestTypeDef(BaseValidatorModel):
+class ListAppVersionResourcesRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     maxResults: Optional[int] = None
@@ -302,12 +302,12 @@ class ListAppVersionResourcesRequestTypeDef(BaseValidatorModel):
     resolutionId: Optional[str] = None
 
 
-class SortTypeDef(BaseValidatorModel):
+class Sort(BaseValidatorModel):
     field: str
     ascending: Optional[bool] = None
 
 
-class ListRecommendationTemplatesRequestTypeDef(BaseValidatorModel):
+class ListRecommendationTemplatesRequest(BaseValidatorModel):
     assessmentArn: Optional[str] = None
     maxResults: Optional[int] = None
     name: Optional[str] = None
@@ -317,40 +317,40 @@ class ListRecommendationTemplatesRequestTypeDef(BaseValidatorModel):
     status: Optional[Sequence[RecommendationTemplateStatusType]] = None
 
 
-class ListResiliencyPoliciesRequestTypeDef(BaseValidatorModel):
+class ListResiliencyPoliciesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     policyName: Optional[str] = None
 
 
-class ListResourceGroupingRecommendationsRequestTypeDef(BaseValidatorModel):
+class ListResourceGroupingRecommendationsRequest(BaseValidatorModel):
     appArn: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListSopRecommendationsRequestTypeDef(BaseValidatorModel):
+class ListSopRecommendationsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListSuggestedResiliencyPoliciesRequestTypeDef(BaseValidatorModel):
+class ListSuggestedResiliencyPoliciesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListTestRecommendationsRequestTypeDef(BaseValidatorModel):
+class ListTestRecommendationsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListUnsupportedAppVersionResourcesRequestTypeDef(BaseValidatorModel):
+class ListUnsupportedAppVersionResourcesRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     maxResults: Optional[int] = None
@@ -358,22 +358,22 @@ class ListUnsupportedAppVersionResourcesRequestTypeDef(BaseValidatorModel):
     resolutionId: Optional[str] = None
 
 
-class PublishAppVersionRequestTypeDef(BaseValidatorModel):
+class PublishAppVersionRequest(BaseValidatorModel):
     appArn: str
     versionName: Optional[str] = None
 
 
-class PutDraftAppVersionTemplateRequestTypeDef(BaseValidatorModel):
+class PutDraftAppVersionTemplateRequest(BaseValidatorModel):
     appArn: str
     appTemplateBody: str
 
 
-class RejectGroupingRecommendationEntryTypeDef(BaseValidatorModel):
+class RejectGroupingRecommendationEntry(BaseValidatorModel):
     groupingRecommendationId: str
     rejectionReason: Optional[GroupingRecommendationRejectionReasonType] = None
 
 
-class RemoveDraftAppVersionResourceMappingsRequestTypeDef(BaseValidatorModel):
+class RemoveDraftAppVersionResourceMappingsRequest(BaseValidatorModel):
     appArn: str
     appRegistryAppNames: Optional[Sequence[str]] = None
     eksSourceNames: Optional[Sequence[str]] = None
@@ -383,25 +383,25 @@ class RemoveDraftAppVersionResourceMappingsRequestTypeDef(BaseValidatorModel):
     terraformSourceNames: Optional[Sequence[str]] = None
 
 
-class ScoringComponentResiliencyScoreTypeDef(BaseValidatorModel):
+class ScoringComponentResiliencyScore(BaseValidatorModel):
     excludedCount: Optional[int] = None
     outstandingCount: Optional[int] = None
     possibleScore: Optional[float] = None
     score: Optional[float] = None
 
 
-class ResolveAppVersionResourcesRequestTypeDef(BaseValidatorModel):
+class ResolveAppVersionResourcesRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
 
 
-class ResourceErrorTypeDef(BaseValidatorModel):
+class ResourceError(BaseValidatorModel):
     logicalResourceId: Optional[str] = None
     physicalResourceId: Optional[str] = None
     reason: Optional[str] = None
 
 
-class StartAppAssessmentRequestTypeDef(BaseValidatorModel):
+class StartAppAssessmentRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     assessmentName: str
@@ -409,167 +409,167 @@ class StartAppAssessmentRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class StartMetricsExportRequestTypeDef(BaseValidatorModel):
+class StartMetricsExportRequest(BaseValidatorModel):
     bucketName: Optional[str] = None
     clientToken: Optional[str] = None
 
 
-class StartResourceGroupingRecommendationTaskRequestTypeDef(BaseValidatorModel):
+class StartResourceGroupingRecommendationTaskRequest(BaseValidatorModel):
     appArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateAppVersionRequestTypeDef(BaseValidatorModel):
+class UpdateAppVersionRequest(BaseValidatorModel):
     appArn: str
     additionalInfo: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class AcceptResourceGroupingRecommendationsRequestTypeDef(BaseValidatorModel):
+class AcceptResourceGroupingRecommendationsRequest(BaseValidatorModel):
     appArn: str
-    entries: Sequence[AcceptGroupingRecommendationEntryTypeDef]
+    entries: Sequence[AcceptGroupingRecommendationEntry]
 
 
-class AcceptResourceGroupingRecommendationsResponseTypeDef(BaseValidatorModel):
+class AcceptResourceGroupingRecommendationsResponse(BaseValidatorModel):
     appArn: str
-    failedEntries: List[FailedGroupingRecommendationEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    failedEntries: List[FailedGroupingRecommendationEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAppAssessmentResponseTypeDef(BaseValidatorModel):
+class DeleteAppAssessmentResponse(BaseValidatorModel):
     assessmentArn: str
     assessmentStatus: AssessmentStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAppResponseTypeDef(BaseValidatorModel):
+class DeleteAppResponse(BaseValidatorModel):
     appArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteRecommendationTemplateResponseTypeDef(BaseValidatorModel):
+class DeleteRecommendationTemplateResponse(BaseValidatorModel):
     recommendationTemplateArn: str
     status: RecommendationTemplateStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResiliencyPolicyResponseTypeDef(BaseValidatorModel):
+class DeleteResiliencyPolicyResponse(BaseValidatorModel):
     policyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAppVersionResourcesResolutionStatusResponseTypeDef(BaseValidatorModel):
+class DescribeAppVersionResourcesResolutionStatusResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
     errorMessage: str
     resolutionId: str
     status: ResourceResolutionStatusTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAppVersionResponseTypeDef(BaseValidatorModel):
+class DescribeAppVersionResponse(BaseValidatorModel):
     additionalInfo: Dict[str, List[str]]
     appArn: str
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAppVersionTemplateResponseTypeDef(BaseValidatorModel):
+class DescribeAppVersionTemplateResponse(BaseValidatorModel):
     appArn: str
     appTemplateBody: str
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeResourceGroupingRecommendationTaskResponseTypeDef(BaseValidatorModel):
+class DescribeResourceGroupingRecommendationTaskResponse(BaseValidatorModel):
     errorMessage: str
     groupingId: str
     status: ResourcesGroupingRecGenStatusTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListMetricsResponseTypeDef(BaseValidatorModel):
+class ListMetricsResponse(BaseValidatorModel):
     rows: List[List[str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PublishAppVersionResponseTypeDef(BaseValidatorModel):
+class PublishAppVersionResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
     identifier: int
     versionName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutDraftAppVersionTemplateResponseTypeDef(BaseValidatorModel):
+class PutDraftAppVersionTemplateResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RejectResourceGroupingRecommendationsResponseTypeDef(BaseValidatorModel):
+class RejectResourceGroupingRecommendationsResponse(BaseValidatorModel):
     appArn: str
-    failedEntries: List[FailedGroupingRecommendationEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    failedEntries: List[FailedGroupingRecommendationEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveDraftAppVersionResourceMappingsResponseTypeDef(BaseValidatorModel):
+class RemoveDraftAppVersionResourceMappingsResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResolveAppVersionResourcesResponseTypeDef(BaseValidatorModel):
+class ResolveAppVersionResourcesResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
     resolutionId: str
     status: ResourceResolutionStatusTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartMetricsExportResponseTypeDef(BaseValidatorModel):
+class StartMetricsExportResponse(BaseValidatorModel):
     metricsExportId: str
     status: MetricsExportStatusTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartResourceGroupingRecommendationTaskResponseTypeDef(BaseValidatorModel):
+class StartResourceGroupingRecommendationTaskResponse(BaseValidatorModel):
     appArn: str
     errorMessage: str
     groupingId: str
     status: ResourcesGroupingRecGenStatusTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAppVersionResponseTypeDef(BaseValidatorModel):
+class UpdateAppVersionResponse(BaseValidatorModel):
     additionalInfo: Dict[str, List[str]]
     appArn: str
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AppAssessmentSummaryTypeDef(BaseValidatorModel):
+class AppAssessmentSummary(BaseValidatorModel):
     assessmentArn: str
     assessmentStatus: AssessmentStatusType
     appArn: Optional[str] = None
     appVersion: Optional[str] = None
     assessmentName: Optional[str] = None
     complianceStatus: Optional[ComplianceStatusType] = None
-    cost: Optional[CostTypeDef] = None
+    cost: Optional[Cost] = None
     driftStatus: Optional[DriftStatusType] = None
     endTime: Optional[datetime] = None
     invoker: Optional[AssessmentInvokerType] = None
@@ -579,9 +579,9 @@ class AppAssessmentSummaryTypeDef(BaseValidatorModel):
     versionName: Optional[str] = None
 
 
-class ComplianceDriftTypeDef(BaseValidatorModel):
+class ComplianceDrift(BaseValidatorModel):
     actualReferenceId: Optional[str] = None
-    actualValue: Optional[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]] = None
+    actualValue: Optional[Dict[DisruptionTypeType, DisruptionCompliance]] = None
     appId: Optional[str] = None
     appVersion: Optional[str] = None
     diffType: Optional[DifferenceTypeType] = None
@@ -589,77 +589,77 @@ class ComplianceDriftTypeDef(BaseValidatorModel):
     entityId: Optional[str] = None
     entityType: Optional[str] = None
     expectedReferenceId: Optional[str] = None
-    expectedValue: Optional[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]] = None
+    expectedValue: Optional[Dict[DisruptionTypeType, DisruptionCompliance]] = None
 
 
-class AppComponentTypeDef(BaseValidatorModel):
+class AppComponent(BaseValidatorModel):
     pass
 
 
-class CreateAppVersionAppComponentResponseTypeDef(BaseValidatorModel):
+class CreateAppVersionAppComponentResponse(BaseValidatorModel):
     appArn: str
-    appComponent: AppComponentTypeDef
+    appComponent: AppComponent
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAppVersionAppComponentResponseTypeDef(BaseValidatorModel):
+class DeleteAppVersionAppComponentResponse(BaseValidatorModel):
     appArn: str
-    appComponent: AppComponentTypeDef
+    appComponent: AppComponent
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAppVersionAppComponentResponseTypeDef(BaseValidatorModel):
+class DescribeAppVersionAppComponentResponse(BaseValidatorModel):
     appArn: str
-    appComponent: AppComponentTypeDef
+    appComponent: AppComponent
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAppVersionAppComponentsResponseTypeDef(BaseValidatorModel):
+class ListAppVersionAppComponentsResponse(BaseValidatorModel):
     appArn: str
-    appComponents: List[AppComponentTypeDef]
+    appComponents: List[AppComponent]
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateAppVersionAppComponentResponseTypeDef(BaseValidatorModel):
+class UpdateAppVersionAppComponentResponse(BaseValidatorModel):
     appArn: str
-    appComponent: AppComponentTypeDef
+    appComponent: AppComponent
     appVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AppInputSourceTypeDef(BaseValidatorModel):
+class AppInputSource(BaseValidatorModel):
     importType: ResourceMappingTypeType
-    eksSourceClusterNamespace: Optional[EksSourceClusterNamespaceTypeDef] = None
+    eksSourceClusterNamespace: Optional[EksSourceClusterNamespace] = None
     resourceCount: Optional[int] = None
     sourceArn: Optional[str] = None
     sourceName: Optional[str] = None
-    terraformSource: Optional[TerraformSourceTypeDef] = None
+    terraformSource: Optional[TerraformSource] = None
 
 
-class DeleteAppInputSourceRequestTypeDef(BaseValidatorModel):
+class DeleteAppInputSourceRequest(BaseValidatorModel):
     appArn: str
     clientToken: Optional[str] = None
-    eksSourceClusterNamespace: Optional[EksSourceClusterNamespaceTypeDef] = None
+    eksSourceClusterNamespace: Optional[EksSourceClusterNamespace] = None
     sourceArn: Optional[str] = None
-    terraformSource: Optional[TerraformSourceTypeDef] = None
+    terraformSource: Optional[TerraformSource] = None
 
 
-class ListAppsResponseTypeDef(BaseValidatorModel):
-    appSummaries: List[AppSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppsResponse(BaseValidatorModel):
+    appSummaries: List[AppSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PermissionModelOutputTypeDef(BaseValidatorModel):
+class PermissionModelOutput(BaseValidatorModel):
     pass
 
 
-class AppTypeDef(BaseValidatorModel):
+class App(BaseValidatorModel):
     appArn: str
     creationTime: datetime
     name: str
@@ -668,11 +668,11 @@ class AppTypeDef(BaseValidatorModel):
     complianceStatus: Optional[AppComplianceStatusTypeType] = None
     description: Optional[str] = None
     driftStatus: Optional[AppDriftStatusTypeType] = None
-    eventSubscriptions: Optional[List[EventSubscriptionTypeDef]] = None
+    eventSubscriptions: Optional[List[EventSubscription]] = None
     lastAppComplianceEvaluationTime: Optional[datetime] = None
     lastDriftEvaluationTime: Optional[datetime] = None
     lastResiliencyScoreEvaluationTime: Optional[datetime] = None
-    permissionModel: Optional[PermissionModelOutputTypeDef] = None
+    permissionModel: Optional[PermissionModelOutput] = None
     policyArn: Optional[str] = None
     resiliencyScore: Optional[float] = None
     rpoInSecs: Optional[int] = None
@@ -681,52 +681,52 @@ class AppTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ListAppVersionsResponseTypeDef(BaseValidatorModel):
-    appVersions: List[AppVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppVersionsResponse(BaseValidatorModel):
+    appVersions: List[AppVersionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssessmentSummaryTypeDef(BaseValidatorModel):
-    riskRecommendations: Optional[List[AssessmentRiskRecommendationTypeDef]] = None
+class AssessmentSummary(BaseValidatorModel):
+    riskRecommendations: Optional[List[AssessmentRiskRecommendation]] = None
     summary: Optional[str] = None
 
 
-class BatchUpdateRecommendationStatusSuccessfulEntryTypeDef(BaseValidatorModel):
+class BatchUpdateRecommendationStatusSuccessfulEntry(BaseValidatorModel):
     entryId: str
     excluded: bool
     referenceId: str
     appComponentId: Optional[str] = None
     excludeReason: Optional[ExcludeRecommendationReasonType] = None
-    item: Optional[UpdateRecommendationStatusItemTypeDef] = None
+    item: Optional[UpdateRecommendationStatusItem] = None
 
 
-class UpdateRecommendationStatusRequestEntryTypeDef(BaseValidatorModel):
+class UpdateRecommendationStatusRequestEntry(BaseValidatorModel):
     entryId: str
     excluded: bool
     referenceId: str
     appComponentId: Optional[str] = None
     excludeReason: Optional[ExcludeRecommendationReasonType] = None
-    item: Optional[UpdateRecommendationStatusItemTypeDef] = None
+    item: Optional[UpdateRecommendationStatusItem] = None
 
 
-class ConfigRecommendationTypeDef(BaseValidatorModel):
+class ConfigRecommendation(BaseValidatorModel):
     name: str
     optimizationType: ConfigRecommendationOptimizationTypeType
     referenceId: str
     appComponentName: Optional[str] = None
-    compliance: Optional[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]] = None
-    cost: Optional[CostTypeDef] = None
+    compliance: Optional[Dict[DisruptionTypeType, DisruptionCompliance]] = None
+    cost: Optional[Cost] = None
     description: Optional[str] = None
     haArchitecture: Optional[HaArchitectureType] = None
-    recommendationCompliance: Optional[ Dict[DisruptionTypeType, RecommendationDisruptionComplianceTypeDef] ] = None
+    recommendationCompliance: Optional[ Dict[DisruptionTypeType, RecommendationDisruptionCompliance] ] = None
     suggestedChanges: Optional[List[str]] = None
 
 
-class CreateAppVersionResourceRequestTypeDef(BaseValidatorModel):
+class CreateAppVersionResourceRequest(BaseValidatorModel):
     appArn: str
     appComponents: Sequence[str]
-    logicalResourceId: LogicalResourceIdTypeDef
+    logicalResourceId: LogicalResourceId
     physicalResourceId: str
     resourceType: str
     additionalInfo: Optional[Mapping[str, Sequence[str]]] = None
@@ -736,46 +736,46 @@ class CreateAppVersionResourceRequestTypeDef(BaseValidatorModel):
     resourceName: Optional[str] = None
 
 
-class DeleteAppVersionResourceRequestTypeDef(BaseValidatorModel):
+class DeleteAppVersionResourceRequest(BaseValidatorModel):
     appArn: str
     awsAccountId: Optional[str] = None
     awsRegion: Optional[str] = None
     clientToken: Optional[str] = None
-    logicalResourceId: Optional[LogicalResourceIdTypeDef] = None
+    logicalResourceId: Optional[LogicalResourceId] = None
     physicalResourceId: Optional[str] = None
     resourceName: Optional[str] = None
 
 
-class DescribeAppVersionResourceRequestTypeDef(BaseValidatorModel):
+class DescribeAppVersionResourceRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     awsAccountId: Optional[str] = None
     awsRegion: Optional[str] = None
-    logicalResourceId: Optional[LogicalResourceIdTypeDef] = None
+    logicalResourceId: Optional[LogicalResourceId] = None
     physicalResourceId: Optional[str] = None
     resourceName: Optional[str] = None
 
 
-class ResourceIdentifierTypeDef(BaseValidatorModel):
-    logicalResourceId: Optional[LogicalResourceIdTypeDef] = None
+class ResourceIdentifier(BaseValidatorModel):
+    logicalResourceId: Optional[LogicalResourceId] = None
     resourceType: Optional[str] = None
 
 
-class UpdateAppVersionResourceRequestTypeDef(BaseValidatorModel):
+class UpdateAppVersionResourceRequest(BaseValidatorModel):
     appArn: str
     additionalInfo: Optional[Mapping[str, Sequence[str]]] = None
     appComponents: Optional[Sequence[str]] = None
     awsAccountId: Optional[str] = None
     awsRegion: Optional[str] = None
     excluded: Optional[bool] = None
-    logicalResourceId: Optional[LogicalResourceIdTypeDef] = None
+    logicalResourceId: Optional[LogicalResourceId] = None
     physicalResourceId: Optional[str] = None
     resourceName: Optional[str] = None
     resourceType: Optional[str] = None
 
 
-class CreateResiliencyPolicyRequestTypeDef(BaseValidatorModel):
-    policy: Mapping[DisruptionTypeType, FailurePolicyTypeDef]
+class CreateResiliencyPolicyRequest(BaseValidatorModel):
+    policy: Mapping[DisruptionTypeType, FailurePolicy]
     policyName: str
     tier: ResiliencyPolicyTierType
     clientToken: Optional[str] = None
@@ -784,11 +784,11 @@ class CreateResiliencyPolicyRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class ResiliencyPolicyTypeDef(BaseValidatorModel):
+class ResiliencyPolicy(BaseValidatorModel):
     creationTime: Optional[datetime] = None
     dataLocationConstraint: Optional[DataLocationConstraintType] = None
     estimatedCostTier: Optional[EstimatedCostTierType] = None
-    policy: Optional[Dict[DisruptionTypeType, FailurePolicyTypeDef]] = None
+    policy: Optional[Dict[DisruptionTypeType, FailurePolicy]] = None
     policyArn: Optional[str] = None
     policyDescription: Optional[str] = None
     policyName: Optional[str] = None
@@ -796,81 +796,81 @@ class ResiliencyPolicyTypeDef(BaseValidatorModel):
     tier: Optional[ResiliencyPolicyTierType] = None
 
 
-class UpdateResiliencyPolicyRequestTypeDef(BaseValidatorModel):
+class UpdateResiliencyPolicyRequest(BaseValidatorModel):
     policyArn: str
     dataLocationConstraint: Optional[DataLocationConstraintType] = None
-    policy: Optional[Mapping[DisruptionTypeType, FailurePolicyTypeDef]] = None
+    policy: Optional[Mapping[DisruptionTypeType, FailurePolicy]] = None
     policyDescription: Optional[str] = None
     policyName: Optional[str] = None
     tier: Optional[ResiliencyPolicyTierType] = None
 
 
-class DescribeDraftAppVersionResourcesImportStatusResponseTypeDef(BaseValidatorModel):
+class DescribeDraftAppVersionResourcesImportStatusResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
-    errorDetails: List[ErrorDetailTypeDef]
+    errorDetails: List[ErrorDetail]
     errorMessage: str
     status: ResourceImportStatusTypeType
     statusChangeTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMetricsExportResponseTypeDef(BaseValidatorModel):
+class DescribeMetricsExportResponse(BaseValidatorModel):
     errorMessage: str
-    exportLocation: S3LocationTypeDef
+    exportLocation: S3Location
     metricsExportId: str
     status: MetricsExportStatusTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportResourcesToDraftAppVersionResponseTypeDef(BaseValidatorModel):
+class ImportResourcesToDraftAppVersionResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
-    eksSources: List[EksSourceOutputTypeDef]
+    eksSources: List[EksSourceOutput]
     sourceArns: List[str]
     status: ResourceImportStatusTypeType
-    terraformSources: List[TerraformSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    terraformSources: List[TerraformSource]
+    ResponseMetadata: ResponseMetadata
 
 
-class RecommendationItemTypeDef(BaseValidatorModel):
+class RecommendationItem(BaseValidatorModel):
     alreadyImplemented: Optional[bool] = None
-    discoveredAlarm: Optional[AlarmTypeDef] = None
+    discoveredAlarm: Optional[Alarm] = None
     excludeReason: Optional[ExcludeRecommendationReasonType] = None
     excluded: Optional[bool] = None
-    latestDiscoveredExperiment: Optional[ExperimentTypeDef] = None
+    latestDiscoveredExperiment: Optional[Experiment] = None
     resourceId: Optional[str] = None
     targetAccountId: Optional[str] = None
     targetRegion: Optional[str] = None
 
 
-class PhysicalResourceIdTypeDef(BaseValidatorModel):
+class PhysicalResourceId(BaseValidatorModel):
     pass
 
 
-class GroupingResourceTypeDef(BaseValidatorModel):
-    logicalResourceId: LogicalResourceIdTypeDef
-    physicalResourceId: PhysicalResourceIdTypeDef
+class GroupingResource(BaseValidatorModel):
+    logicalResourceId: LogicalResourceId
+    physicalResourceId: PhysicalResourceId
     resourceName: str
     resourceType: str
     sourceAppComponentIds: List[str]
 
 
-class PhysicalResourceTypeDef(BaseValidatorModel):
-    logicalResourceId: LogicalResourceIdTypeDef
-    physicalResourceId: PhysicalResourceIdTypeDef
+class PhysicalResource(BaseValidatorModel):
+    logicalResourceId: LogicalResourceId
+    physicalResourceId: PhysicalResourceId
     resourceType: str
     additionalInfo: Optional[Dict[str, List[str]]] = None
-    appComponents: Optional[List[AppComponentTypeDef]] = None
+    appComponents: Optional[List[AppComponent]] = None
     excluded: Optional[bool] = None
     parentResourceName: Optional[str] = None
     resourceName: Optional[str] = None
     sourceType: Optional[ResourceSourceTypeType] = None
 
 
-class ResourceMappingTypeDef(BaseValidatorModel):
+class ResourceMapping(BaseValidatorModel):
     mappingType: ResourceMappingTypeType
-    physicalResourceId: PhysicalResourceIdTypeDef
+    physicalResourceId: PhysicalResourceId
     appRegistryAppName: Optional[str] = None
     eksSourceName: Optional[str] = None
     logicalStackName: Optional[str] = None
@@ -879,400 +879,400 @@ class ResourceMappingTypeDef(BaseValidatorModel):
     terraformSourceName: Optional[str] = None
 
 
-class UnsupportedResourceTypeDef(BaseValidatorModel):
-    logicalResourceId: LogicalResourceIdTypeDef
-    physicalResourceId: PhysicalResourceIdTypeDef
+class UnsupportedResource(BaseValidatorModel):
+    logicalResourceId: LogicalResourceId
+    physicalResourceId: PhysicalResourceId
     resourceType: str
     unsupportedResourceStatus: Optional[str] = None
 
 
-class ListAppAssessmentResourceDriftsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAppAssessmentResourceDriftsRequestPaginate(BaseValidatorModel):
     assessmentArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceGroupingRecommendationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListResourceGroupingRecommendationsRequestPaginate(BaseValidatorModel):
     appArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListAppVersionsRequestTypeDef(BaseValidatorModel):
+class ListAppVersionsRequest(BaseValidatorModel):
     appArn: str
-    endTime: Optional[TimestampTypeDef] = None
+    endTime: Optional[Timestamp] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    startTime: Optional[TimestampTypeDef] = None
+    startTime: Optional[Timestamp] = None
 
 
-class ListAppsRequestTypeDef(BaseValidatorModel):
+class ListAppsRequest(BaseValidatorModel):
     appArn: Optional[str] = None
     awsApplicationArn: Optional[str] = None
-    fromLastAssessmentTime: Optional[TimestampTypeDef] = None
+    fromLastAssessmentTime: Optional[Timestamp] = None
     maxResults: Optional[int] = None
     name: Optional[str] = None
     nextToken: Optional[str] = None
     reverseOrder: Optional[bool] = None
-    toLastAssessmentTime: Optional[TimestampTypeDef] = None
+    toLastAssessmentTime: Optional[Timestamp] = None
 
 
-class ConditionTypeDef(BaseValidatorModel):
+class Condition(BaseValidatorModel):
     pass
 
 
-class ListMetricsRequestPaginateTypeDef(BaseValidatorModel):
-    conditions: Optional[Sequence[ConditionTypeDef]] = None
+class ListMetricsRequestPaginate(BaseValidatorModel):
+    conditions: Optional[Sequence[Condition]] = None
     dataSource: Optional[str] = None
-    fields: Optional[Sequence[FieldTypeDef]] = None
-    sorts: Optional[Sequence[SortTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    fields: Optional[Sequence[Field]] = None
+    sorts: Optional[Sequence[Sort]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMetricsRequestTypeDef(BaseValidatorModel):
-    conditions: Optional[Sequence[ConditionTypeDef]] = None
+class ListMetricsRequest(BaseValidatorModel):
+    conditions: Optional[Sequence[Condition]] = None
     dataSource: Optional[str] = None
-    fields: Optional[Sequence[FieldTypeDef]] = None
+    fields: Optional[Sequence[Field]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    sorts: Optional[Sequence[SortTypeDef]] = None
+    sorts: Optional[Sequence[Sort]] = None
 
 
-class RejectResourceGroupingRecommendationsRequestTypeDef(BaseValidatorModel):
+class RejectResourceGroupingRecommendationsRequest(BaseValidatorModel):
     appArn: str
-    entries: Sequence[RejectGroupingRecommendationEntryTypeDef]
+    entries: Sequence[RejectGroupingRecommendationEntry]
 
 
-class ResiliencyScoreTypeDef(BaseValidatorModel):
+class ResiliencyScore(BaseValidatorModel):
     disruptionScore: Dict[DisruptionTypeType, float]
     score: float
-    componentScore: Optional[ Dict[ResiliencyScoreTypeType, ScoringComponentResiliencyScoreTypeDef] ] = None
+    componentScore: Optional[ Dict[ResiliencyScoreTypeType, ScoringComponentResiliencyScore] ] = None
 
 
-class ResourceErrorsDetailsTypeDef(BaseValidatorModel):
+class ResourceErrorsDetails(BaseValidatorModel):
     hasMoreErrors: Optional[bool] = None
-    resourceErrors: Optional[List[ResourceErrorTypeDef]] = None
+    resourceErrors: Optional[List[ResourceError]] = None
 
 
-class ListAppAssessmentsResponseTypeDef(BaseValidatorModel):
-    assessmentSummaries: List[AppAssessmentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppAssessmentsResponse(BaseValidatorModel):
+    assessmentSummaries: List[AppAssessmentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAppAssessmentComplianceDriftsResponseTypeDef(BaseValidatorModel):
-    complianceDrifts: List[ComplianceDriftTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppAssessmentComplianceDriftsResponse(BaseValidatorModel):
+    complianceDrifts: List[ComplianceDrift]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DeleteAppInputSourceResponseTypeDef(BaseValidatorModel):
+class DeleteAppInputSourceResponse(BaseValidatorModel):
     appArn: str
-    appInputSource: AppInputSourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    appInputSource: AppInputSource
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAppInputSourcesResponseTypeDef(BaseValidatorModel):
-    appInputSources: List[AppInputSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppInputSourcesResponse(BaseValidatorModel):
+    appInputSources: List[AppInputSource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateAppResponseTypeDef(BaseValidatorModel):
-    app: AppTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAppResponse(BaseValidatorModel):
+    app: App
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAppResponseTypeDef(BaseValidatorModel):
-    app: AppTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAppResponse(BaseValidatorModel):
+    app: App
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAppResponseTypeDef(BaseValidatorModel):
-    app: AppTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAppResponse(BaseValidatorModel):
+    app: App
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdateRecommendationStatusResponseTypeDef(BaseValidatorModel):
+class BatchUpdateRecommendationStatusResponse(BaseValidatorModel):
     appArn: str
-    failedEntries: List[BatchUpdateRecommendationStatusFailedEntryTypeDef]
-    successfulEntries: List[BatchUpdateRecommendationStatusSuccessfulEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    failedEntries: List[BatchUpdateRecommendationStatusFailedEntry]
+    successfulEntries: List[BatchUpdateRecommendationStatusSuccessfulEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdateRecommendationStatusRequestTypeDef(BaseValidatorModel):
+class BatchUpdateRecommendationStatusRequest(BaseValidatorModel):
     appArn: str
-    requestEntries: Sequence[UpdateRecommendationStatusRequestEntryTypeDef]
+    requestEntries: Sequence[UpdateRecommendationStatusRequestEntry]
 
 
-class ComponentRecommendationTypeDef(BaseValidatorModel):
+class ComponentRecommendation(BaseValidatorModel):
     appComponentName: str
-    configRecommendations: List[ConfigRecommendationTypeDef]
+    configRecommendations: List[ConfigRecommendation]
     recommendationStatus: RecommendationComplianceStatusType
 
 
-class ResourceDriftTypeDef(BaseValidatorModel):
+class ResourceDrift(BaseValidatorModel):
     appArn: Optional[str] = None
     appVersion: Optional[str] = None
     diffType: Optional[DifferenceTypeType] = None
     referenceId: Optional[str] = None
-    resourceIdentifier: Optional[ResourceIdentifierTypeDef] = None
+    resourceIdentifier: Optional[ResourceIdentifier] = None
 
 
-class CreateResiliencyPolicyResponseTypeDef(BaseValidatorModel):
-    policy: ResiliencyPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateResiliencyPolicyResponse(BaseValidatorModel):
+    policy: ResiliencyPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeResiliencyPolicyResponseTypeDef(BaseValidatorModel):
-    policy: ResiliencyPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeResiliencyPolicyResponse(BaseValidatorModel):
+    policy: ResiliencyPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResiliencyPoliciesResponseTypeDef(BaseValidatorModel):
-    resiliencyPolicies: List[ResiliencyPolicyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResiliencyPoliciesResponse(BaseValidatorModel):
+    resiliencyPolicies: List[ResiliencyPolicy]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSuggestedResiliencyPoliciesResponseTypeDef(BaseValidatorModel):
-    resiliencyPolicies: List[ResiliencyPolicyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSuggestedResiliencyPoliciesResponse(BaseValidatorModel):
+    resiliencyPolicies: List[ResiliencyPolicy]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateResiliencyPolicyResponseTypeDef(BaseValidatorModel):
-    policy: ResiliencyPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateResiliencyPolicyResponse(BaseValidatorModel):
+    policy: ResiliencyPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class RecommendationTemplateTypeDef(BaseValidatorModel):
+class RecommendationTemplate(BaseValidatorModel):
     pass
 
 
-class CreateRecommendationTemplateResponseTypeDef(BaseValidatorModel):
-    recommendationTemplate: RecommendationTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateRecommendationTemplateResponse(BaseValidatorModel):
+    recommendationTemplate: RecommendationTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRecommendationTemplatesResponseTypeDef(BaseValidatorModel):
-    recommendationTemplates: List[RecommendationTemplateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecommendationTemplatesResponse(BaseValidatorModel):
+    recommendationTemplates: List[RecommendationTemplate]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EksSourceUnionTypeDef(BaseValidatorModel):
+class EksSourceUnion(BaseValidatorModel):
     pass
 
 
-class ImportResourcesToDraftAppVersionRequestTypeDef(BaseValidatorModel):
+class ImportResourcesToDraftAppVersionRequest(BaseValidatorModel):
     appArn: str
-    eksSources: Optional[Sequence[EksSourceUnionTypeDef]] = None
+    eksSources: Optional[Sequence[EksSourceUnion]] = None
     importStrategy: Optional[ResourceImportStrategyTypeType] = None
     sourceArns: Optional[Sequence[str]] = None
-    terraformSources: Optional[Sequence[TerraformSourceTypeDef]] = None
+    terraformSources: Optional[Sequence[TerraformSource]] = None
 
 
-class SopRecommendationTypeDef(BaseValidatorModel):
+class SopRecommendation(BaseValidatorModel):
     recommendationId: str
     referenceId: str
     serviceType: Literal["SSM"]
     appComponentName: Optional[str] = None
     description: Optional[str] = None
-    items: Optional[List[RecommendationItemTypeDef]] = None
+    items: Optional[List[RecommendationItem]] = None
     name: Optional[str] = None
     prerequisite: Optional[str] = None
     recommendationStatus: Optional[RecommendationStatusType] = None
 
 
-class GroupingRecommendationTypeDef(BaseValidatorModel):
+class GroupingRecommendation(BaseValidatorModel):
     confidenceLevel: GroupingRecommendationConfidenceLevelType
     creationTime: datetime
-    groupingAppComponent: GroupingAppComponentTypeDef
+    groupingAppComponent: GroupingAppComponent
     groupingRecommendationId: str
     recommendationReasons: List[str]
-    resources: List[GroupingResourceTypeDef]
+    resources: List[GroupingResource]
     score: float
     status: GroupingRecommendationStatusTypeType
     rejectionReason: Optional[GroupingRecommendationRejectionReasonType] = None
 
 
-class CreateAppVersionResourceResponseTypeDef(BaseValidatorModel):
+class CreateAppVersionResourceResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
-    physicalResource: PhysicalResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    physicalResource: PhysicalResource
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAppVersionResourceResponseTypeDef(BaseValidatorModel):
+class DeleteAppVersionResourceResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
-    physicalResource: PhysicalResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    physicalResource: PhysicalResource
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAppVersionResourceResponseTypeDef(BaseValidatorModel):
+class DescribeAppVersionResourceResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
-    physicalResource: PhysicalResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    physicalResource: PhysicalResource
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAppVersionResourcesResponseTypeDef(BaseValidatorModel):
-    physicalResources: List[PhysicalResourceTypeDef]
+class ListAppVersionResourcesResponse(BaseValidatorModel):
+    physicalResources: List[PhysicalResource]
     resolutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateAppVersionResourceResponseTypeDef(BaseValidatorModel):
+class UpdateAppVersionResourceResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
-    physicalResource: PhysicalResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    physicalResource: PhysicalResource
+    ResponseMetadata: ResponseMetadata
 
 
-class AddDraftAppVersionResourceMappingsRequestTypeDef(BaseValidatorModel):
+class AddDraftAppVersionResourceMappingsRequest(BaseValidatorModel):
     appArn: str
-    resourceMappings: Sequence[ResourceMappingTypeDef]
+    resourceMappings: Sequence[ResourceMapping]
 
 
-class AddDraftAppVersionResourceMappingsResponseTypeDef(BaseValidatorModel):
+class AddDraftAppVersionResourceMappingsResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
-    resourceMappings: List[ResourceMappingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    resourceMappings: List[ResourceMapping]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAppVersionResourceMappingsResponseTypeDef(BaseValidatorModel):
-    resourceMappings: List[ResourceMappingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppVersionResourceMappingsResponse(BaseValidatorModel):
+    resourceMappings: List[ResourceMapping]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListUnsupportedAppVersionResourcesResponseTypeDef(BaseValidatorModel):
+class ListUnsupportedAppVersionResourcesResponse(BaseValidatorModel):
     resolutionId: str
-    unsupportedResources: List[UnsupportedResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    unsupportedResources: List[UnsupportedResource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PermissionModelUnionTypeDef(BaseValidatorModel):
+class PermissionModelUnion(BaseValidatorModel):
     pass
 
 
-class CreateAppRequestTypeDef(BaseValidatorModel):
+class CreateAppRequest(BaseValidatorModel):
     name: str
     assessmentSchedule: Optional[AppAssessmentScheduleTypeType] = None
     awsApplicationArn: Optional[str] = None
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    eventSubscriptions: Optional[Sequence[EventSubscriptionTypeDef]] = None
-    permissionModel: Optional[PermissionModelUnionTypeDef] = None
+    eventSubscriptions: Optional[Sequence[EventSubscription]] = None
+    permissionModel: Optional[PermissionModelUnion] = None
     policyArn: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateAppRequestTypeDef(BaseValidatorModel):
+class UpdateAppRequest(BaseValidatorModel):
     appArn: str
     assessmentSchedule: Optional[AppAssessmentScheduleTypeType] = None
     clearResiliencyPolicyArn: Optional[bool] = None
     description: Optional[str] = None
-    eventSubscriptions: Optional[Sequence[EventSubscriptionTypeDef]] = None
-    permissionModel: Optional[PermissionModelUnionTypeDef] = None
+    eventSubscriptions: Optional[Sequence[EventSubscription]] = None
+    permissionModel: Optional[PermissionModelUnion] = None
     policyArn: Optional[str] = None
 
 
-class AppComponentComplianceTypeDef(BaseValidatorModel):
+class AppComponentCompliance(BaseValidatorModel):
     appComponentName: Optional[str] = None
-    compliance: Optional[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]] = None
-    cost: Optional[CostTypeDef] = None
+    compliance: Optional[Dict[DisruptionTypeType, DisruptionCompliance]] = None
+    cost: Optional[Cost] = None
     message: Optional[str] = None
-    resiliencyScore: Optional[ResiliencyScoreTypeDef] = None
+    resiliencyScore: Optional[ResiliencyScore] = None
     status: Optional[ComplianceStatusType] = None
 
 
-class AppAssessmentTypeDef(BaseValidatorModel):
+class AppAssessment(BaseValidatorModel):
     assessmentArn: str
     assessmentStatus: AssessmentStatusType
     invoker: AssessmentInvokerType
     appArn: Optional[str] = None
     appVersion: Optional[str] = None
     assessmentName: Optional[str] = None
-    compliance: Optional[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]] = None
+    compliance: Optional[Dict[DisruptionTypeType, DisruptionCompliance]] = None
     complianceStatus: Optional[ComplianceStatusType] = None
-    cost: Optional[CostTypeDef] = None
+    cost: Optional[Cost] = None
     driftStatus: Optional[DriftStatusType] = None
     endTime: Optional[datetime] = None
     message: Optional[str] = None
-    policy: Optional[ResiliencyPolicyTypeDef] = None
-    resiliencyScore: Optional[ResiliencyScoreTypeDef] = None
-    resourceErrorsDetails: Optional[ResourceErrorsDetailsTypeDef] = None
+    policy: Optional[ResiliencyPolicy] = None
+    resiliencyScore: Optional[ResiliencyScore] = None
+    resourceErrorsDetails: Optional[ResourceErrorsDetails] = None
     startTime: Optional[datetime] = None
-    summary: Optional[AssessmentSummaryTypeDef] = None
+    summary: Optional[AssessmentSummary] = None
     tags: Optional[Dict[str, str]] = None
     versionName: Optional[str] = None
 
 
-class ListAppComponentRecommendationsResponseTypeDef(BaseValidatorModel):
-    componentRecommendations: List[ComponentRecommendationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppComponentRecommendationsResponse(BaseValidatorModel):
+    componentRecommendations: List[ComponentRecommendation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAppAssessmentResourceDriftsResponseTypeDef(BaseValidatorModel):
-    resourceDrifts: List[ResourceDriftTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppAssessmentResourceDriftsResponse(BaseValidatorModel):
+    resourceDrifts: List[ResourceDrift]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AlarmRecommendationTypeDef(BaseValidatorModel):
+class AlarmRecommendation(BaseValidatorModel):
     pass
 
 
-class ListAlarmRecommendationsResponseTypeDef(BaseValidatorModel):
-    alarmRecommendations: List[AlarmRecommendationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAlarmRecommendationsResponse(BaseValidatorModel):
+    alarmRecommendations: List[AlarmRecommendation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSopRecommendationsResponseTypeDef(BaseValidatorModel):
-    sopRecommendations: List[SopRecommendationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSopRecommendationsResponse(BaseValidatorModel):
+    sopRecommendations: List[SopRecommendation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TestRecommendationTypeDef(BaseValidatorModel):
+class TestRecommendation(BaseValidatorModel):
     pass
 
 
-class ListTestRecommendationsResponseTypeDef(BaseValidatorModel):
-    testRecommendations: List[TestRecommendationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTestRecommendationsResponse(BaseValidatorModel):
+    testRecommendations: List[TestRecommendation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListResourceGroupingRecommendationsResponseTypeDef(BaseValidatorModel):
-    groupingRecommendations: List[GroupingRecommendationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceGroupingRecommendationsResponse(BaseValidatorModel):
+    groupingRecommendations: List[GroupingRecommendation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAppComponentCompliancesResponseTypeDef(BaseValidatorModel):
-    componentCompliances: List[AppComponentComplianceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppComponentCompliancesResponse(BaseValidatorModel):
+    componentCompliances: List[AppComponentCompliance]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeAppAssessmentResponseTypeDef(BaseValidatorModel):
-    assessment: AppAssessmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAppAssessmentResponse(BaseValidatorModel):
+    assessment: AppAssessment
+    ResponseMetadata: ResponseMetadata
 
 
-class StartAppAssessmentResponseTypeDef(BaseValidatorModel):
-    assessment: AppAssessmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartAppAssessmentResponse(BaseValidatorModel):
+    assessment: AppAssessment
+    ResponseMetadata: ResponseMetadata
 
 

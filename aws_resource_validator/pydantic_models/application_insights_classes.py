@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.application_insights_constants import *
 
-class WorkloadConfigurationTypeDef(BaseValidatorModel):
+class WorkloadConfiguration(BaseValidatorModel):
     WorkloadName: Optional[str] = None
     Tier: Optional[TierType] = None
     Configuration: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -26,7 +26,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ApplicationComponentTypeDef(BaseValidatorModel):
+class ApplicationComponent(BaseValidatorModel):
     ComponentName: Optional[str] = None
     ComponentRemarks: Optional[str] = None
     ResourceType: Optional[str] = None
@@ -36,7 +36,7 @@ class ApplicationComponentTypeDef(BaseValidatorModel):
     DetectedWorkload: Optional[Dict[TierType, Dict[str, str]]] = None
 
 
-class ApplicationInfoTypeDef(BaseValidatorModel):
+class ApplicationInfo(BaseValidatorModel):
     AccountId: Optional[str] = None
     ResourceGroupName: Optional[str] = None
     LifeCycle: Optional[str] = None
@@ -50,7 +50,7 @@ class ApplicationInfoTypeDef(BaseValidatorModel):
     AttachMissingPermission: Optional[bool] = None
 
 
-class ConfigurationEventTypeDef(BaseValidatorModel):
+class ConfigurationEvent(BaseValidatorModel):
     ResourceGroupName: Optional[str] = None
     AccountId: Optional[str] = None
     MonitoredResourceARN: Optional[str] = None
@@ -61,38 +61,38 @@ class ConfigurationEventTypeDef(BaseValidatorModel):
     EventResourceName: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class CreateComponentRequestTypeDef(BaseValidatorModel):
+class CreateComponentRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     ResourceList: Sequence[str]
 
 
-class DeleteApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationRequest(BaseValidatorModel):
     ResourceGroupName: str
 
 
-class DeleteComponentRequestTypeDef(BaseValidatorModel):
+class DeleteComponentRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
 
 
-class DeleteLogPatternRequestTypeDef(BaseValidatorModel):
+class DeleteLogPatternRequest(BaseValidatorModel):
     ResourceGroupName: str
     PatternSetName: str
     PatternName: str
 
 
-class DescribeApplicationRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationRequest(BaseValidatorModel):
     ResourceGroupName: str
     AccountId: Optional[str] = None
 
 
-class DescribeComponentConfigurationRecommendationRequestTypeDef(BaseValidatorModel):
+class DescribeComponentConfigurationRecommendationRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     Tier: TierType
@@ -100,31 +100,31 @@ class DescribeComponentConfigurationRecommendationRequestTypeDef(BaseValidatorMo
     RecommendationType: Optional[RecommendationTypeType] = None
 
 
-class DescribeComponentConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeComponentConfigurationRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     AccountId: Optional[str] = None
 
 
-class DescribeComponentRequestTypeDef(BaseValidatorModel):
+class DescribeComponentRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     AccountId: Optional[str] = None
 
 
-class DescribeLogPatternRequestTypeDef(BaseValidatorModel):
+class DescribeLogPatternRequest(BaseValidatorModel):
     ResourceGroupName: str
     PatternSetName: str
     PatternName: str
     AccountId: Optional[str] = None
 
 
-class DescribeObservationRequestTypeDef(BaseValidatorModel):
+class DescribeObservationRequest(BaseValidatorModel):
     ObservationId: str
     AccountId: Optional[str] = None
 
 
-class ObservationTypeDef(BaseValidatorModel):
+class Observation(BaseValidatorModel):
     Id: Optional[str] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
@@ -172,17 +172,17 @@ class ObservationTypeDef(BaseValidatorModel):
     XRayNodeType: Optional[str] = None
 
 
-class DescribeProblemObservationsRequestTypeDef(BaseValidatorModel):
+class DescribeProblemObservationsRequest(BaseValidatorModel):
     ProblemId: str
     AccountId: Optional[str] = None
 
 
-class DescribeProblemRequestTypeDef(BaseValidatorModel):
+class DescribeProblemRequest(BaseValidatorModel):
     ProblemId: str
     AccountId: Optional[str] = None
 
 
-class ProblemTypeDef(BaseValidatorModel):
+class Problem(BaseValidatorModel):
     Id: Optional[str] = None
     Title: Optional[str] = None
     ShortName: Optional[str] = None
@@ -201,34 +201,34 @@ class ProblemTypeDef(BaseValidatorModel):
     ResolutionMethod: Optional[ResolutionMethodType] = None
 
 
-class DescribeWorkloadRequestTypeDef(BaseValidatorModel):
+class DescribeWorkloadRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     WorkloadId: str
     AccountId: Optional[str] = None
 
 
-class ListApplicationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     AccountId: Optional[str] = None
 
 
-class ListComponentsRequestTypeDef(BaseValidatorModel):
+class ListComponentsRequest(BaseValidatorModel):
     ResourceGroupName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     AccountId: Optional[str] = None
 
 
-class ListLogPatternSetsRequestTypeDef(BaseValidatorModel):
+class ListLogPatternSetsRequest(BaseValidatorModel):
     ResourceGroupName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     AccountId: Optional[str] = None
 
 
-class ListLogPatternsRequestTypeDef(BaseValidatorModel):
+class ListLogPatternsRequest(BaseValidatorModel):
     ResourceGroupName: str
     PatternSetName: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -236,11 +236,11 @@ class ListLogPatternsRequestTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class ListWorkloadsRequestTypeDef(BaseValidatorModel):
+class ListWorkloadsRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     MaxResults: Optional[int] = None
@@ -248,7 +248,7 @@ class ListWorkloadsRequestTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
-class WorkloadTypeDef(BaseValidatorModel):
+class Workload(BaseValidatorModel):
     WorkloadId: Optional[str] = None
     ComponentName: Optional[str] = None
     WorkloadName: Optional[str] = None
@@ -257,18 +257,18 @@ class WorkloadTypeDef(BaseValidatorModel):
     MissingWorkloadConfig: Optional[bool] = None
 
 
-class RemoveWorkloadRequestTypeDef(BaseValidatorModel):
+class RemoveWorkloadRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     WorkloadId: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     ResourceGroupName: str
     OpsCenterEnabled: Optional[bool] = None
     CWEMonitorEnabled: Optional[bool] = None
@@ -279,7 +279,7 @@ class UpdateApplicationRequestTypeDef(BaseValidatorModel):
     AttachMissingPermission: Optional[bool] = None
 
 
-class UpdateComponentConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateComponentConfigurationRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     Monitor: Optional[bool] = None
@@ -288,220 +288,220 @@ class UpdateComponentConfigurationRequestTypeDef(BaseValidatorModel):
     AutoConfigEnabled: Optional[bool] = None
 
 
-class UpdateComponentRequestTypeDef(BaseValidatorModel):
+class UpdateComponentRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     NewComponentName: Optional[str] = None
     ResourceList: Optional[Sequence[str]] = None
 
 
-class UpdateProblemRequestTypeDef(BaseValidatorModel):
+class UpdateProblemRequest(BaseValidatorModel):
     ProblemId: str
     UpdateStatus: Optional[Literal["RESOLVED"]] = None
     Visibility: Optional[VisibilityType] = None
 
 
-class AddWorkloadRequestTypeDef(BaseValidatorModel):
+class AddWorkloadRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
-    WorkloadConfiguration: WorkloadConfigurationTypeDef
+    WorkloadConfiguration: WorkloadConfiguration
 
 
-class UpdateWorkloadRequestTypeDef(BaseValidatorModel):
+class UpdateWorkloadRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
-    WorkloadConfiguration: WorkloadConfigurationTypeDef
+    WorkloadConfiguration: WorkloadConfiguration
     WorkloadId: Optional[str] = None
 
 
-class AddWorkloadResponseTypeDef(BaseValidatorModel):
+class AddWorkloadResponse(BaseValidatorModel):
     WorkloadId: str
-    WorkloadConfiguration: WorkloadConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    WorkloadConfiguration: WorkloadConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeComponentConfigurationRecommendationResponseTypeDef(BaseValidatorModel):
+class DescribeComponentConfigurationRecommendationResponse(BaseValidatorModel):
     ComponentConfiguration: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeComponentConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeComponentConfigurationResponse(BaseValidatorModel):
     Monitor: bool
     Tier: TierType
     ComponentConfiguration: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorkloadResponseTypeDef(BaseValidatorModel):
+class DescribeWorkloadResponse(BaseValidatorModel):
     WorkloadId: str
     WorkloadRemarks: str
-    WorkloadConfiguration: WorkloadConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    WorkloadConfiguration: WorkloadConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ListLogPatternSetsResponseTypeDef(BaseValidatorModel):
+class ListLogPatternSetsResponse(BaseValidatorModel):
     ResourceGroupName: str
     AccountId: str
     LogPatternSets: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateWorkloadResponseTypeDef(BaseValidatorModel):
+class UpdateWorkloadResponse(BaseValidatorModel):
     WorkloadId: str
-    WorkloadConfiguration: WorkloadConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    WorkloadConfiguration: WorkloadConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeComponentResponseTypeDef(BaseValidatorModel):
-    ApplicationComponent: ApplicationComponentTypeDef
+class DescribeComponentResponse(BaseValidatorModel):
+    ApplicationComponent: ApplicationComponent
     ResourceList: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListComponentsResponseTypeDef(BaseValidatorModel):
-    ApplicationComponentList: List[ApplicationComponentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComponentsResponse(BaseValidatorModel):
+    ApplicationComponentList: List[ApplicationComponent]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationInfo: ApplicationInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateApplicationResponse(BaseValidatorModel):
+    ApplicationInfo: ApplicationInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationInfo: ApplicationInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeApplicationResponse(BaseValidatorModel):
+    ApplicationInfo: ApplicationInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationsResponseTypeDef(BaseValidatorModel):
-    ApplicationInfoList: List[ApplicationInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsResponse(BaseValidatorModel):
+    ApplicationInfoList: List[ApplicationInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationInfo: ApplicationInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateApplicationResponse(BaseValidatorModel):
+    ApplicationInfo: ApplicationInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConfigurationHistoryResponseTypeDef(BaseValidatorModel):
-    EventList: List[ConfigurationEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfigurationHistoryResponse(BaseValidatorModel):
+    EventList: List[ConfigurationEvent]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     ResourceGroupName: Optional[str] = None
     OpsCenterEnabled: Optional[bool] = None
     CWEMonitorEnabled: Optional[bool] = None
     OpsItemSNSTopicArn: Optional[str] = None
     SNSNotificationArn: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     AutoConfigEnabled: Optional[bool] = None
     AutoCreate: Optional[bool] = None
     GroupingType: Optional[Literal["ACCOUNT_BASED"]] = None
     AttachMissingPermission: Optional[bool] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class LogPatternTypeDef(BaseValidatorModel):
+class LogPattern(BaseValidatorModel):
     pass
 
 
-class CreateLogPatternResponseTypeDef(BaseValidatorModel):
-    LogPattern: LogPatternTypeDef
+class CreateLogPatternResponse(BaseValidatorModel):
+    LogPattern: LogPattern
     ResourceGroupName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeLogPatternResponseTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    AccountId: str
-    LogPattern: LogPatternTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class ListLogPatternsResponseTypeDef(BaseValidatorModel):
+class DescribeLogPatternResponse(BaseValidatorModel):
     ResourceGroupName: str
     AccountId: str
-    LogPatterns: List[LogPatternTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    LogPattern: LogPattern
+    ResponseMetadata: ResponseMetadata
+
+
+class ListLogPatternsResponse(BaseValidatorModel):
+    ResourceGroupName: str
+    AccountId: str
+    LogPatterns: List[LogPattern]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateLogPatternResponseTypeDef(BaseValidatorModel):
+class UpdateLogPatternResponse(BaseValidatorModel):
     ResourceGroupName: str
-    LogPattern: LogPatternTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LogPattern: LogPattern
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeObservationResponseTypeDef(BaseValidatorModel):
-    Observation: ObservationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeObservationResponse(BaseValidatorModel):
+    Observation: Observation
+    ResponseMetadata: ResponseMetadata
 
 
-class RelatedObservationsTypeDef(BaseValidatorModel):
-    ObservationList: Optional[List[ObservationTypeDef]] = None
+class RelatedObservations(BaseValidatorModel):
+    ObservationList: Optional[List[Observation]] = None
 
 
-class DescribeProblemResponseTypeDef(BaseValidatorModel):
-    Problem: ProblemTypeDef
+class DescribeProblemResponse(BaseValidatorModel):
+    Problem: Problem
     SNSNotificationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProblemsResponseTypeDef(BaseValidatorModel):
-    ProblemList: List[ProblemTypeDef]
+class ListProblemsResponse(BaseValidatorModel):
+    ProblemList: List[Problem]
     ResourceGroupName: str
     AccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListConfigurationHistoryRequestTypeDef(BaseValidatorModel):
+class ListConfigurationHistoryRequest(BaseValidatorModel):
     ResourceGroupName: Optional[str] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     EventStatus: Optional[ConfigurationEventStatusType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     AccountId: Optional[str] = None
 
 
-class ListProblemsRequestTypeDef(BaseValidatorModel):
+class ListProblemsRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
     ResourceGroupName: Optional[str] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ComponentName: Optional[str] = None
     Visibility: Optional[VisibilityType] = None
 
 
-class ListWorkloadsResponseTypeDef(BaseValidatorModel):
-    WorkloadList: List[WorkloadTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkloadsResponse(BaseValidatorModel):
+    WorkloadList: List[Workload]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeProblemObservationsResponseTypeDef(BaseValidatorModel):
-    RelatedObservations: RelatedObservationsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeProblemObservationsResponse(BaseValidatorModel):
+    RelatedObservations: RelatedObservations
+    ResponseMetadata: ResponseMetadata
 
 

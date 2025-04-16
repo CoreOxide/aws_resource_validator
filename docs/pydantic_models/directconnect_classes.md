@@ -1,6 +1,6 @@
 # Directconnect Classes
 
-# AcceptDirectConnectGatewayAssociationProposalRequestTypeDef
+# AcceptDirectConnectGatewayAssociationProposalRequest
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
@@ -15,21 +15,21 @@
 - **Required**: Yes
 
 ### overrideAllowedPrefixesToDirectConnectGateway
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
 
 
-# AcceptDirectConnectGatewayAssociationProposalResultTypeDef
+# AcceptDirectConnectGatewayAssociationProposalResult
 
 ### directConnectGatewayAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AllocateConnectionOnInterconnectRequestTypeDef
+# AllocateConnectionOnInterconnectRequest
 
 ### bandwidth
 - **Type**: <class 'str'>
@@ -52,7 +52,7 @@
 - **Required**: Yes
 
 
-# AllocateHostedConnectionRequestTypeDef
+# AllocateHostedConnectionRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -75,10 +75,10 @@
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 
-# AllocatePrivateVirtualInterfaceRequestTypeDef
+# AllocatePrivateVirtualInterfaceRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -89,11 +89,11 @@
 - **Required**: Yes
 
 ### newPrivateVirtualInterfaceAllocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewPrivateVirtualInterfaceAllocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewPrivateVirtualInterfaceAllocation'>
 - **Required**: Yes
 
 
-# AllocatePublicVirtualInterfaceRequestTypeDef
+# AllocatePublicVirtualInterfaceRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -104,11 +104,11 @@
 - **Required**: Yes
 
 ### newPublicVirtualInterfaceAllocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewPublicVirtualInterfaceAllocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewPublicVirtualInterfaceAllocation'>
 - **Required**: Yes
 
 
-# AllocateTransitVirtualInterfaceRequestTypeDef
+# AllocateTransitVirtualInterfaceRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -119,22 +119,22 @@
 - **Required**: Yes
 
 ### newTransitVirtualInterfaceAllocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewTransitVirtualInterfaceAllocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewTransitVirtualInterfaceAllocation'>
 - **Required**: Yes
 
 
-# AllocateTransitVirtualInterfaceResultTypeDef
+# AllocateTransitVirtualInterfaceResult
 
 ### virtualInterface
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterface'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateConnectionWithLagRequestTypeDef
+# AssociateConnectionWithLagRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -145,7 +145,7 @@
 - **Required**: Yes
 
 
-# AssociateHostedConnectionRequestTypeDef
+# AssociateHostedConnectionRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -156,7 +156,7 @@
 - **Required**: Yes
 
 
-# AssociateMacSecKeyRequestTypeDef
+# AssociateMacSecKeyRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -172,22 +172,22 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateMacSecKeyResponseTypeDef
+# AssociateMacSecKeyResponse
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### macSecKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKeyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateVirtualInterfaceRequestTypeDef
+# AssociateVirtualInterfaceRequest
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -198,19 +198,19 @@
 - **Required**: Yes
 
 
-# AssociatedCoreNetworkTypeDef
+# AssociatedCoreNetwork
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AssociatedGatewayTypeDef
+# AssociatedGateway
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BGPPeerTypeDef
+# BGPPeer
 
 ### bgpPeerId
 - **Type**: typing.Optional[str]
@@ -249,42 +249,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConfirmConnectionRequestTypeDef
+# ConfirmConnectionRequest
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ConfirmConnectionResponseTypeDef
+# ConfirmConnectionResponse
 
 ### connectionState
 - **Type**: typing.Literal['available', 'deleted', 'deleting', 'down', 'ordering', 'pending', 'rejected', 'requested', 'unknown']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConfirmCustomerAgreementRequestTypeDef
+# ConfirmCustomerAgreementRequest
 
 ### agreementName
 - **Type**: typing.Optional[str]
 
 
-# ConfirmCustomerAgreementResponseTypeDef
+# ConfirmCustomerAgreementResponse
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConfirmPrivateVirtualInterfaceRequestTypeDef
+# ConfirmPrivateVirtualInterfaceRequest
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -297,36 +297,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfirmPrivateVirtualInterfaceResponseTypeDef
+# ConfirmPrivateVirtualInterfaceResponse
 
 ### virtualInterfaceState
 - **Type**: typing.Literal['available', 'confirming', 'deleted', 'deleting', 'down', 'pending', 'rejected', 'unknown', 'verifying']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConfirmPublicVirtualInterfaceRequestTypeDef
+# ConfirmPublicVirtualInterfaceRequest
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ConfirmPublicVirtualInterfaceResponseTypeDef
+# ConfirmPublicVirtualInterfaceResponse
 
 ### virtualInterfaceState
 - **Type**: typing.Literal['available', 'confirming', 'deleted', 'deleting', 'down', 'pending', 'rejected', 'unknown', 'verifying']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConfirmTransitVirtualInterfaceRequestTypeDef
+# ConfirmTransitVirtualInterfaceRequest
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -337,113 +337,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfirmTransitVirtualInterfaceResponseTypeDef
+# ConfirmTransitVirtualInterfaceResponse
 
 ### virtualInterfaceState
 - **Type**: typing.Literal['available', 'confirming', 'deleted', 'deleting', 'down', 'pending', 'rejected', 'unknown', 'verifying']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConnectionResponseTypeDef
-
-### ownerAccount
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### connectionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### connectionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### connectionState
-- **Type**: typing.Literal['available', 'deleted', 'deleting', 'down', 'ordering', 'pending', 'rejected', 'requested', 'unknown']
-- **Required**: Yes
-
-### region
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### location
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### bandwidth
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vlan
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### partnerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### loaIssueTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### lagId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### awsDevice
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jumboFrameCapable
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### awsDeviceV2
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### awsLogicalDeviceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### hasLogicalRedundancy
-- **Type**: typing.Literal['no', 'unknown', 'yes']
-- **Required**: Yes
-
-### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]
-- **Required**: Yes
-
-### providerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### macSecCapable
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### portEncryptionStatus
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### encryptionMode
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### macSecKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKeyTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ConnectionTypeDef
+# Connection
 
 ### ownerAccount
 - **Type**: typing.Optional[str]
@@ -494,7 +399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['no', 'unknown', 'yes']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 ### providerName
 - **Type**: typing.Optional[str]
@@ -509,41 +414,136 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### macSecKeys
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKeyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKey]]
 
 
-# ConnectionsTypeDef
+# ConnectionResponse
 
-### connections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.ConnectionTypeDef]
+### ownerAccount
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### connectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### connectionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### connectionState
+- **Type**: typing.Literal['available', 'deleted', 'deleting', 'down', 'ordering', 'pending', 'rejected', 'requested', 'unknown']
+- **Required**: Yes
+
+### region
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### location
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### bandwidth
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### vlan
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### partnerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### loaIssueTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lagId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsDevice
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jumboFrameCapable
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### awsDeviceV2
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsLogicalDeviceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### hasLogicalRedundancy
+- **Type**: typing.Literal['no', 'unknown', 'yes']
+- **Required**: Yes
+
+### tags
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Tag]
+- **Required**: Yes
+
+### providerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### macSecCapable
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### portEncryptionStatus
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### encryptionMode
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### macSecKeys
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateBGPPeerRequestTypeDef
+# Connections
+
+### connections
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Connection]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# CreateBGPPeerRequest
 
 ### virtualInterfaceId
 - **Type**: typing.Optional[str]
 
 ### newBGPPeer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.NewBGPPeerTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.NewBGPPeer]
 
 
-# CreateBGPPeerResponseTypeDef
+# CreateBGPPeerResponse
 
 ### virtualInterface
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterface'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateConnectionRequestTypeDef
+# CreateConnectionRequest
 
 ### location
 - **Type**: <class 'str'>
@@ -561,7 +561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 ### providerName
 - **Type**: typing.Optional[str]
@@ -570,7 +570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateDirectConnectGatewayAssociationProposalRequestTypeDef
+# CreateDirectConnectGatewayAssociationProposalRequest
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
@@ -585,24 +585,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### addAllowedPrefixesToDirectConnectGateway
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
 
 ### removeAllowedPrefixesToDirectConnectGateway
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
 
 
-# CreateDirectConnectGatewayAssociationProposalResultTypeDef
+# CreateDirectConnectGatewayAssociationProposalResult
 
 ### directConnectGatewayAssociationProposal
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationProposalTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationProposal'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDirectConnectGatewayAssociationRequestTypeDef
+# CreateDirectConnectGatewayAssociationRequest
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
@@ -612,24 +612,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### addAllowedPrefixesToDirectConnectGateway
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
 
 ### virtualGatewayId
 - **Type**: typing.Optional[str]
 
 
-# CreateDirectConnectGatewayAssociationResultTypeDef
+# CreateDirectConnectGatewayAssociationResult
 
 ### directConnectGatewayAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDirectConnectGatewayRequestTypeDef
+# CreateDirectConnectGatewayRequest
 
 ### directConnectGatewayName
 - **Type**: <class 'str'>
@@ -639,18 +639,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateDirectConnectGatewayResultTypeDef
+# CreateDirectConnectGatewayResult
 
 ### directConnectGateway
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGateway'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateInterconnectRequestTypeDef
+# CreateInterconnectRequest
 
 ### interconnectName
 - **Type**: <class 'str'>
@@ -668,13 +668,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 ### providerName
 - **Type**: typing.Optional[str]
 
 
-# CreateLagRequestTypeDef
+# CreateLagRequest
 
 ### numberOfConnections
 - **Type**: <class 'int'>
@@ -696,10 +696,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 ### childConnectionTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 ### providerName
 - **Type**: typing.Optional[str]
@@ -708,51 +708,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreatePrivateVirtualInterfaceRequestTypeDef
+# CreatePrivateVirtualInterfaceRequest
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### newPrivateVirtualInterface
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewPrivateVirtualInterfaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewPrivateVirtualInterface'>
 - **Required**: Yes
 
 
-# CreatePublicVirtualInterfaceRequestTypeDef
+# CreatePublicVirtualInterfaceRequest
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### newPublicVirtualInterface
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewPublicVirtualInterfaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewPublicVirtualInterface'>
 - **Required**: Yes
 
 
-# CreateTransitVirtualInterfaceRequestTypeDef
+# CreateTransitVirtualInterfaceRequest
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### newTransitVirtualInterface
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewTransitVirtualInterfaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.NewTransitVirtualInterface'>
 - **Required**: Yes
 
 
-# CreateTransitVirtualInterfaceResultTypeDef
+# CreateTransitVirtualInterfaceResult
 
 ### virtualInterface
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterface'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomerAgreementTypeDef
+# CustomerAgreement
 
 ### agreementName
 - **Type**: typing.Optional[str]
@@ -761,7 +761,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteBGPPeerRequestTypeDef
+# DeleteBGPPeerRequest
 
 ### virtualInterfaceId
 - **Type**: typing.Optional[str]
@@ -776,43 +776,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteBGPPeerResponseTypeDef
+# DeleteBGPPeerResponse
 
 ### virtualInterface
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterface'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteConnectionRequestTypeDef
+# DeleteConnectionRequest
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDirectConnectGatewayAssociationProposalRequestTypeDef
+# DeleteDirectConnectGatewayAssociationProposalRequest
 
 ### proposalId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDirectConnectGatewayAssociationProposalResultTypeDef
+# DeleteDirectConnectGatewayAssociationProposalResult
 
 ### directConnectGatewayAssociationProposal
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationProposalTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationProposal'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDirectConnectGatewayAssociationRequestTypeDef
+# DeleteDirectConnectGatewayAssociationRequest
 
 ### associationId
 - **Type**: typing.Optional[str]
@@ -824,79 +824,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteDirectConnectGatewayAssociationResultTypeDef
+# DeleteDirectConnectGatewayAssociationResult
 
 ### directConnectGatewayAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDirectConnectGatewayRequestTypeDef
+# DeleteDirectConnectGatewayRequest
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDirectConnectGatewayResultTypeDef
+# DeleteDirectConnectGatewayResult
 
 ### directConnectGateway
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGateway'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteInterconnectRequestTypeDef
+# DeleteInterconnectRequest
 
 ### interconnectId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInterconnectResponseTypeDef
+# DeleteInterconnectResponse
 
 ### interconnectState
 - **Type**: typing.Literal['available', 'deleted', 'deleting', 'down', 'pending', 'requested', 'unknown']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteLagRequestTypeDef
+# DeleteLagRequest
 
 ### lagId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVirtualInterfaceRequestTypeDef
+# DeleteVirtualInterfaceRequest
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVirtualInterfaceResponseTypeDef
+# DeleteVirtualInterfaceResponse
 
 ### virtualInterfaceState
 - **Type**: typing.Literal['available', 'confirming', 'deleted', 'deleting', 'down', 'pending', 'rejected', 'unknown', 'verifying']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeConnectionLoaRequestTypeDef
+# DescribeConnectionLoaRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -909,34 +909,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['application/pdf']]
 
 
-# DescribeConnectionLoaResponseTypeDef
+# DescribeConnectionLoaResponse
 
 ### loa
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.LoaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.Loa'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeConnectionsOnInterconnectRequestTypeDef
+# DescribeConnectionsOnInterconnectRequest
 
 ### interconnectId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeConnectionsRequestTypeDef
+# DescribeConnectionsRequest
 
 ### connectionId
 - **Type**: typing.Optional[str]
 
 
-# DescribeCustomerMetadataResponseTypeDef
+# DescribeCustomerMetadataResponse
 
 ### agreements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.CustomerAgreementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.CustomerAgreement]
 - **Required**: Yes
 
 ### nniPartnerType
@@ -944,11 +944,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDirectConnectGatewayAssociationProposalsRequestTypeDef
+# DescribeDirectConnectGatewayAssociationProposalsRequest
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -966,39 +966,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDirectConnectGatewayAssociationProposalsResultTypeDef
+# DescribeDirectConnectGatewayAssociationProposalsResult
 
 ### directConnectGatewayAssociationProposals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationProposalTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationProposal]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeDirectConnectGatewayAssociationsRequestPaginateTypeDef
-
-### associationId
-- **Type**: typing.Optional[str]
-
-### associatedGatewayId
-- **Type**: typing.Optional[str]
-
-### directConnectGatewayId
-- **Type**: typing.Optional[str]
-
-### virtualGatewayId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.PaginatorConfigTypeDef]
-
-
-# DescribeDirectConnectGatewayAssociationsRequestTypeDef
+# DescribeDirectConnectGatewayAssociationsRequest
 
 ### associationId
 - **Type**: typing.Optional[str]
@@ -1019,33 +1001,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDirectConnectGatewayAssociationsResultTypeDef
+# DescribeDirectConnectGatewayAssociationsRequestPaginate
+
+### associationId
+- **Type**: typing.Optional[str]
+
+### associatedGatewayId
+- **Type**: typing.Optional[str]
+
+### directConnectGatewayId
+- **Type**: typing.Optional[str]
+
+### virtualGatewayId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.PaginatorConfig]
+
+
+# DescribeDirectConnectGatewayAssociationsResult
 
 ### directConnectGatewayAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeDirectConnectGatewayAttachmentsRequestPaginateTypeDef
-
-### directConnectGatewayId
-- **Type**: typing.Optional[str]
-
-### virtualInterfaceId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.PaginatorConfigTypeDef]
-
-
-# DescribeDirectConnectGatewayAttachmentsRequestTypeDef
+# DescribeDirectConnectGatewayAttachmentsRequest
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -1060,30 +1048,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDirectConnectGatewayAttachmentsResultTypeDef
+# DescribeDirectConnectGatewayAttachmentsRequestPaginate
+
+### directConnectGatewayId
+- **Type**: typing.Optional[str]
+
+### virtualInterfaceId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.PaginatorConfig]
+
+
+# DescribeDirectConnectGatewayAttachmentsResult
 
 ### directConnectGatewayAttachments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAttachmentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAttachment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeDirectConnectGatewaysRequestPaginateTypeDef
-
-### directConnectGatewayId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.PaginatorConfigTypeDef]
-
-
-# DescribeDirectConnectGatewaysRequestTypeDef
+# DescribeDirectConnectGatewaysRequest
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -1095,28 +1086,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDirectConnectGatewaysResultTypeDef
+# DescribeDirectConnectGatewaysRequestPaginate
+
+### directConnectGatewayId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.PaginatorConfig]
+
+
+# DescribeDirectConnectGatewaysResult
 
 ### directConnectGateways
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGateway]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeHostedConnectionsRequestTypeDef
+# DescribeHostedConnectionsRequest
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeInterconnectLoaRequestTypeDef
+# DescribeInterconnectLoaRequest
 
 ### interconnectId
 - **Type**: <class 'str'>
@@ -1129,30 +1129,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['application/pdf']]
 
 
-# DescribeInterconnectLoaResponseTypeDef
+# DescribeInterconnectLoaResponse
 
 ### loa
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.LoaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.Loa'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeInterconnectsRequestTypeDef
+# DescribeInterconnectsRequest
 
 ### interconnectId
 - **Type**: typing.Optional[str]
 
 
-# DescribeLagsRequestTypeDef
+# DescribeLagsRequest
 
 ### lagId
 - **Type**: typing.Optional[str]
 
 
-# DescribeLoaRequestTypeDef
+# DescribeLoaRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -1165,7 +1165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['application/pdf']]
 
 
-# DescribeRouterConfigurationRequestTypeDef
+# DescribeRouterConfigurationRequest
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -1175,14 +1175,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeRouterConfigurationResponseTypeDef
+# DescribeRouterConfigurationResponse
 
 ### customerRouterConfig
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### router
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.RouterTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.RouterType'>
 - **Required**: Yes
 
 ### virtualInterfaceId
@@ -1194,29 +1194,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTagsRequestTypeDef
+# DescribeTagsRequest
 
 ### resourceArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeTagsResponseTypeDef
+# DescribeTagsResponse
 
 ### resourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.ResourceTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeVirtualInterfacesRequestTypeDef
+# DescribeVirtualInterfacesRequest
 
 ### connectionId
 - **Type**: typing.Optional[str]
@@ -1225,31 +1225,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DirectConnectGatewayAssociationProposalTypeDef
-
-### proposalId
-- **Type**: typing.Optional[str]
+# DirectConnectGateway
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
 
-### directConnectGatewayOwnerAccount
+### directConnectGatewayName
 - **Type**: typing.Optional[str]
 
-### proposalState
-- **Type**: typing.Optional[typing.Literal['accepted', 'deleted', 'requested']]
+### amazonSideAsn
+- **Type**: typing.Optional[int]
 
-### associatedGateway
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.AssociatedGatewayTypeDef]
+### ownerAccount
+- **Type**: typing.Optional[str]
 
-### existingAllowedPrefixesToDirectConnectGateway
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+### directConnectGatewayState
+- **Type**: typing.Optional[typing.Literal['available', 'deleted', 'deleting', 'pending']]
 
-### requestedAllowedPrefixesToDirectConnectGateway
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+### stateChangeError
+- **Type**: typing.Optional[str]
 
 
-# DirectConnectGatewayAssociationTypeDef
+# DirectConnectGatewayAssociation
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -1264,16 +1261,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### associatedGateway
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.AssociatedGatewayTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.AssociatedGateway]
 
 ### associationId
 - **Type**: typing.Optional[str]
 
 ### allowedPrefixesToDirectConnectGateway
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
 
 ### associatedCoreNetwork
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.AssociatedCoreNetworkTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.AssociatedCoreNetwork]
 
 ### virtualGatewayId
 - **Type**: typing.Optional[str]
@@ -1285,7 +1282,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DirectConnectGatewayAttachmentTypeDef
+# DirectConnectGatewayAssociationProposal
+
+### proposalId
+- **Type**: typing.Optional[str]
+
+### directConnectGatewayId
+- **Type**: typing.Optional[str]
+
+### directConnectGatewayOwnerAccount
+- **Type**: typing.Optional[str]
+
+### proposalState
+- **Type**: typing.Optional[typing.Literal['accepted', 'deleted', 'requested']]
+
+### associatedGateway
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.AssociatedGateway]
+
+### existingAllowedPrefixesToDirectConnectGateway
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
+
+### requestedAllowedPrefixesToDirectConnectGateway
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
+
+
+# DirectConnectGatewayAttachment
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -1309,28 +1330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DirectConnectGatewayTypeDef
-
-### directConnectGatewayId
-- **Type**: typing.Optional[str]
-
-### directConnectGatewayName
-- **Type**: typing.Optional[str]
-
-### amazonSideAsn
-- **Type**: typing.Optional[int]
-
-### ownerAccount
-- **Type**: typing.Optional[str]
-
-### directConnectGatewayState
-- **Type**: typing.Optional[typing.Literal['available', 'deleted', 'deleting', 'pending']]
-
-### stateChangeError
-- **Type**: typing.Optional[str]
-
-
-# DisassociateConnectionFromLagRequestTypeDef
+# DisassociateConnectionFromLagRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -1341,7 +1341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateMacSecKeyRequestTypeDef
+# DisassociateMacSecKeyRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -1352,22 +1352,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateMacSecKeyResponseTypeDef
+# DisassociateMacSecKeyResponse
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### macSecKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKeyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InterconnectResponseTypeDef
+# Interconnect
+
+### interconnectId
+- **Type**: typing.Optional[str]
+
+### interconnectName
+- **Type**: typing.Optional[str]
+
+### interconnectState
+- **Type**: typing.Optional[typing.Literal['available', 'deleted', 'deleting', 'down', 'pending', 'requested', 'unknown']]
+
+### region
+- **Type**: typing.Optional[str]
+
+### location
+- **Type**: typing.Optional[str]
+
+### bandwidth
+- **Type**: typing.Optional[str]
+
+### loaIssueTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lagId
+- **Type**: typing.Optional[str]
+
+### awsDevice
+- **Type**: typing.Optional[str]
+
+### jumboFrameCapable
+- **Type**: typing.Optional[bool]
+
+### awsDeviceV2
+- **Type**: typing.Optional[str]
+
+### awsLogicalDeviceId
+- **Type**: typing.Optional[str]
+
+### hasLogicalRedundancy
+- **Type**: typing.Optional[typing.Literal['no', 'unknown', 'yes']]
+
+### tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
+
+### providerName
+- **Type**: typing.Optional[str]
+
+
+# InterconnectResponse
 
 ### interconnectId
 - **Type**: <class 'str'>
@@ -1422,7 +1470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Tag]
 - **Required**: Yes
 
 ### providerName
@@ -1430,41 +1478,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InterconnectTypeDef
+# Interconnects
 
-### interconnectId
+### interconnects
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Interconnect]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# Lag
+
+### connectionsBandwidth
 - **Type**: typing.Optional[str]
 
-### interconnectName
-- **Type**: typing.Optional[str]
-
-### interconnectState
-- **Type**: typing.Optional[typing.Literal['available', 'deleted', 'deleting', 'down', 'pending', 'requested', 'unknown']]
-
-### region
-- **Type**: typing.Optional[str]
-
-### location
-- **Type**: typing.Optional[str]
-
-### bandwidth
-- **Type**: typing.Optional[str]
-
-### loaIssueTime
-- **Type**: typing.Optional[datetime.datetime]
+### numberOfConnections
+- **Type**: typing.Optional[int]
 
 ### lagId
 - **Type**: typing.Optional[str]
 
-### awsDevice
+### ownerAccount
 - **Type**: typing.Optional[str]
 
-### jumboFrameCapable
-- **Type**: typing.Optional[bool]
+### lagName
+- **Type**: typing.Optional[str]
+
+### lagState
+- **Type**: typing.Optional[typing.Literal['available', 'deleted', 'deleting', 'down', 'pending', 'requested', 'unknown']]
+
+### location
+- **Type**: typing.Optional[str]
+
+### region
+- **Type**: typing.Optional[str]
+
+### minimumLinks
+- **Type**: typing.Optional[int]
+
+### awsDevice
+- **Type**: typing.Optional[str]
 
 ### awsDeviceV2
 - **Type**: typing.Optional[str]
@@ -1472,28 +1531,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### awsLogicalDeviceId
 - **Type**: typing.Optional[str]
 
+### connections
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Connection]]
+
+### allowsHostedConnections
+- **Type**: typing.Optional[bool]
+
+### jumboFrameCapable
+- **Type**: typing.Optional[bool]
+
 ### hasLogicalRedundancy
 - **Type**: typing.Optional[typing.Literal['no', 'unknown', 'yes']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 ### providerName
 - **Type**: typing.Optional[str]
 
+### macSecCapable
+- **Type**: typing.Optional[bool]
 
-# InterconnectsTypeDef
+### encryptionMode
+- **Type**: typing.Optional[str]
 
-### interconnects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.InterconnectTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+### macSecKeys
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKey]]
 
 
-# LagResponseTypeDef
+# LagResponse
 
 ### connectionsBandwidth
 - **Type**: <class 'str'>
@@ -1544,7 +1610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### connections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.ConnectionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Connection]
 - **Required**: Yes
 
 ### allowsHostedConnections
@@ -1560,7 +1626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Tag]
 - **Required**: Yes
 
 ### providerName
@@ -1576,92 +1642,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### macSecKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKeyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LagTypeDef
-
-### connectionsBandwidth
-- **Type**: typing.Optional[str]
-
-### numberOfConnections
-- **Type**: typing.Optional[int]
-
-### lagId
-- **Type**: typing.Optional[str]
-
-### ownerAccount
-- **Type**: typing.Optional[str]
-
-### lagName
-- **Type**: typing.Optional[str]
-
-### lagState
-- **Type**: typing.Optional[typing.Literal['available', 'deleted', 'deleting', 'down', 'pending', 'requested', 'unknown']]
-
-### location
-- **Type**: typing.Optional[str]
-
-### region
-- **Type**: typing.Optional[str]
-
-### minimumLinks
-- **Type**: typing.Optional[int]
-
-### awsDevice
-- **Type**: typing.Optional[str]
-
-### awsDeviceV2
-- **Type**: typing.Optional[str]
-
-### awsLogicalDeviceId
-- **Type**: typing.Optional[str]
-
-### connections
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.ConnectionTypeDef]]
-
-### allowsHostedConnections
-- **Type**: typing.Optional[bool]
-
-### jumboFrameCapable
-- **Type**: typing.Optional[bool]
-
-### hasLogicalRedundancy
-- **Type**: typing.Optional[typing.Literal['no', 'unknown', 'yes']]
-
-### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
-
-### providerName
-- **Type**: typing.Optional[str]
-
-### macSecCapable
-- **Type**: typing.Optional[bool]
-
-### encryptionMode
-- **Type**: typing.Optional[str]
-
-### macSecKeys
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.MacSecKeyTypeDef]]
-
-
-# LagsTypeDef
+# Lags
 
 ### lags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.LagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Lag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVirtualInterfaceTestHistoryRequestTypeDef
+# ListVirtualInterfaceTestHistoryRequest
 
 ### testId
 - **Type**: typing.Optional[str]
@@ -1682,21 +1682,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVirtualInterfaceTestHistoryResponseTypeDef
+# ListVirtualInterfaceTestHistoryResponse
 
 ### virtualInterfaceTestHistory
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTestHistoryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTestHistory]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# LoaResponseTypeDef
+# Loa
+
+### loaContent
+- **Type**: typing.Optional[bytes]
+
+### loaContentType
+- **Type**: typing.Optional[typing.Literal['application/pdf']]
+
+
+# LoaResponse
 
 ### loaContent
 - **Type**: <class 'bytes'>
@@ -1707,20 +1716,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LoaTypeDef
-
-### loaContent
-- **Type**: typing.Optional[bytes]
-
-### loaContentType
-- **Type**: typing.Optional[typing.Literal['application/pdf']]
-
-
-# LocationTypeDef
+# Location
 
 ### locationCode
 - **Type**: typing.Optional[str]
@@ -1741,18 +1741,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# LocationsTypeDef
+# Locations
 
 ### locations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.LocationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Location]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MacSecKeyTypeDef
+# MacSecKey
 
 ### secretARN
 - **Type**: typing.Optional[str]
@@ -1767,7 +1767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NewBGPPeerTypeDef
+# NewBGPPeer
 
 ### asn
 - **Type**: typing.Optional[int]
@@ -1785,40 +1785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NewPrivateVirtualInterfaceAllocationTypeDef
-
-### virtualInterfaceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vlan
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### asn
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### mtu
-- **Type**: typing.Optional[int]
-
-### authKey
-- **Type**: typing.Optional[str]
-
-### amazonAddress
-- **Type**: typing.Optional[str]
-
-### addressFamily
-- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
-
-### customerAddress
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
-
-
-# NewPrivateVirtualInterfaceTypeDef
+# NewPrivateVirtualInterface
 
 ### virtualInterfaceName
 - **Type**: <class 'str'>
@@ -1854,13 +1821,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 ### enableSiteLink
 - **Type**: typing.Optional[bool]
 
 
-# NewPublicVirtualInterfaceAllocationTypeDef
+# NewPrivateVirtualInterfaceAllocation
 
 ### virtualInterfaceName
 - **Type**: <class 'str'>
@@ -1873,69 +1840,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### asn
 - **Type**: <class 'int'>
 - **Required**: Yes
-
-### authKey
-- **Type**: typing.Optional[str]
-
-### amazonAddress
-- **Type**: typing.Optional[str]
-
-### customerAddress
-- **Type**: typing.Optional[str]
-
-### addressFamily
-- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
-
-### routeFilterPrefixes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
-
-### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
-
-
-# NewPublicVirtualInterfaceTypeDef
-
-### virtualInterfaceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vlan
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### asn
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### authKey
-- **Type**: typing.Optional[str]
-
-### amazonAddress
-- **Type**: typing.Optional[str]
-
-### customerAddress
-- **Type**: typing.Optional[str]
-
-### addressFamily
-- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
-
-### routeFilterPrefixes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
-
-### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
-
-
-# NewTransitVirtualInterfaceAllocationTypeDef
-
-### virtualInterfaceName
-- **Type**: typing.Optional[str]
-
-### vlan
-- **Type**: typing.Optional[int]
-
-### asn
-- **Type**: typing.Optional[int]
 
 ### mtu
 - **Type**: typing.Optional[int]
@@ -1946,17 +1850,83 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### amazonAddress
 - **Type**: typing.Optional[str]
 
+### addressFamily
+- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
+
+### customerAddress
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
+
+
+# NewPublicVirtualInterface
+
+### virtualInterfaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### vlan
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### asn
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### authKey
+- **Type**: typing.Optional[str]
+
+### amazonAddress
+- **Type**: typing.Optional[str]
+
 ### customerAddress
 - **Type**: typing.Optional[str]
 
 ### addressFamily
 - **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
 
+### routeFilterPrefixes
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
+
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 
-# NewTransitVirtualInterfaceTypeDef
+# NewPublicVirtualInterfaceAllocation
+
+### virtualInterfaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### vlan
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### asn
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### authKey
+- **Type**: typing.Optional[str]
+
+### amazonAddress
+- **Type**: typing.Optional[str]
+
+### customerAddress
+- **Type**: typing.Optional[str]
+
+### addressFamily
+- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
+
+### routeFilterPrefixes
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
+
+### tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
+
+
+# NewTransitVirtualInterface
 
 ### virtualInterfaceName
 - **Type**: typing.Optional[str]
@@ -1986,13 +1956,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 ### enableSiteLink
 - **Type**: typing.Optional[bool]
 
 
-# PaginatorConfigTypeDef
+# NewTransitVirtualInterfaceAllocation
+
+### virtualInterfaceName
+- **Type**: typing.Optional[str]
+
+### vlan
+- **Type**: typing.Optional[int]
+
+### asn
+- **Type**: typing.Optional[int]
+
+### mtu
+- **Type**: typing.Optional[int]
+
+### authKey
+- **Type**: typing.Optional[str]
+
+### amazonAddress
+- **Type**: typing.Optional[str]
+
+### customerAddress
+- **Type**: typing.Optional[str]
+
+### addressFamily
+- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
+
+### tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
+
+
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2004,16 +2004,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceTagTypeDef
+# ResourceTag
 
 ### resourceArn
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2035,13 +2035,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RouteFilterPrefixTypeDef
+# RouteFilterPrefix
 
 ### cidr
 - **Type**: typing.Optional[str]
 
 
-# RouterTypeTypeDef
+# RouterType
 
 ### vendor
 - **Type**: typing.Optional[str]
@@ -2062,7 +2062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartBgpFailoverTestRequestTypeDef
+# StartBgpFailoverTestRequest
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -2075,47 +2075,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartBgpFailoverTestResponseTypeDef
+# StartBgpFailoverTestResponse
 
 ### virtualInterfaceTest
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTestHistoryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTestHistory'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopBgpFailoverTestRequestTypeDef
+# StopBgpFailoverTestRequest
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopBgpFailoverTestResponseTypeDef
+# StopBgpFailoverTestResponse
 
 ### virtualInterfaceTest
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTestHistoryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTestHistory'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: <class 'str'>
@@ -2125,7 +2114,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.Tag]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2136,7 +2136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConnectionRequestTypeDef
+# UpdateConnectionRequest
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -2149,30 +2149,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDirectConnectGatewayAssociationRequestTypeDef
+# UpdateDirectConnectGatewayAssociationRequest
 
 ### associationId
 - **Type**: typing.Optional[str]
 
 ### addAllowedPrefixesToDirectConnectGateway
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
 
 ### removeAllowedPrefixesToDirectConnectGateway
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
 
 
-# UpdateDirectConnectGatewayAssociationResultTypeDef
+# UpdateDirectConnectGatewayAssociationResult
 
 ### directConnectGatewayAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDirectConnectGatewayRequestTypeDef
+# UpdateDirectConnectGatewayRequest
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
@@ -2183,18 +2183,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDirectConnectGatewayResponseTypeDef
+# UpdateDirectConnectGatewayResponse
 
 ### directConnectGateway
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGateway'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateLagRequestTypeDef
+# UpdateLagRequest
 
 ### lagId
 - **Type**: <class 'str'>
@@ -2210,7 +2210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateVirtualInterfaceAttributesRequestTypeDef
+# UpdateVirtualInterfaceAttributesRequest
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -2226,7 +2226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VirtualGatewayTypeDef
+# VirtualGateway
 
 ### virtualGatewayId
 - **Type**: typing.Optional[str]
@@ -2235,18 +2235,99 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VirtualGatewaysTypeDef
+# VirtualGateways
 
 ### virtualGateways
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.VirtualGatewayTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.VirtualGateway]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VirtualInterfaceResponseTypeDef
+# VirtualInterface
+
+### ownerAccount
+- **Type**: typing.Optional[str]
+
+### virtualInterfaceId
+- **Type**: typing.Optional[str]
+
+### location
+- **Type**: typing.Optional[str]
+
+### connectionId
+- **Type**: typing.Optional[str]
+
+### virtualInterfaceType
+- **Type**: typing.Optional[str]
+
+### virtualInterfaceName
+- **Type**: typing.Optional[str]
+
+### vlan
+- **Type**: typing.Optional[int]
+
+### asn
+- **Type**: typing.Optional[int]
+
+### amazonSideAsn
+- **Type**: typing.Optional[int]
+
+### authKey
+- **Type**: typing.Optional[str]
+
+### amazonAddress
+- **Type**: typing.Optional[str]
+
+### customerAddress
+- **Type**: typing.Optional[str]
+
+### addressFamily
+- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
+
+### virtualInterfaceState
+- **Type**: typing.Optional[typing.Literal['available', 'confirming', 'deleted', 'deleting', 'down', 'pending', 'rejected', 'unknown', 'verifying']]
+
+### customerRouterConfig
+- **Type**: typing.Optional[str]
+
+### mtu
+- **Type**: typing.Optional[int]
+
+### jumboFrameCapable
+- **Type**: typing.Optional[bool]
+
+### virtualGatewayId
+- **Type**: typing.Optional[str]
+
+### directConnectGatewayId
+- **Type**: typing.Optional[str]
+
+### routeFilterPrefixes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]]
+
+### bgpPeers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.BGPPeer]]
+
+### region
+- **Type**: typing.Optional[str]
+
+### awsDeviceV2
+- **Type**: typing.Optional[str]
+
+### awsLogicalDeviceId
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Tag]]
+
+### siteLinkEnabled
+- **Type**: typing.Optional[bool]
+
+
+# VirtualInterfaceResponse
 
 ### ownerAccount
 - **Type**: <class 'str'>
@@ -2325,11 +2406,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### routeFilterPrefixes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefix]
 - **Required**: Yes
 
 ### bgpPeers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.BGPPeerTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.BGPPeer]
 - **Required**: Yes
 
 ### region
@@ -2345,7 +2426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.Tag]
 - **Required**: Yes
 
 ### siteLinkEnabled
@@ -2353,11 +2434,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VirtualInterfaceTestHistoryTypeDef
+# VirtualInterfaceTestHistory
 
 ### testId
 - **Type**: typing.Optional[str]
@@ -2384,95 +2465,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# VirtualInterfaceTypeDef
-
-### ownerAccount
-- **Type**: typing.Optional[str]
-
-### virtualInterfaceId
-- **Type**: typing.Optional[str]
-
-### location
-- **Type**: typing.Optional[str]
-
-### connectionId
-- **Type**: typing.Optional[str]
-
-### virtualInterfaceType
-- **Type**: typing.Optional[str]
-
-### virtualInterfaceName
-- **Type**: typing.Optional[str]
-
-### vlan
-- **Type**: typing.Optional[int]
-
-### asn
-- **Type**: typing.Optional[int]
-
-### amazonSideAsn
-- **Type**: typing.Optional[int]
-
-### authKey
-- **Type**: typing.Optional[str]
-
-### amazonAddress
-- **Type**: typing.Optional[str]
-
-### customerAddress
-- **Type**: typing.Optional[str]
-
-### addressFamily
-- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
-
-### virtualInterfaceState
-- **Type**: typing.Optional[typing.Literal['available', 'confirming', 'deleted', 'deleting', 'down', 'pending', 'rejected', 'unknown', 'verifying']]
-
-### customerRouterConfig
-- **Type**: typing.Optional[str]
-
-### mtu
-- **Type**: typing.Optional[int]
-
-### jumboFrameCapable
-- **Type**: typing.Optional[bool]
-
-### virtualGatewayId
-- **Type**: typing.Optional[str]
-
-### directConnectGatewayId
-- **Type**: typing.Optional[str]
-
-### routeFilterPrefixes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
-
-### bgpPeers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.BGPPeerTypeDef]]
-
-### region
-- **Type**: typing.Optional[str]
-
-### awsDeviceV2
-- **Type**: typing.Optional[str]
-
-### awsLogicalDeviceId
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
-
-### siteLinkEnabled
-- **Type**: typing.Optional[bool]
-
-
-# VirtualInterfacesTypeDef
+# VirtualInterfaces
 
 ### virtualInterfaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterface]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

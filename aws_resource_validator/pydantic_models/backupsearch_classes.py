@@ -12,33 +12,33 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.backupsearch_constants import *
 
-class BackupCreationTimeFilterOutputTypeDef(BaseValidatorModel):
+class BackupCreationTimeFilterOutput(BaseValidatorModel):
     CreatedAfter: Optional[datetime] = None
     CreatedBefore: Optional[datetime] = None
 
 
-class CurrentSearchProgressTypeDef(BaseValidatorModel):
+class CurrentSearchProgress(BaseValidatorModel):
     RecoveryPointsScannedCount: Optional[int] = None
     ItemsScannedCount: Optional[int] = None
     ItemsMatchedCount: Optional[int] = None
 
 
-class LongConditionTypeDef(BaseValidatorModel):
+class LongCondition(BaseValidatorModel):
     Value: int
     Operator: Optional[LongConditionOperatorType] = None
 
 
-class StringConditionTypeDef(BaseValidatorModel):
+class StringCondition(BaseValidatorModel):
     Value: str
     Operator: Optional[StringConditionOperatorType] = None
 
 
-class TimeConditionOutputTypeDef(BaseValidatorModel):
+class TimeConditionOutput(BaseValidatorModel):
     Value: datetime
     Operator: Optional[TimeConditionOperatorType] = None
 
 
-class EBSResultItemTypeDef(BaseValidatorModel):
+class EBSResultItem(BaseValidatorModel):
     BackupResourceArn: Optional[str] = None
     SourceResourceArn: Optional[str] = None
     BackupVaultName: Optional[str] = None
@@ -49,7 +49,7 @@ class EBSResultItemTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class ExportJobSummaryTypeDef(BaseValidatorModel):
+class ExportJobSummary(BaseValidatorModel):
     ExportJobIdentifier: str
     ExportJobArn: Optional[str] = None
     Status: Optional[ExportJobStatusType] = None
@@ -59,16 +59,16 @@ class ExportJobSummaryTypeDef(BaseValidatorModel):
     SearchJobArn: Optional[str] = None
 
 
-class S3ExportSpecificationTypeDef(BaseValidatorModel):
+class S3ExportSpecification(BaseValidatorModel):
     DestinationBucket: str
     DestinationPrefix: Optional[str] = None
 
 
-class GetSearchJobInputTypeDef(BaseValidatorModel):
+class GetSearchJobInput(BaseValidatorModel):
     SearchJobIdentifier: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -76,28 +76,28 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class SearchScopeSummaryTypeDef(BaseValidatorModel):
+class SearchScopeSummary(BaseValidatorModel):
     TotalRecoveryPointsToScanCount: Optional[int] = None
     TotalItemsToScanCount: Optional[int] = None
 
 
-class GetSearchResultExportJobInputTypeDef(BaseValidatorModel):
+class GetSearchResultExportJobInput(BaseValidatorModel):
     ExportJobIdentifier: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListSearchJobBackupsInputTypeDef(BaseValidatorModel):
+class ListSearchJobBackupsInput(BaseValidatorModel):
     SearchJobIdentifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class SearchJobBackupsResultTypeDef(BaseValidatorModel):
+class SearchJobBackupsResult(BaseValidatorModel):
     Status: Optional[SearchJobStateType] = None
     StatusMessage: Optional[str] = None
     ResourceType: Optional[ResourceTypeType] = None
@@ -107,30 +107,30 @@ class SearchJobBackupsResultTypeDef(BaseValidatorModel):
     BackupCreationTime: Optional[datetime] = None
 
 
-class ListSearchJobResultsInputTypeDef(BaseValidatorModel):
+class ListSearchJobResultsInput(BaseValidatorModel):
     SearchJobIdentifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListSearchJobsInputTypeDef(BaseValidatorModel):
+class ListSearchJobsInput(BaseValidatorModel):
     ByStatus: Optional[SearchJobStateType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListSearchResultExportJobsInputTypeDef(BaseValidatorModel):
+class ListSearchResultExportJobsInput(BaseValidatorModel):
     Status: Optional[ExportJobStatusType] = None
     SearchJobIdentifier: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class S3ResultItemTypeDef(BaseValidatorModel):
+class S3ResultItem(BaseValidatorModel):
     BackupResourceArn: Optional[str] = None
     SourceResourceArn: Optional[str] = None
     BackupVaultName: Optional[str] = None
@@ -141,223 +141,223 @@ class S3ResultItemTypeDef(BaseValidatorModel):
     VersionId: Optional[str] = None
 
 
-class StopSearchJobInputTypeDef(BaseValidatorModel):
+class StopSearchJobInput(BaseValidatorModel):
     SearchJobIdentifier: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class SearchScopeOutputTypeDef(BaseValidatorModel):
+class SearchScopeOutput(BaseValidatorModel):
     BackupResourceTypes: List[ResourceTypeType]
-    BackupResourceCreationTime: Optional[BackupCreationTimeFilterOutputTypeDef] = None
+    BackupResourceCreationTime: Optional[BackupCreationTimeFilterOutput] = None
     SourceResourceArns: Optional[List[str]] = None
     BackupResourceArns: Optional[List[str]] = None
     BackupResourceTags: Optional[Dict[str, str]] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class BackupCreationTimeFilterTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class BackupCreationTimeFilter(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
 
 
-class TimeConditionTypeDef(BaseValidatorModel):
-    Value: TimestampTypeDef
+class TimeCondition(BaseValidatorModel):
+    Value: Timestamp
     Operator: Optional[TimeConditionOperatorType] = None
 
 
-class EBSItemFilterOutputTypeDef(BaseValidatorModel):
-    FilePaths: Optional[List[StringConditionTypeDef]] = None
-    Sizes: Optional[List[LongConditionTypeDef]] = None
-    CreationTimes: Optional[List[TimeConditionOutputTypeDef]] = None
-    LastModificationTimes: Optional[List[TimeConditionOutputTypeDef]] = None
+class EBSItemFilterOutput(BaseValidatorModel):
+    FilePaths: Optional[List[StringCondition]] = None
+    Sizes: Optional[List[LongCondition]] = None
+    CreationTimes: Optional[List[TimeConditionOutput]] = None
+    LastModificationTimes: Optional[List[TimeConditionOutput]] = None
 
 
-class S3ItemFilterOutputTypeDef(BaseValidatorModel):
-    ObjectKeys: Optional[List[StringConditionTypeDef]] = None
-    Sizes: Optional[List[LongConditionTypeDef]] = None
-    CreationTimes: Optional[List[TimeConditionOutputTypeDef]] = None
-    VersionIds: Optional[List[StringConditionTypeDef]] = None
-    ETags: Optional[List[StringConditionTypeDef]] = None
+class S3ItemFilterOutput(BaseValidatorModel):
+    ObjectKeys: Optional[List[StringCondition]] = None
+    Sizes: Optional[List[LongCondition]] = None
+    CreationTimes: Optional[List[TimeConditionOutput]] = None
+    VersionIds: Optional[List[StringCondition]] = None
+    ETags: Optional[List[StringCondition]] = None
 
 
-class ExportSpecificationTypeDef(BaseValidatorModel):
-    s3ExportSpecification: Optional[S3ExportSpecificationTypeDef] = None
+class ExportSpecification(BaseValidatorModel):
+    s3ExportSpecification: Optional[S3ExportSpecification] = None
 
 
-class ListSearchResultExportJobsOutputTypeDef(BaseValidatorModel):
-    ExportJobs: List[ExportJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSearchResultExportJobsOutput(BaseValidatorModel):
+    ExportJobs: List[ExportJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSearchJobOutputTypeDef(BaseValidatorModel):
+class StartSearchJobOutput(BaseValidatorModel):
     SearchJobArn: str
     CreationTime: datetime
     SearchJobIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSearchResultExportJobOutputTypeDef(BaseValidatorModel):
+class StartSearchResultExportJobOutput(BaseValidatorModel):
     ExportJobArn: str
     ExportJobIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchJobSummaryTypeDef(BaseValidatorModel):
+class SearchJobSummary(BaseValidatorModel):
     SearchJobIdentifier: Optional[str] = None
     SearchJobArn: Optional[str] = None
     Name: Optional[str] = None
     Status: Optional[SearchJobStateType] = None
     CreationTime: Optional[datetime] = None
     CompletionTime: Optional[datetime] = None
-    SearchScopeSummary: Optional[SearchScopeSummaryTypeDef] = None
+    SearchScopeSummary: Optional[SearchScopeSummary] = None
     StatusMessage: Optional[str] = None
 
 
-class ListSearchJobBackupsInputPaginateTypeDef(BaseValidatorModel):
+class ListSearchJobBackupsInputPaginate(BaseValidatorModel):
     SearchJobIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSearchJobResultsInputPaginateTypeDef(BaseValidatorModel):
+class ListSearchJobResultsInputPaginate(BaseValidatorModel):
     SearchJobIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSearchJobsInputPaginateTypeDef(BaseValidatorModel):
+class ListSearchJobsInputPaginate(BaseValidatorModel):
     ByStatus: Optional[SearchJobStateType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSearchResultExportJobsInputPaginateTypeDef(BaseValidatorModel):
+class ListSearchResultExportJobsInputPaginate(BaseValidatorModel):
     Status: Optional[ExportJobStatusType] = None
     SearchJobIdentifier: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSearchJobBackupsOutputTypeDef(BaseValidatorModel):
-    Results: List[SearchJobBackupsResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSearchJobBackupsOutput(BaseValidatorModel):
+    Results: List[SearchJobBackupsResult]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ResultItemTypeDef(BaseValidatorModel):
-    S3ResultItem: Optional[S3ResultItemTypeDef] = None
-    EBSResultItem: Optional[EBSResultItemTypeDef] = None
+class ResultItem(BaseValidatorModel):
+    S3ResultItem: Optional[S3ResultItem] = None
+    EBSResultItem: Optional[EBSResultItem] = None
 
 
-class SearchScopeTypeDef(BaseValidatorModel):
+class SearchScope(BaseValidatorModel):
     BackupResourceTypes: Sequence[ResourceTypeType]
-    BackupResourceCreationTime: Optional[BackupCreationTimeFilterTypeDef] = None
+    BackupResourceCreationTime: Optional[BackupCreationTimeFilter] = None
     SourceResourceArns: Optional[Sequence[str]] = None
     BackupResourceArns: Optional[Sequence[str]] = None
     BackupResourceTags: Optional[Mapping[str, str]] = None
 
 
-class EBSItemFilterTypeDef(BaseValidatorModel):
-    FilePaths: Optional[Sequence[StringConditionTypeDef]] = None
-    Sizes: Optional[Sequence[LongConditionTypeDef]] = None
-    CreationTimes: Optional[Sequence[TimeConditionTypeDef]] = None
-    LastModificationTimes: Optional[Sequence[TimeConditionTypeDef]] = None
+class EBSItemFilter(BaseValidatorModel):
+    FilePaths: Optional[Sequence[StringCondition]] = None
+    Sizes: Optional[Sequence[LongCondition]] = None
+    CreationTimes: Optional[Sequence[TimeCondition]] = None
+    LastModificationTimes: Optional[Sequence[TimeCondition]] = None
 
 
-class S3ItemFilterTypeDef(BaseValidatorModel):
-    ObjectKeys: Optional[Sequence[StringConditionTypeDef]] = None
-    Sizes: Optional[Sequence[LongConditionTypeDef]] = None
-    CreationTimes: Optional[Sequence[TimeConditionTypeDef]] = None
-    VersionIds: Optional[Sequence[StringConditionTypeDef]] = None
-    ETags: Optional[Sequence[StringConditionTypeDef]] = None
+class S3ItemFilter(BaseValidatorModel):
+    ObjectKeys: Optional[Sequence[StringCondition]] = None
+    Sizes: Optional[Sequence[LongCondition]] = None
+    CreationTimes: Optional[Sequence[TimeCondition]] = None
+    VersionIds: Optional[Sequence[StringCondition]] = None
+    ETags: Optional[Sequence[StringCondition]] = None
 
 
-class ItemFiltersOutputTypeDef(BaseValidatorModel):
-    S3ItemFilters: Optional[List[S3ItemFilterOutputTypeDef]] = None
-    EBSItemFilters: Optional[List[EBSItemFilterOutputTypeDef]] = None
+class ItemFiltersOutput(BaseValidatorModel):
+    S3ItemFilters: Optional[List[S3ItemFilterOutput]] = None
+    EBSItemFilters: Optional[List[EBSItemFilterOutput]] = None
 
 
-class GetSearchResultExportJobOutputTypeDef(BaseValidatorModel):
+class GetSearchResultExportJobOutput(BaseValidatorModel):
     ExportJobIdentifier: str
     ExportJobArn: str
     Status: ExportJobStatusType
     CreationTime: datetime
     CompletionTime: datetime
     StatusMessage: str
-    ExportSpecification: ExportSpecificationTypeDef
+    ExportSpecification: ExportSpecification
     SearchJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSearchResultExportJobInputTypeDef(BaseValidatorModel):
+class StartSearchResultExportJobInput(BaseValidatorModel):
     SearchJobIdentifier: str
-    ExportSpecification: ExportSpecificationTypeDef
+    ExportSpecification: ExportSpecification
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
     RoleArn: Optional[str] = None
 
 
-class ListSearchJobsOutputTypeDef(BaseValidatorModel):
-    SearchJobs: List[SearchJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSearchJobsOutput(BaseValidatorModel):
+    SearchJobs: List[SearchJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListSearchJobResultsOutputTypeDef(BaseValidatorModel):
-    Results: List[ResultItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSearchJobResultsOutput(BaseValidatorModel):
+    Results: List[ResultItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ItemFiltersTypeDef(BaseValidatorModel):
-    S3ItemFilters: Optional[Sequence[S3ItemFilterTypeDef]] = None
-    EBSItemFilters: Optional[Sequence[EBSItemFilterTypeDef]] = None
+class ItemFilters(BaseValidatorModel):
+    S3ItemFilters: Optional[Sequence[S3ItemFilter]] = None
+    EBSItemFilters: Optional[Sequence[EBSItemFilter]] = None
 
 
-class GetSearchJobOutputTypeDef(BaseValidatorModel):
+class GetSearchJobOutput(BaseValidatorModel):
     Name: str
-    SearchScopeSummary: SearchScopeSummaryTypeDef
-    CurrentSearchProgress: CurrentSearchProgressTypeDef
+    SearchScopeSummary: SearchScopeSummary
+    CurrentSearchProgress: CurrentSearchProgress
     StatusMessage: str
     EncryptionKeyArn: str
     CompletionTime: datetime
     Status: SearchJobStateType
-    SearchScope: SearchScopeOutputTypeDef
-    ItemFilters: ItemFiltersOutputTypeDef
+    SearchScope: SearchScopeOutput
+    ItemFilters: ItemFiltersOutput
     CreationTime: datetime
     SearchJobIdentifier: str
     SearchJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ItemFiltersUnionTypeDef(BaseValidatorModel):
+class ItemFiltersUnion(BaseValidatorModel):
     pass
 
 
-class SearchScopeUnionTypeDef(BaseValidatorModel):
+class SearchScopeUnion(BaseValidatorModel):
     pass
 
 
-class StartSearchJobInputTypeDef(BaseValidatorModel):
-    SearchScope: SearchScopeUnionTypeDef
+class StartSearchJobInput(BaseValidatorModel):
+    SearchScope: SearchScopeUnion
     Tags: Optional[Mapping[str, str]] = None
     Name: Optional[str] = None
     EncryptionKeyArn: Optional[str] = None
     ClientToken: Optional[str] = None
-    ItemFilters: Optional[ItemFiltersUnionTypeDef] = None
+    ItemFilters: Optional[ItemFiltersUnion] = None
 
 

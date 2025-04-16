@@ -1,6 +1,6 @@
 # Grafana Classes
 
-# AssertionAttributesTypeDef
+# AssertionAttributes
 
 ### email
 - **Type**: typing.Optional[str]
@@ -21,7 +21,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateLicenseRequestTypeDef
+# AssociateLicenseRequest
 
 ### licenseType
 - **Type**: typing.Literal['ENTERPRISE', 'ENTERPRISE_FREE_TRIAL']
@@ -35,31 +35,31 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateLicenseResponseTypeDef
+# AssociateLicenseResponse
 
 ### workspace
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AuthenticationDescriptionTypeDef
+# AuthenticationDescription
 
 ### providers
 - **Type**: typing.List[typing.Literal['AWS_SSO', 'SAML']]
 - **Required**: Yes
 
 ### awsSso
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.AwsSsoAuthenticationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.AwsSsoAuthentication]
 
 ### saml
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.SamlAuthenticationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.SamlAuthentication]
 
 
-# AuthenticationSummaryTypeDef
+# AuthenticationSummary
 
 ### providers
 - **Type**: typing.List[typing.Literal['AWS_SSO', 'SAML']]
@@ -69,7 +69,7 @@
 - **Type**: typing.Optional[typing.Literal['CONFIGURED', 'NOT_CONFIGURED']]
 
 
-# AwsSsoAuthenticationTypeDef
+# AwsSsoAuthentication
 
 ### ssoClientId
 - **Type**: typing.Optional[str]
@@ -81,7 +81,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateWorkspaceApiKeyRequestTypeDef
+# CreateWorkspaceApiKeyRequest
 
 ### keyName
 - **Type**: <class 'str'>
@@ -100,7 +100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkspaceApiKeyResponseTypeDef
+# CreateWorkspaceApiKeyResponse
 
 ### key
 - **Type**: <class 'str'>
@@ -115,11 +115,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateWorkspaceRequestTypeDef
+# CreateWorkspaceRequest
 
 ### accountAccessType
 - **Type**: typing.Literal['CURRENT_ACCOUNT', 'ORGANIZATION']
@@ -143,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### networkAccessControl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.NetworkAccessConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.NetworkAccessConfigurationUnion]
 
 ### organizationRoleName
 - **Type**: typing.Optional[str]
@@ -155,7 +155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### vpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.VpcConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.VpcConfigurationUnion]
 
 ### workspaceDataSources
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AMAZON_OPENSEARCH_SERVICE', 'ATHENA', 'CLOUDWATCH', 'PROMETHEUS', 'REDSHIFT', 'SITEWISE', 'TIMESTREAM', 'TWINMAKER', 'XRAY']]]
@@ -176,18 +176,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateWorkspaceResponseTypeDef
+# CreateWorkspaceResponse
 
 ### workspace
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateWorkspaceServiceAccountRequestTypeDef
+# CreateWorkspaceServiceAccountRequest
 
 ### grafanaRole
 - **Type**: typing.Literal['ADMIN', 'EDITOR', 'VIEWER']
@@ -202,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkspaceServiceAccountTokenRequestTypeDef
+# CreateWorkspaceServiceAccountTokenRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -221,14 +221,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkspaceServiceAccountTokenResponseTypeDef
+# CreateWorkspaceServiceAccountTokenResponse
 
 ### serviceAccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### serviceAccountToken
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ServiceAccountTokenSummaryWithKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ServiceAccountTokenSummaryWithKey'>
 - **Required**: Yes
 
 ### workspaceId
@@ -236,11 +236,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteWorkspaceApiKeyRequestTypeDef
+# DeleteWorkspaceApiKeyRequest
 
 ### keyName
 - **Type**: <class 'str'>
@@ -251,7 +251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkspaceApiKeyResponseTypeDef
+# DeleteWorkspaceApiKeyResponse
 
 ### keyName
 - **Type**: <class 'str'>
@@ -262,29 +262,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteWorkspaceRequestTypeDef
+# DeleteWorkspaceRequest
 
 ### workspaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteWorkspaceResponseTypeDef
+# DeleteWorkspaceResponse
 
 ### workspace
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteWorkspaceServiceAccountRequestTypeDef
+# DeleteWorkspaceServiceAccountRequest
 
 ### serviceAccountId
 - **Type**: <class 'str'>
@@ -295,7 +295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkspaceServiceAccountResponseTypeDef
+# DeleteWorkspaceServiceAccountResponse
 
 ### serviceAccountId
 - **Type**: <class 'str'>
@@ -306,11 +306,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteWorkspaceServiceAccountTokenRequestTypeDef
+# DeleteWorkspaceServiceAccountTokenRequest
 
 ### serviceAccountId
 - **Type**: <class 'str'>
@@ -325,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkspaceServiceAccountTokenResponseTypeDef
+# DeleteWorkspaceServiceAccountTokenResponse
 
 ### serviceAccountId
 - **Type**: <class 'str'>
@@ -340,36 +340,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeWorkspaceAuthenticationRequestTypeDef
+# DescribeWorkspaceAuthenticationRequest
 
 ### workspaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeWorkspaceAuthenticationResponseTypeDef
+# DescribeWorkspaceAuthenticationResponse
 
 ### authentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.AuthenticationDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.AuthenticationDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeWorkspaceConfigurationRequestTypeDef
+# DescribeWorkspaceConfigurationRequest
 
 ### workspaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeWorkspaceConfigurationResponseTypeDef
+# DescribeWorkspaceConfigurationResponse
 
 ### configuration
 - **Type**: <class 'str'>
@@ -380,29 +380,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeWorkspaceRequestTypeDef
+# DescribeWorkspaceRequest
 
 ### workspaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeWorkspaceResponseTypeDef
+# DescribeWorkspaceResponse
 
 ### workspace
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateLicenseRequestTypeDef
+# DisassociateLicenseRequest
 
 ### licenseType
 - **Type**: typing.Literal['ENTERPRISE', 'ENTERPRISE_FREE_TRIAL']
@@ -413,18 +413,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateLicenseResponseTypeDef
+# DisassociateLicenseResponse
 
 ### workspace
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IdpMetadataTypeDef
+# IdpMetadata
 
 ### url
 - **Type**: typing.Optional[str]
@@ -433,26 +433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPermissionsRequestPaginateTypeDef
-
-### workspaceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### groupId
-- **Type**: typing.Optional[str]
-
-### userId
-- **Type**: typing.Optional[str]
-
-### userType
-- **Type**: typing.Optional[typing.Literal['SSO_GROUP', 'SSO_USER']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfigTypeDef]
-
-
-# ListPermissionsRequestTypeDef
+# ListPermissionsRequest
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -474,48 +455,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SSO_GROUP', 'SSO_USER']]
 
 
-# ListPermissionsResponseTypeDef
+# ListPermissionsRequestPaginate
+
+### workspaceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### groupId
+- **Type**: typing.Optional[str]
+
+### userId
+- **Type**: typing.Optional[str]
+
+### userType
+- **Type**: typing.Optional[typing.Literal['SSO_GROUP', 'SSO_USER']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfig]
+
+
+# ListPermissionsResponse
 
 ### permissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.PermissionEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.PermissionEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVersionsRequestPaginateTypeDef
-
-### workspaceId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfigTypeDef]
-
-
-# ListVersionsRequestTypeDef
+# ListVersionsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -527,35 +518,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVersionsResponseTypeDef
+# ListVersionsRequestPaginate
+
+### workspaceId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfig]
+
+
+# ListVersionsResponse
 
 ### grafanaVersions
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkspaceServiceAccountTokensRequestPaginateTypeDef
-
-### serviceAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### workspaceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfigTypeDef]
-
-
-# ListWorkspaceServiceAccountTokensRequestTypeDef
+# ListWorkspaceServiceAccountTokensRequest
 
 ### serviceAccountId
 - **Type**: <class 'str'>
@@ -572,14 +558,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkspaceServiceAccountTokensResponseTypeDef
+# ListWorkspaceServiceAccountTokensRequestPaginate
+
+### serviceAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### workspaceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfig]
+
+
+# ListWorkspaceServiceAccountTokensResponse
 
 ### serviceAccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### serviceAccountTokens
-- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.ServiceAccountTokenSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.ServiceAccountTokenSummary]
 - **Required**: Yes
 
 ### workspaceId
@@ -587,24 +587,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkspaceServiceAccountsRequestPaginateTypeDef
-
-### workspaceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfigTypeDef]
-
-
-# ListWorkspaceServiceAccountsRequestTypeDef
+# ListWorkspaceServiceAccountsRequest
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -617,10 +607,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkspaceServiceAccountsResponseTypeDef
+# ListWorkspaceServiceAccountsRequestPaginate
+
+### workspaceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfig]
+
+
+# ListWorkspaceServiceAccountsResponse
 
 ### serviceAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.ServiceAccountSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.ServiceAccountSummary]
 - **Required**: Yes
 
 ### workspaceId
@@ -628,20 +628,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkspacesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfigTypeDef]
-
-
-# ListWorkspacesRequestTypeDef
+# ListWorkspacesRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -650,32 +644,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkspacesResponseTypeDef
+# ListWorkspacesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.PaginatorConfig]
+
+
+# ListWorkspacesResponse
 
 ### workspaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.WorkspaceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.WorkspaceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# NetworkAccessConfigurationOutputTypeDef
-
-### prefixListIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### vpceIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# NetworkAccessConfigurationTypeDef
+# NetworkAccessConfiguration
 
 ### prefixListIds
 - **Type**: typing.Sequence[str]
@@ -686,13 +675,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# NetworkAccessConfigurationUnionTypeDef
+# NetworkAccessConfigurationOutput
+
+### prefixListIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### vpceIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# NetworkAccessConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -704,18 +704,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PermissionEntryTypeDef
+# PermissionEntry
 
 ### role
 - **Type**: typing.Literal['ADMIN', 'EDITOR', 'VIEWER']
 - **Required**: Yes
 
 ### user
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.UserTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.User'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -737,16 +737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RoleValuesOutputTypeDef
-
-### admin
-- **Type**: typing.Optional[typing.List[str]]
-
-### editor
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# RoleValuesTypeDef
+# RoleValues
 
 ### admin
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -755,79 +746,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# SamlAuthenticationTypeDef
+# RoleValuesOutput
+
+### admin
+- **Type**: typing.Optional[typing.List[str]]
+
+### editor
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# SamlAuthentication
 
 ### status
 - **Type**: typing.Literal['CONFIGURED', 'NOT_CONFIGURED']
 - **Required**: Yes
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.SamlConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.SamlConfigurationOutput]
 
 
-# SamlConfigurationOutputTypeDef
-
-### idpMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.IdpMetadataTypeDef'>
-- **Required**: Yes
-
-### allowedOrganizations
-- **Type**: typing.Optional[typing.List[str]]
-
-### assertionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.AssertionAttributesTypeDef]
-
-### loginValidityDuration
-- **Type**: typing.Optional[int]
-
-### roleValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.RoleValuesOutputTypeDef]
-
-
-# SamlConfigurationTypeDef
+# SamlConfiguration
 
 ### idpMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.IdpMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.IdpMetadata'>
 - **Required**: Yes
 
 ### allowedOrganizations
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### assertionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.AssertionAttributesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.AssertionAttributes]
 
 ### loginValidityDuration
 - **Type**: typing.Optional[int]
 
 ### roleValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.RoleValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.RoleValues]
 
 
-# SamlConfigurationUnionTypeDef
+# SamlConfigurationOutput
+
+### idpMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.IdpMetadata'>
+- **Required**: Yes
+
+### allowedOrganizations
+- **Type**: typing.Optional[typing.List[str]]
+
+### assertionAttributes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.AssertionAttributes]
+
+### loginValidityDuration
+- **Type**: typing.Optional[int]
+
+### roleValues
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.RoleValuesOutput]
+
+
+# SamlConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceAccountSummaryTypeDef
+# ServiceAccountSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceAccountTokenSummaryTypeDef
+# ServiceAccountTokenSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceAccountTokenSummaryWithKeyTypeDef
+# ServiceAccountTokenSummaryWithKey
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -838,7 +838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -849,10 +849,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateErrorTypeDef
+# UpdateError
 
 ### causedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.UpdateInstructionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.UpdateInstructionOutput'>
 - **Required**: Yes
 
 ### code
@@ -864,7 +864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateInstructionOutputTypeDef
+# UpdateInstruction
 
 ### action
 - **Type**: typing.Literal['ADD', 'REVOKE']
@@ -875,11 +875,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.UserTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.grafana_classes.User]
 - **Required**: Yes
 
 
-# UpdateInstructionTypeDef
+# UpdateInstructionOutput
 
 ### action
 - **Type**: typing.Literal['ADD', 'REVOKE']
@@ -890,20 +890,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### users
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.grafana_classes.UserTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.User]
 - **Required**: Yes
 
 
-# UpdateInstructionUnionTypeDef
+# UpdateInstructionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UpdatePermissionsRequestTypeDef
+# UpdatePermissionsRequest
 
 ### updateInstructionBatch
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.grafana_classes.UpdateInstructionUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.grafana_classes.UpdateInstructionUnion]
 - **Required**: Yes
 
 ### workspaceId
@@ -911,18 +911,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePermissionsResponseTypeDef
+# UpdatePermissionsResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.UpdateErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.grafana_classes.UpdateError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateWorkspaceAuthenticationRequestTypeDef
+# UpdateWorkspaceAuthenticationRequest
 
 ### authenticationProviders
 - **Type**: typing.Sequence[typing.Literal['AWS_SSO', 'SAML']]
@@ -933,21 +933,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### samlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.SamlConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.SamlConfigurationUnion]
 
 
-# UpdateWorkspaceAuthenticationResponseTypeDef
+# UpdateWorkspaceAuthenticationResponse
 
 ### authentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.AuthenticationDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.AuthenticationDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateWorkspaceConfigurationRequestTypeDef
+# UpdateWorkspaceConfigurationRequest
 
 ### configuration
 - **Type**: <class 'str'>
@@ -961,7 +961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateWorkspaceRequestTypeDef
+# UpdateWorkspaceRequest
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -971,7 +971,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CURRENT_ACCOUNT', 'ORGANIZATION']]
 
 ### networkAccessControl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.NetworkAccessConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.NetworkAccessConfigurationUnion]
 
 ### organizationRoleName
 - **Type**: typing.Optional[str]
@@ -989,7 +989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### vpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.VpcConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.grafana_classes.VpcConfigurationUnion]
 
 ### workspaceDataSources
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AMAZON_OPENSEARCH_SERVICE', 'ATHENA', 'CLOUDWATCH', 'PROMETHEUS', 'REDSHIFT', 'SITEWISE', 'TIMESTREAM', 'TWINMAKER', 'XRAY']]]
@@ -1010,35 +1010,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateWorkspaceResponseTypeDef
+# UpdateWorkspaceResponse
 
 ### workspace
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.WorkspaceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.grafana_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UserTypeDef
+# User
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# VpcConfigurationOutputTypeDef
-
-### securityGroupIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### subnetIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# VpcConfigurationTypeDef
+# VpcConfiguration
 
 ### securityGroupIds
 - **Type**: typing.Sequence[str]
@@ -1049,19 +1038,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VpcConfigurationUnionTypeDef
+# VpcConfigurationOutput
+
+### securityGroupIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### subnetIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# VpcConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WorkspaceDescriptionTypeDef
+# WorkspaceDescription
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WorkspaceSummaryTypeDef
+# WorkspaceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

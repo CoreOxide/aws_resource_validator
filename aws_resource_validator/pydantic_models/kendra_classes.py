@@ -12,50 +12,50 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kendra_constants import *
 
-class AccessControlConfigurationSummaryTypeDef(BaseValidatorModel):
+class AccessControlConfigurationSummary(BaseValidatorModel):
     Id: str
 
 
-class AccessControlListConfigurationTypeDef(BaseValidatorModel):
+class AccessControlListConfiguration(BaseValidatorModel):
     KeyPath: Optional[str] = None
 
 
-class AclConfigurationTypeDef(BaseValidatorModel):
+class AclConfiguration(BaseValidatorModel):
     AllowedGroupsColumnName: str
 
 
-class DataSourceToIndexFieldMappingTypeDef(BaseValidatorModel):
+class DataSourceToIndexFieldMapping(BaseValidatorModel):
     DataSourceFieldName: str
     IndexFieldName: str
     DateFieldFormat: Optional[str] = None
 
 
-class DataSourceVpcConfigurationOutputTypeDef(BaseValidatorModel):
+class DataSourceVpcConfigurationOutput(BaseValidatorModel):
     SubnetIds: List[str]
     SecurityGroupIds: List[str]
 
 
-class S3PathTypeDef(BaseValidatorModel):
+class S3Path(BaseValidatorModel):
     Bucket: str
     Key: str
 
 
-class DataSourceVpcConfigurationTypeDef(BaseValidatorModel):
+class DataSourceVpcConfiguration(BaseValidatorModel):
     SubnetIds: Sequence[str]
     SecurityGroupIds: Sequence[str]
 
 
-class EntityConfigurationTypeDef(BaseValidatorModel):
+class EntityConfiguration(BaseValidatorModel):
     EntityId: str
     EntityType: EntityTypeType
 
 
-class FailedEntityTypeDef(BaseValidatorModel):
+class FailedEntity(BaseValidatorModel):
     EntityId: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -63,116 +63,116 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class EntityPersonaConfigurationTypeDef(BaseValidatorModel):
+class EntityPersonaConfiguration(BaseValidatorModel):
     EntityId: str
     Persona: PersonaType
 
 
-class SuggestableConfigTypeDef(BaseValidatorModel):
+class SuggestableConfig(BaseValidatorModel):
     AttributeName: Optional[str] = None
     Suggestable: Optional[bool] = None
 
 
-class BasicAuthenticationConfigurationTypeDef(BaseValidatorModel):
+class BasicAuthenticationConfiguration(BaseValidatorModel):
     Host: str
     Port: int
     Credentials: str
 
 
-class DataSourceSyncJobMetricTargetTypeDef(BaseValidatorModel):
+class DataSourceSyncJobMetricTarget(BaseValidatorModel):
     DataSourceId: str
     DataSourceSyncJobId: Optional[str] = None
 
 
-class BatchDeleteDocumentResponseFailedDocumentTypeDef(BaseValidatorModel):
+class BatchDeleteDocumentResponseFailedDocument(BaseValidatorModel):
     Id: Optional[str] = None
     DataSourceId: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class BatchDeleteFeaturedResultsSetErrorTypeDef(BaseValidatorModel):
+class BatchDeleteFeaturedResultsSetError(BaseValidatorModel):
     Id: str
     ErrorCode: ErrorCodeType
     ErrorMessage: str
 
 
-class BatchDeleteFeaturedResultsSetRequestTypeDef(BaseValidatorModel):
+class BatchDeleteFeaturedResultsSetRequest(BaseValidatorModel):
     IndexId: str
     FeaturedResultsSetIds: Sequence[str]
 
 
-class BatchGetDocumentStatusResponseErrorTypeDef(BaseValidatorModel):
+class BatchGetDocumentStatusResponseError(BaseValidatorModel):
     DocumentId: Optional[str] = None
     DataSourceId: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class StatusTypeDef(BaseValidatorModel):
+class Status(BaseValidatorModel):
     DocumentId: Optional[str] = None
     DocumentStatus: Optional[DocumentStatusType] = None
     FailureCode: Optional[str] = None
     FailureReason: Optional[str] = None
 
 
-class BatchPutDocumentResponseFailedDocumentTypeDef(BaseValidatorModel):
+class BatchPutDocumentResponseFailedDocument(BaseValidatorModel):
     Id: Optional[str] = None
     DataSourceId: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class CapacityUnitsConfigurationTypeDef(BaseValidatorModel):
+class CapacityUnitsConfiguration(BaseValidatorModel):
     StorageCapacityUnits: int
     QueryCapacityUnits: int
 
 
-class ClearQuerySuggestionsRequestTypeDef(BaseValidatorModel):
+class ClearQuerySuggestionsRequest(BaseValidatorModel):
     IndexId: str
 
 
-class ExpandConfigurationTypeDef(BaseValidatorModel):
+class ExpandConfiguration(BaseValidatorModel):
     MaxResultItemsToExpand: Optional[int] = None
     MaxExpandedResultsPerItem: Optional[int] = None
 
 
-class SortingConfigurationTypeDef(BaseValidatorModel):
+class SortingConfiguration(BaseValidatorModel):
     DocumentAttributeKey: str
     SortOrder: SortOrderType
 
 
-class ConfluenceAttachmentToIndexFieldMappingTypeDef(BaseValidatorModel):
+class ConfluenceAttachmentToIndexFieldMapping(BaseValidatorModel):
     DataSourceFieldName: Optional[ConfluenceAttachmentFieldNameType] = None
     DateFieldFormat: Optional[str] = None
     IndexFieldName: Optional[str] = None
 
 
-class ConfluenceBlogToIndexFieldMappingTypeDef(BaseValidatorModel):
+class ConfluenceBlogToIndexFieldMapping(BaseValidatorModel):
     DataSourceFieldName: Optional[ConfluenceBlogFieldNameType] = None
     DateFieldFormat: Optional[str] = None
     IndexFieldName: Optional[str] = None
 
 
-class ProxyConfigurationTypeDef(BaseValidatorModel):
+class ProxyConfiguration(BaseValidatorModel):
     Host: str
     Port: int
     Credentials: Optional[str] = None
 
 
-class ConfluencePageToIndexFieldMappingTypeDef(BaseValidatorModel):
+class ConfluencePageToIndexFieldMapping(BaseValidatorModel):
     DataSourceFieldName: Optional[ConfluencePageFieldNameType] = None
     DateFieldFormat: Optional[str] = None
     IndexFieldName: Optional[str] = None
 
 
-class ConfluenceSpaceToIndexFieldMappingTypeDef(BaseValidatorModel):
+class ConfluenceSpaceToIndexFieldMapping(BaseValidatorModel):
     DataSourceFieldName: Optional[ConfluenceSpaceFieldNameType] = None
     DateFieldFormat: Optional[str] = None
     IndexFieldName: Optional[str] = None
 
 
-class ConnectionConfigurationTypeDef(BaseValidatorModel):
+class ConnectionConfiguration(BaseValidatorModel):
     DatabaseHost: str
     DatabasePort: int
     DatabaseName: str
@@ -180,56 +180,56 @@ class ConnectionConfigurationTypeDef(BaseValidatorModel):
     SecretArn: str
 
 
-class ContentSourceConfigurationOutputTypeDef(BaseValidatorModel):
+class ContentSourceConfigurationOutput(BaseValidatorModel):
     DataSourceIds: Optional[List[str]] = None
     FaqIds: Optional[List[str]] = None
     DirectPutContent: Optional[bool] = None
 
 
-class ContentSourceConfigurationTypeDef(BaseValidatorModel):
+class ContentSourceConfiguration(BaseValidatorModel):
     DataSourceIds: Optional[Sequence[str]] = None
     FaqIds: Optional[Sequence[str]] = None
     DirectPutContent: Optional[bool] = None
 
 
-class CorrectionTypeDef(BaseValidatorModel):
+class Correction(BaseValidatorModel):
     BeginOffset: Optional[int] = None
     EndOffset: Optional[int] = None
     Term: Optional[str] = None
     CorrectedTerm: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class FeaturedDocumentTypeDef(BaseValidatorModel):
+class FeaturedDocument(BaseValidatorModel):
     Id: Optional[str] = None
 
 
-class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
+class ServerSideEncryptionConfiguration(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
-class UserGroupResolutionConfigurationTypeDef(BaseValidatorModel):
+class UserGroupResolutionConfiguration(BaseValidatorModel):
     UserGroupResolutionMode: UserGroupResolutionModeType
 
 
-class TemplateConfigurationOutputTypeDef(BaseValidatorModel):
+class TemplateConfigurationOutput(BaseValidatorModel):
     Template: Optional[Dict[str, Any]] = None
 
 
-class TemplateConfigurationTypeDef(BaseValidatorModel):
+class TemplateConfiguration(BaseValidatorModel):
     Template: Optional[Mapping[str, Any]] = None
 
 
-class DataSourceGroupTypeDef(BaseValidatorModel):
+class DataSourceGroup(BaseValidatorModel):
     GroupId: str
     DataSourceId: str
 
 
-class DataSourceSyncJobMetricsTypeDef(BaseValidatorModel):
+class DataSourceSyncJobMetrics(BaseValidatorModel):
     DocumentsAdded: Optional[str] = None
     DocumentsModified: Optional[str] = None
     DocumentsDeleted: Optional[str] = None
@@ -237,102 +237,102 @@ class DataSourceSyncJobMetricsTypeDef(BaseValidatorModel):
     DocumentsScanned: Optional[str] = None
 
 
-class SqlConfigurationTypeDef(BaseValidatorModel):
+class SqlConfiguration(BaseValidatorModel):
     QueryIdentifiersEnclosingOption: Optional[QueryIdentifiersEnclosingOptionType] = None
 
 
-class DeleteAccessControlConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteAccessControlConfigurationRequest(BaseValidatorModel):
     IndexId: str
     Id: str
 
 
-class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
+class DeleteDataSourceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class DeleteExperienceRequestTypeDef(BaseValidatorModel):
+class DeleteExperienceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class DeleteFaqRequestTypeDef(BaseValidatorModel):
+class DeleteFaqRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class DeleteIndexRequestTypeDef(BaseValidatorModel):
+class DeleteIndexRequest(BaseValidatorModel):
     Id: str
 
 
-class DeletePrincipalMappingRequestTypeDef(BaseValidatorModel):
+class DeletePrincipalMappingRequest(BaseValidatorModel):
     IndexId: str
     GroupId: str
     DataSourceId: Optional[str] = None
     OrderingId: Optional[int] = None
 
 
-class DeleteQuerySuggestionsBlockListRequestTypeDef(BaseValidatorModel):
+class DeleteQuerySuggestionsBlockListRequest(BaseValidatorModel):
     IndexId: str
     Id: str
 
 
-class DeleteThesaurusRequestTypeDef(BaseValidatorModel):
+class DeleteThesaurusRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class DescribeAccessControlConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeAccessControlConfigurationRequest(BaseValidatorModel):
     IndexId: str
     Id: str
 
 
-class DescribeDataSourceRequestTypeDef(BaseValidatorModel):
+class DescribeDataSourceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class DescribeExperienceRequestTypeDef(BaseValidatorModel):
+class DescribeExperienceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class ExperienceEndpointTypeDef(BaseValidatorModel):
+class ExperienceEndpoint(BaseValidatorModel):
     EndpointType: Optional[Literal["HOME"]] = None
     Endpoint: Optional[str] = None
 
 
-class DescribeFaqRequestTypeDef(BaseValidatorModel):
+class DescribeFaqRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class DescribeFeaturedResultsSetRequestTypeDef(BaseValidatorModel):
+class DescribeFeaturedResultsSetRequest(BaseValidatorModel):
     IndexId: str
     FeaturedResultsSetId: str
 
 
-class FeaturedDocumentMissingTypeDef(BaseValidatorModel):
+class FeaturedDocumentMissing(BaseValidatorModel):
     Id: Optional[str] = None
 
 
-class FeaturedDocumentWithMetadataTypeDef(BaseValidatorModel):
+class FeaturedDocumentWithMetadata(BaseValidatorModel):
     Id: Optional[str] = None
     Title: Optional[str] = None
     URI: Optional[str] = None
 
 
-class DescribeIndexRequestTypeDef(BaseValidatorModel):
+class DescribeIndexRequest(BaseValidatorModel):
     Id: str
 
 
-class DescribePrincipalMappingRequestTypeDef(BaseValidatorModel):
+class DescribePrincipalMappingRequest(BaseValidatorModel):
     IndexId: str
     GroupId: str
     DataSourceId: Optional[str] = None
 
 
-class GroupOrderingIdSummaryTypeDef(BaseValidatorModel):
+class GroupOrderingIdSummary(BaseValidatorModel):
     Status: Optional[PrincipalMappingStatusType] = None
     LastUpdatedAt: Optional[datetime] = None
     ReceivedAt: Optional[datetime] = None
@@ -340,34 +340,34 @@ class GroupOrderingIdSummaryTypeDef(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
-class DescribeQuerySuggestionsBlockListRequestTypeDef(BaseValidatorModel):
+class DescribeQuerySuggestionsBlockListRequest(BaseValidatorModel):
     IndexId: str
     Id: str
 
 
-class DescribeQuerySuggestionsConfigRequestTypeDef(BaseValidatorModel):
+class DescribeQuerySuggestionsConfigRequest(BaseValidatorModel):
     IndexId: str
 
 
-class DescribeThesaurusRequestTypeDef(BaseValidatorModel):
+class DescribeThesaurusRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class DisassociatePersonasFromEntitiesRequestTypeDef(BaseValidatorModel):
+class DisassociatePersonasFromEntitiesRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     EntityIds: Sequence[str]
 
 
-class DocumentAttributeValueOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeValueOutput(BaseValidatorModel):
     StringValue: Optional[str] = None
     StringListValue: Optional[List[str]] = None
     LongValue: Optional[int] = None
     DateValue: Optional[datetime] = None
 
 
-class RelevanceOutputTypeDef(BaseValidatorModel):
+class RelevanceOutput(BaseValidatorModel):
     Freshness: Optional[bool] = None
     Importance: Optional[int] = None
     Duration: Optional[str] = None
@@ -375,18 +375,18 @@ class RelevanceOutputTypeDef(BaseValidatorModel):
     ValueImportanceMap: Optional[Dict[str, int]] = None
 
 
-class SearchTypeDef(BaseValidatorModel):
+class Search(BaseValidatorModel):
     Facetable: Optional[bool] = None
     Searchable: Optional[bool] = None
     Displayable: Optional[bool] = None
     Sortable: Optional[bool] = None
 
 
-class DocumentsMetadataConfigurationTypeDef(BaseValidatorModel):
+class DocumentsMetadataConfiguration(BaseValidatorModel):
     S3Prefix: Optional[str] = None
 
 
-class EntityDisplayDataTypeDef(BaseValidatorModel):
+class EntityDisplayData(BaseValidatorModel):
     UserName: Optional[str] = None
     GroupName: Optional[str] = None
     IdentifiedUserName: Optional[str] = None
@@ -394,21 +394,21 @@ class EntityDisplayDataTypeDef(BaseValidatorModel):
     LastName: Optional[str] = None
 
 
-class UserIdentityConfigurationTypeDef(BaseValidatorModel):
+class UserIdentityConfiguration(BaseValidatorModel):
     IdentityAttributeName: Optional[str] = None
 
 
-class FacetTypeDef(BaseValidatorModel):
+class Facet(BaseValidatorModel):
     DocumentAttributeKey: Optional[str] = None
     Facets: Optional[Sequence[Mapping[str, Any]]] = None
     MaxResults: Optional[int] = None
 
 
-class FaqStatisticsTypeDef(BaseValidatorModel):
+class FaqStatistics(BaseValidatorModel):
     IndexedQuestionAnswersCount: int
 
 
-class FaqSummaryTypeDef(BaseValidatorModel):
+class FaqSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Status: Optional[FaqStatusType] = None
@@ -418,7 +418,7 @@ class FaqSummaryTypeDef(BaseValidatorModel):
     LanguageCode: Optional[str] = None
 
 
-class FeaturedResultsSetSummaryTypeDef(BaseValidatorModel):
+class FeaturedResultsSetSummary(BaseValidatorModel):
     FeaturedResultsSetId: Optional[str] = None
     FeaturedResultsSetName: Optional[str] = None
     Status: Optional[FeaturedResultsSetStatusType] = None
@@ -426,7 +426,7 @@ class FeaturedResultsSetSummaryTypeDef(BaseValidatorModel):
     CreationTimestamp: Optional[int] = None
 
 
-class GetSnapshotsRequestTypeDef(BaseValidatorModel):
+class GetSnapshotsRequest(BaseValidatorModel):
     IndexId: str
     Interval: IntervalType
     MetricType: MetricTypeType
@@ -434,12 +434,12 @@ class GetSnapshotsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class TimeRangeOutputTypeDef(BaseValidatorModel):
+class TimeRangeOutput(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
 
-class GitHubDocumentCrawlPropertiesTypeDef(BaseValidatorModel):
+class GitHubDocumentCrawlProperties(BaseValidatorModel):
     CrawlRepositoryDocuments: Optional[bool] = None
     CrawlIssue: Optional[bool] = None
     CrawlIssueComment: Optional[bool] = None
@@ -449,26 +449,26 @@ class GitHubDocumentCrawlPropertiesTypeDef(BaseValidatorModel):
     CrawlPullRequestCommentAttachment: Optional[bool] = None
 
 
-class SaaSConfigurationTypeDef(BaseValidatorModel):
+class SaaSConfiguration(BaseValidatorModel):
     OrganizationName: str
     HostUrl: str
 
 
-class MemberGroupTypeDef(BaseValidatorModel):
+class MemberGroup(BaseValidatorModel):
     GroupId: str
     DataSourceId: Optional[str] = None
 
 
-class MemberUserTypeDef(BaseValidatorModel):
+class MemberUser(BaseValidatorModel):
     UserId: str
 
 
-class GroupSummaryTypeDef(BaseValidatorModel):
+class GroupSummary(BaseValidatorModel):
     GroupId: Optional[str] = None
     OrderingId: Optional[int] = None
 
 
-class IndexConfigurationSummaryTypeDef(BaseValidatorModel):
+class IndexConfigurationSummary(BaseValidatorModel):
     CreatedAt: datetime
     UpdatedAt: datetime
     Status: IndexStatusType
@@ -477,17 +477,17 @@ class IndexConfigurationSummaryTypeDef(BaseValidatorModel):
     Edition: Optional[IndexEditionType] = None
 
 
-class TextDocumentStatisticsTypeDef(BaseValidatorModel):
+class TextDocumentStatistics(BaseValidatorModel):
     IndexedTextDocumentsCount: int
     IndexedTextBytes: int
 
 
-class JsonTokenTypeConfigurationTypeDef(BaseValidatorModel):
+class JsonTokenTypeConfiguration(BaseValidatorModel):
     UserNameAttributeField: str
     GroupAttributeField: str
 
 
-class JwtTokenTypeConfigurationTypeDef(BaseValidatorModel):
+class JwtTokenTypeConfiguration(BaseValidatorModel):
     KeyLocation: KeyLocationType
     URL: Optional[str] = None
     SecretManagerArn: Optional[str] = None
@@ -497,57 +497,57 @@ class JwtTokenTypeConfigurationTypeDef(BaseValidatorModel):
     ClaimRegex: Optional[str] = None
 
 
-class ListAccessControlConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListAccessControlConfigurationsRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDataSourcesRequestTypeDef(BaseValidatorModel):
+class ListDataSourcesRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEntityPersonasRequestTypeDef(BaseValidatorModel):
+class ListEntityPersonasRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class PersonasSummaryTypeDef(BaseValidatorModel):
+class PersonasSummary(BaseValidatorModel):
     EntityId: Optional[str] = None
     Persona: Optional[PersonaType] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
 
-class ListExperienceEntitiesRequestTypeDef(BaseValidatorModel):
+class ListExperienceEntitiesRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     NextToken: Optional[str] = None
 
 
-class ListExperiencesRequestTypeDef(BaseValidatorModel):
+class ListExperiencesRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListFaqsRequestTypeDef(BaseValidatorModel):
+class ListFaqsRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListFeaturedResultsSetsRequestTypeDef(BaseValidatorModel):
+class ListFeaturedResultsSetsRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListGroupsOlderThanOrderingIdRequestTypeDef(BaseValidatorModel):
+class ListGroupsOlderThanOrderingIdRequest(BaseValidatorModel):
     IndexId: str
     OrderingId: int
     DataSourceId: Optional[str] = None
@@ -555,18 +555,18 @@ class ListGroupsOlderThanOrderingIdRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListIndicesRequestTypeDef(BaseValidatorModel):
+class ListIndicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListQuerySuggestionsBlockListsRequestTypeDef(BaseValidatorModel):
+class ListQuerySuggestionsBlockListsRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class QuerySuggestionsBlockListSummaryTypeDef(BaseValidatorModel):
+class QuerySuggestionsBlockListSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Status: Optional[QuerySuggestionsBlockListStatusType] = None
@@ -575,17 +575,17 @@ class QuerySuggestionsBlockListSummaryTypeDef(BaseValidatorModel):
     ItemCount: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class ListThesauriRequestTypeDef(BaseValidatorModel):
+class ListThesauriRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ThesaurusSummaryTypeDef(BaseValidatorModel):
+class ThesaurusSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Status: Optional[ThesaurusStatusType] = None
@@ -593,25 +593,25 @@ class ThesaurusSummaryTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class SpellCorrectionConfigurationTypeDef(BaseValidatorModel):
+class SpellCorrectionConfiguration(BaseValidatorModel):
     IncludeQuerySpellCheckSuggestions: bool
 
 
-class ScoreAttributesTypeDef(BaseValidatorModel):
+class ScoreAttributes(BaseValidatorModel):
     ScoreConfidence: Optional[ScoreConfidenceType] = None
 
 
-class WarningTypeDef(BaseValidatorModel):
+class Warning(BaseValidatorModel):
     Message: Optional[str] = None
     Code: Optional[Literal["QUERY_LANGUAGE_INVALID_SYNTAX"]] = None
 
 
-class RelevanceFeedbackTypeDef(BaseValidatorModel):
+class RelevanceFeedback(BaseValidatorModel):
     ResultId: str
     RelevanceValue: RelevanceTypeType
 
 
-class RelevanceTypeDef(BaseValidatorModel):
+class Relevance(BaseValidatorModel):
     Freshness: Optional[bool] = None
     Importance: Optional[int] = None
     Duration: Optional[str] = None
@@ -619,234 +619,234 @@ class RelevanceTypeDef(BaseValidatorModel):
     ValueImportanceMap: Optional[Mapping[str, int]] = None
 
 
-class SeedUrlConfigurationOutputTypeDef(BaseValidatorModel):
+class SeedUrlConfigurationOutput(BaseValidatorModel):
     SeedUrls: List[str]
     WebCrawlerMode: Optional[WebCrawlerModeType] = None
 
 
-class SeedUrlConfigurationTypeDef(BaseValidatorModel):
+class SeedUrlConfiguration(BaseValidatorModel):
     SeedUrls: Sequence[str]
     WebCrawlerMode: Optional[WebCrawlerModeType] = None
 
 
-class SiteMapsConfigurationOutputTypeDef(BaseValidatorModel):
+class SiteMapsConfigurationOutput(BaseValidatorModel):
     SiteMaps: List[str]
 
 
-class SiteMapsConfigurationTypeDef(BaseValidatorModel):
+class SiteMapsConfiguration(BaseValidatorModel):
     SiteMaps: Sequence[str]
 
 
-class StartDataSourceSyncJobRequestTypeDef(BaseValidatorModel):
+class StartDataSourceSyncJobRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class StopDataSourceSyncJobRequestTypeDef(BaseValidatorModel):
+class StopDataSourceSyncJobRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
-class SuggestionHighlightTypeDef(BaseValidatorModel):
+class SuggestionHighlight(BaseValidatorModel):
     BeginOffset: Optional[int] = None
     EndOffset: Optional[int] = None
 
 
-class TableCellTypeDef(BaseValidatorModel):
+class TableCell(BaseValidatorModel):
     Value: Optional[str] = None
     TopAnswer: Optional[bool] = None
     Highlighted: Optional[bool] = None
     Header: Optional[bool] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class ColumnConfigurationOutputTypeDef(BaseValidatorModel):
+class ColumnConfigurationOutput(BaseValidatorModel):
     DocumentIdColumnName: str
     DocumentDataColumnName: str
     ChangeDetectingColumns: List[str]
     DocumentTitleColumnName: Optional[str] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
-class ColumnConfigurationTypeDef(BaseValidatorModel):
+class ColumnConfiguration(BaseValidatorModel):
     DocumentIdColumnName: str
     DocumentDataColumnName: str
     ChangeDetectingColumns: Sequence[str]
     DocumentTitleColumnName: Optional[str] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
 
 
-class GoogleDriveConfigurationOutputTypeDef(BaseValidatorModel):
+class GoogleDriveConfigurationOutput(BaseValidatorModel):
     SecretArn: str
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
     ExcludeMimeTypes: Optional[List[str]] = None
     ExcludeUserAccounts: Optional[List[str]] = None
     ExcludeSharedDrives: Optional[List[str]] = None
 
 
-class GoogleDriveConfigurationTypeDef(BaseValidatorModel):
+class GoogleDriveConfiguration(BaseValidatorModel):
     SecretArn: str
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
     ExcludeMimeTypes: Optional[Sequence[str]] = None
     ExcludeUserAccounts: Optional[Sequence[str]] = None
     ExcludeSharedDrives: Optional[Sequence[str]] = None
 
 
-class SalesforceChatterFeedConfigurationOutputTypeDef(BaseValidatorModel):
+class SalesforceChatterFeedConfigurationOutput(BaseValidatorModel):
     DocumentDataFieldName: str
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
     IncludeFilterTypes: Optional[List[SalesforceChatterFeedIncludeFilterTypeType]] = None
 
 
-class SalesforceChatterFeedConfigurationTypeDef(BaseValidatorModel):
+class SalesforceChatterFeedConfiguration(BaseValidatorModel):
     DocumentDataFieldName: str
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
     IncludeFilterTypes: Optional[Sequence[SalesforceChatterFeedIncludeFilterTypeType]] = None
 
 
-class SalesforceCustomKnowledgeArticleTypeConfigurationOutputTypeDef(BaseValidatorModel):
+class SalesforceCustomKnowledgeArticleTypeConfigurationOutput(BaseValidatorModel):
     Name: str
     DocumentDataFieldName: str
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
-class SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef(BaseValidatorModel):
+class SalesforceCustomKnowledgeArticleTypeConfiguration(BaseValidatorModel):
     Name: str
     DocumentDataFieldName: str
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
 
 
-class SalesforceStandardKnowledgeArticleTypeConfigurationOutputTypeDef(BaseValidatorModel):
+class SalesforceStandardKnowledgeArticleTypeConfigurationOutput(BaseValidatorModel):
     DocumentDataFieldName: str
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
-class SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef(BaseValidatorModel):
+class SalesforceStandardKnowledgeArticleTypeConfiguration(BaseValidatorModel):
     DocumentDataFieldName: str
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
 
 
-class SalesforceStandardObjectAttachmentConfigurationOutputTypeDef(BaseValidatorModel):
+class SalesforceStandardObjectAttachmentConfigurationOutput(BaseValidatorModel):
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
-class SalesforceStandardObjectAttachmentConfigurationTypeDef(BaseValidatorModel):
+class SalesforceStandardObjectAttachmentConfiguration(BaseValidatorModel):
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
 
 
-class SalesforceStandardObjectConfigurationOutputTypeDef(BaseValidatorModel):
+class SalesforceStandardObjectConfigurationOutput(BaseValidatorModel):
     Name: SalesforceStandardObjectNameType
     DocumentDataFieldName: str
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
-class SalesforceStandardObjectConfigurationTypeDef(BaseValidatorModel):
+class SalesforceStandardObjectConfiguration(BaseValidatorModel):
     Name: SalesforceStandardObjectNameType
     DocumentDataFieldName: str
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
 
 
-class ServiceNowKnowledgeArticleConfigurationOutputTypeDef(BaseValidatorModel):
+class ServiceNowKnowledgeArticleConfigurationOutput(BaseValidatorModel):
     DocumentDataFieldName: str
     CrawlAttachments: Optional[bool] = None
     IncludeAttachmentFilePatterns: Optional[List[str]] = None
     ExcludeAttachmentFilePatterns: Optional[List[str]] = None
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
     FilterQuery: Optional[str] = None
 
 
-class ServiceNowKnowledgeArticleConfigurationTypeDef(BaseValidatorModel):
+class ServiceNowKnowledgeArticleConfiguration(BaseValidatorModel):
     DocumentDataFieldName: str
     CrawlAttachments: Optional[bool] = None
     IncludeAttachmentFilePatterns: Optional[Sequence[str]] = None
     ExcludeAttachmentFilePatterns: Optional[Sequence[str]] = None
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
     FilterQuery: Optional[str] = None
 
 
-class ServiceNowServiceCatalogConfigurationOutputTypeDef(BaseValidatorModel):
+class ServiceNowServiceCatalogConfigurationOutput(BaseValidatorModel):
     DocumentDataFieldName: str
     CrawlAttachments: Optional[bool] = None
     IncludeAttachmentFilePatterns: Optional[List[str]] = None
     ExcludeAttachmentFilePatterns: Optional[List[str]] = None
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
-class ServiceNowServiceCatalogConfigurationTypeDef(BaseValidatorModel):
+class ServiceNowServiceCatalogConfiguration(BaseValidatorModel):
     DocumentDataFieldName: str
     CrawlAttachments: Optional[bool] = None
     IncludeAttachmentFilePatterns: Optional[Sequence[str]] = None
     ExcludeAttachmentFilePatterns: Optional[Sequence[str]] = None
     DocumentTitleFieldName: Optional[str] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
 
 
-class WorkDocsConfigurationOutputTypeDef(BaseValidatorModel):
+class WorkDocsConfigurationOutput(BaseValidatorModel):
     OrganizationId: str
     CrawlComments: Optional[bool] = None
     UseChangeLog: Optional[bool] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
-class WorkDocsConfigurationTypeDef(BaseValidatorModel):
+class WorkDocsConfiguration(BaseValidatorModel):
     OrganizationId: str
     CrawlComments: Optional[bool] = None
     UseChangeLog: Optional[bool] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
 
 
-class BoxConfigurationOutputTypeDef(BaseValidatorModel):
+class BoxConfigurationOutput(BaseValidatorModel):
     EnterpriseId: str
     SecretArn: str
     UseChangeLog: Optional[bool] = None
     CrawlComments: Optional[bool] = None
     CrawlTasks: Optional[bool] = None
     CrawlWebLinks: Optional[bool] = None
-    FileFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    TaskFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    CommentFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    WebLinkFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FileFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    TaskFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    CommentFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    WebLinkFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationOutputTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfigurationOutput] = None
 
 
-class FsxConfigurationOutputTypeDef(BaseValidatorModel):
+class FsxConfigurationOutput(BaseValidatorModel):
     FileSystemId: str
     FileSystemType: Literal["WINDOWS"]
-    VpcConfiguration: DataSourceVpcConfigurationOutputTypeDef
+    VpcConfiguration: DataSourceVpcConfigurationOutput
     SecretArn: Optional[str] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
-class JiraConfigurationOutputTypeDef(BaseValidatorModel):
+class JiraConfigurationOutput(BaseValidatorModel):
     JiraAccountUrl: str
     SecretArn: str
     UseChangeLog: Optional[bool] = None
@@ -854,37 +854,37 @@ class JiraConfigurationOutputTypeDef(BaseValidatorModel):
     IssueType: Optional[List[str]] = None
     Status: Optional[List[str]] = None
     IssueSubEntityFilter: Optional[List[IssueSubEntityType]] = None
-    AttachmentFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    CommentFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    IssueFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    ProjectFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    WorkLogFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    AttachmentFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    CommentFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    IssueFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    ProjectFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    WorkLogFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationOutputTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfigurationOutput] = None
 
 
-class QuipConfigurationOutputTypeDef(BaseValidatorModel):
+class QuipConfigurationOutput(BaseValidatorModel):
     Domain: str
     SecretArn: str
     CrawlFileComments: Optional[bool] = None
     CrawlChatRooms: Optional[bool] = None
     CrawlAttachments: Optional[bool] = None
     FolderIds: Optional[List[str]] = None
-    ThreadFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    MessageFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    AttachmentFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    ThreadFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    MessageFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    AttachmentFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationOutputTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfigurationOutput] = None
 
 
-class SlackConfigurationOutputTypeDef(BaseValidatorModel):
+class SlackConfigurationOutput(BaseValidatorModel):
     TeamId: str
     SecretArn: str
     SlackEntityList: List[SlackEntityType]
     SinceCrawlDate: str
-    VpcConfiguration: Optional[DataSourceVpcConfigurationOutputTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfigurationOutput] = None
     UseChangeLog: Optional[bool] = None
     CrawlBotMessage: Optional[bool] = None
     ExcludeArchived: Optional[bool] = None
@@ -893,102 +893,102 @@ class SlackConfigurationOutputTypeDef(BaseValidatorModel):
     PublicChannelFilter: Optional[List[str]] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
-class AlfrescoConfigurationOutputTypeDef(BaseValidatorModel):
+class AlfrescoConfigurationOutput(BaseValidatorModel):
     SiteUrl: str
     SiteId: str
     SecretArn: str
-    SslCertificateS3Path: S3PathTypeDef
+    SslCertificateS3Path: S3Path
     CrawlSystemFolders: Optional[bool] = None
     CrawlComments: Optional[bool] = None
     EntityFilter: Optional[List[AlfrescoEntityType]] = None
-    DocumentLibraryFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    BlogFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    WikiFieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    DocumentLibraryFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    BlogFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
+    WikiFieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationOutputTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfigurationOutput] = None
 
 
-class OnPremiseConfigurationTypeDef(BaseValidatorModel):
+class OnPremiseConfiguration(BaseValidatorModel):
     HostUrl: str
     OrganizationName: str
-    SslCertificateS3Path: S3PathTypeDef
+    SslCertificateS3Path: S3Path
 
 
-class OneDriveUsersOutputTypeDef(BaseValidatorModel):
+class OneDriveUsersOutput(BaseValidatorModel):
     OneDriveUserList: Optional[List[str]] = None
-    OneDriveUserS3Path: Optional[S3PathTypeDef] = None
+    OneDriveUserS3Path: Optional[S3Path] = None
 
 
-class OneDriveUsersTypeDef(BaseValidatorModel):
+class OneDriveUsers(BaseValidatorModel):
     OneDriveUserList: Optional[Sequence[str]] = None
-    OneDriveUserS3Path: Optional[S3PathTypeDef] = None
+    OneDriveUserS3Path: Optional[S3Path] = None
 
 
-class UpdateQuerySuggestionsBlockListRequestTypeDef(BaseValidatorModel):
+class UpdateQuerySuggestionsBlockListRequest(BaseValidatorModel):
     IndexId: str
     Id: str
     Name: Optional[str] = None
     Description: Optional[str] = None
-    SourceS3Path: Optional[S3PathTypeDef] = None
+    SourceS3Path: Optional[S3Path] = None
     RoleArn: Optional[str] = None
 
 
-class UpdateThesaurusRequestTypeDef(BaseValidatorModel):
+class UpdateThesaurusRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     RoleArn: Optional[str] = None
-    SourceS3Path: Optional[S3PathTypeDef] = None
+    SourceS3Path: Optional[S3Path] = None
 
 
-class AlfrescoConfigurationTypeDef(BaseValidatorModel):
+class AlfrescoConfiguration(BaseValidatorModel):
     SiteUrl: str
     SiteId: str
     SecretArn: str
-    SslCertificateS3Path: S3PathTypeDef
+    SslCertificateS3Path: S3Path
     CrawlSystemFolders: Optional[bool] = None
     CrawlComments: Optional[bool] = None
     EntityFilter: Optional[Sequence[AlfrescoEntityType]] = None
-    DocumentLibraryFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    BlogFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    WikiFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    DocumentLibraryFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    BlogFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    WikiFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfiguration] = None
 
 
-class BoxConfigurationTypeDef(BaseValidatorModel):
+class BoxConfiguration(BaseValidatorModel):
     EnterpriseId: str
     SecretArn: str
     UseChangeLog: Optional[bool] = None
     CrawlComments: Optional[bool] = None
     CrawlTasks: Optional[bool] = None
     CrawlWebLinks: Optional[bool] = None
-    FileFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    TaskFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    CommentFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    WebLinkFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FileFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    TaskFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    CommentFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    WebLinkFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfiguration] = None
 
 
-class FsxConfigurationTypeDef(BaseValidatorModel):
+class FsxConfiguration(BaseValidatorModel):
     FileSystemId: str
     FileSystemType: Literal["WINDOWS"]
-    VpcConfiguration: DataSourceVpcConfigurationTypeDef
+    VpcConfiguration: DataSourceVpcConfiguration
     SecretArn: Optional[str] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
 
 
-class JiraConfigurationTypeDef(BaseValidatorModel):
+class JiraConfiguration(BaseValidatorModel):
     JiraAccountUrl: str
     SecretArn: str
     UseChangeLog: Optional[bool] = None
@@ -996,37 +996,37 @@ class JiraConfigurationTypeDef(BaseValidatorModel):
     IssueType: Optional[Sequence[str]] = None
     Status: Optional[Sequence[str]] = None
     IssueSubEntityFilter: Optional[Sequence[IssueSubEntityType]] = None
-    AttachmentFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    CommentFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    IssueFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    ProjectFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    WorkLogFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    AttachmentFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    CommentFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    IssueFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    ProjectFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    WorkLogFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfiguration] = None
 
 
-class QuipConfigurationTypeDef(BaseValidatorModel):
+class QuipConfiguration(BaseValidatorModel):
     Domain: str
     SecretArn: str
     CrawlFileComments: Optional[bool] = None
     CrawlChatRooms: Optional[bool] = None
     CrawlAttachments: Optional[bool] = None
     FolderIds: Optional[Sequence[str]] = None
-    ThreadFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    MessageFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
-    AttachmentFieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    ThreadFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    MessageFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
+    AttachmentFieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfiguration] = None
 
 
-class SlackConfigurationTypeDef(BaseValidatorModel):
+class SlackConfiguration(BaseValidatorModel):
     TeamId: str
     SecretArn: str
     SlackEntityList: Sequence[SlackEntityType]
     SinceCrawlDate: str
-    VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
+    VpcConfiguration: Optional[DataSourceVpcConfiguration] = None
     UseChangeLog: Optional[bool] = None
     CrawlBotMessage: Optional[bool] = None
     ExcludeArchived: Optional[bool] = None
@@ -1035,83 +1035,83 @@ class SlackConfigurationTypeDef(BaseValidatorModel):
     PublicChannelFilter: Optional[Sequence[str]] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
 
 
-class AssociateEntitiesToExperienceRequestTypeDef(BaseValidatorModel):
+class AssociateEntitiesToExperienceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
-    EntityList: Sequence[EntityConfigurationTypeDef]
+    EntityList: Sequence[EntityConfiguration]
 
 
-class DisassociateEntitiesFromExperienceRequestTypeDef(BaseValidatorModel):
+class DisassociateEntitiesFromExperienceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
-    EntityList: Sequence[EntityConfigurationTypeDef]
+    EntityList: Sequence[EntityConfiguration]
 
 
-class AssociateEntitiesToExperienceResponseTypeDef(BaseValidatorModel):
-    FailedEntityList: List[FailedEntityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateEntitiesToExperienceResponse(BaseValidatorModel):
+    FailedEntityList: List[FailedEntity]
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociatePersonasToEntitiesResponseTypeDef(BaseValidatorModel):
-    FailedEntityList: List[FailedEntityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociatePersonasToEntitiesResponse(BaseValidatorModel):
+    FailedEntityList: List[FailedEntity]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAccessControlConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateAccessControlConfigurationResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataSourceResponseTypeDef(BaseValidatorModel):
+class CreateDataSourceResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateExperienceResponseTypeDef(BaseValidatorModel):
+class CreateExperienceResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFaqResponseTypeDef(BaseValidatorModel):
+class CreateFaqResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIndexResponseTypeDef(BaseValidatorModel):
+class CreateIndexResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateQuerySuggestionsBlockListResponseTypeDef(BaseValidatorModel):
+class CreateQuerySuggestionsBlockListResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateThesaurusResponseTypeDef(BaseValidatorModel):
+class CreateThesaurusResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFaqResponseTypeDef(BaseValidatorModel):
+class DescribeFaqResponse(BaseValidatorModel):
     Id: str
     IndexId: str
     Name: str
     Description: str
     CreatedAt: datetime
     UpdatedAt: datetime
-    S3Path: S3PathTypeDef
+    S3Path: S3Path
     Status: FaqStatusType
     RoleArn: str
     ErrorMessage: str
     FileFormat: FaqFileFormatType
     LanguageCode: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeQuerySuggestionsBlockListResponseTypeDef(BaseValidatorModel):
+class DescribeQuerySuggestionsBlockListResponse(BaseValidatorModel):
     IndexId: str
     Id: str
     Name: str
@@ -1120,14 +1120,14 @@ class DescribeQuerySuggestionsBlockListResponseTypeDef(BaseValidatorModel):
     ErrorMessage: str
     CreatedAt: datetime
     UpdatedAt: datetime
-    SourceS3Path: S3PathTypeDef
+    SourceS3Path: S3Path
     ItemCount: int
     FileSizeBytes: int
     RoleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeThesaurusResponseTypeDef(BaseValidatorModel):
+class DescribeThesaurusResponse(BaseValidatorModel):
     Id: str
     IndexId: str
     Name: str
@@ -1137,137 +1137,137 @@ class DescribeThesaurusResponseTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     UpdatedAt: datetime
     RoleArn: str
-    SourceS3Path: S3PathTypeDef
+    SourceS3Path: S3Path
     FileSizeBytes: int
     TermCount: int
     SynonymRuleCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateEntitiesFromExperienceResponseTypeDef(BaseValidatorModel):
-    FailedEntityList: List[FailedEntityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateEntitiesFromExperienceResponse(BaseValidatorModel):
+    FailedEntityList: List[FailedEntity]
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociatePersonasFromEntitiesResponseTypeDef(BaseValidatorModel):
-    FailedEntityList: List[FailedEntityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociatePersonasFromEntitiesResponse(BaseValidatorModel):
+    FailedEntityList: List[FailedEntity]
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAccessControlConfigurationsResponseTypeDef(BaseValidatorModel):
-    AccessControlConfigurations: List[AccessControlConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccessControlConfigurationsResponse(BaseValidatorModel):
+    AccessControlConfigurations: List[AccessControlConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StartDataSourceSyncJobResponseTypeDef(BaseValidatorModel):
+class StartDataSourceSyncJobResponse(BaseValidatorModel):
     ExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociatePersonasToEntitiesRequestTypeDef(BaseValidatorModel):
+class AssociatePersonasToEntitiesRequest(BaseValidatorModel):
     Id: str
     IndexId: str
-    Personas: Sequence[EntityPersonaConfigurationTypeDef]
+    Personas: Sequence[EntityPersonaConfiguration]
 
 
-class AttributeSuggestionsDescribeConfigTypeDef(BaseValidatorModel):
-    SuggestableConfigList: Optional[List[SuggestableConfigTypeDef]] = None
+class AttributeSuggestionsDescribeConfig(BaseValidatorModel):
+    SuggestableConfigList: Optional[List[SuggestableConfig]] = None
     AttributeSuggestionsMode: Optional[AttributeSuggestionsModeType] = None
 
 
-class AttributeSuggestionsUpdateConfigTypeDef(BaseValidatorModel):
-    SuggestableConfigList: Optional[Sequence[SuggestableConfigTypeDef]] = None
+class AttributeSuggestionsUpdateConfig(BaseValidatorModel):
+    SuggestableConfigList: Optional[Sequence[SuggestableConfig]] = None
     AttributeSuggestionsMode: Optional[AttributeSuggestionsModeType] = None
 
 
-class AuthenticationConfigurationOutputTypeDef(BaseValidatorModel):
-    BasicAuthentication: Optional[List[BasicAuthenticationConfigurationTypeDef]] = None
+class AuthenticationConfigurationOutput(BaseValidatorModel):
+    BasicAuthentication: Optional[List[BasicAuthenticationConfiguration]] = None
 
 
-class AuthenticationConfigurationTypeDef(BaseValidatorModel):
-    BasicAuthentication: Optional[Sequence[BasicAuthenticationConfigurationTypeDef]] = None
+class AuthenticationConfiguration(BaseValidatorModel):
+    BasicAuthentication: Optional[Sequence[BasicAuthenticationConfiguration]] = None
 
 
-class BatchDeleteDocumentRequestTypeDef(BaseValidatorModel):
+class BatchDeleteDocumentRequest(BaseValidatorModel):
     IndexId: str
     DocumentIdList: Sequence[str]
-    DataSourceSyncJobMetricTarget: Optional[DataSourceSyncJobMetricTargetTypeDef] = None
+    DataSourceSyncJobMetricTarget: Optional[DataSourceSyncJobMetricTarget] = None
 
 
-class BatchDeleteDocumentResponseTypeDef(BaseValidatorModel):
-    FailedDocuments: List[BatchDeleteDocumentResponseFailedDocumentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeleteDocumentResponse(BaseValidatorModel):
+    FailedDocuments: List[BatchDeleteDocumentResponseFailedDocument]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDeleteFeaturedResultsSetResponseTypeDef(BaseValidatorModel):
-    Errors: List[BatchDeleteFeaturedResultsSetErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeleteFeaturedResultsSetResponse(BaseValidatorModel):
+    Errors: List[BatchDeleteFeaturedResultsSetError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetDocumentStatusResponseTypeDef(BaseValidatorModel):
-    Errors: List[BatchGetDocumentStatusResponseErrorTypeDef]
-    DocumentStatusList: List[StatusTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetDocumentStatusResponse(BaseValidatorModel):
+    Errors: List[BatchGetDocumentStatusResponseError]
+    DocumentStatusList: List[Status]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchPutDocumentResponseTypeDef(BaseValidatorModel):
-    FailedDocuments: List[BatchPutDocumentResponseFailedDocumentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchPutDocumentResponse(BaseValidatorModel):
+    FailedDocuments: List[BatchPutDocumentResponseFailedDocument]
+    ResponseMetadata: ResponseMetadata
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ClickFeedbackTypeDef(BaseValidatorModel):
+class ClickFeedback(BaseValidatorModel):
     ResultId: str
-    ClickTime: TimestampTypeDef
+    ClickTime: Timestamp
 
 
-class DocumentAttributeValueTypeDef(BaseValidatorModel):
+class DocumentAttributeValue(BaseValidatorModel):
     StringValue: Optional[str] = None
     StringListValue: Optional[Sequence[str]] = None
     LongValue: Optional[int] = None
-    DateValue: Optional[TimestampTypeDef] = None
+    DateValue: Optional[Timestamp] = None
 
 
-class TimeRangeTypeDef(BaseValidatorModel):
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+class TimeRange(BaseValidatorModel):
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
 
 
-class CollapseConfigurationTypeDef(BaseValidatorModel):
+class CollapseConfiguration(BaseValidatorModel):
     DocumentAttributeKey: str
-    SortingConfigurations: Optional[Sequence[SortingConfigurationTypeDef]] = None
+    SortingConfigurations: Optional[Sequence[SortingConfiguration]] = None
     MissingAttributeKeyStrategy: Optional[MissingAttributeKeyStrategyType] = None
     Expand: Optional[bool] = None
-    ExpandConfiguration: Optional[ExpandConfigurationTypeDef] = None
+    ExpandConfiguration: Optional[ExpandConfiguration] = None
 
 
-class ConfluenceAttachmentConfigurationOutputTypeDef(BaseValidatorModel):
+class ConfluenceAttachmentConfigurationOutput(BaseValidatorModel):
     CrawlAttachments: Optional[bool] = None
-    AttachmentFieldMappings: Optional[List[ConfluenceAttachmentToIndexFieldMappingTypeDef]] = None
+    AttachmentFieldMappings: Optional[List[ConfluenceAttachmentToIndexFieldMapping]] = None
 
 
-class ConfluenceAttachmentConfigurationTypeDef(BaseValidatorModel):
+class ConfluenceAttachmentConfiguration(BaseValidatorModel):
     CrawlAttachments: Optional[bool] = None
-    AttachmentFieldMappings: Optional[Sequence[ConfluenceAttachmentToIndexFieldMappingTypeDef]] = None
+    AttachmentFieldMappings: Optional[Sequence[ConfluenceAttachmentToIndexFieldMapping]] = None
 
 
-class ConfluenceBlogConfigurationOutputTypeDef(BaseValidatorModel):
-    BlogFieldMappings: Optional[List[ConfluenceBlogToIndexFieldMappingTypeDef]] = None
+class ConfluenceBlogConfigurationOutput(BaseValidatorModel):
+    BlogFieldMappings: Optional[List[ConfluenceBlogToIndexFieldMapping]] = None
 
 
-class ConfluenceBlogConfigurationTypeDef(BaseValidatorModel):
-    BlogFieldMappings: Optional[Sequence[ConfluenceBlogToIndexFieldMappingTypeDef]] = None
+class ConfluenceBlogConfiguration(BaseValidatorModel):
+    BlogFieldMappings: Optional[Sequence[ConfluenceBlogToIndexFieldMapping]] = None
 
 
-class SharePointConfigurationOutputTypeDef(BaseValidatorModel):
+class SharePointConfigurationOutput(BaseValidatorModel):
     SharePointVersion: SharePointVersionType
     Urls: List[str]
     SecretArn: str
@@ -1275,16 +1275,16 @@ class SharePointConfigurationOutputTypeDef(BaseValidatorModel):
     UseChangeLog: Optional[bool] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationOutputTypeDef] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    VpcConfiguration: Optional[DataSourceVpcConfigurationOutput] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
     DocumentTitleFieldName: Optional[str] = None
     DisableLocalGroups: Optional[bool] = None
-    SslCertificateS3Path: Optional[S3PathTypeDef] = None
+    SslCertificateS3Path: Optional[S3Path] = None
     AuthenticationType: Optional[SharePointOnlineAuthenticationTypeType] = None
-    ProxyConfiguration: Optional[ProxyConfigurationTypeDef] = None
+    ProxyConfiguration: Optional[ProxyConfiguration] = None
 
 
-class SharePointConfigurationTypeDef(BaseValidatorModel):
+class SharePointConfiguration(BaseValidatorModel):
     SharePointVersion: SharePointVersionType
     Urls: Sequence[str]
     SecretArn: str
@@ -1292,148 +1292,148 @@ class SharePointConfigurationTypeDef(BaseValidatorModel):
     UseChangeLog: Optional[bool] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    VpcConfiguration: Optional[DataSourceVpcConfiguration] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
     DocumentTitleFieldName: Optional[str] = None
     DisableLocalGroups: Optional[bool] = None
-    SslCertificateS3Path: Optional[S3PathTypeDef] = None
+    SslCertificateS3Path: Optional[S3Path] = None
     AuthenticationType: Optional[SharePointOnlineAuthenticationTypeType] = None
-    ProxyConfiguration: Optional[ProxyConfigurationTypeDef] = None
+    ProxyConfiguration: Optional[ProxyConfiguration] = None
 
 
-class ConfluencePageConfigurationOutputTypeDef(BaseValidatorModel):
-    PageFieldMappings: Optional[List[ConfluencePageToIndexFieldMappingTypeDef]] = None
+class ConfluencePageConfigurationOutput(BaseValidatorModel):
+    PageFieldMappings: Optional[List[ConfluencePageToIndexFieldMapping]] = None
 
 
-class ConfluencePageConfigurationTypeDef(BaseValidatorModel):
-    PageFieldMappings: Optional[Sequence[ConfluencePageToIndexFieldMappingTypeDef]] = None
+class ConfluencePageConfiguration(BaseValidatorModel):
+    PageFieldMappings: Optional[Sequence[ConfluencePageToIndexFieldMapping]] = None
 
 
-class ConfluenceSpaceConfigurationOutputTypeDef(BaseValidatorModel):
+class ConfluenceSpaceConfigurationOutput(BaseValidatorModel):
     CrawlPersonalSpaces: Optional[bool] = None
     CrawlArchivedSpaces: Optional[bool] = None
     IncludeSpaces: Optional[List[str]] = None
     ExcludeSpaces: Optional[List[str]] = None
-    SpaceFieldMappings: Optional[List[ConfluenceSpaceToIndexFieldMappingTypeDef]] = None
+    SpaceFieldMappings: Optional[List[ConfluenceSpaceToIndexFieldMapping]] = None
 
 
-class ConfluenceSpaceConfigurationTypeDef(BaseValidatorModel):
+class ConfluenceSpaceConfiguration(BaseValidatorModel):
     CrawlPersonalSpaces: Optional[bool] = None
     CrawlArchivedSpaces: Optional[bool] = None
     IncludeSpaces: Optional[Sequence[str]] = None
     ExcludeSpaces: Optional[Sequence[str]] = None
-    SpaceFieldMappings: Optional[Sequence[ConfluenceSpaceToIndexFieldMappingTypeDef]] = None
+    SpaceFieldMappings: Optional[Sequence[ConfluenceSpaceToIndexFieldMapping]] = None
 
 
-class SpellCorrectedQueryTypeDef(BaseValidatorModel):
+class SpellCorrectedQuery(BaseValidatorModel):
     SuggestedQueryText: Optional[str] = None
-    Corrections: Optional[List[CorrectionTypeDef]] = None
+    Corrections: Optional[List[Correction]] = None
 
 
-class PrincipalTypeDef(BaseValidatorModel):
+class Principal(BaseValidatorModel):
     pass
 
 
-class HierarchicalPrincipalOutputTypeDef(BaseValidatorModel):
-    PrincipalList: List[PrincipalTypeDef]
+class HierarchicalPrincipalOutput(BaseValidatorModel):
+    PrincipalList: List[Principal]
 
 
-class HierarchicalPrincipalTypeDef(BaseValidatorModel):
-    PrincipalList: Sequence[PrincipalTypeDef]
+class HierarchicalPrincipal(BaseValidatorModel):
+    PrincipalList: Sequence[Principal]
 
 
-class CreateFaqRequestTypeDef(BaseValidatorModel):
+class CreateFaqRequest(BaseValidatorModel):
     IndexId: str
     Name: str
-    S3Path: S3PathTypeDef
+    S3Path: S3Path
     RoleArn: str
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     FileFormat: Optional[FaqFileFormatType] = None
     ClientToken: Optional[str] = None
     LanguageCode: Optional[str] = None
 
 
-class CreateQuerySuggestionsBlockListRequestTypeDef(BaseValidatorModel):
+class CreateQuerySuggestionsBlockListRequest(BaseValidatorModel):
     IndexId: str
     Name: str
-    SourceS3Path: S3PathTypeDef
+    SourceS3Path: S3Path
     RoleArn: str
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateThesaurusRequestTypeDef(BaseValidatorModel):
+class CreateThesaurusRequest(BaseValidatorModel):
     IndexId: str
     Name: str
     RoleArn: str
-    SourceS3Path: S3PathTypeDef
+    SourceS3Path: S3Path
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateFeaturedResultsSetRequestTypeDef(BaseValidatorModel):
+class CreateFeaturedResultsSetRequest(BaseValidatorModel):
     IndexId: str
     FeaturedResultsSetName: str
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
     Status: Optional[FeaturedResultsSetStatusType] = None
     QueryTexts: Optional[Sequence[str]] = None
-    FeaturedDocuments: Optional[Sequence[FeaturedDocumentTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    FeaturedDocuments: Optional[Sequence[FeaturedDocument]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class FeaturedResultsSetTypeDef(BaseValidatorModel):
+class FeaturedResultsSet(BaseValidatorModel):
     FeaturedResultsSetId: Optional[str] = None
     FeaturedResultsSetName: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[FeaturedResultsSetStatusType] = None
     QueryTexts: Optional[List[str]] = None
-    FeaturedDocuments: Optional[List[FeaturedDocumentTypeDef]] = None
+    FeaturedDocuments: Optional[List[FeaturedDocument]] = None
     LastUpdatedTimestamp: Optional[int] = None
     CreationTimestamp: Optional[int] = None
 
 
-class UpdateFeaturedResultsSetRequestTypeDef(BaseValidatorModel):
+class UpdateFeaturedResultsSetRequest(BaseValidatorModel):
     IndexId: str
     FeaturedResultsSetId: str
     FeaturedResultsSetName: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[FeaturedResultsSetStatusType] = None
     QueryTexts: Optional[Sequence[str]] = None
-    FeaturedDocuments: Optional[Sequence[FeaturedDocumentTypeDef]] = None
+    FeaturedDocuments: Optional[Sequence[FeaturedDocument]] = None
 
 
-class UserContextTypeDef(BaseValidatorModel):
+class UserContext(BaseValidatorModel):
     Token: Optional[str] = None
     UserId: Optional[str] = None
     Groups: Optional[Sequence[str]] = None
-    DataSourceGroups: Optional[Sequence[DataSourceGroupTypeDef]] = None
+    DataSourceGroups: Optional[Sequence[DataSourceGroup]] = None
 
 
-class DataSourceSummaryTypeDef(BaseValidatorModel):
+class DataSourceSummary(BaseValidatorModel):
     pass
 
 
-class ListDataSourcesResponseTypeDef(BaseValidatorModel):
-    SummaryItems: List[DataSourceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourcesResponse(BaseValidatorModel):
+    SummaryItems: List[DataSourceSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DataSourceSyncJobTypeDef(BaseValidatorModel):
+class DataSourceSyncJob(BaseValidatorModel):
     ExecutionId: Optional[str] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
@@ -1441,244 +1441,244 @@ class DataSourceSyncJobTypeDef(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
     DataSourceErrorCode: Optional[str] = None
-    Metrics: Optional[DataSourceSyncJobMetricsTypeDef] = None
+    Metrics: Optional[DataSourceSyncJobMetrics] = None
 
 
-class ExperiencesSummaryTypeDef(BaseValidatorModel):
+class ExperiencesSummary(BaseValidatorModel):
     Name: Optional[str] = None
     Id: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     Status: Optional[ExperienceStatusType] = None
-    Endpoints: Optional[List[ExperienceEndpointTypeDef]] = None
+    Endpoints: Optional[List[ExperienceEndpoint]] = None
 
 
-class DescribeFeaturedResultsSetResponseTypeDef(BaseValidatorModel):
+class DescribeFeaturedResultsSetResponse(BaseValidatorModel):
     FeaturedResultsSetId: str
     FeaturedResultsSetName: str
     Description: str
     Status: FeaturedResultsSetStatusType
     QueryTexts: List[str]
-    FeaturedDocumentsWithMetadata: List[FeaturedDocumentWithMetadataTypeDef]
-    FeaturedDocumentsMissing: List[FeaturedDocumentMissingTypeDef]
+    FeaturedDocumentsWithMetadata: List[FeaturedDocumentWithMetadata]
+    FeaturedDocumentsMissing: List[FeaturedDocumentMissing]
     LastUpdatedTimestamp: int
     CreationTimestamp: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePrincipalMappingResponseTypeDef(BaseValidatorModel):
+class DescribePrincipalMappingResponse(BaseValidatorModel):
     IndexId: str
     DataSourceId: str
     GroupId: str
-    GroupOrderingIdSummaries: List[GroupOrderingIdSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    GroupOrderingIdSummaries: List[GroupOrderingIdSummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class DocumentAttributeConditionOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeConditionOutput(BaseValidatorModel):
     ConditionDocumentAttributeKey: str
     Operator: ConditionOperatorType
-    ConditionOnValue: Optional[DocumentAttributeValueOutputTypeDef] = None
+    ConditionOnValue: Optional[DocumentAttributeValueOutput] = None
 
 
-class DocumentAttributeOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeOutput(BaseValidatorModel):
     Key: str
-    Value: DocumentAttributeValueOutputTypeDef
+    Value: DocumentAttributeValueOutput
 
 
-class DocumentAttributeTargetOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeTargetOutput(BaseValidatorModel):
     TargetDocumentAttributeKey: Optional[str] = None
     TargetDocumentAttributeValueDeletion: Optional[bool] = None
-    TargetDocumentAttributeValue: Optional[DocumentAttributeValueOutputTypeDef] = None
+    TargetDocumentAttributeValue: Optional[DocumentAttributeValueOutput] = None
 
 
-class DocumentAttributeValueCountPairTypeDef(BaseValidatorModel):
-    DocumentAttributeValue: Optional[DocumentAttributeValueOutputTypeDef] = None
+class DocumentAttributeValueCountPair(BaseValidatorModel):
+    DocumentAttributeValue: Optional[DocumentAttributeValueOutput] = None
     Count: Optional[int] = None
     FacetResults: Optional[List[Dict[str, Any]]] = None
 
 
-class S3DataSourceConfigurationOutputTypeDef(BaseValidatorModel):
+class S3DataSourceConfigurationOutput(BaseValidatorModel):
     BucketName: str
     InclusionPrefixes: Optional[List[str]] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    DocumentsMetadataConfiguration: Optional[DocumentsMetadataConfigurationTypeDef] = None
-    AccessControlListConfiguration: Optional[AccessControlListConfigurationTypeDef] = None
+    DocumentsMetadataConfiguration: Optional[DocumentsMetadataConfiguration] = None
+    AccessControlListConfiguration: Optional[AccessControlListConfiguration] = None
 
 
-class S3DataSourceConfigurationTypeDef(BaseValidatorModel):
+class S3DataSourceConfiguration(BaseValidatorModel):
     BucketName: str
     InclusionPrefixes: Optional[Sequence[str]] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    DocumentsMetadataConfiguration: Optional[DocumentsMetadataConfigurationTypeDef] = None
-    AccessControlListConfiguration: Optional[AccessControlListConfigurationTypeDef] = None
+    DocumentsMetadataConfiguration: Optional[DocumentsMetadataConfiguration] = None
+    AccessControlListConfiguration: Optional[AccessControlListConfiguration] = None
 
 
-class ExperienceEntitiesSummaryTypeDef(BaseValidatorModel):
+class ExperienceEntitiesSummary(BaseValidatorModel):
     EntityId: Optional[str] = None
     EntityType: Optional[EntityTypeType] = None
-    DisplayData: Optional[EntityDisplayDataTypeDef] = None
+    DisplayData: Optional[EntityDisplayData] = None
 
 
-class ExperienceConfigurationOutputTypeDef(BaseValidatorModel):
-    ContentSourceConfiguration: Optional[ContentSourceConfigurationOutputTypeDef] = None
-    UserIdentityConfiguration: Optional[UserIdentityConfigurationTypeDef] = None
+class ExperienceConfigurationOutput(BaseValidatorModel):
+    ContentSourceConfiguration: Optional[ContentSourceConfigurationOutput] = None
+    UserIdentityConfiguration: Optional[UserIdentityConfiguration] = None
 
 
-class ExperienceConfigurationTypeDef(BaseValidatorModel):
-    ContentSourceConfiguration: Optional[ContentSourceConfigurationTypeDef] = None
-    UserIdentityConfiguration: Optional[UserIdentityConfigurationTypeDef] = None
+class ExperienceConfiguration(BaseValidatorModel):
+    ContentSourceConfiguration: Optional[ContentSourceConfiguration] = None
+    UserIdentityConfiguration: Optional[UserIdentityConfiguration] = None
 
 
-class ListFaqsResponseTypeDef(BaseValidatorModel):
-    FaqSummaryItems: List[FaqSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFaqsResponse(BaseValidatorModel):
+    FaqSummaryItems: List[FaqSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListFeaturedResultsSetsResponseTypeDef(BaseValidatorModel):
-    FeaturedResultsSetSummaryItems: List[FeaturedResultsSetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFeaturedResultsSetsResponse(BaseValidatorModel):
+    FeaturedResultsSetSummaryItems: List[FeaturedResultsSetSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetSnapshotsResponseTypeDef(BaseValidatorModel):
-    SnapShotTimeFilter: TimeRangeOutputTypeDef
+class GetSnapshotsResponse(BaseValidatorModel):
+    SnapShotTimeFilter: TimeRangeOutput
     SnapshotsDataHeader: List[str]
     SnapshotsData: List[List[str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GroupMembersTypeDef(BaseValidatorModel):
-    MemberGroups: Optional[Sequence[MemberGroupTypeDef]] = None
-    MemberUsers: Optional[Sequence[MemberUserTypeDef]] = None
-    S3PathforGroupMembers: Optional[S3PathTypeDef] = None
+class GroupMembers(BaseValidatorModel):
+    MemberGroups: Optional[Sequence[MemberGroup]] = None
+    MemberUsers: Optional[Sequence[MemberUser]] = None
+    S3PathforGroupMembers: Optional[S3Path] = None
 
 
-class ListGroupsOlderThanOrderingIdResponseTypeDef(BaseValidatorModel):
-    GroupsSummaries: List[GroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGroupsOlderThanOrderingIdResponse(BaseValidatorModel):
+    GroupsSummaries: List[GroupSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListIndicesResponseTypeDef(BaseValidatorModel):
-    IndexConfigurationSummaryItems: List[IndexConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIndicesResponse(BaseValidatorModel):
+    IndexConfigurationSummaryItems: List[IndexConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class IndexStatisticsTypeDef(BaseValidatorModel):
-    FaqStatistics: FaqStatisticsTypeDef
-    TextDocumentStatistics: TextDocumentStatisticsTypeDef
+class IndexStatistics(BaseValidatorModel):
+    FaqStatistics: FaqStatistics
+    TextDocumentStatistics: TextDocumentStatistics
 
 
-class UserTokenConfigurationTypeDef(BaseValidatorModel):
-    JwtTokenTypeConfiguration: Optional[JwtTokenTypeConfigurationTypeDef] = None
-    JsonTokenTypeConfiguration: Optional[JsonTokenTypeConfigurationTypeDef] = None
+class UserTokenConfiguration(BaseValidatorModel):
+    JwtTokenTypeConfiguration: Optional[JwtTokenTypeConfiguration] = None
+    JsonTokenTypeConfiguration: Optional[JsonTokenTypeConfiguration] = None
 
 
-class ListEntityPersonasResponseTypeDef(BaseValidatorModel):
-    SummaryItems: List[PersonasSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEntityPersonasResponse(BaseValidatorModel):
+    SummaryItems: List[PersonasSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListQuerySuggestionsBlockListsResponseTypeDef(BaseValidatorModel):
-    BlockListSummaryItems: List[QuerySuggestionsBlockListSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListQuerySuggestionsBlockListsResponse(BaseValidatorModel):
+    BlockListSummaryItems: List[QuerySuggestionsBlockListSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListThesauriResponseTypeDef(BaseValidatorModel):
-    ThesaurusSummaryItems: List[ThesaurusSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListThesauriResponse(BaseValidatorModel):
+    ThesaurusSummaryItems: List[ThesaurusSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UrlsOutputTypeDef(BaseValidatorModel):
-    SeedUrlConfiguration: Optional[SeedUrlConfigurationOutputTypeDef] = None
-    SiteMapsConfiguration: Optional[SiteMapsConfigurationOutputTypeDef] = None
+class UrlsOutput(BaseValidatorModel):
+    SeedUrlConfiguration: Optional[SeedUrlConfigurationOutput] = None
+    SiteMapsConfiguration: Optional[SiteMapsConfigurationOutput] = None
 
 
-class UrlsTypeDef(BaseValidatorModel):
-    SeedUrlConfiguration: Optional[SeedUrlConfigurationTypeDef] = None
-    SiteMapsConfiguration: Optional[SiteMapsConfigurationTypeDef] = None
+class Urls(BaseValidatorModel):
+    SeedUrlConfiguration: Optional[SeedUrlConfiguration] = None
+    SiteMapsConfiguration: Optional[SiteMapsConfiguration] = None
 
 
-class TableRowTypeDef(BaseValidatorModel):
-    Cells: Optional[List[TableCellTypeDef]] = None
+class TableRow(BaseValidatorModel):
+    Cells: Optional[List[TableCell]] = None
 
 
-class DatabaseConfigurationOutputTypeDef(BaseValidatorModel):
+class DatabaseConfigurationOutput(BaseValidatorModel):
     DatabaseEngineType: DatabaseEngineTypeType
-    ConnectionConfiguration: ConnectionConfigurationTypeDef
-    ColumnConfiguration: ColumnConfigurationOutputTypeDef
-    VpcConfiguration: Optional[DataSourceVpcConfigurationOutputTypeDef] = None
-    AclConfiguration: Optional[AclConfigurationTypeDef] = None
-    SqlConfiguration: Optional[SqlConfigurationTypeDef] = None
+    ConnectionConfiguration: ConnectionConfiguration
+    ColumnConfiguration: ColumnConfigurationOutput
+    VpcConfiguration: Optional[DataSourceVpcConfigurationOutput] = None
+    AclConfiguration: Optional[AclConfiguration] = None
+    SqlConfiguration: Optional[SqlConfiguration] = None
 
 
-class DatabaseConfigurationTypeDef(BaseValidatorModel):
+class DatabaseConfiguration(BaseValidatorModel):
     DatabaseEngineType: DatabaseEngineTypeType
-    ConnectionConfiguration: ConnectionConfigurationTypeDef
-    ColumnConfiguration: ColumnConfigurationTypeDef
-    VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
-    AclConfiguration: Optional[AclConfigurationTypeDef] = None
-    SqlConfiguration: Optional[SqlConfigurationTypeDef] = None
+    ConnectionConfiguration: ConnectionConfiguration
+    ColumnConfiguration: ColumnConfiguration
+    VpcConfiguration: Optional[DataSourceVpcConfiguration] = None
+    AclConfiguration: Optional[AclConfiguration] = None
+    SqlConfiguration: Optional[SqlConfiguration] = None
 
 
-class SalesforceKnowledgeArticleConfigurationOutputTypeDef(BaseValidatorModel):
+class SalesforceKnowledgeArticleConfigurationOutput(BaseValidatorModel):
     IncludedStates: List[SalesforceKnowledgeArticleStateType]
-    StandardKnowledgeArticleTypeConfiguration: Optional[ SalesforceStandardKnowledgeArticleTypeConfigurationOutputTypeDef ] = None
-    CustomKnowledgeArticleTypeConfigurations: Optional[ List[SalesforceCustomKnowledgeArticleTypeConfigurationOutputTypeDef] ] = None
+    StandardKnowledgeArticleTypeConfiguration: Optional[ SalesforceStandardKnowledgeArticleTypeConfigurationOutput ] = None
+    CustomKnowledgeArticleTypeConfigurations: Optional[ List[SalesforceCustomKnowledgeArticleTypeConfigurationOutput] ] = None
 
 
-class SalesforceKnowledgeArticleConfigurationTypeDef(BaseValidatorModel):
+class SalesforceKnowledgeArticleConfiguration(BaseValidatorModel):
     IncludedStates: Sequence[SalesforceKnowledgeArticleStateType]
-    StandardKnowledgeArticleTypeConfiguration: Optional[ SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef ] = None
-    CustomKnowledgeArticleTypeConfigurations: Optional[ Sequence[SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef] ] = None
+    StandardKnowledgeArticleTypeConfiguration: Optional[ SalesforceStandardKnowledgeArticleTypeConfiguration ] = None
+    CustomKnowledgeArticleTypeConfigurations: Optional[ Sequence[SalesforceCustomKnowledgeArticleTypeConfiguration] ] = None
 
 
-class ServiceNowConfigurationOutputTypeDef(BaseValidatorModel):
+class ServiceNowConfigurationOutput(BaseValidatorModel):
     HostUrl: str
     SecretArn: str
     ServiceNowBuildVersion: ServiceNowBuildVersionTypeType
-    KnowledgeArticleConfiguration: Optional[ServiceNowKnowledgeArticleConfigurationOutputTypeDef] = None
-    ServiceCatalogConfiguration: Optional[ServiceNowServiceCatalogConfigurationOutputTypeDef] = None
+    KnowledgeArticleConfiguration: Optional[ServiceNowKnowledgeArticleConfigurationOutput] = None
+    ServiceCatalogConfiguration: Optional[ServiceNowServiceCatalogConfigurationOutput] = None
     AuthenticationType: Optional[ServiceNowAuthenticationTypeType] = None
 
 
-class ServiceNowConfigurationTypeDef(BaseValidatorModel):
+class ServiceNowConfiguration(BaseValidatorModel):
     HostUrl: str
     SecretArn: str
     ServiceNowBuildVersion: ServiceNowBuildVersionTypeType
-    KnowledgeArticleConfiguration: Optional[ServiceNowKnowledgeArticleConfigurationTypeDef] = None
-    ServiceCatalogConfiguration: Optional[ServiceNowServiceCatalogConfigurationTypeDef] = None
+    KnowledgeArticleConfiguration: Optional[ServiceNowKnowledgeArticleConfiguration] = None
+    ServiceCatalogConfiguration: Optional[ServiceNowServiceCatalogConfiguration] = None
     AuthenticationType: Optional[ServiceNowAuthenticationTypeType] = None
 
 
-class OneDriveConfigurationOutputTypeDef(BaseValidatorModel):
+class OneDriveConfigurationOutput(BaseValidatorModel):
     TenantDomain: str
     SecretArn: str
-    OneDriveUsers: OneDriveUsersOutputTypeDef
+    OneDriveUsers: OneDriveUsersOutput
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
     DisableLocalGroups: Optional[bool] = None
 
 
-class OneDriveConfigurationTypeDef(BaseValidatorModel):
+class OneDriveConfiguration(BaseValidatorModel):
     TenantDomain: str
     SecretArn: str
-    OneDriveUsers: OneDriveUsersTypeDef
+    OneDriveUsers: OneDriveUsers
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMappingTypeDef]] = None
+    FieldMappings: Optional[Sequence[DataSourceToIndexFieldMapping]] = None
     DisableLocalGroups: Optional[bool] = None
 
 
-class DescribeQuerySuggestionsConfigResponseTypeDef(BaseValidatorModel):
+class DescribeQuerySuggestionsConfigResponse(BaseValidatorModel):
     Mode: ModeType
     Status: QuerySuggestionsStatusType
     QueryLogLookBackWindowInDays: int
@@ -1688,606 +1688,606 @@ class DescribeQuerySuggestionsConfigResponseTypeDef(BaseValidatorModel):
     LastSuggestionsBuildTime: datetime
     LastClearTime: datetime
     TotalSuggestionsCount: int
-    AttributeSuggestionsConfig: AttributeSuggestionsDescribeConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AttributeSuggestionsConfig: AttributeSuggestionsDescribeConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateQuerySuggestionsConfigRequestTypeDef(BaseValidatorModel):
+class UpdateQuerySuggestionsConfigRequest(BaseValidatorModel):
     IndexId: str
     Mode: Optional[ModeType] = None
     QueryLogLookBackWindowInDays: Optional[int] = None
     IncludeQueriesWithoutUserInformation: Optional[bool] = None
     MinimumNumberOfQueryingUsers: Optional[int] = None
     MinimumQueryCount: Optional[int] = None
-    AttributeSuggestionsConfig: Optional[AttributeSuggestionsUpdateConfigTypeDef] = None
+    AttributeSuggestionsConfig: Optional[AttributeSuggestionsUpdateConfig] = None
 
 
-class SubmitFeedbackRequestTypeDef(BaseValidatorModel):
+class SubmitFeedbackRequest(BaseValidatorModel):
     IndexId: str
     QueryId: str
-    ClickFeedbackItems: Optional[Sequence[ClickFeedbackTypeDef]] = None
-    RelevanceFeedbackItems: Optional[Sequence[RelevanceFeedbackTypeDef]] = None
+    ClickFeedbackItems: Optional[Sequence[ClickFeedback]] = None
+    RelevanceFeedbackItems: Optional[Sequence[RelevanceFeedback]] = None
 
 
-class DocumentAttributeConditionTypeDef(BaseValidatorModel):
+class DocumentAttributeCondition(BaseValidatorModel):
     ConditionDocumentAttributeKey: str
     Operator: ConditionOperatorType
-    ConditionOnValue: Optional[DocumentAttributeValueTypeDef] = None
+    ConditionOnValue: Optional[DocumentAttributeValue] = None
 
 
-class DocumentAttributeTargetTypeDef(BaseValidatorModel):
+class DocumentAttributeTarget(BaseValidatorModel):
     TargetDocumentAttributeKey: Optional[str] = None
     TargetDocumentAttributeValueDeletion: Optional[bool] = None
-    TargetDocumentAttributeValue: Optional[DocumentAttributeValueTypeDef] = None
+    TargetDocumentAttributeValue: Optional[DocumentAttributeValue] = None
 
 
-class ConfluenceConfigurationOutputTypeDef(BaseValidatorModel):
+class ConfluenceConfigurationOutput(BaseValidatorModel):
     ServerUrl: str
     SecretArn: str
     Version: ConfluenceVersionType
-    SpaceConfiguration: Optional[ConfluenceSpaceConfigurationOutputTypeDef] = None
-    PageConfiguration: Optional[ConfluencePageConfigurationOutputTypeDef] = None
-    BlogConfiguration: Optional[ConfluenceBlogConfigurationOutputTypeDef] = None
-    AttachmentConfiguration: Optional[ConfluenceAttachmentConfigurationOutputTypeDef] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationOutputTypeDef] = None
+    SpaceConfiguration: Optional[ConfluenceSpaceConfigurationOutput] = None
+    PageConfiguration: Optional[ConfluencePageConfigurationOutput] = None
+    BlogConfiguration: Optional[ConfluenceBlogConfigurationOutput] = None
+    AttachmentConfiguration: Optional[ConfluenceAttachmentConfigurationOutput] = None
+    VpcConfiguration: Optional[DataSourceVpcConfigurationOutput] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
-    ProxyConfiguration: Optional[ProxyConfigurationTypeDef] = None
+    ProxyConfiguration: Optional[ProxyConfiguration] = None
     AuthenticationType: Optional[ConfluenceAuthenticationTypeType] = None
 
 
-class ConfluenceConfigurationTypeDef(BaseValidatorModel):
+class ConfluenceConfiguration(BaseValidatorModel):
     ServerUrl: str
     SecretArn: str
     Version: ConfluenceVersionType
-    SpaceConfiguration: Optional[ConfluenceSpaceConfigurationTypeDef] = None
-    PageConfiguration: Optional[ConfluencePageConfigurationTypeDef] = None
-    BlogConfiguration: Optional[ConfluenceBlogConfigurationTypeDef] = None
-    AttachmentConfiguration: Optional[ConfluenceAttachmentConfigurationTypeDef] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
+    SpaceConfiguration: Optional[ConfluenceSpaceConfiguration] = None
+    PageConfiguration: Optional[ConfluencePageConfiguration] = None
+    BlogConfiguration: Optional[ConfluenceBlogConfiguration] = None
+    AttachmentConfiguration: Optional[ConfluenceAttachmentConfiguration] = None
+    VpcConfiguration: Optional[DataSourceVpcConfiguration] = None
     InclusionPatterns: Optional[Sequence[str]] = None
     ExclusionPatterns: Optional[Sequence[str]] = None
-    ProxyConfiguration: Optional[ProxyConfigurationTypeDef] = None
+    ProxyConfiguration: Optional[ProxyConfiguration] = None
     AuthenticationType: Optional[ConfluenceAuthenticationTypeType] = None
 
 
-class DescribeAccessControlConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeAccessControlConfigurationResponse(BaseValidatorModel):
     Name: str
     Description: str
     ErrorMessage: str
-    AccessControlList: List[PrincipalTypeDef]
-    HierarchicalAccessControlList: List[HierarchicalPrincipalOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    AccessControlList: List[Principal]
+    HierarchicalAccessControlList: List[HierarchicalPrincipalOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFeaturedResultsSetResponseTypeDef(BaseValidatorModel):
-    FeaturedResultsSet: FeaturedResultsSetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFeaturedResultsSetResponse(BaseValidatorModel):
+    FeaturedResultsSet: FeaturedResultsSet
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFeaturedResultsSetResponseTypeDef(BaseValidatorModel):
-    FeaturedResultsSet: FeaturedResultsSetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFeaturedResultsSetResponse(BaseValidatorModel):
+    FeaturedResultsSet: FeaturedResultsSet
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDataSourceSyncJobsResponseTypeDef(BaseValidatorModel):
-    History: List[DataSourceSyncJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourceSyncJobsResponse(BaseValidatorModel):
+    History: List[DataSourceSyncJob]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListExperiencesResponseTypeDef(BaseValidatorModel):
-    SummaryItems: List[ExperiencesSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExperiencesResponse(BaseValidatorModel):
+    SummaryItems: List[ExperiencesSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class HookConfigurationOutputTypeDef(BaseValidatorModel):
+class HookConfigurationOutput(BaseValidatorModel):
     LambdaArn: str
     S3Bucket: str
-    InvocationCondition: Optional[DocumentAttributeConditionOutputTypeDef] = None
+    InvocationCondition: Optional[DocumentAttributeConditionOutput] = None
 
 
-class RetrieveResultItemTypeDef(BaseValidatorModel):
+class RetrieveResultItem(BaseValidatorModel):
     Id: Optional[str] = None
     DocumentId: Optional[str] = None
     DocumentTitle: Optional[str] = None
     Content: Optional[str] = None
     DocumentURI: Optional[str] = None
-    DocumentAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
-    ScoreAttributes: Optional[ScoreAttributesTypeDef] = None
+    DocumentAttributes: Optional[List[DocumentAttributeOutput]] = None
+    ScoreAttributes: Optional[ScoreAttributes] = None
 
 
-class SourceDocumentTypeDef(BaseValidatorModel):
+class SourceDocument(BaseValidatorModel):
     DocumentId: Optional[str] = None
     SuggestionAttributes: Optional[List[str]] = None
-    AdditionalAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
+    AdditionalAttributes: Optional[List[DocumentAttributeOutput]] = None
 
 
-class InlineCustomDocumentEnrichmentConfigurationOutputTypeDef(BaseValidatorModel):
-    Condition: Optional[DocumentAttributeConditionOutputTypeDef] = None
-    Target: Optional[DocumentAttributeTargetOutputTypeDef] = None
+class InlineCustomDocumentEnrichmentConfigurationOutput(BaseValidatorModel):
+    Condition: Optional[DocumentAttributeConditionOutput] = None
+    Target: Optional[DocumentAttributeTargetOutput] = None
     DocumentContentDeletion: Optional[bool] = None
 
 
-class FacetResultTypeDef(BaseValidatorModel):
+class FacetResult(BaseValidatorModel):
     DocumentAttributeKey: Optional[str] = None
     DocumentAttributeValueType: Optional[DocumentAttributeValueTypeType] = None
-    DocumentAttributeValueCountPairs: Optional[List[DocumentAttributeValueCountPairTypeDef]] = None
+    DocumentAttributeValueCountPairs: Optional[List[DocumentAttributeValueCountPair]] = None
 
 
-class ListExperienceEntitiesResponseTypeDef(BaseValidatorModel):
-    SummaryItems: List[ExperienceEntitiesSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExperienceEntitiesResponse(BaseValidatorModel):
+    SummaryItems: List[ExperienceEntitiesSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeExperienceResponseTypeDef(BaseValidatorModel):
+class DescribeExperienceResponse(BaseValidatorModel):
     Id: str
     IndexId: str
     Name: str
-    Endpoints: List[ExperienceEndpointTypeDef]
-    Configuration: ExperienceConfigurationOutputTypeDef
+    Endpoints: List[ExperienceEndpoint]
+    Configuration: ExperienceConfigurationOutput
     CreatedAt: datetime
     UpdatedAt: datetime
     Description: str
     Status: ExperienceStatusType
     RoleArn: str
     ErrorMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutPrincipalMappingRequestTypeDef(BaseValidatorModel):
+class PutPrincipalMappingRequest(BaseValidatorModel):
     IndexId: str
     GroupId: str
-    GroupMembers: GroupMembersTypeDef
+    GroupMembers: GroupMembers
     DataSourceId: Optional[str] = None
     OrderingId: Optional[int] = None
     RoleArn: Optional[str] = None
 
 
-class TextWithHighlightsTypeDef(BaseValidatorModel):
+class TextWithHighlights(BaseValidatorModel):
     pass
 
 
-class AdditionalResultAttributeValueTypeDef(BaseValidatorModel):
-    TextWithHighlightsValue: Optional[TextWithHighlightsTypeDef] = None
+class AdditionalResultAttributeValue(BaseValidatorModel):
+    TextWithHighlightsValue: Optional[TextWithHighlights] = None
 
 
-class ExpandedResultItemTypeDef(BaseValidatorModel):
+class ExpandedResultItem(BaseValidatorModel):
     Id: Optional[str] = None
     DocumentId: Optional[str] = None
-    DocumentTitle: Optional[TextWithHighlightsTypeDef] = None
-    DocumentExcerpt: Optional[TextWithHighlightsTypeDef] = None
+    DocumentTitle: Optional[TextWithHighlights] = None
+    DocumentExcerpt: Optional[TextWithHighlights] = None
     DocumentURI: Optional[str] = None
-    DocumentAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
+    DocumentAttributes: Optional[List[DocumentAttributeOutput]] = None
 
 
-class CreateIndexRequestTypeDef(BaseValidatorModel):
+class CreateIndexRequest(BaseValidatorModel):
     Name: str
     RoleArn: str
     Edition: Optional[IndexEditionType] = None
-    ServerSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
+    ServerSideEncryptionConfiguration: Optional[ServerSideEncryptionConfiguration] = None
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    UserTokenConfigurations: Optional[Sequence[UserTokenConfigurationTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
+    UserTokenConfigurations: Optional[Sequence[UserTokenConfiguration]] = None
     UserContextPolicy: Optional[UserContextPolicyType] = None
-    UserGroupResolutionConfiguration: Optional[UserGroupResolutionConfigurationTypeDef] = None
+    UserGroupResolutionConfiguration: Optional[UserGroupResolutionConfiguration] = None
 
 
-class DocumentMetadataConfigurationOutputTypeDef(BaseValidatorModel):
+class DocumentMetadataConfigurationOutput(BaseValidatorModel):
     pass
 
 
-class DescribeIndexResponseTypeDef(BaseValidatorModel):
+class DescribeIndexResponse(BaseValidatorModel):
     Name: str
     Id: str
     Edition: IndexEditionType
     RoleArn: str
-    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration
     Status: IndexStatusType
     Description: str
     CreatedAt: datetime
     UpdatedAt: datetime
-    DocumentMetadataConfigurations: List[DocumentMetadataConfigurationOutputTypeDef]
-    IndexStatistics: IndexStatisticsTypeDef
+    DocumentMetadataConfigurations: List[DocumentMetadataConfigurationOutput]
+    IndexStatistics: IndexStatistics
     ErrorMessage: str
-    CapacityUnits: CapacityUnitsConfigurationTypeDef
-    UserTokenConfigurations: List[UserTokenConfigurationTypeDef]
+    CapacityUnits: CapacityUnitsConfiguration
+    UserTokenConfigurations: List[UserTokenConfiguration]
     UserContextPolicy: UserContextPolicyType
-    UserGroupResolutionConfiguration: UserGroupResolutionConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    UserGroupResolutionConfiguration: UserGroupResolutionConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class RelevanceUnionTypeDef(BaseValidatorModel):
+class RelevanceUnion(BaseValidatorModel):
     pass
 
 
-class DocumentRelevanceConfigurationTypeDef(BaseValidatorModel):
+class DocumentRelevanceConfiguration(BaseValidatorModel):
     Name: str
-    Relevance: RelevanceUnionTypeDef
+    Relevance: RelevanceUnion
 
 
-class WebCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
-    Urls: UrlsOutputTypeDef
+class WebCrawlerConfigurationOutput(BaseValidatorModel):
+    Urls: UrlsOutput
     CrawlDepth: Optional[int] = None
     MaxLinksPerPage: Optional[int] = None
     MaxContentSizePerPageInMegaBytes: Optional[float] = None
     MaxUrlsPerMinuteCrawlRate: Optional[int] = None
     UrlInclusionPatterns: Optional[List[str]] = None
     UrlExclusionPatterns: Optional[List[str]] = None
-    ProxyConfiguration: Optional[ProxyConfigurationTypeDef] = None
-    AuthenticationConfiguration: Optional[AuthenticationConfigurationOutputTypeDef] = None
+    ProxyConfiguration: Optional[ProxyConfiguration] = None
+    AuthenticationConfiguration: Optional[AuthenticationConfigurationOutput] = None
 
 
-class WebCrawlerConfigurationTypeDef(BaseValidatorModel):
-    Urls: UrlsTypeDef
+class WebCrawlerConfiguration(BaseValidatorModel):
+    Urls: Urls
     CrawlDepth: Optional[int] = None
     MaxLinksPerPage: Optional[int] = None
     MaxContentSizePerPageInMegaBytes: Optional[float] = None
     MaxUrlsPerMinuteCrawlRate: Optional[int] = None
     UrlInclusionPatterns: Optional[Sequence[str]] = None
     UrlExclusionPatterns: Optional[Sequence[str]] = None
-    ProxyConfiguration: Optional[ProxyConfigurationTypeDef] = None
-    AuthenticationConfiguration: Optional[AuthenticationConfigurationTypeDef] = None
+    ProxyConfiguration: Optional[ProxyConfiguration] = None
+    AuthenticationConfiguration: Optional[AuthenticationConfiguration] = None
 
 
-class TableExcerptTypeDef(BaseValidatorModel):
-    Rows: Optional[List[TableRowTypeDef]] = None
+class TableExcerpt(BaseValidatorModel):
+    Rows: Optional[List[TableRow]] = None
     TotalNumberOfRows: Optional[int] = None
 
 
-class SalesforceConfigurationOutputTypeDef(BaseValidatorModel):
+class SalesforceConfigurationOutput(BaseValidatorModel):
     ServerUrl: str
     SecretArn: str
-    StandardObjectConfigurations: Optional[ List[SalesforceStandardObjectConfigurationOutputTypeDef] ] = None
-    KnowledgeArticleConfiguration: Optional[SalesforceKnowledgeArticleConfigurationOutputTypeDef] = None
-    ChatterFeedConfiguration: Optional[SalesforceChatterFeedConfigurationOutputTypeDef] = None
+    StandardObjectConfigurations: Optional[ List[SalesforceStandardObjectConfigurationOutput] ] = None
+    KnowledgeArticleConfiguration: Optional[SalesforceKnowledgeArticleConfigurationOutput] = None
+    ChatterFeedConfiguration: Optional[SalesforceChatterFeedConfigurationOutput] = None
     CrawlAttachments: Optional[bool] = None
-    StandardObjectAttachmentConfiguration: Optional[ SalesforceStandardObjectAttachmentConfigurationOutputTypeDef ] = None
+    StandardObjectAttachmentConfiguration: Optional[ SalesforceStandardObjectAttachmentConfigurationOutput ] = None
     IncludeAttachmentFilePatterns: Optional[List[str]] = None
     ExcludeAttachmentFilePatterns: Optional[List[str]] = None
 
 
-class SalesforceConfigurationTypeDef(BaseValidatorModel):
+class SalesforceConfiguration(BaseValidatorModel):
     ServerUrl: str
     SecretArn: str
-    StandardObjectConfigurations: Optional[ Sequence[SalesforceStandardObjectConfigurationTypeDef] ] = None
-    KnowledgeArticleConfiguration: Optional[SalesforceKnowledgeArticleConfigurationTypeDef] = None
-    ChatterFeedConfiguration: Optional[SalesforceChatterFeedConfigurationTypeDef] = None
+    StandardObjectConfigurations: Optional[ Sequence[SalesforceStandardObjectConfiguration] ] = None
+    KnowledgeArticleConfiguration: Optional[SalesforceKnowledgeArticleConfiguration] = None
+    ChatterFeedConfiguration: Optional[SalesforceChatterFeedConfiguration] = None
     CrawlAttachments: Optional[bool] = None
-    StandardObjectAttachmentConfiguration: Optional[ SalesforceStandardObjectAttachmentConfigurationTypeDef ] = None
+    StandardObjectAttachmentConfiguration: Optional[ SalesforceStandardObjectAttachmentConfiguration ] = None
     IncludeAttachmentFilePatterns: Optional[Sequence[str]] = None
     ExcludeAttachmentFilePatterns: Optional[Sequence[str]] = None
 
 
-class HookConfigurationTypeDef(BaseValidatorModel):
+class HookConfiguration(BaseValidatorModel):
     LambdaArn: str
     S3Bucket: str
-    InvocationCondition: Optional[DocumentAttributeConditionTypeDef] = None
+    InvocationCondition: Optional[DocumentAttributeCondition] = None
 
 
-class InlineCustomDocumentEnrichmentConfigurationTypeDef(BaseValidatorModel):
-    Condition: Optional[DocumentAttributeConditionTypeDef] = None
-    Target: Optional[DocumentAttributeTargetTypeDef] = None
+class InlineCustomDocumentEnrichmentConfiguration(BaseValidatorModel):
+    Condition: Optional[DocumentAttributeCondition] = None
+    Target: Optional[DocumentAttributeTarget] = None
     DocumentContentDeletion: Optional[bool] = None
 
 
-class DocumentAttributeValueUnionTypeDef(BaseValidatorModel):
+class DocumentAttributeValueUnion(BaseValidatorModel):
     pass
 
 
-class DocumentAttributeTypeDef(BaseValidatorModel):
+class DocumentAttribute(BaseValidatorModel):
     Key: str
-    Value: DocumentAttributeValueUnionTypeDef
+    Value: DocumentAttributeValueUnion
 
 
-class TimeRangeUnionTypeDef(BaseValidatorModel):
+class TimeRangeUnion(BaseValidatorModel):
     pass
 
 
-class ListDataSourceSyncJobsRequestTypeDef(BaseValidatorModel):
+class ListDataSourceSyncJobsRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    StartTimeFilter: Optional[TimeRangeUnionTypeDef] = None
+    StartTimeFilter: Optional[TimeRangeUnion] = None
     StatusFilter: Optional[DataSourceSyncJobStatusType] = None
 
 
-class HierarchicalPrincipalUnionTypeDef(BaseValidatorModel):
+class HierarchicalPrincipalUnion(BaseValidatorModel):
     pass
 
 
-class CreateAccessControlConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateAccessControlConfigurationRequest(BaseValidatorModel):
     IndexId: str
     Name: str
     Description: Optional[str] = None
-    AccessControlList: Optional[Sequence[PrincipalTypeDef]] = None
-    HierarchicalAccessControlList: Optional[Sequence[HierarchicalPrincipalUnionTypeDef]] = None
+    AccessControlList: Optional[Sequence[Principal]] = None
+    HierarchicalAccessControlList: Optional[Sequence[HierarchicalPrincipalUnion]] = None
     ClientToken: Optional[str] = None
 
 
-class UpdateAccessControlConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateAccessControlConfigurationRequest(BaseValidatorModel):
     IndexId: str
     Id: str
     Name: Optional[str] = None
     Description: Optional[str] = None
-    AccessControlList: Optional[Sequence[PrincipalTypeDef]] = None
-    HierarchicalAccessControlList: Optional[Sequence[HierarchicalPrincipalUnionTypeDef]] = None
+    AccessControlList: Optional[Sequence[Principal]] = None
+    HierarchicalAccessControlList: Optional[Sequence[HierarchicalPrincipalUnion]] = None
 
 
-class RetrieveResultTypeDef(BaseValidatorModel):
+class RetrieveResult(BaseValidatorModel):
     QueryId: str
-    ResultItems: List[RetrieveResultItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResultItems: List[RetrieveResultItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class CustomDocumentEnrichmentConfigurationOutputTypeDef(BaseValidatorModel):
-    InlineConfigurations: Optional[ List[InlineCustomDocumentEnrichmentConfigurationOutputTypeDef] ] = None
-    PreExtractionHookConfiguration: Optional[HookConfigurationOutputTypeDef] = None
-    PostExtractionHookConfiguration: Optional[HookConfigurationOutputTypeDef] = None
+class CustomDocumentEnrichmentConfigurationOutput(BaseValidatorModel):
+    InlineConfigurations: Optional[ List[InlineCustomDocumentEnrichmentConfigurationOutput] ] = None
+    PreExtractionHookConfiguration: Optional[HookConfigurationOutput] = None
+    PostExtractionHookConfiguration: Optional[HookConfigurationOutput] = None
     RoleArn: Optional[str] = None
 
 
-class ExperienceConfigurationUnionTypeDef(BaseValidatorModel):
+class ExperienceConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateExperienceRequestTypeDef(BaseValidatorModel):
+class CreateExperienceRequest(BaseValidatorModel):
     Name: str
     IndexId: str
     RoleArn: Optional[str] = None
-    Configuration: Optional[ExperienceConfigurationUnionTypeDef] = None
+    Configuration: Optional[ExperienceConfigurationUnion] = None
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
 
 
-class UpdateExperienceRequestTypeDef(BaseValidatorModel):
+class UpdateExperienceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     Name: Optional[str] = None
     RoleArn: Optional[str] = None
-    Configuration: Optional[ExperienceConfigurationUnionTypeDef] = None
+    Configuration: Optional[ExperienceConfigurationUnion] = None
     Description: Optional[str] = None
 
 
-class AdditionalResultAttributeTypeDef(BaseValidatorModel):
+class AdditionalResultAttribute(BaseValidatorModel):
     Key: str
     ValueType: Literal["TEXT_WITH_HIGHLIGHTS_VALUE"]
-    Value: AdditionalResultAttributeValueTypeDef
+    Value: AdditionalResultAttributeValue
 
 
-class CollapsedResultDetailTypeDef(BaseValidatorModel):
-    DocumentAttribute: DocumentAttributeOutputTypeDef
-    ExpandedResults: Optional[List[ExpandedResultItemTypeDef]] = None
+class CollapsedResultDetail(BaseValidatorModel):
+    DocumentAttribute: DocumentAttributeOutput
+    ExpandedResults: Optional[List[ExpandedResultItem]] = None
 
 
-class SuggestionValueTypeDef(BaseValidatorModel):
+class SuggestionValue(BaseValidatorModel):
     pass
 
 
-class SuggestionTypeDef(BaseValidatorModel):
+class Suggestion(BaseValidatorModel):
     Id: Optional[str] = None
-    Value: Optional[SuggestionValueTypeDef] = None
-    SourceDocuments: Optional[List[SourceDocumentTypeDef]] = None
+    Value: Optional[SuggestionValue] = None
+    SourceDocuments: Optional[List[SourceDocument]] = None
 
 
-class GitHubConfigurationOutputTypeDef(BaseValidatorModel):
+class GitHubConfigurationOutput(BaseValidatorModel):
     pass
 
 
-class DataSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    S3Configuration: Optional[S3DataSourceConfigurationOutputTypeDef] = None
-    SharePointConfiguration: Optional[SharePointConfigurationOutputTypeDef] = None
-    DatabaseConfiguration: Optional[DatabaseConfigurationOutputTypeDef] = None
-    SalesforceConfiguration: Optional[SalesforceConfigurationOutputTypeDef] = None
-    OneDriveConfiguration: Optional[OneDriveConfigurationOutputTypeDef] = None
-    ServiceNowConfiguration: Optional[ServiceNowConfigurationOutputTypeDef] = None
-    ConfluenceConfiguration: Optional[ConfluenceConfigurationOutputTypeDef] = None
-    GoogleDriveConfiguration: Optional[GoogleDriveConfigurationOutputTypeDef] = None
-    WebCrawlerConfiguration: Optional[WebCrawlerConfigurationOutputTypeDef] = None
-    WorkDocsConfiguration: Optional[WorkDocsConfigurationOutputTypeDef] = None
-    FsxConfiguration: Optional[FsxConfigurationOutputTypeDef] = None
-    SlackConfiguration: Optional[SlackConfigurationOutputTypeDef] = None
-    BoxConfiguration: Optional[BoxConfigurationOutputTypeDef] = None
-    QuipConfiguration: Optional[QuipConfigurationOutputTypeDef] = None
-    JiraConfiguration: Optional[JiraConfigurationOutputTypeDef] = None
-    GitHubConfiguration: Optional[GitHubConfigurationOutputTypeDef] = None
-    AlfrescoConfiguration: Optional[AlfrescoConfigurationOutputTypeDef] = None
-    TemplateConfiguration: Optional[TemplateConfigurationOutputTypeDef] = None
+class DataSourceConfigurationOutput(BaseValidatorModel):
+    S3Configuration: Optional[S3DataSourceConfigurationOutput] = None
+    SharePointConfiguration: Optional[SharePointConfigurationOutput] = None
+    DatabaseConfiguration: Optional[DatabaseConfigurationOutput] = None
+    SalesforceConfiguration: Optional[SalesforceConfigurationOutput] = None
+    OneDriveConfiguration: Optional[OneDriveConfigurationOutput] = None
+    ServiceNowConfiguration: Optional[ServiceNowConfigurationOutput] = None
+    ConfluenceConfiguration: Optional[ConfluenceConfigurationOutput] = None
+    GoogleDriveConfiguration: Optional[GoogleDriveConfigurationOutput] = None
+    WebCrawlerConfiguration: Optional[WebCrawlerConfigurationOutput] = None
+    WorkDocsConfiguration: Optional[WorkDocsConfigurationOutput] = None
+    FsxConfiguration: Optional[FsxConfigurationOutput] = None
+    SlackConfiguration: Optional[SlackConfigurationOutput] = None
+    BoxConfiguration: Optional[BoxConfigurationOutput] = None
+    QuipConfiguration: Optional[QuipConfigurationOutput] = None
+    JiraConfiguration: Optional[JiraConfigurationOutput] = None
+    GitHubConfiguration: Optional[GitHubConfigurationOutput] = None
+    AlfrescoConfiguration: Optional[AlfrescoConfigurationOutput] = None
+    TemplateConfiguration: Optional[TemplateConfigurationOutput] = None
 
 
-class GitHubConfigurationTypeDef(BaseValidatorModel):
+class GitHubConfiguration(BaseValidatorModel):
     pass
 
 
-class DataSourceConfigurationTypeDef(BaseValidatorModel):
-    S3Configuration: Optional[S3DataSourceConfigurationTypeDef] = None
-    SharePointConfiguration: Optional[SharePointConfigurationTypeDef] = None
-    DatabaseConfiguration: Optional[DatabaseConfigurationTypeDef] = None
-    SalesforceConfiguration: Optional[SalesforceConfigurationTypeDef] = None
-    OneDriveConfiguration: Optional[OneDriveConfigurationTypeDef] = None
-    ServiceNowConfiguration: Optional[ServiceNowConfigurationTypeDef] = None
-    ConfluenceConfiguration: Optional[ConfluenceConfigurationTypeDef] = None
-    GoogleDriveConfiguration: Optional[GoogleDriveConfigurationTypeDef] = None
-    WebCrawlerConfiguration: Optional[WebCrawlerConfigurationTypeDef] = None
-    WorkDocsConfiguration: Optional[WorkDocsConfigurationTypeDef] = None
-    FsxConfiguration: Optional[FsxConfigurationTypeDef] = None
-    SlackConfiguration: Optional[SlackConfigurationTypeDef] = None
-    BoxConfiguration: Optional[BoxConfigurationTypeDef] = None
-    QuipConfiguration: Optional[QuipConfigurationTypeDef] = None
-    JiraConfiguration: Optional[JiraConfigurationTypeDef] = None
-    GitHubConfiguration: Optional[GitHubConfigurationTypeDef] = None
-    AlfrescoConfiguration: Optional[AlfrescoConfigurationTypeDef] = None
-    TemplateConfiguration: Optional[TemplateConfigurationTypeDef] = None
+class DataSourceConfiguration(BaseValidatorModel):
+    S3Configuration: Optional[S3DataSourceConfiguration] = None
+    SharePointConfiguration: Optional[SharePointConfiguration] = None
+    DatabaseConfiguration: Optional[DatabaseConfiguration] = None
+    SalesforceConfiguration: Optional[SalesforceConfiguration] = None
+    OneDriveConfiguration: Optional[OneDriveConfiguration] = None
+    ServiceNowConfiguration: Optional[ServiceNowConfiguration] = None
+    ConfluenceConfiguration: Optional[ConfluenceConfiguration] = None
+    GoogleDriveConfiguration: Optional[GoogleDriveConfiguration] = None
+    WebCrawlerConfiguration: Optional[WebCrawlerConfiguration] = None
+    WorkDocsConfiguration: Optional[WorkDocsConfiguration] = None
+    FsxConfiguration: Optional[FsxConfiguration] = None
+    SlackConfiguration: Optional[SlackConfiguration] = None
+    BoxConfiguration: Optional[BoxConfiguration] = None
+    QuipConfiguration: Optional[QuipConfiguration] = None
+    JiraConfiguration: Optional[JiraConfiguration] = None
+    GitHubConfiguration: Optional[GitHubConfiguration] = None
+    AlfrescoConfiguration: Optional[AlfrescoConfiguration] = None
+    TemplateConfiguration: Optional[TemplateConfiguration] = None
 
 
-class CustomDocumentEnrichmentConfigurationTypeDef(BaseValidatorModel):
-    InlineConfigurations: Optional[Sequence[InlineCustomDocumentEnrichmentConfigurationTypeDef]] = None
-    PreExtractionHookConfiguration: Optional[HookConfigurationTypeDef] = None
-    PostExtractionHookConfiguration: Optional[HookConfigurationTypeDef] = None
+class CustomDocumentEnrichmentConfiguration(BaseValidatorModel):
+    InlineConfigurations: Optional[Sequence[InlineCustomDocumentEnrichmentConfiguration]] = None
+    PreExtractionHookConfiguration: Optional[HookConfiguration] = None
+    PostExtractionHookConfiguration: Optional[HookConfiguration] = None
     RoleArn: Optional[str] = None
 
 
-class DocumentMetadataConfigurationUnionTypeDef(BaseValidatorModel):
+class DocumentMetadataConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateIndexRequestTypeDef(BaseValidatorModel):
+class UpdateIndexRequest(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
     RoleArn: Optional[str] = None
     Description: Optional[str] = None
-    DocumentMetadataConfigurationUpdates: Optional[ Sequence[DocumentMetadataConfigurationUnionTypeDef] ] = None
-    CapacityUnits: Optional[CapacityUnitsConfigurationTypeDef] = None
-    UserTokenConfigurations: Optional[Sequence[UserTokenConfigurationTypeDef]] = None
+    DocumentMetadataConfigurationUpdates: Optional[ Sequence[DocumentMetadataConfigurationUnion] ] = None
+    CapacityUnits: Optional[CapacityUnitsConfiguration] = None
+    UserTokenConfigurations: Optional[Sequence[UserTokenConfiguration]] = None
     UserContextPolicy: Optional[UserContextPolicyType] = None
-    UserGroupResolutionConfiguration: Optional[UserGroupResolutionConfigurationTypeDef] = None
+    UserGroupResolutionConfiguration: Optional[UserGroupResolutionConfiguration] = None
 
 
-class GetQuerySuggestionsResponseTypeDef(BaseValidatorModel):
+class GetQuerySuggestionsResponse(BaseValidatorModel):
     QuerySuggestionsId: str
-    Suggestions: List[SuggestionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Suggestions: List[Suggestion]
+    ResponseMetadata: ResponseMetadata
 
 
-class DocumentAttributeUnionTypeDef(BaseValidatorModel):
+class DocumentAttributeUnion(BaseValidatorModel):
     pass
 
 
-class AttributeFilterTypeDef(BaseValidatorModel):
+class AttributeFilter(BaseValidatorModel):
     AndAllFilters: Optional[Sequence[Mapping[str, Any]]] = None
     OrAllFilters: Optional[Sequence[Mapping[str, Any]]] = None
     NotFilter: Optional[Mapping[str, Any]] = None
-    EqualsTo: Optional[DocumentAttributeUnionTypeDef] = None
-    ContainsAll: Optional[DocumentAttributeUnionTypeDef] = None
-    ContainsAny: Optional[DocumentAttributeUnionTypeDef] = None
-    GreaterThan: Optional[DocumentAttributeUnionTypeDef] = None
-    GreaterThanOrEquals: Optional[DocumentAttributeUnionTypeDef] = None
-    LessThan: Optional[DocumentAttributeUnionTypeDef] = None
-    LessThanOrEquals: Optional[DocumentAttributeUnionTypeDef] = None
+    EqualsTo: Optional[DocumentAttributeUnion] = None
+    ContainsAll: Optional[DocumentAttributeUnion] = None
+    ContainsAny: Optional[DocumentAttributeUnion] = None
+    GreaterThan: Optional[DocumentAttributeUnion] = None
+    GreaterThanOrEquals: Optional[DocumentAttributeUnion] = None
+    LessThan: Optional[DocumentAttributeUnion] = None
+    LessThanOrEquals: Optional[DocumentAttributeUnion] = None
 
 
-class DocumentInfoTypeDef(BaseValidatorModel):
+class DocumentInfo(BaseValidatorModel):
     DocumentId: str
-    Attributes: Optional[Sequence[DocumentAttributeUnionTypeDef]] = None
+    Attributes: Optional[Sequence[DocumentAttributeUnion]] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class DocumentTypeDef(BaseValidatorModel):
+class Document(BaseValidatorModel):
     Id: str
     Title: Optional[str] = None
-    Blob: Optional[BlobTypeDef] = None
-    S3Path: Optional[S3PathTypeDef] = None
-    Attributes: Optional[Sequence[DocumentAttributeUnionTypeDef]] = None
-    AccessControlList: Optional[Sequence[PrincipalTypeDef]] = None
-    HierarchicalAccessControlList: Optional[Sequence[HierarchicalPrincipalUnionTypeDef]] = None
+    Blob: Optional[Blob] = None
+    S3Path: Optional[S3Path] = None
+    Attributes: Optional[Sequence[DocumentAttributeUnion]] = None
+    AccessControlList: Optional[Sequence[Principal]] = None
+    HierarchicalAccessControlList: Optional[Sequence[HierarchicalPrincipalUnion]] = None
     ContentType: Optional[ContentTypeType] = None
     AccessControlConfigurationId: Optional[str] = None
 
 
-class QueryResultItemTypeDef(BaseValidatorModel):
+class QueryResultItem(BaseValidatorModel):
     pass
 
 
-class FeaturedResultsItemTypeDef(BaseValidatorModel):
+class FeaturedResultsItem(BaseValidatorModel):
     pass
 
 
-class QueryResultTypeDef(BaseValidatorModel):
+class QueryResult(BaseValidatorModel):
     QueryId: str
-    ResultItems: List[QueryResultItemTypeDef]
-    FacetResults: List[FacetResultTypeDef]
+    ResultItems: List[QueryResultItem]
+    FacetResults: List[FacetResult]
     TotalNumberOfResults: int
-    Warnings: List[WarningTypeDef]
-    SpellCorrectedQueries: List[SpellCorrectedQueryTypeDef]
-    FeaturedResultsItems: List[FeaturedResultsItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Warnings: List[Warning]
+    SpellCorrectedQueries: List[SpellCorrectedQuery]
+    FeaturedResultsItems: List[FeaturedResultsItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSourceConfigurationUnionTypeDef(BaseValidatorModel):
+class DataSourceConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class DataSourceVpcConfigurationUnionTypeDef(BaseValidatorModel):
+class DataSourceVpcConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CustomDocumentEnrichmentConfigurationUnionTypeDef(BaseValidatorModel):
+class CustomDocumentEnrichmentConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
+class UpdateDataSourceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     Name: Optional[str] = None
-    Configuration: Optional[DataSourceConfigurationUnionTypeDef] = None
-    VpcConfiguration: Optional[DataSourceVpcConfigurationUnionTypeDef] = None
+    Configuration: Optional[DataSourceConfigurationUnion] = None
+    VpcConfiguration: Optional[DataSourceVpcConfigurationUnion] = None
     Description: Optional[str] = None
     Schedule: Optional[str] = None
     RoleArn: Optional[str] = None
     LanguageCode: Optional[str] = None
-    CustomDocumentEnrichmentConfiguration: Optional[ CustomDocumentEnrichmentConfigurationUnionTypeDef ] = None
+    CustomDocumentEnrichmentConfiguration: Optional[ CustomDocumentEnrichmentConfigurationUnion ] = None
 
 
-class AttributeSuggestionsGetConfigTypeDef(BaseValidatorModel):
+class AttributeSuggestionsGetConfig(BaseValidatorModel):
     SuggestionAttributes: Optional[Sequence[str]] = None
     AdditionalResponseAttributes: Optional[Sequence[str]] = None
-    AttributeFilter: Optional[AttributeFilterTypeDef] = None
-    UserContext: Optional[UserContextTypeDef] = None
+    AttributeFilter: Optional[AttributeFilter] = None
+    UserContext: Optional[UserContext] = None
 
 
-class QueryRequestTypeDef(BaseValidatorModel):
+class QueryRequest(BaseValidatorModel):
     IndexId: str
     QueryText: Optional[str] = None
-    AttributeFilter: Optional[AttributeFilterTypeDef] = None
-    Facets: Optional[Sequence[FacetTypeDef]] = None
+    AttributeFilter: Optional[AttributeFilter] = None
+    Facets: Optional[Sequence[Facet]] = None
     RequestedDocumentAttributes: Optional[Sequence[str]] = None
     QueryResultTypeFilter: Optional[QueryResultTypeType] = None
-    DocumentRelevanceOverrideConfigurations: Optional[ Sequence[DocumentRelevanceConfigurationTypeDef] ] = None
+    DocumentRelevanceOverrideConfigurations: Optional[ Sequence[DocumentRelevanceConfiguration] ] = None
     PageNumber: Optional[int] = None
     PageSize: Optional[int] = None
-    SortingConfiguration: Optional[SortingConfigurationTypeDef] = None
-    SortingConfigurations: Optional[Sequence[SortingConfigurationTypeDef]] = None
-    UserContext: Optional[UserContextTypeDef] = None
+    SortingConfiguration: Optional[SortingConfiguration] = None
+    SortingConfigurations: Optional[Sequence[SortingConfiguration]] = None
+    UserContext: Optional[UserContext] = None
     VisitorId: Optional[str] = None
-    SpellCorrectionConfiguration: Optional[SpellCorrectionConfigurationTypeDef] = None
-    CollapseConfiguration: Optional[CollapseConfigurationTypeDef] = None
+    SpellCorrectionConfiguration: Optional[SpellCorrectionConfiguration] = None
+    CollapseConfiguration: Optional[CollapseConfiguration] = None
 
 
-class RetrieveRequestTypeDef(BaseValidatorModel):
+class RetrieveRequest(BaseValidatorModel):
     IndexId: str
     QueryText: str
-    AttributeFilter: Optional[AttributeFilterTypeDef] = None
+    AttributeFilter: Optional[AttributeFilter] = None
     RequestedDocumentAttributes: Optional[Sequence[str]] = None
-    DocumentRelevanceOverrideConfigurations: Optional[ Sequence[DocumentRelevanceConfigurationTypeDef] ] = None
+    DocumentRelevanceOverrideConfigurations: Optional[ Sequence[DocumentRelevanceConfiguration] ] = None
     PageNumber: Optional[int] = None
     PageSize: Optional[int] = None
-    UserContext: Optional[UserContextTypeDef] = None
+    UserContext: Optional[UserContext] = None
 
 
-class BatchGetDocumentStatusRequestTypeDef(BaseValidatorModel):
+class BatchGetDocumentStatusRequest(BaseValidatorModel):
     IndexId: str
-    DocumentInfoList: Sequence[DocumentInfoTypeDef]
+    DocumentInfoList: Sequence[DocumentInfo]
 
 
-class BatchPutDocumentRequestTypeDef(BaseValidatorModel):
+class BatchPutDocumentRequest(BaseValidatorModel):
     IndexId: str
-    Documents: Sequence[DocumentTypeDef]
+    Documents: Sequence[Document]
     RoleArn: Optional[str] = None
-    CustomDocumentEnrichmentConfiguration: Optional[ CustomDocumentEnrichmentConfigurationUnionTypeDef ] = None
+    CustomDocumentEnrichmentConfiguration: Optional[ CustomDocumentEnrichmentConfigurationUnion ] = None
 
 
-class GetQuerySuggestionsRequestTypeDef(BaseValidatorModel):
+class GetQuerySuggestionsRequest(BaseValidatorModel):
     IndexId: str
     QueryText: str
     MaxSuggestionsCount: Optional[int] = None
     SuggestionTypes: Optional[Sequence[SuggestionTypeType]] = None
-    AttributeSuggestionsConfig: Optional[AttributeSuggestionsGetConfigTypeDef] = None
+    AttributeSuggestionsConfig: Optional[AttributeSuggestionsGetConfig] = None
 
 

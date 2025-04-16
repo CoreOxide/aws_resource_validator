@@ -1,19 +1,6 @@
 # Config Classes
 
-# AccountAggregationSourceOutputTypeDef
-
-### AccountIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### AllAwsRegions
-- **Type**: typing.Optional[bool]
-
-### AwsRegions
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# AccountAggregationSourceTypeDef
+# AccountAggregationSource
 
 ### AccountIds
 - **Type**: typing.Sequence[str]
@@ -26,19 +13,32 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AccountAggregationSourceUnionTypeDef
+# AccountAggregationSourceOutput
+
+### AccountIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### AllAwsRegions
+- **Type**: typing.Optional[bool]
+
+### AwsRegions
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# AccountAggregationSourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AggregateComplianceByConfigRuleTypeDef
+# AggregateComplianceByConfigRule
 
 ### ConfigRuleName
 - **Type**: typing.Optional[str]
 
 ### Compliance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -47,13 +47,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AggregateComplianceByConformancePackTypeDef
+# AggregateComplianceByConformancePack
 
 ### ConformancePackName
 - **Type**: typing.Optional[str]
 
 ### Compliance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackCompliance]
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -62,58 +62,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AggregateComplianceCountTypeDef
+# AggregateComplianceCount
 
 ### GroupName
 - **Type**: typing.Optional[str]
 
 ### ComplianceSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceSummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AggregateConformancePackComplianceCountTypeDef
-
-### CompliantConformancePackCount
-- **Type**: typing.Optional[int]
-
-### NonCompliantConformancePackCount
-- **Type**: typing.Optional[int]
-
-
-# AggregateConformancePackComplianceFiltersTypeDef
-
-### ConformancePackName
-- **Type**: typing.Optional[str]
-
-### ComplianceType
-- **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT']]
-
-### AccountId
-- **Type**: typing.Optional[str]
-
-### AwsRegion
-- **Type**: typing.Optional[str]
-
-
-# AggregateConformancePackComplianceSummaryFiltersTypeDef
-
-### AccountId
-- **Type**: typing.Optional[str]
-
-### AwsRegion
-- **Type**: typing.Optional[str]
-
-
-# AggregateConformancePackComplianceSummaryTypeDef
-
-### ComplianceSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceCountTypeDef]
-
-### GroupName
-- **Type**: typing.Optional[str]
-
-
-# AggregateConformancePackComplianceTypeDef
+# AggregateConformancePackCompliance
 
 ### ComplianceType
 - **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT']]
@@ -128,10 +86,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# AggregateEvaluationResultTypeDef
+# AggregateConformancePackComplianceCount
+
+### CompliantConformancePackCount
+- **Type**: typing.Optional[int]
+
+### NonCompliantConformancePackCount
+- **Type**: typing.Optional[int]
+
+
+# AggregateConformancePackComplianceFilters
+
+### ConformancePackName
+- **Type**: typing.Optional[str]
+
+### ComplianceType
+- **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT']]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### AwsRegion
+- **Type**: typing.Optional[str]
+
+
+# AggregateConformancePackComplianceSummary
+
+### ComplianceSummary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceCount]
+
+### GroupName
+- **Type**: typing.Optional[str]
+
+
+# AggregateConformancePackComplianceSummaryFilters
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### AwsRegion
+- **Type**: typing.Optional[str]
+
+
+# AggregateEvaluationResult
 
 ### EvaluationResultIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.EvaluationResultIdentifierTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ComplianceType
 - **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]
@@ -152,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AggregateResourceIdentifierTypeDef
+# AggregateResourceIdentifier
 
 ### SourceAccountId
 - **Type**: <class 'str'>
@@ -174,7 +174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AggregatedSourceStatusTypeDef
+# AggregatedSourceStatus
 
 ### SourceId
 - **Type**: typing.Optional[str]
@@ -198,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AggregationAuthorizationTypeDef
+# AggregationAuthorization
 
 ### AggregationAuthorizationArn
 - **Type**: typing.Optional[str]
@@ -213,55 +213,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AggregatorFilterResourceTypeOutputTypeDef
+# AggregatorFilterResourceType
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AggregatorFilterResourceTypeTypeDef
+# AggregatorFilterResourceTypeOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AggregatorFilterServicePrincipalOutputTypeDef
+# AggregatorFilterServicePrincipal
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AggregatorFilterServicePrincipalTypeDef
+# AggregatorFilterServicePrincipalOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AggregatorFiltersOutputTypeDef
+# AggregatorFilters
 
 ### ResourceType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFilterResourceTypeOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFilterResourceType]
 
 ### ServicePrincipal
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFilterServicePrincipalOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFilterServicePrincipal]
 
 
-# AggregatorFiltersTypeDef
+# AggregatorFiltersOutput
 
 ### ResourceType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFilterResourceTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFilterResourceTypeOutput]
 
 ### ServicePrincipal
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFilterServicePrincipalTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFilterServicePrincipalOutput]
 
 
-# AggregatorFiltersUnionTypeDef
+# AggregatorFiltersUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AssociateResourceTypesRequestTypeDef
+# AssociateResourceTypesRequest
 
 ### ConfigurationRecorderArn
 - **Type**: <class 'str'>
@@ -272,18 +272,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AssociateResourceTypesResponseTypeDef
+# AssociateResourceTypesResponse
 
 ### ConfigurationRecorder
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BaseConfigurationItemTypeDef
+# BaseConfigurationItem
 
 ### version
 - **Type**: typing.Optional[str]
@@ -340,64 +340,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetAggregateResourceConfigRequestTypeDef
+# BatchGetAggregateResourceConfigRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceIdentifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.AggregateResourceIdentifierTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.AggregateResourceIdentifier]
 - **Required**: Yes
 
 
-# BatchGetAggregateResourceConfigResponseTypeDef
+# BatchGetAggregateResourceConfigResponse
 
 ### BaseConfigurationItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.BaseConfigurationItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.BaseConfigurationItem]
 - **Required**: Yes
 
 ### UnprocessedResourceIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateResourceIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateResourceIdentifier]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetResourceConfigRequestTypeDef
+# BatchGetResourceConfigRequest
 
 ### resourceKeys
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ResourceKeyTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ResourceKey]
 - **Required**: Yes
 
 
-# BatchGetResourceConfigResponseTypeDef
+# BatchGetResourceConfigResponse
 
 ### baseConfigurationItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.BaseConfigurationItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.BaseConfigurationItem]
 - **Required**: Yes
 
 ### unprocessedResourceKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceKeyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ComplianceByConfigRuleTypeDef
+# Compliance
+
+### ComplianceType
+- **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]
+
+### ComplianceContributorCount
+- **Type**: <class 'NoneType'>
+
+
+# ComplianceByConfigRule
 
 ### ConfigRuleName
 - **Type**: typing.Optional[str]
 
 ### Compliance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ComplianceByResourceTypeDef
+# ComplianceByResource
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -406,10 +415,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Compliance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ComplianceContributorCountTypeDef
+# ComplianceContributorCount
 
 ### CappedCount
 - **Type**: typing.Optional[int]
@@ -418,37 +427,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ComplianceSummaryByResourceTypeTypeDef
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### ComplianceSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceSummaryTypeDef]
-
-
-# ComplianceSummaryTypeDef
+# ComplianceSummary
 
 ### CompliantResourceCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceContributorCountTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceContributorCount]
 
 ### NonCompliantResourceCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceContributorCountTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceContributorCount]
 
 ### ComplianceSummaryTimestamp
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ComplianceTypeDef
+# ComplianceSummaryByResourceType
 
-### ComplianceType
-- **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]
+### ResourceType
+- **Type**: typing.Optional[str]
 
-### ComplianceContributorCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ComplianceContributorCountTypeDef]
+### ComplianceSummary
+- **Type**: <class 'NoneType'>
 
 
-# ConfigExportDeliveryInfoTypeDef
+# ConfigExportDeliveryInfo
 
 ### lastStatus
 - **Type**: typing.Optional[typing.Literal['Failure', 'Not_Applicable', 'Success']]
@@ -469,7 +469,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ConfigRuleComplianceFiltersTypeDef
+# ConfigRule
+
+### Source
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.Source'>
+- **Required**: Yes
+
+### ConfigRuleName
+- **Type**: typing.Optional[str]
+
+### ConfigRuleArn
+- **Type**: typing.Optional[str]
+
+### ConfigRuleId
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Scope
+- **Type**: <class 'NoneType'>
+
+### InputParameters
+- **Type**: typing.Optional[str]
+
+### MaximumExecutionFrequency
+- **Type**: typing.Optional[typing.Literal['One_Hour', 'Six_Hours', 'Three_Hours', 'Twelve_Hours', 'TwentyFour_Hours']]
+
+### ConfigRuleState
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'DELETING_RESULTS', 'EVALUATING']]
+
+### CreatedBy
+- **Type**: typing.Optional[str]
+
+### EvaluationModes
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.EvaluationModeConfiguration]]
+
+
+# ConfigRuleComplianceFilters
 
 ### ConfigRuleName
 - **Type**: typing.Optional[str]
@@ -484,7 +521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfigRuleComplianceSummaryFiltersTypeDef
+# ConfigRuleComplianceSummaryFilters
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -493,7 +530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfigRuleEvaluationStatusTypeDef
+# ConfigRuleEvaluationStatus
 
 ### ConfigRuleName
 - **Type**: typing.Optional[str]
@@ -541,10 +578,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ConfigRuleOutputTypeDef
+# ConfigRuleOutput
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.SourceOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.SourceOutput'>
 - **Required**: Yes
 
 ### ConfigRuleName
@@ -560,7 +597,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ScopeOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ScopeOutput]
 
 ### InputParameters
 - **Type**: typing.Optional[str]
@@ -575,59 +612,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EvaluationModes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.EvaluationModeConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.EvaluationModeConfiguration]]
 
 
-# ConfigRuleTypeDef
-
-### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.SourceTypeDef'>
-- **Required**: Yes
-
-### ConfigRuleName
-- **Type**: typing.Optional[str]
-
-### ConfigRuleArn
-- **Type**: typing.Optional[str]
-
-### ConfigRuleId
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ScopeTypeDef]
-
-### InputParameters
-- **Type**: typing.Optional[str]
-
-### MaximumExecutionFrequency
-- **Type**: typing.Optional[typing.Literal['One_Hour', 'Six_Hours', 'Three_Hours', 'Twelve_Hours', 'TwentyFour_Hours']]
-
-### ConfigRuleState
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'DELETING_RESULTS', 'EVALUATING']]
-
-### CreatedBy
-- **Type**: typing.Optional[str]
-
-### EvaluationModes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.EvaluationModeConfigurationTypeDef]]
-
-
-# ConfigRuleUnionTypeDef
+# ConfigRuleUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConfigSnapshotDeliveryPropertiesTypeDef
+# ConfigSnapshotDeliveryProperties
 
 ### deliveryFrequency
 - **Type**: typing.Optional[typing.Literal['One_Hour', 'Six_Hours', 'Three_Hours', 'Twelve_Hours', 'TwentyFour_Hours']]
 
 
-# ConfigStreamDeliveryInfoTypeDef
+# ConfigStreamDeliveryInfo
 
 ### lastStatus
 - **Type**: typing.Optional[typing.Literal['Failure', 'Not_Applicable', 'Success']]
@@ -642,7 +642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ConfigurationAggregatorTypeDef
+# ConfigurationAggregator
 
 ### ConfigurationAggregatorName
 - **Type**: typing.Optional[str]
@@ -651,10 +651,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AccountAggregationSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.AccountAggregationSourceOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.AccountAggregationSourceOutput]]
 
 ### OrganizationAggregationSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationAggregationSourceOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationAggregationSourceOutput]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -666,10 +666,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AggregatorFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFiltersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFiltersOutput]
 
 
-# ConfigurationItemTypeDef
+# ConfigurationItem
 
 ### version
 - **Type**: typing.Optional[str]
@@ -717,7 +717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### relationships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RelationshipTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.Relationship]]
 
 ### configuration
 - **Type**: typing.Optional[str]
@@ -732,16 +732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ConfigurationRecorderFilterTypeDef
-
-### filterName
-- **Type**: typing.Optional[typing.Literal['recordingScope']]
-
-### filterValue
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# ConfigurationRecorderOutputTypeDef
+# ConfigurationRecorder
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -753,10 +744,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### recordingGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingGroupOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingGroup]
 
 ### recordingMode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingModeOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingMode]
 
 ### recordingScope
 - **Type**: typing.Optional[typing.Literal['INTERNAL', 'PAID']]
@@ -765,7 +756,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfigurationRecorderStatusTypeDef
+# ConfigurationRecorderFilter
+
+### filterName
+- **Type**: typing.Optional[typing.Literal['recordingScope']]
+
+### filterValue
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ConfigurationRecorderOutput
+
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### roleARN
+- **Type**: typing.Optional[str]
+
+### recordingGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingGroupOutput]
+
+### recordingMode
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingModeOutput]
+
+### recordingScope
+- **Type**: typing.Optional[typing.Literal['INTERNAL', 'PAID']]
+
+### servicePrincipal
+- **Type**: typing.Optional[str]
+
+
+# ConfigurationRecorderStatus
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -798,7 +822,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfigurationRecorderSummaryTypeDef
+# ConfigurationRecorderSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -816,37 +840,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfigurationRecorderTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### roleARN
-- **Type**: typing.Optional[str]
-
-### recordingGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingGroupTypeDef]
-
-### recordingMode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingModeTypeDef]
-
-### recordingScope
-- **Type**: typing.Optional[typing.Literal['INTERNAL', 'PAID']]
-
-### servicePrincipal
-- **Type**: typing.Optional[str]
-
-
-# ConfigurationRecorderUnionTypeDef
+# ConfigurationRecorderUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConformancePackComplianceFiltersTypeDef
+# ConformancePackComplianceFilters
 
 ### ConfigRuleNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -855,7 +855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT']]
 
 
-# ConformancePackComplianceScoreTypeDef
+# ConformancePackComplianceScore
 
 ### Score
 - **Type**: typing.Optional[str]
@@ -867,14 +867,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ConformancePackComplianceScoresFiltersTypeDef
+# ConformancePackComplianceScoresFilters
 
 ### ConformancePackNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# ConformancePackComplianceSummaryTypeDef
+# ConformancePackComplianceSummary
 
 ### ConformancePackName
 - **Type**: <class 'str'>
@@ -885,7 +885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConformancePackDetailTypeDef
+# ConformancePackDetail
 
 ### ConformancePackName
 - **Type**: <class 'str'>
@@ -906,7 +906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConformancePackInputParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackInputParameterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackInputParameter]]
 
 ### LastUpdateRequestedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -915,10 +915,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TemplateSSMDocumentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TemplateSSMDocumentDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ConformancePackEvaluationFiltersTypeDef
+# ConformancePackEvaluationFilters
 
 ### ConfigRuleNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -933,14 +933,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ConformancePackEvaluationResultTypeDef
+# ConformancePackEvaluationResult
 
 ### ComplianceType
 - **Type**: typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT']
 - **Required**: Yes
 
 ### EvaluationResultIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.EvaluationResultIdentifierTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.EvaluationResultIdentifier'>
 - **Required**: Yes
 
 ### ConfigRuleInvokedTime
@@ -955,7 +955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConformancePackInputParameterTypeDef
+# ConformancePackInputParameter
 
 ### ParameterName
 - **Type**: <class 'str'>
@@ -966,7 +966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConformancePackRuleComplianceTypeDef
+# ConformancePackRuleCompliance
 
 ### ConfigRuleName
 - **Type**: typing.Optional[str]
@@ -978,7 +978,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ConformancePackStatusDetailTypeDef
+# ConformancePackStatusDetail
 
 ### ConformancePackName
 - **Type**: <class 'str'>
@@ -1011,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CustomPolicyDetailsTypeDef
+# CustomPolicyDetails
 
 ### PolicyRuntime
 - **Type**: <class 'str'>
@@ -1025,7 +1025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteAggregationAuthorizationRequestTypeDef
+# DeleteAggregationAuthorizationRequest
 
 ### AuthorizedAccountId
 - **Type**: <class 'str'>
@@ -1036,63 +1036,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfigRuleRequestTypeDef
+# DeleteConfigRuleRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConfigurationAggregatorRequestTypeDef
+# DeleteConfigurationAggregatorRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConfigurationRecorderRequestTypeDef
+# DeleteConfigurationRecorderRequest
 
 ### ConfigurationRecorderName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConformancePackRequestTypeDef
+# DeleteConformancePackRequest
 
 ### ConformancePackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDeliveryChannelRequestTypeDef
+# DeleteDeliveryChannelRequest
 
 ### DeliveryChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEvaluationResultsRequestTypeDef
+# DeleteEvaluationResultsRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteOrganizationConfigRuleRequestTypeDef
+# DeleteOrganizationConfigRuleRequest
 
 ### OrganizationConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteOrganizationConformancePackRequestTypeDef
+# DeleteOrganizationConformancePackRequest
 
 ### OrganizationConformancePackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePendingAggregationRequestRequestTypeDef
+# DeletePendingAggregationRequestRequest
 
 ### RequesterAccountId
 - **Type**: <class 'str'>
@@ -1103,7 +1103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRemediationConfigurationRequestTypeDef
+# DeleteRemediationConfigurationRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
@@ -1113,29 +1113,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteRemediationExceptionsRequestTypeDef
+# DeleteRemediationExceptionsRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceKeys
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionResourceKeyTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionResourceKey]
 - **Required**: Yes
 
 
-# DeleteRemediationExceptionsResponseTypeDef
+# DeleteRemediationExceptionsResponse
 
 ### FailedBatches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.FailedDeleteRemediationExceptionsBatchTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.FailedDeleteRemediationExceptionsBatch]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteResourceConfigRequestTypeDef
+# DeleteResourceConfigRequest
 
 ### ResourceType
 - **Type**: <class 'str'>
@@ -1146,21 +1146,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRetentionConfigurationRequestTypeDef
+# DeleteRetentionConfigurationRequest
 
 ### RetentionConfigurationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceLinkedConfigurationRecorderRequestTypeDef
+# DeleteServiceLinkedConfigurationRecorderRequest
 
 ### ServicePrincipal
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceLinkedConfigurationRecorderResponseTypeDef
+# DeleteServiceLinkedConfigurationRecorderResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1171,51 +1171,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteStoredQueryRequestTypeDef
+# DeleteStoredQueryRequest
 
 ### QueryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeliverConfigSnapshotRequestTypeDef
+# DeliverConfigSnapshotRequest
 
 ### deliveryChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeliverConfigSnapshotResponseTypeDef
+# DeliverConfigSnapshotResponse
 
 ### configSnapshotId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeliveryChannelStatusTypeDef
-
-### name
-- **Type**: typing.Optional[str]
-
-### configSnapshotDeliveryInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigExportDeliveryInfoTypeDef]
-
-### configHistoryDeliveryInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigExportDeliveryInfoTypeDef]
-
-### configStreamDeliveryInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigStreamDeliveryInfoTypeDef]
-
-
-# DeliveryChannelTypeDef
+# DeliveryChannel
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1233,30 +1218,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### configSnapshotDeliveryProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigSnapshotDeliveryPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigSnapshotDeliveryProperties]
 
 
-# DescribeAggregateComplianceByConfigRulesRequestPaginateTypeDef
+# DeliveryChannelStatus
+
+### name
+- **Type**: typing.Optional[str]
+
+### configSnapshotDeliveryInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigExportDeliveryInfo]
+
+### configHistoryDeliveryInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigExportDeliveryInfo]
+
+### configStreamDeliveryInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigStreamDeliveryInfo]
+
+
+# DescribeAggregateComplianceByConfigRulesRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigRuleComplianceFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeAggregateComplianceByConfigRulesRequestTypeDef
-
-### ConfigurationAggregatorName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigRuleComplianceFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigRuleComplianceFilters]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1265,41 +1252,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAggregateComplianceByConfigRulesResponseTypeDef
+# DescribeAggregateComplianceByConfigRulesRequestPaginate
+
+### ConfigurationAggregatorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigRuleComplianceFilters]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeAggregateComplianceByConfigRulesResponse
 
 ### AggregateComplianceByConfigRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateComplianceByConfigRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateComplianceByConfigRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeAggregateComplianceByConformancePacksRequestPaginateTypeDef
+# DescribeAggregateComplianceByConformancePacksRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeAggregateComplianceByConformancePacksRequestTypeDef
-
-### ConfigurationAggregatorName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceFilters]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1308,27 +1295,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAggregateComplianceByConformancePacksResponseTypeDef
+# DescribeAggregateComplianceByConformancePacksRequestPaginate
+
+### ConfigurationAggregatorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceFilters]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeAggregateComplianceByConformancePacksResponse
 
 ### AggregateComplianceByConformancePacks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateComplianceByConformancePackTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateComplianceByConformancePack]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeAggregationAuthorizationsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeAggregationAuthorizationsRequestTypeDef
+# DescribeAggregationAuthorizationsRequest
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1337,21 +1331,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAggregationAuthorizationsResponseTypeDef
+# DescribeAggregationAuthorizationsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeAggregationAuthorizationsResponse
 
 ### AggregationAuthorizations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregationAuthorizationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregationAuthorization]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeComplianceByConfigRuleRequestPaginateTypeDef
+# DescribeComplianceByConfigRuleRequest
+
+### ConfigRuleNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ComplianceTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeComplianceByConfigRuleRequestPaginate
 
 ### ConfigRuleNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1360,51 +1372,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
 
 
-# DescribeComplianceByConfigRuleRequestTypeDef
-
-### ConfigRuleNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### ComplianceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeComplianceByConfigRuleResponseTypeDef
+# DescribeComplianceByConfigRuleResponse
 
 ### ComplianceByConfigRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ComplianceByConfigRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ComplianceByConfigRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeComplianceByResourceRequestPaginateTypeDef
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### ResourceId
-- **Type**: typing.Optional[str]
-
-### ComplianceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeComplianceByResourceRequestTypeDef
+# DescribeComplianceByResourceRequest
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -1422,30 +1407,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeComplianceByResourceResponseTypeDef
+# DescribeComplianceByResourceRequestPaginate
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### ResourceId
+- **Type**: typing.Optional[str]
+
+### ComplianceTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeComplianceByResourceResponse
 
 ### ComplianceByResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ComplianceByResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ComplianceByResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeConfigRuleEvaluationStatusRequestPaginateTypeDef
-
-### ConfigRuleNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeConfigRuleEvaluationStatusRequestTypeDef
+# DescribeConfigRuleEvaluationStatusRequest
 
 ### ConfigRuleNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1457,39 +1448,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeConfigRuleEvaluationStatusResponseTypeDef
+# DescribeConfigRuleEvaluationStatusRequestPaginate
+
+### ConfigRuleNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeConfigRuleEvaluationStatusResponse
 
 ### ConfigRulesEvaluationStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigRuleEvaluationStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigRuleEvaluationStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeConfigRulesFiltersTypeDef
+# DescribeConfigRulesFilters
 
 ### EvaluationMode
 - **Type**: typing.Optional[typing.Literal['DETECTIVE', 'PROACTIVE']]
 
 
-# DescribeConfigRulesRequestPaginateTypeDef
-
-### ConfigRuleNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.DescribeConfigRulesFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeConfigRulesRequestTypeDef
+# DescribeConfigRulesRequest
 
 ### ConfigRuleNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1498,37 +1486,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.DescribeConfigRulesFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.DescribeConfigRulesFilters]
 
 
-# DescribeConfigRulesResponseTypeDef
+# DescribeConfigRulesRequestPaginate
+
+### ConfigRuleNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.DescribeConfigRulesFilters]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeConfigRulesResponse
 
 ### ConfigRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigRuleOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigRuleOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeConfigurationAggregatorSourcesStatusRequestPaginateTypeDef
-
-### ConfigurationAggregatorName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### UpdateStatus
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FAILED', 'OUTDATED', 'SUCCEEDED']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeConfigurationAggregatorSourcesStatusRequestTypeDef
+# DescribeConfigurationAggregatorSourcesStatusRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
@@ -1544,30 +1531,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeConfigurationAggregatorSourcesStatusResponseTypeDef
+# DescribeConfigurationAggregatorSourcesStatusRequestPaginate
+
+### ConfigurationAggregatorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UpdateStatus
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['FAILED', 'OUTDATED', 'SUCCEEDED']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeConfigurationAggregatorSourcesStatusResponse
 
 ### AggregatedSourceStatusList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregatedSourceStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregatedSourceStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeConfigurationAggregatorsRequestPaginateTypeDef
-
-### ConfigurationAggregatorNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeConfigurationAggregatorsRequestTypeDef
+# DescribeConfigurationAggregatorsRequest
 
 ### ConfigurationAggregatorNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1579,21 +1570,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeConfigurationAggregatorsResponseTypeDef
+# DescribeConfigurationAggregatorsRequestPaginate
+
+### ConfigurationAggregatorNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeConfigurationAggregatorsResponse
 
 ### ConfigurationAggregators
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationAggregatorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationAggregator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeConfigurationRecorderStatusRequestTypeDef
+# DescribeConfigurationRecorderStatusRequest
 
 ### ConfigurationRecorderNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1605,18 +1605,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeConfigurationRecorderStatusResponseTypeDef
+# DescribeConfigurationRecorderStatusResponse
 
 ### ConfigurationRecordersStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeConfigurationRecordersRequestTypeDef
+# DescribeConfigurationRecordersRequest
 
 ### ConfigurationRecorderNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1628,25 +1628,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeConfigurationRecordersResponseTypeDef
+# DescribeConfigurationRecordersResponse
 
 ### ConfigurationRecorders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeConformancePackComplianceRequestTypeDef
+# DescribeConformancePackComplianceRequest
 
 ### ConformancePackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConformancePackComplianceFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConformancePackComplianceFilters]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1655,34 +1655,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeConformancePackComplianceResponseTypeDef
+# DescribeConformancePackComplianceResponse
 
 ### ConformancePackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ConformancePackRuleComplianceList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackRuleComplianceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackRuleCompliance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeConformancePackStatusRequestPaginateTypeDef
-
-### ConformancePackNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeConformancePackStatusRequestTypeDef
+# DescribeConformancePackStatusRequest
 
 ### ConformancePackNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1694,30 +1685,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeConformancePackStatusResponseTypeDef
+# DescribeConformancePackStatusRequestPaginate
+
+### ConformancePackNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeConformancePackStatusResponse
 
 ### ConformancePackStatusDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackStatusDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackStatusDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeConformancePacksRequestPaginateTypeDef
-
-### ConformancePackNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeConformancePacksRequestTypeDef
+# DescribeConformancePacksRequest
 
 ### ConformancePackNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1729,64 +1720,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeConformancePacksResponseTypeDef
+# DescribeConformancePacksRequestPaginate
+
+### ConformancePackNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeConformancePacksResponse
 
 ### ConformancePackDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeDeliveryChannelStatusRequestTypeDef
+# DescribeDeliveryChannelStatusRequest
 
 ### DeliveryChannelNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeDeliveryChannelStatusResponseTypeDef
+# DescribeDeliveryChannelStatusResponse
 
 ### DeliveryChannelsStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.DeliveryChannelStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.DeliveryChannelStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDeliveryChannelsRequestTypeDef
+# DescribeDeliveryChannelsRequest
 
 ### DeliveryChannelNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeDeliveryChannelsResponseTypeDef
+# DescribeDeliveryChannelsResponse
 
 ### DeliveryChannels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.DeliveryChannelTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.DeliveryChannel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeOrganizationConfigRuleStatusesRequestPaginateTypeDef
-
-### OrganizationConfigRuleNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeOrganizationConfigRuleStatusesRequestTypeDef
+# DescribeOrganizationConfigRuleStatusesRequest
 
 ### OrganizationConfigRuleNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1798,30 +1789,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeOrganizationConfigRuleStatusesResponseTypeDef
+# DescribeOrganizationConfigRuleStatusesRequestPaginate
+
+### OrganizationConfigRuleNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeOrganizationConfigRuleStatusesResponse
 
 ### OrganizationConfigRuleStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConfigRuleStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConfigRuleStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeOrganizationConfigRulesRequestPaginateTypeDef
-
-### OrganizationConfigRuleNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeOrganizationConfigRulesRequestTypeDef
+# DescribeOrganizationConfigRulesRequest
 
 ### OrganizationConfigRuleNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1833,30 +1824,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeOrganizationConfigRulesResponseTypeDef
+# DescribeOrganizationConfigRulesRequestPaginate
+
+### OrganizationConfigRuleNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeOrganizationConfigRulesResponse
 
 ### OrganizationConfigRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConfigRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConfigRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeOrganizationConformancePackStatusesRequestPaginateTypeDef
-
-### OrganizationConformancePackNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeOrganizationConformancePackStatusesRequestTypeDef
+# DescribeOrganizationConformancePackStatusesRequest
 
 ### OrganizationConformancePackNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1868,30 +1859,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeOrganizationConformancePackStatusesResponseTypeDef
+# DescribeOrganizationConformancePackStatusesRequestPaginate
+
+### OrganizationConformancePackNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeOrganizationConformancePackStatusesResponse
 
 ### OrganizationConformancePackStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConformancePackStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConformancePackStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeOrganizationConformancePacksRequestPaginateTypeDef
-
-### OrganizationConformancePackNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeOrganizationConformancePacksRequestTypeDef
+# DescribeOrganizationConformancePacksRequest
 
 ### OrganizationConformancePackNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1903,27 +1894,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeOrganizationConformancePacksResponseTypeDef
+# DescribeOrganizationConformancePacksRequestPaginate
+
+### OrganizationConformancePackNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeOrganizationConformancePacksResponse
 
 ### OrganizationConformancePacks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConformancePackTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConformancePack]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribePendingAggregationRequestsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribePendingAggregationRequestsRequestTypeDef
+# DescribePendingAggregationRequestsRequest
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1932,46 +1926,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribePendingAggregationRequestsResponseTypeDef
+# DescribePendingAggregationRequestsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribePendingAggregationRequestsResponse
 
 ### PendingAggregationRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.PendingAggregationRequestTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.PendingAggregationRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeRemediationConfigurationsRequestTypeDef
+# DescribeRemediationConfigurationsRequest
 
 ### ConfigRuleNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeRemediationConfigurationsResponseTypeDef
+# DescribeRemediationConfigurationsResponse
 
 ### RemediationConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationConfigurationOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationConfigurationOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeRemediationExceptionsRequestTypeDef
+# DescribeRemediationExceptionsRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceKeys
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionResourceKeyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionResourceKey]]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1980,41 +1980,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeRemediationExceptionsResponseTypeDef
+# DescribeRemediationExceptionsResponse
 
 ### RemediationExceptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationException]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeRemediationExecutionStatusRequestPaginateTypeDef
+# DescribeRemediationExecutionStatusRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceKeys
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ResourceKeyTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# DescribeRemediationExecutionStatusRequestTypeDef
-
-### ConfigRuleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceKeys
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ResourceKeyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ResourceKey]]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -2023,53 +2010,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeRemediationExecutionStatusResponseTypeDef
+# DescribeRemediationExecutionStatusRequestPaginate
+
+### ConfigRuleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceKeys
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ResourceKey]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# DescribeRemediationExecutionStatusResponse
 
 ### RemediationExecutionStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationExecutionStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationExecutionStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeRetentionConfigurationsRequestPaginateTypeDef
+# DescribeRetentionConfigurationsRequest
+
+### RetentionConfigurationNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeRetentionConfigurationsRequestPaginate
 
 ### RetentionConfigurationNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
 
 
-# DescribeRetentionConfigurationsRequestTypeDef
-
-### RetentionConfigurationNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeRetentionConfigurationsResponseTypeDef
+# DescribeRetentionConfigurationsResponse
 
 ### RetentionConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.RetentionConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.RetentionConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DisassociateResourceTypesRequestTypeDef
+# DisassociateResourceTypesRequest
 
 ### ConfigurationRecorderArn
 - **Type**: <class 'str'>
@@ -2080,37 +2080,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResourceTypesResponseTypeDef
+# DisassociateResourceTypesResponse
 
 ### ConfigurationRecorder
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EvaluationContextTypeDef
+# Evaluation
+
+### ComplianceResourceType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComplianceResourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComplianceType
+- **Type**: typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']
+- **Required**: Yes
+
+### OrderingTimestamp
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.Timestamp'>
+- **Required**: Yes
+
+### Annotation
+- **Type**: typing.Optional[str]
+
+
+# EvaluationContext
 
 ### EvaluationContextIdentifier
 - **Type**: typing.Optional[str]
 
 
-# EvaluationModeConfigurationTypeDef
+# EvaluationModeConfiguration
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['DETECTIVE', 'PROACTIVE']]
 
 
-# EvaluationOutputTypeDef
+# EvaluationOutput
 
 ### ComplianceResourceType
 - **Type**: <class 'str'>
@@ -2132,37 +2154,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EvaluationResultIdentifierTypeDef
-
-### EvaluationResultQualifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.EvaluationResultQualifierTypeDef]
-
-### OrderingTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### ResourceEvaluationId
-- **Type**: typing.Optional[str]
-
-
-# EvaluationResultQualifierTypeDef
-
-### ConfigRuleName
-- **Type**: typing.Optional[str]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### ResourceId
-- **Type**: typing.Optional[str]
-
-### EvaluationMode
-- **Type**: typing.Optional[typing.Literal['DETECTIVE', 'PROACTIVE']]
-
-
-# EvaluationResultTypeDef
+# EvaluationResult
 
 ### EvaluationResultIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.EvaluationResultIdentifierTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ComplianceType
 - **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]
@@ -2180,7 +2175,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EvaluationStatusTypeDef
+# EvaluationResultIdentifier
+
+### EvaluationResultQualifier
+- **Type**: <class 'NoneType'>
+
+### OrderingTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### ResourceEvaluationId
+- **Type**: typing.Optional[str]
+
+
+# EvaluationResultQualifier
+
+### ConfigRuleName
+- **Type**: typing.Optional[str]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### ResourceId
+- **Type**: typing.Optional[str]
+
+### EvaluationMode
+- **Type**: typing.Optional[typing.Literal['DETECTIVE', 'PROACTIVE']]
+
+
+# EvaluationStatus
 
 ### Status
 - **Type**: typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCEEDED']
@@ -2190,53 +2212,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EvaluationTypeDef
-
-### ComplianceResourceType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ComplianceResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ComplianceType
-- **Type**: typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']
-- **Required**: Yes
-
-### OrderingTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### Annotation
-- **Type**: typing.Optional[str]
-
-
-# EvaluationUnionTypeDef
+# EvaluationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ExclusionByResourceTypesOutputTypeDef
-
-### resourceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]]
-
-
-# ExclusionByResourceTypesTypeDef
+# ExclusionByResourceTypes
 
 ### resourceTypes
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]]
 
 
-# ExecutionControlsTypeDef
+# ExclusionByResourceTypesOutput
+
+### resourceTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]]
+
+
+# ExecutionControls
 
 ### SsmControls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.SsmControlsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ExternalEvaluationTypeDef
+# ExternalEvaluation
 
 ### ComplianceResourceType
 - **Type**: <class 'str'>
@@ -2251,47 +2251,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OrderingTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.Timestamp'>
 - **Required**: Yes
 
 ### Annotation
 - **Type**: typing.Optional[str]
 
 
-# FailedDeleteRemediationExceptionsBatchTypeDef
+# FailedDeleteRemediationExceptionsBatch
 
 ### FailureMessage
 - **Type**: typing.Optional[str]
 
 ### FailedItems
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionResourceKeyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionResourceKey]]
 
 
-# FailedRemediationBatchTypeDef
-
-### FailureMessage
-- **Type**: typing.Optional[str]
-
-### FailedItems
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationConfigurationOutputTypeDef]]
-
-
-# FailedRemediationExceptionBatchTypeDef
+# FailedRemediationBatch
 
 ### FailureMessage
 - **Type**: typing.Optional[str]
 
 ### FailedItems
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationConfigurationOutput]]
 
 
-# FieldInfoTypeDef
+# FailedRemediationExceptionBatch
+
+### FailureMessage
+- **Type**: typing.Optional[str]
+
+### FailedItems
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationException]]
+
+
+# FieldInfo
 
 ### Name
 - **Type**: typing.Optional[str]
 
 
-# GetAggregateComplianceDetailsByConfigRuleRequestPaginateTypeDef
+# GetAggregateComplianceDetailsByConfigRuleRequest
+
+### ConfigurationAggregatorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ConfigRuleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AwsRegion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComplianceType
+- **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]
+
+### Limit
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# GetAggregateComplianceDetailsByConfigRuleRequestPaginate
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
@@ -2313,59 +2341,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
 
 
-# GetAggregateComplianceDetailsByConfigRuleRequestTypeDef
-
-### ConfigurationAggregatorName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ConfigRuleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AwsRegion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ComplianceType
-- **Type**: typing.Optional[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]
-
-### Limit
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# GetAggregateComplianceDetailsByConfigRuleResponseTypeDef
+# GetAggregateComplianceDetailsByConfigRuleResponse
 
 ### AggregateEvaluationResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateEvaluationResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateEvaluationResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetAggregateConfigRuleComplianceSummaryRequestTypeDef
+# GetAggregateConfigRuleComplianceSummaryRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigRuleComplianceSummaryFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConfigRuleComplianceSummaryFilters]
 
 ### GroupByKey
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_ID', 'AWS_REGION']]
@@ -2377,32 +2377,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAggregateConfigRuleComplianceSummaryResponseTypeDef
+# GetAggregateConfigRuleComplianceSummaryResponse
 
 ### GroupByKey
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AggregateComplianceCounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateComplianceCountTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateComplianceCount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetAggregateConformancePackComplianceSummaryRequestTypeDef
+# GetAggregateConformancePackComplianceSummaryRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceSummaryFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceSummaryFilters]
 
 ### GroupByKey
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_ID', 'AWS_REGION']]
@@ -2414,10 +2414,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAggregateConformancePackComplianceSummaryResponseTypeDef
+# GetAggregateConformancePackComplianceSummaryResponse
 
 ### AggregateConformancePackComplianceSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateConformancePackComplianceSummary]
 - **Required**: Yes
 
 ### GroupByKey
@@ -2425,21 +2425,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetAggregateDiscoveredResourceCountsRequestTypeDef
+# GetAggregateDiscoveredResourceCountsRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceCountFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceCountFilters]
 
 ### GroupByKey
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_ID', 'AWS_REGION', 'RESOURCE_TYPE']]
@@ -2451,7 +2451,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAggregateDiscoveredResourceCountsResponseTypeDef
+# GetAggregateDiscoveredResourceCountsResponse
 
 ### TotalDiscoveredResources
 - **Type**: <class 'int'>
@@ -2462,53 +2462,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GroupedResourceCounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.GroupedResourceCountTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.GroupedResourceCount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetAggregateResourceConfigRequestTypeDef
+# GetAggregateResourceConfigRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.AggregateResourceIdentifierTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.AggregateResourceIdentifier'>
 - **Required**: Yes
 
 
-# GetAggregateResourceConfigResponseTypeDef
+# GetAggregateResourceConfigResponse
 
 ### ConfigurationItem
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationItemTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationItem'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetComplianceDetailsByConfigRuleRequestPaginateTypeDef
-
-### ConfigRuleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ComplianceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# GetComplianceDetailsByConfigRuleRequestTypeDef
+# GetComplianceDetailsByConfigRuleRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
@@ -2524,21 +2511,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetComplianceDetailsByConfigRuleResponseTypeDef
+# GetComplianceDetailsByConfigRuleRequestPaginate
+
+### ConfigRuleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComplianceTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# GetComplianceDetailsByConfigRuleResponse
 
 ### EvaluationResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.EvaluationResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.EvaluationResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetComplianceDetailsByResourceRequestPaginateTypeDef
+# GetComplianceDetailsByResourceRequest
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### ResourceId
+- **Type**: typing.Optional[str]
+
+### ComplianceTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### ResourceEvaluationId
+- **Type**: typing.Optional[str]
+
+
+# GetComplianceDetailsByResourceRequestPaginate
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -2553,77 +2571,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
 
 
-# GetComplianceDetailsByResourceRequestTypeDef
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### ResourceId
-- **Type**: typing.Optional[str]
-
-### ComplianceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLIANT', 'INSUFFICIENT_DATA', 'NON_COMPLIANT', 'NOT_APPLICABLE']]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### ResourceEvaluationId
-- **Type**: typing.Optional[str]
-
-
-# GetComplianceDetailsByResourceResponseTypeDef
+# GetComplianceDetailsByResourceResponse
 
 ### EvaluationResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.EvaluationResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.EvaluationResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetComplianceSummaryByConfigRuleResponseTypeDef
+# GetComplianceSummaryByConfigRuleResponse
 
 ### ComplianceSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ComplianceSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ComplianceSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetComplianceSummaryByResourceTypeRequestTypeDef
+# GetComplianceSummaryByResourceTypeRequest
 
 ### ResourceTypes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetComplianceSummaryByResourceTypeResponseTypeDef
+# GetComplianceSummaryByResourceTypeResponse
 
 ### ComplianceSummariesByResourceType
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ComplianceSummaryByResourceTypeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ComplianceSummaryByResourceType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetConformancePackComplianceDetailsRequestTypeDef
+# GetConformancePackComplianceDetailsRequest
 
 ### ConformancePackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConformancePackEvaluationFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConformancePackEvaluationFilters]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -2632,35 +2632,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetConformancePackComplianceDetailsResponseTypeDef
+# GetConformancePackComplianceDetailsResponse
 
 ### ConformancePackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ConformancePackRuleEvaluationResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackEvaluationResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackEvaluationResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetConformancePackComplianceSummaryRequestPaginateTypeDef
-
-### ConformancePackNames
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# GetConformancePackComplianceSummaryRequestTypeDef
+# GetConformancePackComplianceSummaryRequest
 
 ### ConformancePackNames
 - **Type**: typing.Sequence[str]
@@ -2673,38 +2663,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetConformancePackComplianceSummaryResponseTypeDef
+# GetConformancePackComplianceSummaryRequestPaginate
+
+### ConformancePackNames
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# GetConformancePackComplianceSummaryResponse
 
 ### ConformancePackComplianceSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackComplianceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackComplianceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetCustomRulePolicyRequestTypeDef
+# GetCustomRulePolicyRequest
 
 ### ConfigRuleName
 - **Type**: typing.Optional[str]
 
 
-# GetCustomRulePolicyResponseTypeDef
+# GetCustomRulePolicyResponse
 
 ### PolicyText
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDiscoveredResourceCountsRequestTypeDef
+# GetDiscoveredResourceCountsRequest
 
 ### resourceTypes
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -2716,45 +2716,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDiscoveredResourceCountsResponseTypeDef
+# GetDiscoveredResourceCountsResponse
 
 ### totalDiscoveredResources
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### resourceCounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceCountTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceCount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetOrganizationConfigRuleDetailedStatusRequestPaginateTypeDef
+# GetOrganizationConfigRuleDetailedStatusRequest
 
 ### OrganizationConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.StatusDetailFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# GetOrganizationConfigRuleDetailedStatusRequestTypeDef
-
-### OrganizationConfigRuleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.StatusDetailFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.StatusDetailFilters]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -2763,41 +2750,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetOrganizationConfigRuleDetailedStatusResponseTypeDef
+# GetOrganizationConfigRuleDetailedStatusRequestPaginate
+
+### OrganizationConfigRuleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.StatusDetailFilters]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# GetOrganizationConfigRuleDetailedStatusResponse
 
 ### OrganizationConfigRuleDetailedStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.MemberAccountStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.MemberAccountStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetOrganizationConformancePackDetailedStatusRequestPaginateTypeDef
+# GetOrganizationConformancePackDetailedStatusRequest
 
 ### OrganizationConformancePackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationResourceDetailedStatusFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# GetOrganizationConformancePackDetailedStatusRequestTypeDef
-
-### OrganizationConformancePackName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationResourceDetailedStatusFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationResourceDetailedStatusFilters]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -2806,39 +2793,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetOrganizationConformancePackDetailedStatusResponseTypeDef
+# GetOrganizationConformancePackDetailedStatusRequestPaginate
+
+### OrganizationConformancePackName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationResourceDetailedStatusFilters]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# GetOrganizationConformancePackDetailedStatusResponse
 
 ### OrganizationConformancePackDetailedStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConformancePackDetailedStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.OrganizationConformancePackDetailedStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetOrganizationCustomRulePolicyRequestTypeDef
+# GetOrganizationCustomRulePolicyRequest
 
 ### OrganizationConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOrganizationCustomRulePolicyResponseTypeDef
+# GetOrganizationCustomRulePolicyResponse
 
 ### PolicyText
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResourceConfigHistoryRequestPaginateTypeDef
+# GetResourceConfigHistoryRequest
 
 ### resourceType
 - **Type**: typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']
@@ -2849,33 +2849,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### laterTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.Timestamp]
 
 ### earlierTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TimestampTypeDef]
-
-### chronologicalOrder
-- **Type**: typing.Optional[typing.Literal['Forward', 'Reverse']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# GetResourceConfigHistoryRequestTypeDef
-
-### resourceType
-- **Type**: typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']
-- **Required**: Yes
-
-### resourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### laterTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TimestampTypeDef]
-
-### earlierTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.Timestamp]
 
 ### chronologicalOrder
 - **Type**: typing.Optional[typing.Literal['Forward', 'Reverse']]
@@ -2887,28 +2864,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetResourceConfigHistoryResponseTypeDef
+# GetResourceConfigHistoryRequestPaginate
+
+### resourceType
+- **Type**: typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']
+- **Required**: Yes
+
+### resourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### laterTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.Timestamp]
+
+### earlierTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.Timestamp]
+
+### chronologicalOrder
+- **Type**: typing.Optional[typing.Literal['Forward', 'Reverse']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# GetResourceConfigHistoryResponse
 
 ### configurationItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetResourceEvaluationSummaryRequestTypeDef
+# GetResourceEvaluationSummaryRequest
 
 ### ResourceEvaluationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourceEvaluationSummaryResponseTypeDef
+# GetResourceEvaluationSummaryResponse
 
 ### ResourceEvaluationId
 - **Type**: <class 'str'>
@@ -2919,7 +2919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EvaluationStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.EvaluationStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.EvaluationStatus'>
 - **Required**: Yes
 
 ### EvaluationStartTimestamp
@@ -2931,37 +2931,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EvaluationContext
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.EvaluationContextTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.EvaluationContext'>
 - **Required**: Yes
 
 ### ResourceDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResourceDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResourceDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetStoredQueryRequestTypeDef
+# GetStoredQueryRequest
 
 ### QueryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetStoredQueryResponseTypeDef
+# GetStoredQueryResponse
 
 ### StoredQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.StoredQueryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.StoredQuery'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GroupedResourceCountTypeDef
+# GroupedResourceCount
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -2972,7 +2972,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAggregateDiscoveredResourcesRequestPaginateTypeDef
+# ListAggregateDiscoveredResourcesRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
@@ -2983,24 +2983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# ListAggregateDiscoveredResourcesRequestTypeDef
-
-### ConfigurationAggregatorName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceType
-- **Type**: typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceFilters]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -3009,33 +2992,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAggregateDiscoveredResourcesResponseTypeDef
+# ListAggregateDiscoveredResourcesRequestPaginate
+
+### ConfigurationAggregatorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceType
+- **Type**: typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceFilters]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# ListAggregateDiscoveredResourcesResponse
 
 ### ResourceIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateResourceIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.AggregateResourceIdentifier]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationRecordersRequestPaginateTypeDef
+# ListConfigurationRecordersRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# ListConfigurationRecordersRequestTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -3044,24 +3035,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationRecordersResponseTypeDef
+# ListConfigurationRecordersRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# ListConfigurationRecordersResponse
 
 ### ConfigurationRecorderSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListConformancePackComplianceScoresRequestTypeDef
+# ListConformancePackComplianceScoresRequest
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConformancePackComplianceScoresFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ConformancePackComplianceScoresFilters]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -3076,40 +3076,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConformancePackComplianceScoresResponseTypeDef
+# ListConformancePackComplianceScoresResponse
 
 ### ConformancePackComplianceScores
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackComplianceScoreTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackComplianceScore]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDiscoveredResourcesRequestPaginateTypeDef
-
-### resourceType
-- **Type**: typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']
-- **Required**: Yes
-
-### resourceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### resourceName
-- **Type**: typing.Optional[str]
-
-### includeDeletedResources
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# ListDiscoveredResourcesRequestTypeDef
+# ListDiscoveredResourcesRequest
 
 ### resourceType
 - **Type**: typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']
@@ -3131,33 +3112,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDiscoveredResourcesResponseTypeDef
+# ListDiscoveredResourcesRequestPaginate
+
+### resourceType
+- **Type**: typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']
+- **Required**: Yes
+
+### resourceIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### resourceName
+- **Type**: typing.Optional[str]
+
+### includeDeletedResources
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# ListDiscoveredResourcesResponse
 
 ### resourceIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceIdentifier]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceEvaluationsRequestPaginateTypeDef
+# ListResourceEvaluationsRequest
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceEvaluationFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceEvaluationsRequestTypeDef
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceEvaluationFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceEvaluationFilters]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -3166,21 +3157,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceEvaluationsResponseTypeDef
+# ListResourceEvaluationsRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceEvaluationFilters]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# ListResourceEvaluationsResponse
 
 ### ResourceEvaluations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceEvaluationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceEvaluation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStoredQueriesRequestTypeDef
+# ListStoredQueriesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -3189,31 +3189,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListStoredQueriesResponseTypeDef
+# ListStoredQueriesResponse
 
 ### StoredQueryMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.StoredQueryMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.StoredQueryMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestPaginateTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3226,21 +3216,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceRequestPaginate
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MemberAccountStatusTypeDef
+# MemberAccountStatus
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -3264,20 +3264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# OrganizationAggregationSourceOutputTypeDef
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AwsRegions
-- **Type**: typing.Optional[typing.List[str]]
-
-### AllAwsRegions
-- **Type**: typing.Optional[bool]
-
-
-# OrganizationAggregationSourceTypeDef
+# OrganizationAggregationSource
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -3290,13 +3277,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# OrganizationAggregationSourceUnionTypeDef
+# OrganizationAggregationSourceOutput
+
+### RoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AwsRegions
+- **Type**: typing.Optional[typing.List[str]]
+
+### AllAwsRegions
+- **Type**: typing.Optional[bool]
+
+
+# OrganizationAggregationSourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OrganizationConfigRuleStatusTypeDef
+# OrganizationConfigRule
+
+### OrganizationConfigRuleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OrganizationConfigRuleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OrganizationManagedRuleMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationManagedRuleMetadataOutput]
+
+### OrganizationCustomRuleMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationCustomRuleMetadataOutput]
+
+### ExcludedAccounts
+- **Type**: typing.Optional[typing.List[str]]
+
+### LastUpdateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### OrganizationCustomPolicyRuleMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationCustomPolicyRuleMetadataNoPolicy]
+
+
+# OrganizationConfigRuleStatus
 
 ### OrganizationConfigRuleName
 - **Type**: <class 'str'>
@@ -3316,33 +3342,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# OrganizationConfigRuleTypeDef
+# OrganizationConformancePack
 
-### OrganizationConfigRuleName
+### OrganizationConformancePackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### OrganizationConfigRuleArn
+### OrganizationConformancePackArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### OrganizationManagedRuleMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationManagedRuleMetadataOutputTypeDef]
+### LastUpdateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-### OrganizationCustomRuleMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationCustomRuleMetadataOutputTypeDef]
+### DeliveryS3Bucket
+- **Type**: typing.Optional[str]
+
+### DeliveryS3KeyPrefix
+- **Type**: typing.Optional[str]
+
+### ConformancePackInputParameters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackInputParameter]]
 
 ### ExcludedAccounts
 - **Type**: typing.Optional[typing.List[str]]
 
-### LastUpdateTime
-- **Type**: typing.Optional[datetime.datetime]
 
-### OrganizationCustomPolicyRuleMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef]
-
-
-# OrganizationConformancePackDetailedStatusTypeDef
+# OrganizationConformancePackDetailedStatus
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -3366,7 +3393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# OrganizationConformancePackStatusTypeDef
+# OrganizationConformancePackStatus
 
 ### OrganizationConformancePackName
 - **Type**: <class 'str'>
@@ -3386,67 +3413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# OrganizationConformancePackTypeDef
-
-### OrganizationConformancePackName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### OrganizationConformancePackArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastUpdateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### DeliveryS3Bucket
-- **Type**: typing.Optional[str]
-
-### DeliveryS3KeyPrefix
-- **Type**: typing.Optional[str]
-
-### ConformancePackInputParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.ConformancePackInputParameterTypeDef]]
-
-### ExcludedAccounts
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef
-
-### Description
-- **Type**: typing.Optional[str]
-
-### OrganizationConfigRuleTriggerTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ConfigurationItemChangeNotification', 'OversizedConfigurationItemChangeNotification']]]
-
-### InputParameters
-- **Type**: typing.Optional[str]
-
-### MaximumExecutionFrequency
-- **Type**: typing.Optional[typing.Literal['One_Hour', 'Six_Hours', 'Three_Hours', 'Twelve_Hours', 'TwentyFour_Hours']]
-
-### ResourceTypesScope
-- **Type**: typing.Optional[typing.List[str]]
-
-### ResourceIdScope
-- **Type**: typing.Optional[str]
-
-### TagKeyScope
-- **Type**: typing.Optional[str]
-
-### TagValueScope
-- **Type**: typing.Optional[str]
-
-### PolicyRuntime
-- **Type**: typing.Optional[str]
-
-### DebugLogDeliveryAccounts
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# OrganizationCustomPolicyRuleMetadataTypeDef
+# OrganizationCustomPolicyRuleMetadata
 
 ### PolicyRuntime
 - **Type**: <class 'str'>
@@ -3484,18 +3451,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# OrganizationCustomRuleMetadataOutputTypeDef
-
-### LambdaFunctionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### OrganizationConfigRuleTriggerTypes
-- **Type**: typing.List[typing.Literal['ConfigurationItemChangeNotification', 'OversizedConfigurationItemChangeNotification', 'ScheduledNotification']]
-- **Required**: Yes
+# OrganizationCustomPolicyRuleMetadataNoPolicy
 
 ### Description
 - **Type**: typing.Optional[str]
+
+### OrganizationConfigRuleTriggerTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ConfigurationItemChangeNotification', 'OversizedConfigurationItemChangeNotification']]]
 
 ### InputParameters
 - **Type**: typing.Optional[str]
@@ -3515,8 +3477,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TagValueScope
 - **Type**: typing.Optional[str]
 
+### PolicyRuntime
+- **Type**: typing.Optional[str]
 
-# OrganizationCustomRuleMetadataTypeDef
+### DebugLogDeliveryAccounts
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# OrganizationCustomRuleMetadata
 
 ### LambdaFunctionArn
 - **Type**: <class 'str'>
@@ -3548,13 +3516,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OrganizationCustomRuleMetadataUnionTypeDef
+# OrganizationCustomRuleMetadataOutput
+
+### LambdaFunctionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OrganizationConfigRuleTriggerTypes
+- **Type**: typing.List[typing.Literal['ConfigurationItemChangeNotification', 'OversizedConfigurationItemChangeNotification', 'ScheduledNotification']]
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### InputParameters
+- **Type**: typing.Optional[str]
+
+### MaximumExecutionFrequency
+- **Type**: typing.Optional[typing.Literal['One_Hour', 'Six_Hours', 'Three_Hours', 'Twelve_Hours', 'TwentyFour_Hours']]
+
+### ResourceTypesScope
+- **Type**: typing.Optional[typing.List[str]]
+
+### ResourceIdScope
+- **Type**: typing.Optional[str]
+
+### TagKeyScope
+- **Type**: typing.Optional[str]
+
+### TagValueScope
+- **Type**: typing.Optional[str]
+
+
+# OrganizationCustomRuleMetadataUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OrganizationManagedRuleMetadataOutputTypeDef
+# OrganizationManagedRuleMetadata
+
+### RuleIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### InputParameters
+- **Type**: typing.Optional[str]
+
+### MaximumExecutionFrequency
+- **Type**: typing.Optional[typing.Literal['One_Hour', 'Six_Hours', 'Three_Hours', 'Twelve_Hours', 'TwentyFour_Hours']]
+
+### ResourceTypesScope
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ResourceIdScope
+- **Type**: typing.Optional[str]
+
+### TagKeyScope
+- **Type**: typing.Optional[str]
+
+### TagValueScope
+- **Type**: typing.Optional[str]
+
+
+# OrganizationManagedRuleMetadataOutput
 
 ### RuleIdentifier
 - **Type**: <class 'str'>
@@ -3582,41 +3610,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OrganizationManagedRuleMetadataTypeDef
-
-### RuleIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### InputParameters
-- **Type**: typing.Optional[str]
-
-### MaximumExecutionFrequency
-- **Type**: typing.Optional[typing.Literal['One_Hour', 'Six_Hours', 'Three_Hours', 'Twelve_Hours', 'TwentyFour_Hours']]
-
-### ResourceTypesScope
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### ResourceIdScope
-- **Type**: typing.Optional[str]
-
-### TagKeyScope
-- **Type**: typing.Optional[str]
-
-### TagValueScope
-- **Type**: typing.Optional[str]
-
-
-# OrganizationManagedRuleMetadataUnionTypeDef
+# OrganizationManagedRuleMetadataUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OrganizationResourceDetailedStatusFiltersTypeDef
+# OrganizationResourceDetailedStatusFilters
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -3625,7 +3625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATE_FAILED', 'CREATE_IN_PROGRESS', 'CREATE_SUCCESSFUL', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'DELETE_SUCCESSFUL', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCESSFUL']]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -3637,7 +3637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PendingAggregationRequestTypeDef
+# PendingAggregationRequest
 
 ### RequesterAccountId
 - **Type**: typing.Optional[str]
@@ -3646,7 +3646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAggregationAuthorizationRequestTypeDef
+# PutAggregationAuthorizationRequest
 
 ### AuthorizedAccountId
 - **Type**: <class 'str'>
@@ -3657,71 +3657,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.Tag]]
 
 
-# PutAggregationAuthorizationResponseTypeDef
+# PutAggregationAuthorizationResponse
 
 ### AggregationAuthorization
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.AggregationAuthorizationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.AggregationAuthorization'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutConfigRuleRequestTypeDef
+# PutConfigRuleRequest
 
 ### ConfigRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigRuleUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigRuleUnion'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.Tag]]
 
 
-# PutConfigurationAggregatorRequestTypeDef
+# PutConfigurationAggregatorRequest
 
 ### ConfigurationAggregatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AccountAggregationSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.AccountAggregationSourceUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.AccountAggregationSourceUnion]]
 
 ### OrganizationAggregationSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationAggregationSourceUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationAggregationSourceUnion]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.Tag]]
 
 ### AggregatorFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFiltersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.AggregatorFiltersUnion]
 
 
-# PutConfigurationAggregatorResponseTypeDef
+# PutConfigurationAggregatorResponse
 
 ### ConfigurationAggregator
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationAggregatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationAggregator'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutConfigurationRecorderRequestTypeDef
+# PutConfigurationRecorderRequest
 
 ### ConfigurationRecorder
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ConfigurationRecorderUnion'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.Tag]]
 
 
-# PutConformancePackRequestTypeDef
+# PutConformancePackRequest
 
 ### ConformancePackName
 - **Type**: <class 'str'>
@@ -3740,96 +3740,96 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConformancePackInputParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ConformancePackInputParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ConformancePackInputParameter]]
 
 ### TemplateSSMDocumentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TemplateSSMDocumentDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PutConformancePackResponseTypeDef
+# PutConformancePackResponse
 
 ### ConformancePackArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutDeliveryChannelRequestTypeDef
+# PutDeliveryChannelRequest
 
 ### DeliveryChannel
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.DeliveryChannelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.DeliveryChannel'>
 - **Required**: Yes
 
 
-# PutEvaluationsRequestTypeDef
+# PutEvaluationsRequest
 
 ### ResultToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Evaluations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.EvaluationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.EvaluationUnion]]
 
 ### TestMode
 - **Type**: typing.Optional[bool]
 
 
-# PutEvaluationsResponseTypeDef
+# PutEvaluationsResponse
 
 ### FailedEvaluations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.EvaluationOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.EvaluationOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutExternalEvaluationRequestTypeDef
+# PutExternalEvaluationRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ExternalEvaluation
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ExternalEvaluationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ExternalEvaluation'>
 - **Required**: Yes
 
 
-# PutOrganizationConfigRuleRequestTypeDef
+# PutOrganizationConfigRuleRequest
 
 ### OrganizationConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### OrganizationManagedRuleMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationManagedRuleMetadataUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationManagedRuleMetadataUnion]
 
 ### OrganizationCustomRuleMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationCustomRuleMetadataUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationCustomRuleMetadataUnion]
 
 ### ExcludedAccounts
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### OrganizationCustomPolicyRuleMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.OrganizationCustomPolicyRuleMetadataTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PutOrganizationConfigRuleResponseTypeDef
+# PutOrganizationConfigRuleResponse
 
 ### OrganizationConfigRuleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutOrganizationConformancePackRequestTypeDef
+# PutOrganizationConformancePackRequest
 
 ### OrganizationConformancePackName
 - **Type**: <class 'str'>
@@ -3848,70 +3848,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConformancePackInputParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ConformancePackInputParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ConformancePackInputParameter]]
 
 ### ExcludedAccounts
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# PutOrganizationConformancePackResponseTypeDef
+# PutOrganizationConformancePackResponse
 
 ### OrganizationConformancePackArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutRemediationConfigurationsRequestTypeDef
+# PutRemediationConfigurationsRequest
 
 ### RemediationConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RemediationConfigurationUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RemediationConfigurationUnion]
 - **Required**: Yes
 
 
-# PutRemediationConfigurationsResponseTypeDef
+# PutRemediationConfigurationsResponse
 
 ### FailedBatches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.FailedRemediationBatchTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.FailedRemediationBatch]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutRemediationExceptionsRequestTypeDef
+# PutRemediationExceptionsRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceKeys
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionResourceKeyTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RemediationExceptionResourceKey]
 - **Required**: Yes
 
 ### Message
 - **Type**: typing.Optional[str]
 
 ### ExpirationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.Timestamp]
 
 
-# PutRemediationExceptionsResponseTypeDef
+# PutRemediationExceptionsResponse
 
 ### FailedBatches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.FailedRemediationExceptionBatchTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.FailedRemediationExceptionBatch]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutResourceConfigRequestTypeDef
+# PutResourceConfigRequest
 
 ### ResourceType
 - **Type**: <class 'str'>
@@ -3936,35 +3936,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# PutRetentionConfigurationRequestTypeDef
+# PutRetentionConfigurationRequest
 
 ### RetentionPeriodInDays
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# PutRetentionConfigurationResponseTypeDef
+# PutRetentionConfigurationResponse
 
 ### RetentionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.RetentionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.RetentionConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutServiceLinkedConfigurationRecorderRequestTypeDef
+# PutServiceLinkedConfigurationRecorderRequest
 
 ### ServicePrincipal
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.Tag]]
 
 
-# PutServiceLinkedConfigurationRecorderResponseTypeDef
+# PutServiceLinkedConfigurationRecorderResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -3975,56 +3975,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutStoredQueryRequestTypeDef
+# PutStoredQueryRequest
 
 ### StoredQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.StoredQueryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.StoredQuery'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.Tag]]
 
 
-# PutStoredQueryResponseTypeDef
+# PutStoredQueryResponse
 
 ### QueryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# QueryInfoTypeDef
+# QueryInfo
 
 ### SelectFields
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.FieldInfoTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.FieldInfo]]
 
 
-# RecordingGroupOutputTypeDef
-
-### allSupported
-- **Type**: typing.Optional[bool]
-
-### includeGlobalResourceTypes
-- **Type**: typing.Optional[bool]
-
-### resourceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]]
-
-### exclusionByResourceTypes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ExclusionByResourceTypesOutputTypeDef]
-
-### recordingStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingStrategyTypeDef]
-
-
-# RecordingGroupTypeDef
+# RecordingGroup
 
 ### allSupported
 - **Type**: typing.Optional[bool]
@@ -4036,37 +4018,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]]
 
 ### exclusionByResourceTypes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ExclusionByResourceTypesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ExclusionByResourceTypes]
 
 ### recordingStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingStrategyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingStrategy]
 
 
-# RecordingModeOutputTypeDef
+# RecordingGroupOutput
+
+### allSupported
+- **Type**: typing.Optional[bool]
+
+### includeGlobalResourceTypes
+- **Type**: typing.Optional[bool]
+
+### resourceTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]]
+
+### exclusionByResourceTypes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ExclusionByResourceTypesOutput]
+
+### recordingStrategy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.RecordingStrategy]
+
+
+# RecordingMode
 
 ### recordingFrequency
 - **Type**: typing.Literal['CONTINUOUS', 'DAILY']
 - **Required**: Yes
 
 ### recordingModeOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RecordingModeOverrideOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RecordingModeOverride]]
 
 
-# RecordingModeOverrideOutputTypeDef
-
-### resourceTypes
-- **Type**: typing.List[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]
-- **Required**: Yes
+# RecordingModeOutput
 
 ### recordingFrequency
 - **Type**: typing.Literal['CONTINUOUS', 'DAILY']
 - **Required**: Yes
 
-### description
-- **Type**: typing.Optional[str]
+### recordingModeOverrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RecordingModeOverrideOutput]]
 
 
-# RecordingModeOverrideTypeDef
+# RecordingModeOverride
 
 ### resourceTypes
 - **Type**: typing.Sequence[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]
@@ -4080,23 +4076,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecordingModeTypeDef
+# RecordingModeOverrideOutput
+
+### resourceTypes
+- **Type**: typing.List[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]
+- **Required**: Yes
 
 ### recordingFrequency
 - **Type**: typing.Literal['CONTINUOUS', 'DAILY']
 - **Required**: Yes
 
-### recordingModeOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.RecordingModeOverrideTypeDef]]
+### description
+- **Type**: typing.Optional[str]
 
 
-# RecordingStrategyTypeDef
+# RecordingStrategy
 
 ### useOnly
 - **Type**: typing.Optional[typing.Literal['ALL_SUPPORTED_RESOURCE_TYPES', 'EXCLUSION_BY_RESOURCE_TYPES', 'INCLUSION_BY_RESOURCE_TYPES']]
 
 
-# RelationshipTypeDef
+# Relationship
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]
@@ -4111,7 +4111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemediationConfigurationOutputTypeDef
+# RemediationConfiguration
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
@@ -4129,7 +4129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.config_classes.RemediationParameterValueOutputTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.config_classes.RemediationParameterValueUnion]]
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -4138,7 +4138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ExecutionControls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ExecutionControlsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MaximumAutomaticAttempts
 - **Type**: typing.Optional[int]
@@ -4153,7 +4153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemediationConfigurationTypeDef
+# RemediationConfigurationOutput
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
@@ -4171,7 +4171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.config_classes.RemediationParameterValueUnionTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.config_classes.RemediationParameterValueOutput]]
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -4180,7 +4180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ExecutionControls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ExecutionControlsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MaximumAutomaticAttempts
 - **Type**: typing.Optional[int]
@@ -4195,22 +4195,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemediationConfigurationUnionTypeDef
+# RemediationConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RemediationExceptionResourceKeyTypeDef
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### ResourceId
-- **Type**: typing.Optional[str]
-
-
-# RemediationExceptionTypeDef
+# RemediationException
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
@@ -4231,16 +4222,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# RemediationExecutionStatusTypeDef
+# RemediationExceptionResourceKey
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### ResourceId
+- **Type**: typing.Optional[str]
+
+
+# RemediationExecutionStatus
 
 ### ResourceKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceKeyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### State
 - **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'QUEUED', 'SUCCEEDED']]
 
 ### StepDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationExecutionStepTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.RemediationExecutionStep]]
 
 ### InvocationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -4249,7 +4249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# RemediationExecutionStepTypeDef
+# RemediationExecutionStep
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -4267,31 +4267,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# RemediationParameterValueOutputTypeDef
+# RemediationParameterValue
 
 ### ResourceValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceValueTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### StaticValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.StaticValueOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.StaticValueUnion]
 
 
-# RemediationParameterValueTypeDef
+# RemediationParameterValueOutput
 
 ### ResourceValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.ResourceValueTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### StaticValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.StaticValueUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.StaticValueOutput]
 
 
-# RemediationParameterValueUnionTypeDef
+# RemediationParameterValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResourceCountFiltersTypeDef
+# ResourceCount
+
+### resourceType
+- **Type**: typing.Optional[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]
+
+### count
+- **Type**: typing.Optional[int]
+
+
+# ResourceCountFilters
 
 ### ResourceType
 - **Type**: typing.Optional[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]
@@ -4303,16 +4312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceCountTypeDef
-
-### resourceType
-- **Type**: typing.Optional[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]
-
-### count
-- **Type**: typing.Optional[int]
-
-
-# ResourceDetailsTypeDef
+# ResourceDetails
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -4330,19 +4330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CFN_RESOURCE_SCHEMA']]
 
 
-# ResourceEvaluationFiltersTypeDef
-
-### EvaluationMode
-- **Type**: typing.Optional[typing.Literal['DETECTIVE', 'PROACTIVE']]
-
-### TimeWindow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TimeWindowTypeDef]
-
-### EvaluationContextIdentifier
-- **Type**: typing.Optional[str]
-
-
-# ResourceEvaluationTypeDef
+# ResourceEvaluation
 
 ### ResourceEvaluationId
 - **Type**: typing.Optional[str]
@@ -4354,7 +4342,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ResourceFiltersTypeDef
+# ResourceEvaluationFilters
+
+### EvaluationMode
+- **Type**: typing.Optional[typing.Literal['DETECTIVE', 'PROACTIVE']]
+
+### TimeWindow
+- **Type**: <class 'NoneType'>
+
+### EvaluationContextIdentifier
+- **Type**: typing.Optional[str]
+
+
+# ResourceFilters
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -4369,7 +4369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceIdentifierTypeDef
+# ResourceIdentifier
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']]
@@ -4384,7 +4384,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ResourceKeyTypeDef
+# ResourceKey
 
 ### resourceType
 - **Type**: typing.Literal['AWS::ACM::Certificate', 'AWS::ACMPCA::CertificateAuthority', 'AWS::ACMPCA::CertificateAuthorityActivation', 'AWS::APS::RuleGroupsNamespace', 'AWS::AccessAnalyzer::Analyzer', 'AWS::AmazonMQ::Broker', 'AWS::Amplify::App', 'AWS::Amplify::Branch', 'AWS::ApiGateway::RestApi', 'AWS::ApiGateway::Stage', 'AWS::ApiGatewayV2::Api', 'AWS::ApiGatewayV2::Stage', 'AWS::AppConfig::Application', 'AWS::AppConfig::ConfigurationProfile', 'AWS::AppConfig::DeploymentStrategy', 'AWS::AppConfig::Environment', 'AWS::AppConfig::HostedConfigurationVersion', 'AWS::AppFlow::Flow', 'AWS::AppIntegrations::EventIntegration', 'AWS::AppMesh::GatewayRoute', 'AWS::AppMesh::Mesh', 'AWS::AppMesh::Route', 'AWS::AppMesh::VirtualGateway', 'AWS::AppMesh::VirtualNode', 'AWS::AppMesh::VirtualRouter', 'AWS::AppMesh::VirtualService', 'AWS::AppRunner::Service', 'AWS::AppRunner::VpcConnector', 'AWS::AppStream::Application', 'AWS::AppStream::DirectoryConfig', 'AWS::AppStream::Fleet', 'AWS::AppStream::Stack', 'AWS::AppSync::GraphQLApi', 'AWS::Athena::DataCatalog', 'AWS::Athena::PreparedStatement', 'AWS::Athena::WorkGroup', 'AWS::AuditManager::Assessment', 'AWS::AutoScaling::AutoScalingGroup', 'AWS::AutoScaling::LaunchConfiguration', 'AWS::AutoScaling::ScalingPolicy', 'AWS::AutoScaling::ScheduledAction', 'AWS::AutoScaling::WarmPool', 'AWS::Backup::BackupPlan', 'AWS::Backup::BackupSelection', 'AWS::Backup::BackupVault', 'AWS::Backup::RecoveryPoint', 'AWS::Backup::ReportPlan', 'AWS::Batch::ComputeEnvironment', 'AWS::Batch::JobQueue', 'AWS::Batch::SchedulingPolicy', 'AWS::Budgets::BudgetsAction', 'AWS::Cassandra::Keyspace', 'AWS::Cloud9::EnvironmentEC2', 'AWS::CloudFormation::Stack', 'AWS::CloudFront::Distribution', 'AWS::CloudFront::StreamingDistribution', 'AWS::CloudTrail::Trail', 'AWS::CloudWatch::Alarm', 'AWS::CloudWatch::MetricStream', 'AWS::CodeArtifact::Repository', 'AWS::CodeBuild::Project', 'AWS::CodeBuild::ReportGroup', 'AWS::CodeDeploy::Application', 'AWS::CodeDeploy::DeploymentConfig', 'AWS::CodeDeploy::DeploymentGroup', 'AWS::CodeGuruProfiler::ProfilingGroup', 'AWS::CodeGuruReviewer::RepositoryAssociation', 'AWS::CodePipeline::Pipeline', 'AWS::Cognito::UserPool', 'AWS::Cognito::UserPoolClient', 'AWS::Cognito::UserPoolGroup', 'AWS::Config::ConformancePackCompliance', 'AWS::Config::ResourceCompliance', 'AWS::Connect::Instance', 'AWS::Connect::PhoneNumber', 'AWS::Connect::QuickConnect', 'AWS::CustomerProfiles::Domain', 'AWS::CustomerProfiles::ObjectType', 'AWS::DMS::Certificate', 'AWS::DMS::Endpoint', 'AWS::DMS::EventSubscription', 'AWS::DMS::ReplicationSubnetGroup', 'AWS::DataSync::LocationEFS', 'AWS::DataSync::LocationFSxLustre', 'AWS::DataSync::LocationFSxWindows', 'AWS::DataSync::LocationHDFS', 'AWS::DataSync::LocationNFS', 'AWS::DataSync::LocationObjectStorage', 'AWS::DataSync::LocationS3', 'AWS::DataSync::LocationSMB', 'AWS::DataSync::Task', 'AWS::Detective::Graph', 'AWS::DeviceFarm::InstanceProfile', 'AWS::DeviceFarm::Project', 'AWS::DeviceFarm::TestGridProject', 'AWS::DynamoDB::Table', 'AWS::EC2::CapacityReservation', 'AWS::EC2::CarrierGateway', 'AWS::EC2::ClientVpnEndpoint', 'AWS::EC2::CustomerGateway', 'AWS::EC2::DHCPOptions', 'AWS::EC2::EC2Fleet', 'AWS::EC2::EIP', 'AWS::EC2::EgressOnlyInternetGateway', 'AWS::EC2::FlowLog', 'AWS::EC2::Host', 'AWS::EC2::IPAM', 'AWS::EC2::IPAMPool', 'AWS::EC2::IPAMScope', 'AWS::EC2::Instance', 'AWS::EC2::InternetGateway', 'AWS::EC2::LaunchTemplate', 'AWS::EC2::NatGateway', 'AWS::EC2::NetworkAcl', 'AWS::EC2::NetworkInsightsAccessScope', 'AWS::EC2::NetworkInsightsAccessScopeAnalysis', 'AWS::EC2::NetworkInsightsAnalysis', 'AWS::EC2::NetworkInsightsPath', 'AWS::EC2::NetworkInterface', 'AWS::EC2::PrefixList', 'AWS::EC2::RegisteredHAInstance', 'AWS::EC2::RouteTable', 'AWS::EC2::SecurityGroup', 'AWS::EC2::SpotFleet', 'AWS::EC2::Subnet', 'AWS::EC2::SubnetRouteTableAssociation', 'AWS::EC2::TrafficMirrorFilter', 'AWS::EC2::TrafficMirrorSession', 'AWS::EC2::TrafficMirrorTarget', 'AWS::EC2::TransitGateway', 'AWS::EC2::TransitGatewayAttachment', 'AWS::EC2::TransitGatewayConnect', 'AWS::EC2::TransitGatewayMulticastDomain', 'AWS::EC2::TransitGatewayRouteTable', 'AWS::EC2::VPC', 'AWS::EC2::VPCEndpoint', 'AWS::EC2::VPCEndpointService', 'AWS::EC2::VPCPeeringConnection', 'AWS::EC2::VPNConnection', 'AWS::EC2::VPNGateway', 'AWS::EC2::Volume', 'AWS::ECR::PublicRepository', 'AWS::ECR::PullThroughCacheRule', 'AWS::ECR::RegistryPolicy', 'AWS::ECR::Repository', 'AWS::ECS::CapacityProvider', 'AWS::ECS::Cluster', 'AWS::ECS::Service', 'AWS::ECS::TaskDefinition', 'AWS::ECS::TaskSet', 'AWS::EFS::AccessPoint', 'AWS::EFS::FileSystem', 'AWS::EKS::Addon', 'AWS::EKS::Cluster', 'AWS::EKS::FargateProfile', 'AWS::EKS::IdentityProviderConfig', 'AWS::EMR::SecurityConfiguration', 'AWS::ElasticBeanstalk::Application', 'AWS::ElasticBeanstalk::ApplicationVersion', 'AWS::ElasticBeanstalk::Environment', 'AWS::ElasticLoadBalancing::LoadBalancer', 'AWS::ElasticLoadBalancingV2::Listener', 'AWS::ElasticLoadBalancingV2::LoadBalancer', 'AWS::Elasticsearch::Domain', 'AWS::EventSchemas::Discoverer', 'AWS::EventSchemas::Registry', 'AWS::EventSchemas::RegistryPolicy', 'AWS::EventSchemas::Schema', 'AWS::Events::ApiDestination', 'AWS::Events::Archive', 'AWS::Events::Connection', 'AWS::Events::Endpoint', 'AWS::Events::EventBus', 'AWS::Events::Rule', 'AWS::Evidently::Launch', 'AWS::Evidently::Project', 'AWS::FIS::ExperimentTemplate', 'AWS::Forecast::Dataset', 'AWS::Forecast::DatasetGroup', 'AWS::FraudDetector::EntityType', 'AWS::FraudDetector::Label', 'AWS::FraudDetector::Outcome', 'AWS::FraudDetector::Variable', 'AWS::GlobalAccelerator::Accelerator', 'AWS::GlobalAccelerator::EndpointGroup', 'AWS::GlobalAccelerator::Listener', 'AWS::Glue::Classifier', 'AWS::Glue::Job', 'AWS::Glue::MLTransform', 'AWS::Grafana::Workspace', 'AWS::GreengrassV2::ComponentVersion', 'AWS::GroundStation::Config', 'AWS::GroundStation::DataflowEndpointGroup', 'AWS::GroundStation::MissionProfile', 'AWS::GuardDuty::Detector', 'AWS::GuardDuty::Filter', 'AWS::GuardDuty::IPSet', 'AWS::GuardDuty::ThreatIntelSet', 'AWS::HealthLake::FHIRDatastore', 'AWS::IAM::Group', 'AWS::IAM::InstanceProfile', 'AWS::IAM::Policy', 'AWS::IAM::Role', 'AWS::IAM::SAMLProvider', 'AWS::IAM::ServerCertificate', 'AWS::IAM::User', 'AWS::IVS::Channel', 'AWS::IVS::PlaybackKeyPair', 'AWS::IVS::RecordingConfiguration', 'AWS::ImageBuilder::ContainerRecipe', 'AWS::ImageBuilder::DistributionConfiguration', 'AWS::ImageBuilder::ImagePipeline', 'AWS::ImageBuilder::ImageRecipe', 'AWS::ImageBuilder::InfrastructureConfiguration', 'AWS::InspectorV2::Filter', 'AWS::IoT::AccountAuditConfiguration', 'AWS::IoT::Authorizer', 'AWS::IoT::CACertificate', 'AWS::IoT::CustomMetric', 'AWS::IoT::Dimension', 'AWS::IoT::FleetMetric', 'AWS::IoT::JobTemplate', 'AWS::IoT::MitigationAction', 'AWS::IoT::Policy', 'AWS::IoT::ProvisioningTemplate', 'AWS::IoT::RoleAlias', 'AWS::IoT::ScheduledAudit', 'AWS::IoT::SecurityProfile', 'AWS::IoTAnalytics::Channel', 'AWS::IoTAnalytics::Dataset', 'AWS::IoTAnalytics::Datastore', 'AWS::IoTAnalytics::Pipeline', 'AWS::IoTEvents::AlarmModel', 'AWS::IoTEvents::DetectorModel', 'AWS::IoTEvents::Input', 'AWS::IoTSiteWise::AssetModel', 'AWS::IoTSiteWise::Dashboard', 'AWS::IoTSiteWise::Gateway', 'AWS::IoTSiteWise::Portal', 'AWS::IoTSiteWise::Project', 'AWS::IoTTwinMaker::ComponentType', 'AWS::IoTTwinMaker::Entity', 'AWS::IoTTwinMaker::Scene', 'AWS::IoTTwinMaker::SyncJob', 'AWS::IoTTwinMaker::Workspace', 'AWS::IoTWireless::FuotaTask', 'AWS::IoTWireless::MulticastGroup', 'AWS::IoTWireless::ServiceProfile', 'AWS::KMS::Alias', 'AWS::KMS::Key', 'AWS::KafkaConnect::Connector', 'AWS::Kendra::Index', 'AWS::Kinesis::Stream', 'AWS::Kinesis::StreamConsumer', 'AWS::KinesisAnalyticsV2::Application', 'AWS::KinesisFirehose::DeliveryStream', 'AWS::KinesisVideo::SignalingChannel', 'AWS::KinesisVideo::Stream', 'AWS::Lambda::CodeSigningConfig', 'AWS::Lambda::Function', 'AWS::Lex::Bot', 'AWS::Lex::BotAlias', 'AWS::Lightsail::Bucket', 'AWS::Lightsail::Certificate', 'AWS::Lightsail::Disk', 'AWS::Lightsail::StaticIp', 'AWS::Logs::Destination', 'AWS::LookoutMetrics::Alert', 'AWS::LookoutVision::Project', 'AWS::M2::Environment', 'AWS::MSK::BatchScramSecret', 'AWS::MSK::Cluster', 'AWS::MSK::Configuration', 'AWS::MediaConnect::FlowEntitlement', 'AWS::MediaConnect::FlowSource', 'AWS::MediaConnect::FlowVpcInterface', 'AWS::MediaPackage::PackagingConfiguration', 'AWS::MediaPackage::PackagingGroup', 'AWS::MediaTailor::PlaybackConfiguration', 'AWS::NetworkFirewall::Firewall', 'AWS::NetworkFirewall::FirewallPolicy', 'AWS::NetworkFirewall::RuleGroup', 'AWS::NetworkManager::ConnectPeer', 'AWS::NetworkManager::CustomerGatewayAssociation', 'AWS::NetworkManager::Device', 'AWS::NetworkManager::GlobalNetwork', 'AWS::NetworkManager::Link', 'AWS::NetworkManager::LinkAssociation', 'AWS::NetworkManager::Site', 'AWS::NetworkManager::TransitGatewayRegistration', 'AWS::OpenSearch::Domain', 'AWS::Panorama::Package', 'AWS::Personalize::Dataset', 'AWS::Personalize::DatasetGroup', 'AWS::Personalize::Schema', 'AWS::Personalize::Solution', 'AWS::Pinpoint::App', 'AWS::Pinpoint::ApplicationSettings', 'AWS::Pinpoint::Campaign', 'AWS::Pinpoint::EmailChannel', 'AWS::Pinpoint::EmailTemplate', 'AWS::Pinpoint::EventStream', 'AWS::Pinpoint::InAppTemplate', 'AWS::Pinpoint::Segment', 'AWS::QLDB::Ledger', 'AWS::QuickSight::DataSource', 'AWS::QuickSight::Template', 'AWS::QuickSight::Theme', 'AWS::RDS::DBCluster', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBInstance', 'AWS::RDS::DBSecurityGroup', 'AWS::RDS::DBSnapshot', 'AWS::RDS::DBSubnetGroup', 'AWS::RDS::EventSubscription', 'AWS::RDS::GlobalCluster', 'AWS::RDS::OptionGroup', 'AWS::RUM::AppMonitor', 'AWS::Redshift::Cluster', 'AWS::Redshift::ClusterParameterGroup', 'AWS::Redshift::ClusterSecurityGroup', 'AWS::Redshift::ClusterSnapshot', 'AWS::Redshift::ClusterSubnetGroup', 'AWS::Redshift::EndpointAccess', 'AWS::Redshift::EventSubscription', 'AWS::Redshift::ScheduledAction', 'AWS::ResilienceHub::App', 'AWS::ResilienceHub::ResiliencyPolicy', 'AWS::ResourceExplorer2::Index', 'AWS::RoboMaker::RobotApplication', 'AWS::RoboMaker::RobotApplicationVersion', 'AWS::RoboMaker::SimulationApplication', 'AWS::Route53::HostedZone', 'AWS::Route53RecoveryControl::Cluster', 'AWS::Route53RecoveryControl::ControlPanel', 'AWS::Route53RecoveryControl::RoutingControl', 'AWS::Route53RecoveryControl::SafetyRule', 'AWS::Route53RecoveryReadiness::Cell', 'AWS::Route53RecoveryReadiness::ReadinessCheck', 'AWS::Route53RecoveryReadiness::RecoveryGroup', 'AWS::Route53RecoveryReadiness::ResourceSet', 'AWS::Route53Resolver::FirewallDomainList', 'AWS::Route53Resolver::FirewallRuleGroup', 'AWS::Route53Resolver::FirewallRuleGroupAssociation', 'AWS::Route53Resolver::ResolverEndpoint', 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation', 'AWS::Route53Resolver::ResolverRule', 'AWS::Route53Resolver::ResolverRuleAssociation', 'AWS::S3::AccessPoint', 'AWS::S3::AccountPublicAccessBlock', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3::StorageLens', 'AWS::SES::ConfigurationSet', 'AWS::SES::ContactList', 'AWS::SES::ReceiptFilter', 'AWS::SES::ReceiptRuleSet', 'AWS::SES::Template', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SSM::AssociationCompliance', 'AWS::SSM::Document', 'AWS::SSM::FileData', 'AWS::SSM::ManagedInstanceInventory', 'AWS::SSM::PatchCompliance', 'AWS::SageMaker::AppImageConfig', 'AWS::SageMaker::CodeRepository', 'AWS::SageMaker::Domain', 'AWS::SageMaker::FeatureGroup', 'AWS::SageMaker::Image', 'AWS::SageMaker::Model', 'AWS::SageMaker::NotebookInstanceLifecycleConfig', 'AWS::SageMaker::Workteam', 'AWS::SecretsManager::Secret', 'AWS::ServiceCatalog::CloudFormationProduct', 'AWS::ServiceCatalog::CloudFormationProvisionedProduct', 'AWS::ServiceCatalog::Portfolio', 'AWS::ServiceDiscovery::HttpNamespace', 'AWS::ServiceDiscovery::Instance', 'AWS::ServiceDiscovery::PublicDnsNamespace', 'AWS::ServiceDiscovery::Service', 'AWS::Shield::Protection', 'AWS::ShieldRegional::Protection', 'AWS::Signer::SigningProfile', 'AWS::StepFunctions::Activity', 'AWS::StepFunctions::StateMachine', 'AWS::Transfer::Agreement', 'AWS::Transfer::Certificate', 'AWS::Transfer::Connector', 'AWS::Transfer::Workflow', 'AWS::WAF::RateBasedRule', 'AWS::WAF::Rule', 'AWS::WAF::RuleGroup', 'AWS::WAF::WebACL', 'AWS::WAFRegional::RateBasedRule', 'AWS::WAFRegional::Rule', 'AWS::WAFRegional::RuleGroup', 'AWS::WAFRegional::WebACL', 'AWS::WAFv2::IPSet', 'AWS::WAFv2::ManagedRuleSet', 'AWS::WAFv2::RegexPatternSet', 'AWS::WAFv2::RuleGroup', 'AWS::WAFv2::WebACL', 'AWS::WorkSpaces::ConnectionAlias', 'AWS::WorkSpaces::Workspace', 'AWS::XRay::EncryptionConfig']
@@ -4395,14 +4395,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResourceValueTypeDef
+# ResourceValue
 
 ### Value
 - **Type**: typing.Literal['RESOURCE_ID']
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -4424,7 +4424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetentionConfigurationTypeDef
+# RetentionConfiguration
 
 ### Name
 - **Type**: <class 'str'>
@@ -4435,7 +4435,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ScopeOutputTypeDef
+# Scope
+
+### ComplianceResourceTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagKey
+- **Type**: typing.Optional[str]
+
+### TagValue
+- **Type**: typing.Optional[str]
+
+### ComplianceResourceId
+- **Type**: typing.Optional[str]
+
+
+# ScopeOutput
 
 ### ComplianceResourceTypes
 - **Type**: typing.Optional[typing.List[str]]
@@ -4450,39 +4465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScopeTypeDef
-
-### ComplianceResourceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagKey
-- **Type**: typing.Optional[str]
-
-### TagValue
-- **Type**: typing.Optional[str]
-
-### ComplianceResourceId
-- **Type**: typing.Optional[str]
-
-
-# SelectAggregateResourceConfigRequestPaginateTypeDef
-
-### Expression
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ConfigurationAggregatorName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# SelectAggregateResourceConfigRequestTypeDef
+# SelectAggregateResourceConfigRequest
 
 ### Expression
 - **Type**: <class 'str'>
@@ -4502,35 +4485,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SelectAggregateResourceConfigResponseTypeDef
+# SelectAggregateResourceConfigRequestPaginate
+
+### Expression
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ConfigurationAggregatorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# SelectAggregateResourceConfigResponse
 
 ### Results
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### QueryInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.QueryInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.QueryInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# SelectResourceConfigRequestPaginateTypeDef
-
-### Expression
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfigTypeDef]
-
-
-# SelectResourceConfigRequestTypeDef
+# SelectResourceConfigRequest
 
 ### Expression
 - **Type**: <class 'str'>
@@ -4543,25 +4533,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SelectResourceConfigResponseTypeDef
+# SelectResourceConfigRequestPaginate
+
+### Expression
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.PaginatorConfig]
+
+
+# SelectResourceConfigResponse
 
 ### Results
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### QueryInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.QueryInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.QueryInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# SourceDetailTypeDef
+# Source
+
+### Owner
+- **Type**: typing.Literal['AWS', 'CUSTOM_LAMBDA', 'CUSTOM_POLICY']
+- **Required**: Yes
+
+### SourceIdentifier
+- **Type**: typing.Optional[str]
+
+### SourceDetails
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.SourceDetail]]
+
+### CustomPolicyDetails
+- **Type**: <class 'NoneType'>
+
+
+# SourceDetail
 
 ### EventSource
 - **Type**: typing.Optional[typing.Literal['aws.config']]
@@ -4573,7 +4589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['One_Hour', 'Six_Hours', 'Three_Hours', 'Twelve_Hours', 'TwentyFour_Hours']]
 
 
-# SourceOutputTypeDef
+# SourceOutput
 
 ### Owner
 - **Type**: typing.Literal['AWS', 'CUSTOM_LAMBDA', 'CUSTOM_POLICY']
@@ -4583,29 +4599,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SourceDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.SourceDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.config_classes.SourceDetail]]
 
 ### CustomPolicyDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.CustomPolicyDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SourceTypeDef
-
-### Owner
-- **Type**: typing.Literal['AWS', 'CUSTOM_LAMBDA', 'CUSTOM_POLICY']
-- **Required**: Yes
-
-### SourceIdentifier
-- **Type**: typing.Optional[str]
-
-### SourceDetails
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.config_classes.SourceDetailTypeDef]]
-
-### CustomPolicyDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.CustomPolicyDetailsTypeDef]
-
-
-# SsmControlsTypeDef
+# SsmControls
 
 ### ConcurrentExecutionRatePercentage
 - **Type**: typing.Optional[int]
@@ -4614,49 +4614,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartConfigRulesEvaluationRequestTypeDef
+# StartConfigRulesEvaluationRequest
 
 ### ConfigRuleNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# StartConfigurationRecorderRequestTypeDef
+# StartConfigurationRecorderRequest
 
 ### ConfigurationRecorderName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartRemediationExecutionRequestTypeDef
+# StartRemediationExecutionRequest
 
 ### ConfigRuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceKeys
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ResourceKeyTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.ResourceKey]
 - **Required**: Yes
 
 
-# StartRemediationExecutionResponseTypeDef
+# StartRemediationExecutionResponse
 
 ### FailureMessage
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FailedItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceKeyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.config_classes.ResourceKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartResourceEvaluationRequestTypeDef
+# StartResourceEvaluationRequest
 
 ### ResourceDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResourceDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResourceDetails'>
 - **Required**: Yes
 
 ### EvaluationMode
@@ -4664,7 +4664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EvaluationContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.EvaluationContextTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EvaluationTimeout
 - **Type**: typing.Optional[int]
@@ -4673,38 +4673,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartResourceEvaluationResponseTypeDef
+# StartResourceEvaluationResponse
 
 ### ResourceEvaluationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StaticValueOutputTypeDef
-
-### Values
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# StaticValueTypeDef
+# StaticValue
 
 ### Values
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# StaticValueUnionTypeDef
+# StaticValueOutput
+
+### Values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# StaticValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StatusDetailFiltersTypeDef
+# StatusDetailFilters
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -4713,32 +4713,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATE_FAILED', 'CREATE_IN_PROGRESS', 'CREATE_SUCCESSFUL', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'DELETE_SUCCESSFUL', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCESSFUL']]
 
 
-# StopConfigurationRecorderRequestTypeDef
+# StopConfigurationRecorderRequest
 
 ### ConfigurationRecorderName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StoredQueryMetadataTypeDef
-
-### QueryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### QueryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### QueryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-
-# StoredQueryTypeDef
+# StoredQuery
 
 ### QueryName
 - **Type**: <class 'str'>
@@ -4757,18 +4739,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# StoredQueryMetadata
 
-### ResourceArn
+### QueryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.TagTypeDef]
+### QueryArn
+- **Type**: <class 'str'>
 - **Required**: Yes
 
+### QueryName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# TagTypeDef
+### Description
+- **Type**: typing.Optional[str]
+
+
+# Tag
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -4777,7 +4766,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TemplateSSMDocumentDetailsTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.config_classes.Tag]
+- **Required**: Yes
+
+
+# TemplateSSMDocumentDetails
 
 ### DocumentName
 - **Type**: <class 'str'>
@@ -4787,22 +4787,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimeWindowTypeDef
+# TimeWindow
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.config_classes.Timestamp]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>

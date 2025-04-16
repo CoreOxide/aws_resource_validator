@@ -1,6 +1,6 @@
 # Route53 Recovery Control Config Classes
 
-# AssertionRuleTypeDef
+# AssertionRule
 
 ### AssertedControls
 - **Type**: typing.List[str]
@@ -15,7 +15,7 @@
 - **Required**: Yes
 
 ### RuleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RuleConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RuleConfig'>
 - **Required**: Yes
 
 ### SafetyRuleArn
@@ -34,7 +34,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssertionRuleUpdateTypeDef
+# AssertionRuleUpdate
 
 ### Name
 - **Type**: <class 'str'>
@@ -55,22 +55,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ClusterEndpointTypeDef
-
-### Endpoint
-- **Type**: typing.Optional[str]
-
-### Region
-- **Type**: typing.Optional[str]
-
-
-# ClusterTypeDef
+# Cluster
 
 ### ClusterArn
 - **Type**: typing.Optional[str]
 
 ### ClusterEndpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ClusterEndpointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ClusterEndpoint]]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -82,7 +73,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ControlPanelTypeDef
+# ClusterEndpoint
+
+### Endpoint
+- **Type**: typing.Optional[str]
+
+### Region
+- **Type**: typing.Optional[str]
+
+
+# ControlPanel
 
 ### ClusterArn
 - **Type**: typing.Optional[str]
@@ -106,7 +106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateClusterRequestTypeDef
+# CreateClusterRequest
 
 ### ClusterName
 - **Type**: <class 'str'>
@@ -119,18 +119,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateClusterResponseTypeDef
+# CreateClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateControlPanelRequestTypeDef
+# CreateControlPanelRequest
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -147,18 +147,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateControlPanelResponseTypeDef
+# CreateControlPanelResponse
 
 ### ControlPanel
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ControlPanelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ControlPanel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRoutingControlRequestTypeDef
+# CreateRoutingControlRequest
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -175,212 +175,212 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateRoutingControlResponseTypeDef
+# CreateRoutingControlResponse
 
 ### RoutingControl
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RoutingControlTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RoutingControl'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSafetyRuleRequestTypeDef
+# CreateSafetyRuleRequest
 
 ### AssertionRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.NewAssertionRuleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.NewAssertionRule]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### GatingRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.NewGatingRuleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.NewGatingRule]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSafetyRuleResponseTypeDef
+# CreateSafetyRuleResponse
 
 ### AssertionRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.AssertionRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.AssertionRule'>
 - **Required**: Yes
 
 ### GatingRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.GatingRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.GatingRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteClusterRequestTypeDef
+# DeleteClusterRequest
 
 ### ClusterArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteControlPanelRequestTypeDef
+# DeleteControlPanelRequest
 
 ### ControlPanelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRoutingControlRequestTypeDef
+# DeleteRoutingControlRequest
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSafetyRuleRequestTypeDef
+# DeleteSafetyRuleRequest
 
 ### SafetyRuleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeClusterRequestTypeDef
+# DescribeClusterRequest
 
 ### ClusterArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeClusterRequestWaitExtraTypeDef
-
-### ClusterArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.WaiterConfigTypeDef]
-
-
-# DescribeClusterRequestWaitTypeDef
+# DescribeClusterRequestWait
 
 ### ClusterArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeClusterResponseTypeDef
+# DescribeClusterRequestWaitExtra
+
+### ClusterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# DescribeClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeControlPanelRequestTypeDef
+# DescribeControlPanelRequest
 
 ### ControlPanelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeControlPanelRequestWaitExtraTypeDef
-
-### ControlPanelArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.WaiterConfigTypeDef]
-
-
-# DescribeControlPanelRequestWaitTypeDef
+# DescribeControlPanelRequestWait
 
 ### ControlPanelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeControlPanelResponseTypeDef
+# DescribeControlPanelRequestWaitExtra
+
+### ControlPanelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# DescribeControlPanelResponse
 
 ### ControlPanel
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ControlPanelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ControlPanel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeRoutingControlRequestTypeDef
+# DescribeRoutingControlRequest
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeRoutingControlRequestWaitExtraTypeDef
-
-### RoutingControlArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.WaiterConfigTypeDef]
-
-
-# DescribeRoutingControlRequestWaitTypeDef
+# DescribeRoutingControlRequestWait
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeRoutingControlResponseTypeDef
+# DescribeRoutingControlRequestWaitExtra
+
+### RoutingControlArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# DescribeRoutingControlResponse
 
 ### RoutingControl
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RoutingControlTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RoutingControl'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSafetyRuleRequestTypeDef
+# DescribeSafetyRuleRequest
 
 ### SafetyRuleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeSafetyRuleResponseTypeDef
+# DescribeSafetyRuleResponse
 
 ### AssertionRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.AssertionRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.AssertionRule'>
 - **Required**: Yes
 
 ### GatingRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.GatingRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.GatingRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GatingRuleTypeDef
+# GatingRule
 
 ### ControlPanelArn
 - **Type**: <class 'str'>
@@ -395,7 +395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RuleConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RuleConfig'>
 - **Required**: Yes
 
 ### SafetyRuleArn
@@ -418,7 +418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GatingRuleUpdateTypeDef
+# GatingRuleUpdate
 
 ### Name
 - **Type**: <class 'str'>
@@ -433,35 +433,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourcePolicyRequestTypeDef
+# GetResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourcePolicyResponseTypeDef
+# GetResourcePolicyResponse
 
 ### Policy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListAssociatedRoute53HealthChecksRequestPaginateTypeDef
-
-### RoutingControlArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfigTypeDef]
-
-
-# ListAssociatedRoute53HealthChecksRequestTypeDef
+# ListAssociatedRoute53HealthChecksRequest
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
@@ -474,27 +464,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAssociatedRoute53HealthChecksResponseTypeDef
+# ListAssociatedRoute53HealthChecksRequestPaginate
+
+### RoutingControlArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfig]
+
+
+# ListAssociatedRoute53HealthChecksResponse
 
 ### HealthCheckIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListClustersRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfigTypeDef]
-
-
-# ListClustersRequestTypeDef
+# ListClustersRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -503,30 +497,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListClustersResponseTypeDef
+# ListClustersRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfig]
+
+
+# ListClustersResponse
 
 ### Clusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ClusterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.Cluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListControlPanelsRequestPaginateTypeDef
-
-### ClusterArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfigTypeDef]
-
-
-# ListControlPanelsRequestTypeDef
+# ListControlPanelsRequest
 
 ### ClusterArn
 - **Type**: typing.Optional[str]
@@ -538,31 +529,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListControlPanelsResponseTypeDef
+# ListControlPanelsRequestPaginate
+
+### ClusterArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfig]
+
+
+# ListControlPanelsResponse
 
 ### ControlPanels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ControlPanelTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ControlPanel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRoutingControlsRequestPaginateTypeDef
-
-### ControlPanelArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfigTypeDef]
-
-
-# ListRoutingControlsRequestTypeDef
+# ListRoutingControlsRequest
 
 ### ControlPanelArn
 - **Type**: <class 'str'>
@@ -575,31 +565,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRoutingControlsResponseTypeDef
+# ListRoutingControlsRequestPaginate
+
+### ControlPanelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfig]
+
+
+# ListRoutingControlsResponse
 
 ### RoutingControls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RoutingControlTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RoutingControl]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSafetyRulesRequestPaginateTypeDef
-
-### ControlPanelArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfigTypeDef]
-
-
-# ListSafetyRulesRequestTypeDef
+# ListSafetyRulesRequest
 
 ### ControlPanelArn
 - **Type**: <class 'str'>
@@ -612,39 +602,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSafetyRulesResponseTypeDef
+# ListSafetyRulesRequestPaginate
+
+### ControlPanelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.PaginatorConfig]
+
+
+# ListSafetyRulesResponse
 
 ### SafetyRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.Rule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# NewAssertionRuleTypeDef
+# NewAssertionRule
 
 ### AssertedControls
 - **Type**: typing.Sequence[str]
@@ -659,7 +659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RuleConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RuleConfig'>
 - **Required**: Yes
 
 ### WaitPeriodMs
@@ -667,7 +667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# NewGatingRuleTypeDef
+# NewGatingRule
 
 ### ControlPanelArn
 - **Type**: <class 'str'>
@@ -682,7 +682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RuleConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RuleConfig'>
 - **Required**: Yes
 
 ### TargetControls
@@ -694,7 +694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -706,7 +706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -728,7 +728,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RoutingControlTypeDef
+# RoutingControl
 
 ### ControlPanelArn
 - **Type**: typing.Optional[str]
@@ -746,22 +746,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuleConfigTypeDef
+# Rule
+
+### ASSERTION
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.AssertionRule]
+
+### GATING
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.GatingRule]
+
+
+# RuleConfig
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleTypeDef
-
-### ASSERTION
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.AssertionRuleTypeDef]
-
-### GATING
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.GatingRuleTypeDef]
-
-
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -772,7 +772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -783,7 +783,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateControlPanelRequestTypeDef
+# UpdateControlPanelRequest
 
 ### ControlPanelArn
 - **Type**: <class 'str'>
@@ -794,18 +794,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateControlPanelResponseTypeDef
+# UpdateControlPanelResponse
 
 ### ControlPanel
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ControlPanelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ControlPanel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRoutingControlRequestTypeDef
+# UpdateRoutingControlRequest
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
@@ -816,42 +816,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRoutingControlResponseTypeDef
+# UpdateRoutingControlResponse
 
 ### RoutingControl
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RoutingControlTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.RoutingControl'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSafetyRuleRequestTypeDef
+# UpdateSafetyRuleRequest
 
 ### AssertionRuleUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.AssertionRuleUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### GatingRuleUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.GatingRuleUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateSafetyRuleResponseTypeDef
+# UpdateSafetyRuleResponse
 
 ### AssertionRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.AssertionRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.AssertionRule'>
 - **Required**: Yes
 
 ### GatingRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.GatingRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.GatingRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_control_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

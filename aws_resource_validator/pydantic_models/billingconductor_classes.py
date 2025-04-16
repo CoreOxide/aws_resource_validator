@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.billingconductor_constants import *
 
-class AccountAssociationsListElementTypeDef(BaseValidatorModel):
+class AccountAssociationsListElement(BaseValidatorModel):
     AccountId: Optional[str] = None
     BillingGroupArn: Optional[str] = None
     AccountName: Optional[str] = None
     AccountEmail: Optional[str] = None
 
 
-class AccountGroupingTypeDef(BaseValidatorModel):
+class AccountGrouping(BaseValidatorModel):
     LinkedAccountIds: Sequence[str]
     AutoAssociate: Optional[bool] = None
 
 
-class AssociateAccountsInputTypeDef(BaseValidatorModel):
+class AssociateAccountsInput(BaseValidatorModel):
     Arn: str
     AccountIds: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,27 +37,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociatePricingRulesInputTypeDef(BaseValidatorModel):
+class AssociatePricingRulesInput(BaseValidatorModel):
     Arn: str
     PricingRuleArns: Sequence[str]
 
 
-class AssociateResourceErrorTypeDef(BaseValidatorModel):
+class AssociateResourceError(BaseValidatorModel):
     Message: Optional[str] = None
     Reason: Optional[AssociateResourceErrorReasonType] = None
 
 
-class AttributeTypeDef(BaseValidatorModel):
+class Attribute(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class CustomLineItemBillingPeriodRangeTypeDef(BaseValidatorModel):
+class CustomLineItemBillingPeriodRange(BaseValidatorModel):
     InclusiveStartBillingPeriod: str
     ExclusiveEndBillingPeriod: Optional[str] = None
 
 
-class BillingGroupCostReportElementTypeDef(BaseValidatorModel):
+class BillingGroupCostReportElement(BaseValidatorModel):
     Arn: Optional[str] = None
     AWSCost: Optional[str] = None
     ProformaCost: Optional[str] = None
@@ -66,24 +66,24 @@ class BillingGroupCostReportElementTypeDef(BaseValidatorModel):
     Currency: Optional[str] = None
 
 
-class ComputationPreferenceTypeDef(BaseValidatorModel):
+class ComputationPreference(BaseValidatorModel):
     PricingPlanArn: str
 
 
-class ListBillingGroupAccountGroupingTypeDef(BaseValidatorModel):
+class ListBillingGroupAccountGrouping(BaseValidatorModel):
     AutoAssociate: Optional[bool] = None
 
 
-class BillingPeriodRangeTypeDef(BaseValidatorModel):
+class BillingPeriodRange(BaseValidatorModel):
     InclusiveStartBillingPeriod: str
     ExclusiveEndBillingPeriod: str
 
 
-class CreateFreeTierConfigTypeDef(BaseValidatorModel):
+class CreateFreeTierConfig(BaseValidatorModel):
     Activated: bool
 
 
-class CreatePricingPlanInputTypeDef(BaseValidatorModel):
+class CreatePricingPlanInput(BaseValidatorModel):
     Name: str
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
@@ -91,108 +91,108 @@ class CreatePricingPlanInputTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class CustomLineItemFlatChargeDetailsTypeDef(BaseValidatorModel):
+class CustomLineItemFlatChargeDetails(BaseValidatorModel):
     ChargeValue: float
 
 
-class CustomLineItemPercentageChargeDetailsTypeDef(BaseValidatorModel):
+class CustomLineItemPercentageChargeDetails(BaseValidatorModel):
     PercentageValue: float
     AssociatedValues: Optional[Sequence[str]] = None
 
 
-class DeleteBillingGroupInputTypeDef(BaseValidatorModel):
+class DeleteBillingGroupInput(BaseValidatorModel):
     Arn: str
 
 
-class DeletePricingPlanInputTypeDef(BaseValidatorModel):
+class DeletePricingPlanInput(BaseValidatorModel):
     Arn: str
 
 
-class DeletePricingRuleInputTypeDef(BaseValidatorModel):
+class DeletePricingRuleInput(BaseValidatorModel):
     Arn: str
 
 
-class DisassociateAccountsInputTypeDef(BaseValidatorModel):
+class DisassociateAccountsInput(BaseValidatorModel):
     Arn: str
     AccountIds: Sequence[str]
 
 
-class DisassociatePricingRulesInputTypeDef(BaseValidatorModel):
+class DisassociatePricingRulesInput(BaseValidatorModel):
     Arn: str
     PricingRuleArns: Sequence[str]
 
 
-class FreeTierConfigTypeDef(BaseValidatorModel):
+class FreeTierConfig(BaseValidatorModel):
     Activated: bool
 
 
-class LineItemFilterOutputTypeDef(BaseValidatorModel):
+class LineItemFilterOutput(BaseValidatorModel):
     Attribute: Literal["LINE_ITEM_TYPE"]
     MatchOption: Literal["NOT_EQUAL"]
     Values: List[Literal["SAVINGS_PLAN_NEGATION"]]
 
 
-class LineItemFilterTypeDef(BaseValidatorModel):
+class LineItemFilter(BaseValidatorModel):
     Attribute: Literal["LINE_ITEM_TYPE"]
     MatchOption: Literal["NOT_EQUAL"]
     Values: Sequence[Literal["SAVINGS_PLAN_NEGATION"]]
 
 
-class ListAccountAssociationsFilterTypeDef(BaseValidatorModel):
+class ListAccountAssociationsFilter(BaseValidatorModel):
     Association: Optional[str] = None
     AccountId: Optional[str] = None
     AccountIds: Optional[Sequence[str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListBillingGroupCostReportsFilterTypeDef(BaseValidatorModel):
+class ListBillingGroupCostReportsFilter(BaseValidatorModel):
     BillingGroupArns: Optional[Sequence[str]] = None
 
 
-class ListBillingGroupsFilterTypeDef(BaseValidatorModel):
+class ListBillingGroupsFilter(BaseValidatorModel):
     Arns: Optional[Sequence[str]] = None
     PricingPlan: Optional[str] = None
     Statuses: Optional[Sequence[BillingGroupStatusType]] = None
     AutoAssociate: Optional[bool] = None
 
 
-class ListCustomLineItemFlatChargeDetailsTypeDef(BaseValidatorModel):
+class ListCustomLineItemFlatChargeDetails(BaseValidatorModel):
     ChargeValue: float
 
 
-class ListCustomLineItemPercentageChargeDetailsTypeDef(BaseValidatorModel):
+class ListCustomLineItemPercentageChargeDetails(BaseValidatorModel):
     PercentageValue: float
 
 
-class ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef(BaseValidatorModel):
+class ListCustomLineItemVersionsBillingPeriodRangeFilter(BaseValidatorModel):
     StartBillingPeriod: Optional[str] = None
     EndBillingPeriod: Optional[str] = None
 
 
-class ListCustomLineItemsFilterTypeDef(BaseValidatorModel):
+class ListCustomLineItemsFilter(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     BillingGroups: Optional[Sequence[str]] = None
     Arns: Optional[Sequence[str]] = None
     AccountIds: Optional[Sequence[str]] = None
 
 
-class ListPricingPlansAssociatedWithPricingRuleInputTypeDef(BaseValidatorModel):
+class ListPricingPlansAssociatedWithPricingRuleInput(BaseValidatorModel):
     PricingRuleArn: str
     BillingPeriod: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListPricingPlansFilterTypeDef(BaseValidatorModel):
+class ListPricingPlansFilter(BaseValidatorModel):
     Arns: Optional[Sequence[str]] = None
 
 
-class PricingPlanListElementTypeDef(BaseValidatorModel):
+class PricingPlanListElement(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     Description: Optional[str] = None
@@ -201,374 +201,374 @@ class PricingPlanListElementTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[int] = None
 
 
-class ListPricingRulesAssociatedToPricingPlanInputTypeDef(BaseValidatorModel):
+class ListPricingRulesAssociatedToPricingPlanInput(BaseValidatorModel):
     PricingPlanArn: str
     BillingPeriod: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListPricingRulesFilterTypeDef(BaseValidatorModel):
+class ListPricingRulesFilter(BaseValidatorModel):
     Arns: Optional[Sequence[str]] = None
 
 
-class ListResourcesAssociatedToCustomLineItemFilterTypeDef(BaseValidatorModel):
+class ListResourcesAssociatedToCustomLineItemFilter(BaseValidatorModel):
     Relationship: Optional[CustomLineItemRelationshipType] = None
 
 
-class ListResourcesAssociatedToCustomLineItemResponseElementTypeDef(BaseValidatorModel):
+class ListResourcesAssociatedToCustomLineItemResponseElement(BaseValidatorModel):
     Arn: Optional[str] = None
     Relationship: Optional[CustomLineItemRelationshipType] = None
     EndBillingPeriod: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateBillingGroupAccountGroupingTypeDef(BaseValidatorModel):
+class UpdateBillingGroupAccountGrouping(BaseValidatorModel):
     AutoAssociate: Optional[bool] = None
 
 
-class UpdateCustomLineItemFlatChargeDetailsTypeDef(BaseValidatorModel):
+class UpdateCustomLineItemFlatChargeDetails(BaseValidatorModel):
     ChargeValue: float
 
 
-class UpdateCustomLineItemPercentageChargeDetailsTypeDef(BaseValidatorModel):
+class UpdateCustomLineItemPercentageChargeDetails(BaseValidatorModel):
     PercentageValue: float
 
 
-class UpdateFreeTierConfigTypeDef(BaseValidatorModel):
+class UpdateFreeTierConfig(BaseValidatorModel):
     Activated: bool
 
 
-class UpdatePricingPlanInputTypeDef(BaseValidatorModel):
+class UpdatePricingPlanInput(BaseValidatorModel):
     Arn: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
 
-class AssociateAccountsOutputTypeDef(BaseValidatorModel):
+class AssociateAccountsOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociatePricingRulesOutputTypeDef(BaseValidatorModel):
+class AssociatePricingRulesOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBillingGroupOutputTypeDef(BaseValidatorModel):
+class CreateBillingGroupOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCustomLineItemOutputTypeDef(BaseValidatorModel):
+class CreateCustomLineItemOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePricingPlanOutputTypeDef(BaseValidatorModel):
+class CreatePricingPlanOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePricingRuleOutputTypeDef(BaseValidatorModel):
+class CreatePricingRuleOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBillingGroupOutputTypeDef(BaseValidatorModel):
+class DeleteBillingGroupOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteCustomLineItemOutputTypeDef(BaseValidatorModel):
+class DeleteCustomLineItemOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePricingPlanOutputTypeDef(BaseValidatorModel):
+class DeletePricingPlanOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePricingRuleOutputTypeDef(BaseValidatorModel):
+class DeletePricingRuleOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateAccountsOutputTypeDef(BaseValidatorModel):
+class DisassociateAccountsOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociatePricingRulesOutputTypeDef(BaseValidatorModel):
+class DisassociatePricingRulesOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAccountAssociationsOutputTypeDef(BaseValidatorModel):
-    LinkedAccounts: List[AccountAssociationsListElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccountAssociationsOutput(BaseValidatorModel):
+    LinkedAccounts: List[AccountAssociationsListElement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPricingPlansAssociatedWithPricingRuleOutputTypeDef(BaseValidatorModel):
+class ListPricingPlansAssociatedWithPricingRuleOutput(BaseValidatorModel):
     BillingPeriod: str
     PricingRuleArn: str
     PricingPlanArns: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPricingRulesAssociatedToPricingPlanOutputTypeDef(BaseValidatorModel):
+class ListPricingRulesAssociatedToPricingPlanOutput(BaseValidatorModel):
     BillingPeriod: str
     PricingPlanArn: str
     PricingRuleArns: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePricingPlanOutputTypeDef(BaseValidatorModel):
+class UpdatePricingPlanOutput(BaseValidatorModel):
     Arn: str
     Name: str
     Description: str
     Size: int
     LastModifiedTime: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateResourceResponseElementTypeDef(BaseValidatorModel):
+class AssociateResourceResponseElement(BaseValidatorModel):
     Arn: Optional[str] = None
-    Error: Optional[AssociateResourceErrorTypeDef] = None
+    Error: Optional[AssociateResourceError] = None
 
 
-class DisassociateResourceResponseElementTypeDef(BaseValidatorModel):
+class DisassociateResourceResponseElement(BaseValidatorModel):
     Arn: Optional[str] = None
-    Error: Optional[AssociateResourceErrorTypeDef] = None
+    Error: Optional[AssociateResourceError] = None
 
 
-class BillingGroupCostReportResultElementTypeDef(BaseValidatorModel):
+class BillingGroupCostReportResultElement(BaseValidatorModel):
     Arn: Optional[str] = None
     AWSCost: Optional[str] = None
     ProformaCost: Optional[str] = None
     Margin: Optional[str] = None
     MarginPercentage: Optional[str] = None
     Currency: Optional[str] = None
-    Attributes: Optional[List[AttributeTypeDef]] = None
+    Attributes: Optional[List[Attribute]] = None
 
 
-class BatchAssociateResourcesToCustomLineItemInputTypeDef(BaseValidatorModel):
+class BatchAssociateResourcesToCustomLineItemInput(BaseValidatorModel):
     TargetArn: str
     ResourceArns: Sequence[str]
-    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None
+    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRange] = None
 
 
-class BatchDisassociateResourcesFromCustomLineItemInputTypeDef(BaseValidatorModel):
+class BatchDisassociateResourcesFromCustomLineItemInput(BaseValidatorModel):
     TargetArn: str
     ResourceArns: Sequence[str]
-    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None
+    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRange] = None
 
 
-class DeleteCustomLineItemInputTypeDef(BaseValidatorModel):
+class DeleteCustomLineItemInput(BaseValidatorModel):
     Arn: str
-    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None
+    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRange] = None
 
 
-class ListBillingGroupCostReportsOutputTypeDef(BaseValidatorModel):
-    BillingGroupCostReports: List[BillingGroupCostReportElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBillingGroupCostReportsOutput(BaseValidatorModel):
+    BillingGroupCostReports: List[BillingGroupCostReportElement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateBillingGroupInputTypeDef(BaseValidatorModel):
+class CreateBillingGroupInput(BaseValidatorModel):
     Name: str
-    AccountGrouping: AccountGroupingTypeDef
-    ComputationPreference: ComputationPreferenceTypeDef
+    AccountGrouping: AccountGrouping
+    ComputationPreference: ComputationPreference
     ClientToken: Optional[str] = None
     PrimaryAccountId: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class BillingGroupListElementTypeDef(BaseValidatorModel):
+class BillingGroupListElement(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     Description: Optional[str] = None
     PrimaryAccountId: Optional[str] = None
-    ComputationPreference: Optional[ComputationPreferenceTypeDef] = None
+    ComputationPreference: Optional[ComputationPreference] = None
     Size: Optional[int] = None
     CreationTime: Optional[int] = None
     LastModifiedTime: Optional[int] = None
     Status: Optional[BillingGroupStatusType] = None
     StatusReason: Optional[str] = None
-    AccountGrouping: Optional[ListBillingGroupAccountGroupingTypeDef] = None
+    AccountGrouping: Optional[ListBillingGroupAccountGrouping] = None
 
 
-class GetBillingGroupCostReportInputTypeDef(BaseValidatorModel):
+class GetBillingGroupCostReportInput(BaseValidatorModel):
     Arn: str
-    BillingPeriodRange: Optional[BillingPeriodRangeTypeDef] = None
+    BillingPeriodRange: Optional[BillingPeriodRange] = None
     GroupBy: Optional[Sequence[GroupByAttributeNameType]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class CreateTieringInputTypeDef(BaseValidatorModel):
-    FreeTier: CreateFreeTierConfigTypeDef
+class CreateTieringInput(BaseValidatorModel):
+    FreeTier: CreateFreeTierConfig
 
 
-class TieringTypeDef(BaseValidatorModel):
-    FreeTier: FreeTierConfigTypeDef
+class Tiering(BaseValidatorModel):
+    FreeTier: FreeTierConfig
 
 
-class ListAccountAssociationsInputTypeDef(BaseValidatorModel):
+class ListAccountAssociationsInput(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
-    Filters: Optional[ListAccountAssociationsFilterTypeDef] = None
+    Filters: Optional[ListAccountAssociationsFilter] = None
     NextToken: Optional[str] = None
 
 
-class ListAccountAssociationsInputPaginateTypeDef(BaseValidatorModel):
+class ListAccountAssociationsInputPaginate(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
-    Filters: Optional[ListAccountAssociationsFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListAccountAssociationsFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPricingPlansAssociatedWithPricingRuleInputPaginateTypeDef(BaseValidatorModel):
+class ListPricingPlansAssociatedWithPricingRuleInputPaginate(BaseValidatorModel):
     PricingRuleArn: str
     BillingPeriod: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPricingRulesAssociatedToPricingPlanInputPaginateTypeDef(BaseValidatorModel):
+class ListPricingRulesAssociatedToPricingPlanInputPaginate(BaseValidatorModel):
     PricingPlanArn: str
     BillingPeriod: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBillingGroupCostReportsInputPaginateTypeDef(BaseValidatorModel):
+class ListBillingGroupCostReportsInputPaginate(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
-    Filters: Optional[ListBillingGroupCostReportsFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListBillingGroupCostReportsFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBillingGroupCostReportsInputTypeDef(BaseValidatorModel):
-    BillingPeriod: Optional[str] = None
-    MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    Filters: Optional[ListBillingGroupCostReportsFilterTypeDef] = None
-
-
-class ListBillingGroupsInputPaginateTypeDef(BaseValidatorModel):
-    BillingPeriod: Optional[str] = None
-    Filters: Optional[ListBillingGroupsFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-
-class ListBillingGroupsInputTypeDef(BaseValidatorModel):
+class ListBillingGroupCostReportsInput(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[ListBillingGroupsFilterTypeDef] = None
+    Filters: Optional[ListBillingGroupCostReportsFilter] = None
 
 
-class ListCustomLineItemVersionsFilterTypeDef(BaseValidatorModel):
-    BillingPeriodRange: Optional[ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef] = None
-
-
-class ListCustomLineItemsInputPaginateTypeDef(BaseValidatorModel):
+class ListBillingGroupsInputPaginate(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
-    Filters: Optional[ListCustomLineItemsFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListBillingGroupsFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCustomLineItemsInputTypeDef(BaseValidatorModel):
+class ListBillingGroupsInput(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[ListCustomLineItemsFilterTypeDef] = None
+    Filters: Optional[ListBillingGroupsFilter] = None
 
 
-class ListPricingPlansInputPaginateTypeDef(BaseValidatorModel):
+class ListCustomLineItemVersionsFilter(BaseValidatorModel):
+    BillingPeriodRange: Optional[ListCustomLineItemVersionsBillingPeriodRangeFilter] = None
+
+
+class ListCustomLineItemsInputPaginate(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
-    Filters: Optional[ListPricingPlansFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListCustomLineItemsFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPricingPlansInputTypeDef(BaseValidatorModel):
+class ListCustomLineItemsInput(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
-    Filters: Optional[ListPricingPlansFilterTypeDef] = None
+    MaxResults: Optional[int] = None
+    NextToken: Optional[str] = None
+    Filters: Optional[ListCustomLineItemsFilter] = None
+
+
+class ListPricingPlansInputPaginate(BaseValidatorModel):
+    BillingPeriod: Optional[str] = None
+    Filters: Optional[ListPricingPlansFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
+
+
+class ListPricingPlansInput(BaseValidatorModel):
+    BillingPeriod: Optional[str] = None
+    Filters: Optional[ListPricingPlansFilter] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListPricingPlansOutputTypeDef(BaseValidatorModel):
+class ListPricingPlansOutput(BaseValidatorModel):
     BillingPeriod: str
-    PricingPlans: List[PricingPlanListElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    PricingPlans: List[PricingPlanListElement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPricingRulesInputPaginateTypeDef(BaseValidatorModel):
+class ListPricingRulesInputPaginate(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
-    Filters: Optional[ListPricingRulesFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListPricingRulesFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPricingRulesInputTypeDef(BaseValidatorModel):
+class ListPricingRulesInput(BaseValidatorModel):
     BillingPeriod: Optional[str] = None
-    Filters: Optional[ListPricingRulesFilterTypeDef] = None
+    Filters: Optional[ListPricingRulesFilter] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListResourcesAssociatedToCustomLineItemInputPaginateTypeDef(BaseValidatorModel):
+class ListResourcesAssociatedToCustomLineItemInputPaginate(BaseValidatorModel):
     Arn: str
     BillingPeriod: Optional[str] = None
-    Filters: Optional[ListResourcesAssociatedToCustomLineItemFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListResourcesAssociatedToCustomLineItemFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourcesAssociatedToCustomLineItemInputTypeDef(BaseValidatorModel):
+class ListResourcesAssociatedToCustomLineItemInput(BaseValidatorModel):
     Arn: str
     BillingPeriod: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[ListResourcesAssociatedToCustomLineItemFilterTypeDef] = None
+    Filters: Optional[ListResourcesAssociatedToCustomLineItemFilter] = None
 
 
-class ListResourcesAssociatedToCustomLineItemOutputTypeDef(BaseValidatorModel):
+class ListResourcesAssociatedToCustomLineItemOutput(BaseValidatorModel):
     Arn: str
-    AssociatedResources: List[ListResourcesAssociatedToCustomLineItemResponseElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    AssociatedResources: List[ListResourcesAssociatedToCustomLineItemResponseElement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateBillingGroupInputTypeDef(BaseValidatorModel):
+class UpdateBillingGroupInput(BaseValidatorModel):
     Arn: str
     Name: Optional[str] = None
     Status: Optional[BillingGroupStatusType] = None
-    ComputationPreference: Optional[ComputationPreferenceTypeDef] = None
+    ComputationPreference: Optional[ComputationPreference] = None
     Description: Optional[str] = None
-    AccountGrouping: Optional[UpdateBillingGroupAccountGroupingTypeDef] = None
+    AccountGrouping: Optional[UpdateBillingGroupAccountGrouping] = None
 
 
-class UpdateBillingGroupOutputTypeDef(BaseValidatorModel):
+class UpdateBillingGroupOutput(BaseValidatorModel):
     Arn: str
     Name: str
     Description: str
@@ -578,56 +578,56 @@ class UpdateBillingGroupOutputTypeDef(BaseValidatorModel):
     LastModifiedTime: int
     Status: BillingGroupStatusType
     StatusReason: str
-    AccountGrouping: UpdateBillingGroupAccountGroupingTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AccountGrouping: UpdateBillingGroupAccountGrouping
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTieringInputTypeDef(BaseValidatorModel):
-    FreeTier: UpdateFreeTierConfigTypeDef
+class UpdateTieringInput(BaseValidatorModel):
+    FreeTier: UpdateFreeTierConfig
 
 
-class BatchAssociateResourcesToCustomLineItemOutputTypeDef(BaseValidatorModel):
-    SuccessfullyAssociatedResources: List[AssociateResourceResponseElementTypeDef]
-    FailedAssociatedResources: List[AssociateResourceResponseElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchAssociateResourcesToCustomLineItemOutput(BaseValidatorModel):
+    SuccessfullyAssociatedResources: List[AssociateResourceResponseElement]
+    FailedAssociatedResources: List[AssociateResourceResponseElement]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDisassociateResourcesFromCustomLineItemOutputTypeDef(BaseValidatorModel):
-    SuccessfullyDisassociatedResources: List[DisassociateResourceResponseElementTypeDef]
-    FailedDisassociatedResources: List[DisassociateResourceResponseElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDisassociateResourcesFromCustomLineItemOutput(BaseValidatorModel):
+    SuccessfullyDisassociatedResources: List[DisassociateResourceResponseElement]
+    FailedDisassociatedResources: List[DisassociateResourceResponseElement]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBillingGroupCostReportOutputTypeDef(BaseValidatorModel):
-    BillingGroupCostReportResults: List[BillingGroupCostReportResultElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetBillingGroupCostReportOutput(BaseValidatorModel):
+    BillingGroupCostReportResults: List[BillingGroupCostReportResultElement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListBillingGroupsOutputTypeDef(BaseValidatorModel):
-    BillingGroups: List[BillingGroupListElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBillingGroupsOutput(BaseValidatorModel):
+    BillingGroups: List[BillingGroupListElement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class LineItemFilterUnionTypeDef(BaseValidatorModel):
+class LineItemFilterUnion(BaseValidatorModel):
     pass
 
 
-class UpdateCustomLineItemChargeDetailsTypeDef(BaseValidatorModel):
-    Flat: Optional[UpdateCustomLineItemFlatChargeDetailsTypeDef] = None
-    Percentage: Optional[UpdateCustomLineItemPercentageChargeDetailsTypeDef] = None
-    LineItemFilters: Optional[Sequence[LineItemFilterUnionTypeDef]] = None
+class UpdateCustomLineItemChargeDetails(BaseValidatorModel):
+    Flat: Optional[UpdateCustomLineItemFlatChargeDetails] = None
+    Percentage: Optional[UpdateCustomLineItemPercentageChargeDetails] = None
+    LineItemFilters: Optional[Sequence[LineItemFilterUnion]] = None
 
 
-class ListCustomLineItemChargeDetailsTypeDef(BaseValidatorModel):
+class ListCustomLineItemChargeDetails(BaseValidatorModel):
     pass
 
 
-class CustomLineItemListElementTypeDef(BaseValidatorModel):
+class CustomLineItemListElement(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
-    ChargeDetails: Optional[ListCustomLineItemChargeDetailsTypeDef] = None
+    ChargeDetails: Optional[ListCustomLineItemChargeDetails] = None
     CurrencyCode: Optional[CurrencyCodeType] = None
     Description: Optional[str] = None
     ProductCode: Optional[str] = None
@@ -638,9 +638,9 @@ class CustomLineItemListElementTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
-class CustomLineItemVersionListElementTypeDef(BaseValidatorModel):
+class CustomLineItemVersionListElement(BaseValidatorModel):
     Name: Optional[str] = None
-    ChargeDetails: Optional[ListCustomLineItemChargeDetailsTypeDef] = None
+    ChargeDetails: Optional[ListCustomLineItemChargeDetails] = None
     CurrencyCode: Optional[CurrencyCodeType] = None
     Description: Optional[str] = None
     ProductCode: Optional[str] = None
@@ -655,73 +655,73 @@ class CustomLineItemVersionListElementTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
-class UpdateCustomLineItemOutputTypeDef(BaseValidatorModel):
+class UpdateCustomLineItemOutput(BaseValidatorModel):
     Arn: str
     BillingGroupArn: str
     Name: str
     Description: str
-    ChargeDetails: ListCustomLineItemChargeDetailsTypeDef
+    ChargeDetails: ListCustomLineItemChargeDetails
     LastModifiedTime: int
     AssociationSize: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCustomLineItemVersionsInputPaginateTypeDef(BaseValidatorModel):
+class ListCustomLineItemVersionsInputPaginate(BaseValidatorModel):
     Arn: str
-    Filters: Optional[ListCustomLineItemVersionsFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListCustomLineItemVersionsFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCustomLineItemVersionsInputTypeDef(BaseValidatorModel):
+class ListCustomLineItemVersionsInput(BaseValidatorModel):
     Arn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[ListCustomLineItemVersionsFilterTypeDef] = None
+    Filters: Optional[ListCustomLineItemVersionsFilter] = None
 
 
-class PricingRuleListElementTypeDef(BaseValidatorModel):
+class PricingRuleListElement(BaseValidatorModel):
     pass
 
 
-class ListPricingRulesOutputTypeDef(BaseValidatorModel):
+class ListPricingRulesOutput(BaseValidatorModel):
     BillingPeriod: str
-    PricingRules: List[PricingRuleListElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    PricingRules: List[PricingRuleListElement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CustomLineItemChargeDetailsTypeDef(BaseValidatorModel):
+class CustomLineItemChargeDetails(BaseValidatorModel):
     pass
 
 
-class CreateCustomLineItemInputTypeDef(BaseValidatorModel):
+class CreateCustomLineItemInput(BaseValidatorModel):
     Name: str
     Description: str
     BillingGroupArn: str
-    ChargeDetails: CustomLineItemChargeDetailsTypeDef
+    ChargeDetails: CustomLineItemChargeDetails
     ClientToken: Optional[str] = None
-    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None
+    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRange] = None
     Tags: Optional[Mapping[str, str]] = None
     AccountId: Optional[str] = None
 
 
-class UpdateCustomLineItemInputTypeDef(BaseValidatorModel):
+class UpdateCustomLineItemInput(BaseValidatorModel):
     Arn: str
     Name: Optional[str] = None
     Description: Optional[str] = None
-    ChargeDetails: Optional[UpdateCustomLineItemChargeDetailsTypeDef] = None
-    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None
+    ChargeDetails: Optional[UpdateCustomLineItemChargeDetails] = None
+    BillingPeriodRange: Optional[CustomLineItemBillingPeriodRange] = None
 
 
-class ListCustomLineItemsOutputTypeDef(BaseValidatorModel):
-    CustomLineItems: List[CustomLineItemListElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCustomLineItemsOutput(BaseValidatorModel):
+    CustomLineItems: List[CustomLineItemListElement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCustomLineItemVersionsOutputTypeDef(BaseValidatorModel):
-    CustomLineItemVersions: List[CustomLineItemVersionListElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCustomLineItemVersionsOutput(BaseValidatorModel):
+    CustomLineItemVersions: List[CustomLineItemVersionListElement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

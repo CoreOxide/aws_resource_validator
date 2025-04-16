@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codepipeline_constants import *
 
-class AWSSessionCredentialsTypeDef(BaseValidatorModel):
+class AWSSessionCredentials(BaseValidatorModel):
     accessKeyId: str
     secretAccessKey: str
     sessionToken: str
 
 
-class AcknowledgeJobInputTypeDef(BaseValidatorModel):
+class AcknowledgeJobInput(BaseValidatorModel):
     jobId: str
     nonce: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -31,80 +31,80 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AcknowledgeThirdPartyJobInputTypeDef(BaseValidatorModel):
+class AcknowledgeThirdPartyJobInput(BaseValidatorModel):
     jobId: str
     nonce: str
     clientToken: str
 
 
-class ActionConfigurationTypeDef(BaseValidatorModel):
+class ActionConfiguration(BaseValidatorModel):
     configuration: Optional[Dict[str, str]] = None
 
 
-class ActionContextTypeDef(BaseValidatorModel):
+class ActionContext(BaseValidatorModel):
     name: Optional[str] = None
     actionExecutionId: Optional[str] = None
 
 
-class ActionTypeIdTypeDef(BaseValidatorModel):
+class ActionTypeId(BaseValidatorModel):
     category: ActionCategoryType
     owner: ActionOwnerType
     provider: str
     version: str
 
 
-class EnvironmentVariableTypeDef(BaseValidatorModel):
+class EnvironmentVariable(BaseValidatorModel):
     name: str
     value: str
 
 
-class InputArtifactTypeDef(BaseValidatorModel):
+class InputArtifact(BaseValidatorModel):
     name: str
 
 
-class OutputArtifactOutputTypeDef(BaseValidatorModel):
+class OutputArtifactOutput(BaseValidatorModel):
     name: str
     files: Optional[List[str]] = None
 
 
-class OutputArtifactTypeDef(BaseValidatorModel):
+class OutputArtifact(BaseValidatorModel):
     name: str
     files: Optional[Sequence[str]] = None
 
 
-class LatestInPipelineExecutionFilterTypeDef(BaseValidatorModel):
+class LatestInPipelineExecutionFilter(BaseValidatorModel):
     pipelineExecutionId: str
     startTimeRange: StartTimeRangeType
 
 
-class ErrorDetailsTypeDef(BaseValidatorModel):
+class ErrorDetails(BaseValidatorModel):
     code: Optional[str] = None
     message: Optional[str] = None
 
 
-class ActionRevisionOutputTypeDef(BaseValidatorModel):
+class ActionRevisionOutput(BaseValidatorModel):
     revisionId: str
     revisionChangeId: str
     created: datetime
 
 
-class ActionTypeArtifactDetailsTypeDef(BaseValidatorModel):
+class ActionTypeArtifactDetails(BaseValidatorModel):
     minimumCount: int
     maximumCount: int
 
 
-class ActionTypeIdentifierTypeDef(BaseValidatorModel):
+class ActionTypeIdentifier(BaseValidatorModel):
     category: ActionCategoryType
     owner: str
     provider: str
     version: str
 
 
-class ActionTypePermissionsOutputTypeDef(BaseValidatorModel):
+class ActionTypePermissionsOutput(BaseValidatorModel):
     allowedAccounts: List[str]
 
 
-class ActionTypePropertyTypeDef(BaseValidatorModel):
+class ActionTypeProperty(BaseValidatorModel):
     name: str
     optional: bool
     key: bool
@@ -113,45 +113,45 @@ class ActionTypePropertyTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class ActionTypeUrlsTypeDef(BaseValidatorModel):
+class ActionTypeUrls(BaseValidatorModel):
     configurationUrl: Optional[str] = None
     entityUrlTemplate: Optional[str] = None
     executionUrlTemplate: Optional[str] = None
     revisionUrlTemplate: Optional[str] = None
 
 
-class ActionTypePermissionsTypeDef(BaseValidatorModel):
+class ActionTypePermissions(BaseValidatorModel):
     allowedAccounts: Sequence[str]
 
 
-class ActionTypeSettingsTypeDef(BaseValidatorModel):
+class ActionTypeSettings(BaseValidatorModel):
     thirdPartyConfigurationUrl: Optional[str] = None
     entityUrlTemplate: Optional[str] = None
     executionUrlTemplate: Optional[str] = None
     revisionUrlTemplate: Optional[str] = None
 
 
-class ArtifactDetailsTypeDef(BaseValidatorModel):
+class ArtifactDetails(BaseValidatorModel):
     minimumCount: int
     maximumCount: int
 
 
-class ApprovalResultTypeDef(BaseValidatorModel):
+class ApprovalResult(BaseValidatorModel):
     summary: str
     status: ApprovalStatusType
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     bucket: Optional[str] = None
     key: Optional[str] = None
 
 
-class S3ArtifactLocationTypeDef(BaseValidatorModel):
+class S3ArtifactLocation(BaseValidatorModel):
     bucketName: str
     objectKey: str
 
 
-class ArtifactRevisionTypeDef(BaseValidatorModel):
+class ArtifactRevision(BaseValidatorModel):
     name: Optional[str] = None
     revisionId: Optional[str] = None
     revisionChangeIdentifier: Optional[str] = None
@@ -160,162 +160,162 @@ class ArtifactRevisionTypeDef(BaseValidatorModel):
     revisionUrl: Optional[str] = None
 
 
-class ConditionExecutionTypeDef(BaseValidatorModel):
+class ConditionExecution(BaseValidatorModel):
     status: Optional[ConditionExecutionStatusType] = None
     summary: Optional[str] = None
     lastStatusChange: Optional[datetime] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class DeleteCustomActionTypeInputTypeDef(BaseValidatorModel):
+class DeleteCustomActionTypeInput(BaseValidatorModel):
     category: ActionCategoryType
     provider: str
     version: str
 
 
-class DeletePipelineInputTypeDef(BaseValidatorModel):
+class DeletePipelineInput(BaseValidatorModel):
     name: str
 
 
-class DeleteWebhookInputTypeDef(BaseValidatorModel):
+class DeleteWebhookInput(BaseValidatorModel):
     name: str
 
 
-class DeregisterWebhookWithThirdPartyInputTypeDef(BaseValidatorModel):
+class DeregisterWebhookWithThirdPartyInput(BaseValidatorModel):
     webhookName: Optional[str] = None
 
 
-class DisableStageTransitionInputTypeDef(BaseValidatorModel):
+class DisableStageTransitionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
     transitionType: StageTransitionTypeType
     reason: str
 
 
-class EnableStageTransitionInputTypeDef(BaseValidatorModel):
+class EnableStageTransitionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
     transitionType: StageTransitionTypeType
 
 
-class ExecutionDetailsTypeDef(BaseValidatorModel):
+class ExecutionDetails(BaseValidatorModel):
     summary: Optional[str] = None
     externalExecutionId: Optional[str] = None
     percentComplete: Optional[int] = None
 
 
-class ExecutionTriggerTypeDef(BaseValidatorModel):
+class ExecutionTrigger(BaseValidatorModel):
     triggerType: Optional[TriggerTypeType] = None
     triggerDetail: Optional[str] = None
 
 
-class JobWorkerExecutorConfigurationOutputTypeDef(BaseValidatorModel):
+class JobWorkerExecutorConfigurationOutput(BaseValidatorModel):
     pollingAccounts: Optional[List[str]] = None
     pollingServicePrincipals: Optional[List[str]] = None
 
 
-class LambdaExecutorConfigurationTypeDef(BaseValidatorModel):
+class LambdaExecutorConfiguration(BaseValidatorModel):
     lambdaFunctionArn: str
 
 
-class JobWorkerExecutorConfigurationTypeDef(BaseValidatorModel):
+class JobWorkerExecutorConfiguration(BaseValidatorModel):
     pollingAccounts: Optional[Sequence[str]] = None
     pollingServicePrincipals: Optional[Sequence[str]] = None
 
 
-class RetryConfigurationTypeDef(BaseValidatorModel):
+class RetryConfiguration(BaseValidatorModel):
     retryMode: Optional[StageRetryModeType] = None
 
 
-class GetActionTypeInputTypeDef(BaseValidatorModel):
+class GetActionTypeInput(BaseValidatorModel):
     category: ActionCategoryType
     owner: str
     provider: str
     version: str
 
 
-class GetJobDetailsInputTypeDef(BaseValidatorModel):
+class GetJobDetailsInput(BaseValidatorModel):
     jobId: str
 
 
-class GetPipelineExecutionInputTypeDef(BaseValidatorModel):
+class GetPipelineExecutionInput(BaseValidatorModel):
     pipelineName: str
     pipelineExecutionId: str
 
 
-class GetPipelineInputTypeDef(BaseValidatorModel):
+class GetPipelineInput(BaseValidatorModel):
     name: str
     version: Optional[int] = None
 
 
-class PipelineMetadataTypeDef(BaseValidatorModel):
+class PipelineMetadata(BaseValidatorModel):
     pipelineArn: Optional[str] = None
     created: Optional[datetime] = None
     updated: Optional[datetime] = None
     pollingDisabledAt: Optional[datetime] = None
 
 
-class GetPipelineStateInputTypeDef(BaseValidatorModel):
+class GetPipelineStateInput(BaseValidatorModel):
     name: str
 
 
-class GetThirdPartyJobDetailsInputTypeDef(BaseValidatorModel):
+class GetThirdPartyJobDetailsInput(BaseValidatorModel):
     jobId: str
     clientToken: str
 
 
-class GitBranchFilterCriteriaOutputTypeDef(BaseValidatorModel):
+class GitBranchFilterCriteriaOutput(BaseValidatorModel):
     includes: Optional[List[str]] = None
     excludes: Optional[List[str]] = None
 
 
-class GitBranchFilterCriteriaTypeDef(BaseValidatorModel):
+class GitBranchFilterCriteria(BaseValidatorModel):
     includes: Optional[Sequence[str]] = None
     excludes: Optional[Sequence[str]] = None
 
 
-class GitFilePathFilterCriteriaOutputTypeDef(BaseValidatorModel):
+class GitFilePathFilterCriteriaOutput(BaseValidatorModel):
     includes: Optional[List[str]] = None
     excludes: Optional[List[str]] = None
 
 
-class GitFilePathFilterCriteriaTypeDef(BaseValidatorModel):
+class GitFilePathFilterCriteria(BaseValidatorModel):
     includes: Optional[Sequence[str]] = None
     excludes: Optional[Sequence[str]] = None
 
 
-class GitTagFilterCriteriaOutputTypeDef(BaseValidatorModel):
+class GitTagFilterCriteriaOutput(BaseValidatorModel):
     includes: Optional[List[str]] = None
     excludes: Optional[List[str]] = None
 
 
-class GitTagFilterCriteriaTypeDef(BaseValidatorModel):
+class GitTagFilterCriteria(BaseValidatorModel):
     includes: Optional[Sequence[str]] = None
     excludes: Optional[Sequence[str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListActionTypesInputTypeDef(BaseValidatorModel):
+class ListActionTypesInput(BaseValidatorModel):
     actionOwnerFilter: Optional[ActionOwnerType] = None
     nextToken: Optional[str] = None
     regionFilter: Optional[str] = None
 
 
-class ListPipelinesInputTypeDef(BaseValidatorModel):
+class ListPipelinesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class PipelineSummaryTypeDef(BaseValidatorModel):
+class PipelineSummary(BaseValidatorModel):
     name: Optional[str] = None
     version: Optional[int] = None
     pipelineType: Optional[PipelineTypeType] = None
@@ -324,263 +324,263 @@ class PipelineSummaryTypeDef(BaseValidatorModel):
     updated: Optional[datetime] = None
 
 
-class ListRuleTypesInputTypeDef(BaseValidatorModel):
+class ListRuleTypesInput(BaseValidatorModel):
     ruleOwnerFilter: Optional[Literal["AWS"]] = None
     regionFilter: Optional[str] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListWebhooksInputTypeDef(BaseValidatorModel):
+class ListWebhooksInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class OverrideStageConditionInputTypeDef(BaseValidatorModel):
+class OverrideStageConditionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
     pipelineExecutionId: str
     conditionType: ConditionTypeType
 
 
-class StageContextTypeDef(BaseValidatorModel):
+class StageContext(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class PipelineVariableDeclarationTypeDef(BaseValidatorModel):
+class PipelineVariableDeclaration(BaseValidatorModel):
     name: str
     defaultValue: Optional[str] = None
     description: Optional[str] = None
 
 
-class SucceededInStageFilterTypeDef(BaseValidatorModel):
+class SucceededInStageFilter(BaseValidatorModel):
     stageName: Optional[str] = None
 
 
-class PipelineRollbackMetadataTypeDef(BaseValidatorModel):
+class PipelineRollbackMetadata(BaseValidatorModel):
     rollbackTargetPipelineExecutionId: Optional[str] = None
 
 
-class SourceRevisionTypeDef(BaseValidatorModel):
+class SourceRevision(BaseValidatorModel):
     actionName: str
     revisionId: Optional[str] = None
     revisionSummary: Optional[str] = None
     revisionUrl: Optional[str] = None
 
 
-class StopExecutionTriggerTypeDef(BaseValidatorModel):
+class StopExecutionTrigger(BaseValidatorModel):
     reason: Optional[str] = None
 
 
-class ResolvedPipelineVariableTypeDef(BaseValidatorModel):
+class ResolvedPipelineVariable(BaseValidatorModel):
     name: Optional[str] = None
     resolvedValue: Optional[str] = None
 
 
-class PipelineVariableTypeDef(BaseValidatorModel):
+class PipelineVariable(BaseValidatorModel):
     name: str
     value: str
 
 
-class ThirdPartyJobTypeDef(BaseValidatorModel):
+class ThirdPartyJob(BaseValidatorModel):
     clientId: Optional[str] = None
     jobId: Optional[str] = None
 
 
-class RegisterWebhookWithThirdPartyInputTypeDef(BaseValidatorModel):
+class RegisterWebhookWithThirdPartyInput(BaseValidatorModel):
     webhookName: Optional[str] = None
 
 
-class RetryStageExecutionInputTypeDef(BaseValidatorModel):
+class RetryStageExecutionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
     pipelineExecutionId: str
     retryMode: StageRetryModeType
 
 
-class RetryStageMetadataTypeDef(BaseValidatorModel):
+class RetryStageMetadata(BaseValidatorModel):
     autoStageRetryAttempt: Optional[int] = None
     manualStageRetryAttempt: Optional[int] = None
     latestRetryTrigger: Optional[RetryTriggerType] = None
 
 
-class RollbackStageInputTypeDef(BaseValidatorModel):
+class RollbackStageInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
     targetPipelineExecutionId: str
 
 
-class RuleTypeIdTypeDef(BaseValidatorModel):
+class RuleTypeId(BaseValidatorModel):
     category: Literal["Rule"]
     provider: str
     owner: Optional[Literal["AWS"]] = None
     version: Optional[str] = None
 
 
-class RuleRevisionTypeDef(BaseValidatorModel):
+class RuleRevision(BaseValidatorModel):
     revisionId: str
     revisionChangeId: str
     created: datetime
 
 
-class RuleTypeSettingsTypeDef(BaseValidatorModel):
+class RuleTypeSettings(BaseValidatorModel):
     thirdPartyConfigurationUrl: Optional[str] = None
     entityUrlTemplate: Optional[str] = None
     executionUrlTemplate: Optional[str] = None
     revisionUrlTemplate: Optional[str] = None
 
 
-class SourceRevisionOverrideTypeDef(BaseValidatorModel):
+class SourceRevisionOverride(BaseValidatorModel):
     actionName: str
     revisionType: SourceRevisionTypeType
     revisionValue: str
 
 
-class StageConditionsExecutionTypeDef(BaseValidatorModel):
+class StageConditionsExecution(BaseValidatorModel):
     status: Optional[ConditionExecutionStatusType] = None
     summary: Optional[str] = None
 
 
-class TransitionStateTypeDef(BaseValidatorModel):
+class TransitionState(BaseValidatorModel):
     enabled: Optional[bool] = None
     lastChangedBy: Optional[str] = None
     lastChangedAt: Optional[datetime] = None
     disabledReason: Optional[str] = None
 
 
-class StopPipelineExecutionInputTypeDef(BaseValidatorModel):
+class StopPipelineExecutionInput(BaseValidatorModel):
     pipelineName: str
     pipelineExecutionId: str
     abandon: Optional[bool] = None
     reason: Optional[str] = None
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class WebhookAuthConfigurationTypeDef(BaseValidatorModel):
+class WebhookAuthConfiguration(BaseValidatorModel):
     AllowedIPRange: Optional[str] = None
     SecretToken: Optional[str] = None
 
 
-class WebhookFilterRuleTypeDef(BaseValidatorModel):
+class WebhookFilterRule(BaseValidatorModel):
     jsonPath: str
     matchEquals: Optional[str] = None
 
 
-class AcknowledgeJobOutputTypeDef(BaseValidatorModel):
+class AcknowledgeJobOutput(BaseValidatorModel):
     status: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AcknowledgeThirdPartyJobOutputTypeDef(BaseValidatorModel):
+class AcknowledgeThirdPartyJobOutput(BaseValidatorModel):
     status: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class PutActionRevisionOutputTypeDef(BaseValidatorModel):
+class PutActionRevisionOutput(BaseValidatorModel):
     newRevision: bool
     pipelineExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutApprovalResultOutputTypeDef(BaseValidatorModel):
+class PutApprovalResultOutput(BaseValidatorModel):
     approvedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RetryStageExecutionOutputTypeDef(BaseValidatorModel):
+class RetryStageExecutionOutput(BaseValidatorModel):
     pipelineExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RollbackStageOutputTypeDef(BaseValidatorModel):
+class RollbackStageOutput(BaseValidatorModel):
     pipelineExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartPipelineExecutionOutputTypeDef(BaseValidatorModel):
+class StartPipelineExecutionOutput(BaseValidatorModel):
     pipelineExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopPipelineExecutionOutputTypeDef(BaseValidatorModel):
+class StopPipelineExecutionOutput(BaseValidatorModel):
     pipelineExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PollForJobsInputTypeDef(BaseValidatorModel):
-    actionTypeId: ActionTypeIdTypeDef
+class PollForJobsInput(BaseValidatorModel):
+    actionTypeId: ActionTypeId
     maxBatchSize: Optional[int] = None
     queryParam: Optional[Mapping[str, str]] = None
 
 
-class PollForThirdPartyJobsInputTypeDef(BaseValidatorModel):
-    actionTypeId: ActionTypeIdTypeDef
+class PollForThirdPartyJobsInput(BaseValidatorModel):
+    actionTypeId: ActionTypeId
     maxBatchSize: Optional[int] = None
 
 
-class ActionDeclarationOutputTypeDef(BaseValidatorModel):
+class ActionDeclarationOutput(BaseValidatorModel):
     name: str
-    actionTypeId: ActionTypeIdTypeDef
+    actionTypeId: ActionTypeId
     runOrder: Optional[int] = None
     configuration: Optional[Dict[str, str]] = None
     commands: Optional[List[str]] = None
-    outputArtifacts: Optional[List[OutputArtifactOutputTypeDef]] = None
-    inputArtifacts: Optional[List[InputArtifactTypeDef]] = None
+    outputArtifacts: Optional[List[OutputArtifactOutput]] = None
+    inputArtifacts: Optional[List[InputArtifact]] = None
     outputVariables: Optional[List[str]] = None
     roleArn: Optional[str] = None
     region: Optional[str] = None
     namespace: Optional[str] = None
     timeoutInMinutes: Optional[int] = None
-    environmentVariables: Optional[List[EnvironmentVariableTypeDef]] = None
+    environmentVariables: Optional[List[EnvironmentVariable]] = None
 
 
-class ActionDeclarationTypeDef(BaseValidatorModel):
+class ActionDeclaration(BaseValidatorModel):
     name: str
-    actionTypeId: ActionTypeIdTypeDef
+    actionTypeId: ActionTypeId
     runOrder: Optional[int] = None
     configuration: Optional[Mapping[str, str]] = None
     commands: Optional[Sequence[str]] = None
-    outputArtifacts: Optional[Sequence[OutputArtifactTypeDef]] = None
-    inputArtifacts: Optional[Sequence[InputArtifactTypeDef]] = None
+    outputArtifacts: Optional[Sequence[OutputArtifact]] = None
+    inputArtifacts: Optional[Sequence[InputArtifact]] = None
     outputVariables: Optional[Sequence[str]] = None
     roleArn: Optional[str] = None
     region: Optional[str] = None
     namespace: Optional[str] = None
     timeoutInMinutes: Optional[int] = None
-    environmentVariables: Optional[Sequence[EnvironmentVariableTypeDef]] = None
+    environmentVariables: Optional[Sequence[EnvironmentVariable]] = None
 
 
-class ActionExecutionFilterTypeDef(BaseValidatorModel):
+class ActionExecutionFilter(BaseValidatorModel):
     pipelineExecutionId: Optional[str] = None
-    latestInPipelineExecution: Optional[LatestInPipelineExecutionFilterTypeDef] = None
+    latestInPipelineExecution: Optional[LatestInPipelineExecutionFilter] = None
 
 
-class RuleExecutionFilterTypeDef(BaseValidatorModel):
+class RuleExecutionFilter(BaseValidatorModel):
     pipelineExecutionId: Optional[str] = None
-    latestInPipelineExecution: Optional[LatestInPipelineExecutionFilterTypeDef] = None
+    latestInPipelineExecution: Optional[LatestInPipelineExecutionFilter] = None
 
 
-class ActionExecutionResultTypeDef(BaseValidatorModel):
+class ActionExecutionResult(BaseValidatorModel):
     externalExecutionId: Optional[str] = None
     externalExecutionSummary: Optional[str] = None
     externalExecutionUrl: Optional[str] = None
-    errorDetails: Optional[ErrorDetailsTypeDef] = None
+    errorDetails: Optional[ErrorDetails] = None
     logStreamARN: Optional[str] = None
 
 
-class ActionExecutionTypeDef(BaseValidatorModel):
+class ActionExecution(BaseValidatorModel):
     actionExecutionId: Optional[str] = None
     status: Optional[ActionExecutionStatusType] = None
     summary: Optional[str] = None
@@ -590,18 +590,18 @@ class ActionExecutionTypeDef(BaseValidatorModel):
     externalExecutionId: Optional[str] = None
     externalExecutionUrl: Optional[str] = None
     percentComplete: Optional[int] = None
-    errorDetails: Optional[ErrorDetailsTypeDef] = None
+    errorDetails: Optional[ErrorDetails] = None
     logStreamARN: Optional[str] = None
 
 
-class RuleExecutionResultTypeDef(BaseValidatorModel):
+class RuleExecutionResult(BaseValidatorModel):
     externalExecutionId: Optional[str] = None
     externalExecutionSummary: Optional[str] = None
     externalExecutionUrl: Optional[str] = None
-    errorDetails: Optional[ErrorDetailsTypeDef] = None
+    errorDetails: Optional[ErrorDetails] = None
 
 
-class RuleExecutionTypeDef(BaseValidatorModel):
+class RuleExecution(BaseValidatorModel):
     ruleExecutionId: Optional[str] = None
     status: Optional[RuleExecutionStatusType] = None
     summary: Optional[str] = None
@@ -610,644 +610,644 @@ class RuleExecutionTypeDef(BaseValidatorModel):
     lastUpdatedBy: Optional[str] = None
     externalExecutionId: Optional[str] = None
     externalExecutionUrl: Optional[str] = None
-    errorDetails: Optional[ErrorDetailsTypeDef] = None
+    errorDetails: Optional[ErrorDetails] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ActionRevisionTypeDef(BaseValidatorModel):
+class ActionRevision(BaseValidatorModel):
     revisionId: str
     revisionChangeId: str
-    created: TimestampTypeDef
+    created: Timestamp
 
 
-class CurrentRevisionTypeDef(BaseValidatorModel):
+class CurrentRevision(BaseValidatorModel):
     revision: str
     changeIdentifier: str
-    created: Optional[TimestampTypeDef] = None
+    created: Optional[Timestamp] = None
     revisionSummary: Optional[str] = None
 
 
-class PutApprovalResultInputTypeDef(BaseValidatorModel):
+class PutApprovalResultInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
     actionName: str
-    result: ApprovalResultTypeDef
+    result: ApprovalResult
     token: str
 
 
-class ArtifactDetailTypeDef(BaseValidatorModel):
+class ArtifactDetail(BaseValidatorModel):
     name: Optional[str] = None
-    s3location: Optional[S3LocationTypeDef] = None
+    s3location: Optional[S3Location] = None
 
 
-class ActionConfigurationPropertyTypeDef(BaseValidatorModel):
+class ActionConfigurationProperty(BaseValidatorModel):
     pass
 
 
-class CreateCustomActionTypeInputTypeDef(BaseValidatorModel):
+class CreateCustomActionTypeInput(BaseValidatorModel):
     category: ActionCategoryType
     provider: str
     version: str
-    inputArtifactDetails: ArtifactDetailsTypeDef
-    outputArtifactDetails: ArtifactDetailsTypeDef
-    settings: Optional[ActionTypeSettingsTypeDef] = None
-    configurationProperties: Optional[Sequence[ActionConfigurationPropertyTypeDef]] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    inputArtifactDetails: ArtifactDetails
+    outputArtifactDetails: ArtifactDetails
+    settings: Optional[ActionTypeSettings] = None
+    configurationProperties: Optional[Sequence[ActionConfigurationProperty]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceOutput(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class ExecutorConfigurationOutputTypeDef(BaseValidatorModel):
-    lambdaExecutorConfiguration: Optional[LambdaExecutorConfigurationTypeDef] = None
-    jobWorkerExecutorConfiguration: Optional[JobWorkerExecutorConfigurationOutputTypeDef] = None
+class ExecutorConfigurationOutput(BaseValidatorModel):
+    lambdaExecutorConfiguration: Optional[LambdaExecutorConfiguration] = None
+    jobWorkerExecutorConfiguration: Optional[JobWorkerExecutorConfigurationOutput] = None
 
 
-class ExecutorConfigurationTypeDef(BaseValidatorModel):
-    lambdaExecutorConfiguration: Optional[LambdaExecutorConfigurationTypeDef] = None
-    jobWorkerExecutorConfiguration: Optional[JobWorkerExecutorConfigurationTypeDef] = None
+class ExecutorConfiguration(BaseValidatorModel):
+    lambdaExecutorConfiguration: Optional[LambdaExecutorConfiguration] = None
+    jobWorkerExecutorConfiguration: Optional[JobWorkerExecutorConfiguration] = None
 
 
-class FailureDetailsTypeDef(BaseValidatorModel):
+class FailureDetails(BaseValidatorModel):
     pass
 
 
-class PutJobFailureResultInputTypeDef(BaseValidatorModel):
+class PutJobFailureResultInput(BaseValidatorModel):
     jobId: str
-    failureDetails: FailureDetailsTypeDef
+    failureDetails: FailureDetails
 
 
-class PutThirdPartyJobFailureResultInputTypeDef(BaseValidatorModel):
+class PutThirdPartyJobFailureResultInput(BaseValidatorModel):
     jobId: str
     clientToken: str
-    failureDetails: FailureDetailsTypeDef
+    failureDetails: FailureDetails
 
 
-class GitPullRequestFilterOutputTypeDef(BaseValidatorModel):
+class GitPullRequestFilterOutput(BaseValidatorModel):
     events: Optional[List[GitPullRequestEventTypeType]] = None
-    branches: Optional[GitBranchFilterCriteriaOutputTypeDef] = None
-    filePaths: Optional[GitFilePathFilterCriteriaOutputTypeDef] = None
+    branches: Optional[GitBranchFilterCriteriaOutput] = None
+    filePaths: Optional[GitFilePathFilterCriteriaOutput] = None
 
 
-class GitPullRequestFilterTypeDef(BaseValidatorModel):
+class GitPullRequestFilter(BaseValidatorModel):
     events: Optional[Sequence[GitPullRequestEventTypeType]] = None
-    branches: Optional[GitBranchFilterCriteriaTypeDef] = None
-    filePaths: Optional[GitFilePathFilterCriteriaTypeDef] = None
+    branches: Optional[GitBranchFilterCriteria] = None
+    filePaths: Optional[GitFilePathFilterCriteria] = None
 
 
-class GitPushFilterOutputTypeDef(BaseValidatorModel):
-    tags: Optional[GitTagFilterCriteriaOutputTypeDef] = None
-    branches: Optional[GitBranchFilterCriteriaOutputTypeDef] = None
-    filePaths: Optional[GitFilePathFilterCriteriaOutputTypeDef] = None
+class GitPushFilterOutput(BaseValidatorModel):
+    tags: Optional[GitTagFilterCriteriaOutput] = None
+    branches: Optional[GitBranchFilterCriteriaOutput] = None
+    filePaths: Optional[GitFilePathFilterCriteriaOutput] = None
 
 
-class GitPushFilterTypeDef(BaseValidatorModel):
-    tags: Optional[GitTagFilterCriteriaTypeDef] = None
-    branches: Optional[GitBranchFilterCriteriaTypeDef] = None
-    filePaths: Optional[GitFilePathFilterCriteriaTypeDef] = None
+class GitPushFilter(BaseValidatorModel):
+    tags: Optional[GitTagFilterCriteria] = None
+    branches: Optional[GitBranchFilterCriteria] = None
+    filePaths: Optional[GitFilePathFilterCriteria] = None
 
 
-class ListActionTypesInputPaginateTypeDef(BaseValidatorModel):
+class ListActionTypesInputPaginate(BaseValidatorModel):
     actionOwnerFilter: Optional[ActionOwnerType] = None
     regionFilter: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPipelinesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPipelinesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsForResourceInputPaginateTypeDef(BaseValidatorModel):
+class ListTagsForResourceInputPaginate(BaseValidatorModel):
     resourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWebhooksInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListWebhooksInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPipelinesOutputTypeDef(BaseValidatorModel):
-    pipelines: List[PipelineSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPipelinesOutput(BaseValidatorModel):
+    pipelines: List[PipelineSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PipelineContextTypeDef(BaseValidatorModel):
+class PipelineContext(BaseValidatorModel):
     pipelineName: Optional[str] = None
-    stage: Optional[StageContextTypeDef] = None
-    action: Optional[ActionContextTypeDef] = None
+    stage: Optional[StageContext] = None
+    action: Optional[ActionContext] = None
     pipelineArn: Optional[str] = None
     pipelineExecutionId: Optional[str] = None
 
 
-class PipelineExecutionFilterTypeDef(BaseValidatorModel):
-    succeededInStage: Optional[SucceededInStageFilterTypeDef] = None
+class PipelineExecutionFilter(BaseValidatorModel):
+    succeededInStage: Optional[SucceededInStageFilter] = None
 
 
-class PipelineExecutionSummaryTypeDef(BaseValidatorModel):
+class PipelineExecutionSummary(BaseValidatorModel):
     pipelineExecutionId: Optional[str] = None
     status: Optional[PipelineExecutionStatusType] = None
     statusSummary: Optional[str] = None
     startTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
-    sourceRevisions: Optional[List[SourceRevisionTypeDef]] = None
-    trigger: Optional[ExecutionTriggerTypeDef] = None
-    stopTrigger: Optional[StopExecutionTriggerTypeDef] = None
+    sourceRevisions: Optional[List[SourceRevision]] = None
+    trigger: Optional[ExecutionTrigger] = None
+    stopTrigger: Optional[StopExecutionTrigger] = None
     executionMode: Optional[ExecutionModeType] = None
     executionType: Optional[ExecutionTypeType] = None
-    rollbackMetadata: Optional[PipelineRollbackMetadataTypeDef] = None
+    rollbackMetadata: Optional[PipelineRollbackMetadata] = None
 
 
-class PipelineExecutionTypeDef(BaseValidatorModel):
+class PipelineExecution(BaseValidatorModel):
     pipelineName: Optional[str] = None
     pipelineVersion: Optional[int] = None
     pipelineExecutionId: Optional[str] = None
     status: Optional[PipelineExecutionStatusType] = None
     statusSummary: Optional[str] = None
-    artifactRevisions: Optional[List[ArtifactRevisionTypeDef]] = None
-    variables: Optional[List[ResolvedPipelineVariableTypeDef]] = None
-    trigger: Optional[ExecutionTriggerTypeDef] = None
+    artifactRevisions: Optional[List[ArtifactRevision]] = None
+    variables: Optional[List[ResolvedPipelineVariable]] = None
+    trigger: Optional[ExecutionTrigger] = None
     executionMode: Optional[ExecutionModeType] = None
     executionType: Optional[ExecutionTypeType] = None
-    rollbackMetadata: Optional[PipelineRollbackMetadataTypeDef] = None
+    rollbackMetadata: Optional[PipelineRollbackMetadata] = None
 
 
-class PollForThirdPartyJobsOutputTypeDef(BaseValidatorModel):
-    jobs: List[ThirdPartyJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class PollForThirdPartyJobsOutput(BaseValidatorModel):
+    jobs: List[ThirdPartyJob]
+    ResponseMetadata: ResponseMetadata
 
 
-class RuleDeclarationOutputTypeDef(BaseValidatorModel):
+class RuleDeclarationOutput(BaseValidatorModel):
     name: str
-    ruleTypeId: RuleTypeIdTypeDef
+    ruleTypeId: RuleTypeId
     configuration: Optional[Dict[str, str]] = None
     commands: Optional[List[str]] = None
-    inputArtifacts: Optional[List[InputArtifactTypeDef]] = None
+    inputArtifacts: Optional[List[InputArtifact]] = None
     roleArn: Optional[str] = None
     region: Optional[str] = None
     timeoutInMinutes: Optional[int] = None
 
 
-class RuleDeclarationTypeDef(BaseValidatorModel):
+class RuleDeclaration(BaseValidatorModel):
     name: str
-    ruleTypeId: RuleTypeIdTypeDef
+    ruleTypeId: RuleTypeId
     configuration: Optional[Mapping[str, str]] = None
     commands: Optional[Sequence[str]] = None
-    inputArtifacts: Optional[Sequence[InputArtifactTypeDef]] = None
+    inputArtifacts: Optional[Sequence[InputArtifact]] = None
     roleArn: Optional[str] = None
     region: Optional[str] = None
     timeoutInMinutes: Optional[int] = None
 
 
-class StartPipelineExecutionInputTypeDef(BaseValidatorModel):
+class StartPipelineExecutionInput(BaseValidatorModel):
     name: str
-    variables: Optional[Sequence[PipelineVariableTypeDef]] = None
+    variables: Optional[Sequence[PipelineVariable]] = None
     clientRequestToken: Optional[str] = None
-    sourceRevisions: Optional[Sequence[SourceRevisionOverrideTypeDef]] = None
+    sourceRevisions: Optional[Sequence[SourceRevisionOverride]] = None
 
 
-class WebhookDefinitionOutputTypeDef(BaseValidatorModel):
+class WebhookDefinitionOutput(BaseValidatorModel):
     name: str
     targetPipeline: str
     targetAction: str
-    filters: List[WebhookFilterRuleTypeDef]
+    filters: List[WebhookFilterRule]
     authentication: WebhookAuthenticationTypeType
-    authenticationConfiguration: WebhookAuthConfigurationTypeDef
+    authenticationConfiguration: WebhookAuthConfiguration
 
 
-class WebhookDefinitionTypeDef(BaseValidatorModel):
+class WebhookDefinition(BaseValidatorModel):
     name: str
     targetPipeline: str
     targetAction: str
-    filters: Sequence[WebhookFilterRuleTypeDef]
+    filters: Sequence[WebhookFilterRule]
     authentication: WebhookAuthenticationTypeType
-    authenticationConfiguration: WebhookAuthConfigurationTypeDef
+    authenticationConfiguration: WebhookAuthConfiguration
 
 
-class ActionStateTypeDef(BaseValidatorModel):
+class ActionState(BaseValidatorModel):
     actionName: Optional[str] = None
-    currentRevision: Optional[ActionRevisionOutputTypeDef] = None
-    latestExecution: Optional[ActionExecutionTypeDef] = None
+    currentRevision: Optional[ActionRevisionOutput] = None
+    latestExecution: Optional[ActionExecution] = None
     entityUrl: Optional[str] = None
     revisionUrl: Optional[str] = None
 
 
-class RuleExecutionOutputTypeDef(BaseValidatorModel):
-    executionResult: Optional[RuleExecutionResultTypeDef] = None
+class RuleExecutionOutput(BaseValidatorModel):
+    executionResult: Optional[RuleExecutionResult] = None
 
 
-class RuleStateTypeDef(BaseValidatorModel):
+class RuleState(BaseValidatorModel):
     ruleName: Optional[str] = None
-    currentRevision: Optional[RuleRevisionTypeDef] = None
-    latestExecution: Optional[RuleExecutionTypeDef] = None
+    currentRevision: Optional[RuleRevision] = None
+    latestExecution: Optional[RuleExecution] = None
     entityUrl: Optional[str] = None
     revisionUrl: Optional[str] = None
 
 
-class PutJobSuccessResultInputTypeDef(BaseValidatorModel):
+class PutJobSuccessResultInput(BaseValidatorModel):
     jobId: str
-    currentRevision: Optional[CurrentRevisionTypeDef] = None
+    currentRevision: Optional[CurrentRevision] = None
     continuationToken: Optional[str] = None
-    executionDetails: Optional[ExecutionDetailsTypeDef] = None
+    executionDetails: Optional[ExecutionDetails] = None
     outputVariables: Optional[Mapping[str, str]] = None
 
 
-class PutThirdPartyJobSuccessResultInputTypeDef(BaseValidatorModel):
+class PutThirdPartyJobSuccessResultInput(BaseValidatorModel):
     jobId: str
     clientToken: str
-    currentRevision: Optional[CurrentRevisionTypeDef] = None
+    currentRevision: Optional[CurrentRevision] = None
     continuationToken: Optional[str] = None
-    executionDetails: Optional[ExecutionDetailsTypeDef] = None
+    executionDetails: Optional[ExecutionDetails] = None
 
 
-class ActionTypeTypeDef(BaseValidatorModel):
+class ActionType(BaseValidatorModel):
     pass
 
 
-class CreateCustomActionTypeOutputTypeDef(BaseValidatorModel):
-    actionType: ActionTypeTypeDef
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateCustomActionTypeOutput(BaseValidatorModel):
+    actionType: ActionType
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListActionTypesOutputTypeDef(BaseValidatorModel):
-    actionTypes: List[ActionTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListActionTypesOutput(BaseValidatorModel):
+    actionTypes: List[ActionType]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ActionExecutionInputTypeDef(BaseValidatorModel):
-    actionTypeId: Optional[ActionTypeIdTypeDef] = None
+class ActionExecutionInput(BaseValidatorModel):
+    actionTypeId: Optional[ActionTypeId] = None
     configuration: Optional[Dict[str, str]] = None
     resolvedConfiguration: Optional[Dict[str, str]] = None
     roleArn: Optional[str] = None
     region: Optional[str] = None
-    inputArtifacts: Optional[List[ArtifactDetailTypeDef]] = None
+    inputArtifacts: Optional[List[ArtifactDetail]] = None
     namespace: Optional[str] = None
 
 
-class ActionExecutionOutputTypeDef(BaseValidatorModel):
-    outputArtifacts: Optional[List[ArtifactDetailTypeDef]] = None
-    executionResult: Optional[ActionExecutionResultTypeDef] = None
+class ActionExecutionOutput(BaseValidatorModel):
+    outputArtifacts: Optional[List[ArtifactDetail]] = None
+    executionResult: Optional[ActionExecutionResult] = None
     outputVariables: Optional[Dict[str, str]] = None
 
 
-class RuleExecutionInputTypeDef(BaseValidatorModel):
-    ruleTypeId: Optional[RuleTypeIdTypeDef] = None
+class RuleExecutionInput(BaseValidatorModel):
+    ruleTypeId: Optional[RuleTypeId] = None
     configuration: Optional[Dict[str, str]] = None
     resolvedConfiguration: Optional[Dict[str, str]] = None
     roleArn: Optional[str] = None
     region: Optional[str] = None
-    inputArtifacts: Optional[List[ArtifactDetailTypeDef]] = None
+    inputArtifacts: Optional[List[ArtifactDetail]] = None
 
 
-class ArtifactLocationTypeDef(BaseValidatorModel):
+class ArtifactLocation(BaseValidatorModel):
     pass
 
 
-class ArtifactTypeDef(BaseValidatorModel):
+class Artifact(BaseValidatorModel):
     name: Optional[str] = None
     revision: Optional[str] = None
-    location: Optional[ArtifactLocationTypeDef] = None
+    location: Optional[ArtifactLocation] = None
 
 
-class GitConfigurationOutputTypeDef(BaseValidatorModel):
+class GitConfigurationOutput(BaseValidatorModel):
     sourceActionName: str
-    push: Optional[List[GitPushFilterOutputTypeDef]] = None
-    pullRequest: Optional[List[GitPullRequestFilterOutputTypeDef]] = None
+    push: Optional[List[GitPushFilterOutput]] = None
+    pullRequest: Optional[List[GitPullRequestFilterOutput]] = None
 
 
-class GitConfigurationTypeDef(BaseValidatorModel):
+class GitConfiguration(BaseValidatorModel):
     sourceActionName: str
-    push: Optional[Sequence[GitPushFilterTypeDef]] = None
-    pullRequest: Optional[Sequence[GitPullRequestFilterTypeDef]] = None
+    push: Optional[Sequence[GitPushFilter]] = None
+    pullRequest: Optional[Sequence[GitPullRequestFilter]] = None
 
 
-class ListPipelineExecutionsOutputTypeDef(BaseValidatorModel):
-    pipelineExecutionSummaries: List[PipelineExecutionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPipelineExecutionsOutput(BaseValidatorModel):
+    pipelineExecutionSummaries: List[PipelineExecutionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetPipelineExecutionOutputTypeDef(BaseValidatorModel):
-    pipelineExecution: PipelineExecutionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPipelineExecutionOutput(BaseValidatorModel):
+    pipelineExecution: PipelineExecution
+    ResponseMetadata: ResponseMetadata
 
 
-class ConditionOutputTypeDef(BaseValidatorModel):
+class ConditionOutput(BaseValidatorModel):
     result: Optional[ResultType] = None
-    rules: Optional[List[RuleDeclarationOutputTypeDef]] = None
+    rules: Optional[List[RuleDeclarationOutput]] = None
 
 
-class ConditionTypeDef(BaseValidatorModel):
+class Condition(BaseValidatorModel):
     result: Optional[ResultType] = None
-    rules: Optional[Sequence[RuleDeclarationTypeDef]] = None
+    rules: Optional[Sequence[RuleDeclaration]] = None
 
 
-class RuleTypeTypeDef(BaseValidatorModel):
+class RuleType(BaseValidatorModel):
     pass
 
 
-class ListRuleTypesOutputTypeDef(BaseValidatorModel):
-    ruleTypes: List[RuleTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRuleTypesOutput(BaseValidatorModel):
+    ruleTypes: List[RuleType]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListWebhookItemTypeDef(BaseValidatorModel):
-    definition: WebhookDefinitionOutputTypeDef
+class ListWebhookItem(BaseValidatorModel):
+    definition: WebhookDefinitionOutput
     url: str
     errorMessage: Optional[str] = None
     errorCode: Optional[str] = None
     lastTriggered: Optional[datetime] = None
     arn: Optional[str] = None
-    tags: Optional[List[TagTypeDef]] = None
+    tags: Optional[List[Tag]] = None
 
 
-class ConditionStateTypeDef(BaseValidatorModel):
-    latestExecution: Optional[ConditionExecutionTypeDef] = None
-    ruleStates: Optional[List[RuleStateTypeDef]] = None
+class ConditionState(BaseValidatorModel):
+    latestExecution: Optional[ConditionExecution] = None
+    ruleStates: Optional[List[RuleState]] = None
 
 
-class ActionRevisionUnionTypeDef(BaseValidatorModel):
+class ActionRevisionUnion(BaseValidatorModel):
     pass
 
 
-class PutActionRevisionInputTypeDef(BaseValidatorModel):
+class PutActionRevisionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
     actionName: str
-    actionRevision: ActionRevisionUnionTypeDef
+    actionRevision: ActionRevisionUnion
 
 
-class EncryptionKeyTypeDef(BaseValidatorModel):
+class EncryptionKey(BaseValidatorModel):
     pass
 
 
-class JobDataTypeDef(BaseValidatorModel):
-    actionTypeId: Optional[ActionTypeIdTypeDef] = None
-    actionConfiguration: Optional[ActionConfigurationTypeDef] = None
-    pipelineContext: Optional[PipelineContextTypeDef] = None
-    inputArtifacts: Optional[List[ArtifactTypeDef]] = None
-    outputArtifacts: Optional[List[ArtifactTypeDef]] = None
-    artifactCredentials: Optional[AWSSessionCredentialsTypeDef] = None
+class JobData(BaseValidatorModel):
+    actionTypeId: Optional[ActionTypeId] = None
+    actionConfiguration: Optional[ActionConfiguration] = None
+    pipelineContext: Optional[PipelineContext] = None
+    inputArtifacts: Optional[List[Artifact]] = None
+    outputArtifacts: Optional[List[Artifact]] = None
+    artifactCredentials: Optional[AWSSessionCredentials] = None
     continuationToken: Optional[str] = None
-    encryptionKey: Optional[EncryptionKeyTypeDef] = None
+    encryptionKey: Optional[EncryptionKey] = None
 
 
-class ThirdPartyJobDataTypeDef(BaseValidatorModel):
-    actionTypeId: Optional[ActionTypeIdTypeDef] = None
-    actionConfiguration: Optional[ActionConfigurationTypeDef] = None
-    pipelineContext: Optional[PipelineContextTypeDef] = None
-    inputArtifacts: Optional[List[ArtifactTypeDef]] = None
-    outputArtifacts: Optional[List[ArtifactTypeDef]] = None
-    artifactCredentials: Optional[AWSSessionCredentialsTypeDef] = None
+class ThirdPartyJobData(BaseValidatorModel):
+    actionTypeId: Optional[ActionTypeId] = None
+    actionConfiguration: Optional[ActionConfiguration] = None
+    pipelineContext: Optional[PipelineContext] = None
+    inputArtifacts: Optional[List[Artifact]] = None
+    outputArtifacts: Optional[List[Artifact]] = None
+    artifactCredentials: Optional[AWSSessionCredentials] = None
     continuationToken: Optional[str] = None
-    encryptionKey: Optional[EncryptionKeyTypeDef] = None
+    encryptionKey: Optional[EncryptionKey] = None
 
 
-class PipelineTriggerDeclarationOutputTypeDef(BaseValidatorModel):
+class PipelineTriggerDeclarationOutput(BaseValidatorModel):
     providerType: Literal["CodeStarSourceConnection"]
-    gitConfiguration: GitConfigurationOutputTypeDef
+    gitConfiguration: GitConfigurationOutput
 
 
-class PipelineTriggerDeclarationTypeDef(BaseValidatorModel):
+class PipelineTriggerDeclaration(BaseValidatorModel):
     providerType: Literal["CodeStarSourceConnection"]
-    gitConfiguration: GitConfigurationTypeDef
+    gitConfiguration: GitConfiguration
 
 
-class BeforeEntryConditionsOutputTypeDef(BaseValidatorModel):
-    conditions: List[ConditionOutputTypeDef]
+class BeforeEntryConditionsOutput(BaseValidatorModel):
+    conditions: List[ConditionOutput]
 
 
-class FailureConditionsOutputTypeDef(BaseValidatorModel):
+class FailureConditionsOutput(BaseValidatorModel):
     result: Optional[ResultType] = None
-    retryConfiguration: Optional[RetryConfigurationTypeDef] = None
-    conditions: Optional[List[ConditionOutputTypeDef]] = None
+    retryConfiguration: Optional[RetryConfiguration] = None
+    conditions: Optional[List[ConditionOutput]] = None
 
 
-class SuccessConditionsOutputTypeDef(BaseValidatorModel):
-    conditions: List[ConditionOutputTypeDef]
+class SuccessConditionsOutput(BaseValidatorModel):
+    conditions: List[ConditionOutput]
 
 
-class BeforeEntryConditionsTypeDef(BaseValidatorModel):
-    conditions: Sequence[ConditionTypeDef]
+class BeforeEntryConditions(BaseValidatorModel):
+    conditions: Sequence[Condition]
 
 
-class FailureConditionsTypeDef(BaseValidatorModel):
+class FailureConditions(BaseValidatorModel):
     result: Optional[ResultType] = None
-    retryConfiguration: Optional[RetryConfigurationTypeDef] = None
-    conditions: Optional[Sequence[ConditionTypeDef]] = None
+    retryConfiguration: Optional[RetryConfiguration] = None
+    conditions: Optional[Sequence[Condition]] = None
 
 
-class SuccessConditionsTypeDef(BaseValidatorModel):
-    conditions: Sequence[ConditionTypeDef]
+class SuccessConditions(BaseValidatorModel):
+    conditions: Sequence[Condition]
 
 
-class ListWebhooksOutputTypeDef(BaseValidatorModel):
-    webhooks: List[ListWebhookItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWebhooksOutput(BaseValidatorModel):
+    webhooks: List[ListWebhookItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutWebhookOutputTypeDef(BaseValidatorModel):
-    webhook: ListWebhookItemTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutWebhookOutput(BaseValidatorModel):
+    webhook: ListWebhookItem
+    ResponseMetadata: ResponseMetadata
 
 
-class WebhookDefinitionUnionTypeDef(BaseValidatorModel):
+class WebhookDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class PutWebhookInputTypeDef(BaseValidatorModel):
-    webhook: WebhookDefinitionUnionTypeDef
-    tags: Optional[Sequence[TagTypeDef]] = None
+class PutWebhookInput(BaseValidatorModel):
+    webhook: WebhookDefinitionUnion
+    tags: Optional[Sequence[Tag]] = None
 
 
-class StageConditionStateTypeDef(BaseValidatorModel):
-    latestExecution: Optional[StageConditionsExecutionTypeDef] = None
-    conditionStates: Optional[List[ConditionStateTypeDef]] = None
+class StageConditionState(BaseValidatorModel):
+    latestExecution: Optional[StageConditionsExecution] = None
+    conditionStates: Optional[List[ConditionState]] = None
 
 
-class ActionExecutionDetailTypeDef(BaseValidatorModel):
+class ActionExecutionDetail(BaseValidatorModel):
     pass
 
 
-class ListActionExecutionsOutputTypeDef(BaseValidatorModel):
-    actionExecutionDetails: List[ActionExecutionDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListActionExecutionsOutput(BaseValidatorModel):
+    actionExecutionDetails: List[ActionExecutionDetail]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RuleExecutionDetailTypeDef(BaseValidatorModel):
+class RuleExecutionDetail(BaseValidatorModel):
     pass
 
 
-class ListRuleExecutionsOutputTypeDef(BaseValidatorModel):
-    ruleExecutionDetails: List[RuleExecutionDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRuleExecutionsOutput(BaseValidatorModel):
+    ruleExecutionDetails: List[RuleExecutionDetail]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ActionTypeDeclarationOutputTypeDef(BaseValidatorModel):
+class ActionTypeDeclarationOutput(BaseValidatorModel):
     pass
 
 
-class GetActionTypeOutputTypeDef(BaseValidatorModel):
-    actionType: ActionTypeDeclarationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetActionTypeOutput(BaseValidatorModel):
+    actionType: ActionTypeDeclarationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class BlockerDeclarationTypeDef(BaseValidatorModel):
+class BlockerDeclaration(BaseValidatorModel):
     pass
 
 
-class StageDeclarationOutputTypeDef(BaseValidatorModel):
+class StageDeclarationOutput(BaseValidatorModel):
     name: str
-    actions: List[ActionDeclarationOutputTypeDef]
-    blockers: Optional[List[BlockerDeclarationTypeDef]] = None
-    onFailure: Optional[FailureConditionsOutputTypeDef] = None
-    onSuccess: Optional[SuccessConditionsOutputTypeDef] = None
-    beforeEntry: Optional[BeforeEntryConditionsOutputTypeDef] = None
+    actions: List[ActionDeclarationOutput]
+    blockers: Optional[List[BlockerDeclaration]] = None
+    onFailure: Optional[FailureConditionsOutput] = None
+    onSuccess: Optional[SuccessConditionsOutput] = None
+    beforeEntry: Optional[BeforeEntryConditionsOutput] = None
 
 
-class StageDeclarationTypeDef(BaseValidatorModel):
+class StageDeclaration(BaseValidatorModel):
     name: str
-    actions: Sequence[ActionDeclarationTypeDef]
-    blockers: Optional[Sequence[BlockerDeclarationTypeDef]] = None
-    onFailure: Optional[FailureConditionsTypeDef] = None
-    onSuccess: Optional[SuccessConditionsTypeDef] = None
-    beforeEntry: Optional[BeforeEntryConditionsTypeDef] = None
+    actions: Sequence[ActionDeclaration]
+    blockers: Optional[Sequence[BlockerDeclaration]] = None
+    onFailure: Optional[FailureConditions] = None
+    onSuccess: Optional[SuccessConditions] = None
+    beforeEntry: Optional[BeforeEntryConditions] = None
 
 
-class StageExecutionTypeDef(BaseValidatorModel):
+class StageExecution(BaseValidatorModel):
     pass
 
 
-class StageStateTypeDef(BaseValidatorModel):
+class StageState(BaseValidatorModel):
     stageName: Optional[str] = None
-    inboundExecution: Optional[StageExecutionTypeDef] = None
-    inboundExecutions: Optional[List[StageExecutionTypeDef]] = None
-    inboundTransitionState: Optional[TransitionStateTypeDef] = None
-    actionStates: Optional[List[ActionStateTypeDef]] = None
-    latestExecution: Optional[StageExecutionTypeDef] = None
-    beforeEntryConditionState: Optional[StageConditionStateTypeDef] = None
-    onSuccessConditionState: Optional[StageConditionStateTypeDef] = None
-    onFailureConditionState: Optional[StageConditionStateTypeDef] = None
-    retryStageMetadata: Optional[RetryStageMetadataTypeDef] = None
+    inboundExecution: Optional[StageExecution] = None
+    inboundExecutions: Optional[List[StageExecution]] = None
+    inboundTransitionState: Optional[TransitionState] = None
+    actionStates: Optional[List[ActionState]] = None
+    latestExecution: Optional[StageExecution] = None
+    beforeEntryConditionState: Optional[StageConditionState] = None
+    onSuccessConditionState: Optional[StageConditionState] = None
+    onFailureConditionState: Optional[StageConditionState] = None
+    retryStageMetadata: Optional[RetryStageMetadata] = None
 
 
-class JobDetailsTypeDef(BaseValidatorModel):
+class JobDetails(BaseValidatorModel):
     pass
 
 
-class GetJobDetailsOutputTypeDef(BaseValidatorModel):
-    jobDetails: JobDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetJobDetailsOutput(BaseValidatorModel):
+    jobDetails: JobDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class JobTypeDef(BaseValidatorModel):
+class Job(BaseValidatorModel):
     pass
 
 
-class PollForJobsOutputTypeDef(BaseValidatorModel):
-    jobs: List[JobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class PollForJobsOutput(BaseValidatorModel):
+    jobs: List[Job]
+    ResponseMetadata: ResponseMetadata
 
 
-class ThirdPartyJobDetailsTypeDef(BaseValidatorModel):
+class ThirdPartyJobDetails(BaseValidatorModel):
     pass
 
 
-class GetThirdPartyJobDetailsOutputTypeDef(BaseValidatorModel):
-    jobDetails: ThirdPartyJobDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetThirdPartyJobDetailsOutput(BaseValidatorModel):
+    jobDetails: ThirdPartyJobDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class ActionTypeDeclarationUnionTypeDef(BaseValidatorModel):
+class ActionTypeDeclarationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateActionTypeInputTypeDef(BaseValidatorModel):
-    actionType: ActionTypeDeclarationUnionTypeDef
+class UpdateActionTypeInput(BaseValidatorModel):
+    actionType: ActionTypeDeclarationUnion
 
 
-class ArtifactStoreTypeDef(BaseValidatorModel):
+class ArtifactStore(BaseValidatorModel):
     pass
 
 
-class PipelineDeclarationOutputTypeDef(BaseValidatorModel):
+class PipelineDeclarationOutput(BaseValidatorModel):
     name: str
     roleArn: str
-    stages: List[StageDeclarationOutputTypeDef]
-    artifactStore: Optional[ArtifactStoreTypeDef] = None
-    artifactStores: Optional[Dict[str, ArtifactStoreTypeDef]] = None
+    stages: List[StageDeclarationOutput]
+    artifactStore: Optional[ArtifactStore] = None
+    artifactStores: Optional[Dict[str, ArtifactStore]] = None
     version: Optional[int] = None
     executionMode: Optional[ExecutionModeType] = None
     pipelineType: Optional[PipelineTypeType] = None
-    variables: Optional[List[PipelineVariableDeclarationTypeDef]] = None
-    triggers: Optional[List[PipelineTriggerDeclarationOutputTypeDef]] = None
+    variables: Optional[List[PipelineVariableDeclaration]] = None
+    triggers: Optional[List[PipelineTriggerDeclarationOutput]] = None
 
 
-class PipelineDeclarationTypeDef(BaseValidatorModel):
+class PipelineDeclaration(BaseValidatorModel):
     name: str
     roleArn: str
-    stages: Sequence[StageDeclarationTypeDef]
-    artifactStore: Optional[ArtifactStoreTypeDef] = None
-    artifactStores: Optional[Mapping[str, ArtifactStoreTypeDef]] = None
+    stages: Sequence[StageDeclaration]
+    artifactStore: Optional[ArtifactStore] = None
+    artifactStores: Optional[Mapping[str, ArtifactStore]] = None
     version: Optional[int] = None
     executionMode: Optional[ExecutionModeType] = None
     pipelineType: Optional[PipelineTypeType] = None
-    variables: Optional[Sequence[PipelineVariableDeclarationTypeDef]] = None
-    triggers: Optional[Sequence[PipelineTriggerDeclarationTypeDef]] = None
+    variables: Optional[Sequence[PipelineVariableDeclaration]] = None
+    triggers: Optional[Sequence[PipelineTriggerDeclaration]] = None
 
 
-class GetPipelineStateOutputTypeDef(BaseValidatorModel):
+class GetPipelineStateOutput(BaseValidatorModel):
     pipelineName: str
     pipelineVersion: int
-    stageStates: List[StageStateTypeDef]
+    stageStates: List[StageState]
     created: datetime
     updated: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePipelineOutputTypeDef(BaseValidatorModel):
-    pipeline: PipelineDeclarationOutputTypeDef
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePipelineOutput(BaseValidatorModel):
+    pipeline: PipelineDeclarationOutput
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPipelineOutputTypeDef(BaseValidatorModel):
-    pipeline: PipelineDeclarationOutputTypeDef
-    metadata: PipelineMetadataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPipelineOutput(BaseValidatorModel):
+    pipeline: PipelineDeclarationOutput
+    metadata: PipelineMetadata
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePipelineOutputTypeDef(BaseValidatorModel):
-    pipeline: PipelineDeclarationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePipelineOutput(BaseValidatorModel):
+    pipeline: PipelineDeclarationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class PipelineDeclarationUnionTypeDef(BaseValidatorModel):
+class PipelineDeclarationUnion(BaseValidatorModel):
     pass
 
 
-class CreatePipelineInputTypeDef(BaseValidatorModel):
-    pipeline: PipelineDeclarationUnionTypeDef
-    tags: Optional[Sequence[TagTypeDef]] = None
+class CreatePipelineInput(BaseValidatorModel):
+    pipeline: PipelineDeclarationUnion
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdatePipelineInputTypeDef(BaseValidatorModel):
-    pipeline: PipelineDeclarationUnionTypeDef
+class UpdatePipelineInput(BaseValidatorModel):
+    pipeline: PipelineDeclarationUnion
 
 

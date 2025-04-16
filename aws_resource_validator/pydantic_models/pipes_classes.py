@@ -12,46 +12,46 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.pipes_constants import *
 
-class AwsVpcConfigurationOutputTypeDef(BaseValidatorModel):
+class AwsVpcConfigurationOutput(BaseValidatorModel):
     Subnets: List[str]
     SecurityGroups: Optional[List[str]] = None
     AssignPublicIp: Optional[AssignPublicIpType] = None
 
 
-class AwsVpcConfigurationTypeDef(BaseValidatorModel):
+class AwsVpcConfiguration(BaseValidatorModel):
     Subnets: Sequence[str]
     SecurityGroups: Optional[Sequence[str]] = None
     AssignPublicIp: Optional[AssignPublicIpType] = None
 
 
-class BatchArrayPropertiesTypeDef(BaseValidatorModel):
+class BatchArrayProperties(BaseValidatorModel):
     Size: Optional[int] = None
 
 
-class BatchEnvironmentVariableTypeDef(BaseValidatorModel):
+class BatchEnvironmentVariable(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class BatchRetryStrategyTypeDef(BaseValidatorModel):
+class BatchRetryStrategy(BaseValidatorModel):
     Attempts: Optional[int] = None
 
 
-class CapacityProviderStrategyItemTypeDef(BaseValidatorModel):
+class CapacityProviderStrategyItem(BaseValidatorModel):
     capacityProvider: str
     weight: Optional[int] = None
     base: Optional[int] = None
 
 
-class CloudwatchLogsLogDestinationParametersTypeDef(BaseValidatorModel):
+class CloudwatchLogsLogDestinationParameters(BaseValidatorModel):
     LogGroupArn: str
 
 
-class CloudwatchLogsLogDestinationTypeDef(BaseValidatorModel):
+class CloudwatchLogsLogDestination(BaseValidatorModel):
     LogGroupArn: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -59,53 +59,53 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeadLetterConfigTypeDef(BaseValidatorModel):
+class DeadLetterConfig(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class DeletePipeRequestTypeDef(BaseValidatorModel):
+class DeletePipeRequest(BaseValidatorModel):
     Name: str
 
 
-class DescribePipeRequestTypeDef(BaseValidatorModel):
+class DescribePipeRequest(BaseValidatorModel):
     Name: str
 
 
-class DimensionMappingTypeDef(BaseValidatorModel):
+class DimensionMapping(BaseValidatorModel):
     DimensionValue: str
     DimensionValueType: Literal["VARCHAR"]
     DimensionName: str
 
 
-class EcsEnvironmentVariableTypeDef(BaseValidatorModel):
+class EcsEnvironmentVariable(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
 
 
-class EcsEphemeralStorageTypeDef(BaseValidatorModel):
+class EcsEphemeralStorage(BaseValidatorModel):
     sizeInGiB: int
 
 
-class EcsInferenceAcceleratorOverrideTypeDef(BaseValidatorModel):
+class EcsInferenceAcceleratorOverride(BaseValidatorModel):
     deviceName: Optional[str] = None
     deviceType: Optional[str] = None
 
 
-class FirehoseLogDestinationParametersTypeDef(BaseValidatorModel):
+class FirehoseLogDestinationParameters(BaseValidatorModel):
     DeliveryStreamArn: str
 
 
-class FirehoseLogDestinationTypeDef(BaseValidatorModel):
+class FirehoseLogDestination(BaseValidatorModel):
     DeliveryStreamArn: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListPipesRequestTypeDef(BaseValidatorModel):
+class ListPipesRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     DesiredState: Optional[RequestedPipeStateType] = None
     CurrentState: Optional[PipeStateType] = None
@@ -115,7 +115,7 @@ class ListPipesRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
-class PipeTypeDef(BaseValidatorModel):
+class Pipe(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     DesiredState: Optional[RequestedPipeStateType] = None
@@ -128,84 +128,84 @@ class PipeTypeDef(BaseValidatorModel):
     Enrichment: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class MQBrokerAccessCredentialsTypeDef(BaseValidatorModel):
+class MQBrokerAccessCredentials(BaseValidatorModel):
     BasicAuth: Optional[str] = None
 
 
-class MSKAccessCredentialsTypeDef(BaseValidatorModel):
+class MSKAccessCredentials(BaseValidatorModel):
     SaslScram512Auth: Optional[str] = None
     ClientCertificateTlsAuth: Optional[str] = None
 
 
-class MultiMeasureAttributeMappingTypeDef(BaseValidatorModel):
+class MultiMeasureAttributeMapping(BaseValidatorModel):
     MeasureValue: str
     MeasureValueType: MeasureValueTypeType
     MultiMeasureAttributeName: str
 
 
-class PipeEnrichmentHttpParametersOutputTypeDef(BaseValidatorModel):
+class PipeEnrichmentHttpParametersOutput(BaseValidatorModel):
     PathParameterValues: Optional[List[str]] = None
     HeaderParameters: Optional[Dict[str, str]] = None
     QueryStringParameters: Optional[Dict[str, str]] = None
 
 
-class PipeEnrichmentHttpParametersTypeDef(BaseValidatorModel):
+class PipeEnrichmentHttpParameters(BaseValidatorModel):
     PathParameterValues: Optional[Sequence[str]] = None
     HeaderParameters: Optional[Mapping[str, str]] = None
     QueryStringParameters: Optional[Mapping[str, str]] = None
 
 
-class S3LogDestinationParametersTypeDef(BaseValidatorModel):
+class S3LogDestinationParameters(BaseValidatorModel):
     BucketName: str
     BucketOwner: str
     OutputFormat: Optional[S3OutputFormatType] = None
     Prefix: Optional[str] = None
 
 
-class S3LogDestinationTypeDef(BaseValidatorModel):
+class S3LogDestination(BaseValidatorModel):
     BucketName: Optional[str] = None
     Prefix: Optional[str] = None
     BucketOwner: Optional[str] = None
     OutputFormat: Optional[S3OutputFormatType] = None
 
 
-class PipeSourceSqsQueueParametersTypeDef(BaseValidatorModel):
+class PipeSourceSqsQueueParameters(BaseValidatorModel):
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
 
 
-class SelfManagedKafkaAccessConfigurationCredentialsTypeDef(BaseValidatorModel):
+class SelfManagedKafkaAccessConfigurationCredentials(BaseValidatorModel):
     BasicAuth: Optional[str] = None
     SaslScram512Auth: Optional[str] = None
     SaslScram256Auth: Optional[str] = None
     ClientCertificateTlsAuth: Optional[str] = None
 
 
-class SelfManagedKafkaAccessConfigurationVpcOutputTypeDef(BaseValidatorModel):
+class SelfManagedKafkaAccessConfigurationVpcOutput(BaseValidatorModel):
     Subnets: Optional[List[str]] = None
     SecurityGroup: Optional[List[str]] = None
 
 
-class SelfManagedKafkaAccessConfigurationVpcTypeDef(BaseValidatorModel):
+class SelfManagedKafkaAccessConfigurationVpc(BaseValidatorModel):
     Subnets: Optional[Sequence[str]] = None
     SecurityGroup: Optional[Sequence[str]] = None
 
 
-class PipeTargetCloudWatchLogsParametersTypeDef(BaseValidatorModel):
+class PipeTargetCloudWatchLogsParameters(BaseValidatorModel):
     LogStreamName: Optional[str] = None
     Timestamp: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class PipeTargetEventBridgeEventBusParametersOutputTypeDef(BaseValidatorModel):
+class PipeTargetEventBridgeEventBusParametersOutput(BaseValidatorModel):
     EndpointId: Optional[str] = None
     DetailType: Optional[str] = None
     Source: Optional[str] = None
@@ -213,7 +213,7 @@ class PipeTargetEventBridgeEventBusParametersOutputTypeDef(BaseValidatorModel):
     Time: Optional[str] = None
 
 
-class PipeTargetEventBridgeEventBusParametersTypeDef(BaseValidatorModel):
+class PipeTargetEventBridgeEventBusParameters(BaseValidatorModel):
     EndpointId: Optional[str] = None
     DetailType: Optional[str] = None
     Source: Optional[str] = None
@@ -221,27 +221,27 @@ class PipeTargetEventBridgeEventBusParametersTypeDef(BaseValidatorModel):
     Time: Optional[str] = None
 
 
-class PipeTargetHttpParametersOutputTypeDef(BaseValidatorModel):
+class PipeTargetHttpParametersOutput(BaseValidatorModel):
     PathParameterValues: Optional[List[str]] = None
     HeaderParameters: Optional[Dict[str, str]] = None
     QueryStringParameters: Optional[Dict[str, str]] = None
 
 
-class PipeTargetHttpParametersTypeDef(BaseValidatorModel):
+class PipeTargetHttpParameters(BaseValidatorModel):
     PathParameterValues: Optional[Sequence[str]] = None
     HeaderParameters: Optional[Mapping[str, str]] = None
     QueryStringParameters: Optional[Mapping[str, str]] = None
 
 
-class PipeTargetKinesisStreamParametersTypeDef(BaseValidatorModel):
+class PipeTargetKinesisStreamParameters(BaseValidatorModel):
     PartitionKey: str
 
 
-class PipeTargetLambdaFunctionParametersTypeDef(BaseValidatorModel):
+class PipeTargetLambdaFunctionParameters(BaseValidatorModel):
     InvocationType: Optional[PipeTargetInvocationTypeType] = None
 
 
-class PipeTargetRedshiftDataParametersOutputTypeDef(BaseValidatorModel):
+class PipeTargetRedshiftDataParametersOutput(BaseValidatorModel):
     Database: str
     Sqls: List[str]
     SecretManagerArn: Optional[str] = None
@@ -250,16 +250,16 @@ class PipeTargetRedshiftDataParametersOutputTypeDef(BaseValidatorModel):
     WithEvent: Optional[bool] = None
 
 
-class PipeTargetSqsQueueParametersTypeDef(BaseValidatorModel):
+class PipeTargetSqsQueueParameters(BaseValidatorModel):
     MessageGroupId: Optional[str] = None
     MessageDeduplicationId: Optional[str] = None
 
 
-class PipeTargetStateMachineParametersTypeDef(BaseValidatorModel):
+class PipeTargetStateMachineParameters(BaseValidatorModel):
     InvocationType: Optional[PipeTargetInvocationTypeType] = None
 
 
-class PipeTargetRedshiftDataParametersTypeDef(BaseValidatorModel):
+class PipeTargetRedshiftDataParameters(BaseValidatorModel):
     Database: str
     Sqls: Sequence[str]
     SecretManagerArn: Optional[str] = None
@@ -268,125 +268,125 @@ class PipeTargetRedshiftDataParametersTypeDef(BaseValidatorModel):
     WithEvent: Optional[bool] = None
 
 
-class SageMakerPipelineParameterTypeDef(BaseValidatorModel):
+class SageMakerPipelineParameter(BaseValidatorModel):
     Name: str
     Value: str
 
 
-class SingleMeasureMappingTypeDef(BaseValidatorModel):
+class SingleMeasureMapping(BaseValidatorModel):
     MeasureValue: str
     MeasureValueType: MeasureValueTypeType
     MeasureName: str
 
 
-class StartPipeRequestTypeDef(BaseValidatorModel):
+class StartPipeRequest(BaseValidatorModel):
     Name: str
 
 
-class StopPipeRequestTypeDef(BaseValidatorModel):
+class StopPipeRequest(BaseValidatorModel):
     Name: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdatePipeSourceSqsQueueParametersTypeDef(BaseValidatorModel):
+class UpdatePipeSourceSqsQueueParameters(BaseValidatorModel):
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
 
 
-class NetworkConfigurationOutputTypeDef(BaseValidatorModel):
-    awsvpcConfiguration: Optional[AwsVpcConfigurationOutputTypeDef] = None
+class NetworkConfigurationOutput(BaseValidatorModel):
+    awsvpcConfiguration: Optional[AwsVpcConfigurationOutput] = None
 
 
-class NetworkConfigurationTypeDef(BaseValidatorModel):
-    awsvpcConfiguration: Optional[AwsVpcConfigurationTypeDef] = None
+class NetworkConfiguration(BaseValidatorModel):
+    awsvpcConfiguration: Optional[AwsVpcConfiguration] = None
 
 
-class BatchResourceRequirementTypeDef(BaseValidatorModel):
+class BatchResourceRequirement(BaseValidatorModel):
     pass
 
 
-class BatchContainerOverridesOutputTypeDef(BaseValidatorModel):
+class BatchContainerOverridesOutput(BaseValidatorModel):
     Command: Optional[List[str]] = None
-    Environment: Optional[List[BatchEnvironmentVariableTypeDef]] = None
+    Environment: Optional[List[BatchEnvironmentVariable]] = None
     InstanceType: Optional[str] = None
-    ResourceRequirements: Optional[List[BatchResourceRequirementTypeDef]] = None
+    ResourceRequirements: Optional[List[BatchResourceRequirement]] = None
 
 
-class BatchContainerOverridesTypeDef(BaseValidatorModel):
+class BatchContainerOverrides(BaseValidatorModel):
     Command: Optional[Sequence[str]] = None
-    Environment: Optional[Sequence[BatchEnvironmentVariableTypeDef]] = None
+    Environment: Optional[Sequence[BatchEnvironmentVariable]] = None
     InstanceType: Optional[str] = None
-    ResourceRequirements: Optional[Sequence[BatchResourceRequirementTypeDef]] = None
+    ResourceRequirements: Optional[Sequence[BatchResourceRequirement]] = None
 
 
-class CreatePipeResponseTypeDef(BaseValidatorModel):
+class CreatePipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
     DesiredState: RequestedPipeStateType
     CurrentState: PipeStateType
     CreationTime: datetime
     LastModifiedTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePipeResponseTypeDef(BaseValidatorModel):
+class DeletePipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
     DesiredState: RequestedPipeStateDescribeResponseType
     CurrentState: PipeStateType
     CreationTime: datetime
     LastModifiedTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartPipeResponseTypeDef(BaseValidatorModel):
+class StartPipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
     DesiredState: RequestedPipeStateType
     CurrentState: PipeStateType
     CreationTime: datetime
     LastModifiedTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopPipeResponseTypeDef(BaseValidatorModel):
+class StopPipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
     DesiredState: RequestedPipeStateType
     CurrentState: PipeStateType
     CreationTime: datetime
     LastModifiedTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePipeResponseTypeDef(BaseValidatorModel):
+class UpdatePipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
     DesiredState: RequestedPipeStateType
     CurrentState: PipeStateType
     CreationTime: datetime
     LastModifiedTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PipeSourceDynamoDBStreamParametersTypeDef(BaseValidatorModel):
+class PipeSourceDynamoDBStreamParameters(BaseValidatorModel):
     StartingPosition: DynamoDBStreamStartPositionType
     BatchSize: Optional[int] = None
-    DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
+    DeadLetterConfig: Optional[DeadLetterConfig] = None
     OnPartialBatchItemFailure: Optional[Literal["AUTOMATIC_BISECT"]] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     MaximumRecordAgeInSeconds: Optional[int] = None
@@ -394,10 +394,10 @@ class PipeSourceDynamoDBStreamParametersTypeDef(BaseValidatorModel):
     ParallelizationFactor: Optional[int] = None
 
 
-class PipeSourceKinesisStreamParametersOutputTypeDef(BaseValidatorModel):
+class PipeSourceKinesisStreamParametersOutput(BaseValidatorModel):
     StartingPosition: KinesisStreamStartPositionType
     BatchSize: Optional[int] = None
-    DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
+    DeadLetterConfig: Optional[DeadLetterConfig] = None
     OnPartialBatchItemFailure: Optional[Literal["AUTOMATIC_BISECT"]] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     MaximumRecordAgeInSeconds: Optional[int] = None
@@ -406,9 +406,9 @@ class PipeSourceKinesisStreamParametersOutputTypeDef(BaseValidatorModel):
     StartingPositionTimestamp: Optional[datetime] = None
 
 
-class UpdatePipeSourceDynamoDBStreamParametersTypeDef(BaseValidatorModel):
+class UpdatePipeSourceDynamoDBStreamParameters(BaseValidatorModel):
     BatchSize: Optional[int] = None
-    DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
+    DeadLetterConfig: Optional[DeadLetterConfig] = None
     OnPartialBatchItemFailure: Optional[Literal["AUTOMATIC_BISECT"]] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     MaximumRecordAgeInSeconds: Optional[int] = None
@@ -416,9 +416,9 @@ class UpdatePipeSourceDynamoDBStreamParametersTypeDef(BaseValidatorModel):
     ParallelizationFactor: Optional[int] = None
 
 
-class UpdatePipeSourceKinesisStreamParametersTypeDef(BaseValidatorModel):
+class UpdatePipeSourceKinesisStreamParameters(BaseValidatorModel):
     BatchSize: Optional[int] = None
-    DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
+    DeadLetterConfig: Optional[DeadLetterConfig] = None
     OnPartialBatchItemFailure: Optional[Literal["AUTOMATIC_BISECT"]] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     MaximumRecordAgeInSeconds: Optional[int] = None
@@ -426,381 +426,381 @@ class UpdatePipeSourceKinesisStreamParametersTypeDef(BaseValidatorModel):
     ParallelizationFactor: Optional[int] = None
 
 
-class EcsResourceRequirementTypeDef(BaseValidatorModel):
+class EcsResourceRequirement(BaseValidatorModel):
     pass
 
 
-class EcsEnvironmentFileTypeDef(BaseValidatorModel):
+class EcsEnvironmentFile(BaseValidatorModel):
     pass
 
 
-class EcsContainerOverrideOutputTypeDef(BaseValidatorModel):
+class EcsContainerOverrideOutput(BaseValidatorModel):
     Command: Optional[List[str]] = None
     Cpu: Optional[int] = None
-    Environment: Optional[List[EcsEnvironmentVariableTypeDef]] = None
-    EnvironmentFiles: Optional[List[EcsEnvironmentFileTypeDef]] = None
+    Environment: Optional[List[EcsEnvironmentVariable]] = None
+    EnvironmentFiles: Optional[List[EcsEnvironmentFile]] = None
     Memory: Optional[int] = None
     MemoryReservation: Optional[int] = None
     Name: Optional[str] = None
-    ResourceRequirements: Optional[List[EcsResourceRequirementTypeDef]] = None
+    ResourceRequirements: Optional[List[EcsResourceRequirement]] = None
 
 
-class EcsContainerOverrideTypeDef(BaseValidatorModel):
+class EcsContainerOverride(BaseValidatorModel):
     Command: Optional[Sequence[str]] = None
     Cpu: Optional[int] = None
-    Environment: Optional[Sequence[EcsEnvironmentVariableTypeDef]] = None
-    EnvironmentFiles: Optional[Sequence[EcsEnvironmentFileTypeDef]] = None
+    Environment: Optional[Sequence[EcsEnvironmentVariable]] = None
+    EnvironmentFiles: Optional[Sequence[EcsEnvironmentFile]] = None
     Memory: Optional[int] = None
     MemoryReservation: Optional[int] = None
     Name: Optional[str] = None
-    ResourceRequirements: Optional[Sequence[EcsResourceRequirementTypeDef]] = None
+    ResourceRequirements: Optional[Sequence[EcsResourceRequirement]] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     pass
 
 
-class FilterCriteriaOutputTypeDef(BaseValidatorModel):
-    Filters: Optional[List[FilterTypeDef]] = None
+class FilterCriteriaOutput(BaseValidatorModel):
+    Filters: Optional[List[Filter]] = None
 
 
-class FilterCriteriaTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class FilterCriteria(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class ListPipesRequestPaginateTypeDef(BaseValidatorModel):
+class ListPipesRequestPaginate(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     DesiredState: Optional[RequestedPipeStateType] = None
     CurrentState: Optional[PipeStateType] = None
     SourcePrefix: Optional[str] = None
     TargetPrefix: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPipesResponseTypeDef(BaseValidatorModel):
-    Pipes: List[PipeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPipesResponse(BaseValidatorModel):
+    Pipes: List[Pipe]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PipeSourceActiveMQBrokerParametersTypeDef(BaseValidatorModel):
-    Credentials: MQBrokerAccessCredentialsTypeDef
+class PipeSourceActiveMQBrokerParameters(BaseValidatorModel):
+    Credentials: MQBrokerAccessCredentials
     QueueName: str
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
 
 
-class PipeSourceRabbitMQBrokerParametersTypeDef(BaseValidatorModel):
-    Credentials: MQBrokerAccessCredentialsTypeDef
+class PipeSourceRabbitMQBrokerParameters(BaseValidatorModel):
+    Credentials: MQBrokerAccessCredentials
     QueueName: str
     VirtualHost: Optional[str] = None
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
 
 
-class UpdatePipeSourceActiveMQBrokerParametersTypeDef(BaseValidatorModel):
-    Credentials: MQBrokerAccessCredentialsTypeDef
+class UpdatePipeSourceActiveMQBrokerParameters(BaseValidatorModel):
+    Credentials: MQBrokerAccessCredentials
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
 
 
-class UpdatePipeSourceRabbitMQBrokerParametersTypeDef(BaseValidatorModel):
-    Credentials: MQBrokerAccessCredentialsTypeDef
+class UpdatePipeSourceRabbitMQBrokerParameters(BaseValidatorModel):
+    Credentials: MQBrokerAccessCredentials
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
 
 
-class PipeSourceManagedStreamingKafkaParametersTypeDef(BaseValidatorModel):
+class PipeSourceManagedStreamingKafkaParameters(BaseValidatorModel):
     TopicName: str
     StartingPosition: Optional[MSKStartPositionType] = None
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     ConsumerGroupID: Optional[str] = None
-    Credentials: Optional[MSKAccessCredentialsTypeDef] = None
+    Credentials: Optional[MSKAccessCredentials] = None
 
 
-class UpdatePipeSourceManagedStreamingKafkaParametersTypeDef(BaseValidatorModel):
+class UpdatePipeSourceManagedStreamingKafkaParameters(BaseValidatorModel):
     BatchSize: Optional[int] = None
-    Credentials: Optional[MSKAccessCredentialsTypeDef] = None
+    Credentials: Optional[MSKAccessCredentials] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
 
 
-class MultiMeasureMappingOutputTypeDef(BaseValidatorModel):
+class MultiMeasureMappingOutput(BaseValidatorModel):
     MultiMeasureName: str
-    MultiMeasureAttributeMappings: List[MultiMeasureAttributeMappingTypeDef]
+    MultiMeasureAttributeMappings: List[MultiMeasureAttributeMapping]
 
 
-class MultiMeasureMappingTypeDef(BaseValidatorModel):
+class MultiMeasureMapping(BaseValidatorModel):
     MultiMeasureName: str
-    MultiMeasureAttributeMappings: Sequence[MultiMeasureAttributeMappingTypeDef]
+    MultiMeasureAttributeMappings: Sequence[MultiMeasureAttributeMapping]
 
 
-class PipeEnrichmentParametersOutputTypeDef(BaseValidatorModel):
+class PipeEnrichmentParametersOutput(BaseValidatorModel):
     InputTemplate: Optional[str] = None
-    HttpParameters: Optional[PipeEnrichmentHttpParametersOutputTypeDef] = None
+    HttpParameters: Optional[PipeEnrichmentHttpParametersOutput] = None
 
 
-class PipeEnrichmentParametersTypeDef(BaseValidatorModel):
+class PipeEnrichmentParameters(BaseValidatorModel):
     InputTemplate: Optional[str] = None
-    HttpParameters: Optional[PipeEnrichmentHttpParametersTypeDef] = None
+    HttpParameters: Optional[PipeEnrichmentHttpParameters] = None
 
 
-class PipeLogConfigurationParametersTypeDef(BaseValidatorModel):
+class PipeLogConfigurationParameters(BaseValidatorModel):
     Level: LogLevelType
-    S3LogDestination: Optional[S3LogDestinationParametersTypeDef] = None
-    FirehoseLogDestination: Optional[FirehoseLogDestinationParametersTypeDef] = None
-    CloudwatchLogsLogDestination: Optional[CloudwatchLogsLogDestinationParametersTypeDef] = None
+    S3LogDestination: Optional[S3LogDestinationParameters] = None
+    FirehoseLogDestination: Optional[FirehoseLogDestinationParameters] = None
+    CloudwatchLogsLogDestination: Optional[CloudwatchLogsLogDestinationParameters] = None
     IncludeExecutionData: Optional[Sequence[Literal["ALL"]]] = None
 
 
-class PipeLogConfigurationTypeDef(BaseValidatorModel):
-    S3LogDestination: Optional[S3LogDestinationTypeDef] = None
-    FirehoseLogDestination: Optional[FirehoseLogDestinationTypeDef] = None
-    CloudwatchLogsLogDestination: Optional[CloudwatchLogsLogDestinationTypeDef] = None
+class PipeLogConfiguration(BaseValidatorModel):
+    S3LogDestination: Optional[S3LogDestination] = None
+    FirehoseLogDestination: Optional[FirehoseLogDestination] = None
+    CloudwatchLogsLogDestination: Optional[CloudwatchLogsLogDestination] = None
     Level: Optional[LogLevelType] = None
     IncludeExecutionData: Optional[List[Literal["ALL"]]] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class PipeSourceKinesisStreamParametersTypeDef(BaseValidatorModel):
+class PipeSourceKinesisStreamParameters(BaseValidatorModel):
     StartingPosition: KinesisStreamStartPositionType
     BatchSize: Optional[int] = None
-    DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
+    DeadLetterConfig: Optional[DeadLetterConfig] = None
     OnPartialBatchItemFailure: Optional[Literal["AUTOMATIC_BISECT"]] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     MaximumRecordAgeInSeconds: Optional[int] = None
     MaximumRetryAttempts: Optional[int] = None
     ParallelizationFactor: Optional[int] = None
-    StartingPositionTimestamp: Optional[TimestampTypeDef] = None
+    StartingPositionTimestamp: Optional[Timestamp] = None
 
 
-class PipeSourceSelfManagedKafkaParametersOutputTypeDef(BaseValidatorModel):
+class PipeSourceSelfManagedKafkaParametersOutput(BaseValidatorModel):
     TopicName: str
     StartingPosition: Optional[SelfManagedKafkaStartPositionType] = None
     AdditionalBootstrapServers: Optional[List[str]] = None
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     ConsumerGroupID: Optional[str] = None
-    Credentials: Optional[SelfManagedKafkaAccessConfigurationCredentialsTypeDef] = None
+    Credentials: Optional[SelfManagedKafkaAccessConfigurationCredentials] = None
     ServerRootCaCertificate: Optional[str] = None
-    Vpc: Optional[SelfManagedKafkaAccessConfigurationVpcOutputTypeDef] = None
+    Vpc: Optional[SelfManagedKafkaAccessConfigurationVpcOutput] = None
 
 
-class PipeSourceSelfManagedKafkaParametersTypeDef(BaseValidatorModel):
+class PipeSourceSelfManagedKafkaParameters(BaseValidatorModel):
     TopicName: str
     StartingPosition: Optional[SelfManagedKafkaStartPositionType] = None
     AdditionalBootstrapServers: Optional[Sequence[str]] = None
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     ConsumerGroupID: Optional[str] = None
-    Credentials: Optional[SelfManagedKafkaAccessConfigurationCredentialsTypeDef] = None
+    Credentials: Optional[SelfManagedKafkaAccessConfigurationCredentials] = None
     ServerRootCaCertificate: Optional[str] = None
-    Vpc: Optional[SelfManagedKafkaAccessConfigurationVpcTypeDef] = None
+    Vpc: Optional[SelfManagedKafkaAccessConfigurationVpc] = None
 
 
-class PipeTargetSageMakerPipelineParametersOutputTypeDef(BaseValidatorModel):
-    PipelineParameterList: Optional[List[SageMakerPipelineParameterTypeDef]] = None
+class PipeTargetSageMakerPipelineParametersOutput(BaseValidatorModel):
+    PipelineParameterList: Optional[List[SageMakerPipelineParameter]] = None
 
 
-class PipeTargetSageMakerPipelineParametersTypeDef(BaseValidatorModel):
-    PipelineParameterList: Optional[Sequence[SageMakerPipelineParameterTypeDef]] = None
+class PipeTargetSageMakerPipelineParameters(BaseValidatorModel):
+    PipelineParameterList: Optional[Sequence[SageMakerPipelineParameter]] = None
 
 
-class BatchJobDependencyTypeDef(BaseValidatorModel):
+class BatchJobDependency(BaseValidatorModel):
     pass
 
 
-class PipeTargetBatchJobParametersOutputTypeDef(BaseValidatorModel):
+class PipeTargetBatchJobParametersOutput(BaseValidatorModel):
     JobDefinition: str
     JobName: str
-    ArrayProperties: Optional[BatchArrayPropertiesTypeDef] = None
-    RetryStrategy: Optional[BatchRetryStrategyTypeDef] = None
-    ContainerOverrides: Optional[BatchContainerOverridesOutputTypeDef] = None
-    DependsOn: Optional[List[BatchJobDependencyTypeDef]] = None
+    ArrayProperties: Optional[BatchArrayProperties] = None
+    RetryStrategy: Optional[BatchRetryStrategy] = None
+    ContainerOverrides: Optional[BatchContainerOverridesOutput] = None
+    DependsOn: Optional[List[BatchJobDependency]] = None
     Parameters: Optional[Dict[str, str]] = None
 
 
-class PipeTargetBatchJobParametersTypeDef(BaseValidatorModel):
+class PipeTargetBatchJobParameters(BaseValidatorModel):
     JobDefinition: str
     JobName: str
-    ArrayProperties: Optional[BatchArrayPropertiesTypeDef] = None
-    RetryStrategy: Optional[BatchRetryStrategyTypeDef] = None
-    ContainerOverrides: Optional[BatchContainerOverridesTypeDef] = None
-    DependsOn: Optional[Sequence[BatchJobDependencyTypeDef]] = None
+    ArrayProperties: Optional[BatchArrayProperties] = None
+    RetryStrategy: Optional[BatchRetryStrategy] = None
+    ContainerOverrides: Optional[BatchContainerOverrides] = None
+    DependsOn: Optional[Sequence[BatchJobDependency]] = None
     Parameters: Optional[Mapping[str, str]] = None
 
 
-class EcsTaskOverrideOutputTypeDef(BaseValidatorModel):
-    ContainerOverrides: Optional[List[EcsContainerOverrideOutputTypeDef]] = None
+class EcsTaskOverrideOutput(BaseValidatorModel):
+    ContainerOverrides: Optional[List[EcsContainerOverrideOutput]] = None
     Cpu: Optional[str] = None
-    EphemeralStorage: Optional[EcsEphemeralStorageTypeDef] = None
+    EphemeralStorage: Optional[EcsEphemeralStorage] = None
     ExecutionRoleArn: Optional[str] = None
-    InferenceAcceleratorOverrides: Optional[List[EcsInferenceAcceleratorOverrideTypeDef]] = None
+    InferenceAcceleratorOverrides: Optional[List[EcsInferenceAcceleratorOverride]] = None
     Memory: Optional[str] = None
     TaskRoleArn: Optional[str] = None
 
 
-class EcsTaskOverrideTypeDef(BaseValidatorModel):
-    ContainerOverrides: Optional[Sequence[EcsContainerOverrideTypeDef]] = None
+class EcsTaskOverride(BaseValidatorModel):
+    ContainerOverrides: Optional[Sequence[EcsContainerOverride]] = None
     Cpu: Optional[str] = None
-    EphemeralStorage: Optional[EcsEphemeralStorageTypeDef] = None
+    EphemeralStorage: Optional[EcsEphemeralStorage] = None
     ExecutionRoleArn: Optional[str] = None
-    InferenceAcceleratorOverrides: Optional[Sequence[EcsInferenceAcceleratorOverrideTypeDef]] = None
+    InferenceAcceleratorOverrides: Optional[Sequence[EcsInferenceAcceleratorOverride]] = None
     Memory: Optional[str] = None
     TaskRoleArn: Optional[str] = None
 
 
-class PipeTargetTimestreamParametersOutputTypeDef(BaseValidatorModel):
+class PipeTargetTimestreamParametersOutput(BaseValidatorModel):
     TimeValue: str
     VersionValue: str
-    DimensionMappings: List[DimensionMappingTypeDef]
+    DimensionMappings: List[DimensionMapping]
     EpochTimeUnit: Optional[EpochTimeUnitType] = None
     TimeFieldType: Optional[TimeFieldTypeType] = None
     TimestampFormat: Optional[str] = None
-    SingleMeasureMappings: Optional[List[SingleMeasureMappingTypeDef]] = None
-    MultiMeasureMappings: Optional[List[MultiMeasureMappingOutputTypeDef]] = None
+    SingleMeasureMappings: Optional[List[SingleMeasureMapping]] = None
+    MultiMeasureMappings: Optional[List[MultiMeasureMappingOutput]] = None
 
 
-class PipeTargetTimestreamParametersTypeDef(BaseValidatorModel):
+class PipeTargetTimestreamParameters(BaseValidatorModel):
     TimeValue: str
     VersionValue: str
-    DimensionMappings: Sequence[DimensionMappingTypeDef]
+    DimensionMappings: Sequence[DimensionMapping]
     EpochTimeUnit: Optional[EpochTimeUnitType] = None
     TimeFieldType: Optional[TimeFieldTypeType] = None
     TimestampFormat: Optional[str] = None
-    SingleMeasureMappings: Optional[Sequence[SingleMeasureMappingTypeDef]] = None
-    MultiMeasureMappings: Optional[Sequence[MultiMeasureMappingTypeDef]] = None
+    SingleMeasureMappings: Optional[Sequence[SingleMeasureMapping]] = None
+    MultiMeasureMappings: Optional[Sequence[MultiMeasureMapping]] = None
 
 
-class PipeSourceParametersOutputTypeDef(BaseValidatorModel):
-    FilterCriteria: Optional[FilterCriteriaOutputTypeDef] = None
-    KinesisStreamParameters: Optional[PipeSourceKinesisStreamParametersOutputTypeDef] = None
-    DynamoDBStreamParameters: Optional[PipeSourceDynamoDBStreamParametersTypeDef] = None
-    SqsQueueParameters: Optional[PipeSourceSqsQueueParametersTypeDef] = None
-    ActiveMQBrokerParameters: Optional[PipeSourceActiveMQBrokerParametersTypeDef] = None
-    RabbitMQBrokerParameters: Optional[PipeSourceRabbitMQBrokerParametersTypeDef] = None
-    ManagedStreamingKafkaParameters: Optional[PipeSourceManagedStreamingKafkaParametersTypeDef] = None
-    SelfManagedKafkaParameters: Optional[PipeSourceSelfManagedKafkaParametersOutputTypeDef] = None
+class PipeSourceParametersOutput(BaseValidatorModel):
+    FilterCriteria: Optional[FilterCriteriaOutput] = None
+    KinesisStreamParameters: Optional[PipeSourceKinesisStreamParametersOutput] = None
+    DynamoDBStreamParameters: Optional[PipeSourceDynamoDBStreamParameters] = None
+    SqsQueueParameters: Optional[PipeSourceSqsQueueParameters] = None
+    ActiveMQBrokerParameters: Optional[PipeSourceActiveMQBrokerParameters] = None
+    RabbitMQBrokerParameters: Optional[PipeSourceRabbitMQBrokerParameters] = None
+    ManagedStreamingKafkaParameters: Optional[PipeSourceManagedStreamingKafkaParameters] = None
+    SelfManagedKafkaParameters: Optional[PipeSourceSelfManagedKafkaParametersOutput] = None
 
 
-class PipeSourceParametersTypeDef(BaseValidatorModel):
-    FilterCriteria: Optional[FilterCriteriaTypeDef] = None
-    KinesisStreamParameters: Optional[PipeSourceKinesisStreamParametersTypeDef] = None
-    DynamoDBStreamParameters: Optional[PipeSourceDynamoDBStreamParametersTypeDef] = None
-    SqsQueueParameters: Optional[PipeSourceSqsQueueParametersTypeDef] = None
-    ActiveMQBrokerParameters: Optional[PipeSourceActiveMQBrokerParametersTypeDef] = None
-    RabbitMQBrokerParameters: Optional[PipeSourceRabbitMQBrokerParametersTypeDef] = None
-    ManagedStreamingKafkaParameters: Optional[PipeSourceManagedStreamingKafkaParametersTypeDef] = None
-    SelfManagedKafkaParameters: Optional[PipeSourceSelfManagedKafkaParametersTypeDef] = None
+class PipeSourceParameters(BaseValidatorModel):
+    FilterCriteria: Optional[FilterCriteria] = None
+    KinesisStreamParameters: Optional[PipeSourceKinesisStreamParameters] = None
+    DynamoDBStreamParameters: Optional[PipeSourceDynamoDBStreamParameters] = None
+    SqsQueueParameters: Optional[PipeSourceSqsQueueParameters] = None
+    ActiveMQBrokerParameters: Optional[PipeSourceActiveMQBrokerParameters] = None
+    RabbitMQBrokerParameters: Optional[PipeSourceRabbitMQBrokerParameters] = None
+    ManagedStreamingKafkaParameters: Optional[PipeSourceManagedStreamingKafkaParameters] = None
+    SelfManagedKafkaParameters: Optional[PipeSourceSelfManagedKafkaParameters] = None
 
 
-class SelfManagedKafkaAccessConfigurationVpcUnionTypeDef(BaseValidatorModel):
+class SelfManagedKafkaAccessConfigurationVpcUnion(BaseValidatorModel):
     pass
 
 
-class UpdatePipeSourceSelfManagedKafkaParametersTypeDef(BaseValidatorModel):
+class UpdatePipeSourceSelfManagedKafkaParameters(BaseValidatorModel):
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
-    Credentials: Optional[SelfManagedKafkaAccessConfigurationCredentialsTypeDef] = None
+    Credentials: Optional[SelfManagedKafkaAccessConfigurationCredentials] = None
     ServerRootCaCertificate: Optional[str] = None
-    Vpc: Optional[SelfManagedKafkaAccessConfigurationVpcUnionTypeDef] = None
+    Vpc: Optional[SelfManagedKafkaAccessConfigurationVpcUnion] = None
 
 
-class PlacementStrategyTypeDef(BaseValidatorModel):
+class PlacementStrategy(BaseValidatorModel):
     pass
 
 
-class PlacementConstraintTypeDef(BaseValidatorModel):
+class PlacementConstraint(BaseValidatorModel):
     pass
 
 
-class PipeTargetEcsTaskParametersOutputTypeDef(BaseValidatorModel):
+class PipeTargetEcsTaskParametersOutput(BaseValidatorModel):
     TaskDefinitionArn: str
     TaskCount: Optional[int] = None
     LaunchType: Optional[LaunchTypeType] = None
-    NetworkConfiguration: Optional[NetworkConfigurationOutputTypeDef] = None
+    NetworkConfiguration: Optional[NetworkConfigurationOutput] = None
     PlatformVersion: Optional[str] = None
     Group: Optional[str] = None
-    CapacityProviderStrategy: Optional[List[CapacityProviderStrategyItemTypeDef]] = None
+    CapacityProviderStrategy: Optional[List[CapacityProviderStrategyItem]] = None
     EnableECSManagedTags: Optional[bool] = None
     EnableExecuteCommand: Optional[bool] = None
-    PlacementConstraints: Optional[List[PlacementConstraintTypeDef]] = None
-    PlacementStrategy: Optional[List[PlacementStrategyTypeDef]] = None
+    PlacementConstraints: Optional[List[PlacementConstraint]] = None
+    PlacementStrategy: Optional[List[PlacementStrategy]] = None
     PropagateTags: Optional[Literal["TASK_DEFINITION"]] = None
     ReferenceId: Optional[str] = None
-    Overrides: Optional[EcsTaskOverrideOutputTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Overrides: Optional[EcsTaskOverrideOutput] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class PipeTargetEcsTaskParametersTypeDef(BaseValidatorModel):
+class PipeTargetEcsTaskParameters(BaseValidatorModel):
     TaskDefinitionArn: str
     TaskCount: Optional[int] = None
     LaunchType: Optional[LaunchTypeType] = None
-    NetworkConfiguration: Optional[NetworkConfigurationTypeDef] = None
+    NetworkConfiguration: Optional[NetworkConfiguration] = None
     PlatformVersion: Optional[str] = None
     Group: Optional[str] = None
-    CapacityProviderStrategy: Optional[Sequence[CapacityProviderStrategyItemTypeDef]] = None
+    CapacityProviderStrategy: Optional[Sequence[CapacityProviderStrategyItem]] = None
     EnableECSManagedTags: Optional[bool] = None
     EnableExecuteCommand: Optional[bool] = None
-    PlacementConstraints: Optional[Sequence[PlacementConstraintTypeDef]] = None
-    PlacementStrategy: Optional[Sequence[PlacementStrategyTypeDef]] = None
+    PlacementConstraints: Optional[Sequence[PlacementConstraint]] = None
+    PlacementStrategy: Optional[Sequence[PlacementStrategy]] = None
     PropagateTags: Optional[Literal["TASK_DEFINITION"]] = None
     ReferenceId: Optional[str] = None
-    Overrides: Optional[EcsTaskOverrideTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Overrides: Optional[EcsTaskOverride] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class FilterCriteriaUnionTypeDef(BaseValidatorModel):
+class FilterCriteriaUnion(BaseValidatorModel):
     pass
 
 
-class UpdatePipeSourceParametersTypeDef(BaseValidatorModel):
-    FilterCriteria: Optional[FilterCriteriaUnionTypeDef] = None
-    KinesisStreamParameters: Optional[UpdatePipeSourceKinesisStreamParametersTypeDef] = None
-    DynamoDBStreamParameters: Optional[UpdatePipeSourceDynamoDBStreamParametersTypeDef] = None
-    SqsQueueParameters: Optional[UpdatePipeSourceSqsQueueParametersTypeDef] = None
-    ActiveMQBrokerParameters: Optional[UpdatePipeSourceActiveMQBrokerParametersTypeDef] = None
-    RabbitMQBrokerParameters: Optional[UpdatePipeSourceRabbitMQBrokerParametersTypeDef] = None
-    ManagedStreamingKafkaParameters: Optional[ UpdatePipeSourceManagedStreamingKafkaParametersTypeDef ] = None
-    SelfManagedKafkaParameters: Optional[UpdatePipeSourceSelfManagedKafkaParametersTypeDef] = None
+class UpdatePipeSourceParameters(BaseValidatorModel):
+    FilterCriteria: Optional[FilterCriteriaUnion] = None
+    KinesisStreamParameters: Optional[UpdatePipeSourceKinesisStreamParameters] = None
+    DynamoDBStreamParameters: Optional[UpdatePipeSourceDynamoDBStreamParameters] = None
+    SqsQueueParameters: Optional[UpdatePipeSourceSqsQueueParameters] = None
+    ActiveMQBrokerParameters: Optional[UpdatePipeSourceActiveMQBrokerParameters] = None
+    RabbitMQBrokerParameters: Optional[UpdatePipeSourceRabbitMQBrokerParameters] = None
+    ManagedStreamingKafkaParameters: Optional[ UpdatePipeSourceManagedStreamingKafkaParameters ] = None
+    SelfManagedKafkaParameters: Optional[UpdatePipeSourceSelfManagedKafkaParameters] = None
 
 
-class PipeTargetParametersOutputTypeDef(BaseValidatorModel):
+class PipeTargetParametersOutput(BaseValidatorModel):
     InputTemplate: Optional[str] = None
-    LambdaFunctionParameters: Optional[PipeTargetLambdaFunctionParametersTypeDef] = None
-    StepFunctionStateMachineParameters: Optional[PipeTargetStateMachineParametersTypeDef] = None
-    KinesisStreamParameters: Optional[PipeTargetKinesisStreamParametersTypeDef] = None
-    EcsTaskParameters: Optional[PipeTargetEcsTaskParametersOutputTypeDef] = None
-    BatchJobParameters: Optional[PipeTargetBatchJobParametersOutputTypeDef] = None
-    SqsQueueParameters: Optional[PipeTargetSqsQueueParametersTypeDef] = None
-    HttpParameters: Optional[PipeTargetHttpParametersOutputTypeDef] = None
-    RedshiftDataParameters: Optional[PipeTargetRedshiftDataParametersOutputTypeDef] = None
-    SageMakerPipelineParameters: Optional[PipeTargetSageMakerPipelineParametersOutputTypeDef] = None
-    EventBridgeEventBusParameters: Optional[PipeTargetEventBridgeEventBusParametersOutputTypeDef] = None
-    CloudWatchLogsParameters: Optional[PipeTargetCloudWatchLogsParametersTypeDef] = None
-    TimestreamParameters: Optional[PipeTargetTimestreamParametersOutputTypeDef] = None
+    LambdaFunctionParameters: Optional[PipeTargetLambdaFunctionParameters] = None
+    StepFunctionStateMachineParameters: Optional[PipeTargetStateMachineParameters] = None
+    KinesisStreamParameters: Optional[PipeTargetKinesisStreamParameters] = None
+    EcsTaskParameters: Optional[PipeTargetEcsTaskParametersOutput] = None
+    BatchJobParameters: Optional[PipeTargetBatchJobParametersOutput] = None
+    SqsQueueParameters: Optional[PipeTargetSqsQueueParameters] = None
+    HttpParameters: Optional[PipeTargetHttpParametersOutput] = None
+    RedshiftDataParameters: Optional[PipeTargetRedshiftDataParametersOutput] = None
+    SageMakerPipelineParameters: Optional[PipeTargetSageMakerPipelineParametersOutput] = None
+    EventBridgeEventBusParameters: Optional[PipeTargetEventBridgeEventBusParametersOutput] = None
+    CloudWatchLogsParameters: Optional[PipeTargetCloudWatchLogsParameters] = None
+    TimestreamParameters: Optional[PipeTargetTimestreamParametersOutput] = None
 
 
-class PipeTargetParametersTypeDef(BaseValidatorModel):
+class PipeTargetParameters(BaseValidatorModel):
     InputTemplate: Optional[str] = None
-    LambdaFunctionParameters: Optional[PipeTargetLambdaFunctionParametersTypeDef] = None
-    StepFunctionStateMachineParameters: Optional[PipeTargetStateMachineParametersTypeDef] = None
-    KinesisStreamParameters: Optional[PipeTargetKinesisStreamParametersTypeDef] = None
-    EcsTaskParameters: Optional[PipeTargetEcsTaskParametersTypeDef] = None
-    BatchJobParameters: Optional[PipeTargetBatchJobParametersTypeDef] = None
-    SqsQueueParameters: Optional[PipeTargetSqsQueueParametersTypeDef] = None
-    HttpParameters: Optional[PipeTargetHttpParametersTypeDef] = None
-    RedshiftDataParameters: Optional[PipeTargetRedshiftDataParametersTypeDef] = None
-    SageMakerPipelineParameters: Optional[PipeTargetSageMakerPipelineParametersTypeDef] = None
-    EventBridgeEventBusParameters: Optional[PipeTargetEventBridgeEventBusParametersTypeDef] = None
-    CloudWatchLogsParameters: Optional[PipeTargetCloudWatchLogsParametersTypeDef] = None
-    TimestreamParameters: Optional[PipeTargetTimestreamParametersTypeDef] = None
+    LambdaFunctionParameters: Optional[PipeTargetLambdaFunctionParameters] = None
+    StepFunctionStateMachineParameters: Optional[PipeTargetStateMachineParameters] = None
+    KinesisStreamParameters: Optional[PipeTargetKinesisStreamParameters] = None
+    EcsTaskParameters: Optional[PipeTargetEcsTaskParameters] = None
+    BatchJobParameters: Optional[PipeTargetBatchJobParameters] = None
+    SqsQueueParameters: Optional[PipeTargetSqsQueueParameters] = None
+    HttpParameters: Optional[PipeTargetHttpParameters] = None
+    RedshiftDataParameters: Optional[PipeTargetRedshiftDataParameters] = None
+    SageMakerPipelineParameters: Optional[PipeTargetSageMakerPipelineParameters] = None
+    EventBridgeEventBusParameters: Optional[PipeTargetEventBridgeEventBusParameters] = None
+    CloudWatchLogsParameters: Optional[PipeTargetCloudWatchLogsParameters] = None
+    TimestreamParameters: Optional[PipeTargetTimestreamParameters] = None
 
 
-class DescribePipeResponseTypeDef(BaseValidatorModel):
+class DescribePipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
     Description: str
@@ -808,59 +808,59 @@ class DescribePipeResponseTypeDef(BaseValidatorModel):
     CurrentState: PipeStateType
     StateReason: str
     Source: str
-    SourceParameters: PipeSourceParametersOutputTypeDef
+    SourceParameters: PipeSourceParametersOutput
     Enrichment: str
-    EnrichmentParameters: PipeEnrichmentParametersOutputTypeDef
+    EnrichmentParameters: PipeEnrichmentParametersOutput
     Target: str
-    TargetParameters: PipeTargetParametersOutputTypeDef
+    TargetParameters: PipeTargetParametersOutput
     RoleArn: str
     Tags: Dict[str, str]
     CreationTime: datetime
     LastModifiedTime: datetime
-    LogConfiguration: PipeLogConfigurationTypeDef
+    LogConfiguration: PipeLogConfiguration
     KmsKeyIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PipeEnrichmentParametersUnionTypeDef(BaseValidatorModel):
+class PipeEnrichmentParametersUnion(BaseValidatorModel):
     pass
 
 
-class PipeTargetParametersUnionTypeDef(BaseValidatorModel):
+class PipeTargetParametersUnion(BaseValidatorModel):
     pass
 
 
-class PipeSourceParametersUnionTypeDef(BaseValidatorModel):
+class PipeSourceParametersUnion(BaseValidatorModel):
     pass
 
 
-class CreatePipeRequestTypeDef(BaseValidatorModel):
+class CreatePipeRequest(BaseValidatorModel):
     Name: str
     Source: str
     Target: str
     RoleArn: str
     Description: Optional[str] = None
     DesiredState: Optional[RequestedPipeStateType] = None
-    SourceParameters: Optional[PipeSourceParametersUnionTypeDef] = None
+    SourceParameters: Optional[PipeSourceParametersUnion] = None
     Enrichment: Optional[str] = None
-    EnrichmentParameters: Optional[PipeEnrichmentParametersUnionTypeDef] = None
-    TargetParameters: Optional[PipeTargetParametersUnionTypeDef] = None
+    EnrichmentParameters: Optional[PipeEnrichmentParametersUnion] = None
+    TargetParameters: Optional[PipeTargetParametersUnion] = None
     Tags: Optional[Mapping[str, str]] = None
-    LogConfiguration: Optional[PipeLogConfigurationParametersTypeDef] = None
+    LogConfiguration: Optional[PipeLogConfigurationParameters] = None
     KmsKeyIdentifier: Optional[str] = None
 
 
-class UpdatePipeRequestTypeDef(BaseValidatorModel):
+class UpdatePipeRequest(BaseValidatorModel):
     Name: str
     RoleArn: str
     Description: Optional[str] = None
     DesiredState: Optional[RequestedPipeStateType] = None
-    SourceParameters: Optional[UpdatePipeSourceParametersTypeDef] = None
+    SourceParameters: Optional[UpdatePipeSourceParameters] = None
     Enrichment: Optional[str] = None
-    EnrichmentParameters: Optional[PipeEnrichmentParametersUnionTypeDef] = None
+    EnrichmentParameters: Optional[PipeEnrichmentParametersUnion] = None
     Target: Optional[str] = None
-    TargetParameters: Optional[PipeTargetParametersUnionTypeDef] = None
-    LogConfiguration: Optional[PipeLogConfigurationParametersTypeDef] = None
+    TargetParameters: Optional[PipeTargetParametersUnion] = None
+    LogConfiguration: Optional[PipeLogConfigurationParameters] = None
     KmsKeyIdentifier: Optional[str] = None
 
 

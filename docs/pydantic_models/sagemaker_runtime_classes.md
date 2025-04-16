@@ -6,19 +6,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# InternalStreamFailureTypeDef
+# InternalStreamFailure
 
 ### Message
 - **Type**: typing.Optional[str]
 
 
-# InvokeEndpointAsyncInputTypeDef
+# InvokeEndpointAsyncInput
 
 ### EndpointName
 - **Type**: <class 'str'>
@@ -47,7 +47,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# InvokeEndpointAsyncOutputTypeDef
+# InvokeEndpointAsyncOutput
 
 ### InferenceId
 - **Type**: <class 'str'>
@@ -62,18 +62,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InvokeEndpointInputTypeDef
+# InvokeEndpointInput
 
 ### EndpointName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.Blob'>
 - **Required**: Yes
 
 ### ContentType
@@ -107,7 +107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InvokeEndpointOutputTypeDef
+# InvokeEndpointOutput
 
 ### Body
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -134,18 +134,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InvokeEndpointWithResponseStreamInputTypeDef
+# InvokeEndpointWithResponseStreamInput
 
 ### EndpointName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.Blob'>
 - **Required**: Yes
 
 ### ContentType
@@ -173,10 +173,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InvokeEndpointWithResponseStreamOutputTypeDef
+# InvokeEndpointWithResponseStreamOutput
 
 ### Body
-- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseStreamTypeDef]
+- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseStream]
 - **Required**: Yes
 
 ### ContentType
@@ -192,11 +192,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModelStreamErrorTypeDef
+# ModelStreamError
 
 ### Message
 - **Type**: typing.Optional[str]
@@ -205,13 +205,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PayloadPartTypeDef
+# PayloadPart
 
 ### Bytes
 - **Type**: typing.Optional[bytes]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -233,15 +233,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseStreamTypeDef
+# ResponseStream
 
 ### PayloadPart
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_runtime_classes.PayloadPartTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ModelStreamError
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ModelStreamErrorTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InternalStreamFailure
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_runtime_classes.InternalStreamFailureTypeDef]
+- **Type**: <class 'NoneType'>
 
 

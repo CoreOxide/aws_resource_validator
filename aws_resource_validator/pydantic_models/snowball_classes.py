@@ -12,34 +12,34 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.snowball_constants import *
 
-class CancelClusterRequestTypeDef(BaseValidatorModel):
+class CancelClusterRequest(BaseValidatorModel):
     ClusterId: str
 
 
-class CancelJobRequestTypeDef(BaseValidatorModel):
+class CancelJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class ClusterListEntryTypeDef(BaseValidatorModel):
+class ClusterListEntry(BaseValidatorModel):
     ClusterId: Optional[str] = None
     ClusterState: Optional[ClusterStateType] = None
     CreationDate: Optional[datetime] = None
     Description: Optional[str] = None
 
 
-class NotificationOutputTypeDef(BaseValidatorModel):
+class NotificationOutput(BaseValidatorModel):
     SnsTopicARN: Optional[str] = None
     JobStatesToNotify: Optional[List[JobStateType]] = None
     NotifyAll: Optional[bool] = None
     DevicePickupSnsTopicARN: Optional[str] = None
 
 
-class CompatibleImageTypeDef(BaseValidatorModel):
+class CompatibleImage(BaseValidatorModel):
     AmiId: Optional[str] = None
     Name: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -47,7 +47,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class JobListEntryTypeDef(BaseValidatorModel):
+class JobListEntry(BaseValidatorModel):
     JobId: Optional[str] = None
     JobState: Optional[JobStateType] = None
     IsMaster: Optional[bool] = None
@@ -57,92 +57,92 @@ class JobListEntryTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class CreateLongTermPricingRequestTypeDef(BaseValidatorModel):
+class CreateLongTermPricingRequest(BaseValidatorModel):
     LongTermPricingType: LongTermPricingTypeType
     SnowballType: SnowballTypeType
     IsLongTermPricingAutoRenew: Optional[bool] = None
 
 
-class CreateReturnShippingLabelRequestTypeDef(BaseValidatorModel):
+class CreateReturnShippingLabelRequest(BaseValidatorModel):
     JobId: str
     ShippingOption: Optional[ShippingOptionType] = None
 
 
-class DataTransferTypeDef(BaseValidatorModel):
+class DataTransfer(BaseValidatorModel):
     BytesTransferred: Optional[int] = None
     ObjectsTransferred: Optional[int] = None
     TotalBytes: Optional[int] = None
     TotalObjects: Optional[int] = None
 
 
-class ServiceVersionTypeDef(BaseValidatorModel):
+class ServiceVersion(BaseValidatorModel):
     Version: Optional[str] = None
 
 
-class DescribeAddressRequestTypeDef(BaseValidatorModel):
+class DescribeAddressRequest(BaseValidatorModel):
     AddressId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeAddressesRequestTypeDef(BaseValidatorModel):
+class DescribeAddressesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeClusterRequestTypeDef(BaseValidatorModel):
+class DescribeClusterRequest(BaseValidatorModel):
     ClusterId: str
 
 
-class DescribeJobRequestTypeDef(BaseValidatorModel):
+class DescribeJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeReturnShippingLabelRequestTypeDef(BaseValidatorModel):
+class DescribeReturnShippingLabelRequest(BaseValidatorModel):
     JobId: str
 
 
-class EKSOnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
+class EKSOnDeviceServiceConfiguration(BaseValidatorModel):
     KubernetesVersion: Optional[str] = None
     EKSAnywhereVersion: Optional[str] = None
 
 
-class Ec2AmiResourceTypeDef(BaseValidatorModel):
+class Ec2AmiResource(BaseValidatorModel):
     AmiId: str
     SnowballAmiId: Optional[str] = None
 
 
-class EventTriggerDefinitionTypeDef(BaseValidatorModel):
+class EventTriggerDefinition(BaseValidatorModel):
     EventResourceARN: Optional[str] = None
 
 
-class GetJobManifestRequestTypeDef(BaseValidatorModel):
+class GetJobManifestRequest(BaseValidatorModel):
     JobId: str
 
 
-class GetJobUnlockCodeRequestTypeDef(BaseValidatorModel):
+class GetJobUnlockCodeRequest(BaseValidatorModel):
     JobId: str
 
 
-class GetSoftwareUpdatesRequestTypeDef(BaseValidatorModel):
+class GetSoftwareUpdatesRequest(BaseValidatorModel):
     JobId: str
 
 
-class INDTaxDocumentsTypeDef(BaseValidatorModel):
+class INDTaxDocuments(BaseValidatorModel):
     GSTIN: Optional[str] = None
 
 
-class JobLogsTypeDef(BaseValidatorModel):
+class JobLogs(BaseValidatorModel):
     JobCompletionReportURI: Optional[str] = None
     JobSuccessLogURI: Optional[str] = None
     JobFailureLogURI: Optional[str] = None
 
 
-class PickupDetailsOutputTypeDef(BaseValidatorModel):
+class PickupDetailsOutput(BaseValidatorModel):
     Name: Optional[str] = None
     PhoneNumber: Optional[str] = None
     Email: Optional[str] = None
@@ -152,38 +152,38 @@ class PickupDetailsOutputTypeDef(BaseValidatorModel):
     DevicePickupId: Optional[str] = None
 
 
-class KeyRangeTypeDef(BaseValidatorModel):
+class KeyRange(BaseValidatorModel):
     BeginMarker: Optional[str] = None
     EndMarker: Optional[str] = None
 
 
-class ListClusterJobsRequestTypeDef(BaseValidatorModel):
+class ListClusterJobsRequest(BaseValidatorModel):
     ClusterId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListClustersRequestTypeDef(BaseValidatorModel):
+class ListClustersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListCompatibleImagesRequestTypeDef(BaseValidatorModel):
+class ListCompatibleImagesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListJobsRequestTypeDef(BaseValidatorModel):
+class ListJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListLongTermPricingRequestTypeDef(BaseValidatorModel):
+class ListLongTermPricingRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class LongTermPricingListEntryTypeDef(BaseValidatorModel):
+class LongTermPricingListEntry(BaseValidatorModel):
     LongTermPricingId: Optional[str] = None
     LongTermPricingEndDate: Optional[datetime] = None
     LongTermPricingStartDate: Optional[datetime] = None
@@ -196,267 +196,267 @@ class LongTermPricingListEntryTypeDef(BaseValidatorModel):
     JobIds: Optional[List[str]] = None
 
 
-class ListPickupLocationsRequestTypeDef(BaseValidatorModel):
+class ListPickupLocationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class NFSOnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
+class NFSOnDeviceServiceConfiguration(BaseValidatorModel):
     StorageLimit: Optional[int] = None
     StorageUnit: Optional[Literal["TB"]] = None
 
 
-class NotificationTypeDef(BaseValidatorModel):
+class Notification(BaseValidatorModel):
     SnsTopicARN: Optional[str] = None
     JobStatesToNotify: Optional[Sequence[JobStateType]] = None
     NotifyAll: Optional[bool] = None
     DevicePickupSnsTopicARN: Optional[str] = None
 
 
-class S3OnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
+class S3OnDeviceServiceConfiguration(BaseValidatorModel):
     StorageLimit: Optional[float] = None
     StorageUnit: Optional[Literal["TB"]] = None
     ServiceSize: Optional[int] = None
     FaultTolerance: Optional[int] = None
 
 
-class TGWOnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
+class TGWOnDeviceServiceConfiguration(BaseValidatorModel):
     StorageLimit: Optional[int] = None
     StorageUnit: Optional[Literal["TB"]] = None
 
 
-class ShipmentTypeDef(BaseValidatorModel):
+class Shipment(BaseValidatorModel):
     Status: Optional[str] = None
     TrackingNumber: Optional[str] = None
 
 
-class WirelessConnectionTypeDef(BaseValidatorModel):
+class WirelessConnection(BaseValidatorModel):
     IsWifiEnabled: Optional[bool] = None
 
 
-class UpdateJobShipmentStateRequestTypeDef(BaseValidatorModel):
+class UpdateJobShipmentStateRequest(BaseValidatorModel):
     JobId: str
     ShipmentState: ShipmentStateType
 
 
-class UpdateLongTermPricingRequestTypeDef(BaseValidatorModel):
+class UpdateLongTermPricingRequest(BaseValidatorModel):
     LongTermPricingId: str
     ReplacementJob: Optional[str] = None
     IsLongTermPricingAutoRenew: Optional[bool] = None
 
 
-class AddressTypeDef(BaseValidatorModel):
+class Address(BaseValidatorModel):
     pass
 
 
-class CreateAddressRequestTypeDef(BaseValidatorModel):
-    Address: AddressTypeDef
+class CreateAddressRequest(BaseValidatorModel):
+    Address: Address
 
 
-class CreateAddressResultTypeDef(BaseValidatorModel):
+class CreateAddressResult(BaseValidatorModel):
     AddressId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateJobResultTypeDef(BaseValidatorModel):
+class CreateJobResult(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateLongTermPricingResultTypeDef(BaseValidatorModel):
+class CreateLongTermPricingResult(BaseValidatorModel):
     LongTermPricingId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateReturnShippingLabelResultTypeDef(BaseValidatorModel):
+class CreateReturnShippingLabelResult(BaseValidatorModel):
     Status: ShippingLabelStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAddressResultTypeDef(BaseValidatorModel):
-    Address: AddressTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAddressResult(BaseValidatorModel):
+    Address: Address
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAddressesResultTypeDef(BaseValidatorModel):
-    Addresses: List[AddressTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAddressesResult(BaseValidatorModel):
+    Addresses: List[Address]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeReturnShippingLabelResultTypeDef(BaseValidatorModel):
+class DescribeReturnShippingLabelResult(BaseValidatorModel):
     Status: ShippingLabelStatusType
     ExpirationDate: datetime
     ReturnShippingLabelURI: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetJobManifestResultTypeDef(BaseValidatorModel):
+class GetJobManifestResult(BaseValidatorModel):
     ManifestURI: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetJobUnlockCodeResultTypeDef(BaseValidatorModel):
+class GetJobUnlockCodeResult(BaseValidatorModel):
     UnlockCode: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSnowballUsageResultTypeDef(BaseValidatorModel):
+class GetSnowballUsageResult(BaseValidatorModel):
     SnowballLimit: int
     SnowballsInUse: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSoftwareUpdatesResultTypeDef(BaseValidatorModel):
+class GetSoftwareUpdatesResult(BaseValidatorModel):
     UpdatesURI: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListClustersResultTypeDef(BaseValidatorModel):
-    ClusterListEntries: List[ClusterListEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClustersResult(BaseValidatorModel):
+    ClusterListEntries: List[ClusterListEntry]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCompatibleImagesResultTypeDef(BaseValidatorModel):
-    CompatibleImages: List[CompatibleImageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCompatibleImagesResult(BaseValidatorModel):
+    CompatibleImages: List[CompatibleImage]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPickupLocationsResultTypeDef(BaseValidatorModel):
-    Addresses: List[AddressTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPickupLocationsResult(BaseValidatorModel):
+    Addresses: List[Address]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateClusterResultTypeDef(BaseValidatorModel):
+class CreateClusterResult(BaseValidatorModel):
     ClusterId: str
-    JobListEntries: List[JobListEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    JobListEntries: List[JobListEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListClusterJobsResultTypeDef(BaseValidatorModel):
-    JobListEntries: List[JobListEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClusterJobsResult(BaseValidatorModel):
+    JobListEntries: List[JobListEntry]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListJobsResultTypeDef(BaseValidatorModel):
-    JobListEntries: List[JobListEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListJobsResult(BaseValidatorModel):
+    JobListEntries: List[JobListEntry]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeAddressesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeAddressesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClusterJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListClusterJobsRequestPaginate(BaseValidatorModel):
     ClusterId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClustersRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListClustersRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCompatibleImagesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCompatibleImagesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListJobsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListJobsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLongTermPricingRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListLongTermPricingRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class LambdaResourceOutputTypeDef(BaseValidatorModel):
+class LambdaResourceOutput(BaseValidatorModel):
     LambdaArn: Optional[str] = None
-    EventTriggers: Optional[List[EventTriggerDefinitionTypeDef]] = None
+    EventTriggers: Optional[List[EventTriggerDefinition]] = None
 
 
-class LambdaResourceTypeDef(BaseValidatorModel):
+class LambdaResource(BaseValidatorModel):
     LambdaArn: Optional[str] = None
-    EventTriggers: Optional[Sequence[EventTriggerDefinitionTypeDef]] = None
+    EventTriggers: Optional[Sequence[EventTriggerDefinition]] = None
 
 
-class TaxDocumentsTypeDef(BaseValidatorModel):
-    IND: Optional[INDTaxDocumentsTypeDef] = None
+class TaxDocuments(BaseValidatorModel):
+    IND: Optional[INDTaxDocuments] = None
 
 
-class ListLongTermPricingResultTypeDef(BaseValidatorModel):
-    LongTermPricingEntries: List[LongTermPricingListEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLongTermPricingResult(BaseValidatorModel):
+    LongTermPricingEntries: List[LongTermPricingListEntry]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class OnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
-    NFSOnDeviceService: Optional[NFSOnDeviceServiceConfigurationTypeDef] = None
-    TGWOnDeviceService: Optional[TGWOnDeviceServiceConfigurationTypeDef] = None
-    EKSOnDeviceService: Optional[EKSOnDeviceServiceConfigurationTypeDef] = None
-    S3OnDeviceService: Optional[S3OnDeviceServiceConfigurationTypeDef] = None
+class OnDeviceServiceConfiguration(BaseValidatorModel):
+    NFSOnDeviceService: Optional[NFSOnDeviceServiceConfiguration] = None
+    TGWOnDeviceService: Optional[TGWOnDeviceServiceConfiguration] = None
+    EKSOnDeviceService: Optional[EKSOnDeviceServiceConfiguration] = None
+    S3OnDeviceService: Optional[S3OnDeviceServiceConfiguration] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class PickupDetailsTypeDef(BaseValidatorModel):
+class PickupDetails(BaseValidatorModel):
     Name: Optional[str] = None
     PhoneNumber: Optional[str] = None
     Email: Optional[str] = None
     IdentificationNumber: Optional[str] = None
-    IdentificationExpirationDate: Optional[TimestampTypeDef] = None
+    IdentificationExpirationDate: Optional[Timestamp] = None
     IdentificationIssuingOrg: Optional[str] = None
     DevicePickupId: Optional[str] = None
 
 
-class TargetOnDeviceServiceTypeDef(BaseValidatorModel):
+class TargetOnDeviceService(BaseValidatorModel):
     pass
 
 
-class S3ResourceOutputTypeDef(BaseValidatorModel):
+class S3ResourceOutput(BaseValidatorModel):
     BucketArn: Optional[str] = None
-    KeyRange: Optional[KeyRangeTypeDef] = None
-    TargetOnDeviceServices: Optional[List[TargetOnDeviceServiceTypeDef]] = None
+    KeyRange: Optional[KeyRange] = None
+    TargetOnDeviceServices: Optional[List[TargetOnDeviceService]] = None
 
 
-class S3ResourceTypeDef(BaseValidatorModel):
+class S3Resource(BaseValidatorModel):
     BucketArn: Optional[str] = None
-    KeyRange: Optional[KeyRangeTypeDef] = None
-    TargetOnDeviceServices: Optional[Sequence[TargetOnDeviceServiceTypeDef]] = None
+    KeyRange: Optional[KeyRange] = None
+    TargetOnDeviceServices: Optional[Sequence[TargetOnDeviceService]] = None
 
 
-class ShippingDetailsTypeDef(BaseValidatorModel):
+class ShippingDetails(BaseValidatorModel):
     ShippingOption: Optional[ShippingOptionType] = None
-    InboundShipment: Optional[ShipmentTypeDef] = None
-    OutboundShipment: Optional[ShipmentTypeDef] = None
+    InboundShipment: Optional[Shipment] = None
+    OutboundShipment: Optional[Shipment] = None
 
 
-class SnowconeDeviceConfigurationTypeDef(BaseValidatorModel):
-    WirelessConnection: Optional[WirelessConnectionTypeDef] = None
+class SnowconeDeviceConfiguration(BaseValidatorModel):
+    WirelessConnection: Optional[WirelessConnection] = None
 
 
-class JobResourceOutputTypeDef(BaseValidatorModel):
-    S3Resources: Optional[List[S3ResourceOutputTypeDef]] = None
-    LambdaResources: Optional[List[LambdaResourceOutputTypeDef]] = None
-    Ec2AmiResources: Optional[List[Ec2AmiResourceTypeDef]] = None
+class JobResourceOutput(BaseValidatorModel):
+    S3Resources: Optional[List[S3ResourceOutput]] = None
+    LambdaResources: Optional[List[LambdaResourceOutput]] = None
+    Ec2AmiResources: Optional[List[Ec2AmiResource]] = None
 
 
-class JobResourceTypeDef(BaseValidatorModel):
-    S3Resources: Optional[Sequence[S3ResourceTypeDef]] = None
-    LambdaResources: Optional[Sequence[LambdaResourceTypeDef]] = None
-    Ec2AmiResources: Optional[Sequence[Ec2AmiResourceTypeDef]] = None
+class JobResource(BaseValidatorModel):
+    S3Resources: Optional[Sequence[S3Resource]] = None
+    LambdaResources: Optional[Sequence[LambdaResource]] = None
+    Ec2AmiResources: Optional[Sequence[Ec2AmiResource]] = None
 
 
-class DeviceConfigurationTypeDef(BaseValidatorModel):
-    SnowconeDeviceConfiguration: Optional[SnowconeDeviceConfigurationTypeDef] = None
+class DeviceConfiguration(BaseValidatorModel):
+    SnowconeDeviceConfiguration: Optional[SnowconeDeviceConfiguration] = None
 
 
-class ClusterMetadataTypeDef(BaseValidatorModel):
+class ClusterMetadata(BaseValidatorModel):
     ClusterId: Optional[str] = None
     Description: Optional[str] = None
     KmsKeyARN: Optional[str] = None
@@ -465,69 +465,69 @@ class ClusterMetadataTypeDef(BaseValidatorModel):
     JobType: Optional[JobTypeType] = None
     SnowballType: Optional[SnowballTypeType] = None
     CreationDate: Optional[datetime] = None
-    Resources: Optional[JobResourceOutputTypeDef] = None
+    Resources: Optional[JobResourceOutput] = None
     AddressId: Optional[str] = None
     ShippingOption: Optional[ShippingOptionType] = None
-    Notification: Optional[NotificationOutputTypeDef] = None
+    Notification: Optional[NotificationOutput] = None
     ForwardingAddressId: Optional[str] = None
-    TaxDocuments: Optional[TaxDocumentsTypeDef] = None
-    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
+    TaxDocuments: Optional[TaxDocuments] = None
+    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfiguration] = None
 
 
-class JobMetadataTypeDef(BaseValidatorModel):
+class JobMetadata(BaseValidatorModel):
     JobId: Optional[str] = None
     JobState: Optional[JobStateType] = None
     JobType: Optional[JobTypeType] = None
     SnowballType: Optional[SnowballTypeType] = None
     CreationDate: Optional[datetime] = None
-    Resources: Optional[JobResourceOutputTypeDef] = None
+    Resources: Optional[JobResourceOutput] = None
     Description: Optional[str] = None
     KmsKeyARN: Optional[str] = None
     RoleARN: Optional[str] = None
     AddressId: Optional[str] = None
-    ShippingDetails: Optional[ShippingDetailsTypeDef] = None
+    ShippingDetails: Optional[ShippingDetails] = None
     SnowballCapacityPreference: Optional[SnowballCapacityType] = None
-    Notification: Optional[NotificationOutputTypeDef] = None
-    DataTransferProgress: Optional[DataTransferTypeDef] = None
-    JobLogInfo: Optional[JobLogsTypeDef] = None
+    Notification: Optional[NotificationOutput] = None
+    DataTransferProgress: Optional[DataTransfer] = None
+    JobLogInfo: Optional[JobLogs] = None
     ClusterId: Optional[str] = None
     ForwardingAddressId: Optional[str] = None
-    TaxDocuments: Optional[TaxDocumentsTypeDef] = None
-    DeviceConfiguration: Optional[DeviceConfigurationTypeDef] = None
+    TaxDocuments: Optional[TaxDocuments] = None
+    DeviceConfiguration: Optional[DeviceConfiguration] = None
     RemoteManagement: Optional[RemoteManagementType] = None
     LongTermPricingId: Optional[str] = None
-    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
+    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfiguration] = None
     ImpactLevel: Optional[ImpactLevelType] = None
-    PickupDetails: Optional[PickupDetailsOutputTypeDef] = None
+    PickupDetails: Optional[PickupDetailsOutput] = None
     SnowballId: Optional[str] = None
 
 
-class DescribeClusterResultTypeDef(BaseValidatorModel):
-    ClusterMetadata: ClusterMetadataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClusterResult(BaseValidatorModel):
+    ClusterMetadata: ClusterMetadata
+    ResponseMetadata: ResponseMetadata
 
 
-class JobResourceUnionTypeDef(BaseValidatorModel):
+class JobResourceUnion(BaseValidatorModel):
     pass
 
 
-class NotificationUnionTypeDef(BaseValidatorModel):
+class NotificationUnion(BaseValidatorModel):
     pass
 
 
-class CreateClusterRequestTypeDef(BaseValidatorModel):
+class CreateClusterRequest(BaseValidatorModel):
     JobType: JobTypeType
     AddressId: str
     SnowballType: SnowballTypeType
     ShippingOption: ShippingOptionType
-    Resources: Optional[JobResourceUnionTypeDef] = None
-    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
+    Resources: Optional[JobResourceUnion] = None
+    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfiguration] = None
     Description: Optional[str] = None
     KmsKeyARN: Optional[str] = None
     RoleARN: Optional[str] = None
-    Notification: Optional[NotificationUnionTypeDef] = None
+    Notification: Optional[NotificationUnion] = None
     ForwardingAddressId: Optional[str] = None
-    TaxDocuments: Optional[TaxDocumentsTypeDef] = None
+    TaxDocuments: Optional[TaxDocuments] = None
     RemoteManagement: Optional[RemoteManagementType] = None
     InitialClusterSize: Optional[int] = None
     ForceCreateJobs: Optional[bool] = None
@@ -535,61 +535,61 @@ class CreateClusterRequestTypeDef(BaseValidatorModel):
     SnowballCapacityPreference: Optional[SnowballCapacityType] = None
 
 
-class PickupDetailsUnionTypeDef(BaseValidatorModel):
+class PickupDetailsUnion(BaseValidatorModel):
     pass
 
 
-class CreateJobRequestTypeDef(BaseValidatorModel):
+class CreateJobRequest(BaseValidatorModel):
     JobType: Optional[JobTypeType] = None
-    Resources: Optional[JobResourceUnionTypeDef] = None
-    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
+    Resources: Optional[JobResourceUnion] = None
+    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfiguration] = None
     Description: Optional[str] = None
     AddressId: Optional[str] = None
     KmsKeyARN: Optional[str] = None
     RoleARN: Optional[str] = None
     SnowballCapacityPreference: Optional[SnowballCapacityType] = None
     ShippingOption: Optional[ShippingOptionType] = None
-    Notification: Optional[NotificationUnionTypeDef] = None
+    Notification: Optional[NotificationUnion] = None
     ClusterId: Optional[str] = None
     SnowballType: Optional[SnowballTypeType] = None
     ForwardingAddressId: Optional[str] = None
-    TaxDocuments: Optional[TaxDocumentsTypeDef] = None
-    DeviceConfiguration: Optional[DeviceConfigurationTypeDef] = None
+    TaxDocuments: Optional[TaxDocuments] = None
+    DeviceConfiguration: Optional[DeviceConfiguration] = None
     RemoteManagement: Optional[RemoteManagementType] = None
     LongTermPricingId: Optional[str] = None
     ImpactLevel: Optional[ImpactLevelType] = None
-    PickupDetails: Optional[PickupDetailsUnionTypeDef] = None
+    PickupDetails: Optional[PickupDetailsUnion] = None
 
 
-class UpdateClusterRequestTypeDef(BaseValidatorModel):
+class UpdateClusterRequest(BaseValidatorModel):
     ClusterId: str
     RoleARN: Optional[str] = None
     Description: Optional[str] = None
-    Resources: Optional[JobResourceUnionTypeDef] = None
-    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
+    Resources: Optional[JobResourceUnion] = None
+    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfiguration] = None
     AddressId: Optional[str] = None
     ShippingOption: Optional[ShippingOptionType] = None
-    Notification: Optional[NotificationUnionTypeDef] = None
+    Notification: Optional[NotificationUnion] = None
     ForwardingAddressId: Optional[str] = None
 
 
-class UpdateJobRequestTypeDef(BaseValidatorModel):
+class UpdateJobRequest(BaseValidatorModel):
     JobId: str
     RoleARN: Optional[str] = None
-    Notification: Optional[NotificationUnionTypeDef] = None
-    Resources: Optional[JobResourceUnionTypeDef] = None
-    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
+    Notification: Optional[NotificationUnion] = None
+    Resources: Optional[JobResourceUnion] = None
+    OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfiguration] = None
     AddressId: Optional[str] = None
     ShippingOption: Optional[ShippingOptionType] = None
     Description: Optional[str] = None
     SnowballCapacityPreference: Optional[SnowballCapacityType] = None
     ForwardingAddressId: Optional[str] = None
-    PickupDetails: Optional[PickupDetailsUnionTypeDef] = None
+    PickupDetails: Optional[PickupDetailsUnion] = None
 
 
-class DescribeJobResultTypeDef(BaseValidatorModel):
-    JobMetadata: JobMetadataTypeDef
-    SubJobMetadata: List[JobMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeJobResult(BaseValidatorModel):
+    JobMetadata: JobMetadata
+    SubJobMetadata: List[JobMetadata]
+    ResponseMetadata: ResponseMetadata
 
 

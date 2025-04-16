@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.account_constants import *
 
-class AcceptPrimaryEmailUpdateRequestTypeDef(BaseValidatorModel):
+class AcceptPrimaryEmailUpdateRequest(BaseValidatorModel):
     AccountId: str
     Otp: str
     PrimaryEmail: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -26,7 +26,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AlternateContactTypeDef(BaseValidatorModel):
+class AlternateContact(BaseValidatorModel):
     AlternateContactType: Optional[AlternateContactTypeType] = None
     EmailAddress: Optional[str] = None
     Name: Optional[str] = None
@@ -34,7 +34,7 @@ class AlternateContactTypeDef(BaseValidatorModel):
     Title: Optional[str] = None
 
 
-class ContactInformationTypeDef(BaseValidatorModel):
+class ContactInformation(BaseValidatorModel):
     AddressLine1: str
     City: str
     CountryCode: str
@@ -49,58 +49,58 @@ class ContactInformationTypeDef(BaseValidatorModel):
     WebsiteUrl: Optional[str] = None
 
 
-class DeleteAlternateContactRequestTypeDef(BaseValidatorModel):
+class DeleteAlternateContactRequest(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
     AccountId: Optional[str] = None
 
 
-class DisableRegionRequestTypeDef(BaseValidatorModel):
+class DisableRegionRequest(BaseValidatorModel):
     RegionName: str
     AccountId: Optional[str] = None
 
 
-class EnableRegionRequestTypeDef(BaseValidatorModel):
+class EnableRegionRequest(BaseValidatorModel):
     RegionName: str
     AccountId: Optional[str] = None
 
 
-class GetAlternateContactRequestTypeDef(BaseValidatorModel):
+class GetAlternateContactRequest(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
     AccountId: Optional[str] = None
 
 
-class GetContactInformationRequestTypeDef(BaseValidatorModel):
+class GetContactInformationRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
-class GetPrimaryEmailRequestTypeDef(BaseValidatorModel):
+class GetPrimaryEmailRequest(BaseValidatorModel):
     AccountId: str
 
 
-class GetRegionOptStatusRequestTypeDef(BaseValidatorModel):
+class GetRegionOptStatusRequest(BaseValidatorModel):
     RegionName: str
     AccountId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListRegionsRequestTypeDef(BaseValidatorModel):
+class ListRegionsRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     RegionOptStatusContains: Optional[Sequence[RegionOptStatusType]] = None
 
 
-class RegionTypeDef(BaseValidatorModel):
+class Region(BaseValidatorModel):
     RegionName: Optional[str] = None
     RegionOptStatus: Optional[RegionOptStatusType] = None
 
 
-class PutAlternateContactRequestTypeDef(BaseValidatorModel):
+class PutAlternateContactRequest(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
     EmailAddress: str
     Name: str
@@ -109,60 +109,60 @@ class PutAlternateContactRequestTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
-class StartPrimaryEmailUpdateRequestTypeDef(BaseValidatorModel):
+class StartPrimaryEmailUpdateRequest(BaseValidatorModel):
     AccountId: str
     PrimaryEmail: str
 
 
-class AcceptPrimaryEmailUpdateResponseTypeDef(BaseValidatorModel):
+class AcceptPrimaryEmailUpdateResponse(BaseValidatorModel):
     Status: PrimaryEmailUpdateStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPrimaryEmailResponseTypeDef(BaseValidatorModel):
+class GetPrimaryEmailResponse(BaseValidatorModel):
     PrimaryEmail: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRegionOptStatusResponseTypeDef(BaseValidatorModel):
+class GetRegionOptStatusResponse(BaseValidatorModel):
     RegionName: str
     RegionOptStatus: RegionOptStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartPrimaryEmailUpdateResponseTypeDef(BaseValidatorModel):
+class StartPrimaryEmailUpdateResponse(BaseValidatorModel):
     Status: PrimaryEmailUpdateStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAlternateContactResponseTypeDef(BaseValidatorModel):
-    AlternateContact: AlternateContactTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAlternateContactResponse(BaseValidatorModel):
+    AlternateContact: AlternateContact
+    ResponseMetadata: ResponseMetadata
 
 
-class GetContactInformationResponseTypeDef(BaseValidatorModel):
-    ContactInformation: ContactInformationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetContactInformationResponse(BaseValidatorModel):
+    ContactInformation: ContactInformation
+    ResponseMetadata: ResponseMetadata
 
 
-class PutContactInformationRequestTypeDef(BaseValidatorModel):
-    ContactInformation: ContactInformationTypeDef
+class PutContactInformationRequest(BaseValidatorModel):
+    ContactInformation: ContactInformation
     AccountId: Optional[str] = None
 
 
-class ListRegionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRegionsRequestPaginate(BaseValidatorModel):
     AccountId: Optional[str] = None
     RegionOptStatusContains: Optional[Sequence[RegionOptStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRegionsResponseTypeDef(BaseValidatorModel):
-    Regions: List[RegionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRegionsResponse(BaseValidatorModel):
+    Regions: List[Region]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

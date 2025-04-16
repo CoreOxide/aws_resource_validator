@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.marketplace_reporting_constants import *
 
-class GetBuyerDashboardInputTypeDef(BaseValidatorModel):
+class GetBuyerDashboardInput(BaseValidatorModel):
     dashboardIdentifier: str
     embeddingDomains: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,10 +25,10 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetBuyerDashboardOutputTypeDef(BaseValidatorModel):
+class GetBuyerDashboardOutput(BaseValidatorModel):
     embedUrl: str
     dashboardIdentifier: str
     embeddingDomains: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

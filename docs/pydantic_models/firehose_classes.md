@@ -1,6 +1,6 @@
 # Firehose Classes
 
-# AmazonOpenSearchServerlessBufferingHintsTypeDef
+# AmazonOpenSearchServerlessBufferingHints
 
 ### IntervalInSeconds
 - **Type**: typing.Optional[int]
@@ -9,7 +9,7 @@
 - **Type**: typing.Optional[int]
 
 
-# AmazonOpenSearchServerlessDestinationConfigurationTypeDef
+# AmazonOpenSearchServerlessDestinationConfiguration
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -20,32 +20,32 @@
 - **Required**: Yes
 
 ### S3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration'>
 - **Required**: Yes
 
 ### CollectionEndpoint
 - **Type**: typing.Optional[str]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessBufferingHints]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllDocuments', 'FailedDocumentsOnly']]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.VpcConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AmazonOpenSearchServerlessDestinationDescriptionTypeDef
+# AmazonOpenSearchServerlessDestinationDescription
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -57,28 +57,28 @@
 - **Type**: typing.Optional[str]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessBufferingHints]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllDocuments', 'FailedDocumentsOnly']]
 
 ### S3DestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutput]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcConfigurationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.VpcConfigurationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AmazonOpenSearchServerlessDestinationUpdateTypeDef
+# AmazonOpenSearchServerlessDestinationUpdate
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -90,28 +90,28 @@
 - **Type**: typing.Optional[str]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessBufferingHints]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessRetryOptions]
 
 ### S3Update
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdate]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AmazonOpenSearchServerlessRetryOptionsTypeDef
+# AmazonOpenSearchServerlessRetryOptions
 
 ### DurationInSeconds
 - **Type**: typing.Optional[int]
 
 
-# AmazonopensearchserviceBufferingHintsTypeDef
+# AmazonopensearchserviceBufferingHints
 
 ### IntervalInSeconds
 - **Type**: typing.Optional[int]
@@ -120,7 +120,7 @@
 - **Type**: typing.Optional[int]
 
 
-# AmazonopensearchserviceDestinationConfigurationTypeDef
+# AmazonopensearchserviceDestinationConfiguration
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -131,7 +131,7 @@
 - **Required**: Yes
 
 ### S3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration'>
 - **Required**: Yes
 
 ### DomainARN
@@ -147,28 +147,28 @@
 - **Type**: typing.Optional[typing.Literal['NoRotation', 'OneDay', 'OneHour', 'OneMonth', 'OneWeek']]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceBufferingHints]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllDocuments', 'FailedDocumentsOnly']]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.VpcConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DocumentIdOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DocumentIdOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AmazonopensearchserviceDestinationDescriptionTypeDef
+# AmazonopensearchserviceDestinationDescription
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -189,31 +189,31 @@
 - **Type**: typing.Optional[typing.Literal['NoRotation', 'OneDay', 'OneHour', 'OneMonth', 'OneWeek']]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceBufferingHints]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllDocuments', 'FailedDocumentsOnly']]
 
 ### S3DestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutput]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcConfigurationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.VpcConfigurationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DocumentIdOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DocumentIdOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AmazonopensearchserviceDestinationUpdateTypeDef
+# AmazonopensearchserviceDestinationUpdate
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -234,31 +234,31 @@
 - **Type**: typing.Optional[typing.Literal['NoRotation', 'OneDay', 'OneHour', 'OneMonth', 'OneWeek']]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceBufferingHints]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceRetryOptions]
 
 ### S3Update
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdate]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DocumentIdOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DocumentIdOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AmazonopensearchserviceRetryOptionsTypeDef
+# AmazonopensearchserviceRetryOptions
 
 ### DurationInSeconds
 - **Type**: typing.Optional[int]
 
 
-# AuthenticationConfigurationTypeDef
+# AuthenticationConfiguration
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -275,13 +275,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BufferingHintsTypeDef
+# BufferingHints
 
 ### SizeInMBs
 - **Type**: typing.Optional[int]
@@ -290,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CatalogConfigurationTypeDef
+# CatalogConfiguration
 
 ### CatalogARN
 - **Type**: typing.Optional[str]
@@ -299,7 +299,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CloudWatchLoggingOptionsTypeDef
+# CloudWatchLoggingOptions
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -311,7 +311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CopyCommandTypeDef
+# CopyCommand
 
 ### DataTableName
 - **Type**: <class 'str'>
@@ -324,7 +324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDeliveryStreamInputTypeDef
+# CreateDeliveryStreamInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -334,111 +334,102 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DatabaseAsSource', 'DirectPut', 'KinesisStreamAsSource', 'MSKAsSource']]
 
 ### DirectPutSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DirectPutSourceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KinesisStreamSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.KinesisStreamSourceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DeliveryStreamEncryptionConfigurationInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeliveryStreamEncryptionConfigurationInputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### S3DestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ExtendedS3DestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ExtendedS3DestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RedshiftDestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftDestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ElasticsearchDestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchDestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AmazonopensearchserviceDestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceDestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SplunkDestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkDestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### HttpEndpointDestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointDestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.Tag]]
 
 ### AmazonOpenSearchServerlessDestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessDestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MSKSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.MSKSourceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SnowflakeDestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeDestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### IcebergDestinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.IcebergDestinationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DatabaseSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DatabaseSourceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateDeliveryStreamOutputTypeDef
+# CreateDeliveryStreamOutput
 
 ### DeliveryStreamARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataFormatConversionConfigurationOutputTypeDef
+# DataFormatConversionConfiguration
 
 ### SchemaConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SchemaConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InputFormatConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.InputFormatConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.InputFormatConfigurationUnion]
 
 ### OutputFormatConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OutputFormatConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OutputFormatConfigurationUnion]
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 
-# DataFormatConversionConfigurationTypeDef
+# DataFormatConversionConfigurationOutput
 
 ### SchemaConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SchemaConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InputFormatConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.InputFormatConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.InputFormatConfigurationOutput]
 
 ### OutputFormatConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OutputFormatConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OutputFormatConfigurationOutput]
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 
-# DataFormatConversionConfigurationUnionTypeDef
+# DataFormatConversionConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DatabaseColumnListOutputTypeDef
-
-### Include
-- **Type**: typing.Optional[typing.List[str]]
-
-### Exclude
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# DatabaseColumnListTypeDef
+# DatabaseColumnList
 
 ### Include
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -447,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DatabaseListOutputTypeDef
+# DatabaseColumnListOutput
 
 ### Include
 - **Type**: typing.Optional[typing.List[str]]
@@ -456,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# DatabaseListTypeDef
+# DatabaseList
 
 ### Include
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -465,7 +456,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DatabaseSnapshotInfoTypeDef
+# DatabaseListOutput
+
+### Include
+- **Type**: typing.Optional[typing.List[str]]
+
+### Exclude
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# DatabaseSnapshotInfo
 
 ### Id
 - **Type**: <class 'str'>
@@ -488,45 +488,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FailureDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.FailureDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DatabaseSourceAuthenticationConfigurationTypeDef
+# DatabaseSourceAuthenticationConfiguration
 
 ### SecretsManagerConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfiguration'>
 - **Required**: Yes
 
 
-# DatabaseSourceConfigurationTypeDef
+# DatabaseSourceConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DatabaseSourceDescriptionTypeDef
+# DatabaseSourceDescription
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DatabaseSourceVPCConfigurationTypeDef
+# DatabaseSourceVPCConfiguration
 
 ### VpcEndpointServiceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DatabaseTableListOutputTypeDef
-
-### Include
-- **Type**: typing.Optional[typing.List[str]]
-
-### Exclude
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# DatabaseTableListTypeDef
+# DatabaseTableList
 
 ### Include
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -535,7 +526,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DeleteDeliveryStreamInputTypeDef
+# DatabaseTableListOutput
+
+### Include
+- **Type**: typing.Optional[typing.List[str]]
+
+### Exclude
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# DeleteDeliveryStreamInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -545,7 +545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeliveryStreamDescriptionTypeDef
+# DeliveryStreamDescription
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -568,7 +568,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.firehose_classes.DestinationDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.firehose_classes.DestinationDescription]
 - **Required**: Yes
 
 ### HasMoreDestinations
@@ -576,10 +576,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FailureDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.FailureDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DeliveryStreamEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeliveryStreamEncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CreateTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -588,20 +588,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SourceDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SourceDescription]
 
 
-# DeliveryStreamEncryptionConfigurationInputTypeDef
-
-### KeyType
-- **Type**: typing.Literal['AWS_OWNED_CMK', 'CUSTOMER_MANAGED_CMK']
-- **Required**: Yes
-
-### KeyARN
-- **Type**: typing.Optional[str]
-
-
-# DeliveryStreamEncryptionConfigurationTypeDef
+# DeliveryStreamEncryptionConfiguration
 
 ### KeyARN
 - **Type**: typing.Optional[str]
@@ -613,10 +603,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'DISABLING', 'DISABLING_FAILED', 'ENABLED', 'ENABLING', 'ENABLING_FAILED']]
 
 ### FailureDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.FailureDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeDeliveryStreamInputTypeDef
+# DeliveryStreamEncryptionConfigurationInput
+
+### KeyType
+- **Type**: typing.Literal['AWS_OWNED_CMK', 'CUSTOMER_MANAGED_CMK']
+- **Required**: Yes
+
+### KeyARN
+- **Type**: typing.Optional[str]
+
+
+# DescribeDeliveryStreamInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -629,99 +629,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDeliveryStreamOutputTypeDef
+# DescribeDeliveryStreamOutput
 
 ### DeliveryStreamDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.DeliveryStreamDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.DeliveryStreamDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeserializerOutputTypeDef
+# Deserializer
 
 ### OpenXJsonSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OpenXJsonSerDeOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OpenXJsonSerDeUnion]
 
 ### HiveJsonSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HiveJsonSerDeOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HiveJsonSerDeUnion]
 
 
-# DeserializerTypeDef
+# DeserializerOutput
 
 ### OpenXJsonSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OpenXJsonSerDeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OpenXJsonSerDeOutput]
 
 ### HiveJsonSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HiveJsonSerDeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HiveJsonSerDeOutput]
 
 
-# DeserializerUnionTypeDef
+# DeserializerUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DestinationDescriptionTypeDef
+# DestinationDescription
 
 ### DestinationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### S3DestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ExtendedS3DestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ExtendedS3DestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RedshiftDestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftDestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ElasticsearchDestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchDestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AmazonopensearchserviceDestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceDestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SplunkDestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkDestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### HttpEndpointDestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointDestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SnowflakeDestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeDestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AmazonOpenSearchServerlessDestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessDestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### IcebergDestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.IcebergDestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DestinationTableConfigurationOutputTypeDef
-
-### DestinationTableName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DestinationDatabaseName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### UniqueKeys
-- **Type**: typing.Optional[typing.List[str]]
-
-### PartitionSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.PartitionSpecOutputTypeDef]
-
-### S3ErrorOutputPrefix
-- **Type**: typing.Optional[str]
-
-
-# DestinationTableConfigurationTypeDef
+# DestinationTableConfiguration
 
 ### DestinationTableName
 - **Type**: <class 'str'>
@@ -735,48 +715,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PartitionSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.PartitionSpecUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.PartitionSpecUnion]
 
 ### S3ErrorOutputPrefix
 - **Type**: typing.Optional[str]
 
 
-# DestinationTableConfigurationUnionTypeDef
+# DestinationTableConfigurationOutput
+
+### DestinationTableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DestinationDatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UniqueKeys
+- **Type**: typing.Optional[typing.List[str]]
+
+### PartitionSpec
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.PartitionSpecOutput]
+
+### S3ErrorOutputPrefix
+- **Type**: typing.Optional[str]
+
+
+# DestinationTableConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DirectPutSourceConfigurationTypeDef
+# DirectPutSourceConfiguration
 
 ### ThroughputHintInMBs
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# DirectPutSourceDescriptionTypeDef
+# DirectPutSourceDescription
 
 ### ThroughputHintInMBs
 - **Type**: typing.Optional[int]
 
 
-# DocumentIdOptionsTypeDef
+# DocumentIdOptions
 
 ### DefaultDocumentIdFormat
 - **Type**: typing.Literal['FIREHOSE_DEFAULT', 'NO_DOCUMENT_ID']
 - **Required**: Yes
 
 
-# DynamicPartitioningConfigurationTypeDef
+# DynamicPartitioningConfiguration
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RetryOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 
-# ElasticsearchBufferingHintsTypeDef
+# ElasticsearchBufferingHints
 
 ### IntervalInSeconds
 - **Type**: typing.Optional[int]
@@ -785,7 +785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ElasticsearchDestinationConfigurationTypeDef
+# ElasticsearchDestinationConfiguration
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -796,7 +796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration'>
 - **Required**: Yes
 
 ### DomainARN
@@ -812,28 +812,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NoRotation', 'OneDay', 'OneHour', 'OneMonth', 'OneWeek']]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchBufferingHints]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllDocuments', 'FailedDocumentsOnly']]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.VpcConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DocumentIdOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DocumentIdOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ElasticsearchDestinationDescriptionTypeDef
+# ElasticsearchDestinationDescription
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -854,31 +854,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NoRotation', 'OneDay', 'OneHour', 'OneMonth', 'OneWeek']]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchBufferingHints]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllDocuments', 'FailedDocumentsOnly']]
 
 ### S3DestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutput]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcConfigurationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.VpcConfigurationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DocumentIdOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DocumentIdOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ElasticsearchDestinationUpdateTypeDef
+# ElasticsearchDestinationUpdate
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -899,40 +899,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NoRotation', 'OneDay', 'OneHour', 'OneMonth', 'OneWeek']]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchBufferingHints]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchRetryOptions]
 
 ### S3Update
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdate]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DocumentIdOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DocumentIdOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ElasticsearchRetryOptionsTypeDef
+# ElasticsearchRetryOptions
 
 ### DurationInSeconds
 - **Type**: typing.Optional[int]
 
 
-# EncryptionConfigurationTypeDef
+# EncryptionConfiguration
 
 ### NoEncryptionConfig
 - **Type**: typing.Optional[typing.Literal['NoEncryption']]
 
 ### KMSEncryptionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.KMSEncryptionConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ExtendedS3DestinationConfigurationTypeDef
+# ExtendedS3DestinationConfiguration
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -949,31 +949,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CompressionFormat
 - **Type**: typing.Optional[typing.Literal['GZIP', 'HADOOP_SNAPPY', 'Snappy', 'UNCOMPRESSED', 'ZIP']]
 
 ### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.EncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 ### S3BackupConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration]
 
 ### DataFormatConversionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationUnion]
 
 ### DynamicPartitioningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DynamicPartitioningConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### FileExtension
 - **Type**: typing.Optional[str]
@@ -982,7 +982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExtendedS3DestinationDescriptionTypeDef
+# ExtendedS3DestinationDescription
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -993,7 +993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BufferingHints
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.BufferingHints'>
 - **Required**: Yes
 
 ### CompressionFormat
@@ -1001,7 +1001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EncryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.EncryptionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.EncryptionConfiguration'>
 - **Required**: Yes
 
 ### Prefix
@@ -1011,22 +1011,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutput]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 ### S3BackupDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescription]
 
 ### DataFormatConversionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationOutput]
 
 ### DynamicPartitioningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DynamicPartitioningConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### FileExtension
 - **Type**: typing.Optional[str]
@@ -1035,7 +1035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExtendedS3DestinationUpdateTypeDef
+# ExtendedS3DestinationUpdate
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -1050,31 +1050,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CompressionFormat
 - **Type**: typing.Optional[typing.Literal['GZIP', 'HADOOP_SNAPPY', 'Snappy', 'UNCOMPRESSED', 'ZIP']]
 
 ### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.EncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 ### S3BackupUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdate]
 
 ### DataFormatConversionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationUnion]
 
 ### DynamicPartitioningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DynamicPartitioningConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### FileExtension
 - **Type**: typing.Optional[str]
@@ -1083,31 +1083,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FailureDescriptionTypeDef
+# FailureDescription
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HiveJsonSerDeOutputTypeDef
-
-### TimestampFormats
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# HiveJsonSerDeTypeDef
+# HiveJsonSerDe
 
 ### TimestampFormats
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# HiveJsonSerDeUnionTypeDef
+# HiveJsonSerDeOutput
+
+### TimestampFormats
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# HiveJsonSerDeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HttpEndpointBufferingHintsTypeDef
+# HttpEndpointBufferingHints
 
 ### SizeInMBs
 - **Type**: typing.Optional[int]
@@ -1116,7 +1116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# HttpEndpointCommonAttributeTypeDef
+# HttpEndpointCommonAttribute
 
 ### AttributeName
 - **Type**: <class 'str'>
@@ -1127,7 +1127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# HttpEndpointConfigurationTypeDef
+# HttpEndpointConfiguration
 
 ### Url
 - **Type**: <class 'str'>
@@ -1140,7 +1140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# HttpEndpointDescriptionTypeDef
+# HttpEndpointDescription
 
 ### Url
 - **Type**: typing.Optional[str]
@@ -1149,204 +1149,204 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# HttpEndpointDestinationConfigurationTypeDef
+# HttpEndpointDestinationConfiguration
 
 ### EndpointConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointConfiguration'>
 - **Required**: Yes
 
 ### S3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration'>
 - **Required**: Yes
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointBufferingHints]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RequestConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationUnion]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### RoleARN
 - **Type**: typing.Optional[str]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# HttpEndpointDestinationDescriptionTypeDef
+# HttpEndpointDestinationDescription
 
 ### EndpointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointDescription]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointBufferingHints]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RequestConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationOutput]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutput]
 
 ### RoleARN
 - **Type**: typing.Optional[str]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
 
 ### S3DestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# HttpEndpointDestinationUpdateTypeDef
+# HttpEndpointDestinationUpdate
 
 ### EndpointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointConfiguration]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointBufferingHints]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RequestConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationUnion]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### RoleARN
 - **Type**: typing.Optional[str]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
 
 ### S3Update
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdate]
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# HttpEndpointRequestConfigurationOutputTypeDef
-
-### ContentEncoding
-- **Type**: typing.Optional[typing.Literal['GZIP', 'NONE']]
-
-### CommonAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointCommonAttributeTypeDef]]
-
-
-# HttpEndpointRequestConfigurationTypeDef
+# HttpEndpointRequestConfiguration
 
 ### ContentEncoding
 - **Type**: typing.Optional[typing.Literal['GZIP', 'NONE']]
 
 ### CommonAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointCommonAttributeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointCommonAttribute]]
 
 
-# HttpEndpointRequestConfigurationUnionTypeDef
+# HttpEndpointRequestConfigurationOutput
+
+### ContentEncoding
+- **Type**: typing.Optional[typing.Literal['GZIP', 'NONE']]
+
+### CommonAttributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointCommonAttribute]]
+
+
+# HttpEndpointRequestConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HttpEndpointRetryOptionsTypeDef
+# HttpEndpointRetryOptions
 
 ### DurationInSeconds
 - **Type**: typing.Optional[int]
 
 
-# IcebergDestinationConfigurationTypeDef
+# IcebergDestinationConfiguration
 
 ### RoleARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CatalogConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.CatalogConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.CatalogConfiguration'>
 - **Required**: Yes
 
 ### S3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration'>
 - **Required**: Yes
 
 ### DestinationTableConfigurationList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.DestinationTableConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.DestinationTableConfigurationUnion]]
 
 ### SchemaEvolutionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SchemaEvolutionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TableCreationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.TableCreationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RetryOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AppendOnly
 - **Type**: typing.Optional[bool]
 
 
-# IcebergDestinationDescriptionTypeDef
+# IcebergDestinationDescription
 
 ### DestinationTableConfigurationList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.DestinationTableConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.DestinationTableConfigurationOutput]]
 
 ### SchemaEvolutionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SchemaEvolutionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TableCreationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.TableCreationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutput]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RetryOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -1355,37 +1355,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### CatalogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CatalogConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### S3DestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# IcebergDestinationUpdateTypeDef
+# IcebergDestinationUpdate
 
 ### DestinationTableConfigurationList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.DestinationTableConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.DestinationTableConfigurationUnion]]
 
 ### SchemaEvolutionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SchemaEvolutionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TableCreationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.TableCreationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RetryOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -1394,38 +1394,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### CatalogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CatalogConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### S3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration]
 
 
-# InputFormatConfigurationOutputTypeDef
-
-### Deserializer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeserializerOutputTypeDef]
-
-
-# InputFormatConfigurationTypeDef
+# InputFormatConfiguration
 
 ### Deserializer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeserializerUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeserializerUnion]
 
 
-# InputFormatConfigurationUnionTypeDef
+# InputFormatConfigurationOutput
+
+### Deserializer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeserializerOutput]
+
+
+# InputFormatConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KMSEncryptionConfigTypeDef
+# KMSEncryptionConfig
 
 ### AWSKMSKeyARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# KinesisStreamSourceConfigurationTypeDef
+# KinesisStreamSourceConfiguration
 
 ### KinesisStreamARN
 - **Type**: <class 'str'>
@@ -1436,7 +1436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# KinesisStreamSourceDescriptionTypeDef
+# KinesisStreamSourceDescription
 
 ### KinesisStreamARN
 - **Type**: typing.Optional[str]
@@ -1448,7 +1448,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ListDeliveryStreamsInputTypeDef
+# ListDeliveryStreamsInput
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1460,7 +1460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDeliveryStreamsOutputTypeDef
+# ListDeliveryStreamsOutput
 
 ### DeliveryStreamNames
 - **Type**: typing.List[str]
@@ -1471,11 +1471,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTagsForDeliveryStreamInputTypeDef
+# ListTagsForDeliveryStreamInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -1488,10 +1488,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTagsForDeliveryStreamOutputTypeDef
+# ListTagsForDeliveryStreamOutput
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.firehose_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.firehose_classes.Tag]
 - **Required**: Yes
 
 ### HasMoreTags
@@ -1499,11 +1499,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MSKSourceConfigurationTypeDef
+# MSKSourceConfiguration
 
 ### MSKClusterARN
 - **Type**: <class 'str'>
@@ -1514,14 +1514,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthenticationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.AuthenticationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.AuthenticationConfiguration'>
 - **Required**: Yes
 
 ### ReadFromTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.Timestamp]
 
 
-# MSKSourceDescriptionTypeDef
+# MSKSourceDescription
 
 ### MSKClusterARN
 - **Type**: typing.Optional[str]
@@ -1530,7 +1530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AuthenticationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AuthenticationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DeliveryStartTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -1539,19 +1539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# OpenXJsonSerDeOutputTypeDef
-
-### ConvertDotsInJsonKeysToUnderscores
-- **Type**: typing.Optional[bool]
-
-### CaseInsensitive
-- **Type**: typing.Optional[bool]
-
-### ColumnToJsonKeyMappings
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# OpenXJsonSerDeTypeDef
+# OpenXJsonSerDe
 
 ### ConvertDotsInJsonKeysToUnderscores
 - **Type**: typing.Optional[bool]
@@ -1563,46 +1551,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# OpenXJsonSerDeUnionTypeDef
+# OpenXJsonSerDeOutput
+
+### ConvertDotsInJsonKeysToUnderscores
+- **Type**: typing.Optional[bool]
+
+### CaseInsensitive
+- **Type**: typing.Optional[bool]
+
+### ColumnToJsonKeyMappings
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# OpenXJsonSerDeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OrcSerDeOutputTypeDef
-
-### StripeSizeBytes
-- **Type**: typing.Optional[int]
-
-### BlockSizeBytes
-- **Type**: typing.Optional[int]
-
-### RowIndexStride
-- **Type**: typing.Optional[int]
-
-### EnablePadding
-- **Type**: typing.Optional[bool]
-
-### PaddingTolerance
-- **Type**: typing.Optional[float]
-
-### Compression
-- **Type**: typing.Optional[typing.Literal['NONE', 'SNAPPY', 'ZLIB']]
-
-### BloomFilterColumns
-- **Type**: typing.Optional[typing.List[str]]
-
-### BloomFilterFalsePositiveProbability
-- **Type**: typing.Optional[float]
-
-### DictionaryKeyThreshold
-- **Type**: typing.Optional[float]
-
-### FormatVersion
-- **Type**: typing.Optional[typing.Literal['V0_11', 'V0_12']]
-
-
-# OrcSerDeTypeDef
+# OrcSerDe
 
 ### StripeSizeBytes
 - **Type**: typing.Optional[int]
@@ -1635,31 +1602,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['V0_11', 'V0_12']]
 
 
-# OrcSerDeUnionTypeDef
+# OrcSerDeOutput
+
+### StripeSizeBytes
+- **Type**: typing.Optional[int]
+
+### BlockSizeBytes
+- **Type**: typing.Optional[int]
+
+### RowIndexStride
+- **Type**: typing.Optional[int]
+
+### EnablePadding
+- **Type**: typing.Optional[bool]
+
+### PaddingTolerance
+- **Type**: typing.Optional[float]
+
+### Compression
+- **Type**: typing.Optional[typing.Literal['NONE', 'SNAPPY', 'ZLIB']]
+
+### BloomFilterColumns
+- **Type**: typing.Optional[typing.List[str]]
+
+### BloomFilterFalsePositiveProbability
+- **Type**: typing.Optional[float]
+
+### DictionaryKeyThreshold
+- **Type**: typing.Optional[float]
+
+### FormatVersion
+- **Type**: typing.Optional[typing.Literal['V0_11', 'V0_12']]
+
+
+# OrcSerDeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OutputFormatConfigurationOutputTypeDef
+# OutputFormatConfiguration
 
 ### Serializer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SerializerOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SerializerUnion]
 
 
-# OutputFormatConfigurationTypeDef
+# OutputFormatConfigurationOutput
 
 ### Serializer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SerializerUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SerializerOutput]
 
 
-# OutputFormatConfigurationUnionTypeDef
+# OutputFormatConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ParquetSerDeTypeDef
+# ParquetSerDe
 
 ### BlockSizeBytes
 - **Type**: typing.Optional[int]
@@ -1680,62 +1680,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['V1', 'V2']]
 
 
-# PartitionFieldTypeDef
+# PartitionField
 
 ### SourceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PartitionSpecOutputTypeDef
+# PartitionSpec
 
 ### Identity
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.PartitionFieldTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.PartitionField]]
 
 
-# PartitionSpecTypeDef
+# PartitionSpecOutput
 
 ### Identity
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.PartitionFieldTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.PartitionField]]
 
 
-# PartitionSpecUnionTypeDef
+# PartitionSpecUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ProcessingConfigurationOutputTypeDef
+# ProcessingConfiguration
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 ### Processors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.ProcessorOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.ProcessorUnion]]
 
 
-# ProcessingConfigurationTypeDef
+# ProcessingConfigurationOutput
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 ### Processors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.ProcessorUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.ProcessorOutput]]
 
 
-# ProcessingConfigurationUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ProcessorOutputTypeDef
+# ProcessingConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ProcessorParameterTypeDef
+# ProcessorOutput
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ProcessorParameter
 
 ### ParameterName
 - **Type**: typing.Literal['BufferIntervalInSeconds', 'BufferSizeInMBs', 'CompressionFormat', 'DataMessageExtraction', 'Delimiter', 'JsonParsingEngine', 'LambdaArn', 'MetadataExtractionQuery', 'NumberOfRetries', 'RoleArn', 'SubRecordType']
@@ -1746,24 +1746,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ProcessorUnionTypeDef
+# ProcessorUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PutRecordBatchInputTypeDef
+# PutRecordBatchInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Records
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.RecordTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.Record]
 - **Required**: Yes
 
 
-# PutRecordBatchOutputTypeDef
+# PutRecordBatchOutput
 
 ### FailedPutCount
 - **Type**: <class 'int'>
@@ -1774,15 +1774,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RequestResponses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.firehose_classes.PutRecordBatchResponseEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.firehose_classes.PutRecordBatchResponseEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutRecordBatchResponseEntryTypeDef
+# PutRecordBatchResponseEntry
 
 ### RecordId
 - **Type**: typing.Optional[str]
@@ -1794,18 +1794,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutRecordInputTypeDef
+# PutRecordInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Record
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.RecordTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.Record'>
 - **Required**: Yes
 
 
-# PutRecordOutputTypeDef
+# PutRecordOutput
 
 ### RecordId
 - **Type**: <class 'str'>
@@ -1816,18 +1816,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RecordTypeDef
+# Record
 
 ### Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.Blob'>
 - **Required**: Yes
 
 
-# RedshiftDestinationConfigurationTypeDef
+# RedshiftDestinationConfiguration
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -1838,11 +1838,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CopyCommand
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.CopyCommandTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.CopyCommand'>
 - **Required**: Yes
 
 ### S3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration'>
 - **Required**: Yes
 
 ### Username
@@ -1852,25 +1852,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftRetryOptions]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 ### S3BackupConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RedshiftDestinationDescriptionTypeDef
+# RedshiftDestinationDescription
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -1881,36 +1881,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CopyCommand
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.CopyCommandTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.CopyCommand'>
 - **Required**: Yes
 
 ### S3DestinationDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescription'>
 - **Required**: Yes
 
 ### Username
 - **Type**: typing.Optional[str]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftRetryOptions]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutput]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 ### S3BackupDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescription]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RedshiftDestinationUpdateTypeDef
+# RedshiftDestinationUpdate
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -1919,7 +1919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CopyCommand
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CopyCommandTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Username
 - **Type**: typing.Optional[str]
@@ -1928,34 +1928,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftRetryOptions]
 
 ### S3Update
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdate]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 ### S3BackupUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdate]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RedshiftRetryOptionsTypeDef
+# RedshiftRetryOptions
 
 ### DurationInSeconds
 - **Type**: typing.Optional[int]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1977,13 +1977,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetryOptionsTypeDef
+# RetryOptions
 
 ### DurationInSeconds
 - **Type**: typing.Optional[int]
 
 
-# S3DestinationConfigurationTypeDef
+# S3DestinationConfiguration
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -2000,19 +2000,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CompressionFormat
 - **Type**: typing.Optional[typing.Literal['GZIP', 'HADOOP_SNAPPY', 'Snappy', 'UNCOMPRESSED', 'ZIP']]
 
 ### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.EncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# S3DestinationDescriptionTypeDef
+# S3DestinationDescription
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -2023,7 +2023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BufferingHints
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.BufferingHints'>
 - **Required**: Yes
 
 ### CompressionFormat
@@ -2031,7 +2031,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EncryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.EncryptionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.EncryptionConfiguration'>
 - **Required**: Yes
 
 ### Prefix
@@ -2041,10 +2041,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# S3DestinationUpdateTypeDef
+# S3DestinationUpdate
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -2059,19 +2059,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CompressionFormat
 - **Type**: typing.Optional[typing.Literal['GZIP', 'HADOOP_SNAPPY', 'Snappy', 'UNCOMPRESSED', 'ZIP']]
 
 ### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.EncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SchemaConfigurationTypeDef
+# SchemaConfiguration
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -2092,14 +2092,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SchemaEvolutionConfigurationTypeDef
+# SchemaEvolutionConfiguration
 
 ### Enabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# SecretsManagerConfigurationTypeDef
+# SecretsManagerConfiguration
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -2112,31 +2112,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SerializerOutputTypeDef
+# Serializer
 
 ### ParquetSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ParquetSerDeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OrcSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OrcSerDeOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OrcSerDeUnion]
 
 
-# SerializerTypeDef
+# SerializerOutput
 
 ### ParquetSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ParquetSerDeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OrcSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OrcSerDeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OrcSerDeOutput]
 
 
-# SerializerUnionTypeDef
+# SerializerUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SnowflakeBufferingHintsTypeDef
+# SnowflakeBufferingHints
 
 ### SizeInMBs
 - **Type**: typing.Optional[int]
@@ -2145,7 +2145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SnowflakeDestinationConfigurationTypeDef
+# SnowflakeDestinationConfiguration
 
 ### AccountUrl
 - **Type**: <class 'str'>
@@ -2168,7 +2168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration'>
 - **Required**: Yes
 
 ### PrivateKey
@@ -2181,7 +2181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnowflakeRoleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRoleConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DataLoadingOption
 - **Type**: typing.Optional[typing.Literal['JSON_MAPPING', 'VARIANT_CONTENT_AND_METADATA_MAPPING', 'VARIANT_CONTENT_MAPPING']]
@@ -2193,28 +2193,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnowflakeVpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeVpcConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeBufferingHints]
 
 
-# SnowflakeDestinationDescriptionTypeDef
+# SnowflakeDestinationDescription
 
 ### AccountUrl
 - **Type**: typing.Optional[str]
@@ -2232,7 +2232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnowflakeRoleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRoleConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DataLoadingOption
 - **Type**: typing.Optional[typing.Literal['JSON_MAPPING', 'VARIANT_CONTENT_AND_METADATA_MAPPING', 'VARIANT_CONTENT_MAPPING']]
@@ -2244,34 +2244,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnowflakeVpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeVpcConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutput]
 
 ### RoleARN
 - **Type**: typing.Optional[str]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
 
 ### S3DestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeBufferingHints]
 
 
-# SnowflakeDestinationUpdateTypeDef
+# SnowflakeDestinationUpdate
 
 ### AccountUrl
 - **Type**: typing.Optional[str]
@@ -2295,7 +2295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnowflakeRoleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRoleConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DataLoadingOption
 - **Type**: typing.Optional[typing.Literal['JSON_MAPPING', 'VARIANT_CONTENT_AND_METADATA_MAPPING', 'VARIANT_CONTENT_MAPPING']]
@@ -2307,37 +2307,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### RoleARN
 - **Type**: typing.Optional[str]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
 
 ### S3Update
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdate]
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeBufferingHints]
 
 
-# SnowflakeRetryOptionsTypeDef
+# SnowflakeRetryOptions
 
 ### DurationInSeconds
 - **Type**: typing.Optional[int]
 
 
-# SnowflakeRoleConfigurationTypeDef
+# SnowflakeRoleConfiguration
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -2346,29 +2346,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SnowflakeVpcConfigurationTypeDef
+# SnowflakeVpcConfiguration
 
 ### PrivateLinkVpceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# SourceDescriptionTypeDef
+# SourceDescription
 
 ### DirectPutSourceDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DirectPutSourceDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KinesisStreamSourceDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.KinesisStreamSourceDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MSKSourceDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.MSKSourceDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DatabaseSourceDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DatabaseSourceDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SplunkBufferingHintsTypeDef
+# SplunkBufferingHints
 
 ### IntervalInSeconds
 - **Type**: typing.Optional[int]
@@ -2377,7 +2377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SplunkDestinationConfigurationTypeDef
+# SplunkDestinationConfiguration
 
 ### HECEndpoint
 - **Type**: <class 'str'>
@@ -2388,7 +2388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfiguration'>
 - **Required**: Yes
 
 ### HECToken
@@ -2398,25 +2398,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllEvents', 'FailedEventsOnly']]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkBufferingHints]
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SplunkDestinationDescriptionTypeDef
+# SplunkDestinationDescription
 
 ### HECEndpoint
 - **Type**: typing.Optional[str]
@@ -2431,28 +2431,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllEvents', 'FailedEventsOnly']]
 
 ### S3DestinationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutput]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkBufferingHints]
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SplunkDestinationUpdateTypeDef
+# SplunkDestinationUpdate
 
 ### HECEndpoint
 - **Type**: typing.Optional[str]
@@ -2467,69 +2467,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RetryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkRetryOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkRetryOptions]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['AllEvents', 'FailedEventsOnly']]
 
 ### S3Update
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdate]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnion]
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferingHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkBufferingHintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkBufferingHints]
 
 ### SecretsManagerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SplunkRetryOptionsTypeDef
+# SplunkRetryOptions
 
 ### DurationInSeconds
 - **Type**: typing.Optional[int]
 
 
-# StartDeliveryStreamEncryptionInputTypeDef
+# StartDeliveryStreamEncryptionInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DeliveryStreamEncryptionConfigurationInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeliveryStreamEncryptionConfigurationInputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StopDeliveryStreamEncryptionInputTypeDef
+# StopDeliveryStreamEncryptionInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TableCreationConfigurationTypeDef
+# TableCreationConfiguration
 
 ### Enabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# TagDeliveryStreamInputTypeDef
-
-### DeliveryStreamName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -2539,13 +2528,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimestampTypeDef
+# TagDeliveryStreamInput
+
+### DeliveryStreamName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.Tag]
+- **Required**: Yes
+
+
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagDeliveryStreamInputTypeDef
+# UntagDeliveryStreamInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -2556,7 +2556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDestinationInputTypeDef
+# UpdateDestinationInput
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -2571,37 +2571,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3DestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ExtendedS3DestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ExtendedS3DestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RedshiftDestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftDestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ElasticsearchDestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ElasticsearchDestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AmazonopensearchserviceDestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonopensearchserviceDestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SplunkDestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SplunkDestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### HttpEndpointDestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointDestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AmazonOpenSearchServerlessDestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessDestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SnowflakeDestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeDestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### IcebergDestinationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.IcebergDestinationUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# VpcConfigurationDescriptionTypeDef
+# VpcConfiguration
+
+### SubnetIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### RoleARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecurityGroupIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# VpcConfigurationDescription
 
 ### SubnetIds
 - **Type**: typing.List[str]
@@ -2617,21 +2632,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### VpcId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# VpcConfigurationTypeDef
-
-### SubnetIds
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### RoleARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SecurityGroupIds
-- **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 

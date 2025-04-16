@@ -12,21 +12,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kinesis_video_signaling_constants import *
 
-class GetIceServerConfigRequestTypeDef(BaseValidatorModel):
+class GetIceServerConfigRequest(BaseValidatorModel):
     ChannelARN: str
     ClientId: Optional[str] = None
     Service: Optional[Literal["TURN"]] = None
     Username: Optional[str] = None
 
 
-class IceServerTypeDef(BaseValidatorModel):
+class IceServer(BaseValidatorModel):
     Uris: Optional[List[str]] = None
     Username: Optional[str] = None
     Password: Optional[str] = None
     Ttl: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -34,19 +34,19 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class SendAlexaOfferToMasterRequestTypeDef(BaseValidatorModel):
+class SendAlexaOfferToMasterRequest(BaseValidatorModel):
     ChannelARN: str
     SenderClientId: str
     MessagePayload: str
 
 
-class GetIceServerConfigResponseTypeDef(BaseValidatorModel):
-    IceServerList: List[IceServerTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIceServerConfigResponse(BaseValidatorModel):
+    IceServerList: List[IceServer]
+    ResponseMetadata: ResponseMetadata
 
 
-class SendAlexaOfferToMasterResponseTypeDef(BaseValidatorModel):
+class SendAlexaOfferToMasterResponse(BaseValidatorModel):
     Answer: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

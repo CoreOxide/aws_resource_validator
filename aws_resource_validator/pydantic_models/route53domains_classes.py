@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.route53domains_constants import *
 
-class AcceptDomainTransferFromAnotherAwsAccountRequestTypeDef(BaseValidatorModel):
+class AcceptDomainTransferFromAnotherAwsAccountRequest(BaseValidatorModel):
     DomainName: str
     Password: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,13 +25,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DnssecSigningAttributesTypeDef(BaseValidatorModel):
+class DnssecSigningAttributes(BaseValidatorModel):
     Algorithm: Optional[int] = None
     Flags: Optional[int] = None
     PublicKey: Optional[str] = None
 
 
-class BillingRecordTypeDef(BaseValidatorModel):
+class BillingRecord(BaseValidatorModel):
     DomainName: Optional[str] = None
     Operation: Optional[OperationTypeType] = None
     InvoiceId: Optional[str] = None
@@ -39,57 +39,57 @@ class BillingRecordTypeDef(BaseValidatorModel):
     Price: Optional[float] = None
 
 
-class CancelDomainTransferToAnotherAwsAccountRequestTypeDef(BaseValidatorModel):
+class CancelDomainTransferToAnotherAwsAccountRequest(BaseValidatorModel):
     DomainName: str
 
 
-class CheckDomainAvailabilityRequestTypeDef(BaseValidatorModel):
+class CheckDomainAvailabilityRequest(BaseValidatorModel):
     DomainName: str
     IdnLangCode: Optional[str] = None
 
 
-class CheckDomainTransferabilityRequestTypeDef(BaseValidatorModel):
+class CheckDomainTransferabilityRequest(BaseValidatorModel):
     DomainName: str
     AuthCode: Optional[str] = None
 
 
-class DomainTransferabilityTypeDef(BaseValidatorModel):
+class DomainTransferability(BaseValidatorModel):
     Transferable: Optional[TransferableType] = None
 
 
-class ConsentTypeDef(BaseValidatorModel):
+class Consent(BaseValidatorModel):
     MaxPrice: float
     Currency: str
 
 
-class ExtraParamTypeDef(BaseValidatorModel):
+class ExtraParam(BaseValidatorModel):
     Name: ExtraParamNameType
     Value: str
 
 
-class DeleteDomainRequestTypeDef(BaseValidatorModel):
+class DeleteDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DeleteTagsForDomainRequestTypeDef(BaseValidatorModel):
+class DeleteTagsForDomainRequest(BaseValidatorModel):
     DomainName: str
     TagsToDelete: Sequence[str]
 
 
-class DisableDomainAutoRenewRequestTypeDef(BaseValidatorModel):
+class DisableDomainAutoRenewRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DisableDomainTransferLockRequestTypeDef(BaseValidatorModel):
+class DisableDomainTransferLockRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DisassociateDelegationSignerFromDomainRequestTypeDef(BaseValidatorModel):
+class DisassociateDelegationSignerFromDomainRequest(BaseValidatorModel):
     DomainName: str
     Id: str
 
 
-class DnssecKeyTypeDef(BaseValidatorModel):
+class DnssecKey(BaseValidatorModel):
     Algorithm: Optional[int] = None
     Flags: Optional[int] = None
     PublicKey: Optional[str] = None
@@ -99,124 +99,124 @@ class DnssecKeyTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
 
 
-class PriceWithCurrencyTypeDef(BaseValidatorModel):
+class PriceWithCurrency(BaseValidatorModel):
     Price: float
     Currency: str
 
 
-class DomainSuggestionTypeDef(BaseValidatorModel):
+class DomainSuggestion(BaseValidatorModel):
     DomainName: Optional[str] = None
     Availability: Optional[str] = None
 
 
-class DomainSummaryTypeDef(BaseValidatorModel):
+class DomainSummary(BaseValidatorModel):
     DomainName: Optional[str] = None
     AutoRenew: Optional[bool] = None
     TransferLock: Optional[bool] = None
     Expiry: Optional[datetime] = None
 
 
-class EnableDomainAutoRenewRequestTypeDef(BaseValidatorModel):
+class EnableDomainAutoRenewRequest(BaseValidatorModel):
     DomainName: str
 
 
-class EnableDomainTransferLockRequestTypeDef(BaseValidatorModel):
+class EnableDomainTransferLockRequest(BaseValidatorModel):
     DomainName: str
 
 
-class FilterConditionTypeDef(BaseValidatorModel):
+class FilterCondition(BaseValidatorModel):
     Name: ListDomainsAttributeNameType
     Operator: OperatorType
     Values: Sequence[str]
 
 
-class GetContactReachabilityStatusRequestTypeDef(BaseValidatorModel):
+class GetContactReachabilityStatusRequest(BaseValidatorModel):
     domainName: Optional[str] = None
 
 
-class GetDomainDetailRequestTypeDef(BaseValidatorModel):
+class GetDomainDetailRequest(BaseValidatorModel):
     DomainName: str
 
 
-class NameserverOutputTypeDef(BaseValidatorModel):
+class NameserverOutput(BaseValidatorModel):
     Name: str
     GlueIps: Optional[List[str]] = None
 
 
-class GetDomainSuggestionsRequestTypeDef(BaseValidatorModel):
+class GetDomainSuggestionsRequest(BaseValidatorModel):
     DomainName: str
     SuggestionCount: int
     OnlyAvailable: bool
 
 
-class GetOperationDetailRequestTypeDef(BaseValidatorModel):
+class GetOperationDetailRequest(BaseValidatorModel):
     OperationId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class SortConditionTypeDef(BaseValidatorModel):
+class SortCondition(BaseValidatorModel):
     Name: ListDomainsAttributeNameType
     SortOrder: SortOrderType
 
 
-class ListPricesRequestTypeDef(BaseValidatorModel):
+class ListPricesRequest(BaseValidatorModel):
     Tld: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
-class ListTagsForDomainRequestTypeDef(BaseValidatorModel):
+class ListTagsForDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class NameserverTypeDef(BaseValidatorModel):
+class Nameserver(BaseValidatorModel):
     Name: str
     GlueIps: Optional[Sequence[str]] = None
 
 
-class PushDomainRequestTypeDef(BaseValidatorModel):
+class PushDomainRequest(BaseValidatorModel):
     DomainName: str
     Target: str
 
 
-class RejectDomainTransferFromAnotherAwsAccountRequestTypeDef(BaseValidatorModel):
+class RejectDomainTransferFromAnotherAwsAccountRequest(BaseValidatorModel):
     DomainName: str
 
 
-class RenewDomainRequestTypeDef(BaseValidatorModel):
+class RenewDomainRequest(BaseValidatorModel):
     DomainName: str
     CurrentExpiryYear: int
     DurationInYears: Optional[int] = None
 
 
-class ResendContactReachabilityEmailRequestTypeDef(BaseValidatorModel):
+class ResendContactReachabilityEmailRequest(BaseValidatorModel):
     domainName: Optional[str] = None
 
 
-class ResendOperationAuthorizationRequestTypeDef(BaseValidatorModel):
+class ResendOperationAuthorizationRequest(BaseValidatorModel):
     OperationId: str
 
 
-class RetrieveDomainAuthCodeRequestTypeDef(BaseValidatorModel):
+class RetrieveDomainAuthCodeRequest(BaseValidatorModel):
     DomainName: str
 
 
-class TransferDomainToAnotherAwsAccountRequestTypeDef(BaseValidatorModel):
+class TransferDomainToAnotherAwsAccountRequest(BaseValidatorModel):
     DomainName: str
     AccountId: str
 
 
-class UpdateDomainContactPrivacyRequestTypeDef(BaseValidatorModel):
+class UpdateDomainContactPrivacyRequest(BaseValidatorModel):
     DomainName: str
     AdminPrivacy: Optional[bool] = None
     RegistrantPrivacy: Optional[bool] = None
@@ -224,127 +224,127 @@ class UpdateDomainContactPrivacyRequestTypeDef(BaseValidatorModel):
     BillingPrivacy: Optional[bool] = None
 
 
-class AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef(BaseValidatorModel):
+class AcceptDomainTransferFromAnotherAwsAccountResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateDelegationSignerToDomainResponseTypeDef(BaseValidatorModel):
+class AssociateDelegationSignerToDomainResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelDomainTransferToAnotherAwsAccountResponseTypeDef(BaseValidatorModel):
+class CancelDomainTransferToAnotherAwsAccountResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CheckDomainAvailabilityResponseTypeDef(BaseValidatorModel):
+class CheckDomainAvailabilityResponse(BaseValidatorModel):
     Availability: DomainAvailabilityType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDomainResponseTypeDef(BaseValidatorModel):
+class DeleteDomainResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisableDomainTransferLockResponseTypeDef(BaseValidatorModel):
+class DisableDomainTransferLockResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateDelegationSignerFromDomainResponseTypeDef(BaseValidatorModel):
+class DisassociateDelegationSignerFromDomainResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class EnableDomainTransferLockResponseTypeDef(BaseValidatorModel):
+class EnableDomainTransferLockResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetContactReachabilityStatusResponseTypeDef(BaseValidatorModel):
+class GetContactReachabilityStatusResponse(BaseValidatorModel):
     domainName: str
     status: ReachabilityStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterDomainResponseTypeDef(BaseValidatorModel):
+class RegisterDomainResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RejectDomainTransferFromAnotherAwsAccountResponseTypeDef(BaseValidatorModel):
+class RejectDomainTransferFromAnotherAwsAccountResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RenewDomainResponseTypeDef(BaseValidatorModel):
+class RenewDomainResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResendContactReachabilityEmailResponseTypeDef(BaseValidatorModel):
+class ResendContactReachabilityEmailResponse(BaseValidatorModel):
     domainName: str
     emailAddress: str
     isAlreadyVerified: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RetrieveDomainAuthCodeResponseTypeDef(BaseValidatorModel):
+class RetrieveDomainAuthCodeResponse(BaseValidatorModel):
     AuthCode: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TransferDomainResponseTypeDef(BaseValidatorModel):
+class TransferDomainResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TransferDomainToAnotherAwsAccountResponseTypeDef(BaseValidatorModel):
+class TransferDomainToAnotherAwsAccountResponse(BaseValidatorModel):
     OperationId: str
     Password: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDomainContactPrivacyResponseTypeDef(BaseValidatorModel):
+class UpdateDomainContactPrivacyResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDomainContactResponseTypeDef(BaseValidatorModel):
+class UpdateDomainContactResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDomainNameserversResponseTypeDef(BaseValidatorModel):
+class UpdateDomainNameserversResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateDelegationSignerToDomainRequestTypeDef(BaseValidatorModel):
+class AssociateDelegationSignerToDomainRequest(BaseValidatorModel):
     DomainName: str
-    SigningAttributes: DnssecSigningAttributesTypeDef
+    SigningAttributes: DnssecSigningAttributes
 
 
-class ViewBillingResponseTypeDef(BaseValidatorModel):
+class ViewBillingResponse(BaseValidatorModel):
     NextPageMarker: str
-    BillingRecords: List[BillingRecordTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    BillingRecords: List[BillingRecord]
+    ResponseMetadata: ResponseMetadata
 
 
-class CheckDomainTransferabilityResponseTypeDef(BaseValidatorModel):
-    Transferability: DomainTransferabilityTypeDef
+class CheckDomainTransferabilityResponse(BaseValidatorModel):
+    Transferability: DomainTransferability
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ContactDetailOutputTypeDef(BaseValidatorModel):
+class ContactDetailOutput(BaseValidatorModel):
     FirstName: Optional[str] = None
     LastName: Optional[str] = None
     ContactType: Optional[ContactTypeType] = None
@@ -358,10 +358,10 @@ class ContactDetailOutputTypeDef(BaseValidatorModel):
     PhoneNumber: Optional[str] = None
     Email: Optional[str] = None
     Fax: Optional[str] = None
-    ExtraParams: Optional[List[ExtraParamTypeDef]] = None
+    ExtraParams: Optional[List[ExtraParam]] = None
 
 
-class ContactDetailTypeDef(BaseValidatorModel):
+class ContactDetail(BaseValidatorModel):
     FirstName: Optional[str] = None
     LastName: Optional[str] = None
     ContactType: Optional[ContactTypeType] = None
@@ -375,91 +375,91 @@ class ContactDetailTypeDef(BaseValidatorModel):
     PhoneNumber: Optional[str] = None
     Email: Optional[str] = None
     Fax: Optional[str] = None
-    ExtraParams: Optional[Sequence[ExtraParamTypeDef]] = None
+    ExtraParams: Optional[Sequence[ExtraParam]] = None
 
 
-class DomainPriceTypeDef(BaseValidatorModel):
+class DomainPrice(BaseValidatorModel):
     Name: Optional[str] = None
-    RegistrationPrice: Optional[PriceWithCurrencyTypeDef] = None
-    TransferPrice: Optional[PriceWithCurrencyTypeDef] = None
-    RenewalPrice: Optional[PriceWithCurrencyTypeDef] = None
-    ChangeOwnershipPrice: Optional[PriceWithCurrencyTypeDef] = None
-    RestorationPrice: Optional[PriceWithCurrencyTypeDef] = None
+    RegistrationPrice: Optional[PriceWithCurrency] = None
+    TransferPrice: Optional[PriceWithCurrency] = None
+    RenewalPrice: Optional[PriceWithCurrency] = None
+    ChangeOwnershipPrice: Optional[PriceWithCurrency] = None
+    RestorationPrice: Optional[PriceWithCurrency] = None
 
 
-class GetDomainSuggestionsResponseTypeDef(BaseValidatorModel):
-    SuggestionsList: List[DomainSuggestionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDomainSuggestionsResponse(BaseValidatorModel):
+    SuggestionsList: List[DomainSuggestion]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDomainsResponseTypeDef(BaseValidatorModel):
-    Domains: List[DomainSummaryTypeDef]
+class ListDomainsResponse(BaseValidatorModel):
+    Domains: List[DomainSummary]
     NextPageMarker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPricesRequestPaginateTypeDef(BaseValidatorModel):
+class ListPricesRequestPaginate(BaseValidatorModel):
     Tld: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDomainsRequestPaginateTypeDef(BaseValidatorModel):
-    FilterConditions: Optional[Sequence[FilterConditionTypeDef]] = None
-    SortCondition: Optional[SortConditionTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDomainsRequestPaginate(BaseValidatorModel):
+    FilterConditions: Optional[Sequence[FilterCondition]] = None
+    SortCondition: Optional[SortCondition] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDomainsRequestTypeDef(BaseValidatorModel):
-    FilterConditions: Optional[Sequence[FilterConditionTypeDef]] = None
-    SortCondition: Optional[SortConditionTypeDef] = None
+class ListDomainsRequest(BaseValidatorModel):
+    FilterConditions: Optional[Sequence[FilterCondition]] = None
+    SortCondition: Optional[SortCondition] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ViewBillingRequestPaginateTypeDef(BaseValidatorModel):
-    Start: Optional[TimestampTypeDef] = None
-    End: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ViewBillingRequestPaginate(BaseValidatorModel):
+    Start: Optional[Timestamp] = None
+    End: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ViewBillingRequestTypeDef(BaseValidatorModel):
-    Start: Optional[TimestampTypeDef] = None
-    End: Optional[TimestampTypeDef] = None
+class ViewBillingRequest(BaseValidatorModel):
+    Start: Optional[Timestamp] = None
+    End: Optional[Timestamp] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
-class OperationSummaryTypeDef(BaseValidatorModel):
+class OperationSummary(BaseValidatorModel):
     pass
 
 
-class ListOperationsResponseTypeDef(BaseValidatorModel):
-    Operations: List[OperationSummaryTypeDef]
+class ListOperationsResponse(BaseValidatorModel):
+    Operations: List[OperationSummary]
     NextPageMarker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForDomainResponseTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForDomainResponse(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTagsForDomainRequestTypeDef(BaseValidatorModel):
+class UpdateTagsForDomainRequest(BaseValidatorModel):
     DomainName: str
-    TagsToUpdate: Optional[Sequence[TagTypeDef]] = None
+    TagsToUpdate: Optional[Sequence[Tag]] = None
 
 
-class GetDomainDetailResponseTypeDef(BaseValidatorModel):
+class GetDomainDetailResponse(BaseValidatorModel):
     DomainName: str
-    Nameservers: List[NameserverOutputTypeDef]
+    Nameservers: List[NameserverOutput]
     AutoRenew: bool
-    AdminContact: ContactDetailOutputTypeDef
-    RegistrantContact: ContactDetailOutputTypeDef
-    TechContact: ContactDetailOutputTypeDef
+    AdminContact: ContactDetailOutput
+    RegistrantContact: ContactDetailOutput
+    TechContact: ContactDetailOutput
     AdminPrivacy: bool
     RegistrantPrivacy: bool
     TechPrivacy: bool
@@ -475,70 +475,70 @@ class GetDomainDetailResponseTypeDef(BaseValidatorModel):
     Reseller: str
     DnsSec: str
     StatusList: List[str]
-    DnssecKeys: List[DnssecKeyTypeDef]
-    BillingContact: ContactDetailOutputTypeDef
+    DnssecKeys: List[DnssecKey]
+    BillingContact: ContactDetailOutput
     BillingPrivacy: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPricesResponseTypeDef(BaseValidatorModel):
-    Prices: List[DomainPriceTypeDef]
+class ListPricesResponse(BaseValidatorModel):
+    Prices: List[DomainPrice]
     NextPageMarker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class NameserverUnionTypeDef(BaseValidatorModel):
+class NameserverUnion(BaseValidatorModel):
     pass
 
 
-class UpdateDomainNameserversRequestTypeDef(BaseValidatorModel):
+class UpdateDomainNameserversRequest(BaseValidatorModel):
     DomainName: str
-    Nameservers: Sequence[NameserverUnionTypeDef]
+    Nameservers: Sequence[NameserverUnion]
     FIAuthKey: Optional[str] = None
 
 
-class ContactDetailUnionTypeDef(BaseValidatorModel):
+class ContactDetailUnion(BaseValidatorModel):
     pass
 
 
-class RegisterDomainRequestTypeDef(BaseValidatorModel):
+class RegisterDomainRequest(BaseValidatorModel):
     DomainName: str
     DurationInYears: int
-    AdminContact: ContactDetailUnionTypeDef
-    RegistrantContact: ContactDetailUnionTypeDef
-    TechContact: ContactDetailUnionTypeDef
+    AdminContact: ContactDetailUnion
+    RegistrantContact: ContactDetailUnion
+    TechContact: ContactDetailUnion
     IdnLangCode: Optional[str] = None
     AutoRenew: Optional[bool] = None
     PrivacyProtectAdminContact: Optional[bool] = None
     PrivacyProtectRegistrantContact: Optional[bool] = None
     PrivacyProtectTechContact: Optional[bool] = None
-    BillingContact: Optional[ContactDetailUnionTypeDef] = None
+    BillingContact: Optional[ContactDetailUnion] = None
     PrivacyProtectBillingContact: Optional[bool] = None
 
 
-class TransferDomainRequestTypeDef(BaseValidatorModel):
+class TransferDomainRequest(BaseValidatorModel):
     DomainName: str
     DurationInYears: int
-    AdminContact: ContactDetailUnionTypeDef
-    RegistrantContact: ContactDetailUnionTypeDef
-    TechContact: ContactDetailUnionTypeDef
+    AdminContact: ContactDetailUnion
+    RegistrantContact: ContactDetailUnion
+    TechContact: ContactDetailUnion
     IdnLangCode: Optional[str] = None
-    Nameservers: Optional[Sequence[NameserverUnionTypeDef]] = None
+    Nameservers: Optional[Sequence[NameserverUnion]] = None
     AuthCode: Optional[str] = None
     AutoRenew: Optional[bool] = None
     PrivacyProtectAdminContact: Optional[bool] = None
     PrivacyProtectRegistrantContact: Optional[bool] = None
     PrivacyProtectTechContact: Optional[bool] = None
-    BillingContact: Optional[ContactDetailUnionTypeDef] = None
+    BillingContact: Optional[ContactDetailUnion] = None
     PrivacyProtectBillingContact: Optional[bool] = None
 
 
-class UpdateDomainContactRequestTypeDef(BaseValidatorModel):
+class UpdateDomainContactRequest(BaseValidatorModel):
     DomainName: str
-    AdminContact: Optional[ContactDetailUnionTypeDef] = None
-    RegistrantContact: Optional[ContactDetailUnionTypeDef] = None
-    TechContact: Optional[ContactDetailUnionTypeDef] = None
-    Consent: Optional[ConsentTypeDef] = None
-    BillingContact: Optional[ContactDetailUnionTypeDef] = None
+    AdminContact: Optional[ContactDetailUnion] = None
+    RegistrantContact: Optional[ContactDetailUnion] = None
+    TechContact: Optional[ContactDetailUnion] = None
+    Consent: Optional[Consent] = None
+    BillingContact: Optional[ContactDetailUnion] = None
 
 

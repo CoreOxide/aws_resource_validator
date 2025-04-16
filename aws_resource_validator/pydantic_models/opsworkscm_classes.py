@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.opsworkscm_constants import *
 
-class AccountAttributeTypeDef(BaseValidatorModel):
+class AccountAttribute(BaseValidatorModel):
     Name: Optional[str] = None
     Maximum: Optional[int] = None
     Used: Optional[int] = None
 
 
-class EngineAttributeTypeDef(BaseValidatorModel):
+class EngineAttribute(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -31,7 +31,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BackupTypeDef(BaseValidatorModel):
+class Backup(BaseValidatorModel):
     BackupArn: Optional[str] = None
     BackupId: Optional[str] = None
     BackupType: Optional[BackupTypeType] = None
@@ -58,86 +58,86 @@ class BackupTypeDef(BaseValidatorModel):
     UserArn: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class DeleteBackupRequestTypeDef(BaseValidatorModel):
+class DeleteBackupRequest(BaseValidatorModel):
     BackupId: str
 
 
-class DeleteServerRequestTypeDef(BaseValidatorModel):
+class DeleteServerRequest(BaseValidatorModel):
     ServerName: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeBackupsRequestTypeDef(BaseValidatorModel):
+class DescribeBackupsRequest(BaseValidatorModel):
     BackupId: Optional[str] = None
     ServerName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeEventsRequestTypeDef(BaseValidatorModel):
+class DescribeEventsRequest(BaseValidatorModel):
     ServerName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ServerEventTypeDef(BaseValidatorModel):
+class ServerEvent(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     ServerName: Optional[str] = None
     Message: Optional[str] = None
     LogUrl: Optional[str] = None
 
 
-class DescribeNodeAssociationStatusRequestTypeDef(BaseValidatorModel):
+class DescribeNodeAssociationStatusRequest(BaseValidatorModel):
     NodeAssociationStatusToken: str
     ServerName: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeServersRequestTypeDef(BaseValidatorModel):
+class DescribeServersRequest(BaseValidatorModel):
     ServerName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class RestoreServerRequestTypeDef(BaseValidatorModel):
+class RestoreServerRequest(BaseValidatorModel):
     BackupId: str
     ServerName: str
     InstanceType: Optional[str] = None
     KeyPair: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateServerEngineAttributesRequestTypeDef(BaseValidatorModel):
+class UpdateServerEngineAttributesRequest(BaseValidatorModel):
     ServerName: str
     AttributeName: str
     AttributeValue: Optional[str] = None
 
 
-class UpdateServerRequestTypeDef(BaseValidatorModel):
+class UpdateServerRequest(BaseValidatorModel):
     ServerName: str
     DisableAutomatedBackup: Optional[bool] = None
     BackupRetentionCount: Optional[int] = None
@@ -145,25 +145,25 @@ class UpdateServerRequestTypeDef(BaseValidatorModel):
     PreferredBackupWindow: Optional[str] = None
 
 
-class AssociateNodeRequestTypeDef(BaseValidatorModel):
+class AssociateNodeRequest(BaseValidatorModel):
     ServerName: str
     NodeName: str
-    EngineAttributes: Sequence[EngineAttributeTypeDef]
+    EngineAttributes: Sequence[EngineAttribute]
 
 
-class DisassociateNodeRequestTypeDef(BaseValidatorModel):
+class DisassociateNodeRequest(BaseValidatorModel):
     ServerName: str
     NodeName: str
-    EngineAttributes: Optional[Sequence[EngineAttributeTypeDef]] = None
+    EngineAttributes: Optional[Sequence[EngineAttribute]] = None
 
 
-class ExportServerEngineAttributeRequestTypeDef(BaseValidatorModel):
+class ExportServerEngineAttributeRequest(BaseValidatorModel):
     ExportAttributeName: str
     ServerName: str
-    InputAttributes: Optional[Sequence[EngineAttributeTypeDef]] = None
+    InputAttributes: Optional[Sequence[EngineAttribute]] = None
 
 
-class ServerTypeDef(BaseValidatorModel):
+class Server(BaseValidatorModel):
     AssociatePublicIpAddress: Optional[bool] = None
     BackupRetentionCount: Optional[int] = None
     ServerName: Optional[str] = None
@@ -174,7 +174,7 @@ class ServerTypeDef(BaseValidatorModel):
     Endpoint: Optional[str] = None
     Engine: Optional[str] = None
     EngineModel: Optional[str] = None
-    EngineAttributes: Optional[List[EngineAttributeTypeDef]] = None
+    EngineAttributes: Optional[List[EngineAttribute]] = None
     EngineVersion: Optional[str] = None
     InstanceProfileArn: Optional[str] = None
     InstanceType: Optional[str] = None
@@ -190,56 +190,56 @@ class ServerTypeDef(BaseValidatorModel):
     ServerArn: Optional[str] = None
 
 
-class StartMaintenanceRequestTypeDef(BaseValidatorModel):
+class StartMaintenanceRequest(BaseValidatorModel):
     ServerName: str
-    EngineAttributes: Optional[Sequence[EngineAttributeTypeDef]] = None
+    EngineAttributes: Optional[Sequence[EngineAttribute]] = None
 
 
-class AssociateNodeResponseTypeDef(BaseValidatorModel):
+class AssociateNodeResponse(BaseValidatorModel):
     NodeAssociationStatusToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountAttributesResponseTypeDef(BaseValidatorModel):
-    Attributes: List[AccountAttributeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAccountAttributesResponse(BaseValidatorModel):
+    Attributes: List[AccountAttribute]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeNodeAssociationStatusResponseTypeDef(BaseValidatorModel):
+class DescribeNodeAssociationStatusResponse(BaseValidatorModel):
     NodeAssociationStatus: NodeAssociationStatusType
-    EngineAttributes: List[EngineAttributeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    EngineAttributes: List[EngineAttribute]
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateNodeResponseTypeDef(BaseValidatorModel):
+class DisassociateNodeResponse(BaseValidatorModel):
     NodeAssociationStatusToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportServerEngineAttributeResponseTypeDef(BaseValidatorModel):
-    EngineAttribute: EngineAttributeTypeDef
+class ExportServerEngineAttributeResponse(BaseValidatorModel):
+    EngineAttribute: EngineAttribute
     ServerName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBackupResponseTypeDef(BaseValidatorModel):
-    Backup: BackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateBackupResponse(BaseValidatorModel):
+    Backup: Backup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBackupsResponseTypeDef(BaseValidatorModel):
-    Backups: List[BackupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBackupsResponse(BaseValidatorModel):
+    Backups: List[Backup]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateBackupRequestTypeDef(BaseValidatorModel):
+class CreateBackupRequest(BaseValidatorModel):
     ServerName: str
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateServerRequestTypeDef(BaseValidatorModel):
+class CreateServerRequest(BaseValidatorModel):
     Engine: str
     ServerName: str
     InstanceProfileArn: str
@@ -252,89 +252,89 @@ class CreateServerRequestTypeDef(BaseValidatorModel):
     DisableAutomatedBackup: Optional[bool] = None
     EngineModel: Optional[str] = None
     EngineVersion: Optional[str] = None
-    EngineAttributes: Optional[Sequence[EngineAttributeTypeDef]] = None
+    EngineAttributes: Optional[Sequence[EngineAttribute]] = None
     BackupRetentionCount: Optional[int] = None
     KeyPair: Optional[str] = None
     PreferredMaintenanceWindow: Optional[str] = None
     PreferredBackupWindow: Optional[str] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
     SubnetIds: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     BackupId: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class DescribeBackupsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeBackupsRequestPaginate(BaseValidatorModel):
     BackupId: Optional[str] = None
     ServerName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEventsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeEventsRequestPaginate(BaseValidatorModel):
     ServerName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeServersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeServersRequestPaginate(BaseValidatorModel):
     ServerName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsForResourceRequestPaginateTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequestPaginate(BaseValidatorModel):
     ResourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEventsResponseTypeDef(BaseValidatorModel):
-    ServerEvents: List[ServerEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventsResponse(BaseValidatorModel):
+    ServerEvents: List[ServerEvent]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeNodeAssociationStatusRequestWaitTypeDef(BaseValidatorModel):
+class DescribeNodeAssociationStatusRequestWait(BaseValidatorModel):
     NodeAssociationStatusToken: str
     ServerName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class CreateServerResponseTypeDef(BaseValidatorModel):
-    Server: ServerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateServerResponse(BaseValidatorModel):
+    Server: Server
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeServersResponseTypeDef(BaseValidatorModel):
-    Servers: List[ServerTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeServersResponse(BaseValidatorModel):
+    Servers: List[Server]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RestoreServerResponseTypeDef(BaseValidatorModel):
-    Server: ServerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreServerResponse(BaseValidatorModel):
+    Server: Server
+    ResponseMetadata: ResponseMetadata
 
 
-class StartMaintenanceResponseTypeDef(BaseValidatorModel):
-    Server: ServerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartMaintenanceResponse(BaseValidatorModel):
+    Server: Server
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateServerEngineAttributesResponseTypeDef(BaseValidatorModel):
-    Server: ServerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateServerEngineAttributesResponse(BaseValidatorModel):
+    Server: Server
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateServerResponseTypeDef(BaseValidatorModel):
-    Server: ServerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateServerResponse(BaseValidatorModel):
+    Server: Server
+    ResponseMetadata: ResponseMetadata
 
 

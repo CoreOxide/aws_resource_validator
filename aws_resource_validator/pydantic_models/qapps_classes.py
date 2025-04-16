@@ -12,40 +12,40 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.qapps_constants import *
 
-class AssociateLibraryItemReviewInputTypeDef(BaseValidatorModel):
+class AssociateLibraryItemReviewInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
 
 
-class AssociateQAppWithUserInputTypeDef(BaseValidatorModel):
+class AssociateQAppWithUserInput(BaseValidatorModel):
     instanceId: str
     appId: str
 
 
-class BatchDeleteCategoryInputTypeDef(BaseValidatorModel):
+class BatchDeleteCategoryInput(BaseValidatorModel):
     instanceId: str
     categories: Sequence[str]
 
 
-class SubmissionTypeDef(BaseValidatorModel):
+class Submission(BaseValidatorModel):
     value: Optional[Dict[str, Any]] = None
     submissionId: Optional[str] = None
     timestamp: Optional[datetime] = None
 
 
-class SubmissionMutationTypeDef(BaseValidatorModel):
+class SubmissionMutation(BaseValidatorModel):
     submissionId: str
     mutationType: SubmissionMutationKindType
 
 
-class CreateLibraryItemInputTypeDef(BaseValidatorModel):
+class CreateLibraryItemInput(BaseValidatorModel):
     instanceId: str
     appId: str
     appVersion: int
     categories: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -53,7 +53,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreatePresignedUrlInputTypeDef(BaseValidatorModel):
+class CreatePresignedUrlInput(BaseValidatorModel):
     instanceId: str
     cardId: str
     appId: str
@@ -63,80 +63,80 @@ class CreatePresignedUrlInputTypeDef(BaseValidatorModel):
     sessionId: Optional[str] = None
 
 
-class DeleteLibraryItemInputTypeDef(BaseValidatorModel):
+class DeleteLibraryItemInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
 
 
-class DeleteQAppInputTypeDef(BaseValidatorModel):
+class DeleteQAppInput(BaseValidatorModel):
     instanceId: str
     appId: str
 
 
-class DescribeQAppPermissionsInputTypeDef(BaseValidatorModel):
+class DescribeQAppPermissionsInput(BaseValidatorModel):
     instanceId: str
     appId: str
 
 
-class DisassociateLibraryItemReviewInputTypeDef(BaseValidatorModel):
+class DisassociateLibraryItemReviewInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
 
 
-class DisassociateQAppFromUserInputTypeDef(BaseValidatorModel):
+class DisassociateQAppFromUserInput(BaseValidatorModel):
     instanceId: str
     appId: str
 
 
-class DocumentAttributeValueOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeValueOutput(BaseValidatorModel):
     stringValue: Optional[str] = None
     stringListValue: Optional[List[str]] = None
     longValue: Optional[int] = None
     dateValue: Optional[datetime] = None
 
 
-class ExportQAppSessionDataInputTypeDef(BaseValidatorModel):
+class ExportQAppSessionDataInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
 
 
-class FormInputCardMetadataOutputTypeDef(BaseValidatorModel):
+class FormInputCardMetadataOutput(BaseValidatorModel):
     schema: Dict[str, Any]
 
 
-class FormInputCardMetadataTypeDef(BaseValidatorModel):
+class FormInputCardMetadata(BaseValidatorModel):
     schema: Mapping[str, Any]
 
 
-class GetLibraryItemInputTypeDef(BaseValidatorModel):
+class GetLibraryItemInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
     appId: Optional[str] = None
 
 
-class GetQAppInputTypeDef(BaseValidatorModel):
+class GetQAppInput(BaseValidatorModel):
     instanceId: str
     appId: str
     appVersion: Optional[int] = None
 
 
-class GetQAppSessionInputTypeDef(BaseValidatorModel):
+class GetQAppSessionInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
 
 
-class GetQAppSessionMetadataInputTypeDef(BaseValidatorModel):
+class GetQAppSessionMetadataInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
 
 
-class SessionSharingConfigurationTypeDef(BaseValidatorModel):
+class SessionSharingConfiguration(BaseValidatorModel):
     enabled: bool
     acceptResponses: Optional[bool] = None
     revealCards: Optional[bool] = None
 
 
-class ImportDocumentInputTypeDef(BaseValidatorModel):
+class ImportDocumentInput(BaseValidatorModel):
     instanceId: str
     cardId: str
     appId: str
@@ -146,35 +146,35 @@ class ImportDocumentInputTypeDef(BaseValidatorModel):
     sessionId: Optional[str] = None
 
 
-class ListCategoriesInputTypeDef(BaseValidatorModel):
+class ListCategoriesInput(BaseValidatorModel):
     instanceId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListLibraryItemsInputTypeDef(BaseValidatorModel):
+class ListLibraryItemsInput(BaseValidatorModel):
     instanceId: str
     limit: Optional[int] = None
     nextToken: Optional[str] = None
     categoryId: Optional[str] = None
 
 
-class ListQAppSessionDataInputTypeDef(BaseValidatorModel):
+class ListQAppSessionDataInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
 
 
-class ListQAppsInputTypeDef(BaseValidatorModel):
+class ListQAppsInput(BaseValidatorModel):
     instanceId: str
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class UserAppItemTypeDef(BaseValidatorModel):
+class UserAppItem(BaseValidatorModel):
     appId: str
     appArn: str
     title: str
@@ -185,92 +185,92 @@ class UserAppItemTypeDef(BaseValidatorModel):
     isVerified: Optional[bool] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
 
-class PermissionInputTypeDef(BaseValidatorModel):
+class PermissionInput(BaseValidatorModel):
     action: PermissionInputActionEnumType
     principal: str
 
 
-class PrincipalOutputTypeDef(BaseValidatorModel):
+class PrincipalOutput(BaseValidatorModel):
     userId: Optional[str] = None
     userType: Optional[PrincipalOutputUserTypeEnumType] = None
     email: Optional[str] = None
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     userId: Optional[str] = None
 
 
-class StopQAppSessionInputTypeDef(BaseValidatorModel):
+class StopQAppSessionInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceARN: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceARN: str
     tagKeys: Sequence[str]
 
 
-class UpdateLibraryItemInputTypeDef(BaseValidatorModel):
+class UpdateLibraryItemInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
     status: Optional[LibraryItemStatusType] = None
     categories: Optional[Sequence[str]] = None
 
 
-class UpdateLibraryItemMetadataInputTypeDef(BaseValidatorModel):
+class UpdateLibraryItemMetadataInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
     isVerified: Optional[bool] = None
 
 
-class BatchCreateCategoryInputCategoryTypeDef(BaseValidatorModel):
+class BatchCreateCategoryInputCategory(BaseValidatorModel):
     pass
 
 
-class BatchCreateCategoryInputTypeDef(BaseValidatorModel):
+class BatchCreateCategoryInput(BaseValidatorModel):
     instanceId: str
-    categories: Sequence[BatchCreateCategoryInputCategoryTypeDef]
+    categories: Sequence[BatchCreateCategoryInputCategory]
 
 
-class CategoryInputTypeDef(BaseValidatorModel):
+class CategoryInput(BaseValidatorModel):
     pass
 
 
-class BatchUpdateCategoryInputTypeDef(BaseValidatorModel):
+class BatchUpdateCategoryInput(BaseValidatorModel):
     instanceId: str
-    categories: Sequence[CategoryInputTypeDef]
+    categories: Sequence[CategoryInput]
 
 
-class CardStatusTypeDef(BaseValidatorModel):
+class CardStatus(BaseValidatorModel):
     currentState: ExecutionStatusType
     currentValue: str
-    submissions: Optional[List[SubmissionTypeDef]] = None
+    submissions: Optional[List[Submission]] = None
 
 
-class CardValueTypeDef(BaseValidatorModel):
+class CardValue(BaseValidatorModel):
     cardId: str
     value: str
-    submissionMutation: Optional[SubmissionMutationTypeDef] = None
+    submissionMutation: Optional[SubmissionMutation] = None
 
 
-class CategoryTypeDef(BaseValidatorModel):
+class Category(BaseValidatorModel):
     pass
 
 
-class LibraryItemMemberTypeDef(BaseValidatorModel):
+class LibraryItemMember(BaseValidatorModel):
     libraryItemId: str
     appId: str
     appVersion: int
-    categories: List[CategoryTypeDef]
+    categories: List[Category]
     status: str
     createdAt: datetime
     createdBy: str
@@ -282,16 +282,16 @@ class LibraryItemMemberTypeDef(BaseValidatorModel):
     isVerified: Optional[bool] = None
 
 
-class ConversationMessageTypeDef(BaseValidatorModel):
+class ConversationMessage(BaseValidatorModel):
     pass
 
 
-class PredictQAppInputOptionsTypeDef(BaseValidatorModel):
-    conversation: Optional[Sequence[ConversationMessageTypeDef]] = None
+class PredictQAppInputOptions(BaseValidatorModel):
+    conversation: Optional[Sequence[ConversationMessage]] = None
     problemStatement: Optional[str] = None
 
 
-class CreateLibraryItemOutputTypeDef(BaseValidatorModel):
+class CreateLibraryItemOutput(BaseValidatorModel):
     libraryItemId: str
     status: str
     createdAt: datetime
@@ -300,18 +300,18 @@ class CreateLibraryItemOutputTypeDef(BaseValidatorModel):
     updatedBy: str
     ratingCount: int
     isVerified: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePresignedUrlOutputTypeDef(BaseValidatorModel):
+class CreatePresignedUrlOutput(BaseValidatorModel):
     fileId: str
     presignedUrl: str
     presignedUrlFields: Dict[str, str]
     presignedUrlExpiration: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateQAppOutputTypeDef(BaseValidatorModel):
+class CreateQAppOutput(BaseValidatorModel):
     appId: str
     appArn: str
     title: str
@@ -324,25 +324,25 @@ class CreateQAppOutputTypeDef(BaseValidatorModel):
     updatedAt: datetime
     updatedBy: str
     requiredCapabilities: List[AppRequiredCapabilityType]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportQAppSessionDataOutputTypeDef(BaseValidatorModel):
+class ExportQAppSessionDataOutput(BaseValidatorModel):
     csvFileLink: str
     expiresAt: datetime
     sessionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetLibraryItemOutputTypeDef(BaseValidatorModel):
+class GetLibraryItemOutput(BaseValidatorModel):
     libraryItemId: str
     appId: str
     appVersion: int
-    categories: List[CategoryTypeDef]
+    categories: List[Category]
     status: str
     createdAt: datetime
     createdBy: str
@@ -352,35 +352,35 @@ class GetLibraryItemOutputTypeDef(BaseValidatorModel):
     isRatedByUser: bool
     userCount: int
     isVerified: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportDocumentOutputTypeDef(BaseValidatorModel):
+class ImportDocumentOutput(BaseValidatorModel):
     fileId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCategoriesOutputTypeDef(BaseValidatorModel):
-    categories: List[CategoryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCategoriesOutput(BaseValidatorModel):
+    categories: List[Category]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartQAppSessionOutputTypeDef(BaseValidatorModel):
+class StartQAppSessionOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateLibraryItemOutputTypeDef(BaseValidatorModel):
+class UpdateLibraryItemOutput(BaseValidatorModel):
     libraryItemId: str
     appId: str
     appVersion: int
-    categories: List[CategoryTypeDef]
+    categories: List[Category]
     status: str
     createdAt: datetime
     createdBy: str
@@ -390,10 +390,10 @@ class UpdateLibraryItemOutputTypeDef(BaseValidatorModel):
     isRatedByUser: bool
     userCount: int
     isVerified: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateQAppOutputTypeDef(BaseValidatorModel):
+class UpdateQAppOutput(BaseValidatorModel):
     appId: str
     appArn: str
     title: str
@@ -406,273 +406,273 @@ class UpdateQAppOutputTypeDef(BaseValidatorModel):
     updatedAt: datetime
     updatedBy: str
     requiredCapabilities: List[AppRequiredCapabilityType]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateQAppSessionOutputTypeDef(BaseValidatorModel):
+class UpdateQAppSessionOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DocumentAttributeOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeOutput(BaseValidatorModel):
     name: str
-    value: DocumentAttributeValueOutputTypeDef
+    value: DocumentAttributeValueOutput
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DocumentAttributeValueTypeDef(BaseValidatorModel):
+class DocumentAttributeValue(BaseValidatorModel):
     stringValue: Optional[str] = None
     stringListValue: Optional[Sequence[str]] = None
     longValue: Optional[int] = None
-    dateValue: Optional[TimestampTypeDef] = None
+    dateValue: Optional[Timestamp] = None
 
 
-class GetQAppSessionMetadataOutputTypeDef(BaseValidatorModel):
+class GetQAppSessionMetadataOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
     sessionName: str
-    sharingConfiguration: SessionSharingConfigurationTypeDef
+    sharingConfiguration: SessionSharingConfiguration
     sessionOwner: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateQAppSessionMetadataInputTypeDef(BaseValidatorModel):
+class UpdateQAppSessionMetadataInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
-    sharingConfiguration: SessionSharingConfigurationTypeDef
+    sharingConfiguration: SessionSharingConfiguration
     sessionName: Optional[str] = None
 
 
-class UpdateQAppSessionMetadataOutputTypeDef(BaseValidatorModel):
+class UpdateQAppSessionMetadataOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
     sessionName: str
-    sharingConfiguration: SessionSharingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    sharingConfiguration: SessionSharingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ListLibraryItemsInputPaginateTypeDef(BaseValidatorModel):
+class ListLibraryItemsInputPaginate(BaseValidatorModel):
     instanceId: str
     categoryId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListQAppsInputPaginateTypeDef(BaseValidatorModel):
+class ListQAppsInputPaginate(BaseValidatorModel):
     instanceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListQAppsOutputTypeDef(BaseValidatorModel):
-    apps: List[UserAppItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListQAppsOutput(BaseValidatorModel):
+    apps: List[UserAppItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateQAppPermissionsInputTypeDef(BaseValidatorModel):
+class UpdateQAppPermissionsInput(BaseValidatorModel):
     instanceId: str
     appId: str
-    grantPermissions: Optional[Sequence[PermissionInputTypeDef]] = None
-    revokePermissions: Optional[Sequence[PermissionInputTypeDef]] = None
+    grantPermissions: Optional[Sequence[PermissionInput]] = None
+    revokePermissions: Optional[Sequence[PermissionInput]] = None
 
 
-class PermissionOutputTypeDef(BaseValidatorModel):
+class PermissionOutput(BaseValidatorModel):
     action: PermissionOutputActionEnumType
-    principal: PrincipalOutputTypeDef
+    principal: PrincipalOutput
 
 
-class QAppSessionDataTypeDef(BaseValidatorModel):
+class QAppSessionData(BaseValidatorModel):
     cardId: str
-    user: UserTypeDef
+    user: User
     value: Optional[Dict[str, Any]] = None
     submissionId: Optional[str] = None
     timestamp: Optional[datetime] = None
 
 
-class GetQAppSessionOutputTypeDef(BaseValidatorModel):
+class GetQAppSessionOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
     sessionName: str
     appVersion: int
     latestPublishedAppVersion: int
     status: ExecutionStatusType
-    cardStatus: Dict[str, CardStatusTypeDef]
+    cardStatus: Dict[str, CardStatus]
     userIsHost: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartQAppSessionInputTypeDef(BaseValidatorModel):
+class StartQAppSessionInput(BaseValidatorModel):
     instanceId: str
     appId: str
     appVersion: int
-    initialValues: Optional[Sequence[CardValueTypeDef]] = None
+    initialValues: Optional[Sequence[CardValue]] = None
     sessionId: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateQAppSessionInputTypeDef(BaseValidatorModel):
+class UpdateQAppSessionInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
-    values: Optional[Sequence[CardValueTypeDef]] = None
+    values: Optional[Sequence[CardValue]] = None
 
 
-class ListLibraryItemsOutputTypeDef(BaseValidatorModel):
-    libraryItems: List[LibraryItemMemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLibraryItemsOutput(BaseValidatorModel):
+    libraryItems: List[LibraryItemMember]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PredictQAppInputTypeDef(BaseValidatorModel):
+class PredictQAppInput(BaseValidatorModel):
     instanceId: str
-    options: Optional[PredictQAppInputOptionsTypeDef] = None
+    options: Optional[PredictQAppInputOptions] = None
 
 
-class AttributeFilterOutputTypeDef(BaseValidatorModel):
+class AttributeFilterOutput(BaseValidatorModel):
     andAllFilters: Optional[List[Dict[str, Any]]] = None
     orAllFilters: Optional[List[Dict[str, Any]]] = None
     notFilter: Optional[Dict[str, Any]] = None
-    equalsTo: Optional[DocumentAttributeOutputTypeDef] = None
-    containsAll: Optional[DocumentAttributeOutputTypeDef] = None
-    containsAny: Optional[DocumentAttributeOutputTypeDef] = None
-    greaterThan: Optional[DocumentAttributeOutputTypeDef] = None
-    greaterThanOrEquals: Optional[DocumentAttributeOutputTypeDef] = None
-    lessThan: Optional[DocumentAttributeOutputTypeDef] = None
-    lessThanOrEquals: Optional[DocumentAttributeOutputTypeDef] = None
+    equalsTo: Optional[DocumentAttributeOutput] = None
+    containsAll: Optional[DocumentAttributeOutput] = None
+    containsAny: Optional[DocumentAttributeOutput] = None
+    greaterThan: Optional[DocumentAttributeOutput] = None
+    greaterThanOrEquals: Optional[DocumentAttributeOutput] = None
+    lessThan: Optional[DocumentAttributeOutput] = None
+    lessThanOrEquals: Optional[DocumentAttributeOutput] = None
 
 
-class DocumentAttributeTypeDef(BaseValidatorModel):
+class DocumentAttribute(BaseValidatorModel):
     name: str
-    value: DocumentAttributeValueTypeDef
+    value: DocumentAttributeValue
 
 
-class DescribeQAppPermissionsOutputTypeDef(BaseValidatorModel):
+class DescribeQAppPermissionsOutput(BaseValidatorModel):
     resourceArn: str
     appId: str
-    permissions: List[PermissionOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    permissions: List[PermissionOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateQAppPermissionsOutputTypeDef(BaseValidatorModel):
+class UpdateQAppPermissionsOutput(BaseValidatorModel):
     resourceArn: str
     appId: str
-    permissions: List[PermissionOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    permissions: List[PermissionOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListQAppSessionDataOutputTypeDef(BaseValidatorModel):
+class ListQAppSessionDataOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
-    sessionData: List[QAppSessionDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    sessionData: List[QAppSessionData]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AttributeFilterTypeDef(BaseValidatorModel):
+class AttributeFilter(BaseValidatorModel):
     andAllFilters: Optional[Sequence[Mapping[str, Any]]] = None
     orAllFilters: Optional[Sequence[Mapping[str, Any]]] = None
     notFilter: Optional[Mapping[str, Any]] = None
-    equalsTo: Optional[DocumentAttributeTypeDef] = None
-    containsAll: Optional[DocumentAttributeTypeDef] = None
-    containsAny: Optional[DocumentAttributeTypeDef] = None
-    greaterThan: Optional[DocumentAttributeTypeDef] = None
-    greaterThanOrEquals: Optional[DocumentAttributeTypeDef] = None
-    lessThan: Optional[DocumentAttributeTypeDef] = None
-    lessThanOrEquals: Optional[DocumentAttributeTypeDef] = None
+    equalsTo: Optional[DocumentAttribute] = None
+    containsAll: Optional[DocumentAttribute] = None
+    containsAny: Optional[DocumentAttribute] = None
+    greaterThan: Optional[DocumentAttribute] = None
+    greaterThanOrEquals: Optional[DocumentAttribute] = None
+    lessThan: Optional[DocumentAttribute] = None
+    lessThanOrEquals: Optional[DocumentAttribute] = None
 
 
-class TextInputCardInputTypeDef(BaseValidatorModel):
+class TextInputCardInput(BaseValidatorModel):
     pass
 
 
-class QPluginCardInputTypeDef(BaseValidatorModel):
+class QPluginCardInput(BaseValidatorModel):
     pass
 
 
-class FormInputCardInputOutputTypeDef(BaseValidatorModel):
+class FormInputCardInputOutput(BaseValidatorModel):
     pass
 
 
-class QQueryCardInputOutputTypeDef(BaseValidatorModel):
+class QQueryCardInputOutput(BaseValidatorModel):
     pass
 
 
-class FileUploadCardInputTypeDef(BaseValidatorModel):
+class FileUploadCardInput(BaseValidatorModel):
     pass
 
 
-class CardInputOutputTypeDef(BaseValidatorModel):
-    textInput: Optional[TextInputCardInputTypeDef] = None
-    qQuery: Optional[QQueryCardInputOutputTypeDef] = None
-    qPlugin: Optional[QPluginCardInputTypeDef] = None
-    fileUpload: Optional[FileUploadCardInputTypeDef] = None
-    formInput: Optional[FormInputCardInputOutputTypeDef] = None
+class CardInputOutput(BaseValidatorModel):
+    textInput: Optional[TextInputCardInput] = None
+    qQuery: Optional[QQueryCardInputOutput] = None
+    qPlugin: Optional[QPluginCardInput] = None
+    fileUpload: Optional[FileUploadCardInput] = None
+    formInput: Optional[FormInputCardInputOutput] = None
 
 
-class FileUploadCardTypeDef(BaseValidatorModel):
+class FileUploadCard(BaseValidatorModel):
     pass
 
 
-class QPluginCardTypeDef(BaseValidatorModel):
+class QPluginCard(BaseValidatorModel):
     pass
 
 
-class QQueryCardTypeDef(BaseValidatorModel):
+class QQueryCard(BaseValidatorModel):
     pass
 
 
-class FormInputCardTypeDef(BaseValidatorModel):
+class FormInputCard(BaseValidatorModel):
     pass
 
 
-class TextInputCardTypeDef(BaseValidatorModel):
+class TextInputCard(BaseValidatorModel):
     pass
 
 
-class CardTypeDef(BaseValidatorModel):
-    textInput: Optional[TextInputCardTypeDef] = None
-    qQuery: Optional[QQueryCardTypeDef] = None
-    qPlugin: Optional[QPluginCardTypeDef] = None
-    fileUpload: Optional[FileUploadCardTypeDef] = None
-    formInput: Optional[FormInputCardTypeDef] = None
+class Card(BaseValidatorModel):
+    textInput: Optional[TextInputCard] = None
+    qQuery: Optional[QQueryCard] = None
+    qPlugin: Optional[QPluginCard] = None
+    fileUpload: Optional[FileUploadCard] = None
+    formInput: Optional[FormInputCard] = None
 
 
-class AppDefinitionInputOutputTypeDef(BaseValidatorModel):
-    cards: List[CardInputOutputTypeDef]
+class AppDefinitionInputOutput(BaseValidatorModel):
+    cards: List[CardInputOutput]
     initialPrompt: Optional[str] = None
 
 
-class AppDefinitionTypeDef(BaseValidatorModel):
+class AppDefinition(BaseValidatorModel):
     appDefinitionVersion: str
-    cards: List[CardTypeDef]
+    cards: List[Card]
     canEdit: Optional[bool] = None
 
 
-class FormInputCardInputTypeDef(BaseValidatorModel):
+class FormInputCardInput(BaseValidatorModel):
     pass
 
 
-class QQueryCardInputTypeDef(BaseValidatorModel):
+class QQueryCardInput(BaseValidatorModel):
     pass
 
 
-class CardInputTypeDef(BaseValidatorModel):
-    textInput: Optional[TextInputCardInputTypeDef] = None
-    qQuery: Optional[QQueryCardInputTypeDef] = None
-    qPlugin: Optional[QPluginCardInputTypeDef] = None
-    fileUpload: Optional[FileUploadCardInputTypeDef] = None
-    formInput: Optional[FormInputCardInputTypeDef] = None
+class CardInput(BaseValidatorModel):
+    textInput: Optional[TextInputCardInput] = None
+    qQuery: Optional[QQueryCardInput] = None
+    qPlugin: Optional[QPluginCardInput] = None
+    fileUpload: Optional[FileUploadCardInput] = None
+    formInput: Optional[FormInputCardInput] = None
 
 
-class PredictAppDefinitionTypeDef(BaseValidatorModel):
+class PredictAppDefinition(BaseValidatorModel):
     title: str
-    appDefinition: AppDefinitionInputOutputTypeDef
+    appDefinition: AppDefinitionInputOutput
     description: Optional[str] = None
 
 
-class GetQAppOutputTypeDef(BaseValidatorModel):
+class GetQAppOutput(BaseValidatorModel):
     appId: str
     appArn: str
     title: str
@@ -685,38 +685,38 @@ class GetQAppOutputTypeDef(BaseValidatorModel):
     updatedAt: datetime
     updatedBy: str
     requiredCapabilities: List[AppRequiredCapabilityType]
-    appDefinition: AppDefinitionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    appDefinition: AppDefinition
+    ResponseMetadata: ResponseMetadata
 
 
-class AppDefinitionInputTypeDef(BaseValidatorModel):
-    cards: Sequence[CardInputTypeDef]
+class AppDefinitionInput(BaseValidatorModel):
+    cards: Sequence[CardInput]
     initialPrompt: Optional[str] = None
 
 
-class PredictQAppOutputTypeDef(BaseValidatorModel):
-    app: PredictAppDefinitionTypeDef
+class PredictQAppOutput(BaseValidatorModel):
+    app: PredictAppDefinition
     problemStatement: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AppDefinitionInputUnionTypeDef(BaseValidatorModel):
+class AppDefinitionInputUnion(BaseValidatorModel):
     pass
 
 
-class CreateQAppInputTypeDef(BaseValidatorModel):
+class CreateQAppInput(BaseValidatorModel):
     instanceId: str
     title: str
-    appDefinition: AppDefinitionInputUnionTypeDef
+    appDefinition: AppDefinitionInputUnion
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateQAppInputTypeDef(BaseValidatorModel):
+class UpdateQAppInput(BaseValidatorModel):
     instanceId: str
     appId: str
     title: Optional[str] = None
     description: Optional[str] = None
-    appDefinition: Optional[AppDefinitionInputUnionTypeDef] = None
+    appDefinition: Optional[AppDefinitionInputUnion] = None
 
 

@@ -1,24 +1,6 @@
 # Rds Data Classes
 
-# ArrayValueOutputTypeDef
-
-### booleanValues
-- **Type**: typing.Optional[typing.List[bool]]
-
-### longValues
-- **Type**: typing.Optional[typing.List[int]]
-
-### doubleValues
-- **Type**: typing.Optional[typing.List[float]]
-
-### stringValues
-- **Type**: typing.Optional[typing.List[str]]
-
-### arrayValues
-- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
-
-
-# ArrayValueTypeDef
+# ArrayValue
 
 ### booleanValues
 - **Type**: typing.Optional[typing.Sequence[bool]]
@@ -36,7 +18,25 @@
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 
-# ArrayValueUnionTypeDef
+# ArrayValueOutput
+
+### booleanValues
+- **Type**: typing.Optional[typing.List[bool]]
+
+### longValues
+- **Type**: typing.Optional[typing.List[int]]
+
+### doubleValues
+- **Type**: typing.Optional[typing.List[float]]
+
+### stringValues
+- **Type**: typing.Optional[typing.List[str]]
+
+### arrayValues
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+
+# ArrayValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -48,7 +48,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchExecuteStatementRequestTypeDef
+# BatchExecuteStatementRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -69,24 +69,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameterSets
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[aws_resource_validator.pydantic_models.rds_data_classes.SqlParameterTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Sequence[aws_resource_validator.pydantic_models.rds_data_classes.SqlParameter]]]
 
 ### transactionId
 - **Type**: typing.Optional[str]
 
 
-# BatchExecuteStatementResponseTypeDef
+# BatchExecuteStatementResponse
 
 ### updateResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_data_classes.UpdateResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_data_classes.UpdateResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BeginTransactionRequestTypeDef
+# BeginTransactionRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -103,30 +103,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BeginTransactionResponseTypeDef
+# BeginTransactionResponse
 
 ### transactionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ColumnMetadataTypeDef
+# ColumnMetadata
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CommitTransactionRequestTypeDef
+# CommitTransactionRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -141,18 +141,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CommitTransactionResponseTypeDef
+# CommitTransactionResponse
 
 ### transactionStatus
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExecuteSqlRequestTypeDef
+# ExecuteSqlRequest
 
 ### dbClusterOrInstanceArn
 - **Type**: <class 'str'>
@@ -173,18 +173,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecuteSqlResponseTypeDef
+# ExecuteSqlResponse
 
 ### sqlStatementResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_data_classes.SqlStatementResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_data_classes.SqlStatementResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExecuteStatementRequestTypeDef
+# ExecuteStatementRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -205,7 +205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_data_classes.SqlParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_data_classes.SqlParameter]]
 
 ### transactionId
 - **Type**: typing.Optional[str]
@@ -217,20 +217,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### resultSetOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ResultSetOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ResultSetOptions]
 
 ### formatRecordsAs
 - **Type**: typing.Optional[typing.Literal['JSON', 'NONE']]
 
 
-# ExecuteStatementResponseTypeDef
+# ExecuteStatementResponse
 
 ### records
-- **Type**: typing.List[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.FieldOutputTypeDef]]
+- **Type**: typing.List[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.FieldOutput]]
 - **Required**: Yes
 
 ### columnMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_data_classes.ColumnMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_data_classes.ColumnMetadata]
 - **Required**: Yes
 
 ### numberOfRecordsUpdated
@@ -238,7 +238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### generatedFields
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_data_classes.FieldOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_data_classes.FieldOutput]
 - **Required**: Yes
 
 ### formattedRecords
@@ -246,11 +246,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FieldOutputTypeDef
+# Field
+
+### isNull
+- **Type**: typing.Optional[bool]
+
+### booleanValue
+- **Type**: typing.Optional[bool]
+
+### longValue
+- **Type**: typing.Optional[int]
+
+### doubleValue
+- **Type**: typing.Optional[float]
+
+### stringValue
+- **Type**: typing.Optional[str]
+
+### blobValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.Blob]
+
+### arrayValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ArrayValueUnion]
+
+
+# FieldOutput
 
 ### isNull
 - **Type**: typing.Optional[bool]
@@ -271,46 +295,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bytes]
 
 ### arrayValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ArrayValueOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ArrayValueOutput]
 
 
-# FieldTypeDef
-
-### isNull
-- **Type**: typing.Optional[bool]
-
-### booleanValue
-- **Type**: typing.Optional[bool]
-
-### longValue
-- **Type**: typing.Optional[int]
-
-### doubleValue
-- **Type**: typing.Optional[float]
-
-### stringValue
-- **Type**: typing.Optional[str]
-
-### blobValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.BlobTypeDef]
-
-### arrayValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ArrayValueUnionTypeDef]
-
-
-# FieldUnionTypeDef
+# FieldUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RecordTypeDef
+# Record
 
 ### values
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.ValueTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.Value]]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -332,25 +332,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResultFrameTypeDef
+# ResultFrame
 
 ### resultSetMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ResultSetMetadataTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ResultSetMetadata]
 
 ### records
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.RecordTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.Record]]
 
 
-# ResultSetMetadataTypeDef
+# ResultSetMetadata
 
 ### columnCount
 - **Type**: typing.Optional[int]
 
 ### columnMetadata
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.ColumnMetadataTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.ColumnMetadata]]
 
 
-# ResultSetOptionsTypeDef
+# ResultSetOptions
 
 ### decimalReturnType
 - **Type**: typing.Optional[typing.Literal['DOUBLE_OR_LONG', 'STRING']]
@@ -359,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LONG', 'STRING']]
 
 
-# RollbackTransactionRequestTypeDef
+# RollbackTransactionRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -374,51 +374,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RollbackTransactionResponseTypeDef
+# RollbackTransactionResponse
 
 ### transactionStatus
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SqlParameterTypeDef
+# SqlParameter
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.FieldUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.FieldUnion]
 
 ### typeHint
 - **Type**: typing.Optional[typing.Literal['DATE', 'DECIMAL', 'JSON', 'TIME', 'TIMESTAMP', 'UUID']]
 
 
-# SqlStatementResultTypeDef
+# SqlStatementResult
 
 ### resultFrame
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ResultFrameTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.ResultFrame]
 
 ### numberOfRecordsUpdated
 - **Type**: typing.Optional[int]
 
 
-# StructValueTypeDef
+# StructValue
 
 ### attributes
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
-# UpdateResultTypeDef
+# UpdateResult
 
 ### generatedFields
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.FieldOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_data_classes.FieldOutput]]
 
 
-# ValueTypeDef
+# Value
 
 ### isNull
 - **Type**: typing.Optional[bool]
@@ -448,6 +448,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### structValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.StructValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_data_classes.StructValue]
 
 

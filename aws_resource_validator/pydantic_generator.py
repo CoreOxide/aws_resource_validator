@@ -133,6 +133,8 @@ def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name:
         class_name = name
         if class_name.endswith("TypeDef"):
             class_name = class_name[:-len("TypeDef")]
+            if class_name in {'Mapping', 'List', 'Sequence', 'Literal', 'Any', 'IO'}:
+                class_name = class_name + 'Type'
 
         model_lines = [f"class {class_name}(BaseValidatorModel):"]
         if fields:

@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_runtime_constants import *
 
-class InternalStreamFailureTypeDef(BaseValidatorModel):
+class InternalStreamFailure(BaseValidatorModel):
     Message: Optional[str] = None
 
 
-class InvokeEndpointAsyncInputTypeDef(BaseValidatorModel):
+class InvokeEndpointAsyncInput(BaseValidatorModel):
     EndpointName: str
     InputLocation: str
     ContentType: Optional[str] = None
@@ -27,7 +27,7 @@ class InvokeEndpointAsyncInputTypeDef(BaseValidatorModel):
     InvocationTimeoutSeconds: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -35,22 +35,22 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ModelStreamErrorTypeDef(BaseValidatorModel):
+class ModelStreamError(BaseValidatorModel):
     Message: Optional[str] = None
     ErrorCode: Optional[str] = None
 
 
-class PayloadPartTypeDef(BaseValidatorModel):
+class PayloadPart(BaseValidatorModel):
     Bytes: Optional[bytes] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class InvokeEndpointInputTypeDef(BaseValidatorModel):
+class InvokeEndpointInput(BaseValidatorModel):
     EndpointName: str
-    Body: BlobTypeDef
+    Body: Blob
     ContentType: Optional[str] = None
     Accept: Optional[str] = None
     CustomAttributes: Optional[str] = None
@@ -63,9 +63,9 @@ class InvokeEndpointInputTypeDef(BaseValidatorModel):
     SessionId: Optional[str] = None
 
 
-class InvokeEndpointWithResponseStreamInputTypeDef(BaseValidatorModel):
+class InvokeEndpointWithResponseStreamInput(BaseValidatorModel):
     EndpointName: str
-    Body: BlobTypeDef
+    Body: Blob
     ContentType: Optional[str] = None
     Accept: Optional[str] = None
     CustomAttributes: Optional[str] = None
@@ -76,34 +76,34 @@ class InvokeEndpointWithResponseStreamInputTypeDef(BaseValidatorModel):
     SessionId: Optional[str] = None
 
 
-class InvokeEndpointAsyncOutputTypeDef(BaseValidatorModel):
+class InvokeEndpointAsyncOutput(BaseValidatorModel):
     InferenceId: str
     OutputLocation: str
     FailureLocation: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InvokeEndpointOutputTypeDef(BaseValidatorModel):
+class InvokeEndpointOutput(BaseValidatorModel):
     Body: StreamingBody
     ContentType: str
     InvokedProductionVariant: str
     CustomAttributes: str
     NewSessionId: str
     ClosedSessionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResponseStreamTypeDef(BaseValidatorModel):
-    PayloadPart: Optional[PayloadPartTypeDef] = None
-    ModelStreamError: Optional[ModelStreamErrorTypeDef] = None
-    InternalStreamFailure: Optional[InternalStreamFailureTypeDef] = None
+class ResponseStream(BaseValidatorModel):
+    PayloadPart: Optional[PayloadPart] = None
+    ModelStreamError: Optional[ModelStreamError] = None
+    InternalStreamFailure: Optional[InternalStreamFailure] = None
 
 
-class InvokeEndpointWithResponseStreamOutputTypeDef(BaseValidatorModel):
-    Body: EventStream[ResponseStreamTypeDef]
+class InvokeEndpointWithResponseStreamOutput(BaseValidatorModel):
+    Body: EventStream[ResponseStream]
     ContentType: str
     InvokedProductionVariant: str
     CustomAttributes: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

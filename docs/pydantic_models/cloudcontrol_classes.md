@@ -6,25 +6,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelResourceRequestInputTypeDef
+# CancelResourceRequestInput
 
 ### RequestToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelResourceRequestOutputTypeDef
+# CancelResourceRequestOutput
 
 ### ProgressEvent
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEventTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEvent'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateResourceInputTypeDef
+# CreateResourceInput
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -44,18 +44,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateResourceOutputTypeDef
+# CreateResourceOutput
 
 ### ProgressEvent
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEventTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEvent'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteResourceInputTypeDef
+# DeleteResourceInput
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -75,18 +75,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteResourceOutputTypeDef
+# DeleteResourceOutput
 
 ### ProgressEvent
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEventTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEvent'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResourceInputTypeDef
+# GetResourceInput
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -103,54 +103,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetResourceOutputTypeDef
+# GetResourceOutput
 
 ### TypeName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResourceDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResourceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResourceRequestStatusInputTypeDef
+# GetResourceRequestStatusInput
 
 ### RequestToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourceRequestStatusInputWaitTypeDef
+# GetResourceRequestStatusInputWait
 
 ### RequestToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetResourceRequestStatusOutputTypeDef
+# GetResourceRequestStatusOutput
 
 ### ProgressEvent
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEventTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEvent'>
 - **Required**: Yes
 
 ### HooksProgressEvent
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudcontrol_classes.HookProgressEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudcontrol_classes.HookProgressEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HookProgressEventTypeDef
+# HookProgressEvent
 
 ### HookTypeName
 - **Type**: typing.Optional[str]
@@ -177,16 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceRequestsInputPaginateTypeDef
-
-### ResourceRequestStatusFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.ResourceRequestStatusFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceRequestsInputTypeDef
+# ListResourceRequestsInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -195,43 +186,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceRequestStatusFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.ResourceRequestStatusFilterTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ListResourceRequestsOutputTypeDef
+# ListResourceRequestsInputPaginate
+
+### ResourceRequestStatusFilter
+- **Type**: <class 'NoneType'>
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.PaginatorConfig]
+
+
+# ListResourceRequestsOutput
 
 ### ResourceRequestStatusSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourcesInputPaginateTypeDef
-
-### TypeName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TypeVersionId
-- **Type**: typing.Optional[str]
-
-### RoleArn
-- **Type**: typing.Optional[str]
-
-### ResourceModel
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.PaginatorConfigTypeDef]
-
-
-# ListResourcesInputTypeDef
+# ListResourcesInput
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -253,25 +234,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourcesOutputTypeDef
+# ListResourcesInputPaginate
+
+### TypeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TypeVersionId
+- **Type**: typing.Optional[str]
+
+### RoleArn
+- **Type**: typing.Optional[str]
+
+### ResourceModel
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.PaginatorConfig]
+
+
+# ListResourcesOutput
 
 ### TypeName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudcontrol_classes.ResourceDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudcontrol_classes.ResourceDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -283,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProgressEventTypeDef
+# ProgressEvent
 
 ### TypeName
 - **Type**: typing.Optional[str]
@@ -319,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ResourceDescriptionTypeDef
+# ResourceDescription
 
 ### Identifier
 - **Type**: typing.Optional[str]
@@ -328,7 +328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceRequestStatusFilterTypeDef
+# ResourceRequestStatusFilter
 
 ### Operations
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CREATE', 'DELETE', 'UPDATE']]]
@@ -337,7 +337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCEL_COMPLETE', 'CANCEL_IN_PROGRESS', 'FAILED', 'IN_PROGRESS', 'PENDING', 'SUCCESS']]]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -359,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateResourceInputTypeDef
+# UpdateResourceInput
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -383,18 +383,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateResourceOutputTypeDef
+# UpdateResourceOutput
 
 ### ProgressEvent
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEventTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEvent'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

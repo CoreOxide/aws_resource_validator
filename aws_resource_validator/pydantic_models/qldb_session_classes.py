@@ -12,26 +12,26 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.qldb_session_constants import *
 
-class TimingInformationTypeDef(BaseValidatorModel):
+class TimingInformation(BaseValidatorModel):
     ProcessingTimeMilliseconds: Optional[int] = None
 
 
-class IOUsageTypeDef(BaseValidatorModel):
+class IOUsage(BaseValidatorModel):
     ReadIOs: Optional[int] = None
     WriteIOs: Optional[int] = None
 
 
-class FetchPageRequestTypeDef(BaseValidatorModel):
+class FetchPageRequest(BaseValidatorModel):
     TransactionId: str
     NextPageToken: str
 
 
-class ValueHolderOutputTypeDef(BaseValidatorModel):
+class ValueHolderOutput(BaseValidatorModel):
     IonBinary: Optional[bytes] = None
     IonText: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -39,95 +39,95 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class StartSessionRequestTypeDef(BaseValidatorModel):
+class StartSessionRequest(BaseValidatorModel):
     LedgerName: str
 
 
-class AbortTransactionResultTypeDef(BaseValidatorModel):
-    TimingInformation: Optional[TimingInformationTypeDef] = None
+class AbortTransactionResult(BaseValidatorModel):
+    TimingInformation: Optional[TimingInformation] = None
 
 
-class EndSessionResultTypeDef(BaseValidatorModel):
-    TimingInformation: Optional[TimingInformationTypeDef] = None
+class EndSessionResult(BaseValidatorModel):
+    TimingInformation: Optional[TimingInformation] = None
 
 
-class StartSessionResultTypeDef(BaseValidatorModel):
+class StartSessionResult(BaseValidatorModel):
     SessionToken: Optional[str] = None
-    TimingInformation: Optional[TimingInformationTypeDef] = None
+    TimingInformation: Optional[TimingInformation] = None
 
 
-class StartTransactionResultTypeDef(BaseValidatorModel):
+class StartTransactionResult(BaseValidatorModel):
     TransactionId: Optional[str] = None
-    TimingInformation: Optional[TimingInformationTypeDef] = None
+    TimingInformation: Optional[TimingInformation] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class CommitTransactionRequestTypeDef(BaseValidatorModel):
+class CommitTransactionRequest(BaseValidatorModel):
     TransactionId: str
-    CommitDigest: BlobTypeDef
+    CommitDigest: Blob
 
 
-class ValueHolderTypeDef(BaseValidatorModel):
-    IonBinary: Optional[BlobTypeDef] = None
+class ValueHolder(BaseValidatorModel):
+    IonBinary: Optional[Blob] = None
     IonText: Optional[str] = None
 
 
-class CommitTransactionResultTypeDef(BaseValidatorModel):
+class CommitTransactionResult(BaseValidatorModel):
     TransactionId: Optional[str] = None
     CommitDigest: Optional[bytes] = None
-    TimingInformation: Optional[TimingInformationTypeDef] = None
-    ConsumedIOs: Optional[IOUsageTypeDef] = None
+    TimingInformation: Optional[TimingInformation] = None
+    ConsumedIOs: Optional[IOUsage] = None
 
 
-class PageTypeDef(BaseValidatorModel):
-    Values: Optional[List[ValueHolderOutputTypeDef]] = None
+class Page(BaseValidatorModel):
+    Values: Optional[List[ValueHolderOutput]] = None
     NextPageToken: Optional[str] = None
 
 
-class ExecuteStatementResultTypeDef(BaseValidatorModel):
-    FirstPage: Optional[PageTypeDef] = None
-    TimingInformation: Optional[TimingInformationTypeDef] = None
-    ConsumedIOs: Optional[IOUsageTypeDef] = None
+class ExecuteStatementResult(BaseValidatorModel):
+    FirstPage: Optional[Page] = None
+    TimingInformation: Optional[TimingInformation] = None
+    ConsumedIOs: Optional[IOUsage] = None
 
 
-class FetchPageResultTypeDef(BaseValidatorModel):
-    Page: Optional[PageTypeDef] = None
-    TimingInformation: Optional[TimingInformationTypeDef] = None
-    ConsumedIOs: Optional[IOUsageTypeDef] = None
+class FetchPageResult(BaseValidatorModel):
+    Page: Optional[Page] = None
+    TimingInformation: Optional[TimingInformation] = None
+    ConsumedIOs: Optional[IOUsage] = None
 
 
-class ValueHolderUnionTypeDef(BaseValidatorModel):
+class ValueHolderUnion(BaseValidatorModel):
     pass
 
 
-class ExecuteStatementRequestTypeDef(BaseValidatorModel):
+class ExecuteStatementRequest(BaseValidatorModel):
     TransactionId: str
     Statement: str
-    Parameters: Optional[Sequence[ValueHolderUnionTypeDef]] = None
+    Parameters: Optional[Sequence[ValueHolderUnion]] = None
 
 
-class SendCommandResultTypeDef(BaseValidatorModel):
-    StartSession: StartSessionResultTypeDef
-    StartTransaction: StartTransactionResultTypeDef
-    EndSession: EndSessionResultTypeDef
-    CommitTransaction: CommitTransactionResultTypeDef
-    AbortTransaction: AbortTransactionResultTypeDef
-    ExecuteStatement: ExecuteStatementResultTypeDef
-    FetchPage: FetchPageResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class SendCommandResult(BaseValidatorModel):
+    StartSession: StartSessionResult
+    StartTransaction: StartTransactionResult
+    EndSession: EndSessionResult
+    CommitTransaction: CommitTransactionResult
+    AbortTransaction: AbortTransactionResult
+    ExecuteStatement: ExecuteStatementResult
+    FetchPage: FetchPageResult
+    ResponseMetadata: ResponseMetadata
 
 
-class SendCommandRequestTypeDef(BaseValidatorModel):
+class SendCommandRequest(BaseValidatorModel):
     SessionToken: Optional[str] = None
-    StartSession: Optional[StartSessionRequestTypeDef] = None
+    StartSession: Optional[StartSessionRequest] = None
     StartTransaction: Optional[Mapping[str, Any]] = None
     EndSession: Optional[Mapping[str, Any]] = None
-    CommitTransaction: Optional[CommitTransactionRequestTypeDef] = None
+    CommitTransaction: Optional[CommitTransactionRequest] = None
     AbortTransaction: Optional[Mapping[str, Any]] = None
-    ExecuteStatement: Optional[ExecuteStatementRequestTypeDef] = None
-    FetchPage: Optional[FetchPageRequestTypeDef] = None
+    ExecuteStatement: Optional[ExecuteStatementRequest] = None
+    FetchPage: Optional[FetchPageRequest] = None
 
 

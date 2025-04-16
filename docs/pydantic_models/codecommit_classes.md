@@ -1,6 +1,42 @@
 # Codecommit Classes
 
-# ApprovalRuleEventMetadataTypeDef
+# Approval
+
+### userArn
+- **Type**: typing.Optional[str]
+
+### approvalState
+- **Type**: typing.Optional[typing.Literal['APPROVE', 'REVOKE']]
+
+
+# ApprovalRule
+
+### approvalRuleId
+- **Type**: typing.Optional[str]
+
+### approvalRuleName
+- **Type**: typing.Optional[str]
+
+### approvalRuleContent
+- **Type**: typing.Optional[str]
+
+### ruleContentSha256
+- **Type**: typing.Optional[str]
+
+### lastModifiedDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### creationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastModifiedUser
+- **Type**: typing.Optional[str]
+
+### originApprovalRuleTemplate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.OriginApprovalRuleTemplate]
+
+
+# ApprovalRuleEventMetadata
 
 ### approvalRuleName
 - **Type**: typing.Optional[str]
@@ -12,7 +48,7 @@
 - **Type**: typing.Optional[str]
 
 
-# ApprovalRuleOverriddenEventMetadataTypeDef
+# ApprovalRuleOverriddenEventMetadata
 
 ### revisionId
 - **Type**: typing.Optional[str]
@@ -21,7 +57,7 @@
 - **Type**: typing.Optional[typing.Literal['OVERRIDE', 'REVOKE']]
 
 
-# ApprovalRuleTemplateTypeDef
+# ApprovalRuleTemplate
 
 ### approvalRuleTemplateId
 - **Type**: typing.Optional[str]
@@ -48,34 +84,7 @@
 - **Type**: typing.Optional[str]
 
 
-# ApprovalRuleTypeDef
-
-### approvalRuleId
-- **Type**: typing.Optional[str]
-
-### approvalRuleName
-- **Type**: typing.Optional[str]
-
-### approvalRuleContent
-- **Type**: typing.Optional[str]
-
-### ruleContentSha256
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### creationDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastModifiedUser
-- **Type**: typing.Optional[str]
-
-### originApprovalRuleTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.OriginApprovalRuleTemplateTypeDef]
-
-
-# ApprovalStateChangedEventMetadataTypeDef
+# ApprovalStateChangedEventMetadata
 
 ### revisionId
 - **Type**: typing.Optional[str]
@@ -84,16 +93,7 @@
 - **Type**: typing.Optional[typing.Literal['APPROVE', 'REVOKE']]
 
 
-# ApprovalTypeDef
-
-### userArn
-- **Type**: typing.Optional[str]
-
-### approvalState
-- **Type**: typing.Optional[typing.Literal['APPROVE', 'REVOKE']]
-
-
-# AssociateApprovalRuleTemplateWithRepositoryInputTypeDef
+# AssociateApprovalRuleTemplateWithRepositoryInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
@@ -110,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAssociateApprovalRuleTemplateWithRepositoriesErrorTypeDef
+# BatchAssociateApprovalRuleTemplateWithRepositoriesError
 
 ### repositoryName
 - **Type**: typing.Optional[str]
@@ -122,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchAssociateApprovalRuleTemplateWithRepositoriesInputTypeDef
+# BatchAssociateApprovalRuleTemplateWithRepositoriesInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
@@ -133,22 +133,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef
+# BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
 
 ### associatedRepositoryNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchAssociateApprovalRuleTemplateWithRepositoriesErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchAssociateApprovalRuleTemplateWithRepositoriesError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDescribeMergeConflictsErrorTypeDef
+# BatchDescribeMergeConflictsError
 
 ### filePath
 - **Type**: <class 'str'>
@@ -163,7 +163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDescribeMergeConflictsInputTypeDef
+# BatchDescribeMergeConflictsInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -200,14 +200,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchDescribeMergeConflictsOutputTypeDef
+# BatchDescribeMergeConflictsOutput
 
 ### conflicts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.ConflictTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.Conflict]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchDescribeMergeConflictsErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchDescribeMergeConflictsError]
 - **Required**: Yes
 
 ### destinationCommitId
@@ -223,14 +223,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorTypeDef
+# BatchDisassociateApprovalRuleTemplateFromRepositoriesError
 
 ### repositoryName
 - **Type**: typing.Optional[str]
@@ -242,7 +242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchDisassociateApprovalRuleTemplateFromRepositoriesInputTypeDef
+# BatchDisassociateApprovalRuleTemplateFromRepositoriesInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
@@ -253,22 +253,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef
+# BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
 
 ### disassociatedRepositoryNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchDisassociateApprovalRuleTemplateFromRepositoriesError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetCommitsErrorTypeDef
+# BatchGetCommitsError
 
 ### commitId
 - **Type**: typing.Optional[str]
@@ -280,7 +280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchGetCommitsInputTypeDef
+# BatchGetCommitsInput
 
 ### commitIds
 - **Type**: typing.Sequence[str]
@@ -291,22 +291,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetCommitsOutputTypeDef
+# BatchGetCommitsOutput
 
 ### commits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.CommitTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.Commit]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchGetCommitsErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchGetCommitsError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetRepositoriesErrorTypeDef
+# BatchGetRepositoriesError
 
 ### repositoryId
 - **Type**: typing.Optional[str]
@@ -321,17 +321,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchGetRepositoriesInputTypeDef
+# BatchGetRepositoriesInput
 
 ### repositoryNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# BatchGetRepositoriesOutputTypeDef
+# BatchGetRepositoriesOutput
 
 ### repositories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryMetadata]
 - **Required**: Yes
 
 ### repositoriesNotFound
@@ -339,15 +339,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchGetRepositoriesErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.BatchGetRepositoriesError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BlobMetadataTypeDef
+# Blob
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlobMetadata
 
 ### blobId
 - **Type**: typing.Optional[str]
@@ -359,13 +365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BlobTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# BranchInfoTypeDef
+# BranchInfo
 
 ### branchName
 - **Type**: typing.Optional[str]
@@ -374,7 +374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CommentTypeDef
+# Comment
 
 ### commentId
 - **Type**: typing.Optional[str]
@@ -407,7 +407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, int]]
 
 
-# CommentsForComparedCommitTypeDef
+# CommentsForComparedCommit
 
 ### repositoryName
 - **Type**: typing.Optional[str]
@@ -425,13 +425,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.Location]
 
 ### comments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.CommentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.Comment]]
 
 
-# CommentsForPullRequestTypeDef
+# CommentsForPullRequest
 
 ### pullRequestId
 - **Type**: typing.Optional[str]
@@ -452,13 +452,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.Location]
 
 ### comments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.CommentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.Comment]]
 
 
-# CommitTypeDef
+# Commit
 
 ### commitId
 - **Type**: typing.Optional[str]
@@ -473,34 +473,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### author
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.UserInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.UserInfo]
 
 ### committer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.UserInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.UserInfo]
 
 ### additionalData
 - **Type**: typing.Optional[str]
 
 
-# ConflictMetadataTypeDef
+# Conflict
+
+### conflictMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictMetadata]
+
+### mergeHunks
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunk]]
+
+
+# ConflictMetadata
 
 ### filePath
 - **Type**: typing.Optional[str]
 
 ### fileSizes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.FileSizesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.FileSizes]
 
 ### fileModes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.FileModesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.FileModes]
 
 ### objectTypes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ObjectTypesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ObjectTypes]
 
 ### numberOfConflicts
 - **Type**: typing.Optional[int]
 
 ### isBinaryFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.IsBinaryFileTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.IsBinaryFile]
 
 ### contentConflict
 - **Type**: typing.Optional[bool]
@@ -512,31 +521,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### mergeOperations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeOperationsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeOperations]
 
 
-# ConflictResolutionTypeDef
+# ConflictResolution
 
 ### replaceContents
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.ReplaceContentEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.ReplaceContentEntry]]
 
 ### deleteFiles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.DeleteFileEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.DeleteFileEntry]]
 
 ### setFileModes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.SetFileModeEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.SetFileModeEntry]]
 
 
-# ConflictTypeDef
-
-### conflictMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictMetadataTypeDef]
-
-### mergeHunks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunkTypeDef]]
-
-
-# CreateApprovalRuleTemplateInputTypeDef
+# CreateApprovalRuleTemplateInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
@@ -550,18 +550,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateApprovalRuleTemplateOutputTypeDef
+# CreateApprovalRuleTemplateOutput
 
 ### approvalRuleTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateBranchInputTypeDef
+# CreateBranchInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -576,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCommitInputTypeDef
+# CreateCommitInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -602,16 +602,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### putFiles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.PutFileEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.PutFileEntry]]
 
 ### deleteFiles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.DeleteFileEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.DeleteFileEntry]]
 
 ### setFileModes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.SetFileModeEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.SetFileModeEntry]]
 
 
-# CreateCommitOutputTypeDef
+# CreateCommitOutput
 
 ### commitId
 - **Type**: <class 'str'>
@@ -622,23 +622,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filesAdded
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FileMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FileMetadata]
 - **Required**: Yes
 
 ### filesUpdated
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FileMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FileMetadata]
 - **Required**: Yes
 
 ### filesDeleted
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FileMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FileMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePullRequestApprovalRuleInputTypeDef
+# CreatePullRequestApprovalRuleInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -653,25 +653,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePullRequestApprovalRuleOutputTypeDef
+# CreatePullRequestApprovalRuleOutput
 
 ### approvalRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePullRequestInputTypeDef
+# CreatePullRequestInput
 
 ### title
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### targets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.TargetTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.Target]
 - **Required**: Yes
 
 ### description
@@ -681,18 +681,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreatePullRequestOutputTypeDef
+# CreatePullRequestOutput
 
 ### pullRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequest'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRepositoryInputTypeDef
+# CreateRepositoryInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -708,18 +708,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateRepositoryOutputTypeDef
+# CreateRepositoryOutput
 
 ### repositoryMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.RepositoryMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.RepositoryMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateUnreferencedMergeCommitInputTypeDef
+# CreateUnreferencedMergeCommitInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -756,10 +756,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### conflictResolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolutionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolution]
 
 
-# CreateUnreferencedMergeCommitOutputTypeDef
+# CreateUnreferencedMergeCommitOutput
 
 ### commitId
 - **Type**: <class 'str'>
@@ -770,29 +770,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteApprovalRuleTemplateInputTypeDef
+# DeleteApprovalRuleTemplateInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteApprovalRuleTemplateOutputTypeDef
+# DeleteApprovalRuleTemplateOutput
 
 ### approvalRuleTemplateId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteBranchInputTypeDef
+# DeleteBranchInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -803,43 +803,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBranchOutputTypeDef
+# DeleteBranchOutput
 
 ### deletedBranch
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.BranchInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.BranchInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteCommentContentInputTypeDef
+# DeleteCommentContentInput
 
 ### commentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCommentContentOutputTypeDef
+# DeleteCommentContentOutput
 
 ### comment
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.CommentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Comment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteFileEntryTypeDef
+# DeleteFileEntry
 
 ### filePath
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFileInputTypeDef
+# DeleteFileInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -870,7 +870,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteFileOutputTypeDef
+# DeleteFileOutput
 
 ### commitId
 - **Type**: <class 'str'>
@@ -889,11 +889,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeletePullRequestApprovalRuleInputTypeDef
+# DeletePullRequestApprovalRuleInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -904,36 +904,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePullRequestApprovalRuleOutputTypeDef
+# DeletePullRequestApprovalRuleOutput
 
 ### approvalRuleId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteRepositoryInputTypeDef
+# DeleteRepositoryInput
 
 ### repositoryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRepositoryOutputTypeDef
+# DeleteRepositoryOutput
 
 ### repositoryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeMergeConflictsInputTypeDef
+# DescribeMergeConflictsInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -968,14 +968,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeMergeConflictsOutputTypeDef
+# DescribeMergeConflictsOutput
 
 ### conflictMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ConflictMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ConflictMetadata'>
 - **Required**: Yes
 
 ### mergeHunks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunkTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunk]
 - **Required**: Yes
 
 ### destinationCommitId
@@ -991,30 +991,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribePullRequestEventsInputPaginateTypeDef
-
-### pullRequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### pullRequestEventType
-- **Type**: typing.Optional[typing.Literal['PULL_REQUEST_APPROVAL_RULE_CREATED', 'PULL_REQUEST_APPROVAL_RULE_DELETED', 'PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN', 'PULL_REQUEST_APPROVAL_RULE_UPDATED', 'PULL_REQUEST_APPROVAL_STATE_CHANGED', 'PULL_REQUEST_CREATED', 'PULL_REQUEST_MERGE_STATE_CHANGED', 'PULL_REQUEST_SOURCE_REFERENCE_UPDATED', 'PULL_REQUEST_STATUS_CHANGED']]
-
-### actorArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfigTypeDef]
-
-
-# DescribePullRequestEventsInputTypeDef
+# DescribePullRequestEventsInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -1033,33 +1017,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribePullRequestEventsOutputTypeDef
+# DescribePullRequestEventsInputPaginate
+
+### pullRequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### pullRequestEventType
+- **Type**: typing.Optional[typing.Literal['PULL_REQUEST_APPROVAL_RULE_CREATED', 'PULL_REQUEST_APPROVAL_RULE_DELETED', 'PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN', 'PULL_REQUEST_APPROVAL_RULE_UPDATED', 'PULL_REQUEST_APPROVAL_STATE_CHANGED', 'PULL_REQUEST_CREATED', 'PULL_REQUEST_MERGE_STATE_CHANGED', 'PULL_REQUEST_SOURCE_REFERENCE_UPDATED', 'PULL_REQUEST_STATUS_CHANGED']]
+
+### actorArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfig]
+
+
+# DescribePullRequestEventsOutput
 
 ### pullRequestEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DifferenceTypeDef
+# Difference
 
 ### beforeBlob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.BlobMetadataTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.BlobMetadata]
 
 ### afterBlob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.BlobMetadataTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.BlobMetadata]
 
 ### changeType
 - **Type**: typing.Optional[typing.Literal['A', 'D', 'M']]
 
 
-# DisassociateApprovalRuleTemplateFromRepositoryInputTypeDef
+# DisassociateApprovalRuleTemplateFromRepositoryInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
@@ -1070,14 +1070,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EvaluatePullRequestApprovalRulesInputTypeDef
+# EvaluatePullRequestApprovalRulesInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -1088,18 +1088,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EvaluatePullRequestApprovalRulesOutputTypeDef
+# EvaluatePullRequestApprovalRulesOutput
 
 ### evaluation
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.EvaluationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Evaluation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EvaluationTypeDef
+# Evaluation
 
 ### approved
 - **Type**: typing.Optional[bool]
@@ -1114,43 +1114,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# FileMetadataTypeDef
-
-### absolutePath
-- **Type**: typing.Optional[str]
-
-### blobId
-- **Type**: typing.Optional[str]
-
-### fileMode
-- **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
-
-
-# FileModesTypeDef
-
-### source
-- **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
-
-### destination
-- **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
-
-### base
-- **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
-
-
-# FileSizesTypeDef
-
-### source
-- **Type**: typing.Optional[int]
-
-### destination
-- **Type**: typing.Optional[int]
-
-### base
-- **Type**: typing.Optional[int]
-
-
-# FileTypeDef
+# File
 
 ### blobId
 - **Type**: typing.Optional[str]
@@ -1165,10 +1129,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
 
 
-# FileVersionTypeDef
+# FileMetadata
+
+### absolutePath
+- **Type**: typing.Optional[str]
+
+### blobId
+- **Type**: typing.Optional[str]
+
+### fileMode
+- **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
+
+
+# FileModes
+
+### source
+- **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
+
+### destination
+- **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
+
+### base
+- **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
+
+
+# FileSizes
+
+### source
+- **Type**: typing.Optional[int]
+
+### destination
+- **Type**: typing.Optional[int]
+
+### base
+- **Type**: typing.Optional[int]
+
+
+# FileVersion
 
 ### commit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.CommitTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.Commit]
 
 ### blobId
 - **Type**: typing.Optional[str]
@@ -1180,7 +1180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# FolderTypeDef
+# Folder
 
 ### treeId
 - **Type**: typing.Optional[str]
@@ -1192,25 +1192,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetApprovalRuleTemplateInputTypeDef
+# GetApprovalRuleTemplateInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApprovalRuleTemplateOutputTypeDef
+# GetApprovalRuleTemplateOutput
 
 ### approvalRuleTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBlobInputTypeDef
+# GetBlobInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1221,18 +1221,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBlobOutputTypeDef
+# GetBlobOutput
 
 ### content
 - **Type**: <class 'bytes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBranchInputTypeDef
+# GetBranchInput
 
 ### repositoryName
 - **Type**: typing.Optional[str]
@@ -1241,36 +1241,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetBranchOutputTypeDef
+# GetBranchOutput
 
 ### branch
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.BranchInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.BranchInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCommentInputTypeDef
+# GetCommentInput
 
 ### commentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCommentOutputTypeDef
+# GetCommentOutput
 
 ### comment
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.CommentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Comment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCommentReactionsInputTypeDef
+# GetCommentReactionsInput
 
 ### commentId
 - **Type**: <class 'str'>
@@ -1286,38 +1286,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetCommentReactionsOutputTypeDef
+# GetCommentReactionsOutput
 
 ### reactionsForComment
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.ReactionForCommentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.ReactionForComment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetCommentsForComparedCommitInputPaginateTypeDef
-
-### repositoryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### afterCommitId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### beforeCommitId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfigTypeDef]
-
-
-# GetCommentsForComparedCommitInputTypeDef
+# GetCommentsForComparedCommitInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1337,40 +1320,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetCommentsForComparedCommitOutputTypeDef
+# GetCommentsForComparedCommitInputPaginate
+
+### repositoryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### afterCommitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### beforeCommitId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfig]
+
+
+# GetCommentsForComparedCommitOutput
 
 ### commentsForComparedCommitData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.CommentsForComparedCommitTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.CommentsForComparedCommit]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetCommentsForPullRequestInputPaginateTypeDef
-
-### pullRequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repositoryName
-- **Type**: typing.Optional[str]
-
-### beforeCommitId
-- **Type**: typing.Optional[str]
-
-### afterCommitId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfigTypeDef]
-
-
-# GetCommentsForPullRequestInputTypeDef
+# GetCommentsForPullRequestInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -1392,21 +1373,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetCommentsForPullRequestOutputTypeDef
+# GetCommentsForPullRequestInputPaginate
+
+### pullRequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repositoryName
+- **Type**: typing.Optional[str]
+
+### beforeCommitId
+- **Type**: typing.Optional[str]
+
+### afterCommitId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfig]
+
+
+# GetCommentsForPullRequestOutput
 
 ### commentsForPullRequestData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.CommentsForPullRequestTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.CommentsForPullRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetCommitInputTypeDef
+# GetCommitInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1417,41 +1417,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCommitOutputTypeDef
+# GetCommitOutput
 
 ### commit
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.CommitTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Commit'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDifferencesInputPaginateTypeDef
-
-### repositoryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### afterCommitSpecifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### beforeCommitSpecifier
-- **Type**: typing.Optional[str]
-
-### beforePath
-- **Type**: typing.Optional[str]
-
-### afterPath
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfigTypeDef]
-
-
-# GetDifferencesInputTypeDef
+# GetDifferencesInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1477,21 +1454,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDifferencesOutputTypeDef
+# GetDifferencesInputPaginate
+
+### repositoryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### afterCommitSpecifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### beforeCommitSpecifier
+- **Type**: typing.Optional[str]
+
+### beforePath
+- **Type**: typing.Optional[str]
+
+### afterPath
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfig]
+
+
+# GetDifferencesOutput
 
 ### differences
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.DifferenceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.Difference]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetFileInputTypeDef
+# GetFileInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1505,7 +1505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFileOutputTypeDef
+# GetFileOutput
 
 ### commitId
 - **Type**: <class 'str'>
@@ -1532,11 +1532,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFolderInputTypeDef
+# GetFolderInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1550,7 +1550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFolderOutputTypeDef
+# GetFolderOutput
 
 ### commitId
 - **Type**: <class 'str'>
@@ -1565,27 +1565,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subFolders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FolderTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.Folder]
 - **Required**: Yes
 
 ### files
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FileTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.File]
 - **Required**: Yes
 
 ### symbolicLinks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.SymbolicLinkTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.SymbolicLink]
 - **Required**: Yes
 
 ### subModules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.SubModuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.SubModule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMergeCommitInputTypeDef
+# GetMergeCommitInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1606,7 +1606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCEPT_DESTINATION', 'ACCEPT_SOURCE', 'AUTOMERGE', 'NONE']]
 
 
-# GetMergeCommitOutputTypeDef
+# GetMergeCommitOutput
 
 ### sourceCommitId
 - **Type**: <class 'str'>
@@ -1625,11 +1625,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMergeConflictsInputTypeDef
+# GetMergeConflictsInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1660,7 +1660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetMergeConflictsOutputTypeDef
+# GetMergeConflictsOutput
 
 ### mergeable
 - **Type**: <class 'bool'>
@@ -1679,18 +1679,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### conflictMetadataList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.ConflictMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.ConflictMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetMergeOptionsInputTypeDef
+# GetMergeOptionsInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1711,7 +1711,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCEPT_DESTINATION', 'ACCEPT_SOURCE', 'AUTOMERGE', 'NONE']]
 
 
-# GetMergeOptionsOutputTypeDef
+# GetMergeOptionsOutput
 
 ### mergeOptions
 - **Type**: typing.List[typing.Literal['FAST_FORWARD_MERGE', 'SQUASH_MERGE', 'THREE_WAY_MERGE']]
@@ -1730,11 +1730,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPullRequestApprovalStatesInputTypeDef
+# GetPullRequestApprovalStatesInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -1745,36 +1745,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPullRequestApprovalStatesOutputTypeDef
+# GetPullRequestApprovalStatesOutput
 
 ### approvals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.ApprovalTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.Approval]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPullRequestInputTypeDef
+# GetPullRequestInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPullRequestOutputTypeDef
+# GetPullRequestOutput
 
 ### pullRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequest'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPullRequestOverrideStateInputTypeDef
+# GetPullRequestOverrideStateInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -1785,7 +1785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPullRequestOverrideStateOutputTypeDef
+# GetPullRequestOverrideStateOutput
 
 ### overridden
 - **Type**: <class 'bool'>
@@ -1796,51 +1796,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRepositoryInputTypeDef
+# GetRepositoryInput
 
 ### repositoryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRepositoryOutputTypeDef
+# GetRepositoryOutput
 
 ### repositoryMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.RepositoryMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.RepositoryMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRepositoryTriggersInputTypeDef
+# GetRepositoryTriggersInput
 
 ### repositoryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRepositoryTriggersOutputTypeDef
+# GetRepositoryTriggersOutput
 
 ### configurationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### triggers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryTriggerOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryTriggerOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IsBinaryFileTypeDef
+# IsBinaryFile
 
 ### source
 - **Type**: typing.Optional[bool]
@@ -1852,7 +1852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListApprovalRuleTemplatesInputTypeDef
+# ListApprovalRuleTemplatesInput
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1861,21 +1861,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListApprovalRuleTemplatesOutputTypeDef
+# ListApprovalRuleTemplatesOutput
 
 ### approvalRuleTemplateNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAssociatedApprovalRuleTemplatesForRepositoryInputTypeDef
+# ListAssociatedApprovalRuleTemplatesForRepositoryInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1888,55 +1888,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAssociatedApprovalRuleTemplatesForRepositoryOutputTypeDef
+# ListAssociatedApprovalRuleTemplatesForRepositoryOutput
 
 ### approvalRuleTemplateNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBranchesInputPaginateTypeDef
+# ListBranchesInput
+
+### repositoryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListBranchesInputPaginate
 
 ### repositoryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfig]
 
 
-# ListBranchesInputTypeDef
-
-### repositoryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListBranchesOutputTypeDef
+# ListBranchesOutput
 
 ### branches
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFileCommitHistoryRequestTypeDef
+# ListFileCommitHistoryRequest
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -1956,37 +1956,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFileCommitHistoryResponseTypeDef
+# ListFileCommitHistoryResponse
 
 ### revisionDag
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FileVersionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.FileVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPullRequestsInputPaginateTypeDef
-
-### repositoryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### authorArn
-- **Type**: typing.Optional[str]
-
-### pullRequestStatus
-- **Type**: typing.Optional[typing.Literal['CLOSED', 'OPEN']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfigTypeDef]
-
-
-# ListPullRequestsInputTypeDef
+# ListPullRequestsInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -2005,21 +1989,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPullRequestsOutputTypeDef
+# ListPullRequestsInputPaginate
+
+### repositoryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### authorArn
+- **Type**: typing.Optional[str]
+
+### pullRequestStatus
+- **Type**: typing.Optional[typing.Literal['CLOSED', 'OPEN']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfig]
+
+
+# ListPullRequestsOutput
 
 ### pullRequestIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRepositoriesForApprovalRuleTemplateInputTypeDef
+# ListRepositoriesForApprovalRuleTemplateInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
@@ -2032,21 +2032,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRepositoriesForApprovalRuleTemplateOutputTypeDef
+# ListRepositoriesForApprovalRuleTemplateOutput
 
 ### repositoryNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRepositoriesInputPaginateTypeDef
+# ListRepositoriesInput
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['lastModifiedDate', 'repositoryName']]
+
+### order
+- **Type**: typing.Optional[typing.Literal['ascending', 'descending']]
+
+
+# ListRepositoriesInputPaginate
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['lastModifiedDate', 'repositoryName']]
@@ -2055,36 +2067,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ascending', 'descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PaginatorConfig]
 
 
-# ListRepositoriesInputTypeDef
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### sortBy
-- **Type**: typing.Optional[typing.Literal['lastModifiedDate', 'repositoryName']]
-
-### order
-- **Type**: typing.Optional[typing.Literal['ascending', 'descending']]
-
-
-# ListRepositoriesOutputTypeDef
+# ListRepositoriesOutput
 
 ### repositories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryNameIdPairTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryNameIdPair]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2094,21 +2094,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# LocationTypeDef
+# Location
 
 ### filePath
 - **Type**: typing.Optional[str]
@@ -2120,7 +2120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AFTER', 'BEFORE']]
 
 
-# MergeBranchesByFastForwardInputTypeDef
+# MergeBranchesByFastForwardInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -2138,7 +2138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MergeBranchesByFastForwardOutputTypeDef
+# MergeBranchesByFastForwardOutput
 
 ### commitId
 - **Type**: <class 'str'>
@@ -2149,65 +2149,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MergeBranchesBySquashInputTypeDef
-
-### repositoryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sourceCommitSpecifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### destinationCommitSpecifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### targetBranch
-- **Type**: typing.Optional[str]
-
-### conflictDetailLevel
-- **Type**: typing.Optional[typing.Literal['FILE_LEVEL', 'LINE_LEVEL']]
-
-### conflictResolutionStrategy
-- **Type**: typing.Optional[typing.Literal['ACCEPT_DESTINATION', 'ACCEPT_SOURCE', 'AUTOMERGE', 'NONE']]
-
-### authorName
-- **Type**: typing.Optional[str]
-
-### email
-- **Type**: typing.Optional[str]
-
-### commitMessage
-- **Type**: typing.Optional[str]
-
-### keepEmptyFolders
-- **Type**: typing.Optional[bool]
-
-### conflictResolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolutionTypeDef]
-
-
-# MergeBranchesBySquashOutputTypeDef
-
-### commitId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### treeId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# MergeBranchesByThreeWayInputTypeDef
+# MergeBranchesBySquashInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -2243,10 +2189,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### conflictResolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolutionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolution]
 
 
-# MergeBranchesByThreeWayOutputTypeDef
+# MergeBranchesBySquashOutput
 
 ### commitId
 - **Type**: <class 'str'>
@@ -2257,11 +2203,80 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MergeHunkDetailTypeDef
+# MergeBranchesByThreeWayInput
+
+### repositoryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceCommitSpecifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### destinationCommitSpecifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### targetBranch
+- **Type**: typing.Optional[str]
+
+### conflictDetailLevel
+- **Type**: typing.Optional[typing.Literal['FILE_LEVEL', 'LINE_LEVEL']]
+
+### conflictResolutionStrategy
+- **Type**: typing.Optional[typing.Literal['ACCEPT_DESTINATION', 'ACCEPT_SOURCE', 'AUTOMERGE', 'NONE']]
+
+### authorName
+- **Type**: typing.Optional[str]
+
+### email
+- **Type**: typing.Optional[str]
+
+### commitMessage
+- **Type**: typing.Optional[str]
+
+### keepEmptyFolders
+- **Type**: typing.Optional[bool]
+
+### conflictResolution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolution]
+
+
+# MergeBranchesByThreeWayOutput
+
+### commitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### treeId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# MergeHunk
+
+### isConflict
+- **Type**: typing.Optional[bool]
+
+### source
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunkDetail]
+
+### destination
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunkDetail]
+
+### base
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunkDetail]
+
+
+# MergeHunkDetail
 
 ### startLine
 - **Type**: typing.Optional[int]
@@ -2273,22 +2288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MergeHunkTypeDef
-
-### isConflict
-- **Type**: typing.Optional[bool]
-
-### source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunkDetailTypeDef]
-
-### destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunkDetailTypeDef]
-
-### base
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeHunkDetailTypeDef]
-
-
-# MergeMetadataTypeDef
+# MergeMetadata
 
 ### isMerged
 - **Type**: typing.Optional[bool]
@@ -2303,7 +2303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAST_FORWARD_MERGE', 'SQUASH_MERGE', 'THREE_WAY_MERGE']]
 
 
-# MergeOperationsTypeDef
+# MergeOperations
 
 ### source
 - **Type**: typing.Optional[typing.Literal['A', 'D', 'M']]
@@ -2312,7 +2312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['A', 'D', 'M']]
 
 
-# MergePullRequestByFastForwardInputTypeDef
+# MergePullRequestByFastForwardInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -2326,64 +2326,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MergePullRequestByFastForwardOutputTypeDef
+# MergePullRequestByFastForwardOutput
 
 ### pullRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequest'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MergePullRequestBySquashInputTypeDef
-
-### pullRequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repositoryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sourceCommitId
-- **Type**: typing.Optional[str]
-
-### conflictDetailLevel
-- **Type**: typing.Optional[typing.Literal['FILE_LEVEL', 'LINE_LEVEL']]
-
-### conflictResolutionStrategy
-- **Type**: typing.Optional[typing.Literal['ACCEPT_DESTINATION', 'ACCEPT_SOURCE', 'AUTOMERGE', 'NONE']]
-
-### commitMessage
-- **Type**: typing.Optional[str]
-
-### authorName
-- **Type**: typing.Optional[str]
-
-### email
-- **Type**: typing.Optional[str]
-
-### keepEmptyFolders
-- **Type**: typing.Optional[bool]
-
-### conflictResolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolutionTypeDef]
-
-
-# MergePullRequestBySquashOutputTypeDef
-
-### pullRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# MergePullRequestByThreeWayInputTypeDef
+# MergePullRequestBySquashInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -2415,21 +2369,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### conflictResolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolutionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolution]
 
 
-# MergePullRequestByThreeWayOutputTypeDef
+# MergePullRequestBySquashOutput
 
 ### pullRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequest'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ObjectTypesTypeDef
+# MergePullRequestByThreeWayInput
+
+### pullRequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repositoryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceCommitId
+- **Type**: typing.Optional[str]
+
+### conflictDetailLevel
+- **Type**: typing.Optional[typing.Literal['FILE_LEVEL', 'LINE_LEVEL']]
+
+### conflictResolutionStrategy
+- **Type**: typing.Optional[typing.Literal['ACCEPT_DESTINATION', 'ACCEPT_SOURCE', 'AUTOMERGE', 'NONE']]
+
+### commitMessage
+- **Type**: typing.Optional[str]
+
+### authorName
+- **Type**: typing.Optional[str]
+
+### email
+- **Type**: typing.Optional[str]
+
+### keepEmptyFolders
+- **Type**: typing.Optional[bool]
+
+### conflictResolution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ConflictResolution]
+
+
+# MergePullRequestByThreeWayOutput
+
+### pullRequest
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequest'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ObjectTypes
 
 ### source
 - **Type**: typing.Optional[typing.Literal['DIRECTORY', 'FILE', 'GIT_LINK', 'SYMBOLIC_LINK']]
@@ -2441,7 +2441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DIRECTORY', 'FILE', 'GIT_LINK', 'SYMBOLIC_LINK']]
 
 
-# OriginApprovalRuleTemplateTypeDef
+# OriginApprovalRuleTemplate
 
 ### approvalRuleTemplateId
 - **Type**: typing.Optional[str]
@@ -2450,7 +2450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OverridePullRequestApprovalRulesInputTypeDef
+# OverridePullRequestApprovalRulesInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -2465,7 +2465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2477,7 +2477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PostCommentForComparedCommitInputTypeDef
+# PostCommentForComparedCommitInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -2495,13 +2495,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.Location]
 
 ### clientRequestToken
 - **Type**: typing.Optional[str]
 
 
-# PostCommentForComparedCommitOutputTypeDef
+# PostCommentForComparedCommitOutput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -2524,19 +2524,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### location
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.LocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Location'>
 - **Required**: Yes
 
 ### comment
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.CommentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Comment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PostCommentForPullRequestInputTypeDef
+# PostCommentForPullRequestInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -2559,13 +2559,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.Location]
 
 ### clientRequestToken
 - **Type**: typing.Optional[str]
 
 
-# PostCommentForPullRequestOutputTypeDef
+# PostCommentForPullRequestOutput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -2592,19 +2592,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### location
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.LocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Location'>
 - **Required**: Yes
 
 ### comment
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.CommentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Comment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PostCommentReplyInputTypeDef
+# PostCommentReplyInput
 
 ### inReplyTo
 - **Type**: <class 'str'>
@@ -2618,126 +2618,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PostCommentReplyOutputTypeDef
+# PostCommentReplyOutput
 
 ### comment
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.CommentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Comment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PullRequestCreatedEventMetadataTypeDef
-
-### repositoryName
-- **Type**: typing.Optional[str]
-
-### sourceCommitId
-- **Type**: typing.Optional[str]
-
-### destinationCommitId
-- **Type**: typing.Optional[str]
-
-### mergeBase
-- **Type**: typing.Optional[str]
-
-
-# PullRequestEventTypeDef
-
-### pullRequestId
-- **Type**: typing.Optional[str]
-
-### eventDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### pullRequestEventType
-- **Type**: typing.Optional[typing.Literal['PULL_REQUEST_APPROVAL_RULE_CREATED', 'PULL_REQUEST_APPROVAL_RULE_DELETED', 'PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN', 'PULL_REQUEST_APPROVAL_RULE_UPDATED', 'PULL_REQUEST_APPROVAL_STATE_CHANGED', 'PULL_REQUEST_CREATED', 'PULL_REQUEST_MERGE_STATE_CHANGED', 'PULL_REQUEST_SOURCE_REFERENCE_UPDATED', 'PULL_REQUEST_STATUS_CHANGED']]
-
-### actorArn
-- **Type**: typing.Optional[str]
-
-### pullRequestCreatedEventMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestCreatedEventMetadataTypeDef]
-
-### pullRequestStatusChangedEventMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestStatusChangedEventMetadataTypeDef]
-
-### pullRequestSourceReferenceUpdatedEventMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestSourceReferenceUpdatedEventMetadataTypeDef]
-
-### pullRequestMergedStateChangedEventMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestMergedStateChangedEventMetadataTypeDef]
-
-### approvalRuleEventMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleEventMetadataTypeDef]
-
-### approvalStateChangedEventMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ApprovalStateChangedEventMetadataTypeDef]
-
-### approvalRuleOverriddenEventMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleOverriddenEventMetadataTypeDef]
-
-
-# PullRequestMergedStateChangedEventMetadataTypeDef
-
-### repositoryName
-- **Type**: typing.Optional[str]
-
-### destinationReference
-- **Type**: typing.Optional[str]
-
-### mergeMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeMetadataTypeDef]
-
-
-# PullRequestSourceReferenceUpdatedEventMetadataTypeDef
-
-### repositoryName
-- **Type**: typing.Optional[str]
-
-### beforeCommitId
-- **Type**: typing.Optional[str]
-
-### afterCommitId
-- **Type**: typing.Optional[str]
-
-### mergeBase
-- **Type**: typing.Optional[str]
-
-
-# PullRequestStatusChangedEventMetadataTypeDef
-
-### pullRequestStatus
-- **Type**: typing.Optional[typing.Literal['CLOSED', 'OPEN']]
-
-
-# PullRequestTargetTypeDef
-
-### repositoryName
-- **Type**: typing.Optional[str]
-
-### sourceReference
-- **Type**: typing.Optional[str]
-
-### destinationReference
-- **Type**: typing.Optional[str]
-
-### destinationCommit
-- **Type**: typing.Optional[str]
-
-### sourceCommit
-- **Type**: typing.Optional[str]
-
-### mergeBase
-- **Type**: typing.Optional[str]
-
-### mergeMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeMetadataTypeDef]
-
-
-# PullRequestTypeDef
+# PullRequest
 
 ### pullRequestId
 - **Type**: typing.Optional[str]
@@ -2761,7 +2653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### pullRequestTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTargetTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTarget]]
 
 ### clientRequestToken
 - **Type**: typing.Optional[str]
@@ -2770,10 +2662,118 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### approvalRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRule]]
 
 
-# PutCommentReactionInputTypeDef
+# PullRequestCreatedEventMetadata
+
+### repositoryName
+- **Type**: typing.Optional[str]
+
+### sourceCommitId
+- **Type**: typing.Optional[str]
+
+### destinationCommitId
+- **Type**: typing.Optional[str]
+
+### mergeBase
+- **Type**: typing.Optional[str]
+
+
+# PullRequestEvent
+
+### pullRequestId
+- **Type**: typing.Optional[str]
+
+### eventDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### pullRequestEventType
+- **Type**: typing.Optional[typing.Literal['PULL_REQUEST_APPROVAL_RULE_CREATED', 'PULL_REQUEST_APPROVAL_RULE_DELETED', 'PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN', 'PULL_REQUEST_APPROVAL_RULE_UPDATED', 'PULL_REQUEST_APPROVAL_STATE_CHANGED', 'PULL_REQUEST_CREATED', 'PULL_REQUEST_MERGE_STATE_CHANGED', 'PULL_REQUEST_SOURCE_REFERENCE_UPDATED', 'PULL_REQUEST_STATUS_CHANGED']]
+
+### actorArn
+- **Type**: typing.Optional[str]
+
+### pullRequestCreatedEventMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestCreatedEventMetadata]
+
+### pullRequestStatusChangedEventMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestStatusChangedEventMetadata]
+
+### pullRequestSourceReferenceUpdatedEventMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestSourceReferenceUpdatedEventMetadata]
+
+### pullRequestMergedStateChangedEventMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.PullRequestMergedStateChangedEventMetadata]
+
+### approvalRuleEventMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleEventMetadata]
+
+### approvalStateChangedEventMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ApprovalStateChangedEventMetadata]
+
+### approvalRuleOverriddenEventMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleOverriddenEventMetadata]
+
+
+# PullRequestMergedStateChangedEventMetadata
+
+### repositoryName
+- **Type**: typing.Optional[str]
+
+### destinationReference
+- **Type**: typing.Optional[str]
+
+### mergeMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeMetadata]
+
+
+# PullRequestSourceReferenceUpdatedEventMetadata
+
+### repositoryName
+- **Type**: typing.Optional[str]
+
+### beforeCommitId
+- **Type**: typing.Optional[str]
+
+### afterCommitId
+- **Type**: typing.Optional[str]
+
+### mergeBase
+- **Type**: typing.Optional[str]
+
+
+# PullRequestStatusChangedEventMetadata
+
+### pullRequestStatus
+- **Type**: typing.Optional[typing.Literal['CLOSED', 'OPEN']]
+
+
+# PullRequestTarget
+
+### repositoryName
+- **Type**: typing.Optional[str]
+
+### sourceReference
+- **Type**: typing.Optional[str]
+
+### destinationReference
+- **Type**: typing.Optional[str]
+
+### destinationCommit
+- **Type**: typing.Optional[str]
+
+### sourceCommit
+- **Type**: typing.Optional[str]
+
+### mergeBase
+- **Type**: typing.Optional[str]
+
+### mergeMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.MergeMetadata]
+
+
+# PutCommentReactionInput
 
 ### commentId
 - **Type**: <class 'str'>
@@ -2784,7 +2784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutFileEntryTypeDef
+# PutFileEntry
 
 ### filePath
 - **Type**: <class 'str'>
@@ -2794,13 +2794,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
 
 ### fileContent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.Blob]
 
 ### sourceFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.SourceFileSpecifierTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.SourceFileSpecifier]
 
 
-# PutFileInputTypeDef
+# PutFileInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -2811,7 +2811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fileContent
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Blob'>
 - **Required**: Yes
 
 ### filePath
@@ -2834,7 +2834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutFileOutputTypeDef
+# PutFileOutput
 
 ### commitId
 - **Type**: <class 'str'>
@@ -2849,36 +2849,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutRepositoryTriggersInputTypeDef
+# PutRepositoryTriggersInput
 
 ### repositoryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### triggers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryTriggerUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryTriggerUnion]
 - **Required**: Yes
 
 
-# PutRepositoryTriggersOutputTypeDef
+# PutRepositoryTriggersOutput
 
 ### configurationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ReactionForCommentTypeDef
+# ReactionForComment
 
 ### reaction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ReactionValueFormatsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.ReactionValueFormats]
 
 ### reactionUsers
 - **Type**: typing.Optional[typing.List[str]]
@@ -2887,7 +2887,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ReactionValueFormatsTypeDef
+# ReactionValueFormats
 
 ### emoji
 - **Type**: typing.Optional[str]
@@ -2899,7 +2899,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReplaceContentEntryTypeDef
+# ReplaceContentEntry
 
 ### filePath
 - **Type**: <class 'str'>
@@ -2910,13 +2910,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecommit_classes.Blob]
 
 ### fileMode
 - **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
 
 
-# RepositoryMetadataTypeDef
+# RepositoryMetadata
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -2952,7 +2952,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RepositoryNameIdPairTypeDef
+# RepositoryNameIdPair
 
 ### repositoryName
 - **Type**: typing.Optional[str]
@@ -2961,37 +2961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RepositoryTriggerExecutionFailureTypeDef
-
-### trigger
-- **Type**: typing.Optional[str]
-
-### failureMessage
-- **Type**: typing.Optional[str]
-
-
-# RepositoryTriggerOutputTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### destinationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### events
-- **Type**: typing.List[typing.Literal['all', 'createReference', 'deleteReference', 'updateReference']]
-- **Required**: Yes
-
-### customData
-- **Type**: typing.Optional[str]
-
-### branches
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# RepositoryTriggerTypeDef
+# RepositoryTrigger
 
 ### name
 - **Type**: <class 'str'>
@@ -3012,13 +2982,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# RepositoryTriggerUnionTypeDef
+# RepositoryTriggerExecutionFailure
+
+### trigger
+- **Type**: typing.Optional[str]
+
+### failureMessage
+- **Type**: typing.Optional[str]
+
+
+# RepositoryTriggerOutput
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### destinationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### events
+- **Type**: typing.List[typing.Literal['all', 'createReference', 'deleteReference', 'updateReference']]
+- **Required**: Yes
+
+### customData
+- **Type**: typing.Optional[str]
+
+### branches
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# RepositoryTriggerUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -3040,7 +3040,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetFileModeEntryTypeDef
+# SetFileModeEntry
 
 ### filePath
 - **Type**: <class 'str'>
@@ -3051,7 +3051,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SourceFileSpecifierTypeDef
+# SourceFileSpecifier
 
 ### filePath
 - **Type**: <class 'str'>
@@ -3061,7 +3061,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SubModuleTypeDef
+# SubModule
 
 ### commitId
 - **Type**: typing.Optional[str]
@@ -3073,7 +3073,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SymbolicLinkTypeDef
+# SymbolicLink
 
 ### blobId
 - **Type**: typing.Optional[str]
@@ -3088,7 +3088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXECUTABLE', 'NORMAL', 'SYMLINK']]
 
 
-# TagResourceInputTypeDef
+# TagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3099,7 +3099,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetTypeDef
+# Target
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -3113,33 +3113,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestRepositoryTriggersInputTypeDef
+# TestRepositoryTriggersInput
 
 ### repositoryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### triggers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryTriggerUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryTriggerUnion]
 - **Required**: Yes
 
 
-# TestRepositoryTriggersOutputTypeDef
+# TestRepositoryTriggersOutput
 
 ### successfulExecutions
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### failedExecutions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryTriggerExecutionFailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecommit_classes.RepositoryTriggerExecutionFailure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3150,7 +3150,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApprovalRuleTemplateContentInputTypeDef
+# UpdateApprovalRuleTemplateContentInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
@@ -3164,18 +3164,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateApprovalRuleTemplateContentOutputTypeDef
+# UpdateApprovalRuleTemplateContentOutput
 
 ### approvalRuleTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateApprovalRuleTemplateDescriptionInputTypeDef
+# UpdateApprovalRuleTemplateDescriptionInput
 
 ### approvalRuleTemplateName
 - **Type**: <class 'str'>
@@ -3186,18 +3186,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApprovalRuleTemplateDescriptionOutputTypeDef
+# UpdateApprovalRuleTemplateDescriptionOutput
 
 ### approvalRuleTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateApprovalRuleTemplateNameInputTypeDef
+# UpdateApprovalRuleTemplateNameInput
 
 ### oldApprovalRuleTemplateName
 - **Type**: <class 'str'>
@@ -3208,18 +3208,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApprovalRuleTemplateNameOutputTypeDef
+# UpdateApprovalRuleTemplateNameOutput
 
 ### approvalRuleTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCommentInputTypeDef
+# UpdateCommentInput
 
 ### commentId
 - **Type**: <class 'str'>
@@ -3230,18 +3230,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCommentOutputTypeDef
+# UpdateCommentOutput
 
 ### comment
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.CommentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.Comment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDefaultBranchInputTypeDef
+# UpdateDefaultBranchInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -3252,7 +3252,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePullRequestApprovalRuleContentInputTypeDef
+# UpdatePullRequestApprovalRuleContentInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -3270,18 +3270,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdatePullRequestApprovalRuleContentOutputTypeDef
+# UpdatePullRequestApprovalRuleContentOutput
 
 ### approvalRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ApprovalRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePullRequestApprovalStateInputTypeDef
+# UpdatePullRequestApprovalStateInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -3296,7 +3296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePullRequestDescriptionInputTypeDef
+# UpdatePullRequestDescriptionInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -3307,18 +3307,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePullRequestDescriptionOutputTypeDef
+# UpdatePullRequestDescriptionOutput
 
 ### pullRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequest'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePullRequestStatusInputTypeDef
+# UpdatePullRequestStatusInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -3329,18 +3329,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePullRequestStatusOutputTypeDef
+# UpdatePullRequestStatusOutput
 
 ### pullRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequest'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePullRequestTitleInputTypeDef
+# UpdatePullRequestTitleInput
 
 ### pullRequestId
 - **Type**: <class 'str'>
@@ -3351,18 +3351,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePullRequestTitleOutputTypeDef
+# UpdatePullRequestTitleOutput
 
 ### pullRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.PullRequest'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRepositoryDescriptionInputTypeDef
+# UpdateRepositoryDescriptionInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -3372,7 +3372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRepositoryEncryptionKeyInputTypeDef
+# UpdateRepositoryEncryptionKeyInput
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -3383,7 +3383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRepositoryEncryptionKeyOutputTypeDef
+# UpdateRepositoryEncryptionKeyOutput
 
 ### repositoryId
 - **Type**: <class 'str'>
@@ -3398,11 +3398,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecommit_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRepositoryNameInputTypeDef
+# UpdateRepositoryNameInput
 
 ### oldName
 - **Type**: <class 'str'>
@@ -3413,7 +3413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UserInfoTypeDef
+# UserInfo
 
 ### name
 - **Type**: typing.Optional[str]

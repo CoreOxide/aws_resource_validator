@@ -1,6 +1,6 @@
 # Billingconductor Classes
 
-# AccountAssociationsListElementTypeDef
+# AccountAssociationsListElement
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -15,7 +15,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AccountGroupingTypeDef
+# AccountGrouping
 
 ### LinkedAccountIds
 - **Type**: typing.Sequence[str]
@@ -25,7 +25,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AssociateAccountsInputTypeDef
+# AssociateAccountsInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -36,18 +36,18 @@
 - **Required**: Yes
 
 
-# AssociateAccountsOutputTypeDef
+# AssociateAccountsOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociatePricingRulesInputTypeDef
+# AssociatePricingRulesInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -58,18 +58,18 @@
 - **Required**: Yes
 
 
-# AssociatePricingRulesOutputTypeDef
+# AssociatePricingRulesOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateResourceErrorTypeDef
+# AssociateResourceError
 
 ### Message
 - **Type**: typing.Optional[str]
@@ -78,16 +78,16 @@
 - **Type**: typing.Optional[typing.Literal['ILLEGAL_CUSTOMLINEITEM', 'INTERNAL_SERVER_EXCEPTION', 'INVALID_ARN', 'INVALID_BILLING_PERIOD_RANGE', 'SERVICE_LIMIT_EXCEEDED']]
 
 
-# AssociateResourceResponseElementTypeDef
+# AssociateResourceResponseElement
 
 ### Arn
 - **Type**: typing.Optional[str]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.AssociateResourceErrorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.AssociateResourceError]
 
 
-# AttributeTypeDef
+# Attribute
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -102,7 +102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAssociateResourcesToCustomLineItemInputTypeDef
+# BatchAssociateResourcesToCustomLineItemInput
 
 ### TargetArn
 - **Type**: <class 'str'>
@@ -113,25 +113,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BillingPeriodRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRange]
 
 
-# BatchAssociateResourcesToCustomLineItemOutputTypeDef
+# BatchAssociateResourcesToCustomLineItemOutput
 
 ### SuccessfullyAssociatedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.AssociateResourceResponseElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.AssociateResourceResponseElement]
 - **Required**: Yes
 
 ### FailedAssociatedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.AssociateResourceResponseElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.AssociateResourceResponseElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDisassociateResourcesFromCustomLineItemInputTypeDef
+# BatchDisassociateResourcesFromCustomLineItemInput
 
 ### TargetArn
 - **Type**: <class 'str'>
@@ -142,25 +142,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BillingPeriodRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRange]
 
 
-# BatchDisassociateResourcesFromCustomLineItemOutputTypeDef
+# BatchDisassociateResourcesFromCustomLineItemOutput
 
 ### SuccessfullyDisassociatedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.DisassociateResourceResponseElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.DisassociateResourceResponseElement]
 - **Required**: Yes
 
 ### FailedDisassociatedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.DisassociateResourceResponseElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.DisassociateResourceResponseElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BillingGroupCostReportElementTypeDef
+# BillingGroupCostReportElement
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -181,7 +181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BillingGroupCostReportResultElementTypeDef
+# BillingGroupCostReportResultElement
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -202,10 +202,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.Attribute]]
 
 
-# BillingGroupListElementTypeDef
+# BillingGroupListElement
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -220,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ComputationPreference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ComputationPreferenceTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Size
 - **Type**: typing.Optional[int]
@@ -238,10 +238,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AccountGrouping
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupAccountGroupingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupAccountGrouping]
 
 
-# BillingPeriodRangeTypeDef
+# BillingPeriodRange
 
 ### InclusiveStartBillingPeriod
 - **Type**: <class 'str'>
@@ -252,25 +252,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ComputationPreferenceTypeDef
+# ComputationPreference
 
 ### PricingPlanArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateBillingGroupInputTypeDef
+# CreateBillingGroupInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AccountGrouping
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.AccountGroupingTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.AccountGrouping'>
 - **Required**: Yes
 
 ### ComputationPreference
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ComputationPreferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ComputationPreference'>
 - **Required**: Yes
 
 ### ClientToken
@@ -286,18 +286,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateBillingGroupOutputTypeDef
+# CreateBillingGroupOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCustomLineItemInputTypeDef
+# CreateCustomLineItemInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -312,14 +312,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ChargeDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemChargeDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemChargeDetails'>
 - **Required**: Yes
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### BillingPeriodRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRange]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -328,25 +328,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateCustomLineItemOutputTypeDef
+# CreateCustomLineItemOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFreeTierConfigTypeDef
+# CreateFreeTierConfig
 
 ### Activated
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# CreatePricingPlanInputTypeDef
+# CreatePricingPlanInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -365,36 +365,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreatePricingPlanOutputTypeDef
+# CreatePricingPlanOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePricingRuleOutputTypeDef
+# CreatePricingRuleOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTieringInputTypeDef
+# CreateTieringInput
 
 ### FreeTier
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.CreateFreeTierConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.CreateFreeTierConfig'>
 - **Required**: Yes
 
 
-# CustomLineItemBillingPeriodRangeTypeDef
+# CustomLineItemBillingPeriodRange
 
 ### InclusiveStartBillingPeriod
 - **Type**: <class 'str'>
@@ -404,20 +404,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CustomLineItemChargeDetailsTypeDef
+# CustomLineItemChargeDetails
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CustomLineItemFlatChargeDetailsTypeDef
+# CustomLineItemFlatChargeDetails
 
 ### ChargeValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 
-# CustomLineItemListElementTypeDef
+# CustomLineItemListElement
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -426,7 +426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ChargeDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemChargeDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemChargeDetails]
 
 ### CurrencyCode
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -453,7 +453,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CustomLineItemPercentageChargeDetailsTypeDef
+# CustomLineItemPercentageChargeDetails
 
 ### PercentageValue
 - **Type**: <class 'float'>
@@ -463,13 +463,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CustomLineItemVersionListElementTypeDef
+# CustomLineItemVersionListElement
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### ChargeDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemChargeDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemChargeDetails]
 
 ### CurrencyCode
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -508,82 +508,82 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteBillingGroupInputTypeDef
+# DeleteBillingGroupInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBillingGroupOutputTypeDef
+# DeleteBillingGroupOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteCustomLineItemInputTypeDef
+# DeleteCustomLineItemInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### BillingPeriodRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRange]
 
 
-# DeleteCustomLineItemOutputTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeletePricingPlanInputTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeletePricingPlanOutputTypeDef
+# DeleteCustomLineItemOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeletePricingRuleInputTypeDef
+# DeletePricingPlanInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePricingRuleOutputTypeDef
+# DeletePricingPlanOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateAccountsInputTypeDef
+# DeletePricingRuleInput
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeletePricingRuleOutput
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# DisassociateAccountsInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -594,18 +594,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateAccountsOutputTypeDef
+# DisassociateAccountsOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociatePricingRulesInputTypeDef
+# DisassociatePricingRulesInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -616,41 +616,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociatePricingRulesOutputTypeDef
+# DisassociatePricingRulesOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateResourceResponseElementTypeDef
+# DisassociateResourceResponseElement
 
 ### Arn
 - **Type**: typing.Optional[str]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.AssociateResourceErrorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.AssociateResourceError]
 
 
-# FreeTierConfigTypeDef
+# FreeTierConfig
 
 ### Activated
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# GetBillingGroupCostReportInputTypeDef
+# GetBillingGroupCostReportInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### BillingPeriodRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.BillingPeriodRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### GroupBy
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['BILLING_PERIOD', 'PRODUCT_NAME']]]
@@ -662,36 +662,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetBillingGroupCostReportOutputTypeDef
+# GetBillingGroupCostReportOutput
 
 ### BillingGroupCostReportResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.BillingGroupCostReportResultElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.BillingGroupCostReportResultElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LineItemFilterOutputTypeDef
-
-### Attribute
-- **Type**: typing.Literal['LINE_ITEM_TYPE']
-- **Required**: Yes
-
-### MatchOption
-- **Type**: typing.Literal['NOT_EQUAL']
-- **Required**: Yes
-
-### Values
-- **Type**: typing.List[typing.Literal['SAVINGS_PLAN_NEGATION']]
-- **Required**: Yes
-
-
-# LineItemFilterTypeDef
+# LineItemFilter
 
 ### Attribute
 - **Type**: typing.Literal['LINE_ITEM_TYPE']
@@ -706,13 +691,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LineItemFilterUnionTypeDef
+# LineItemFilterOutput
+
+### Attribute
+- **Type**: typing.Literal['LINE_ITEM_TYPE']
+- **Required**: Yes
+
+### MatchOption
+- **Type**: typing.Literal['NOT_EQUAL']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.List[typing.Literal['SAVINGS_PLAN_NEGATION']]
+- **Required**: Yes
+
+
+# LineItemFilterUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListAccountAssociationsFilterTypeDef
+# ListAccountAssociationsFilter
 
 ### Association
 - **Type**: typing.Optional[str]
@@ -724,69 +724,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ListAccountAssociationsInputPaginateTypeDef
+# ListAccountAssociationsInput
 
 ### BillingPeriod
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListAccountAssociationsFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListAccountAssociationsInputTypeDef
-
-### BillingPeriod
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListAccountAssociationsFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListAccountAssociationsFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAccountAssociationsOutputTypeDef
+# ListAccountAssociationsInputPaginate
+
+### BillingPeriod
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListAccountAssociationsFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListAccountAssociationsOutput
 
 ### LinkedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.AccountAssociationsListElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.AccountAssociationsListElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBillingGroupAccountGroupingTypeDef
+# ListBillingGroupAccountGrouping
 
 ### AutoAssociate
 - **Type**: typing.Optional[bool]
 
 
-# ListBillingGroupCostReportsFilterTypeDef
+# ListBillingGroupCostReportsFilter
 
 ### BillingGroupArns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ListBillingGroupCostReportsInputPaginateTypeDef
-
-### BillingPeriod
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupCostReportsFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListBillingGroupCostReportsInputTypeDef
+# ListBillingGroupCostReportsInput
 
 ### BillingPeriod
 - **Type**: typing.Optional[str]
@@ -798,24 +786,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupCostReportsFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupCostReportsFilter]
 
 
-# ListBillingGroupCostReportsOutputTypeDef
+# ListBillingGroupCostReportsInputPaginate
+
+### BillingPeriod
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupCostReportsFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListBillingGroupCostReportsOutput
 
 ### BillingGroupCostReports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.BillingGroupCostReportElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.BillingGroupCostReportElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBillingGroupsFilterTypeDef
+# ListBillingGroupsFilter
 
 ### Arns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -830,19 +830,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListBillingGroupsInputPaginateTypeDef
-
-### BillingPeriod
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupsFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListBillingGroupsInputTypeDef
+# ListBillingGroupsInput
 
 ### BillingPeriod
 - **Type**: typing.Optional[str]
@@ -854,44 +842,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupsFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupsFilter]
 
 
-# ListBillingGroupsOutputTypeDef
+# ListBillingGroupsInputPaginate
+
+### BillingPeriod
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListBillingGroupsFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListBillingGroupsOutput
 
 ### BillingGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.BillingGroupListElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.BillingGroupListElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCustomLineItemChargeDetailsTypeDef
+# ListCustomLineItemChargeDetails
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListCustomLineItemFlatChargeDetailsTypeDef
+# ListCustomLineItemFlatChargeDetails
 
 ### ChargeValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 
-# ListCustomLineItemPercentageChargeDetailsTypeDef
+# ListCustomLineItemPercentageChargeDetails
 
 ### PercentageValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 
-# ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef
+# ListCustomLineItemVersionsBillingPeriodRangeFilter
 
 ### StartBillingPeriod
 - **Type**: typing.Optional[str]
@@ -900,26 +900,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomLineItemVersionsFilterTypeDef
+# ListCustomLineItemVersionsFilter
 
 ### BillingPeriodRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemVersionsBillingPeriodRangeFilter]
 
 
-# ListCustomLineItemVersionsInputPaginateTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemVersionsFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomLineItemVersionsInputTypeDef
+# ListCustomLineItemVersionsInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -932,24 +919,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemVersionsFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemVersionsFilter]
 
 
-# ListCustomLineItemVersionsOutputTypeDef
+# ListCustomLineItemVersionsInputPaginate
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemVersionsFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListCustomLineItemVersionsOutput
 
 ### CustomLineItemVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemVersionListElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemVersionListElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCustomLineItemsFilterTypeDef
+# ListCustomLineItemsFilter
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -964,19 +964,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ListCustomLineItemsInputPaginateTypeDef
-
-### BillingPeriod
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemsFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomLineItemsInputTypeDef
+# ListCustomLineItemsInput
 
 ### BillingPeriod
 - **Type**: typing.Optional[str]
@@ -988,37 +976,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemsFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemsFilter]
 
 
-# ListCustomLineItemsOutputTypeDef
+# ListCustomLineItemsInputPaginate
+
+### BillingPeriod
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemsFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListCustomLineItemsOutput
 
 ### CustomLineItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemListElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemListElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPricingPlansAssociatedWithPricingRuleInputPaginateTypeDef
-
-### PricingRuleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### BillingPeriod
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListPricingPlansAssociatedWithPricingRuleInputTypeDef
+# ListPricingPlansAssociatedWithPricingRuleInput
 
 ### PricingRuleArn
 - **Type**: <class 'str'>
@@ -1034,7 +1021,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPricingPlansAssociatedWithPricingRuleOutputTypeDef
+# ListPricingPlansAssociatedWithPricingRuleInputPaginate
+
+### PricingRuleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BillingPeriod
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListPricingPlansAssociatedWithPricingRuleOutput
 
 ### BillingPeriod
 - **Type**: <class 'str'>
@@ -1049,38 +1049,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPricingPlansFilterTypeDef
+# ListPricingPlansFilter
 
 ### Arns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ListPricingPlansInputPaginateTypeDef
+# ListPricingPlansInput
 
 ### BillingPeriod
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListPricingPlansFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListPricingPlansInputTypeDef
-
-### BillingPeriod
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListPricingPlansFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListPricingPlansFilter]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1089,38 +1077,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPricingPlansOutputTypeDef
+# ListPricingPlansInputPaginate
+
+### BillingPeriod
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListPricingPlansFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListPricingPlansOutput
 
 ### BillingPeriod
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PricingPlans
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.PricingPlanListElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.PricingPlanListElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPricingRulesAssociatedToPricingPlanInputPaginateTypeDef
-
-### PricingPlanArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### BillingPeriod
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListPricingRulesAssociatedToPricingPlanInputTypeDef
+# ListPricingRulesAssociatedToPricingPlanInput
 
 ### PricingPlanArn
 - **Type**: <class 'str'>
@@ -1136,7 +1123,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPricingRulesAssociatedToPricingPlanOutputTypeDef
+# ListPricingRulesAssociatedToPricingPlanInputPaginate
+
+### PricingPlanArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BillingPeriod
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListPricingRulesAssociatedToPricingPlanOutput
 
 ### BillingPeriod
 - **Type**: <class 'str'>
@@ -1151,38 +1151,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPricingRulesFilterTypeDef
+# ListPricingRulesFilter
 
 ### Arns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ListPricingRulesInputPaginateTypeDef
+# ListPricingRulesInput
 
 ### BillingPeriod
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListPricingRulesFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListPricingRulesInputTypeDef
-
-### BillingPeriod
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListPricingRulesFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListPricingRulesFilter]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1191,47 +1179,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPricingRulesOutputTypeDef
+# ListPricingRulesInputPaginate
+
+### BillingPeriod
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListPricingRulesFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListPricingRulesOutput
 
 ### BillingPeriod
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PricingRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.PricingRuleListElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.PricingRuleListElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourcesAssociatedToCustomLineItemFilterTypeDef
+# ListResourcesAssociatedToCustomLineItemFilter
 
 ### Relationship
 - **Type**: typing.Optional[typing.Literal['CHILD', 'PARENT']]
 
 
-# ListResourcesAssociatedToCustomLineItemInputPaginateTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### BillingPeriod
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListResourcesAssociatedToCustomLineItemFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfigTypeDef]
-
-
-# ListResourcesAssociatedToCustomLineItemInputTypeDef
+# ListResourcesAssociatedToCustomLineItemInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1247,28 +1231,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListResourcesAssociatedToCustomLineItemFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListResourcesAssociatedToCustomLineItemFilter]
 
 
-# ListResourcesAssociatedToCustomLineItemOutputTypeDef
+# ListResourcesAssociatedToCustomLineItemInputPaginate
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BillingPeriod
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ListResourcesAssociatedToCustomLineItemFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.PaginatorConfig]
+
+
+# ListResourcesAssociatedToCustomLineItemOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AssociatedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.ListResourcesAssociatedToCustomLineItemResponseElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.billingconductor_classes.ListResourcesAssociatedToCustomLineItemResponseElement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourcesAssociatedToCustomLineItemResponseElementTypeDef
+# ListResourcesAssociatedToCustomLineItemResponseElement
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -1280,25 +1280,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1310,7 +1310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PricingPlanListElementTypeDef
+# PricingPlanListElement
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1331,13 +1331,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PricingRuleListElementTypeDef
+# PricingRuleListElement
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1359,7 +1359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1370,14 +1370,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TieringTypeDef
+# Tiering
 
 ### FreeTier
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.FreeTierConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.FreeTierConfig'>
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1388,13 +1388,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBillingGroupAccountGroupingTypeDef
+# UpdateBillingGroupAccountGrouping
 
 ### AutoAssociate
 - **Type**: typing.Optional[bool]
 
 
-# UpdateBillingGroupInputTypeDef
+# UpdateBillingGroupInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1407,16 +1407,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'PRIMARY_ACCOUNT_MISSING']]
 
 ### ComputationPreference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.ComputationPreferenceTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### AccountGrouping
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.UpdateBillingGroupAccountGroupingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.UpdateBillingGroupAccountGrouping]
 
 
-# UpdateBillingGroupOutputTypeDef
+# UpdateBillingGroupOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1455,34 +1455,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountGrouping
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.UpdateBillingGroupAccountGroupingTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.UpdateBillingGroupAccountGrouping'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCustomLineItemChargeDetailsTypeDef
+# UpdateCustomLineItemChargeDetails
 
 ### Flat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.UpdateCustomLineItemFlatChargeDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.UpdateCustomLineItemFlatChargeDetails]
 
 ### Percentage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.UpdateCustomLineItemPercentageChargeDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.UpdateCustomLineItemPercentageChargeDetails]
 
 ### LineItemFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.billingconductor_classes.LineItemFilterUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.billingconductor_classes.LineItemFilterUnion]]
 
 
-# UpdateCustomLineItemFlatChargeDetailsTypeDef
+# UpdateCustomLineItemFlatChargeDetails
 
 ### ChargeValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 
-# UpdateCustomLineItemInputTypeDef
+# UpdateCustomLineItemInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1495,13 +1495,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ChargeDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.UpdateCustomLineItemChargeDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.UpdateCustomLineItemChargeDetails]
 
 ### BillingPeriodRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.billingconductor_classes.CustomLineItemBillingPeriodRange]
 
 
-# UpdateCustomLineItemOutputTypeDef
+# UpdateCustomLineItemOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1520,7 +1520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ChargeDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemChargeDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ListCustomLineItemChargeDetails'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -1532,25 +1532,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCustomLineItemPercentageChargeDetailsTypeDef
+# UpdateCustomLineItemPercentageChargeDetails
 
 ### PercentageValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 
-# UpdateFreeTierConfigTypeDef
+# UpdateFreeTierConfig
 
 ### Activated
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# UpdatePricingPlanInputTypeDef
+# UpdatePricingPlanInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1563,7 +1563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdatePricingPlanOutputTypeDef
+# UpdatePricingPlanOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1586,14 +1586,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTieringInputTypeDef
+# UpdateTieringInput
 
 ### FreeTier
-- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.UpdateFreeTierConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.billingconductor_classes.UpdateFreeTierConfig'>
 - **Required**: Yes
 
 

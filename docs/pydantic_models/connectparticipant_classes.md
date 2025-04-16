@@ -1,6 +1,6 @@
 # Connectparticipant Classes
 
-# AttachmentItemTypeDef
+# AttachmentItem
 
 ### ContentType
 - **Type**: typing.Optional[str]
@@ -21,7 +21,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelParticipantAuthenticationRequestTypeDef
+# CancelParticipantAuthenticationRequest
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -32,7 +32,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CompleteAttachmentUploadRequestTypeDef
+# CompleteAttachmentUploadRequest
 
 ### AttachmentIds
 - **Type**: typing.Sequence[str]
@@ -47,7 +47,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConnectionCredentialsTypeDef
+# ConnectionCredentials
 
 ### ConnectionToken
 - **Type**: typing.Optional[str]
@@ -56,22 +56,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateParticipantConnectionResponseTypeDef
+# CreateParticipantConnectionResponse
 
 ### Websocket
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.WebsocketTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.Websocket'>
 - **Required**: Yes
 
 ### ConnectionCredentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ConnectionCredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ConnectionCredentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeViewRequestTypeDef
+# DescribeViewRequest
 
 ### ViewToken
 - **Type**: <class 'str'>
@@ -82,18 +82,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeViewResponseTypeDef
+# DescribeViewResponse
 
 ### View
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ViewTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.View'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisconnectParticipantRequestTypeDef
+# DisconnectParticipantRequest
 
 ### ConnectionToken
 - **Type**: <class 'str'>
@@ -103,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAttachmentRequestTypeDef
+# GetAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
@@ -117,7 +117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetAttachmentResponseTypeDef
+# GetAttachmentResponse
 
 ### Url
 - **Type**: <class 'str'>
@@ -132,11 +132,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAuthenticationUrlRequestTypeDef
+# GetAuthenticationUrlRequest
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -151,18 +151,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAuthenticationUrlResponseTypeDef
+# GetAuthenticationUrlResponse
 
 ### AuthenticationUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTranscriptRequestTypeDef
+# GetTranscriptRequest
 
 ### ConnectionToken
 - **Type**: <class 'str'>
@@ -184,43 +184,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### StartPosition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectparticipant_classes.StartPositionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetTranscriptResponseTypeDef
+# GetTranscriptResponse
 
 ### InitialContactId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Transcript
-- **Type**: typing.List[aws_resource_validator.pydantic_models.connectparticipant_classes.ItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connectparticipant_classes.Item]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ItemTypeDef
+# Item
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MessageMetadataTypeDef
+# MessageMetadata
 
 ### MessageId
 - **Type**: typing.Optional[str]
 
 ### Receipts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connectparticipant_classes.ReceiptTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connectparticipant_classes.Receipt]]
 
 
-# ReceiptTypeDef
+# Receipt
 
 ### DeliveredTimestamp
 - **Type**: typing.Optional[str]
@@ -232,7 +232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -254,7 +254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendEventRequestTypeDef
+# SendEventRequest
 
 ### ContentType
 - **Type**: <class 'str'>
@@ -271,7 +271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendEventResponseTypeDef
+# SendEventResponse
 
 ### Id
 - **Type**: <class 'str'>
@@ -282,11 +282,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SendMessageRequestTypeDef
+# SendMessageRequest
 
 ### ContentType
 - **Type**: <class 'str'>
@@ -304,7 +304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendMessageResponseTypeDef
+# SendMessageResponse
 
 ### Id
 - **Type**: <class 'str'>
@@ -315,11 +315,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartAttachmentUploadRequestTypeDef
+# StartAttachmentUploadRequest
 
 ### ContentType
 - **Type**: <class 'str'>
@@ -342,22 +342,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartAttachmentUploadResponseTypeDef
+# StartAttachmentUploadResponse
 
 ### AttachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### UploadMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.UploadMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.UploadMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartPositionTypeDef
+# StartPosition
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -369,7 +369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UploadMetadataTypeDef
+# UploadMetadata
 
 ### Url
 - **Type**: typing.Optional[str]
@@ -381,19 +381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ViewContentTypeDef
-
-### InputSchema
-- **Type**: typing.Optional[str]
-
-### Template
-- **Type**: typing.Optional[str]
-
-### Actions
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# ViewTypeDef
+# View
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -408,10 +396,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectparticipant_classes.ViewContentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectparticipant_classes.ViewContent]
 
 
-# WebsocketTypeDef
+# ViewContent
+
+### InputSchema
+- **Type**: typing.Optional[str]
+
+### Template
+- **Type**: typing.Optional[str]
+
+### Actions
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# Websocket
 
 ### Url
 - **Type**: typing.Optional[str]

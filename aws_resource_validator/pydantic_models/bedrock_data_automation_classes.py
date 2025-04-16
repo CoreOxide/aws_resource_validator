@@ -12,19 +12,19 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.bedrock_data_automation_constants import *
 
-class BlueprintFilterTypeDef(BaseValidatorModel):
+class BlueprintFilter(BaseValidatorModel):
     blueprintArn: str
     blueprintVersion: Optional[str] = None
     blueprintStage: Optional[BlueprintStageType] = None
 
 
-class BlueprintItemTypeDef(BaseValidatorModel):
+class BlueprintItem(BaseValidatorModel):
     blueprintArn: str
     blueprintVersion: Optional[str] = None
     blueprintStage: Optional[BlueprintStageType] = None
 
 
-class BlueprintSummaryTypeDef(BaseValidatorModel):
+class BlueprintSummary(BaseValidatorModel):
     blueprintArn: str
     creationTime: datetime
     blueprintVersion: Optional[str] = None
@@ -33,17 +33,17 @@ class BlueprintSummaryTypeDef(BaseValidatorModel):
     lastModifiedTime: Optional[datetime] = None
 
 
-class EncryptionConfigurationTypeDef(BaseValidatorModel):
+class EncryptionConfiguration(BaseValidatorModel):
     kmsKeyId: str
     kmsEncryptionContext: Optional[Mapping[str, str]] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -51,372 +51,372 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateBlueprintVersionRequestTypeDef(BaseValidatorModel):
+class CreateBlueprintVersionRequest(BaseValidatorModel):
     blueprintArn: str
     clientToken: Optional[str] = None
 
 
-class DataAutomationProjectFilterTypeDef(BaseValidatorModel):
+class DataAutomationProjectFilter(BaseValidatorModel):
     projectArn: str
     projectStage: Optional[DataAutomationProjectStageType] = None
 
 
-class DataAutomationProjectSummaryTypeDef(BaseValidatorModel):
+class DataAutomationProjectSummary(BaseValidatorModel):
     projectArn: str
     creationTime: datetime
     projectStage: Optional[DataAutomationProjectStageType] = None
     projectName: Optional[str] = None
 
 
-class DeleteBlueprintRequestTypeDef(BaseValidatorModel):
+class DeleteBlueprintRequest(BaseValidatorModel):
     blueprintArn: str
     blueprintVersion: Optional[str] = None
 
 
-class DeleteDataAutomationProjectRequestTypeDef(BaseValidatorModel):
+class DeleteDataAutomationProjectRequest(BaseValidatorModel):
     projectArn: str
 
 
-class DocumentBoundingBoxTypeDef(BaseValidatorModel):
+class DocumentBoundingBox(BaseValidatorModel):
     state: StateType
 
 
-class DocumentOutputAdditionalFileFormatTypeDef(BaseValidatorModel):
+class DocumentOutputAdditionalFileFormat(BaseValidatorModel):
     state: StateType
 
 
-class SplitterConfigurationTypeDef(BaseValidatorModel):
+class SplitterConfiguration(BaseValidatorModel):
     state: Optional[StateType] = None
 
 
-class DocumentStandardGenerativeFieldTypeDef(BaseValidatorModel):
+class DocumentStandardGenerativeField(BaseValidatorModel):
     state: StateType
 
 
-class GetBlueprintRequestTypeDef(BaseValidatorModel):
+class GetBlueprintRequest(BaseValidatorModel):
     blueprintArn: str
     blueprintVersion: Optional[str] = None
     blueprintStage: Optional[BlueprintStageType] = None
 
 
-class GetDataAutomationProjectRequestTypeDef(BaseValidatorModel):
+class GetDataAutomationProjectRequest(BaseValidatorModel):
     projectArn: str
     projectStage: Optional[DataAutomationProjectStageType] = None
 
 
-class ImageBoundingBoxTypeDef(BaseValidatorModel):
+class ImageBoundingBox(BaseValidatorModel):
     state: StateType
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceARN: str
     tagKeys: Sequence[str]
 
 
-class VideoBoundingBoxTypeDef(BaseValidatorModel):
+class VideoBoundingBox(BaseValidatorModel):
     state: StateType
 
 
-class AudioExtractionCategoryOutputTypeDef(BaseValidatorModel):
+class AudioExtractionCategoryOutput(BaseValidatorModel):
     pass
 
 
-class AudioStandardExtractionOutputTypeDef(BaseValidatorModel):
-    category: AudioExtractionCategoryOutputTypeDef
+class AudioStandardExtractionOutput(BaseValidatorModel):
+    category: AudioExtractionCategoryOutput
 
 
-class AudioExtractionCategoryTypeDef(BaseValidatorModel):
+class AudioExtractionCategory(BaseValidatorModel):
     pass
 
 
-class AudioStandardExtractionTypeDef(BaseValidatorModel):
-    category: AudioExtractionCategoryTypeDef
+class AudioStandardExtraction(BaseValidatorModel):
+    category: AudioExtractionCategory
 
 
-class ListDataAutomationProjectsRequestTypeDef(BaseValidatorModel):
+class ListDataAutomationProjectsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     projectStageFilter: Optional[DataAutomationProjectStageFilterType] = None
-    blueprintFilter: Optional[BlueprintFilterTypeDef] = None
+    blueprintFilter: Optional[BlueprintFilter] = None
     resourceOwner: Optional[ResourceOwnerType] = None
 
 
-class CustomOutputConfigurationOutputTypeDef(BaseValidatorModel):
-    blueprints: Optional[List[BlueprintItemTypeDef]] = None
+class CustomOutputConfigurationOutput(BaseValidatorModel):
+    blueprints: Optional[List[BlueprintItem]] = None
 
 
-class CustomOutputConfigurationTypeDef(BaseValidatorModel):
-    blueprints: Optional[Sequence[BlueprintItemTypeDef]] = None
+class CustomOutputConfiguration(BaseValidatorModel):
+    blueprints: Optional[Sequence[BlueprintItem]] = None
 
 
-class UpdateBlueprintRequestTypeDef(BaseValidatorModel):
+class UpdateBlueprintRequest(BaseValidatorModel):
     blueprintArn: str
     schema: str
     blueprintStage: Optional[BlueprintStageType] = None
-    encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
+    encryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceARN: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class BlueprintTypeDef(BaseValidatorModel):
+class Blueprint(BaseValidatorModel):
     pass
 
 
-class CreateBlueprintResponseTypeDef(BaseValidatorModel):
-    blueprint: BlueprintTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateBlueprintResponse(BaseValidatorModel):
+    blueprint: Blueprint
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBlueprintVersionResponseTypeDef(BaseValidatorModel):
-    blueprint: BlueprintTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateBlueprintVersionResponse(BaseValidatorModel):
+    blueprint: Blueprint
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataAutomationProjectResponseTypeDef(BaseValidatorModel):
+class CreateDataAutomationProjectResponse(BaseValidatorModel):
     projectArn: str
     projectStage: DataAutomationProjectStageType
     status: DataAutomationProjectStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDataAutomationProjectResponseTypeDef(BaseValidatorModel):
+class DeleteDataAutomationProjectResponse(BaseValidatorModel):
     projectArn: str
     status: DataAutomationProjectStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBlueprintResponseTypeDef(BaseValidatorModel):
-    blueprint: BlueprintTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetBlueprintResponse(BaseValidatorModel):
+    blueprint: Blueprint
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBlueprintsResponseTypeDef(BaseValidatorModel):
-    blueprints: List[BlueprintSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBlueprintsResponse(BaseValidatorModel):
+    blueprints: List[BlueprintSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBlueprintResponseTypeDef(BaseValidatorModel):
-    blueprint: BlueprintTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateBlueprintResponse(BaseValidatorModel):
+    blueprint: Blueprint
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataAutomationProjectResponseTypeDef(BaseValidatorModel):
+class UpdateDataAutomationProjectResponse(BaseValidatorModel):
     projectArn: str
     projectStage: DataAutomationProjectStageType
     status: DataAutomationProjectStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBlueprintsRequestTypeDef(BaseValidatorModel):
+class ListBlueprintsRequest(BaseValidatorModel):
     blueprintArn: Optional[str] = None
     resourceOwner: Optional[ResourceOwnerType] = None
     blueprintStageFilter: Optional[BlueprintStageFilterType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    projectFilter: Optional[DataAutomationProjectFilterTypeDef] = None
+    projectFilter: Optional[DataAutomationProjectFilter] = None
 
 
-class ListDataAutomationProjectsResponseTypeDef(BaseValidatorModel):
-    projects: List[DataAutomationProjectSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataAutomationProjectsResponse(BaseValidatorModel):
+    projects: List[DataAutomationProjectSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DocumentExtractionGranularityOutputTypeDef(BaseValidatorModel):
+class DocumentExtractionGranularityOutput(BaseValidatorModel):
     pass
 
 
-class DocumentStandardExtractionOutputTypeDef(BaseValidatorModel):
-    granularity: DocumentExtractionGranularityOutputTypeDef
-    boundingBox: DocumentBoundingBoxTypeDef
+class DocumentStandardExtractionOutput(BaseValidatorModel):
+    granularity: DocumentExtractionGranularityOutput
+    boundingBox: DocumentBoundingBox
 
 
-class DocumentExtractionGranularityTypeDef(BaseValidatorModel):
+class DocumentExtractionGranularity(BaseValidatorModel):
     pass
 
 
-class DocumentStandardExtractionTypeDef(BaseValidatorModel):
-    granularity: DocumentExtractionGranularityTypeDef
-    boundingBox: DocumentBoundingBoxTypeDef
+class DocumentStandardExtraction(BaseValidatorModel):
+    granularity: DocumentExtractionGranularity
+    boundingBox: DocumentBoundingBox
 
 
-class DocumentOutputTextFormatOutputTypeDef(BaseValidatorModel):
+class DocumentOutputTextFormatOutput(BaseValidatorModel):
     pass
 
 
-class DocumentOutputFormatOutputTypeDef(BaseValidatorModel):
-    textFormat: DocumentOutputTextFormatOutputTypeDef
-    additionalFileFormat: DocumentOutputAdditionalFileFormatTypeDef
+class DocumentOutputFormatOutput(BaseValidatorModel):
+    textFormat: DocumentOutputTextFormatOutput
+    additionalFileFormat: DocumentOutputAdditionalFileFormat
 
 
-class DocumentOutputTextFormatTypeDef(BaseValidatorModel):
+class DocumentOutputTextFormat(BaseValidatorModel):
     pass
 
 
-class DocumentOutputFormatTypeDef(BaseValidatorModel):
-    textFormat: DocumentOutputTextFormatTypeDef
-    additionalFileFormat: DocumentOutputAdditionalFileFormatTypeDef
+class DocumentOutputFormat(BaseValidatorModel):
+    textFormat: DocumentOutputTextFormat
+    additionalFileFormat: DocumentOutputAdditionalFileFormat
 
 
-class DocumentOverrideConfigurationTypeDef(BaseValidatorModel):
-    splitter: Optional[SplitterConfigurationTypeDef] = None
+class DocumentOverrideConfiguration(BaseValidatorModel):
+    splitter: Optional[SplitterConfiguration] = None
 
 
-class ImageExtractionCategoryOutputTypeDef(BaseValidatorModel):
+class ImageExtractionCategoryOutput(BaseValidatorModel):
     pass
 
 
-class ImageStandardExtractionOutputTypeDef(BaseValidatorModel):
-    category: ImageExtractionCategoryOutputTypeDef
-    boundingBox: ImageBoundingBoxTypeDef
+class ImageStandardExtractionOutput(BaseValidatorModel):
+    category: ImageExtractionCategoryOutput
+    boundingBox: ImageBoundingBox
 
 
-class ImageExtractionCategoryTypeDef(BaseValidatorModel):
+class ImageExtractionCategory(BaseValidatorModel):
     pass
 
 
-class ImageStandardExtractionTypeDef(BaseValidatorModel):
-    category: ImageExtractionCategoryTypeDef
-    boundingBox: ImageBoundingBoxTypeDef
+class ImageStandardExtraction(BaseValidatorModel):
+    category: ImageExtractionCategory
+    boundingBox: ImageBoundingBox
 
 
-class ListBlueprintsRequestPaginateTypeDef(BaseValidatorModel):
+class ListBlueprintsRequestPaginate(BaseValidatorModel):
     blueprintArn: Optional[str] = None
     resourceOwner: Optional[ResourceOwnerType] = None
     blueprintStageFilter: Optional[BlueprintStageFilterType] = None
-    projectFilter: Optional[DataAutomationProjectFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    projectFilter: Optional[DataAutomationProjectFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataAutomationProjectsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataAutomationProjectsRequestPaginate(BaseValidatorModel):
     projectStageFilter: Optional[DataAutomationProjectStageFilterType] = None
-    blueprintFilter: Optional[BlueprintFilterTypeDef] = None
+    blueprintFilter: Optional[BlueprintFilter] = None
     resourceOwner: Optional[ResourceOwnerType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class VideoExtractionCategoryOutputTypeDef(BaseValidatorModel):
+class VideoExtractionCategoryOutput(BaseValidatorModel):
     pass
 
 
-class VideoStandardExtractionOutputTypeDef(BaseValidatorModel):
-    category: VideoExtractionCategoryOutputTypeDef
-    boundingBox: VideoBoundingBoxTypeDef
+class VideoStandardExtractionOutput(BaseValidatorModel):
+    category: VideoExtractionCategoryOutput
+    boundingBox: VideoBoundingBox
 
 
-class VideoExtractionCategoryTypeDef(BaseValidatorModel):
+class VideoExtractionCategory(BaseValidatorModel):
     pass
 
 
-class VideoStandardExtractionTypeDef(BaseValidatorModel):
-    category: VideoExtractionCategoryTypeDef
-    boundingBox: VideoBoundingBoxTypeDef
+class VideoStandardExtraction(BaseValidatorModel):
+    category: VideoExtractionCategory
+    boundingBox: VideoBoundingBox
 
 
-class AudioStandardGenerativeFieldOutputTypeDef(BaseValidatorModel):
+class AudioStandardGenerativeFieldOutput(BaseValidatorModel):
     pass
 
 
-class AudioStandardOutputConfigurationOutputTypeDef(BaseValidatorModel):
-    extraction: Optional[AudioStandardExtractionOutputTypeDef] = None
-    generativeField: Optional[AudioStandardGenerativeFieldOutputTypeDef] = None
+class AudioStandardOutputConfigurationOutput(BaseValidatorModel):
+    extraction: Optional[AudioStandardExtractionOutput] = None
+    generativeField: Optional[AudioStandardGenerativeFieldOutput] = None
 
 
-class AudioStandardGenerativeFieldTypeDef(BaseValidatorModel):
+class AudioStandardGenerativeField(BaseValidatorModel):
     pass
 
 
-class AudioStandardOutputConfigurationTypeDef(BaseValidatorModel):
-    extraction: Optional[AudioStandardExtractionTypeDef] = None
-    generativeField: Optional[AudioStandardGenerativeFieldTypeDef] = None
+class AudioStandardOutputConfiguration(BaseValidatorModel):
+    extraction: Optional[AudioStandardExtraction] = None
+    generativeField: Optional[AudioStandardGenerativeField] = None
 
 
-class DocumentStandardOutputConfigurationOutputTypeDef(BaseValidatorModel):
-    extraction: Optional[DocumentStandardExtractionOutputTypeDef] = None
-    generativeField: Optional[DocumentStandardGenerativeFieldTypeDef] = None
-    outputFormat: Optional[DocumentOutputFormatOutputTypeDef] = None
+class DocumentStandardOutputConfigurationOutput(BaseValidatorModel):
+    extraction: Optional[DocumentStandardExtractionOutput] = None
+    generativeField: Optional[DocumentStandardGenerativeField] = None
+    outputFormat: Optional[DocumentOutputFormatOutput] = None
 
 
-class DocumentStandardOutputConfigurationTypeDef(BaseValidatorModel):
-    extraction: Optional[DocumentStandardExtractionTypeDef] = None
-    generativeField: Optional[DocumentStandardGenerativeFieldTypeDef] = None
-    outputFormat: Optional[DocumentOutputFormatTypeDef] = None
+class DocumentStandardOutputConfiguration(BaseValidatorModel):
+    extraction: Optional[DocumentStandardExtraction] = None
+    generativeField: Optional[DocumentStandardGenerativeField] = None
+    outputFormat: Optional[DocumentOutputFormat] = None
 
 
-class OverrideConfigurationTypeDef(BaseValidatorModel):
-    document: Optional[DocumentOverrideConfigurationTypeDef] = None
+class OverrideConfiguration(BaseValidatorModel):
+    document: Optional[DocumentOverrideConfiguration] = None
 
 
-class ImageStandardGenerativeFieldOutputTypeDef(BaseValidatorModel):
+class ImageStandardGenerativeFieldOutput(BaseValidatorModel):
     pass
 
 
-class ImageStandardOutputConfigurationOutputTypeDef(BaseValidatorModel):
-    extraction: Optional[ImageStandardExtractionOutputTypeDef] = None
-    generativeField: Optional[ImageStandardGenerativeFieldOutputTypeDef] = None
+class ImageStandardOutputConfigurationOutput(BaseValidatorModel):
+    extraction: Optional[ImageStandardExtractionOutput] = None
+    generativeField: Optional[ImageStandardGenerativeFieldOutput] = None
 
 
-class ImageStandardGenerativeFieldTypeDef(BaseValidatorModel):
+class ImageStandardGenerativeField(BaseValidatorModel):
     pass
 
 
-class ImageStandardOutputConfigurationTypeDef(BaseValidatorModel):
-    extraction: Optional[ImageStandardExtractionTypeDef] = None
-    generativeField: Optional[ImageStandardGenerativeFieldTypeDef] = None
+class ImageStandardOutputConfiguration(BaseValidatorModel):
+    extraction: Optional[ImageStandardExtraction] = None
+    generativeField: Optional[ImageStandardGenerativeField] = None
 
 
-class VideoStandardGenerativeFieldOutputTypeDef(BaseValidatorModel):
+class VideoStandardGenerativeFieldOutput(BaseValidatorModel):
     pass
 
 
-class VideoStandardOutputConfigurationOutputTypeDef(BaseValidatorModel):
-    extraction: Optional[VideoStandardExtractionOutputTypeDef] = None
-    generativeField: Optional[VideoStandardGenerativeFieldOutputTypeDef] = None
+class VideoStandardOutputConfigurationOutput(BaseValidatorModel):
+    extraction: Optional[VideoStandardExtractionOutput] = None
+    generativeField: Optional[VideoStandardGenerativeFieldOutput] = None
 
 
-class VideoStandardGenerativeFieldTypeDef(BaseValidatorModel):
+class VideoStandardGenerativeField(BaseValidatorModel):
     pass
 
 
-class VideoStandardOutputConfigurationTypeDef(BaseValidatorModel):
-    extraction: Optional[VideoStandardExtractionTypeDef] = None
-    generativeField: Optional[VideoStandardGenerativeFieldTypeDef] = None
+class VideoStandardOutputConfiguration(BaseValidatorModel):
+    extraction: Optional[VideoStandardExtraction] = None
+    generativeField: Optional[VideoStandardGenerativeField] = None
 
 
-class StandardOutputConfigurationOutputTypeDef(BaseValidatorModel):
-    document: Optional[DocumentStandardOutputConfigurationOutputTypeDef] = None
-    image: Optional[ImageStandardOutputConfigurationOutputTypeDef] = None
-    video: Optional[VideoStandardOutputConfigurationOutputTypeDef] = None
-    audio: Optional[AudioStandardOutputConfigurationOutputTypeDef] = None
+class StandardOutputConfigurationOutput(BaseValidatorModel):
+    document: Optional[DocumentStandardOutputConfigurationOutput] = None
+    image: Optional[ImageStandardOutputConfigurationOutput] = None
+    video: Optional[VideoStandardOutputConfigurationOutput] = None
+    audio: Optional[AudioStandardOutputConfigurationOutput] = None
 
 
-class StandardOutputConfigurationTypeDef(BaseValidatorModel):
-    document: Optional[DocumentStandardOutputConfigurationTypeDef] = None
-    image: Optional[ImageStandardOutputConfigurationTypeDef] = None
-    video: Optional[VideoStandardOutputConfigurationTypeDef] = None
-    audio: Optional[AudioStandardOutputConfigurationTypeDef] = None
+class StandardOutputConfiguration(BaseValidatorModel):
+    document: Optional[DocumentStandardOutputConfiguration] = None
+    image: Optional[ImageStandardOutputConfiguration] = None
+    video: Optional[VideoStandardOutputConfiguration] = None
+    audio: Optional[AudioStandardOutputConfiguration] = None
 
 
-class DataAutomationProjectTypeDef(BaseValidatorModel):
+class DataAutomationProject(BaseValidatorModel):
     projectArn: str
     creationTime: datetime
     lastModifiedTime: datetime
@@ -424,45 +424,45 @@ class DataAutomationProjectTypeDef(BaseValidatorModel):
     status: DataAutomationProjectStatusType
     projectStage: Optional[DataAutomationProjectStageType] = None
     projectDescription: Optional[str] = None
-    standardOutputConfiguration: Optional[StandardOutputConfigurationOutputTypeDef] = None
-    customOutputConfiguration: Optional[CustomOutputConfigurationOutputTypeDef] = None
-    overrideConfiguration: Optional[OverrideConfigurationTypeDef] = None
+    standardOutputConfiguration: Optional[StandardOutputConfigurationOutput] = None
+    customOutputConfiguration: Optional[CustomOutputConfigurationOutput] = None
+    overrideConfiguration: Optional[OverrideConfiguration] = None
     kmsKeyId: Optional[str] = None
     kmsEncryptionContext: Optional[Dict[str, str]] = None
 
 
-class GetDataAutomationProjectResponseTypeDef(BaseValidatorModel):
-    project: DataAutomationProjectTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDataAutomationProjectResponse(BaseValidatorModel):
+    project: DataAutomationProject
+    ResponseMetadata: ResponseMetadata
 
 
-class CustomOutputConfigurationUnionTypeDef(BaseValidatorModel):
+class CustomOutputConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class StandardOutputConfigurationUnionTypeDef(BaseValidatorModel):
+class StandardOutputConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataAutomationProjectRequestTypeDef(BaseValidatorModel):
+class CreateDataAutomationProjectRequest(BaseValidatorModel):
     projectName: str
-    standardOutputConfiguration: StandardOutputConfigurationUnionTypeDef
+    standardOutputConfiguration: StandardOutputConfigurationUnion
     projectDescription: Optional[str] = None
     projectStage: Optional[DataAutomationProjectStageType] = None
-    customOutputConfiguration: Optional[CustomOutputConfigurationUnionTypeDef] = None
-    overrideConfiguration: Optional[OverrideConfigurationTypeDef] = None
+    customOutputConfiguration: Optional[CustomOutputConfigurationUnion] = None
+    overrideConfiguration: Optional[OverrideConfiguration] = None
     clientToken: Optional[str] = None
-    encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    encryptionConfiguration: Optional[EncryptionConfiguration] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateDataAutomationProjectRequestTypeDef(BaseValidatorModel):
+class UpdateDataAutomationProjectRequest(BaseValidatorModel):
     projectArn: str
-    standardOutputConfiguration: StandardOutputConfigurationUnionTypeDef
+    standardOutputConfiguration: StandardOutputConfigurationUnion
     projectStage: Optional[DataAutomationProjectStageType] = None
     projectDescription: Optional[str] = None
-    customOutputConfiguration: Optional[CustomOutputConfigurationUnionTypeDef] = None
-    overrideConfiguration: Optional[OverrideConfigurationTypeDef] = None
-    encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
+    customOutputConfiguration: Optional[CustomOutputConfigurationUnion] = None
+    overrideConfiguration: Optional[OverrideConfiguration] = None
+    encryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 

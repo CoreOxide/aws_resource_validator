@@ -1,22 +1,15 @@
 # Mediatailor Classes
 
-# AccessConfigurationTypeDef
+# AccessConfiguration
 
 ### AccessType
 - **Type**: typing.Optional[typing.Literal['AUTODETECT_SIGV4', 'S3_SIGV4', 'SECRETS_MANAGER_ACCESS_TOKEN']]
 
 ### SecretsManagerAccessTokenConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SecretsManagerAccessTokenConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AdBreakOpportunityTypeDef
-
-### OffsetMillis
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-
-# AdBreakOutputTypeDef
+# AdBreak
 
 ### OffsetMillis
 - **Type**: <class 'int'>
@@ -26,19 +19,26 @@
 - **Type**: typing.Optional[typing.Literal['SPLICE_INSERT', 'TIME_SIGNAL']]
 
 ### Slate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSource]
 
 ### SpliceInsertMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SpliceInsertMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TimeSignalMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.TimeSignalMessageOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.TimeSignalMessageUnion]
 
 ### AdBreakMetadata
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.KeyValuePair]]
 
 
-# AdBreakTypeDef
+# AdBreakOpportunity
+
+### OffsetMillis
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# AdBreakOutput
 
 ### OffsetMillis
 - **Type**: <class 'int'>
@@ -48,38 +48,38 @@
 - **Type**: typing.Optional[typing.Literal['SPLICE_INSERT', 'TIME_SIGNAL']]
 
 ### Slate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSource]
 
 ### SpliceInsertMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SpliceInsertMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TimeSignalMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.TimeSignalMessageUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.TimeSignalMessageOutput]
 
 ### AdBreakMetadata
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.KeyValuePair]]
 
 
-# AdBreakUnionTypeDef
+# AdBreakUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AdConditioningConfigurationTypeDef
+# AdConditioningConfiguration
 
 ### StreamingMediaFileConditioning
 - **Type**: typing.Literal['NONE', 'TRANSCODE']
 - **Required**: Yes
 
 
-# AdMarkerPassthroughTypeDef
+# AdMarkerPassthrough
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 
-# AlertTypeDef
+# Alert
 
 ### AlertCode
 - **Type**: <class 'str'>
@@ -105,7 +105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INFO', 'PLAYBACK_WARNING', 'SCHEDULING_ERROR']]
 
 
-# AlternateMediaOutputTypeDef
+# AlternateMedia
 
 ### SourceLocationName
 - **Type**: typing.Optional[str]
@@ -117,19 +117,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClipRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.ClipRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ScheduledStartTimeMillis
 - **Type**: typing.Optional[int]
 
 ### AdBreaks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakUnion]]
 
 ### DurationMillis
 - **Type**: typing.Optional[int]
 
 
-# AlternateMediaTypeDef
+# AlternateMediaOutput
 
 ### SourceLocationName
 - **Type**: typing.Optional[str]
@@ -141,49 +141,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClipRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.ClipRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ScheduledStartTimeMillis
 - **Type**: typing.Optional[int]
 
 ### AdBreaks
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOutput]]
 
 ### DurationMillis
 - **Type**: typing.Optional[int]
 
 
-# AlternateMediaUnionTypeDef
+# AlternateMediaUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AudienceMediaOutputTypeDef
+# AudienceMedia
 
 ### Audience
 - **Type**: typing.Optional[str]
 
 ### AlternateMedia
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AlternateMediaOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AlternateMediaUnion]]
 
 
-# AudienceMediaTypeDef
+# AudienceMediaOutput
 
 ### Audience
 - **Type**: typing.Optional[str]
 
 ### AlternateMedia
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AlternateMediaUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AlternateMediaOutput]]
 
 
-# AudienceMediaUnionTypeDef
+# AudienceMediaUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AvailMatchingCriteriaTypeDef
+# AvailMatchingCriteria
 
 ### DynamicVariable
 - **Type**: <class 'str'>
@@ -194,7 +194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AvailSuppressionTypeDef
+# AvailSuppression
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['AFTER_LIVE_EDGE', 'BEHIND_LIVE_EDGE', 'OFF']]
@@ -212,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BumperTypeDef
+# Bumper
 
 ### EndUrl
 - **Type**: typing.Optional[str]
@@ -221,7 +221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CdnConfigurationTypeDef
+# CdnConfiguration
 
 ### AdSegmentUrlPrefix
 - **Type**: typing.Optional[str]
@@ -230,7 +230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChannelTypeDef
+# Channel
 
 ### Arn
 - **Type**: <class 'str'>
@@ -245,7 +245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ResponseOutputItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ResponseOutputItem]
 - **Required**: Yes
 
 ### PlaybackMode
@@ -257,14 +257,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LogConfigurationForChannelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LogConfigurationForChannel'>
 - **Required**: Yes
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### FillerSlate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSource]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -276,7 +276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ClipRangeTypeDef
+# ClipRange
 
 ### EndOffsetMillis
 - **Type**: typing.Optional[int]
@@ -285,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ConfigureLogsForChannelRequestTypeDef
+# ConfigureLogsForChannelRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
@@ -296,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfigureLogsForChannelResponseTypeDef
+# ConfigureLogsForChannelResponse
 
 ### ChannelName
 - **Type**: <class 'str'>
@@ -307,11 +307,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConfigureLogsForPlaybackConfigurationRequestTypeDef
+# ConfigureLogsForPlaybackConfigurationRequest
 
 ### PercentEnabled
 - **Type**: <class 'int'>
@@ -325,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['LEGACY_CLOUDWATCH', 'VENDED_LOGS']]]
 
 
-# ConfigureLogsForPlaybackConfigurationResponseTypeDef
+# ConfigureLogsForPlaybackConfigurationResponse
 
 ### PercentEnabled
 - **Type**: <class 'int'>
@@ -340,18 +340,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateChannelRequestTypeDef
+# CreateChannelRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Outputs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.RequestOutputItemTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.RequestOutputItem]
 - **Required**: Yes
 
 ### PlaybackMode
@@ -359,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FillerSlate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSource]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -368,13 +368,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BASIC', 'STANDARD']]
 
 ### TimeShiftConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.TimeShiftConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Audiences
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CreateChannelResponseTypeDef
+# CreateChannelResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -393,7 +393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FillerSlate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.SlateSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.SlateSource'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -401,7 +401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ResponseOutputItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ResponseOutputItem]
 - **Required**: Yes
 
 ### PlaybackMode
@@ -417,7 +417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeShiftConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.TimeShiftConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.TimeShiftConfiguration'>
 - **Required**: Yes
 
 ### Audiences
@@ -425,14 +425,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLiveSourceRequestTypeDef
+# CreateLiveSourceRequest
 
 ### HttpPackageConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### LiveSourceName
@@ -447,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateLiveSourceResponseTypeDef
+# CreateLiveSourceResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -458,7 +458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HttpPackageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -478,14 +478,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePrefetchScheduleRequestTypeDef
+# CreatePrefetchScheduleRequest
 
 ### Consumption
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchConsumptionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchConsumptionUnion'>
 - **Required**: Yes
 
 ### Name
@@ -497,21 +497,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Retrieval
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchRetrievalUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchRetrievalUnion'>
 - **Required**: Yes
 
 ### StreamId
 - **Type**: typing.Optional[str]
 
 
-# CreatePrefetchScheduleResponseTypeDef
+# CreatePrefetchScheduleResponse
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Consumption
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchConsumptionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchConsumptionOutput'>
 - **Required**: Yes
 
 ### Name
@@ -523,7 +523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Retrieval
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchRetrievalOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchRetrievalOutput'>
 - **Required**: Yes
 
 ### StreamId
@@ -531,11 +531,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateProgramRequestTypeDef
+# CreateProgramRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
@@ -546,7 +546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ScheduleConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ScheduleConfiguration'>
 - **Required**: Yes
 
 ### SourceLocationName
@@ -554,7 +554,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdBreaks
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakUnion]]
 
 ### LiveSourceName
 - **Type**: typing.Optional[str]
@@ -563,13 +563,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AudienceMedia
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaUnion]]
 
 
-# CreateProgramResponseTypeDef
+# CreateProgramResponse
 
 ### AdBreaks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOutput]
 - **Required**: Yes
 
 ### Arn
@@ -605,7 +605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClipRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ClipRangeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ClipRange'>
 - **Required**: Yes
 
 ### DurationMillis
@@ -613,18 +613,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AudienceMedia
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSourceLocationRequestTypeDef
+# CreateSourceLocationRequest
 
 ### HttpConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfiguration'>
 - **Required**: Yes
 
 ### SourceLocationName
@@ -632,22 +632,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccessConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.AccessConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DefaultSegmentDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.DefaultSegmentDeliveryConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SegmentDeliveryConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfiguration]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSourceLocationResponseTypeDef
+# CreateSourceLocationResponse
 
 ### AccessConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AccessConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AccessConfiguration'>
 - **Required**: Yes
 
 ### Arn
@@ -659,11 +659,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultSegmentDeliveryConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DefaultSegmentDeliveryConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DefaultSegmentDeliveryConfiguration'>
 - **Required**: Yes
 
 ### HttpConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfiguration'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -671,7 +671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SegmentDeliveryConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfiguration]
 - **Required**: Yes
 
 ### SourceLocationName
@@ -683,14 +683,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVodSourceRequestTypeDef
+# CreateVodSourceRequest
 
 ### HttpPackageConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### SourceLocationName
@@ -705,7 +705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateVodSourceResponseTypeDef
+# CreateVodSourceResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -716,7 +716,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HttpPackageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -736,20 +736,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DashConfigurationForPutTypeDef
-
-### MpdLocation
-- **Type**: typing.Optional[str]
-
-### OriginManifestType
-- **Type**: typing.Optional[typing.Literal['MULTI_PERIOD', 'SINGLE_PERIOD']]
-
-
-# DashConfigurationTypeDef
+# DashConfiguration
 
 ### ManifestEndpointPrefix
 - **Type**: typing.Optional[str]
@@ -761,7 +752,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MULTI_PERIOD', 'SINGLE_PERIOD']]
 
 
-# DashPlaylistSettingsTypeDef
+# DashConfigurationForPut
+
+### MpdLocation
+- **Type**: typing.Optional[str]
+
+### OriginManifestType
+- **Type**: typing.Optional[typing.Literal['MULTI_PERIOD', 'SINGLE_PERIOD']]
+
+
+# DashPlaylistSettings
 
 ### ManifestWindowSeconds
 - **Type**: typing.Optional[int]
@@ -776,27 +776,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DefaultSegmentDeliveryConfigurationTypeDef
+# DefaultSegmentDeliveryConfiguration
 
 ### BaseUrl
 - **Type**: typing.Optional[str]
 
 
-# DeleteChannelPolicyRequestTypeDef
+# DeleteChannelPolicyRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteChannelRequestTypeDef
+# DeleteChannelRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLiveSourceRequestTypeDef
+# DeleteLiveSourceRequest
 
 ### LiveSourceName
 - **Type**: <class 'str'>
@@ -807,14 +807,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePlaybackConfigurationRequestTypeDef
+# DeletePlaybackConfigurationRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePrefetchScheduleRequestTypeDef
+# DeletePrefetchScheduleRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -825,7 +825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProgramRequestTypeDef
+# DeleteProgramRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
@@ -836,14 +836,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSourceLocationRequestTypeDef
+# DeleteSourceLocationRequest
 
 ### SourceLocationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVodSourceRequestTypeDef
+# DeleteVodSourceRequest
 
 ### SourceLocationName
 - **Type**: <class 'str'>
@@ -854,14 +854,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeChannelRequestTypeDef
+# DescribeChannelRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeChannelResponseTypeDef
+# DescribeChannelResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -880,7 +880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FillerSlate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.SlateSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.SlateSource'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -888,7 +888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ResponseOutputItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ResponseOutputItem]
 - **Required**: Yes
 
 ### PlaybackMode
@@ -904,11 +904,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LogConfigurationForChannelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LogConfigurationForChannel'>
 - **Required**: Yes
 
 ### TimeShiftConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.TimeShiftConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.TimeShiftConfiguration'>
 - **Required**: Yes
 
 ### Audiences
@@ -916,11 +916,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLiveSourceRequestTypeDef
+# DescribeLiveSourceRequest
 
 ### LiveSourceName
 - **Type**: <class 'str'>
@@ -931,7 +931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLiveSourceResponseTypeDef
+# DescribeLiveSourceResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -942,7 +942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HttpPackageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -962,11 +962,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeProgramRequestTypeDef
+# DescribeProgramRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
@@ -977,10 +977,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProgramResponseTypeDef
+# DescribeProgramResponse
 
 ### AdBreaks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOutput]
 - **Required**: Yes
 
 ### Arn
@@ -1016,7 +1016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClipRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ClipRangeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ClipRange'>
 - **Required**: Yes
 
 ### DurationMillis
@@ -1024,25 +1024,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AudienceMedia
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSourceLocationRequestTypeDef
+# DescribeSourceLocationRequest
 
 ### SourceLocationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeSourceLocationResponseTypeDef
+# DescribeSourceLocationResponse
 
 ### AccessConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AccessConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AccessConfiguration'>
 - **Required**: Yes
 
 ### Arn
@@ -1054,11 +1054,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultSegmentDeliveryConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DefaultSegmentDeliveryConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DefaultSegmentDeliveryConfiguration'>
 - **Required**: Yes
 
 ### HttpConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfiguration'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -1066,7 +1066,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SegmentDeliveryConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfiguration]
 - **Required**: Yes
 
 ### SourceLocationName
@@ -1078,11 +1078,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeVodSourceRequestTypeDef
+# DescribeVodSourceRequest
 
 ### SourceLocationName
 - **Type**: <class 'str'>
@@ -1093,10 +1093,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVodSourceResponseTypeDef
+# DescribeVodSourceResponse
 
 ### AdBreakOpportunities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOpportunityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOpportunity]
 - **Required**: Yes
 
 ### Arn
@@ -1108,7 +1108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HttpPackageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -1128,52 +1128,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChannelPolicyRequestTypeDef
+# GetChannelPolicyRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetChannelPolicyResponseTypeDef
+# GetChannelPolicyResponse
 
 ### Policy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChannelScheduleRequestPaginateTypeDef
-
-### ChannelName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DurationMinutes
-- **Type**: typing.Optional[str]
-
-### Audience
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfigTypeDef]
-
-
-# GetChannelScheduleRequestTypeDef
+# GetChannelScheduleRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
@@ -1192,43 +1176,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetChannelScheduleResponseTypeDef
+# GetChannelScheduleRequestPaginate
+
+### ChannelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DurationMinutes
+- **Type**: typing.Optional[str]
+
+### Audience
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfig]
+
+
+# GetChannelScheduleResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ScheduleEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ScheduleEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetPlaybackConfigurationRequestTypeDef
+# GetPlaybackConfigurationRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPlaybackConfigurationResponseTypeDef
+# GetPlaybackConfigurationResponse
 
 ### AdDecisionServerUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AvailSuppression
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AvailSuppressionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AvailSuppression'>
 - **Required**: Yes
 
 ### Bumper
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.BumperTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.Bumper'>
 - **Required**: Yes
 
 ### CdnConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.CdnConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.CdnConfiguration'>
 - **Required**: Yes
 
 ### ConfigurationAliases
@@ -1236,11 +1236,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DashConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DashConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DashConfiguration'>
 - **Required**: Yes
 
 ### HlsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HlsConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HlsConfiguration'>
 - **Required**: Yes
 
 ### InsertionMode
@@ -1248,15 +1248,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LivePreRollConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LivePreRollConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LivePreRollConfiguration'>
 - **Required**: Yes
 
 ### LogConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LogConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LogConfiguration'>
 - **Required**: Yes
 
 ### ManifestProcessingRules
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ManifestProcessingRulesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ManifestProcessingRules'>
 - **Required**: Yes
 
 ### Name
@@ -1296,15 +1296,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdConditioningConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AdConditioningConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AdConditioningConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPrefetchScheduleRequestTypeDef
+# GetPrefetchScheduleRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -1315,14 +1315,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPrefetchScheduleResponseTypeDef
+# GetPrefetchScheduleResponse
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Consumption
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchConsumptionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchConsumptionOutput'>
 - **Required**: Yes
 
 ### Name
@@ -1334,7 +1334,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Retrieval
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchRetrievalOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchRetrievalOutput'>
 - **Required**: Yes
 
 ### StreamId
@@ -1342,26 +1342,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HlsConfigurationTypeDef
+# HlsConfiguration
 
 ### ManifestEndpointPrefix
 - **Type**: typing.Optional[str]
 
 
-# HlsPlaylistSettingsOutputTypeDef
-
-### ManifestWindowSeconds
-- **Type**: typing.Optional[int]
-
-### AdMarkupType
-- **Type**: typing.Optional[typing.List[typing.Literal['DATERANGE', 'SCTE35_ENHANCED']]]
-
-
-# HlsPlaylistSettingsTypeDef
+# HlsPlaylistSettings
 
 ### ManifestWindowSeconds
 - **Type**: typing.Optional[int]
@@ -1370,26 +1361,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['DATERANGE', 'SCTE35_ENHANCED']]]
 
 
-# HlsPlaylistSettingsUnionTypeDef
+# HlsPlaylistSettingsOutput
+
+### ManifestWindowSeconds
+- **Type**: typing.Optional[int]
+
+### AdMarkupType
+- **Type**: typing.Optional[typing.List[typing.Literal['DATERANGE', 'SCTE35_ENHANCED']]]
+
+
+# HlsPlaylistSettingsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HttpConfigurationTypeDef
+# HttpConfiguration
 
 ### BaseUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# HttpPackageConfigurationTypeDef
+# HttpPackageConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KeyValuePairTypeDef
+# KeyValuePair
 
 ### Key
 - **Type**: <class 'str'>
@@ -1400,17 +1400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAlertsRequestPaginateTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfigTypeDef]
-
-
-# ListAlertsRequestTypeDef
+# ListAlertsRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1423,27 +1413,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAlertsResponseTypeDef
+# ListAlertsRequestPaginate
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfig]
+
+
+# ListAlertsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AlertTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.Alert]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfigTypeDef]
-
-
-# ListChannelsRequestTypeDef
+# ListChannelsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1452,35 +1446,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsResponseTypeDef
+# ListChannelsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfig]
+
+
+# ListChannelsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ChannelTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.Channel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLiveSourcesRequestPaginateTypeDef
+# ListLiveSourcesRequest
+
+### SourceLocationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListLiveSourcesRequestPaginate
 
 ### SourceLocationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfig]
 
 
-# ListLiveSourcesRequestTypeDef
+# ListLiveSourcesResponse
 
-### SourceLocationName
-- **Type**: <class 'str'>
+### Items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.LiveSource]
 - **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPlaybackConfigurationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1489,63 +1512,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLiveSourcesResponseTypeDef
+# ListPlaybackConfigurationsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfig]
+
+
+# ListPlaybackConfigurationsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.LiveSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.PlaybackConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPlaybackConfigurationsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfigTypeDef]
-
-
-# ListPlaybackConfigurationsRequestTypeDef
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListPlaybackConfigurationsResponseTypeDef
-
-### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.PlaybackConfigurationTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListPrefetchSchedulesRequestPaginateTypeDef
-
-### PlaybackConfigurationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StreamId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfigTypeDef]
-
-
-# ListPrefetchSchedulesRequestTypeDef
+# ListPrefetchSchedulesRequest
 
 ### PlaybackConfigurationName
 - **Type**: <class 'str'>
@@ -1561,27 +1548,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPrefetchSchedulesResponseTypeDef
+# ListPrefetchSchedulesRequestPaginate
+
+### PlaybackConfigurationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StreamId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfig]
+
+
+# ListPrefetchSchedulesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchScheduleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchSchedule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSourceLocationsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfigTypeDef]
-
-
-# ListSourceLocationsRequestTypeDef
+# ListSourceLocationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1590,49 +1584,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSourceLocationsResponseTypeDef
+# ListSourceLocationsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfig]
+
+
+# ListSourceLocationsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SourceLocationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SourceLocation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVodSourcesRequestPaginateTypeDef
-
-### SourceLocationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfigTypeDef]
-
-
-# ListVodSourcesRequestTypeDef
+# ListVodSourcesRequest
 
 ### SourceLocationName
 - **Type**: <class 'str'>
@@ -1645,21 +1635,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVodSourcesResponseTypeDef
+# ListVodSourcesRequestPaginate
+
+### SourceLocationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.PaginatorConfig]
+
+
+# ListVodSourcesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.VodSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.VodSource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LivePreRollConfigurationTypeDef
+# LivePreRollConfiguration
 
 ### AdDecisionServerUrl
 - **Type**: typing.Optional[str]
@@ -1668,14 +1668,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LiveSourceTypeDef
+# LiveSource
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### HttpPackageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### LiveSourceName
@@ -1696,13 +1696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# LogConfigurationForChannelTypeDef
-
-### LogTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['AS_RUN']]]
-
-
-# LogConfigurationTypeDef
+# LogConfiguration
 
 ### PercentEnabled
 - **Type**: <class 'int'>
@@ -1712,13 +1706,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['LEGACY_CLOUDWATCH', 'VENDED_LOGS']]]
 
 
-# ManifestProcessingRulesTypeDef
+# LogConfigurationForChannel
+
+### LogTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['AS_RUN']]]
+
+
+# ManifestProcessingRules
 
 ### AdMarkerPassthrough
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.AdMarkerPassthroughTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1730,40 +1730,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlaybackConfigurationTypeDef
+# PlaybackConfiguration
 
 ### AdDecisionServerUrl
 - **Type**: typing.Optional[str]
 
 ### AvailSuppression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.AvailSuppressionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Bumper
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.BumperTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CdnConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.CdnConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ConfigurationAliases
 - **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, str]]]
 
 ### DashConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.DashConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### HlsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.HlsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InsertionMode
 - **Type**: typing.Optional[typing.Literal['PLAYER_SELECT', 'STITCHED_ONLY']]
 
 ### LivePreRollConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.LivePreRollConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.LogConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ManifestProcessingRules
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.ManifestProcessingRulesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1793,42 +1793,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdConditioningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.AdConditioningConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PrefetchConsumptionOutputTypeDef
+# PrefetchConsumption
+
+### EndTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.Timestamp'>
+- **Required**: Yes
+
+### AvailMatchingCriteria
+- **Type**: typing.Optional[typing.Sequence[NoneType]]
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.Timestamp]
+
+
+# PrefetchConsumptionOutput
 
 ### EndTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### AvailMatchingCriteria
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AvailMatchingCriteriaTypeDef]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### StartTime
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PrefetchConsumptionTypeDef
-
-### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### AvailMatchingCriteria
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AvailMatchingCriteriaTypeDef]]
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.TimestampTypeDef]
-
-
-# PrefetchConsumptionUnionTypeDef
+# PrefetchConsumptionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PrefetchRetrievalOutputTypeDef
+# PrefetchRetrieval
+
+### EndTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.Timestamp'>
+- **Required**: Yes
+
+### DynamicVariables
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.Timestamp]
+
+
+# PrefetchRetrievalOutput
 
 ### EndTime
 - **Type**: <class 'datetime.datetime'>
@@ -1841,33 +1854,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PrefetchRetrievalTypeDef
-
-### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### DynamicVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.TimestampTypeDef]
-
-
-# PrefetchRetrievalUnionTypeDef
+# PrefetchRetrievalUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PrefetchScheduleTypeDef
+# PrefetchSchedule
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Consumption
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchConsumptionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchConsumptionOutput'>
 - **Required**: Yes
 
 ### Name
@@ -1879,14 +1879,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Retrieval
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchRetrievalOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.PrefetchRetrievalOutput'>
 - **Required**: Yes
 
 ### StreamId
 - **Type**: typing.Optional[str]
 
 
-# PutChannelPolicyRequestTypeDef
+# PutChannelPolicyRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
@@ -1897,7 +1897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutPlaybackConfigurationRequestTypeDef
+# PutPlaybackConfigurationRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -1907,28 +1907,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AvailSuppression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.AvailSuppressionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Bumper
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.BumperTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CdnConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.CdnConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ConfigurationAliases
 - **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, str]]]
 
 ### DashConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.DashConfigurationForPutTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.DashConfigurationForPut]
 
 ### InsertionMode
 - **Type**: typing.Optional[typing.Literal['PLAYER_SELECT', 'STITCHED_ONLY']]
 
 ### LivePreRollConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.LivePreRollConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ManifestProcessingRules
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.ManifestProcessingRulesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PersonalizationThresholdSeconds
 - **Type**: typing.Optional[int]
@@ -1946,25 +1946,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdConditioningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.AdConditioningConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PutPlaybackConfigurationResponseTypeDef
+# PutPlaybackConfigurationResponse
 
 ### AdDecisionServerUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AvailSuppression
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AvailSuppressionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AvailSuppression'>
 - **Required**: Yes
 
 ### Bumper
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.BumperTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.Bumper'>
 - **Required**: Yes
 
 ### CdnConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.CdnConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.CdnConfiguration'>
 - **Required**: Yes
 
 ### ConfigurationAliases
@@ -1972,11 +1972,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DashConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DashConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DashConfiguration'>
 - **Required**: Yes
 
 ### HlsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HlsConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HlsConfiguration'>
 - **Required**: Yes
 
 ### InsertionMode
@@ -1984,15 +1984,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LivePreRollConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LivePreRollConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LivePreRollConfiguration'>
 - **Required**: Yes
 
 ### LogConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LogConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.LogConfiguration'>
 - **Required**: Yes
 
 ### ManifestProcessingRules
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ManifestProcessingRulesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ManifestProcessingRules'>
 - **Required**: Yes
 
 ### Name
@@ -2032,15 +2032,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdConditioningConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AdConditioningConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AdConditioningConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RequestOutputItemTypeDef
+# RequestOutputItem
 
 ### ManifestName
 - **Type**: <class 'str'>
@@ -2051,13 +2051,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DashPlaylistSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.DashPlaylistSettingsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### HlsPlaylistSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.HlsPlaylistSettingsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.HlsPlaylistSettingsUnion]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2079,7 +2079,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseOutputItemTypeDef
+# ResponseOutputItem
 
 ### ManifestName
 - **Type**: <class 'str'>
@@ -2094,13 +2094,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DashPlaylistSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.DashPlaylistSettingsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### HlsPlaylistSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.HlsPlaylistSettingsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.HlsPlaylistSettingsOutput]
 
 
-# ScheduleAdBreakTypeDef
+# ScheduleAdBreak
 
 ### ApproximateDurationSeconds
 - **Type**: typing.Optional[int]
@@ -2115,17 +2115,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScheduleConfigurationTypeDef
+# ScheduleConfiguration
 
 ### Transition
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.TransitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.Transition'>
 - **Required**: Yes
 
 ### ClipRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.ClipRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ScheduleEntryTypeDef
+# ScheduleEntry
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2153,7 +2153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ScheduleAdBreaks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ScheduleAdBreakTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ScheduleAdBreak]]
 
 ### ScheduleEntryType
 - **Type**: typing.Optional[typing.Literal['ALTERNATE_MEDIA', 'FILLER_SLATE', 'PROGRAM']]
@@ -2165,7 +2165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# SecretsManagerAccessTokenConfigurationTypeDef
+# SecretsManagerAccessTokenConfiguration
 
 ### HeaderName
 - **Type**: typing.Optional[str]
@@ -2177,7 +2177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SegmentDeliveryConfigurationTypeDef
+# SegmentDeliveryConfiguration
 
 ### BaseUrl
 - **Type**: typing.Optional[str]
@@ -2186,7 +2186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SegmentationDescriptorTypeDef
+# SegmentationDescriptor
 
 ### SegmentationEventId
 - **Type**: typing.Optional[int]
@@ -2213,7 +2213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SlateSourceTypeDef
+# SlateSource
 
 ### SourceLocationName
 - **Type**: typing.Optional[str]
@@ -2222,14 +2222,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SourceLocationTypeDef
+# SourceLocation
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### HttpConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfiguration'>
 - **Required**: Yes
 
 ### SourceLocationName
@@ -2237,25 +2237,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccessConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.AccessConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### DefaultSegmentDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.DefaultSegmentDeliveryConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### SegmentDeliveryConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfiguration]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# SpliceInsertMessageTypeDef
+# SpliceInsertMessage
 
 ### AvailNum
 - **Type**: typing.Optional[int]
@@ -2270,21 +2270,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartChannelRequestTypeDef
+# StartChannelRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopChannelRequestTypeDef
+# StopChannelRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2295,44 +2295,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimeShiftConfigurationTypeDef
+# TimeShiftConfiguration
 
 ### MaxTimeDelaySeconds
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# TimeSignalMessageOutputTypeDef
+# TimeSignalMessage
 
 ### SegmentationDescriptors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentationDescriptorTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentationDescriptor]]
 
 
-# TimeSignalMessageTypeDef
+# TimeSignalMessageOutput
 
 ### SegmentationDescriptors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentationDescriptorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentationDescriptor]]
 
 
-# TimeSignalMessageUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# TimestampTypeDef
+# TimeSignalMessageUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TransitionTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# Transition
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2343,27 +2343,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateChannelRequestTypeDef
+# UpdateChannelRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Outputs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.RequestOutputItemTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.RequestOutputItem]
 - **Required**: Yes
 
 ### FillerSlate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.SlateSource]
 
 ### TimeShiftConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.TimeShiftConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Audiences
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateChannelResponseTypeDef
+# UpdateChannelResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2382,7 +2382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FillerSlate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.SlateSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.SlateSource'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -2390,7 +2390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ResponseOutputItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.ResponseOutputItem]
 - **Required**: Yes
 
 ### PlaybackMode
@@ -2406,7 +2406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeShiftConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.TimeShiftConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.TimeShiftConfiguration'>
 - **Required**: Yes
 
 ### Audiences
@@ -2414,14 +2414,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateLiveSourceRequestTypeDef
+# UpdateLiveSourceRequest
 
 ### HttpPackageConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### LiveSourceName
@@ -2433,7 +2433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLiveSourceResponseTypeDef
+# UpdateLiveSourceResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2444,7 +2444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HttpPackageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -2464,11 +2464,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateProgramRequestTypeDef
+# UpdateProgramRequest
 
 ### ChannelName
 - **Type**: <class 'str'>
@@ -2479,20 +2479,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.UpdateProgramScheduleConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.UpdateProgramScheduleConfiguration'>
 - **Required**: Yes
 
 ### AdBreaks
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakUnion]]
 
 ### AudienceMedia
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaUnion]]
 
 
-# UpdateProgramResponseTypeDef
+# UpdateProgramResponse
 
 ### AdBreaks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AdBreakOutput]
 - **Required**: Yes
 
 ### Arn
@@ -2524,7 +2524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClipRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ClipRangeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ClipRange'>
 - **Required**: Yes
 
 ### DurationMillis
@@ -2536,24 +2536,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AudienceMedia
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.AudienceMediaOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateProgramScheduleConfigurationTypeDef
+# UpdateProgramScheduleConfiguration
 
 ### Transition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.UpdateProgramTransitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.UpdateProgramTransition]
 
 ### ClipRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.ClipRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateProgramTransitionTypeDef
+# UpdateProgramTransition
 
 ### ScheduledStartTimeMillis
 - **Type**: typing.Optional[int]
@@ -2562,10 +2562,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateSourceLocationRequestTypeDef
+# UpdateSourceLocationRequest
 
 ### HttpConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfiguration'>
 - **Required**: Yes
 
 ### SourceLocationName
@@ -2573,19 +2573,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccessConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.AccessConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DefaultSegmentDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediatailor_classes.DefaultSegmentDeliveryConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SegmentDeliveryConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfiguration]]
 
 
-# UpdateSourceLocationResponseTypeDef
+# UpdateSourceLocationResponse
 
 ### AccessConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AccessConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.AccessConfiguration'>
 - **Required**: Yes
 
 ### Arn
@@ -2597,11 +2597,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultSegmentDeliveryConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DefaultSegmentDeliveryConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.DefaultSegmentDeliveryConfiguration'>
 - **Required**: Yes
 
 ### HttpConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.HttpConfiguration'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -2609,7 +2609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SegmentDeliveryConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.SegmentDeliveryConfiguration]
 - **Required**: Yes
 
 ### SourceLocationName
@@ -2621,14 +2621,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateVodSourceRequestTypeDef
+# UpdateVodSourceRequest
 
 ### HttpPackageConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### SourceLocationName
@@ -2640,7 +2640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVodSourceResponseTypeDef
+# UpdateVodSourceResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2651,7 +2651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HttpPackageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -2671,18 +2671,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediatailor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VodSourceTypeDef
+# VodSource
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### HttpPackageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediatailor_classes.HttpPackageConfiguration]
 - **Required**: Yes
 
 ### SourceLocationName

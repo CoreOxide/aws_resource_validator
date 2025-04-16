@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.secretsmanager_constants import *
 
-class APIErrorTypeTypeDef(BaseValidatorModel):
+class APIErrorType(BaseValidatorModel):
     SecretId: Optional[str] = None
     ErrorCode: Optional[str] = None
     Message: Optional[str] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Key: Optional[FilterNameStringTypeType] = None
     Values: Optional[Sequence[str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -31,7 +31,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class SecretValueEntryTypeDef(BaseValidatorModel):
+class SecretValueEntry(BaseValidatorModel):
     ARN: Optional[str] = None
     Name: Optional[str] = None
     VersionId: Optional[str] = None
@@ -41,21 +41,21 @@ class SecretValueEntryTypeDef(BaseValidatorModel):
     CreatedDate: Optional[datetime] = None
 
 
-class CancelRotateSecretRequestTypeDef(BaseValidatorModel):
+class CancelRotateSecretRequest(BaseValidatorModel):
     SecretId: str
 
 
-class ReplicaRegionTypeTypeDef(BaseValidatorModel):
+class ReplicaRegionType(BaseValidatorModel):
     Region: Optional[str] = None
     KmsKeyId: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ReplicationStatusTypeTypeDef(BaseValidatorModel):
+class ReplicationStatusType(BaseValidatorModel):
     Region: Optional[str] = None
     KmsKeyId: Optional[str] = None
     Status: Optional[StatusTypeType] = None
@@ -63,27 +63,27 @@ class ReplicationStatusTypeTypeDef(BaseValidatorModel):
     LastAccessedDate: Optional[datetime] = None
 
 
-class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyRequest(BaseValidatorModel):
     SecretId: str
 
 
-class DeleteSecretRequestTypeDef(BaseValidatorModel):
+class DeleteSecretRequest(BaseValidatorModel):
     SecretId: str
     RecoveryWindowInDays: Optional[int] = None
     ForceDeleteWithoutRecovery: Optional[bool] = None
 
 
-class DescribeSecretRequestTypeDef(BaseValidatorModel):
+class DescribeSecretRequest(BaseValidatorModel):
     SecretId: str
 
 
-class RotationRulesTypeTypeDef(BaseValidatorModel):
+class RotationRulesType(BaseValidatorModel):
     AutomaticallyAfterDays: Optional[int] = None
     Duration: Optional[str] = None
     ScheduleExpression: Optional[str] = None
 
 
-class GetRandomPasswordRequestTypeDef(BaseValidatorModel):
+class GetRandomPasswordRequest(BaseValidatorModel):
     PasswordLength: Optional[int] = None
     ExcludeCharacters: Optional[str] = None
     ExcludeNumbers: Optional[bool] = None
@@ -94,24 +94,24 @@ class GetRandomPasswordRequestTypeDef(BaseValidatorModel):
     RequireEachIncludedType: Optional[bool] = None
 
 
-class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
+class GetResourcePolicyRequest(BaseValidatorModel):
     SecretId: str
 
 
-class GetSecretValueRequestTypeDef(BaseValidatorModel):
+class GetSecretValueRequest(BaseValidatorModel):
     SecretId: str
     VersionId: Optional[str] = None
     VersionStage: Optional[str] = None
 
 
-class ListSecretVersionIdsRequestTypeDef(BaseValidatorModel):
+class ListSecretVersionIdsRequest(BaseValidatorModel):
     SecretId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     IncludeDeprecated: Optional[bool] = None
 
 
-class SecretVersionsListEntryTypeDef(BaseValidatorModel):
+class SecretVersionsListEntry(BaseValidatorModel):
     VersionId: Optional[str] = None
     VersionStages: Optional[List[str]] = None
     LastAccessedDate: Optional[datetime] = None
@@ -119,105 +119,105 @@ class SecretVersionsListEntryTypeDef(BaseValidatorModel):
     KmsKeyIds: Optional[List[str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
+class PutResourcePolicyRequest(BaseValidatorModel):
     SecretId: str
     ResourcePolicy: str
     BlockPublicPolicy: Optional[bool] = None
 
 
-class RemoveRegionsFromReplicationRequestTypeDef(BaseValidatorModel):
+class RemoveRegionsFromReplicationRequest(BaseValidatorModel):
     SecretId: str
     RemoveReplicaRegions: Sequence[str]
 
 
-class RestoreSecretRequestTypeDef(BaseValidatorModel):
+class RestoreSecretRequest(BaseValidatorModel):
     SecretId: str
 
 
-class StopReplicationToReplicaRequestTypeDef(BaseValidatorModel):
+class StopReplicationToReplicaRequest(BaseValidatorModel):
     SecretId: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     SecretId: str
     TagKeys: Sequence[str]
 
 
-class UpdateSecretVersionStageRequestTypeDef(BaseValidatorModel):
+class UpdateSecretVersionStageRequest(BaseValidatorModel):
     SecretId: str
     VersionStage: str
     RemoveFromVersionId: Optional[str] = None
     MoveToVersionId: Optional[str] = None
 
 
-class ValidateResourcePolicyRequestTypeDef(BaseValidatorModel):
+class ValidateResourcePolicyRequest(BaseValidatorModel):
     ResourcePolicy: str
     SecretId: Optional[str] = None
 
 
-class ValidationErrorsEntryTypeDef(BaseValidatorModel):
+class ValidationErrorsEntry(BaseValidatorModel):
     CheckName: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class BatchGetSecretValueRequestTypeDef(BaseValidatorModel):
+class BatchGetSecretValueRequest(BaseValidatorModel):
     SecretIdList: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListSecretsRequestTypeDef(BaseValidatorModel):
+class ListSecretsRequest(BaseValidatorModel):
     IncludePlannedDeletion: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     SortOrder: Optional[SortOrderTypeType] = None
 
 
-class CancelRotateSecretResponseTypeDef(BaseValidatorModel):
+class CancelRotateSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
     VersionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResourcePolicyResponseTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyResponse(BaseValidatorModel):
     ARN: str
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSecretResponseTypeDef(BaseValidatorModel):
+class DeleteSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
     DeletionDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRandomPasswordResponseTypeDef(BaseValidatorModel):
+class GetRandomPasswordResponse(BaseValidatorModel):
     RandomPassword: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
+class GetResourcePolicyResponse(BaseValidatorModel):
     ARN: str
     Name: str
     ResourcePolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSecretValueResponseTypeDef(BaseValidatorModel):
+class GetSecretValueResponse(BaseValidatorModel):
     ARN: str
     Name: str
     VersionId: str
@@ -225,200 +225,200 @@ class GetSecretValueResponseTypeDef(BaseValidatorModel):
     SecretString: str
     VersionStages: List[str]
     CreatedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
+class PutResourcePolicyResponse(BaseValidatorModel):
     ARN: str
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutSecretValueResponseTypeDef(BaseValidatorModel):
+class PutSecretValueResponse(BaseValidatorModel):
     ARN: str
     Name: str
     VersionId: str
     VersionStages: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreSecretResponseTypeDef(BaseValidatorModel):
+class RestoreSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RotateSecretResponseTypeDef(BaseValidatorModel):
-    ARN: str
-    Name: str
-    VersionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class StopReplicationToReplicaResponseTypeDef(BaseValidatorModel):
-    ARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class UpdateSecretResponseTypeDef(BaseValidatorModel):
+class RotateSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
     VersionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSecretVersionStageResponseTypeDef(BaseValidatorModel):
+class StopReplicationToReplicaResponse(BaseValidatorModel):
+    ARN: str
+    ResponseMetadata: ResponseMetadata
+
+
+class UpdateSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    VersionId: str
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetSecretValueResponseTypeDef(BaseValidatorModel):
-    SecretValues: List[SecretValueEntryTypeDef]
-    Errors: List[APIErrorTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSecretVersionStageResponse(BaseValidatorModel):
+    ARN: str
+    Name: str
+    ResponseMetadata: ResponseMetadata
+
+
+class BatchGetSecretValueResponse(BaseValidatorModel):
+    SecretValues: List[SecretValueEntry]
+    Errors: List[APIErrorType]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class PutSecretValueRequestTypeDef(BaseValidatorModel):
+class PutSecretValueRequest(BaseValidatorModel):
     SecretId: str
     ClientRequestToken: Optional[str] = None
-    SecretBinary: Optional[BlobTypeDef] = None
+    SecretBinary: Optional[Blob] = None
     SecretString: Optional[str] = None
     VersionStages: Optional[Sequence[str]] = None
     RotationToken: Optional[str] = None
 
 
-class UpdateSecretRequestTypeDef(BaseValidatorModel):
+class UpdateSecretRequest(BaseValidatorModel):
     SecretId: str
     ClientRequestToken: Optional[str] = None
     Description: Optional[str] = None
     KmsKeyId: Optional[str] = None
-    SecretBinary: Optional[BlobTypeDef] = None
+    SecretBinary: Optional[Blob] = None
     SecretString: Optional[str] = None
 
 
-class ReplicateSecretToRegionsRequestTypeDef(BaseValidatorModel):
+class ReplicateSecretToRegionsRequest(BaseValidatorModel):
     SecretId: str
-    AddReplicaRegions: Sequence[ReplicaRegionTypeTypeDef]
+    AddReplicaRegions: Sequence[ReplicaRegionType]
     ForceOverwriteReplicaSecret: Optional[bool] = None
 
 
-class CreateSecretRequestTypeDef(BaseValidatorModel):
+class CreateSecretRequest(BaseValidatorModel):
     Name: str
     ClientRequestToken: Optional[str] = None
     Description: Optional[str] = None
     KmsKeyId: Optional[str] = None
-    SecretBinary: Optional[BlobTypeDef] = None
+    SecretBinary: Optional[Blob] = None
     SecretString: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    AddReplicaRegions: Optional[Sequence[ReplicaRegionTypeTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
+    AddReplicaRegions: Optional[Sequence[ReplicaRegionType]] = None
     ForceOverwriteReplicaSecret: Optional[bool] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     SecretId: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateSecretResponseTypeDef(BaseValidatorModel):
+class CreateSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
     VersionId: str
-    ReplicationStatus: List[ReplicationStatusTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReplicationStatus: List[ReplicationStatusType]
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveRegionsFromReplicationResponseTypeDef(BaseValidatorModel):
+class RemoveRegionsFromReplicationResponse(BaseValidatorModel):
     ARN: str
-    ReplicationStatus: List[ReplicationStatusTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReplicationStatus: List[ReplicationStatusType]
+    ResponseMetadata: ResponseMetadata
 
 
-class ReplicateSecretToRegionsResponseTypeDef(BaseValidatorModel):
+class ReplicateSecretToRegionsResponse(BaseValidatorModel):
     ARN: str
-    ReplicationStatus: List[ReplicationStatusTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReplicationStatus: List[ReplicationStatusType]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSecretResponseTypeDef(BaseValidatorModel):
+class DescribeSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
     Description: str
     KmsKeyId: str
     RotationEnabled: bool
     RotationLambdaARN: str
-    RotationRules: RotationRulesTypeTypeDef
+    RotationRules: RotationRulesType
     LastRotatedDate: datetime
     LastChangedDate: datetime
     LastAccessedDate: datetime
     DeletedDate: datetime
     NextRotationDate: datetime
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     VersionIdsToStages: Dict[str, List[str]]
     OwningService: str
     CreatedDate: datetime
     PrimaryRegion: str
-    ReplicationStatus: List[ReplicationStatusTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReplicationStatus: List[ReplicationStatusType]
+    ResponseMetadata: ResponseMetadata
 
 
-class RotateSecretRequestTypeDef(BaseValidatorModel):
+class RotateSecretRequest(BaseValidatorModel):
     SecretId: str
     ClientRequestToken: Optional[str] = None
     RotationLambdaARN: Optional[str] = None
-    RotationRules: Optional[RotationRulesTypeTypeDef] = None
+    RotationRules: Optional[RotationRulesType] = None
     RotateImmediately: Optional[bool] = None
 
 
-class SecretListEntryTypeDef(BaseValidatorModel):
+class SecretListEntry(BaseValidatorModel):
     ARN: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     KmsKeyId: Optional[str] = None
     RotationEnabled: Optional[bool] = None
     RotationLambdaARN: Optional[str] = None
-    RotationRules: Optional[RotationRulesTypeTypeDef] = None
+    RotationRules: Optional[RotationRulesType] = None
     LastRotatedDate: Optional[datetime] = None
     LastChangedDate: Optional[datetime] = None
     LastAccessedDate: Optional[datetime] = None
     DeletedDate: Optional[datetime] = None
     NextRotationDate: Optional[datetime] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     SecretVersionsToStages: Optional[Dict[str, List[str]]] = None
     OwningService: Optional[str] = None
     CreatedDate: Optional[datetime] = None
     PrimaryRegion: Optional[str] = None
 
 
-class ListSecretVersionIdsResponseTypeDef(BaseValidatorModel):
-    Versions: List[SecretVersionsListEntryTypeDef]
+class ListSecretVersionIdsResponse(BaseValidatorModel):
+    Versions: List[SecretVersionsListEntry]
     ARN: str
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListSecretsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSecretsRequestPaginate(BaseValidatorModel):
     IncludePlannedDeletion: Optional[bool] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     SortOrder: Optional[SortOrderTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ValidateResourcePolicyResponseTypeDef(BaseValidatorModel):
+class ValidateResourcePolicyResponse(BaseValidatorModel):
     PolicyValidationPassed: bool
-    ValidationErrors: List[ValidationErrorsEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ValidationErrors: List[ValidationErrorsEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSecretsResponseTypeDef(BaseValidatorModel):
-    SecretList: List[SecretListEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSecretsResponse(BaseValidatorModel):
+    SecretList: List[SecretListEntry]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

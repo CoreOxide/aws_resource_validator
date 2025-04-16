@@ -1,12 +1,6 @@
 # Cloudhsmv2 Classes
 
-# BackupRetentionPolicyTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# BackupTypeDef
+# Backup
 
 ### BackupId
 - **Type**: <class 'str'>
@@ -43,7 +37,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.Tag]]
 
 ### HsmType
 - **Type**: typing.Optional[str]
@@ -52,13 +46,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FIPS', 'NON_FIPS']]
 
 
+# BackupRetentionPolicy
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CertificatesTypeDef
+# Certificates
 
 ### ClusterCsr
 - **Type**: typing.Optional[str]
@@ -76,13 +76,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ClusterTypeDef
+# Cluster
 
 ### BackupPolicy
 - **Type**: typing.Optional[typing.Literal['DEFAULT']]
 
 ### BackupRetentionPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.BackupRetentionPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClusterId
 - **Type**: typing.Optional[str]
@@ -91,7 +91,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Hsms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.HsmTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.Hsm]]
 
 ### HsmType
 - **Type**: typing.Optional[str]
@@ -124,16 +124,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4']]
 
 ### Certificates
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.CertificatesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.Tag]]
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['FIPS', 'NON_FIPS']]
 
 
-# CopyBackupToRegionRequestTypeDef
+# CopyBackupToRegionRequest
 
 ### DestinationRegion
 - **Type**: <class 'str'>
@@ -144,21 +144,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudhsmv2_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudhsmv2_classes.Tag]]
 
 
-# CopyBackupToRegionResponseTypeDef
+# CopyBackupToRegionResponse
 
 ### DestinationBackup
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.DestinationBackupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.DestinationBackup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateClusterRequestTypeDef
+# CreateClusterRequest
 
 ### HsmType
 - **Type**: <class 'str'>
@@ -169,7 +169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BackupRetentionPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.BackupRetentionPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SourceBackupId
 - **Type**: typing.Optional[str]
@@ -178,24 +178,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4']]
 
 ### TagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudhsmv2_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudhsmv2_classes.Tag]]
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['FIPS', 'NON_FIPS']]
 
 
-# CreateClusterResponseTypeDef
+# CreateClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateHsmRequestTypeDef
+# CreateHsmRequest
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -209,54 +209,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateHsmResponseTypeDef
+# CreateHsmResponse
 
 ### Hsm
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.HsmTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.Hsm'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteBackupRequestTypeDef
+# DeleteBackupRequest
 
 ### BackupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBackupResponseTypeDef
+# DeleteBackupResponse
 
 ### Backup
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.BackupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.Backup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteClusterRequestTypeDef
+# DeleteClusterRequest
 
 ### ClusterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteClusterResponseTypeDef
+# DeleteClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteHsmRequestTypeDef
+# DeleteHsmRequest
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -272,24 +272,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteHsmResponseTypeDef
+# DeleteHsmResponse
 
 ### HsmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestTypeDef
+# DeleteResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
 
 
-# DeleteResourcePolicyResponseTypeDef
+# DeleteResourcePolicyResponse
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -300,26 +300,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeBackupsRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
-
-### Shared
-- **Type**: typing.Optional[bool]
-
-### SortAscending
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.PaginatorConfigTypeDef]
-
-
-# DescribeBackupsRequestTypeDef
+# DescribeBackupsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -337,30 +322,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeBackupsResponseTypeDef
+# DescribeBackupsRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+
+### Shared
+- **Type**: typing.Optional[bool]
+
+### SortAscending
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.PaginatorConfig]
+
+
+# DescribeBackupsResponse
 
 ### Backups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.BackupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.Backup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeClustersRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.PaginatorConfigTypeDef]
-
-
-# DescribeClustersRequestTypeDef
+# DescribeClustersRequest
 
 ### Filters
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
@@ -372,21 +363,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeClustersResponseTypeDef
+# DescribeClustersRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.PaginatorConfig]
+
+
+# DescribeClustersResponse
 
 ### Clusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.ClusterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.Cluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DestinationBackupTypeDef
+# DestinationBackup
 
 ### CreateTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -401,24 +401,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetResourcePolicyRequestTypeDef
+# GetResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
 
 
-# GetResourcePolicyResponseTypeDef
+# GetResourcePolicyResponse
 
 ### Policy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HsmTypeDef
+# Hsm
 
 ### HsmId
 - **Type**: <class 'str'>
@@ -452,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InitializeClusterRequestTypeDef
+# InitializeClusterRequest
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -467,7 +467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InitializeClusterResponseTypeDef
+# InitializeClusterResponse
 
 ### State
 - **Type**: typing.Literal['ACTIVE', 'CREATE_IN_PROGRESS', 'DEGRADED', 'DELETED', 'DELETE_IN_PROGRESS', 'INITIALIZED', 'INITIALIZE_IN_PROGRESS', 'MODIFY_IN_PROGRESS', 'ROLLBACK_IN_PROGRESS', 'UNINITIALIZED', 'UPDATE_IN_PROGRESS']
@@ -478,21 +478,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTagsRequestPaginateTypeDef
-
-### ResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.PaginatorConfigTypeDef]
-
-
-# ListTagsRequestTypeDef
+# ListTagsRequest
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -505,21 +495,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTagsResponseTypeDef
+# ListTagsRequestPaginate
+
+### ResourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.PaginatorConfig]
+
+
+# ListTagsResponse
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudhsmv2_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ModifyBackupAttributesRequestTypeDef
+# ModifyBackupAttributesRequest
 
 ### BackupId
 - **Type**: <class 'str'>
@@ -530,18 +530,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyBackupAttributesResponseTypeDef
+# ModifyBackupAttributesResponse
 
 ### Backup
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.BackupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.Backup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyClusterRequestTypeDef
+# ModifyClusterRequest
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -551,21 +551,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BackupRetentionPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.BackupRetentionPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ModifyClusterResponseTypeDef
+# ModifyClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -577,7 +577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePolicyRequestTypeDef
+# PutResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -586,7 +586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePolicyResponseTypeDef
+# PutResourcePolicyResponse
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -597,11 +597,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -623,36 +623,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreBackupRequestTypeDef
+# RestoreBackupRequest
 
 ### BackupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RestoreBackupResponseTypeDef
+# RestoreBackupResponse
 
 ### Backup
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.BackupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.Backup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### ResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TagList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudhsmv2_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -663,7 +652,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### ResourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TagList
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudhsmv2_classes.Tag]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### ResourceId
 - **Type**: <class 'str'>

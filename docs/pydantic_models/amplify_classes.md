@@ -1,6 +1,6 @@
 # Amplify Classes
 
-# AppTypeDef
+# App
 
 ### appId
 - **Type**: <class 'str'>
@@ -66,10 +66,10 @@
 - **Type**: typing.Optional[str]
 
 ### customRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplify_classes.CustomRuleTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplify_classes.CustomRule]]
 
 ### productionBranch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.ProductionBranchTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.ProductionBranch]
 
 ### buildSpec
 - **Type**: typing.Optional[str]
@@ -84,22 +84,22 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 ### autoBranchCreationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.AutoBranchCreationConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.AutoBranchCreationConfigOutput]
 
 ### repositoryCloneMethod
 - **Type**: typing.Optional[typing.Literal['SIGV4', 'SSH', 'TOKEN']]
 
 ### cacheConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CacheConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CacheConfig]
 
 ### webhookCreateTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### wafConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.WafConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.WafConfiguration]
 
 
-# ArtifactTypeDef
+# Artifact
 
 ### artifactFileName
 - **Type**: <class 'str'>
@@ -110,40 +110,7 @@
 - **Required**: Yes
 
 
-# AutoBranchCreationConfigOutputTypeDef
-
-### stage
-- **Type**: typing.Optional[typing.Literal['BETA', 'DEVELOPMENT', 'EXPERIMENTAL', 'PRODUCTION', 'PULL_REQUEST']]
-
-### framework
-- **Type**: typing.Optional[str]
-
-### enableAutoBuild
-- **Type**: typing.Optional[bool]
-
-### environmentVariables
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### basicAuthCredentials
-- **Type**: typing.Optional[str]
-
-### enableBasicAuth
-- **Type**: typing.Optional[bool]
-
-### enablePerformanceMode
-- **Type**: typing.Optional[bool]
-
-### buildSpec
-- **Type**: typing.Optional[str]
-
-### enablePullRequestPreview
-- **Type**: typing.Optional[bool]
-
-### pullRequestEnvironmentName
-- **Type**: typing.Optional[str]
-
-
-# AutoBranchCreationConfigTypeDef
+# AutoBranchCreationConfig
 
 ### stage
 - **Type**: typing.Optional[typing.Literal['BETA', 'DEVELOPMENT', 'EXPERIMENTAL', 'PRODUCTION', 'PULL_REQUEST']]
@@ -176,13 +143,52 @@
 - **Type**: typing.Optional[str]
 
 
-# AutoBranchCreationConfigUnionTypeDef
+# AutoBranchCreationConfigOutput
+
+### stage
+- **Type**: typing.Optional[typing.Literal['BETA', 'DEVELOPMENT', 'EXPERIMENTAL', 'PRODUCTION', 'PULL_REQUEST']]
+
+### framework
+- **Type**: typing.Optional[str]
+
+### enableAutoBuild
+- **Type**: typing.Optional[bool]
+
+### environmentVariables
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### basicAuthCredentials
+- **Type**: typing.Optional[str]
+
+### enableBasicAuth
+- **Type**: typing.Optional[bool]
+
+### enablePerformanceMode
+- **Type**: typing.Optional[bool]
+
+### buildSpec
+- **Type**: typing.Optional[str]
+
+### enablePullRequestPreview
+- **Type**: typing.Optional[bool]
+
+### pullRequestEnvironmentName
+- **Type**: typing.Optional[str]
+
+
+# AutoBranchCreationConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BackendEnvironmentTypeDef
+# Backend
+
+### stackArn
+- **Type**: typing.Optional[str]
+
+
+# BackendEnvironment
 
 ### backendEnvironmentArn
 - **Type**: <class 'str'>
@@ -207,19 +213,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BackendTypeDef
-
-### stackArn
-- **Type**: typing.Optional[str]
-
-
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BranchTypeDef
+# Branch
 
 ### branchArn
 - **Type**: <class 'str'>
@@ -320,31 +320,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### backend
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.BackendTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Backend]
 
 ### computeRoleArn
 - **Type**: typing.Optional[str]
 
 
-# CacheConfigTypeDef
+# CacheConfig
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CertificateSettingsTypeDef
+# Certificate
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CertificateTypeDef
+# CertificateSettings
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAppRequestTypeDef
+# CreateAppRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -387,7 +387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### customRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.CustomRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.CustomRule]]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -405,24 +405,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### autoBranchCreationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.AutoBranchCreationConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.AutoBranchCreationConfigUnion]
 
 ### cacheConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CacheConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CacheConfig]
 
 
-# CreateAppResultTypeDef
+# CreateAppResult
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.AppTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateBackendEnvironmentRequestTypeDef
+# CreateBackendEnvironmentRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -439,18 +439,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateBackendEnvironmentResultTypeDef
+# CreateBackendEnvironmentResult
 
 ### backendEnvironment
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateBranchRequestTypeDef
+# CreateBranchRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -509,24 +509,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### backend
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.BackendTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Backend]
 
 ### computeRoleArn
 - **Type**: typing.Optional[str]
 
 
-# CreateBranchResultTypeDef
+# CreateBranchResult
 
 ### branch
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BranchTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Branch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDeploymentRequestTypeDef
+# CreateDeploymentRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -540,7 +540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateDeploymentResultTypeDef
+# CreateDeploymentResult
 
 ### jobId
 - **Type**: <class 'str'>
@@ -555,11 +555,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDomainAssociationRequestTypeDef
+# CreateDomainAssociationRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -570,7 +570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subDomainSettings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.SubDomainSettingTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.SubDomainSetting]
 - **Required**: Yes
 
 ### enableAutoSubDomain
@@ -583,21 +583,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### certificateSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CertificateSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CertificateSettings]
 
 
-# CreateDomainAssociationResultTypeDef
+# CreateDomainAssociationResult
 
 ### domainAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateWebhookRequestTypeDef
+# CreateWebhookRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -611,18 +611,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateWebhookResultTypeDef
+# CreateWebhookResult
 
 ### webhook
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.WebhookTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Webhook'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomRuleTypeDef
+# CustomRule
 
 ### source
 - **Type**: <class 'str'>
@@ -639,25 +639,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAppRequestTypeDef
+# DeleteAppRequest
 
 ### appId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAppResultTypeDef
+# DeleteAppResult
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.AppTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteBackendEnvironmentRequestTypeDef
+# DeleteBackendEnvironmentRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -668,18 +668,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBackendEnvironmentResultTypeDef
+# DeleteBackendEnvironmentResult
 
 ### backendEnvironment
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteBranchRequestTypeDef
+# DeleteBranchRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -690,18 +690,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBranchResultTypeDef
+# DeleteBranchResult
 
 ### branch
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BranchTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Branch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDomainAssociationRequestTypeDef
+# DeleteDomainAssociationRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -712,18 +712,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDomainAssociationResultTypeDef
+# DeleteDomainAssociationResult
 
 ### domainAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteJobRequestTypeDef
+# DeleteJobRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -738,36 +738,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteJobResultTypeDef
+# DeleteJobResult
 
 ### jobSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteWebhookRequestTypeDef
+# DeleteWebhookRequest
 
 ### webhookId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteWebhookResultTypeDef
+# DeleteWebhookResult
 
 ### webhook
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.WebhookTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Webhook'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DomainAssociationTypeDef
+# DomainAssociation
 
 ### domainAssociationArn
 - **Type**: <class 'str'>
@@ -790,7 +790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subDomains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.SubDomainTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.SubDomain]
 - **Required**: Yes
 
 ### autoSubDomainCreationPatterns
@@ -806,10 +806,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### certificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CertificateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Certificate]
 
 
-# GenerateAccessLogsRequestTypeDef
+# GenerateAccessLogsRequest
 
 ### domainName
 - **Type**: <class 'str'>
@@ -820,49 +820,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Timestamp]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Timestamp]
 
 
-# GenerateAccessLogsResultTypeDef
+# GenerateAccessLogsResult
 
 ### logUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAppRequestTypeDef
+# GetAppRequest
 
 ### appId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAppResultTypeDef
+# GetAppResult
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.AppTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetArtifactUrlRequestTypeDef
+# GetArtifactUrlRequest
 
 ### artifactId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetArtifactUrlResultTypeDef
+# GetArtifactUrlResult
 
 ### artifactId
 - **Type**: <class 'str'>
@@ -873,11 +873,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBackendEnvironmentRequestTypeDef
+# GetBackendEnvironmentRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -888,18 +888,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBackendEnvironmentResultTypeDef
+# GetBackendEnvironmentResult
 
 ### backendEnvironment
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBranchRequestTypeDef
+# GetBranchRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -910,18 +910,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBranchResultTypeDef
+# GetBranchResult
 
 ### branch
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BranchTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Branch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDomainAssociationRequestTypeDef
+# GetDomainAssociationRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -932,18 +932,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDomainAssociationResultTypeDef
+# GetDomainAssociationResult
 
 ### domainAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJobRequestTypeDef
+# GetJobRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -958,36 +958,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetJobResultTypeDef
+# GetJobResult
 
 ### job
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Job'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetWebhookRequestTypeDef
+# GetWebhookRequest
 
 ### webhookId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetWebhookResultTypeDef
+# GetWebhookResult
 
 ### webhook
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.WebhookTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Webhook'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# JobSummaryTypeDef
+# Job
+
+### summary
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
+- **Required**: Yes
+
+### steps
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.Step]
+- **Required**: Yes
+
+
+# JobSummary
 
 ### jobArn
 - **Type**: <class 'str'>
@@ -1031,24 +1042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BUCKET_PREFIX', 'ZIP']]
 
 
-# JobTypeDef
-
-### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummaryTypeDef'>
-- **Required**: Yes
-
-### steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.StepTypeDef]
-- **Required**: Yes
-
-
-# ListAppsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfigTypeDef]
-
-
-# ListAppsRequestTypeDef
+# ListAppsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1057,21 +1051,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAppsResultTypeDef
+# ListAppsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfig]
+
+
+# ListAppsResult
 
 ### apps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.AppTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.App]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListArtifactsRequestTypeDef
+# ListArtifactsRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1092,21 +1092,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListArtifactsResultTypeDef
+# ListArtifactsResult
 
 ### artifacts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.ArtifactTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.Artifact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBackendEnvironmentsRequestTypeDef
+# ListBackendEnvironmentsRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1122,31 +1122,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListBackendEnvironmentsResultTypeDef
+# ListBackendEnvironmentsResult
 
 ### backendEnvironments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironmentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBranchesRequestPaginateTypeDef
-
-### appId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfigTypeDef]
-
-
-# ListBranchesRequestTypeDef
+# ListBranchesRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1159,31 +1149,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListBranchesResultTypeDef
+# ListBranchesRequestPaginate
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfig]
+
+
+# ListBranchesResult
 
 ### branches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.BranchTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.Branch]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDomainAssociationsRequestPaginateTypeDef
-
-### appId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfigTypeDef]
-
-
-# ListDomainAssociationsRequestTypeDef
+# ListDomainAssociationsRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1196,35 +1186,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDomainAssociationsResultTypeDef
+# ListDomainAssociationsRequestPaginate
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfig]
+
+
+# ListDomainAssociationsResult
 
 ### domainAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.DomainAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListJobsRequestPaginateTypeDef
-
-### appId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### branchName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfigTypeDef]
-
-
-# ListJobsRequestTypeDef
+# ListJobsRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1241,39 +1227,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListJobsResultTypeDef
+# ListJobsRequestPaginate
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### branchName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfig]
+
+
+# ListJobsResult
 
 ### jobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.JobSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.JobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListWebhooksRequestTypeDef
+# ListWebhooksRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1286,21 +1286,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListWebhooksResultTypeDef
+# ListWebhooksResult
 
 ### webhooks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.WebhookTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.Webhook]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1312,7 +1312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProductionBranchTypeDef
+# ProductionBranch
 
 ### lastDeployTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1327,7 +1327,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1349,7 +1349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartDeploymentRequestTypeDef
+# StartDeploymentRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1369,18 +1369,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BUCKET_PREFIX', 'ZIP']]
 
 
-# StartDeploymentResultTypeDef
+# StartDeploymentResult
 
 ### jobSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartJobRequestTypeDef
+# StartJobRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1407,21 +1407,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### commitTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Timestamp]
 
 
-# StartJobResultTypeDef
+# StartJobResult
 
 ### jobSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StepTypeDef
+# Step
 
 ### stepName
 - **Type**: <class 'str'>
@@ -1461,7 +1461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopJobRequestTypeDef
+# StopJobRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1476,32 +1476,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopJobResultTypeDef
+# StopJobResult
 
 ### jobSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SubDomainSettingTypeDef
-
-### prefix
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### branchName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# SubDomainTypeDef
+# SubDomain
 
 ### subDomainSetting
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.SubDomainSettingTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.SubDomainSetting'>
 - **Required**: Yes
 
 ### verified
@@ -1513,7 +1502,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# SubDomainSetting
+
+### prefix
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### branchName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1524,13 +1524,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1541,7 +1541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppRequestTypeDef
+# UpdateAppRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1578,7 +1578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### customRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.CustomRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.CustomRule]]
 
 ### buildSpec
 - **Type**: typing.Optional[str]
@@ -1593,7 +1593,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### autoBranchCreationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.AutoBranchCreationConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.AutoBranchCreationConfigUnion]
 
 ### repository
 - **Type**: typing.Optional[str]
@@ -1605,21 +1605,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### cacheConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CacheConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CacheConfig]
 
 
-# UpdateAppResultTypeDef
+# UpdateAppResult
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.AppTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateBranchRequestTypeDef
+# UpdateBranchRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1675,24 +1675,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### backend
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.BackendTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Backend]
 
 ### computeRoleArn
 - **Type**: typing.Optional[str]
 
 
-# UpdateBranchResultTypeDef
+# UpdateBranchResult
 
 ### branch
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BranchTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Branch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDomainAssociationRequestTypeDef
+# UpdateDomainAssociationRequest
 
 ### appId
 - **Type**: <class 'str'>
@@ -1706,7 +1706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### subDomainSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.SubDomainSettingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.SubDomainSetting]]
 
 ### autoSubDomainCreationPatterns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1715,21 +1715,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### certificateSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CertificateSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CertificateSettings]
 
 
-# UpdateDomainAssociationResultTypeDef
+# UpdateDomainAssociationResult
 
 ### domainAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateWebhookRequestTypeDef
+# UpdateWebhookRequest
 
 ### webhookId
 - **Type**: <class 'str'>
@@ -1742,18 +1742,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateWebhookResultTypeDef
+# UpdateWebhookResult
 
 ### webhook
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.WebhookTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Webhook'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WafConfigurationTypeDef
+# WafConfiguration
 
 ### webAclArn
 - **Type**: typing.Optional[str]
@@ -1765,7 +1765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WebhookTypeDef
+# Webhook
 
 ### webhookArn
 - **Type**: <class 'str'>

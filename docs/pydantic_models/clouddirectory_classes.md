@@ -1,24 +1,24 @@
 # Clouddirectory Classes
 
-# AddFacetToObjectRequestTypeDef
+# AddFacetToObjectRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SchemaFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### ObjectAttributeList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueUnion]]
 
 
-# ApplySchemaRequestTypeDef
+# ApplySchemaRequest
 
 ### PublishedSchemaArn
 - **Type**: <class 'str'>
@@ -29,7 +29,7 @@
 - **Required**: Yes
 
 
-# ApplySchemaResponseTypeDef
+# ApplySchemaResponse
 
 ### AppliedSchemaArn
 - **Type**: <class 'str'>
@@ -40,22 +40,22 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AttachObjectRequestTypeDef
+# AttachObjectRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ParentReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### ChildReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### LinkName
@@ -63,121 +63,93 @@
 - **Required**: Yes
 
 
-# AttachObjectResponseTypeDef
+# AttachObjectResponse
 
 ### AttachedObjectIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AttachPolicyRequestTypeDef
+# AttachPolicyRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PolicyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# AttachToIndexRequestTypeDef
+# AttachToIndexRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IndexReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### TargetReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# AttachToIndexResponseTypeDef
+# AttachToIndexResponse
 
 ### AttachedObjectIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AttachTypedLinkRequestTypeDef
+# AttachTypedLinkRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SourceObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### TargetObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### TypedLinkFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName'>
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeNameAndValueUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeNameAndValueUnion]
 - **Required**: Yes
 
 
-# AttachTypedLinkResponseTypeDef
+# AttachTypedLinkResponse
 
 ### TypedLinkSpecifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AttributeKeyAndValueOutputTypeDef
-
-### Key
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyTypeDef'>
-- **Required**: Yes
-
-### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueOutputTypeDef'>
-- **Required**: Yes
-
-
-# AttributeKeyAndValueTypeDef
-
-### Key
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyTypeDef'>
-- **Required**: Yes
-
-### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnionTypeDef'>
-- **Required**: Yes
-
-
-# AttributeKeyAndValueUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AttributeKeyTypeDef
+# AttributeKey
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -192,29 +164,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AttributeNameAndValueOutputTypeDef
+# AttributeKeyAndValue
+
+### Key
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKey'>
+- **Required**: Yes
+
+### Value
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnion'>
+- **Required**: Yes
+
+
+# AttributeKeyAndValueOutput
+
+### Key
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKey'>
+- **Required**: Yes
+
+### Value
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueOutput'>
+- **Required**: Yes
+
+
+# AttributeKeyAndValueUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AttributeNameAndValue
 
 ### AttributeName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnion'>
 - **Required**: Yes
 
 
-# AttributeNameAndValueTypeDef
+# AttributeNameAndValueOutput
 
 ### AttributeName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueOutput'>
 - **Required**: Yes
 
 
-# AttributeNameAndValueUnionTypeDef
+# AttributeNameAndValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -226,35 +226,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAddFacetToObjectTypeDef
+# BatchAddFacetToObject
 
 ### SchemaFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet'>
 - **Required**: Yes
 
 ### ObjectAttributeList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueUnion]
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# BatchAttachObjectResponseTypeDef
-
-### attachedObjectIdentifier
-- **Type**: typing.Optional[str]
-
-
-# BatchAttachObjectTypeDef
+# BatchAttachObject
 
 ### ParentReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### ChildReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### LinkName
@@ -262,69 +256,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchAttachPolicyTypeDef
+# BatchAttachObjectResponse
+
+### attachedObjectIdentifier
+- **Type**: typing.Optional[str]
+
+
+# BatchAttachPolicy
 
 ### PolicyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# BatchAttachToIndexResponseTypeDef
+# BatchAttachToIndex
+
+### IndexReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### TargetReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+
+# BatchAttachToIndexResponse
 
 ### AttachedObjectIdentifier
 - **Type**: typing.Optional[str]
 
 
-# BatchAttachToIndexTypeDef
-
-### IndexReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### TargetReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-
-# BatchAttachTypedLinkResponseTypeDef
-
-### TypedLinkSpecifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutputTypeDef]
-
-
-# BatchAttachTypedLinkTypeDef
+# BatchAttachTypedLink
 
 ### SourceObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### TargetObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### TypedLinkFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName'>
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeNameAndValueUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeNameAndValueUnion]
 - **Required**: Yes
 
 
-# BatchCreateIndexResponseTypeDef
+# BatchAttachTypedLinkResponse
 
-### ObjectIdentifier
-- **Type**: typing.Optional[str]
+### TypedLinkSpecifier
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutput]
 
 
-# BatchCreateIndexTypeDef
+# BatchCreateIndex
 
 ### OrderedIndexedAttributeList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKey]
 - **Required**: Yes
 
 ### IsUnique
@@ -332,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParentReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference]
 
 ### LinkName
 - **Type**: typing.Optional[str]
@@ -341,24 +335,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchCreateObjectResponseTypeDef
+# BatchCreateIndexResponse
 
 ### ObjectIdentifier
 - **Type**: typing.Optional[str]
 
 
-# BatchCreateObjectTypeDef
+# BatchCreateObject
 
 ### SchemaFacet
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet]
 - **Required**: Yes
 
 ### ObjectAttributeList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValue]
 - **Required**: Yes
 
 ### ParentReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference]
 
 ### LinkName
 - **Type**: typing.Optional[str]
@@ -367,40 +361,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchDeleteObjectTypeDef
+# BatchCreateObjectResponse
+
+### ObjectIdentifier
+- **Type**: typing.Optional[str]
+
+
+# BatchDeleteObject
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# BatchDetachFromIndexResponseTypeDef
+# BatchDetachFromIndex
+
+### IndexReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### TargetReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+
+# BatchDetachFromIndexResponse
 
 ### DetachedObjectIdentifier
 - **Type**: typing.Optional[str]
 
 
-# BatchDetachFromIndexTypeDef
-
-### IndexReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### TargetReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-
-# BatchDetachObjectResponseTypeDef
-
-### detachedObjectIdentifier
-- **Type**: typing.Optional[str]
-
-
-# BatchDetachObjectTypeDef
+# BatchDetachObject
 
 ### ParentReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### LinkName
@@ -411,34 +405,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchDetachPolicyTypeDef
+# BatchDetachObjectResponse
+
+### detachedObjectIdentifier
+- **Type**: typing.Optional[str]
+
+
+# BatchDetachPolicy
 
 ### PolicyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# BatchDetachTypedLinkTypeDef
+# BatchDetachTypedLink
 
 ### TypedLinkSpecifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnion'>
 - **Required**: Yes
 
 
-# BatchGetLinkAttributesResponseTypeDef
-
-### Attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutputTypeDef]]
-
-
-# BatchGetLinkAttributesTypeDef
+# BatchGetLinkAttributes
 
 ### TypedLinkSpecifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnion'>
 - **Required**: Yes
 
 ### AttributeNames
@@ -446,20 +440,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetObjectAttributesResponseTypeDef
+# BatchGetLinkAttributesResponse
 
 ### Attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutput]]
 
 
-# BatchGetObjectAttributesTypeDef
+# BatchGetObjectAttributes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### SchemaFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet'>
 - **Required**: Yes
 
 ### AttributeNames
@@ -467,35 +461,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetObjectInformationResponseTypeDef
+# BatchGetObjectAttributesResponse
+
+### Attributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutput]]
+
+
+# BatchGetObjectInformation
+
+### ObjectReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+
+# BatchGetObjectInformationResponse
 
 ### SchemaFacets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet]]
 
 ### ObjectIdentifier
 - **Type**: typing.Optional[str]
 
 
-# BatchGetObjectInformationTypeDef
-
-### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-
-# BatchListAttachedIndicesResponseTypeDef
-
-### IndexAttachments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.IndexAttachmentTypeDef]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# BatchListAttachedIndicesTypeDef
+# BatchListAttachedIndices
 
 ### TargetReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -505,26 +496,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BatchListIncomingTypedLinksResponseTypeDef
+# BatchListAttachedIndicesResponse
 
-### LinkSpecifiers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutputTypeDef]]
+### IndexAttachments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.IndexAttachment]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# BatchListIncomingTypedLinksTypeDef
+# BatchListIncomingTypedLinks
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### FilterAttributeRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRange]]
 
 ### FilterTypedLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -533,23 +524,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BatchListIndexResponseTypeDef
+# BatchListIncomingTypedLinksResponse
 
-### IndexAttachments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.IndexAttachmentTypeDef]]
+### LinkSpecifiers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutput]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# BatchListIndexTypeDef
+# BatchListIndex
 
 ### IndexReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### RangesOnIndexedValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeRangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeRange]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -558,19 +549,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchListObjectAttributesResponseTypeDef
+# BatchListIndexResponse
 
-### Attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutputTypeDef]]
+### IndexAttachments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.IndexAttachment]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# BatchListObjectAttributesTypeDef
+# BatchListObjectAttributes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -580,10 +571,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FacetFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet]
 
 
-# BatchListObjectChildrenResponseTypeDef
+# BatchListObjectAttributesResponse
+
+### Attributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutput]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# BatchListObjectChildren
+
+### ObjectReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# BatchListObjectChildrenResponse
 
 ### Children
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -592,10 +605,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchListObjectChildrenTypeDef
+# BatchListObjectParentPaths
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -605,19 +618,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BatchListObjectParentPathsResponseTypeDef
+# BatchListObjectParentPathsResponse
 
 ### PathToObjectIdentifiersList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PathToObjectIdentifiersTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PathToObjectIdentifiers]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# BatchListObjectParentPathsTypeDef
+# BatchListObjectParents
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -627,19 +640,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BatchListObjectParentsResponseTypeDef
+# BatchListObjectParentsResponse
 
 ### ParentLinks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectIdentifierAndLinkNameTupleTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectIdentifierAndLinkNameTuple]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# BatchListObjectParentsTypeDef
+# BatchListObjectPolicies
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -649,7 +662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BatchListObjectPoliciesResponseTypeDef
+# BatchListObjectPoliciesResponse
 
 ### AttachedPolicyIds
 - **Type**: typing.Optional[typing.List[str]]
@@ -658,39 +671,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchListObjectPoliciesTypeDef
+# BatchListOutgoingTypedLinks
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-
-# BatchListOutgoingTypedLinksResponseTypeDef
-
-### TypedLinkSpecifiers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutputTypeDef]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# BatchListOutgoingTypedLinksTypeDef
-
-### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### FilterAttributeRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRange]]
 
 ### FilterTypedLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -699,7 +690,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BatchListPolicyAttachmentsResponseTypeDef
+# BatchListOutgoingTypedLinksResponse
+
+### TypedLinkSpecifiers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutput]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# BatchListPolicyAttachments
+
+### PolicyReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# BatchListPolicyAttachmentsResponse
 
 ### ObjectIdentifiers
 - **Type**: typing.Optional[typing.List[str]]
@@ -708,32 +721,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchListPolicyAttachmentsTypeDef
-
-### PolicyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-
-# BatchLookupPolicyResponseTypeDef
-
-### PolicyToPathList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PolicyToPathTypeDef]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# BatchLookupPolicyTypeDef
+# BatchLookupPolicy
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -743,188 +734,245 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BatchReadExceptionTypeDef
+# BatchLookupPolicyResponse
+
+### PolicyToPathList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PolicyToPath]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# BatchReadException
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchReadOperationResponseTypeDef
-
-### SuccessfulResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchReadSuccessfulResponseTypeDef]
-
-### ExceptionResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchReadExceptionTypeDef]
-
-
-# BatchReadOperationTypeDef
+# BatchReadOperation
 
 ### ListObjectAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectAttributesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectAttributes]
 
 ### ListObjectChildren
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectChildrenTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectChildren]
 
 ### ListAttachedIndices
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListAttachedIndicesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListAttachedIndices]
 
 ### ListObjectParentPaths
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectParentPathsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectParentPaths]
 
 ### GetObjectInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetObjectInformationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetObjectInformation]
 
 ### GetObjectAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetObjectAttributesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetObjectAttributes]
 
 ### ListObjectParents
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectParentsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectParents]
 
 ### ListObjectPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectPoliciesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectPolicies]
 
 ### ListPolicyAttachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListPolicyAttachmentsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListPolicyAttachments]
 
 ### LookupPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchLookupPolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchLookupPolicy]
 
 ### ListIndex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListIndexTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListIndex]
 
 ### ListOutgoingTypedLinks
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListOutgoingTypedLinksTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListOutgoingTypedLinks]
 
 ### ListIncomingTypedLinks
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListIncomingTypedLinksTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListIncomingTypedLinks]
 
 ### GetLinkAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetLinkAttributesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetLinkAttributes]
 
 
-# BatchReadRequestTypeDef
+# BatchReadOperationResponse
+
+### SuccessfulResponse
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchReadSuccessfulResponse]
+
+### ExceptionResponse
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchReadException]
+
+
+# BatchReadRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Operations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchReadOperationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchReadOperation]
 - **Required**: Yes
 
 ### ConsistencyLevel
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# BatchReadResponseTypeDef
+# BatchReadResponse
 
 ### Responses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchReadOperationResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchReadOperationResponse]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchReadSuccessfulResponseTypeDef
+# BatchReadSuccessfulResponse
 
 ### ListObjectAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectAttributesResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectAttributesResponse]
 
 ### ListObjectChildren
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectChildrenResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectChildrenResponse]
 
 ### GetObjectInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetObjectInformationResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetObjectInformationResponse]
 
 ### GetObjectAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetObjectAttributesResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetObjectAttributesResponse]
 
 ### ListAttachedIndices
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListAttachedIndicesResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListAttachedIndicesResponse]
 
 ### ListObjectParentPaths
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectParentPathsResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectParentPathsResponse]
 
 ### ListObjectPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectPoliciesResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectPoliciesResponse]
 
 ### ListPolicyAttachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListPolicyAttachmentsResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListPolicyAttachmentsResponse]
 
 ### LookupPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchLookupPolicyResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchLookupPolicyResponse]
 
 ### ListIndex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListIndexResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListIndexResponse]
 
 ### ListOutgoingTypedLinks
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListOutgoingTypedLinksResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListOutgoingTypedLinksResponse]
 
 ### ListIncomingTypedLinks
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListIncomingTypedLinksResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListIncomingTypedLinksResponse]
 
 ### GetLinkAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetLinkAttributesResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchGetLinkAttributesResponse]
 
 ### ListObjectParents
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectParentsResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchListObjectParentsResponse]
 
 
-# BatchRemoveFacetFromObjectTypeDef
+# BatchRemoveFacetFromObject
 
 ### SchemaFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# BatchUpdateLinkAttributesTypeDef
+# BatchUpdateLinkAttributes
 
 ### TypedLinkSpecifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnion'>
 - **Required**: Yes
 
 ### AttributeUpdates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.LinkAttributeUpdateTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.LinkAttributeUpdate]
 - **Required**: Yes
 
 
-# BatchUpdateObjectAttributesResponseTypeDef
+# BatchUpdateObjectAttributes
+
+### ObjectReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### AttributeUpdates
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeUpdate]
+- **Required**: Yes
+
+
+# BatchUpdateObjectAttributesResponse
 
 ### ObjectIdentifier
 - **Type**: typing.Optional[str]
 
 
-# BatchUpdateObjectAttributesTypeDef
-
-### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### AttributeUpdates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeUpdateTypeDef]
-- **Required**: Yes
-
-
-# BatchWriteOperationResponseTypeDef
+# BatchWriteOperation
 
 ### CreateObject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchCreateObjectResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchCreateObject]
 
 ### AttachObject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachObjectResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachObject]
 
 ### DetachObject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachObjectResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachObject]
 
 ### UpdateObjectAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchUpdateObjectAttributesResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchUpdateObjectAttributes]
+
+### DeleteObject
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDeleteObject]
+
+### AddFacetToObject
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAddFacetToObject]
+
+### RemoveFacetFromObject
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchRemoveFacetFromObject]
+
+### AttachPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachPolicy]
+
+### DetachPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachPolicy]
+
+### CreateIndex
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchCreateIndex]
+
+### AttachToIndex
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachToIndex]
+
+### DetachFromIndex
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachFromIndex]
+
+### AttachTypedLink
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachTypedLink]
+
+### DetachTypedLink
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachTypedLink]
+
+### UpdateLinkAttributes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchUpdateLinkAttributes]
+
+
+# BatchWriteOperationResponse
+
+### CreateObject
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchCreateObjectResponse]
+
+### AttachObject
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachObjectResponse]
+
+### DetachObject
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachObjectResponse]
+
+### UpdateObjectAttributes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchUpdateObjectAttributesResponse]
 
 ### DeleteObject
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
@@ -942,16 +990,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### CreateIndex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchCreateIndexResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchCreateIndexResponse]
 
 ### AttachToIndex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachToIndexResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachToIndexResponse]
 
 ### DetachFromIndex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachFromIndexResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachFromIndexResponse]
 
 ### AttachTypedLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachTypedLinkResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachTypedLinkResponse]
 
 ### DetachTypedLink
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
@@ -960,83 +1008,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
-# BatchWriteOperationTypeDef
-
-### CreateObject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchCreateObjectTypeDef]
-
-### AttachObject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachObjectTypeDef]
-
-### DetachObject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachObjectTypeDef]
-
-### UpdateObjectAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchUpdateObjectAttributesTypeDef]
-
-### DeleteObject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDeleteObjectTypeDef]
-
-### AddFacetToObject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAddFacetToObjectTypeDef]
-
-### RemoveFacetFromObject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchRemoveFacetFromObjectTypeDef]
-
-### AttachPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachPolicyTypeDef]
-
-### DetachPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachPolicyTypeDef]
-
-### CreateIndex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchCreateIndexTypeDef]
-
-### AttachToIndex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachToIndexTypeDef]
-
-### DetachFromIndex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachFromIndexTypeDef]
-
-### AttachTypedLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchAttachTypedLinkTypeDef]
-
-### DetachTypedLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchDetachTypedLinkTypeDef]
-
-### UpdateLinkAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchUpdateLinkAttributesTypeDef]
-
-
-# BatchWriteRequestTypeDef
+# BatchWriteRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Operations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchWriteOperationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchWriteOperation]
 - **Required**: Yes
 
 
-# BatchWriteResponseTypeDef
+# BatchWriteResponse
 
 ### Responses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchWriteOperationResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.BatchWriteOperationResponse]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateDirectoryRequestTypeDef
+# CreateDirectoryRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -1047,7 +1047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDirectoryResponseTypeDef
+# CreateDirectoryResponse
 
 ### DirectoryArn
 - **Type**: <class 'str'>
@@ -1066,11 +1066,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFacetRequestTypeDef
+# CreateFacetRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -1081,7 +1081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeUnion]]
 
 ### ObjectType
 - **Type**: typing.Optional[typing.Literal['INDEX', 'LEAF_NODE', 'NODE', 'POLICY']]
@@ -1090,14 +1090,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DYNAMIC', 'STATIC']]
 
 
-# CreateIndexRequestTypeDef
+# CreateIndexRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### OrderedIndexedAttributeList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKey]
 - **Required**: Yes
 
 ### IsUnique
@@ -1105,102 +1105,102 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParentReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference]
 
 ### LinkName
 - **Type**: typing.Optional[str]
 
 
-# CreateIndexResponseTypeDef
+# CreateIndexResponse
 
 ### ObjectIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateObjectRequestTypeDef
+# CreateObjectRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SchemaFacets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet]
 - **Required**: Yes
 
 ### ObjectAttributeList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueUnion]]
 
 ### ParentReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference]
 
 ### LinkName
 - **Type**: typing.Optional[str]
 
 
-# CreateObjectResponseTypeDef
+# CreateObjectResponse
 
 ### ObjectIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSchemaRequestTypeDef
+# CreateSchemaRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateSchemaResponseTypeDef
+# CreateSchemaResponse
 
 ### SchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTypedLinkFacetRequestTypeDef
+# CreateTypedLinkFacetRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Facet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkFacetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkFacet'>
 - **Required**: Yes
 
 
-# DeleteDirectoryRequestTypeDef
+# DeleteDirectoryRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDirectoryResponseTypeDef
+# DeleteDirectoryResponse
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteFacetRequestTypeDef
+# DeleteFacetRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -1211,36 +1211,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteObjectRequestTypeDef
+# DeleteObjectRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# DeleteSchemaRequestTypeDef
+# DeleteSchemaRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSchemaResponseTypeDef
+# DeleteSchemaResponse
 
 ### SchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteTypedLinkFacetRequestTypeDef
+# DeleteTypedLinkFacetRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -1251,40 +1251,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachFromIndexRequestTypeDef
+# DetachFromIndexRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IndexReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### TargetReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# DetachFromIndexResponseTypeDef
+# DetachFromIndexResponse
 
 ### DetachedObjectIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetachObjectRequestTypeDef
+# DetachObjectRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ParentReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### LinkName
@@ -1292,44 +1292,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachObjectResponseTypeDef
+# DetachObjectResponse
 
 ### DetachedObjectIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetachPolicyRequestTypeDef
+# DetachPolicyRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PolicyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# DetachTypedLinkRequestTypeDef
+# DetachTypedLinkRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TypedLinkSpecifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnion'>
 - **Required**: Yes
 
 
-# DirectoryTypeDef
+# Directory
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1344,120 +1344,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DisableDirectoryRequestTypeDef
+# DisableDirectoryRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisableDirectoryResponseTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# EmptyResponseMetadataTypeDef
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# EnableDirectoryRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# EnableDirectoryResponseTypeDef
+# DisableDirectoryResponse
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FacetAttributeDefinitionOutputTypeDef
+# EmptyResponseMetadata
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FacetAttributeDefinitionUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FacetAttributeOutputTypeDef
-
-### Name
-- **Type**: <class 'str'>
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
-### AttributeDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeDefinitionOutputTypeDef]
 
-### AttributeReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeReferenceTypeDef]
+# EnableDirectoryRequest
 
-### RequiredBehavior
-- **Type**: typing.Optional[typing.Literal['NOT_REQUIRED', 'REQUIRED_ALWAYS']]
-
-
-# FacetAttributeReferenceTypeDef
-
-### TargetFacetName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TargetAttributeName
+### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# FacetAttributeTypeDef
+# EnableDirectoryResponse
 
-### Name
+### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### AttributeDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeDefinitionUnionTypeDef]
-
-### AttributeReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeReferenceTypeDef]
-
-### RequiredBehavior
-- **Type**: typing.Optional[typing.Literal['NOT_REQUIRED', 'REQUIRED_ALWAYS']]
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
-# FacetAttributeUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FacetAttributeUpdateTypeDef
-
-### Attribute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeUnionTypeDef]
-
-### Action
-- **Type**: typing.Optional[typing.Literal['CREATE_OR_UPDATE', 'DELETE']]
-
-
-# FacetTypeDef
+# Facet
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1469,43 +1399,113 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DYNAMIC', 'STATIC']]
 
 
-# GetAppliedSchemaVersionRequestTypeDef
+# FacetAttribute
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AttributeDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeDefinitionUnion]
+
+### AttributeReference
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeReference]
+
+### RequiredBehavior
+- **Type**: typing.Optional[typing.Literal['NOT_REQUIRED', 'REQUIRED_ALWAYS']]
+
+
+# FacetAttributeDefinitionOutput
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FacetAttributeDefinitionUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FacetAttributeOutput
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AttributeDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeDefinitionOutput]
+
+### AttributeReference
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeReference]
+
+### RequiredBehavior
+- **Type**: typing.Optional[typing.Literal['NOT_REQUIRED', 'REQUIRED_ALWAYS']]
+
+
+# FacetAttributeReference
+
+### TargetFacetName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TargetAttributeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# FacetAttributeUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FacetAttributeUpdate
+
+### Attribute
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeUnion]
+
+### Action
+- **Type**: typing.Optional[typing.Literal['CREATE_OR_UPDATE', 'DELETE']]
+
+
+# GetAppliedSchemaVersionRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAppliedSchemaVersionResponseTypeDef
+# GetAppliedSchemaVersionResponse
 
 ### AppliedSchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDirectoryRequestTypeDef
+# GetDirectoryRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDirectoryResponseTypeDef
+# GetDirectoryResponse
 
 ### Directory
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.DirectoryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.Directory'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFacetRequestTypeDef
+# GetFacetRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -1516,25 +1516,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFacetResponseTypeDef
+# GetFacetResponse
 
 ### Facet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.FacetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.Facet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLinkAttributesRequestTypeDef
+# GetLinkAttributesRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TypedLinkSpecifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnion'>
 - **Required**: Yes
 
 ### AttributeNames
@@ -1545,29 +1545,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# GetLinkAttributesResponseTypeDef
+# GetLinkAttributesResponse
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetObjectAttributesRequestTypeDef
+# GetObjectAttributesRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### SchemaFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet'>
 - **Required**: Yes
 
 ### AttributeNames
@@ -1578,35 +1578,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# GetObjectAttributesResponseTypeDef
+# GetObjectAttributesResponse
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetObjectInformationRequestTypeDef
+# GetObjectInformationRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### ConsistencyLevel
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# GetObjectInformationResponseTypeDef
+# GetObjectInformationResponse
 
 ### SchemaFacets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet]
 - **Required**: Yes
 
 ### ObjectIdentifier
@@ -1614,18 +1614,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSchemaAsJsonRequestTypeDef
+# GetSchemaAsJsonRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSchemaAsJsonResponseTypeDef
+# GetSchemaAsJsonResponse
 
 ### Name
 - **Type**: <class 'str'>
@@ -1636,11 +1636,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTypedLinkFacetInformationRequestTypeDef
+# GetTypedLinkFacetInformationRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -1651,58 +1651,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTypedLinkFacetInformationResponseTypeDef
+# GetTypedLinkFacetInformationResponse
 
 ### IdentityAttributeOrder
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IndexAttachmentTypeDef
+# IndexAttachment
 
 ### IndexedAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutput]]
 
 ### ObjectIdentifier
 - **Type**: typing.Optional[str]
 
 
-# LinkAttributeActionTypeDef
+# LinkAttributeAction
 
 ### AttributeActionType
 - **Type**: typing.Optional[typing.Literal['CREATE_OR_UPDATE', 'DELETE']]
 
 ### AttributeUpdateValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnion]
 
 
-# LinkAttributeUpdateTypeDef
+# LinkAttributeUpdate
 
 ### AttributeKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AttributeAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.LinkAttributeActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.LinkAttributeAction]
 
 
-# ListAppliedSchemaArnsRequestPaginateTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListAppliedSchemaArnsRequestTypeDef
+# ListAppliedSchemaArnsRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
@@ -1718,45 +1705,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAppliedSchemaArnsResponseTypeDef
+# ListAppliedSchemaArnsRequestPaginate
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SchemaArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListAppliedSchemaArnsResponse
 
 ### SchemaArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAttachedIndicesRequestPaginateTypeDef
+# ListAttachedIndicesRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TargetReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### ConsistencyLevel
-- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListAttachedIndicesRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TargetReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -1769,27 +1752,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# ListAttachedIndicesResponseTypeDef
+# ListAttachedIndicesRequestPaginate
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TargetReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### ConsistencyLevel
+- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListAttachedIndicesResponse
 
 ### IndexAttachments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.IndexAttachmentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.IndexAttachment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDevelopmentSchemaArnsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListDevelopmentSchemaArnsRequestTypeDef
+# ListDevelopmentSchemaArnsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1798,30 +1792,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDevelopmentSchemaArnsResponseTypeDef
+# ListDevelopmentSchemaArnsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListDevelopmentSchemaArnsResponse
 
 ### SchemaArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDirectoriesRequestPaginateTypeDef
-
-### state
-- **Type**: typing.Optional[typing.Literal['DELETED', 'DISABLED', 'ENABLED']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListDirectoriesRequestTypeDef
+# ListDirectoriesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1833,35 +1824,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETED', 'DISABLED', 'ENABLED']]
 
 
-# ListDirectoriesResponseTypeDef
+# ListDirectoriesRequestPaginate
+
+### state
+- **Type**: typing.Optional[typing.Literal['DELETED', 'DISABLED', 'ENABLED']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListDirectoriesResponse
 
 ### Directories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.DirectoryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.Directory]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFacetAttributesRequestPaginateTypeDef
-
-### SchemaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListFacetAttributesRequestTypeDef
+# ListFacetAttributesRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -1878,31 +1864,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFacetAttributesResponseTypeDef
+# ListFacetAttributesRequestPaginate
+
+### SchemaArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListFacetAttributesResponse
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFacetNamesRequestPaginateTypeDef
-
-### SchemaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListFacetNamesRequestTypeDef
+# ListFacetNamesRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -1915,58 +1905,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFacetNamesResponseTypeDef
+# ListFacetNamesRequestPaginate
+
+### SchemaArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListFacetNamesResponse
 
 ### FacetNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIncomingTypedLinksRequestPaginateTypeDef
+# ListIncomingTypedLinksRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### FilterAttributeRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRange]]
 
 ### FilterTypedLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef]
-
-### ConsistencyLevel
-- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListIncomingTypedLinksRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### FilterAttributeRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRangeTypeDef]]
-
-### FilterTypedLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1978,52 +1955,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# ListIncomingTypedLinksResponseTypeDef
+# ListIncomingTypedLinksRequestPaginate
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ObjectReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### FilterAttributeRanges
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRange]]
+
+### FilterTypedLink
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName]
+
+### ConsistencyLevel
+- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListIncomingTypedLinksResponse
 
 ### LinkSpecifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIndexRequestPaginateTypeDef
+# ListIndexRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IndexReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### RangesOnIndexedValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeRangeTypeDef]]
-
-### ConsistencyLevel
-- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListIndexRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### IndexReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### RangesOnIndexedValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeRangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeRange]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2035,30 +2015,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# ListIndexResponseTypeDef
+# ListIndexRequestPaginate
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IndexReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### RangesOnIndexedValues
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeRange]]
+
+### ConsistencyLevel
+- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListIndexResponse
 
 ### IndexAttachments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.IndexAttachmentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.IndexAttachment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListManagedSchemaArnsRequestPaginateTypeDef
-
-### SchemaArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListManagedSchemaArnsRequestTypeDef
+# ListManagedSchemaArnsRequest
 
 ### SchemaArn
 - **Type**: typing.Optional[str]
@@ -2070,48 +2061,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListManagedSchemaArnsResponseTypeDef
+# ListManagedSchemaArnsRequestPaginate
+
+### SchemaArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListManagedSchemaArnsResponse
 
 ### SchemaArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListObjectAttributesRequestPaginateTypeDef
+# ListObjectAttributesRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### ConsistencyLevel
-- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
-
-### FacetFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListObjectAttributesRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -2124,31 +2104,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 ### FacetFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet]
 
 
-# ListObjectAttributesResponseTypeDef
+# ListObjectAttributesRequestPaginate
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ObjectReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### ConsistencyLevel
+- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
+
+### FacetFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListObjectAttributesResponse
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyAndValueOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListObjectChildrenRequestTypeDef
+# ListObjectChildrenRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -2161,42 +2161,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# ListObjectChildrenResponseTypeDef
+# ListObjectChildrenResponse
 
 ### Children
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListObjectParentPathsRequestPaginateTypeDef
+# ListObjectParentPathsRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListObjectParentPathsRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -2206,28 +2192,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListObjectParentPathsResponseTypeDef
-
-### PathToObjectIdentifiersList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PathToObjectIdentifiersTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListObjectParentsRequestTypeDef
+# ListObjectParentPathsRequestPaginate
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListObjectParentPathsResponse
+
+### PathToObjectIdentifiersList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PathToObjectIdentifiers]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListObjectParentsRequest
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ObjectReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -2243,49 +2243,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListObjectParentsResponseTypeDef
+# ListObjectParentsResponse
 
 ### Parents
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ParentLinks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectIdentifierAndLinkNameTupleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectIdentifierAndLinkNameTuple]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListObjectPoliciesRequestPaginateTypeDef
+# ListObjectPoliciesRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### ConsistencyLevel
-- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListObjectPoliciesRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -2298,58 +2281,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# ListObjectPoliciesResponseTypeDef
+# ListObjectPoliciesRequestPaginate
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ObjectReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### ConsistencyLevel
+- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListObjectPoliciesResponse
 
 ### AttachedPolicyIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOutgoingTypedLinksRequestPaginateTypeDef
+# ListOutgoingTypedLinksRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### FilterAttributeRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRange]]
 
 ### FilterTypedLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef]
-
-### ConsistencyLevel
-- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListOutgoingTypedLinksRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### FilterAttributeRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRangeTypeDef]]
-
-### FilterTypedLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2361,45 +2338,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# ListOutgoingTypedLinksResponseTypeDef
+# ListOutgoingTypedLinksRequestPaginate
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ObjectReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### FilterAttributeRanges
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeRange]]
+
+### FilterTypedLink
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName]
+
+### ConsistencyLevel
+- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListOutgoingTypedLinksResponse
 
 ### TypedLinkSpecifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPolicyAttachmentsRequestPaginateTypeDef
+# ListPolicyAttachmentsRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PolicyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### ConsistencyLevel
-- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListPolicyAttachmentsRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PolicyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -2412,30 +2395,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
 
 
-# ListPolicyAttachmentsResponseTypeDef
+# ListPolicyAttachmentsRequestPaginate
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PolicyReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### ConsistencyLevel
+- **Type**: typing.Optional[typing.Literal['EVENTUAL', 'SERIALIZABLE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListPolicyAttachmentsResponse
 
 ### ObjectIdentifiers
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPublishedSchemaArnsRequestPaginateTypeDef
-
-### SchemaArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListPublishedSchemaArnsRequestTypeDef
+# ListPublishedSchemaArnsRequest
 
 ### SchemaArn
 - **Type**: typing.Optional[str]
@@ -2447,31 +2438,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPublishedSchemaArnsResponseTypeDef
+# ListPublishedSchemaArnsRequestPaginate
+
+### SchemaArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListPublishedSchemaArnsResponse
 
 ### SchemaArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestPaginateTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2484,35 +2474,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceRequestPaginate
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTypedLinkFacetAttributesRequestPaginateTypeDef
-
-### SchemaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListTypedLinkFacetAttributesRequestTypeDef
+# ListTypedLinkFacetAttributesRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -2529,31 +2515,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTypedLinkFacetAttributesResponseTypeDef
+# ListTypedLinkFacetAttributesRequestPaginate
+
+### SchemaArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListTypedLinkFacetAttributesResponse
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeDefinitionOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeDefinitionOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTypedLinkFacetNamesRequestPaginateTypeDef
-
-### SchemaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# ListTypedLinkFacetNamesRequestTypeDef
+# ListTypedLinkFacetNamesRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -2566,42 +2556,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTypedLinkFacetNamesResponseTypeDef
+# ListTypedLinkFacetNamesRequestPaginate
+
+### SchemaArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# ListTypedLinkFacetNamesResponse
 
 ### FacetNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LookupPolicyRequestPaginateTypeDef
+# LookupPolicyRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfigTypeDef]
-
-
-# LookupPolicyRequestTypeDef
-
-### DirectoryArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### NextToken
@@ -2611,48 +2597,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LookupPolicyResponseTypeDef
+# LookupPolicyRequestPaginate
+
+### DirectoryArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ObjectReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.PaginatorConfig]
+
+
+# LookupPolicyResponse
 
 ### PolicyToPathList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PolicyToPathTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PolicyToPath]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ObjectAttributeActionTypeDef
+# ObjectAttributeAction
 
 ### ObjectAttributeActionType
 - **Type**: typing.Optional[typing.Literal['CREATE_OR_UPDATE', 'DELETE']]
 
 ### ObjectAttributeUpdateValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnion]
 
 
-# ObjectAttributeRangeTypeDef
+# ObjectAttributeRange
 
 ### AttributeKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Range
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueRange]
 
 
-# ObjectAttributeUpdateTypeDef
+# ObjectAttributeUpdate
 
 ### ObjectAttributeKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKeyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeKey]
 
 ### ObjectAttributeAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ObjectIdentifierAndLinkNameTupleTypeDef
+# ObjectIdentifierAndLinkNameTuple
 
 ### ObjectIdentifier
 - **Type**: typing.Optional[str]
@@ -2661,13 +2661,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ObjectReferenceTypeDef
+# ObjectReference
 
 ### Selector
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2679,7 +2679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PathToObjectIdentifiersTypeDef
+# PathToObjectIdentifiers
 
 ### Path
 - **Type**: typing.Optional[str]
@@ -2688,7 +2688,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PolicyAttachmentTypeDef
+# PolicyAttachment
 
 ### PolicyId
 - **Type**: typing.Optional[str]
@@ -2700,16 +2700,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PolicyToPathTypeDef
+# PolicyToPath
 
 ### Path
 - **Type**: typing.Optional[str]
 
 ### Policies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PolicyAttachmentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.PolicyAttachment]]
 
 
-# PublishSchemaRequestTypeDef
+# PublishSchemaRequest
 
 ### DevelopmentSchemaArn
 - **Type**: <class 'str'>
@@ -2726,18 +2726,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishSchemaResponseTypeDef
+# PublishSchemaResponse
 
 ### PublishedSchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutSchemaFromJsonRequestTypeDef
+# PutSchemaFromJsonRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -2748,33 +2748,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutSchemaFromJsonResponseTypeDef
+# PutSchemaFromJsonResponse
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RemoveFacetFromObjectRequestTypeDef
+# RemoveFacetFromObjectRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SchemaFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.SchemaFacet'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2796,7 +2796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SchemaFacetTypeDef
+# SchemaFacet
 
 ### SchemaArn
 - **Type**: typing.Optional[str]
@@ -2805,18 +2805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -2825,13 +2814,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimestampTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.Tag]
+- **Required**: Yes
+
+
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TypedAttributeValueOutputTypeDef
+# TypedAttributeValue
+
+### StringValue
+- **Type**: typing.Optional[str]
+
+### BinaryValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.Blob]
+
+### BooleanValue
+- **Type**: typing.Optional[bool]
+
+### NumberValue
+- **Type**: typing.Optional[str]
+
+### DatetimeValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.Timestamp]
+
+
+# TypedAttributeValueOutput
 
 ### StringValue
 - **Type**: typing.Optional[str]
@@ -2849,7 +2867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TypedAttributeValueRangeTypeDef
+# TypedAttributeValueRange
 
 ### StartMode
 - **Type**: typing.Literal['EXCLUSIVE', 'FIRST', 'INCLUSIVE', 'LAST', 'LAST_BEFORE_MISSING_VALUES']
@@ -2860,77 +2878,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnion]
 
 ### EndValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueUnion]
 
 
-# TypedAttributeValueTypeDef
-
-### StringValue
-- **Type**: typing.Optional[str]
-
-### BinaryValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.BlobTypeDef]
-
-### BooleanValue
-- **Type**: typing.Optional[bool]
-
-### NumberValue
-- **Type**: typing.Optional[str]
-
-### DatetimeValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.clouddirectory_classes.TimestampTypeDef]
-
-
-# TypedAttributeValueUnionTypeDef
+# TypedAttributeValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TypedLinkAttributeDefinitionOutputTypeDef
+# TypedLinkAttributeDefinitionOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TypedLinkAttributeDefinitionUnionTypeDef
+# TypedLinkAttributeDefinitionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TypedLinkAttributeRangeTypeDef
+# TypedLinkAttributeRange
 
 ### Range
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueRangeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedAttributeValueRange'>
 - **Required**: Yes
 
 ### AttributeName
 - **Type**: typing.Optional[str]
 
 
-# TypedLinkFacetAttributeUpdateTypeDef
-
-### Attribute
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeDefinitionUnionTypeDef'>
-- **Required**: Yes
-
-### Action
-- **Type**: typing.Literal['CREATE_OR_UPDATE', 'DELETE']
-- **Required**: Yes
-
-
-# TypedLinkFacetTypeDef
+# TypedLinkFacet
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeDefinitionUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeDefinitionUnion]
 - **Required**: Yes
 
 ### IdentityAttributeOrder
@@ -2938,7 +2927,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TypedLinkSchemaAndFacetNameTypeDef
+# TypedLinkFacetAttributeUpdate
+
+### Attribute
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkAttributeDefinitionUnion'>
+- **Required**: Yes
+
+### Action
+- **Type**: typing.Literal['CREATE_OR_UPDATE', 'DELETE']
+- **Required**: Yes
+
+
+# TypedLinkSchemaAndFacetName
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -2949,51 +2949,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TypedLinkSpecifierOutputTypeDef
+# TypedLinkSpecifier
 
 ### TypedLinkFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName'>
 - **Required**: Yes
 
 ### SourceObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### TargetObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### IdentityAttributeValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeNameAndValueOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeNameAndValueUnion]
 - **Required**: Yes
 
 
-# TypedLinkSpecifierTypeDef
+# TypedLinkSpecifierOutput
 
 ### TypedLinkFacet
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetNameTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSchemaAndFacetName'>
 - **Required**: Yes
 
 ### SourceObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### TargetObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### IdentityAttributeValues
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeNameAndValueUnionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.clouddirectory_classes.AttributeNameAndValueOutput]
 - **Required**: Yes
 
 
-# TypedLinkSpecifierUnionTypeDef
+# TypedLinkSpecifierUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3004,7 +3004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFacetRequestTypeDef
+# UpdateFacetRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -3015,54 +3015,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeUpdates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeUpdateTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.FacetAttributeUpdate]]
 
 ### ObjectType
 - **Type**: typing.Optional[typing.Literal['INDEX', 'LEAF_NODE', 'NODE', 'POLICY']]
 
 
-# UpdateLinkAttributesRequestTypeDef
+# UpdateLinkAttributesRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TypedLinkSpecifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkSpecifierUnion'>
 - **Required**: Yes
 
 ### AttributeUpdates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.LinkAttributeUpdateTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.LinkAttributeUpdate]
 - **Required**: Yes
 
 
-# UpdateObjectAttributesRequestTypeDef
+# UpdateObjectAttributesRequest
 
 ### DirectoryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ObjectReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectReference'>
 - **Required**: Yes
 
 ### AttributeUpdates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeUpdateTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.ObjectAttributeUpdate]
 - **Required**: Yes
 
 
-# UpdateObjectAttributesResponseTypeDef
+# UpdateObjectAttributesResponse
 
 ### ObjectIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSchemaRequestTypeDef
+# UpdateSchemaRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -3073,18 +3073,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSchemaResponseTypeDef
+# UpdateSchemaResponse
 
 ### SchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTypedLinkFacetRequestTypeDef
+# UpdateTypedLinkFacetRequest
 
 ### SchemaArn
 - **Type**: <class 'str'>
@@ -3095,7 +3095,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeUpdates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkFacetAttributeUpdateTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.clouddirectory_classes.TypedLinkFacetAttributeUpdate]
 - **Required**: Yes
 
 ### IdentityAttributeOrder
@@ -3103,7 +3103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpgradeAppliedSchemaRequestTypeDef
+# UpgradeAppliedSchemaRequest
 
 ### PublishedSchemaArn
 - **Type**: <class 'str'>
@@ -3117,7 +3117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpgradeAppliedSchemaResponseTypeDef
+# UpgradeAppliedSchemaResponse
 
 ### UpgradedSchemaArn
 - **Type**: <class 'str'>
@@ -3128,11 +3128,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpgradePublishedSchemaRequestTypeDef
+# UpgradePublishedSchemaRequest
 
 ### DevelopmentSchemaArn
 - **Type**: <class 'str'>
@@ -3150,14 +3150,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpgradePublishedSchemaResponseTypeDef
+# UpgradePublishedSchemaResponse
 
 ### UpgradedSchemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.clouddirectory_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -1,13 +1,13 @@
 # Athena Classes
 
-# AclConfigurationTypeDef
+# AclConfiguration
 
 ### S3AclOption
 - **Type**: typing.Literal['BUCKET_OWNER_FULL_CONTROL']
 - **Required**: Yes
 
 
-# ApplicationDPUSizesTypeDef
+# ApplicationDPUSizes
 
 ### ApplicationRuntimeId
 - **Type**: typing.Optional[str]
@@ -16,7 +16,7 @@
 - **Type**: typing.Optional[typing.List[int]]
 
 
-# AthenaErrorTypeDef
+# AthenaError
 
 ### ErrorCategory
 - **Type**: typing.Optional[int]
@@ -37,29 +37,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetNamedQueryInputTypeDef
+# BatchGetNamedQueryInput
 
 ### NamedQueryIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# BatchGetNamedQueryOutputTypeDef
+# BatchGetNamedQueryOutput
 
 ### NamedQueries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.NamedQueryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.NamedQuery]
 - **Required**: Yes
 
 ### UnprocessedNamedQueryIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.UnprocessedNamedQueryIdTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.UnprocessedNamedQueryId]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetPreparedStatementInputTypeDef
+# BatchGetPreparedStatementInput
 
 ### PreparedStatementNames
 - **Type**: typing.Sequence[str]
@@ -70,50 +70,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetPreparedStatementOutputTypeDef
+# BatchGetPreparedStatementOutput
 
 ### PreparedStatements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.PreparedStatementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.PreparedStatement]
 - **Required**: Yes
 
 ### UnprocessedPreparedStatementNames
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.UnprocessedPreparedStatementNameTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.UnprocessedPreparedStatementName]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetQueryExecutionInputTypeDef
+# BatchGetQueryExecutionInput
 
 ### QueryExecutionIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# BatchGetQueryExecutionOutputTypeDef
+# BatchGetQueryExecutionOutput
 
 ### QueryExecutions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.QueryExecutionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.QueryExecution]
 - **Required**: Yes
 
 ### UnprocessedQueryExecutionIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.UnprocessedQueryExecutionIdTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.UnprocessedQueryExecutionId]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CalculationConfigurationTypeDef
+# CalculationConfiguration
 
 ### CodeBlock
 - **Type**: typing.Optional[str]
 
 
-# CalculationResultTypeDef
+# CalculationResult
 
 ### StdOutS3Uri
 - **Type**: typing.Optional[str]
@@ -128,7 +128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CalculationStatisticsTypeDef
+# CalculationStatistics
 
 ### DpuExecutionInMillis
 - **Type**: typing.Optional[int]
@@ -137,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CalculationStatusTypeDef
+# CalculationStatus
 
 ### SubmissionDateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -152,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CalculationSummaryTypeDef
+# CalculationSummary
 
 ### CalculationExecutionId
 - **Type**: typing.Optional[str]
@@ -161,17 +161,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.CalculationStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.CalculationStatus]
 
 
-# CancelCapacityReservationInputTypeDef
+# CancelCapacityReservationInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CapacityAllocationTypeDef
+# CapacityAllocation
 
 ### Status
 - **Type**: typing.Literal['FAILED', 'PENDING', 'SUCCEEDED']
@@ -188,34 +188,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CapacityAssignmentConfigurationTypeDef
-
-### CapacityReservationName
-- **Type**: typing.Optional[str]
-
-### CapacityAssignments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.CapacityAssignmentOutputTypeDef]]
-
-
-# CapacityAssignmentOutputTypeDef
-
-### WorkGroupNames
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# CapacityAssignmentTypeDef
+# CapacityAssignment
 
 ### WorkGroupNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CapacityAssignmentUnionTypeDef
+# CapacityAssignmentConfiguration
+
+### CapacityReservationName
+- **Type**: typing.Optional[str]
+
+### CapacityAssignments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.CapacityAssignmentOutput]]
+
+
+# CapacityAssignmentOutput
+
+### WorkGroupNames
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# CapacityAssignmentUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CapacityReservationTypeDef
+# CapacityReservation
 
 ### Name
 - **Type**: <class 'str'>
@@ -238,25 +238,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastAllocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.CapacityAllocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.CapacityAllocation]
 
 ### LastSuccessfulAllocationTime
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ColumnInfoTypeDef
+# Column
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ColumnTypeDef
+# ColumnInfo
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateCapacityReservationInputTypeDef
+# CreateCapacityReservationInput
 
 ### TargetDpus
 - **Type**: <class 'int'>
@@ -267,21 +267,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.Tag]]
 
 
-# CreateDataCatalogOutputTypeDef
+# CreateDataCatalogOutput
 
 ### DataCatalog
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.DataCatalogTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.DataCatalog'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateNamedQueryInputTypeDef
+# CreateNamedQueryInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -305,18 +305,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateNamedQueryOutputTypeDef
+# CreateNamedQueryOutput
 
 ### NamedQueryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateNotebookInputTypeDef
+# CreateNotebookInput
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -330,18 +330,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateNotebookOutputTypeDef
+# CreateNotebookOutput
 
 ### NotebookId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePreparedStatementInputTypeDef
+# CreatePreparedStatementInput
 
 ### StatementName
 - **Type**: <class 'str'>
@@ -359,14 +359,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreatePresignedNotebookUrlRequestTypeDef
+# CreatePresignedNotebookUrlRequest
 
 ### SessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreatePresignedNotebookUrlResponseTypeDef
+# CreatePresignedNotebookUrlResponse
 
 ### NotebookUrl
 - **Type**: <class 'str'>
@@ -381,46 +381,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateWorkGroupInputTypeDef
+# CreateWorkGroupInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.WorkGroupConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.WorkGroupConfiguration]
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.Tag]]
 
 
-# CustomerContentEncryptionConfigurationTypeDef
+# CustomerContentEncryptionConfiguration
 
 ### KmsKey
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DataCatalogSummaryTypeDef
+# DataCatalog
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DataCatalogTypeDef
+# DataCatalogSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DatabaseTypeDef
+# Database
 
 ### Name
 - **Type**: <class 'str'>
@@ -433,20 +433,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# DatumTypeDef
+# Datum
 
 ### VarCharValue
 - **Type**: typing.Optional[str]
 
 
-# DeleteCapacityReservationInputTypeDef
+# DeleteCapacityReservationInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDataCatalogInputTypeDef
+# DeleteDataCatalogInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -456,32 +456,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteDataCatalogOutputTypeDef
+# DeleteDataCatalogOutput
 
 ### DataCatalog
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.DataCatalogTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.DataCatalog'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteNamedQueryInputTypeDef
+# DeleteNamedQueryInput
 
 ### NamedQueryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteNotebookInputTypeDef
+# DeleteNotebookInput
 
 ### NotebookId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePreparedStatementInputTypeDef
+# DeletePreparedStatementInput
 
 ### StatementName
 - **Type**: <class 'str'>
@@ -492,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkGroupInputTypeDef
+# DeleteWorkGroupInput
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -502,7 +502,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# EncryptionConfigurationTypeDef
+# EncryptionConfiguration
 
 ### EncryptionOption
 - **Type**: typing.Literal['CSE_KMS', 'SSE_KMS', 'SSE_S3']
@@ -512,26 +512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EngineConfigurationOutputTypeDef
-
-### MaxConcurrentDpus
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### CoordinatorDpuSize
-- **Type**: typing.Optional[int]
-
-### DefaultExecutorDpuSize
-- **Type**: typing.Optional[int]
-
-### AdditionalConfigs
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### SparkProperties
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# EngineConfigurationTypeDef
+# EngineConfiguration
 
 ### MaxConcurrentDpus
 - **Type**: <class 'int'>
@@ -550,13 +531,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# EngineConfigurationUnionTypeDef
+# EngineConfigurationOutput
+
+### MaxConcurrentDpus
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### CoordinatorDpuSize
+- **Type**: typing.Optional[int]
+
+### DefaultExecutorDpuSize
+- **Type**: typing.Optional[int]
+
+### AdditionalConfigs
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### SparkProperties
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# EngineConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EngineVersionTypeDef
+# EngineVersion
 
 ### SelectedEngineVersion
 - **Type**: typing.Optional[str]
@@ -565,7 +565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecutorsSummaryTypeDef
+# ExecutorsSummary
 
 ### ExecutorId
 - **Type**: <class 'str'>
@@ -587,17 +587,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ExportNotebookInputTypeDef
+# ExportNotebookInput
 
 ### NotebookId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ExportNotebookOutputTypeDef
+# ExportNotebookOutput
 
 ### NotebookMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.NotebookMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.NotebookMetadata'>
 - **Required**: Yes
 
 ### Payload
@@ -605,42 +605,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FilterDefinitionTypeDef
+# FilterDefinition
 
 ### Name
 - **Type**: typing.Optional[str]
 
 
-# GetCalculationExecutionCodeRequestTypeDef
+# GetCalculationExecutionCodeRequest
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCalculationExecutionCodeResponseTypeDef
+# GetCalculationExecutionCodeResponse
 
 ### CodeBlock
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCalculationExecutionRequestTypeDef
+# GetCalculationExecutionRequest
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCalculationExecutionResponseTypeDef
+# GetCalculationExecutionResponse
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
@@ -659,81 +659,81 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationStatus'>
 - **Required**: Yes
 
 ### Statistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationStatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationStatistics'>
 - **Required**: Yes
 
 ### Result
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCalculationExecutionStatusRequestTypeDef
+# GetCalculationExecutionStatusRequest
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCalculationExecutionStatusResponseTypeDef
+# GetCalculationExecutionStatusResponse
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationStatus'>
 - **Required**: Yes
 
 ### Statistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationStatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CalculationStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCapacityAssignmentConfigurationInputTypeDef
+# GetCapacityAssignmentConfigurationInput
 
 ### CapacityReservationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCapacityAssignmentConfigurationOutputTypeDef
+# GetCapacityAssignmentConfigurationOutput
 
 ### CapacityAssignmentConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CapacityAssignmentConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CapacityAssignmentConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCapacityReservationInputTypeDef
+# GetCapacityReservationInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCapacityReservationOutputTypeDef
+# GetCapacityReservationOutput
 
 ### CapacityReservation
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CapacityReservationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.CapacityReservation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDataCatalogInputTypeDef
+# GetDataCatalogInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -743,18 +743,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDataCatalogOutputTypeDef
+# GetDataCatalogOutput
 
 ### DataCatalog
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.DataCatalogTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.DataCatalog'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDatabaseInputTypeDef
+# GetDatabaseInput
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -768,54 +768,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDatabaseOutputTypeDef
+# GetDatabaseOutput
 
 ### Database
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.DatabaseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.Database'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetNamedQueryInputTypeDef
+# GetNamedQueryInput
 
 ### NamedQueryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetNamedQueryOutputTypeDef
+# GetNamedQueryOutput
 
 ### NamedQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.NamedQueryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.NamedQuery'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetNotebookMetadataInputTypeDef
+# GetNotebookMetadataInput
 
 ### NotebookId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetNotebookMetadataOutputTypeDef
+# GetNotebookMetadataOutput
 
 ### NotebookMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.NotebookMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.NotebookMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPreparedStatementInputTypeDef
+# GetPreparedStatementInput
 
 ### StatementName
 - **Type**: <class 'str'>
@@ -826,46 +826,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPreparedStatementOutputTypeDef
+# GetPreparedStatementOutput
 
 ### PreparedStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.PreparedStatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.PreparedStatement'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetQueryExecutionInputTypeDef
+# GetQueryExecutionInput
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetQueryExecutionOutputTypeDef
+# GetQueryExecutionOutput
 
 ### QueryExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.QueryExecutionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.QueryExecution'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetQueryResultsInputPaginateTypeDef
-
-### QueryExecutionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
-
-
-# GetQueryResultsInputTypeDef
+# GetQueryResultsInput
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
@@ -878,50 +868,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetQueryResultsOutputTypeDef
+# GetQueryResultsInputPaginate
+
+### QueryExecutionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfig]
+
+
+# GetQueryResultsOutput
 
 ### UpdateCount
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResultSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResultSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResultSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetQueryRuntimeStatisticsInputTypeDef
+# GetQueryRuntimeStatisticsInput
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetQueryRuntimeStatisticsOutputTypeDef
+# GetQueryRuntimeStatisticsOutput
 
 ### QueryRuntimeStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.QueryRuntimeStatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.QueryRuntimeStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSessionRequestTypeDef
+# GetSessionRequest
 
 ### SessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSessionResponseTypeDef
+# GetSessionResponse
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -940,7 +940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EngineConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.EngineConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.EngineConfigurationOutput'>
 - **Required**: Yes
 
 ### NotebookVersion
@@ -948,45 +948,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SessionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.SessionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.SessionConfiguration'>
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.SessionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.SessionStatus'>
 - **Required**: Yes
 
 ### Statistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.SessionStatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.SessionStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSessionStatusRequestTypeDef
+# GetSessionStatusRequest
 
 ### SessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSessionStatusResponseTypeDef
+# GetSessionStatusResponse
 
 ### SessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.SessionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.SessionStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTableMetadataInputTypeDef
+# GetTableMetadataInput
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -1004,36 +1004,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetTableMetadataOutputTypeDef
+# GetTableMetadataOutput
 
 ### TableMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.TableMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.TableMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetWorkGroupInputTypeDef
+# GetWorkGroupInput
 
 ### WorkGroup
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetWorkGroupOutputTypeDef
+# GetWorkGroupOutput
 
 ### WorkGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.WorkGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.WorkGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IdentityCenterConfigurationTypeDef
+# IdentityCenterConfiguration
 
 ### EnableIdentityCenter
 - **Type**: typing.Optional[bool]
@@ -1042,18 +1042,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportNotebookOutputTypeDef
+# ImportNotebookOutput
 
 ### NotebookId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListApplicationDPUSizesInputTypeDef
+# ListApplicationDPUSizesInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1062,21 +1062,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationDPUSizesOutputTypeDef
+# ListApplicationDPUSizesOutput
 
 ### ApplicationDPUSizes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.ApplicationDPUSizesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.ApplicationDPUSizes]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCalculationExecutionsRequestTypeDef
+# ListCalculationExecutionsRequest
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -1092,21 +1092,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCalculationExecutionsResponseTypeDef
+# ListCalculationExecutionsResponse
 
 ### Calculations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.CalculationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.CalculationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCapacityReservationsInputTypeDef
+# ListCapacityReservationsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1115,30 +1115,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListCapacityReservationsOutputTypeDef
+# ListCapacityReservationsOutput
 
 ### CapacityReservations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.CapacityReservationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.CapacityReservation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDataCatalogsInputPaginateTypeDef
-
-### WorkGroup
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
-
-
-# ListDataCatalogsInputTypeDef
+# ListDataCatalogsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1150,21 +1141,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDataCatalogsOutputTypeDef
+# ListDataCatalogsInputPaginate
+
+### WorkGroup
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfig]
+
+
+# ListDataCatalogsOutput
 
 ### DataCatalogsSummary
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.DataCatalogSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.DataCatalogSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDatabasesInputPaginateTypeDef
+# ListDatabasesInput
+
+### CatalogName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### WorkGroup
+- **Type**: typing.Optional[str]
+
+
+# ListDatabasesInputPaginate
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -1174,40 +1190,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfig]
 
 
-# ListDatabasesInputTypeDef
-
-### CatalogName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-### WorkGroup
-- **Type**: typing.Optional[str]
-
-
-# ListDatabasesOutputTypeDef
+# ListDatabasesOutput
 
 ### DatabaseList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.DatabaseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.Database]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEngineVersionsInputTypeDef
+# ListEngineVersionsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1216,21 +1216,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEngineVersionsOutputTypeDef
+# ListEngineVersionsOutput
 
 ### EngineVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.EngineVersionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.EngineVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListExecutorsRequestTypeDef
+# ListExecutorsRequest
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -1246,34 +1246,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListExecutorsResponseTypeDef
+# ListExecutorsResponse
 
 ### SessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ExecutorsSummary
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.ExecutorsSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.ExecutorsSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNamedQueriesInputPaginateTypeDef
-
-### WorkGroup
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
-
-
-# ListNamedQueriesInputTypeDef
+# ListNamedQueriesInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1285,28 +1276,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNamedQueriesOutputTypeDef
+# ListNamedQueriesInputPaginate
+
+### WorkGroup
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfig]
+
+
+# ListNamedQueriesOutput
 
 ### NamedQueryIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNotebookMetadataInputTypeDef
+# ListNotebookMetadataInput
 
 ### WorkGroup
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.FilterDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.FilterDefinition]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1315,21 +1315,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListNotebookMetadataOutputTypeDef
+# ListNotebookMetadataOutput
 
 ### NotebookMetadataList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.NotebookMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.NotebookMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNotebookSessionsRequestTypeDef
+# ListNotebookSessionsRequest
 
 ### NotebookId
 - **Type**: <class 'str'>
@@ -1342,21 +1342,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNotebookSessionsResponseTypeDef
+# ListNotebookSessionsResponse
 
 ### NotebookSessionsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.NotebookSessionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.NotebookSessionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPreparedStatementsInputTypeDef
+# ListPreparedStatementsInput
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -1369,30 +1369,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPreparedStatementsOutputTypeDef
+# ListPreparedStatementsOutput
 
 ### PreparedStatements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.PreparedStatementSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.PreparedStatementSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListQueryExecutionsInputPaginateTypeDef
-
-### WorkGroup
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
-
-
-# ListQueryExecutionsInputTypeDef
+# ListQueryExecutionsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1404,21 +1395,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListQueryExecutionsOutputTypeDef
+# ListQueryExecutionsInputPaginate
+
+### WorkGroup
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfig]
+
+
+# ListQueryExecutionsOutput
 
 ### QueryExecutionIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSessionsRequestTypeDef
+# ListSessionsRequest
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -1434,41 +1434,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSessionsResponseTypeDef
+# ListSessionsResponse
 
 ### Sessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.SessionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.SessionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTableMetadataInputPaginateTypeDef
-
-### CatalogName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DatabaseName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Expression
-- **Type**: typing.Optional[str]
-
-### WorkGroup
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
-
-
-# ListTableMetadataInputTypeDef
+# ListTableMetadataInput
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -1491,58 +1471,78 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTableMetadataOutputTypeDef
+# ListTableMetadataInputPaginate
+
+### CatalogName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Expression
+- **Type**: typing.Optional[str]
+
+### WorkGroup
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfig]
+
+
+# ListTableMetadataOutput
 
 ### TableMetadataList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.TableMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.TableMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputPaginateTypeDef
+# ListTagsForResourceInput
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListTagsForResourceInputPaginate
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfig]
 
 
-# ListTagsForResourceInputTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkGroupsInputTypeDef
+# ListWorkGroupsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1551,21 +1551,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListWorkGroupsOutputTypeDef
+# ListWorkGroupsOutput
 
 ### WorkGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.WorkGroupSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.athena_classes.WorkGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# NamedQueryTypeDef
+# NamedQuery
 
 ### Name
 - **Type**: <class 'str'>
@@ -1589,13 +1589,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NotebookMetadataTypeDef
+# NotebookMetadata
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NotebookSessionSummaryTypeDef
+# NotebookSessionSummary
 
 ### SessionId
 - **Type**: typing.Optional[str]
@@ -1604,7 +1604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1616,16 +1616,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PreparedStatementSummaryTypeDef
-
-### StatementName
-- **Type**: typing.Optional[str]
-
-### LastModifiedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# PreparedStatementTypeDef
+# PreparedStatement
 
 ### StatementName
 - **Type**: typing.Optional[str]
@@ -1643,18 +1634,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PutCapacityAssignmentConfigurationInputTypeDef
+# PreparedStatementSummary
+
+### StatementName
+- **Type**: typing.Optional[str]
+
+### LastModifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# PutCapacityAssignmentConfigurationInput
 
 ### CapacityReservationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CapacityAssignments
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.CapacityAssignmentUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.CapacityAssignmentUnion]
 - **Required**: Yes
 
 
-# QueryExecutionContextTypeDef
+# QueryExecution
+
+### QueryExecutionId
+- **Type**: typing.Optional[str]
+
+### Query
+- **Type**: typing.Optional[str]
+
+### StatementType
+- **Type**: typing.Optional[typing.Literal['DDL', 'DML', 'UTILITY']]
+
+### ResultConfiguration
+- **Type**: <class 'NoneType'>
+
+### ResultReuseConfiguration
+- **Type**: <class 'NoneType'>
+
+### QueryExecutionContext
+- **Type**: <class 'NoneType'>
+
+### Status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryExecutionStatus]
+
+### Statistics
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryExecutionStatistics]
+
+### WorkGroup
+- **Type**: typing.Optional[str]
+
+### EngineVersion
+- **Type**: <class 'NoneType'>
+
+### ExecutionParameters
+- **Type**: typing.Optional[typing.List[str]]
+
+### SubstatementType
+- **Type**: typing.Optional[str]
+
+### QueryResultsS3AccessGrantsConfiguration
+- **Type**: <class 'NoneType'>
+
+
+# QueryExecutionContext
 
 ### Database
 - **Type**: typing.Optional[str]
@@ -1663,7 +1705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# QueryExecutionStatisticsTypeDef
+# QueryExecutionStatistics
 
 ### EngineExecutionTimeInMillis
 - **Type**: typing.Optional[int]
@@ -1690,10 +1732,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ResultReuseInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.ResultReuseInformationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# QueryExecutionStatusTypeDef
+# QueryExecutionStatus
 
 ### State
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'FAILED', 'QUEUED', 'RUNNING', 'SUCCEEDED']]
@@ -1708,52 +1750,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### AthenaError
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.AthenaErrorTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# QueryExecutionTypeDef
-
-### QueryExecutionId
-- **Type**: typing.Optional[str]
-
-### Query
-- **Type**: typing.Optional[str]
-
-### StatementType
-- **Type**: typing.Optional[typing.Literal['DDL', 'DML', 'UTILITY']]
-
-### ResultConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.ResultConfigurationTypeDef]
-
-### ResultReuseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.ResultReuseConfigurationTypeDef]
-
-### QueryExecutionContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryExecutionContextTypeDef]
-
-### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryExecutionStatusTypeDef]
-
-### Statistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryExecutionStatisticsTypeDef]
-
-### WorkGroup
-- **Type**: typing.Optional[str]
-
-### EngineVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.EngineVersionTypeDef]
-
-### ExecutionParameters
-- **Type**: typing.Optional[typing.List[str]]
-
-### SubstatementType
-- **Type**: typing.Optional[str]
-
-### QueryResultsS3AccessGrantsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryResultsS3AccessGrantsConfigurationTypeDef]
-
-
-# QueryResultsS3AccessGrantsConfigurationTypeDef
+# QueryResultsS3AccessGrantsConfiguration
 
 ### EnableS3AccessGrants
 - **Type**: <class 'bool'>
@@ -1767,7 +1767,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# QueryRuntimeStatisticsRowsTypeDef
+# QueryRuntimeStatistics
+
+### Timeline
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryRuntimeStatisticsTimeline]
+
+### Rows
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryRuntimeStatisticsRows]
+
+### OutputStage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryStage]
+
+
+# QueryRuntimeStatisticsRows
 
 ### InputRows
 - **Type**: typing.Optional[int]
@@ -1782,7 +1794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# QueryRuntimeStatisticsTimelineTypeDef
+# QueryRuntimeStatisticsTimeline
 
 ### QueryQueueTimeInMillis
 - **Type**: typing.Optional[int]
@@ -1803,34 +1815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# QueryRuntimeStatisticsTypeDef
-
-### Timeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryRuntimeStatisticsTimelineTypeDef]
-
-### Rows
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryRuntimeStatisticsRowsTypeDef]
-
-### OutputStage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryStageTypeDef]
-
-
-# QueryStagePlanNodeTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Identifier
-- **Type**: typing.Optional[str]
-
-### Children
-- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
-
-### RemoteSources
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# QueryStageTypeDef
+# QueryStage
 
 ### StageId
 - **Type**: typing.Optional[int]
@@ -1854,13 +1839,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### QueryStagePlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryStagePlanNodeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryStagePlanNode]
 
 ### SubStages
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
-# ResponseMetadataTypeDef
+# QueryStagePlanNode
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Identifier
+- **Type**: typing.Optional[str]
+
+### Children
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### RemoteSources
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1882,22 +1882,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResultConfigurationTypeDef
+# ResultConfiguration
 
 ### OutputLocation
 - **Type**: typing.Optional[str]
 
 ### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.EncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ExpectedBucketOwner
 - **Type**: typing.Optional[str]
 
 ### AclConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.AclConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ResultConfigurationUpdatesTypeDef
+# ResultConfigurationUpdates
 
 ### OutputLocation
 - **Type**: typing.Optional[str]
@@ -1906,7 +1906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.EncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RemoveEncryptionConfiguration
 - **Type**: typing.Optional[bool]
@@ -1918,13 +1918,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### AclConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.AclConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RemoveAclConfiguration
 - **Type**: typing.Optional[bool]
 
 
-# ResultReuseByAgeConfigurationTypeDef
+# ResultReuseByAgeConfiguration
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -1934,41 +1934,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ResultReuseConfigurationTypeDef
+# ResultReuseConfiguration
 
 ### ResultReuseByAgeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.ResultReuseByAgeConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ResultReuseInformationTypeDef
+# ResultReuseInformation
 
 ### ReusedPreviousResult
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# ResultSetMetadataTypeDef
-
-### ColumnInfo
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.ColumnInfoTypeDef]]
-
-
-# ResultSetTypeDef
+# ResultSet
 
 ### Rows
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.RowTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.Row]]
 
 ### ResultSetMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.ResultSetMetadataTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RowTypeDef
+# ResultSetMetadata
+
+### ColumnInfo
+- **Type**: typing.Optional[typing.List[NoneType]]
+
+
+# Row
 
 ### Data
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.DatumTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.Datum]]
 
 
-# SessionConfigurationTypeDef
+# SessionConfiguration
 
 ### ExecutionRole
 - **Type**: typing.Optional[str]
@@ -1980,16 +1980,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.EncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SessionStatisticsTypeDef
+# SessionStatistics
 
 ### DpuExecutionInMillis
 - **Type**: typing.Optional[int]
 
 
-# SessionStatusTypeDef
+# SessionStatus
 
 ### StartDateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -2010,7 +2010,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SessionSummaryTypeDef
+# SessionSummary
 
 ### SessionId
 - **Type**: typing.Optional[str]
@@ -2019,16 +2019,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EngineVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.EngineVersionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### NotebookVersion
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.SessionStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.SessionStatus]
 
 
-# StartCalculationExecutionRequestTypeDef
+# StartCalculationExecutionRequest
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -2038,7 +2038,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CalculationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.CalculationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CodeBlock
 - **Type**: typing.Optional[str]
@@ -2047,7 +2047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartCalculationExecutionResponseTypeDef
+# StartCalculationExecutionResponse
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
@@ -2058,11 +2058,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartQueryExecutionInputTypeDef
+# StartQueryExecutionInput
 
 ### QueryString
 - **Type**: <class 'str'>
@@ -2072,10 +2072,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryExecutionContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryExecutionContextTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ResultConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.ResultConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### WorkGroup
 - **Type**: typing.Optional[str]
@@ -2084,28 +2084,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ResultReuseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.ResultReuseConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StartQueryExecutionOutputTypeDef
+# StartQueryExecutionOutput
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartSessionRequestTypeDef
+# StartSessionRequest
 
 ### WorkGroup
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EngineConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.EngineConfigurationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.EngineConfigurationUnion'>
 - **Required**: Yes
 
 ### Description
@@ -2121,7 +2121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartSessionResponseTypeDef
+# StartSessionResponse
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -2132,36 +2132,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopCalculationExecutionRequestTypeDef
+# StopCalculationExecutionRequest
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopCalculationExecutionResponseTypeDef
+# StopCalculationExecutionResponse
 
 ### State
 - **Type**: typing.Literal['CANCELED', 'CANCELING', 'COMPLETED', 'CREATED', 'CREATING', 'FAILED', 'QUEUED', 'RUNNING']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopQueryExecutionInputTypeDef
+# StopQueryExecutionInput
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TableMetadataTypeDef
+# TableMetadata
 
 ### Name
 - **Type**: <class 'str'>
@@ -2177,27 +2177,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Columns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.ColumnTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.Column]]
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.ColumnTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.athena_classes.Column]]
 
 ### Parameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# TagResourceInputTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -2206,25 +2195,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TerminateSessionRequestTypeDef
+# TagResourceInput
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.Tag]
+- **Required**: Yes
+
+
+# TerminateSessionRequest
 
 ### SessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TerminateSessionResponseTypeDef
+# TerminateSessionResponse
 
 ### State
 - **Type**: typing.Literal['BUSY', 'CREATED', 'CREATING', 'DEGRADED', 'FAILED', 'IDLE', 'TERMINATED', 'TERMINATING']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UnprocessedNamedQueryIdTypeDef
+# UnprocessedNamedQueryId
 
 ### NamedQueryId
 - **Type**: typing.Optional[str]
@@ -2236,7 +2236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UnprocessedPreparedStatementNameTypeDef
+# UnprocessedPreparedStatementName
 
 ### StatementName
 - **Type**: typing.Optional[str]
@@ -2248,7 +2248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UnprocessedQueryExecutionIdTypeDef
+# UnprocessedQueryExecutionId
 
 ### QueryExecutionId
 - **Type**: typing.Optional[str]
@@ -2260,7 +2260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2271,7 +2271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCapacityReservationInputTypeDef
+# UpdateCapacityReservationInput
 
 ### TargetDpus
 - **Type**: <class 'int'>
@@ -2282,7 +2282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateNamedQueryInputTypeDef
+# UpdateNamedQueryInput
 
 ### NamedQueryId
 - **Type**: <class 'str'>
@@ -2300,7 +2300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateNotebookMetadataInputTypeDef
+# UpdateNotebookMetadataInput
 
 ### NotebookId
 - **Type**: <class 'str'>
@@ -2314,7 +2314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdatePreparedStatementInputTypeDef
+# UpdatePreparedStatementInput
 
 ### StatementName
 - **Type**: <class 'str'>
@@ -2332,7 +2332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateWorkGroupInputTypeDef
+# UpdateWorkGroupInput
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -2342,16 +2342,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConfigurationUpdates
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.WorkGroupConfigurationUpdatesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.WorkGroupConfigurationUpdates]
 
 ### State
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# WorkGroupConfigurationTypeDef
+# WorkGroup
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### State
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### Configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.WorkGroupConfiguration]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### CreationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### IdentityCenterApplicationArn
+- **Type**: typing.Optional[str]
+
+
+# WorkGroupConfiguration
 
 ### ResultConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.ResultConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EnforceWorkGroupConfiguration
 - **Type**: typing.Optional[bool]
@@ -2366,7 +2388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### EngineVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.EngineVersionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdditionalConfiguration
 - **Type**: typing.Optional[str]
@@ -2375,25 +2397,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CustomerContentEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.CustomerContentEncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EnableMinimumEncryptionConfiguration
 - **Type**: typing.Optional[bool]
 
 ### IdentityCenterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.IdentityCenterConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### QueryResultsS3AccessGrantsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryResultsS3AccessGrantsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# WorkGroupConfigurationUpdatesTypeDef
+# WorkGroupConfigurationUpdates
 
 ### EnforceWorkGroupConfiguration
 - **Type**: typing.Optional[bool]
 
 ### ResultConfigurationUpdates
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.ResultConfigurationUpdatesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PublishCloudWatchMetricsEnabled
 - **Type**: typing.Optional[bool]
@@ -2408,7 +2430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### EngineVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.EngineVersionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RemoveCustomerContentEncryptionConfiguration
 - **Type**: typing.Optional[bool]
@@ -2420,16 +2442,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CustomerContentEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.CustomerContentEncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EnableMinimumEncryptionConfiguration
 - **Type**: typing.Optional[bool]
 
 ### QueryResultsS3AccessGrantsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.QueryResultsS3AccessGrantsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# WorkGroupSummaryTypeDef
+# WorkGroupSummary
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -2444,29 +2466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### EngineVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.EngineVersionTypeDef]
-
-### IdentityCenterApplicationArn
-- **Type**: typing.Optional[str]
-
-
-# WorkGroupTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.WorkGroupConfigurationTypeDef]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### CreationTime
-- **Type**: typing.Optional[datetime.datetime]
+- **Type**: <class 'NoneType'>
 
 ### IdentityCenterApplicationArn
 - **Type**: typing.Optional[str]

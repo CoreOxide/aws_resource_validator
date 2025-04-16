@@ -12,28 +12,28 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cleanroomsml_constants import *
 
-class S3ConfigMapTypeDef(BaseValidatorModel):
+class S3ConfigMap(BaseValidatorModel):
     s3Uri: str
 
 
-class StatusDetailsTypeDef(BaseValidatorModel):
+class StatusDetails(BaseValidatorModel):
     statusCode: Optional[str] = None
     message: Optional[str] = None
 
 
-class ProtectedQuerySQLParametersOutputTypeDef(BaseValidatorModel):
+class ProtectedQuerySQLParametersOutput(BaseValidatorModel):
     queryString: Optional[str] = None
     analysisTemplateArn: Optional[str] = None
     parameters: Optional[Dict[str, str]] = None
 
 
-class ProtectedQuerySQLParametersTypeDef(BaseValidatorModel):
+class ProtectedQuerySQLParameters(BaseValidatorModel):
     queryString: Optional[str] = None
     analysisTemplateArn: Optional[str] = None
     parameters: Optional[Mapping[str, str]] = None
 
 
-class AudienceGenerationJobSummaryTypeDef(BaseValidatorModel):
+class AudienceGenerationJobSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     audienceGenerationJobArn: str
@@ -45,7 +45,7 @@ class AudienceGenerationJobSummaryTypeDef(BaseValidatorModel):
     startedBy: Optional[str] = None
 
 
-class AudienceModelSummaryTypeDef(BaseValidatorModel):
+class AudienceModelSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     audienceModelArn: str
@@ -55,27 +55,27 @@ class AudienceModelSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class AudienceSizeConfigOutputTypeDef(BaseValidatorModel):
+class AudienceSizeConfigOutput(BaseValidatorModel):
     audienceSizeType: AudienceSizeTypeType
     audienceSizeBins: List[int]
 
 
-class AudienceSizeConfigTypeDef(BaseValidatorModel):
+class AudienceSizeConfig(BaseValidatorModel):
     audienceSizeType: AudienceSizeTypeType
     audienceSizeBins: Sequence[int]
 
 
-class CancelTrainedModelInferenceJobRequestTypeDef(BaseValidatorModel):
+class CancelTrainedModelInferenceJobRequest(BaseValidatorModel):
     membershipIdentifier: str
     trainedModelInferenceJobArn: str
 
 
-class CancelTrainedModelRequestTypeDef(BaseValidatorModel):
+class CancelTrainedModelRequest(BaseValidatorModel):
     membershipIdentifier: str
     trainedModelArn: str
 
 
-class CollaborationConfiguredModelAlgorithmAssociationSummaryTypeDef(BaseValidatorModel):
+class CollaborationConfiguredModelAlgorithmAssociationSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     configuredModelAlgorithmAssociationArn: str
@@ -87,7 +87,7 @@ class CollaborationConfiguredModelAlgorithmAssociationSummaryTypeDef(BaseValidat
     description: Optional[str] = None
 
 
-class CollaborationMLInputChannelSummaryTypeDef(BaseValidatorModel):
+class CollaborationMLInputChannelSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     membershipIdentifier: str
@@ -100,7 +100,7 @@ class CollaborationMLInputChannelSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class CollaborationTrainedModelSummaryTypeDef(BaseValidatorModel):
+class CollaborationTrainedModelSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     trainedModelArn: str
@@ -113,17 +113,17 @@ class CollaborationTrainedModelSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class ColumnSchemaOutputTypeDef(BaseValidatorModel):
+class ColumnSchemaOutput(BaseValidatorModel):
     columnName: str
     columnTypes: List[ColumnTypeType]
 
 
-class ColumnSchemaTypeDef(BaseValidatorModel):
+class ColumnSchema(BaseValidatorModel):
     columnName: str
     columnTypes: Sequence[ColumnTypeType]
 
 
-class ConfiguredModelAlgorithmAssociationSummaryTypeDef(BaseValidatorModel):
+class ConfiguredModelAlgorithmAssociationSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     configuredModelAlgorithmAssociationArn: str
@@ -134,7 +134,7 @@ class ConfiguredModelAlgorithmAssociationSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class ConfiguredModelAlgorithmSummaryTypeDef(BaseValidatorModel):
+class ConfiguredModelAlgorithmSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     configuredModelAlgorithmArn: str
@@ -142,12 +142,12 @@ class ConfiguredModelAlgorithmSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class MetricDefinitionTypeDef(BaseValidatorModel):
+class MetricDefinition(BaseValidatorModel):
     name: str
     regex: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -155,233 +155,233 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class InferenceContainerConfigTypeDef(BaseValidatorModel):
+class InferenceContainerConfig(BaseValidatorModel):
     imageUri: str
 
 
-class ModelTrainingDataChannelTypeDef(BaseValidatorModel):
+class ModelTrainingDataChannel(BaseValidatorModel):
     mlInputChannelArn: str
     channelName: str
 
 
-class ResourceConfigTypeDef(BaseValidatorModel):
+class ResourceConfig(BaseValidatorModel):
     instanceType: InstanceTypeType
     volumeSizeInGB: int
     instanceCount: Optional[int] = None
 
 
-class StoppingConditionTypeDef(BaseValidatorModel):
+class StoppingCondition(BaseValidatorModel):
     maxRuntimeInSeconds: Optional[int] = None
 
 
-class GlueDataSourceTypeDef(BaseValidatorModel):
+class GlueDataSource(BaseValidatorModel):
     tableName: str
     databaseName: str
     catalogId: Optional[str] = None
 
 
-class DeleteAudienceGenerationJobRequestTypeDef(BaseValidatorModel):
+class DeleteAudienceGenerationJobRequest(BaseValidatorModel):
     audienceGenerationJobArn: str
 
 
-class DeleteAudienceModelRequestTypeDef(BaseValidatorModel):
+class DeleteAudienceModelRequest(BaseValidatorModel):
     audienceModelArn: str
 
 
-class DeleteConfiguredAudienceModelPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteConfiguredAudienceModelPolicyRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
 
 
-class DeleteConfiguredAudienceModelRequestTypeDef(BaseValidatorModel):
+class DeleteConfiguredAudienceModelRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
 
 
-class DeleteConfiguredModelAlgorithmAssociationRequestTypeDef(BaseValidatorModel):
+class DeleteConfiguredModelAlgorithmAssociationRequest(BaseValidatorModel):
     configuredModelAlgorithmAssociationArn: str
     membershipIdentifier: str
 
 
-class DeleteConfiguredModelAlgorithmRequestTypeDef(BaseValidatorModel):
+class DeleteConfiguredModelAlgorithmRequest(BaseValidatorModel):
     configuredModelAlgorithmArn: str
 
 
-class DeleteMLConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteMLConfigurationRequest(BaseValidatorModel):
     membershipIdentifier: str
 
 
-class DeleteMLInputChannelDataRequestTypeDef(BaseValidatorModel):
+class DeleteMLInputChannelDataRequest(BaseValidatorModel):
     mlInputChannelArn: str
     membershipIdentifier: str
 
 
-class DeleteTrainedModelOutputRequestTypeDef(BaseValidatorModel):
+class DeleteTrainedModelOutputRequest(BaseValidatorModel):
     trainedModelArn: str
     membershipIdentifier: str
 
 
-class DeleteTrainingDatasetRequestTypeDef(BaseValidatorModel):
+class DeleteTrainingDatasetRequest(BaseValidatorModel):
     trainingDatasetArn: str
 
 
-class GetAudienceGenerationJobRequestTypeDef(BaseValidatorModel):
+class GetAudienceGenerationJobRequest(BaseValidatorModel):
     audienceGenerationJobArn: str
 
 
-class GetAudienceModelRequestTypeDef(BaseValidatorModel):
+class GetAudienceModelRequest(BaseValidatorModel):
     audienceModelArn: str
 
 
-class GetCollaborationConfiguredModelAlgorithmAssociationRequestTypeDef(BaseValidatorModel):
+class GetCollaborationConfiguredModelAlgorithmAssociationRequest(BaseValidatorModel):
     configuredModelAlgorithmAssociationArn: str
     collaborationIdentifier: str
 
 
-class GetCollaborationMLInputChannelRequestTypeDef(BaseValidatorModel):
+class GetCollaborationMLInputChannelRequest(BaseValidatorModel):
     mlInputChannelArn: str
     collaborationIdentifier: str
 
 
-class GetCollaborationTrainedModelRequestTypeDef(BaseValidatorModel):
+class GetCollaborationTrainedModelRequest(BaseValidatorModel):
     trainedModelArn: str
     collaborationIdentifier: str
 
 
-class GetConfiguredAudienceModelPolicyRequestTypeDef(BaseValidatorModel):
+class GetConfiguredAudienceModelPolicyRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
 
 
-class GetConfiguredAudienceModelRequestTypeDef(BaseValidatorModel):
+class GetConfiguredAudienceModelRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
 
 
-class GetConfiguredModelAlgorithmAssociationRequestTypeDef(BaseValidatorModel):
+class GetConfiguredModelAlgorithmAssociationRequest(BaseValidatorModel):
     configuredModelAlgorithmAssociationArn: str
     membershipIdentifier: str
 
 
-class GetConfiguredModelAlgorithmRequestTypeDef(BaseValidatorModel):
+class GetConfiguredModelAlgorithmRequest(BaseValidatorModel):
     configuredModelAlgorithmArn: str
 
 
-class GetMLConfigurationRequestTypeDef(BaseValidatorModel):
+class GetMLConfigurationRequest(BaseValidatorModel):
     membershipIdentifier: str
 
 
-class GetMLInputChannelRequestTypeDef(BaseValidatorModel):
+class GetMLInputChannelRequest(BaseValidatorModel):
     mlInputChannelArn: str
     membershipIdentifier: str
 
 
-class GetTrainedModelInferenceJobRequestTypeDef(BaseValidatorModel):
+class GetTrainedModelInferenceJobRequest(BaseValidatorModel):
     membershipIdentifier: str
     trainedModelInferenceJobArn: str
 
 
-class InferenceContainerExecutionParametersTypeDef(BaseValidatorModel):
+class InferenceContainerExecutionParameters(BaseValidatorModel):
     maxPayloadInMB: Optional[int] = None
 
 
-class InferenceResourceConfigTypeDef(BaseValidatorModel):
+class InferenceResourceConfig(BaseValidatorModel):
     instanceType: InferenceInstanceTypeType
     instanceCount: Optional[int] = None
 
 
-class ModelInferenceDataSourceTypeDef(BaseValidatorModel):
+class ModelInferenceDataSource(BaseValidatorModel):
     mlInputChannelArn: str
 
 
-class GetTrainedModelRequestTypeDef(BaseValidatorModel):
+class GetTrainedModelRequest(BaseValidatorModel):
     trainedModelArn: str
     membershipIdentifier: str
 
 
-class GetTrainingDatasetRequestTypeDef(BaseValidatorModel):
+class GetTrainingDatasetRequest(BaseValidatorModel):
     trainingDatasetArn: str
 
 
-class InferenceReceiverMemberTypeDef(BaseValidatorModel):
+class InferenceReceiverMember(BaseValidatorModel):
     accountId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAudienceExportJobsRequestTypeDef(BaseValidatorModel):
+class ListAudienceExportJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     audienceGenerationJobArn: Optional[str] = None
 
 
-class ListAudienceGenerationJobsRequestTypeDef(BaseValidatorModel):
+class ListAudienceGenerationJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     configuredAudienceModelArn: Optional[str] = None
     collaborationId: Optional[str] = None
 
 
-class ListAudienceModelsRequestTypeDef(BaseValidatorModel):
+class ListAudienceModelsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCollaborationConfiguredModelAlgorithmAssociationsRequestTypeDef(BaseValidatorModel):
+class ListCollaborationConfiguredModelAlgorithmAssociationsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCollaborationMLInputChannelsRequestTypeDef(BaseValidatorModel):
+class ListCollaborationMLInputChannelsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCollaborationTrainedModelExportJobsRequestTypeDef(BaseValidatorModel):
+class ListCollaborationTrainedModelExportJobsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     trainedModelArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCollaborationTrainedModelInferenceJobsRequestTypeDef(BaseValidatorModel):
+class ListCollaborationTrainedModelInferenceJobsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     trainedModelArn: Optional[str] = None
 
 
-class ListCollaborationTrainedModelsRequestTypeDef(BaseValidatorModel):
+class ListCollaborationTrainedModelsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListConfiguredAudienceModelsRequestTypeDef(BaseValidatorModel):
+class ListConfiguredAudienceModelsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListConfiguredModelAlgorithmAssociationsRequestTypeDef(BaseValidatorModel):
+class ListConfiguredModelAlgorithmAssociationsRequest(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListConfiguredModelAlgorithmsRequestTypeDef(BaseValidatorModel):
+class ListConfiguredModelAlgorithmsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListMLInputChannelsRequestTypeDef(BaseValidatorModel):
+class ListMLInputChannelsRequest(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class MLInputChannelSummaryTypeDef(BaseValidatorModel):
+class MLInputChannelSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     membershipIdentifier: str
@@ -394,24 +394,24 @@ class MLInputChannelSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListTrainedModelInferenceJobsRequestTypeDef(BaseValidatorModel):
+class ListTrainedModelInferenceJobsRequest(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     trainedModelArn: Optional[str] = None
 
 
-class ListTrainedModelsRequestTypeDef(BaseValidatorModel):
+class ListTrainedModelsRequest(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class TrainedModelSummaryTypeDef(BaseValidatorModel):
+class TrainedModelSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     trainedModelArn: str
@@ -423,12 +423,12 @@ class TrainedModelSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class ListTrainingDatasetsRequestTypeDef(BaseValidatorModel):
+class ListTrainingDatasetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class TrainingDatasetSummaryTypeDef(BaseValidatorModel):
+class TrainingDatasetSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     trainingDatasetArn: str
@@ -437,163 +437,163 @@ class TrainingDatasetSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class LogsConfigurationPolicyOutputTypeDef(BaseValidatorModel):
+class LogsConfigurationPolicyOutput(BaseValidatorModel):
     allowedAccountIds: List[str]
     filterPattern: Optional[str] = None
 
 
-class LogsConfigurationPolicyTypeDef(BaseValidatorModel):
+class LogsConfigurationPolicy(BaseValidatorModel):
     allowedAccountIds: Sequence[str]
     filterPattern: Optional[str] = None
 
 
-class MetricsConfigurationPolicyTypeDef(BaseValidatorModel):
+class MetricsConfigurationPolicy(BaseValidatorModel):
     noiseLevel: NoiseLevelTypeType
 
 
-class PutConfiguredAudienceModelPolicyRequestTypeDef(BaseValidatorModel):
+class PutConfiguredAudienceModelPolicyRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
     configuredAudienceModelPolicy: str
     previousPolicyHash: Optional[str] = None
     policyExistenceCondition: Optional[PolicyExistenceConditionType] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class TrainedModelExportReceiverMemberTypeDef(BaseValidatorModel):
+class TrainedModelExportReceiverMember(BaseValidatorModel):
     accountId: str
 
 
-class TrainedModelExportsMaxSizeTypeDef(BaseValidatorModel):
+class TrainedModelExportsMaxSize(BaseValidatorModel):
     unit: Literal["GB"]
     value: float
 
 
-class TrainedModelInferenceMaxOutputSizeTypeDef(BaseValidatorModel):
+class TrainedModelInferenceMaxOutputSize(BaseValidatorModel):
     unit: Literal["GB"]
     value: float
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class AudienceDestinationTypeDef(BaseValidatorModel):
-    s3Destination: S3ConfigMapTypeDef
+class AudienceDestination(BaseValidatorModel):
+    s3Destination: S3ConfigMap
 
 
-class DestinationTypeDef(BaseValidatorModel):
-    s3Destination: S3ConfigMapTypeDef
+class Destination(BaseValidatorModel):
+    s3Destination: S3ConfigMap
 
 
-class AudienceSizeTypeDef(BaseValidatorModel):
+class AudienceSize(BaseValidatorModel):
     pass
 
 
-class RelevanceMetricTypeDef(BaseValidatorModel):
-    audienceSize: AudienceSizeTypeDef
+class RelevanceMetric(BaseValidatorModel):
+    audienceSize: AudienceSize
     score: Optional[float] = None
 
 
-class StartAudienceExportJobRequestTypeDef(BaseValidatorModel):
+class StartAudienceExportJobRequest(BaseValidatorModel):
     name: str
     audienceGenerationJobArn: str
-    audienceSize: AudienceSizeTypeDef
+    audienceSize: AudienceSize
     description: Optional[str] = None
 
 
-class AudienceExportJobSummaryTypeDef(BaseValidatorModel):
+class AudienceExportJobSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     name: str
     audienceGenerationJobArn: str
-    audienceSize: AudienceSizeTypeDef
+    audienceSize: AudienceSize
     status: AudienceExportJobStatusType
     description: Optional[str] = None
-    statusDetails: Optional[StatusDetailsTypeDef] = None
+    statusDetails: Optional[StatusDetails] = None
     outputLocation: Optional[str] = None
 
 
-class WorkerComputeConfigurationTypeDef(BaseValidatorModel):
+class WorkerComputeConfiguration(BaseValidatorModel):
     pass
 
 
-class ComputeConfigurationTypeDef(BaseValidatorModel):
-    worker: Optional[WorkerComputeConfigurationTypeDef] = None
+class ComputeConfiguration(BaseValidatorModel):
+    worker: Optional[WorkerComputeConfiguration] = None
 
 
-class ContainerConfigOutputTypeDef(BaseValidatorModel):
+class ContainerConfigOutput(BaseValidatorModel):
     imageUri: str
     entrypoint: Optional[List[str]] = None
     arguments: Optional[List[str]] = None
-    metricDefinitions: Optional[List[MetricDefinitionTypeDef]] = None
+    metricDefinitions: Optional[List[MetricDefinition]] = None
 
 
-class ContainerConfigTypeDef(BaseValidatorModel):
+class ContainerConfig(BaseValidatorModel):
     imageUri: str
     entrypoint: Optional[Sequence[str]] = None
     arguments: Optional[Sequence[str]] = None
-    metricDefinitions: Optional[Sequence[MetricDefinitionTypeDef]] = None
+    metricDefinitions: Optional[Sequence[MetricDefinition]] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class CreateAudienceModelRequestTypeDef(BaseValidatorModel):
+class CreateAudienceModelRequest(BaseValidatorModel):
     name: str
     trainingDatasetArn: str
-    trainingDataStartTime: Optional[TimestampTypeDef] = None
-    trainingDataEndTime: Optional[TimestampTypeDef] = None
+    trainingDataStartTime: Optional[Timestamp] = None
+    trainingDataEndTime: Optional[Timestamp] = None
     kmsKeyArn: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     description: Optional[str] = None
 
 
-class CreateAudienceModelResponseTypeDef(BaseValidatorModel):
+class CreateAudienceModelResponse(BaseValidatorModel):
     audienceModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
+class CreateConfiguredAudienceModelResponse(BaseValidatorModel):
     configuredAudienceModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateConfiguredModelAlgorithmAssociationResponseTypeDef(BaseValidatorModel):
+class CreateConfiguredModelAlgorithmAssociationResponse(BaseValidatorModel):
     configuredModelAlgorithmAssociationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateConfiguredModelAlgorithmResponseTypeDef(BaseValidatorModel):
+class CreateConfiguredModelAlgorithmResponse(BaseValidatorModel):
     configuredModelAlgorithmArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMLInputChannelResponseTypeDef(BaseValidatorModel):
+class CreateMLInputChannelResponse(BaseValidatorModel):
     mlInputChannelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrainedModelResponseTypeDef(BaseValidatorModel):
+class CreateTrainedModelResponse(BaseValidatorModel):
     trainedModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrainingDatasetResponseTypeDef(BaseValidatorModel):
+class CreateTrainingDatasetResponse(BaseValidatorModel):
     trainingDatasetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAudienceModelResponseTypeDef(BaseValidatorModel):
+class GetAudienceModelResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     trainingDataStartTime: datetime
@@ -602,14 +602,14 @@ class GetAudienceModelResponseTypeDef(BaseValidatorModel):
     name: str
     trainingDatasetArn: str
     status: AudienceModelStatusType
-    statusDetails: StatusDetailsTypeDef
+    statusDetails: StatusDetails
     kmsKeyArn: str
     tags: Dict[str, str]
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCollaborationMLInputChannelResponseTypeDef(BaseValidatorModel):
+class GetCollaborationMLInputChannelResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     creatorAccountId: str
@@ -619,113 +619,113 @@ class GetCollaborationMLInputChannelResponseTypeDef(BaseValidatorModel):
     name: str
     configuredModelAlgorithmAssociations: List[str]
     status: MLInputChannelStatusType
-    statusDetails: StatusDetailsTypeDef
+    statusDetails: StatusDetails
     retentionInDays: int
     numberOfRecords: int
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConfiguredAudienceModelPolicyResponseTypeDef(BaseValidatorModel):
+class GetConfiguredAudienceModelPolicyResponse(BaseValidatorModel):
     configuredAudienceModelArn: str
     configuredAudienceModelPolicy: str
     policyHash: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAudienceGenerationJobsResponseTypeDef(BaseValidatorModel):
-    audienceGenerationJobs: List[AudienceGenerationJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAudienceGenerationJobsResponse(BaseValidatorModel):
+    audienceGenerationJobs: List[AudienceGenerationJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAudienceModelsResponseTypeDef(BaseValidatorModel):
-    audienceModels: List[AudienceModelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAudienceModelsResponse(BaseValidatorModel):
+    audienceModels: List[AudienceModelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListCollaborationConfiguredModelAlgorithmAssociationsResponseTypeDef(BaseValidatorModel):
-    collaborationConfiguredModelAlgorithmAssociations: List[ CollaborationConfiguredModelAlgorithmAssociationSummaryTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationConfiguredModelAlgorithmAssociationsResponse(BaseValidatorModel):
+    collaborationConfiguredModelAlgorithmAssociations: List[ CollaborationConfiguredModelAlgorithmAssociationSummary ]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListCollaborationMLInputChannelsResponseTypeDef(BaseValidatorModel):
-    collaborationMLInputChannelsList: List[CollaborationMLInputChannelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationMLInputChannelsResponse(BaseValidatorModel):
+    collaborationMLInputChannelsList: List[CollaborationMLInputChannelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListCollaborationTrainedModelsResponseTypeDef(BaseValidatorModel):
-    collaborationTrainedModels: List[CollaborationTrainedModelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationTrainedModelsResponse(BaseValidatorModel):
+    collaborationTrainedModels: List[CollaborationTrainedModelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListConfiguredModelAlgorithmAssociationsResponseTypeDef(BaseValidatorModel):
-    configuredModelAlgorithmAssociations: List[ConfiguredModelAlgorithmAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfiguredModelAlgorithmAssociationsResponse(BaseValidatorModel):
+    configuredModelAlgorithmAssociations: List[ConfiguredModelAlgorithmAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListConfiguredModelAlgorithmsResponseTypeDef(BaseValidatorModel):
-    configuredModelAlgorithms: List[ConfiguredModelAlgorithmSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfiguredModelAlgorithmsResponse(BaseValidatorModel):
+    configuredModelAlgorithms: List[ConfiguredModelAlgorithmSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutConfiguredAudienceModelPolicyResponseTypeDef(BaseValidatorModel):
+class PutConfiguredAudienceModelPolicyResponse(BaseValidatorModel):
     configuredAudienceModelPolicy: str
     policyHash: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartAudienceGenerationJobResponseTypeDef(BaseValidatorModel):
+class StartAudienceGenerationJobResponse(BaseValidatorModel):
     audienceGenerationJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartTrainedModelInferenceJobResponseTypeDef(BaseValidatorModel):
+class StartTrainedModelInferenceJobResponse(BaseValidatorModel):
     trainedModelInferenceJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
+class UpdateConfiguredAudienceModelResponse(BaseValidatorModel):
     configuredAudienceModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrainedModelRequestTypeDef(BaseValidatorModel):
+class CreateTrainedModelRequest(BaseValidatorModel):
     membershipIdentifier: str
     name: str
     configuredModelAlgorithmAssociationArn: str
-    resourceConfig: ResourceConfigTypeDef
-    dataChannels: Sequence[ModelTrainingDataChannelTypeDef]
+    resourceConfig: ResourceConfig
+    dataChannels: Sequence[ModelTrainingDataChannel]
     hyperparameters: Optional[Mapping[str, str]] = None
     environment: Optional[Mapping[str, str]] = None
-    stoppingCondition: Optional[StoppingConditionTypeDef] = None
+    stoppingCondition: Optional[StoppingCondition] = None
     description: Optional[str] = None
     kmsKeyArn: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetCollaborationTrainedModelResponseTypeDef(BaseValidatorModel):
+class GetCollaborationTrainedModelResponse(BaseValidatorModel):
     membershipIdentifier: str
     collaborationIdentifier: str
     trainedModelArn: str
     name: str
     description: str
     status: TrainedModelStatusType
-    statusDetails: StatusDetailsTypeDef
+    statusDetails: StatusDetails
     configuredModelAlgorithmAssociationArn: str
-    resourceConfig: ResourceConfigTypeDef
-    stoppingCondition: StoppingConditionTypeDef
+    resourceConfig: ResourceConfig
+    stoppingCondition: StoppingCondition
     metricsStatus: MetricsStatusType
     metricsStatusDetails: str
     logsStatus: LogsStatusType
@@ -734,20 +734,20 @@ class GetCollaborationTrainedModelResponseTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     creatorAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTrainedModelResponseTypeDef(BaseValidatorModel):
+class GetTrainedModelResponse(BaseValidatorModel):
     membershipIdentifier: str
     collaborationIdentifier: str
     trainedModelArn: str
     name: str
     description: str
     status: TrainedModelStatusType
-    statusDetails: StatusDetailsTypeDef
+    statusDetails: StatusDetails
     configuredModelAlgorithmAssociationArn: str
-    resourceConfig: ResourceConfigTypeDef
-    stoppingCondition: StoppingConditionTypeDef
+    resourceConfig: ResourceConfig
+    stoppingCondition: StoppingCondition
     metricsStatus: MetricsStatusType
     metricsStatusDetails: str
     logsStatus: LogsStatusType
@@ -759,235 +759,235 @@ class GetTrainedModelResponseTypeDef(BaseValidatorModel):
     environment: Dict[str, str]
     kmsKeyArn: str
     tags: Dict[str, str]
-    dataChannels: List[ModelTrainingDataChannelTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    dataChannels: List[ModelTrainingDataChannel]
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSourceTypeDef(BaseValidatorModel):
-    glueDataSource: GlueDataSourceTypeDef
+class DataSource(BaseValidatorModel):
+    glueDataSource: GlueDataSource
 
 
-class InferenceOutputConfigurationOutputTypeDef(BaseValidatorModel):
-    members: List[InferenceReceiverMemberTypeDef]
+class InferenceOutputConfigurationOutput(BaseValidatorModel):
+    members: List[InferenceReceiverMember]
     accept: Optional[str] = None
 
 
-class InferenceOutputConfigurationTypeDef(BaseValidatorModel):
-    members: Sequence[InferenceReceiverMemberTypeDef]
+class InferenceOutputConfiguration(BaseValidatorModel):
+    members: Sequence[InferenceReceiverMember]
     accept: Optional[str] = None
 
 
-class ListAudienceExportJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAudienceExportJobsRequestPaginate(BaseValidatorModel):
     audienceGenerationJobArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAudienceGenerationJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAudienceGenerationJobsRequestPaginate(BaseValidatorModel):
     configuredAudienceModelArn: Optional[str] = None
     collaborationId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAudienceModelsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAudienceModelsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationConfiguredModelAlgorithmAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationConfiguredModelAlgorithmAssociationsRequestPaginate(BaseValidatorModel):
     collaborationIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationMLInputChannelsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationMLInputChannelsRequestPaginate(BaseValidatorModel):
     collaborationIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationTrainedModelExportJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationTrainedModelExportJobsRequestPaginate(BaseValidatorModel):
     collaborationIdentifier: str
     trainedModelArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationTrainedModelInferenceJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationTrainedModelInferenceJobsRequestPaginate(BaseValidatorModel):
     collaborationIdentifier: str
     trainedModelArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationTrainedModelsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationTrainedModelsRequestPaginate(BaseValidatorModel):
     collaborationIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfiguredAudienceModelsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConfiguredAudienceModelsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfiguredModelAlgorithmAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListConfiguredModelAlgorithmAssociationsRequestPaginate(BaseValidatorModel):
     membershipIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfiguredModelAlgorithmsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConfiguredModelAlgorithmsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMLInputChannelsRequestPaginateTypeDef(BaseValidatorModel):
+class ListMLInputChannelsRequestPaginate(BaseValidatorModel):
     membershipIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrainedModelInferenceJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTrainedModelInferenceJobsRequestPaginate(BaseValidatorModel):
     membershipIdentifier: str
     trainedModelArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrainedModelsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTrainedModelsRequestPaginate(BaseValidatorModel):
     membershipIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrainingDatasetsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListTrainingDatasetsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMLInputChannelsResponseTypeDef(BaseValidatorModel):
-    mlInputChannelsList: List[MLInputChannelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMLInputChannelsResponse(BaseValidatorModel):
+    mlInputChannelsList: List[MLInputChannelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTrainedModelsResponseTypeDef(BaseValidatorModel):
-    trainedModels: List[TrainedModelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrainedModelsResponse(BaseValidatorModel):
+    trainedModels: List[TrainedModelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTrainingDatasetsResponseTypeDef(BaseValidatorModel):
-    trainingDatasets: List[TrainingDatasetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrainingDatasetsResponse(BaseValidatorModel):
+    trainingDatasets: List[TrainingDatasetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TrainedModelsConfigurationPolicyOutputTypeDef(BaseValidatorModel):
-    containerLogs: Optional[List[LogsConfigurationPolicyOutputTypeDef]] = None
-    containerMetrics: Optional[MetricsConfigurationPolicyTypeDef] = None
+class TrainedModelsConfigurationPolicyOutput(BaseValidatorModel):
+    containerLogs: Optional[List[LogsConfigurationPolicyOutput]] = None
+    containerMetrics: Optional[MetricsConfigurationPolicy] = None
 
 
-class TrainedModelsConfigurationPolicyTypeDef(BaseValidatorModel):
-    containerLogs: Optional[Sequence[LogsConfigurationPolicyTypeDef]] = None
-    containerMetrics: Optional[MetricsConfigurationPolicyTypeDef] = None
+class TrainedModelsConfigurationPolicy(BaseValidatorModel):
+    containerLogs: Optional[Sequence[LogsConfigurationPolicy]] = None
+    containerMetrics: Optional[MetricsConfigurationPolicy] = None
 
 
-class TrainedModelExportOutputConfigurationOutputTypeDef(BaseValidatorModel):
-    members: List[TrainedModelExportReceiverMemberTypeDef]
+class TrainedModelExportOutputConfigurationOutput(BaseValidatorModel):
+    members: List[TrainedModelExportReceiverMember]
 
 
-class TrainedModelExportOutputConfigurationTypeDef(BaseValidatorModel):
-    members: Sequence[TrainedModelExportReceiverMemberTypeDef]
+class TrainedModelExportOutputConfiguration(BaseValidatorModel):
+    members: Sequence[TrainedModelExportReceiverMember]
 
 
-class TrainedModelExportsConfigurationPolicyOutputTypeDef(BaseValidatorModel):
-    maxSize: TrainedModelExportsMaxSizeTypeDef
+class TrainedModelExportsConfigurationPolicyOutput(BaseValidatorModel):
+    maxSize: TrainedModelExportsMaxSize
     filesToExport: List[TrainedModelExportFileTypeType]
 
 
-class TrainedModelExportsConfigurationPolicyTypeDef(BaseValidatorModel):
-    maxSize: TrainedModelExportsMaxSizeTypeDef
+class TrainedModelExportsConfigurationPolicy(BaseValidatorModel):
+    maxSize: TrainedModelExportsMaxSize
     filesToExport: Sequence[TrainedModelExportFileTypeType]
 
 
-class TrainedModelInferenceJobsConfigurationPolicyOutputTypeDef(BaseValidatorModel):
-    containerLogs: Optional[List[LogsConfigurationPolicyOutputTypeDef]] = None
-    maxOutputSize: Optional[TrainedModelInferenceMaxOutputSizeTypeDef] = None
+class TrainedModelInferenceJobsConfigurationPolicyOutput(BaseValidatorModel):
+    containerLogs: Optional[List[LogsConfigurationPolicyOutput]] = None
+    maxOutputSize: Optional[TrainedModelInferenceMaxOutputSize] = None
 
 
-class TrainedModelInferenceJobsConfigurationPolicyTypeDef(BaseValidatorModel):
-    containerLogs: Optional[Sequence[LogsConfigurationPolicyTypeDef]] = None
-    maxOutputSize: Optional[TrainedModelInferenceMaxOutputSizeTypeDef] = None
+class TrainedModelInferenceJobsConfigurationPolicy(BaseValidatorModel):
+    containerLogs: Optional[Sequence[LogsConfigurationPolicy]] = None
+    maxOutputSize: Optional[TrainedModelInferenceMaxOutputSize] = None
 
 
-class ConfiguredAudienceModelOutputConfigTypeDef(BaseValidatorModel):
-    destination: AudienceDestinationTypeDef
+class ConfiguredAudienceModelOutputConfig(BaseValidatorModel):
+    destination: AudienceDestination
     roleArn: str
 
 
-class MLOutputConfigurationTypeDef(BaseValidatorModel):
+class MLOutputConfiguration(BaseValidatorModel):
     roleArn: str
-    destination: Optional[DestinationTypeDef] = None
+    destination: Optional[Destination] = None
 
 
-class AudienceQualityMetricsTypeDef(BaseValidatorModel):
-    relevanceMetrics: List[RelevanceMetricTypeDef]
+class AudienceQualityMetrics(BaseValidatorModel):
+    relevanceMetrics: List[RelevanceMetric]
     recallMetric: Optional[float] = None
 
 
-class ListAudienceExportJobsResponseTypeDef(BaseValidatorModel):
-    audienceExportJobs: List[AudienceExportJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAudienceExportJobsResponse(BaseValidatorModel):
+    audienceExportJobs: List[AudienceExportJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AudienceGenerationJobDataSourceOutputTypeDef(BaseValidatorModel):
+class AudienceGenerationJobDataSourceOutput(BaseValidatorModel):
     roleArn: str
-    dataSource: Optional[S3ConfigMapTypeDef] = None
-    sqlParameters: Optional[ProtectedQuerySQLParametersOutputTypeDef] = None
-    sqlComputeConfiguration: Optional[ComputeConfigurationTypeDef] = None
+    dataSource: Optional[S3ConfigMap] = None
+    sqlParameters: Optional[ProtectedQuerySQLParametersOutput] = None
+    sqlComputeConfiguration: Optional[ComputeConfiguration] = None
 
 
-class AudienceGenerationJobDataSourceTypeDef(BaseValidatorModel):
+class AudienceGenerationJobDataSource(BaseValidatorModel):
     roleArn: str
-    dataSource: Optional[S3ConfigMapTypeDef] = None
-    sqlParameters: Optional[ProtectedQuerySQLParametersTypeDef] = None
-    sqlComputeConfiguration: Optional[ComputeConfigurationTypeDef] = None
+    dataSource: Optional[S3ConfigMap] = None
+    sqlParameters: Optional[ProtectedQuerySQLParameters] = None
+    sqlComputeConfiguration: Optional[ComputeConfiguration] = None
 
 
-class ProtectedQueryInputParametersOutputTypeDef(BaseValidatorModel):
-    sqlParameters: ProtectedQuerySQLParametersOutputTypeDef
-    computeConfiguration: Optional[ComputeConfigurationTypeDef] = None
+class ProtectedQueryInputParametersOutput(BaseValidatorModel):
+    sqlParameters: ProtectedQuerySQLParametersOutput
+    computeConfiguration: Optional[ComputeConfiguration] = None
 
 
-class ProtectedQueryInputParametersTypeDef(BaseValidatorModel):
-    sqlParameters: ProtectedQuerySQLParametersTypeDef
-    computeConfiguration: Optional[ComputeConfigurationTypeDef] = None
+class ProtectedQueryInputParameters(BaseValidatorModel):
+    sqlParameters: ProtectedQuerySQLParameters
+    computeConfiguration: Optional[ComputeConfiguration] = None
 
 
-class GetConfiguredModelAlgorithmResponseTypeDef(BaseValidatorModel):
+class GetConfiguredModelAlgorithmResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     configuredModelAlgorithmArn: str
     name: str
-    trainingContainerConfig: ContainerConfigOutputTypeDef
-    inferenceContainerConfig: InferenceContainerConfigTypeDef
+    trainingContainerConfig: ContainerConfigOutput
+    inferenceContainerConfig: InferenceContainerConfig
     roleArn: str
     description: str
     tags: Dict[str, str]
     kmsKeyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DatasetInputConfigOutputTypeDef(BaseValidatorModel):
-    schema: List[ColumnSchemaOutputTypeDef]
-    dataSource: DataSourceTypeDef
+class DatasetInputConfigOutput(BaseValidatorModel):
+    schema: List[ColumnSchemaOutput]
+    dataSource: DataSource
 
 
-class ColumnSchemaUnionTypeDef(BaseValidatorModel):
+class ColumnSchemaUnion(BaseValidatorModel):
     pass
 
 
-class DatasetInputConfigTypeDef(BaseValidatorModel):
-    schema: Sequence[ColumnSchemaUnionTypeDef]
-    dataSource: DataSourceTypeDef
+class DatasetInputConfig(BaseValidatorModel):
+    schema: Sequence[ColumnSchemaUnion]
+    dataSource: DataSource
 
 
-class CollaborationTrainedModelInferenceJobSummaryTypeDef(BaseValidatorModel):
+class CollaborationTrainedModelInferenceJobSummary(BaseValidatorModel):
     trainedModelInferenceJobArn: str
     membershipIdentifier: str
     trainedModelArn: str
     collaborationIdentifier: str
     status: TrainedModelInferenceJobStatusType
-    outputConfiguration: InferenceOutputConfigurationOutputTypeDef
+    outputConfiguration: InferenceOutputConfigurationOutput
     name: str
     createTime: datetime
     updateTime: datetime
@@ -1000,7 +1000,7 @@ class CollaborationTrainedModelInferenceJobSummaryTypeDef(BaseValidatorModel):
     logsStatusDetails: Optional[str] = None
 
 
-class GetTrainedModelInferenceJobResponseTypeDef(BaseValidatorModel):
+class GetTrainedModelInferenceJobResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     trainedModelInferenceJobArn: str
@@ -1008,12 +1008,12 @@ class GetTrainedModelInferenceJobResponseTypeDef(BaseValidatorModel):
     name: str
     status: TrainedModelInferenceJobStatusType
     trainedModelArn: str
-    resourceConfig: InferenceResourceConfigTypeDef
-    outputConfiguration: InferenceOutputConfigurationOutputTypeDef
+    resourceConfig: InferenceResourceConfig
+    outputConfiguration: InferenceOutputConfigurationOutput
     membershipIdentifier: str
-    dataSource: ModelInferenceDataSourceTypeDef
-    containerExecutionParameters: InferenceContainerExecutionParametersTypeDef
-    statusDetails: StatusDetailsTypeDef
+    dataSource: ModelInferenceDataSource
+    containerExecutionParameters: InferenceContainerExecutionParameters
+    statusDetails: StatusDetails
     description: str
     inferenceContainerImageDigest: str
     environment: Dict[str, str]
@@ -1023,16 +1023,16 @@ class GetTrainedModelInferenceJobResponseTypeDef(BaseValidatorModel):
     logsStatus: LogsStatusType
     logsStatusDetails: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TrainedModelInferenceJobSummaryTypeDef(BaseValidatorModel):
+class TrainedModelInferenceJobSummary(BaseValidatorModel):
     trainedModelInferenceJobArn: str
     membershipIdentifier: str
     trainedModelArn: str
     collaborationIdentifier: str
     status: TrainedModelInferenceJobStatusType
-    outputConfiguration: InferenceOutputConfigurationOutputTypeDef
+    outputConfiguration: InferenceOutputConfigurationOutput
     name: str
     createTime: datetime
     updateTime: datetime
@@ -1044,245 +1044,245 @@ class TrainedModelInferenceJobSummaryTypeDef(BaseValidatorModel):
     logsStatusDetails: Optional[str] = None
 
 
-class CollaborationTrainedModelExportJobSummaryTypeDef(BaseValidatorModel):
+class CollaborationTrainedModelExportJobSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     name: str
-    outputConfiguration: TrainedModelExportOutputConfigurationOutputTypeDef
+    outputConfiguration: TrainedModelExportOutputConfigurationOutput
     status: TrainedModelExportJobStatusType
     creatorAccountId: str
     trainedModelArn: str
     membershipIdentifier: str
     collaborationIdentifier: str
-    statusDetails: Optional[StatusDetailsTypeDef] = None
+    statusDetails: Optional[StatusDetails] = None
     description: Optional[str] = None
 
 
-class PrivacyConfigurationPoliciesOutputTypeDef(BaseValidatorModel):
-    trainedModels: Optional[TrainedModelsConfigurationPolicyOutputTypeDef] = None
-    trainedModelExports: Optional[TrainedModelExportsConfigurationPolicyOutputTypeDef] = None
-    trainedModelInferenceJobs: Optional[ TrainedModelInferenceJobsConfigurationPolicyOutputTypeDef ] = None
+class PrivacyConfigurationPoliciesOutput(BaseValidatorModel):
+    trainedModels: Optional[TrainedModelsConfigurationPolicyOutput] = None
+    trainedModelExports: Optional[TrainedModelExportsConfigurationPolicyOutput] = None
+    trainedModelInferenceJobs: Optional[ TrainedModelInferenceJobsConfigurationPolicyOutput ] = None
 
 
-class PrivacyConfigurationPoliciesTypeDef(BaseValidatorModel):
-    trainedModels: Optional[TrainedModelsConfigurationPolicyTypeDef] = None
-    trainedModelExports: Optional[TrainedModelExportsConfigurationPolicyTypeDef] = None
-    trainedModelInferenceJobs: Optional[TrainedModelInferenceJobsConfigurationPolicyTypeDef] = None
+class PrivacyConfigurationPolicies(BaseValidatorModel):
+    trainedModels: Optional[TrainedModelsConfigurationPolicy] = None
+    trainedModelExports: Optional[TrainedModelExportsConfigurationPolicy] = None
+    trainedModelInferenceJobs: Optional[TrainedModelInferenceJobsConfigurationPolicy] = None
 
 
-class ConfiguredAudienceModelSummaryTypeDef(BaseValidatorModel):
+class ConfiguredAudienceModelSummary(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     name: str
     audienceModelArn: str
-    outputConfig: ConfiguredAudienceModelOutputConfigTypeDef
+    outputConfig: ConfiguredAudienceModelOutputConfig
     configuredAudienceModelArn: str
     status: Literal["ACTIVE"]
     description: Optional[str] = None
 
 
-class AudienceSizeConfigUnionTypeDef(BaseValidatorModel):
+class AudienceSizeConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredAudienceModelRequestTypeDef(BaseValidatorModel):
+class CreateConfiguredAudienceModelRequest(BaseValidatorModel):
     name: str
     audienceModelArn: str
-    outputConfig: ConfiguredAudienceModelOutputConfigTypeDef
+    outputConfig: ConfiguredAudienceModelOutputConfig
     sharedAudienceMetrics: Sequence[SharedAudienceMetricsType]
     description: Optional[str] = None
     minMatchingSeedSize: Optional[int] = None
-    audienceSizeConfig: Optional[AudienceSizeConfigUnionTypeDef] = None
+    audienceSizeConfig: Optional[AudienceSizeConfigUnion] = None
     tags: Optional[Mapping[str, str]] = None
     childResourceTagOnCreatePolicy: Optional[TagOnCreatePolicyType] = None
 
 
-class GetConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
+class GetConfiguredAudienceModelResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     configuredAudienceModelArn: str
     name: str
     audienceModelArn: str
-    outputConfig: ConfiguredAudienceModelOutputConfigTypeDef
+    outputConfig: ConfiguredAudienceModelOutputConfig
     description: str
     status: Literal["ACTIVE"]
     sharedAudienceMetrics: List[SharedAudienceMetricsType]
     minMatchingSeedSize: int
-    audienceSizeConfig: AudienceSizeConfigOutputTypeDef
+    audienceSizeConfig: AudienceSizeConfigOutput
     tags: Dict[str, str]
     childResourceTagOnCreatePolicy: TagOnCreatePolicyType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConfiguredAudienceModelRequestTypeDef(BaseValidatorModel):
+class UpdateConfiguredAudienceModelRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
-    outputConfig: Optional[ConfiguredAudienceModelOutputConfigTypeDef] = None
+    outputConfig: Optional[ConfiguredAudienceModelOutputConfig] = None
     audienceModelArn: Optional[str] = None
     sharedAudienceMetrics: Optional[Sequence[SharedAudienceMetricsType]] = None
     minMatchingSeedSize: Optional[int] = None
-    audienceSizeConfig: Optional[AudienceSizeConfigUnionTypeDef] = None
+    audienceSizeConfig: Optional[AudienceSizeConfigUnion] = None
     description: Optional[str] = None
 
 
-class GetMLConfigurationResponseTypeDef(BaseValidatorModel):
+class GetMLConfigurationResponse(BaseValidatorModel):
     membershipIdentifier: str
-    defaultOutputLocation: MLOutputConfigurationTypeDef
+    defaultOutputLocation: MLOutputConfiguration
     createTime: datetime
     updateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutMLConfigurationRequestTypeDef(BaseValidatorModel):
+class PutMLConfigurationRequest(BaseValidatorModel):
     membershipIdentifier: str
-    defaultOutputLocation: MLOutputConfigurationTypeDef
+    defaultOutputLocation: MLOutputConfiguration
 
 
-class GetAudienceGenerationJobResponseTypeDef(BaseValidatorModel):
+class GetAudienceGenerationJobResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     audienceGenerationJobArn: str
     name: str
     description: str
     status: AudienceGenerationJobStatusType
-    statusDetails: StatusDetailsTypeDef
+    statusDetails: StatusDetails
     configuredAudienceModelArn: str
-    seedAudience: AudienceGenerationJobDataSourceOutputTypeDef
+    seedAudience: AudienceGenerationJobDataSourceOutput
     includeSeedInOutput: bool
     collaborationId: str
-    metrics: AudienceQualityMetricsTypeDef
+    metrics: AudienceQualityMetrics
     startedBy: str
     tags: Dict[str, str]
     protectedQueryIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InputChannelDataSourceOutputTypeDef(BaseValidatorModel):
-    protectedQueryInputParameters: Optional[ProtectedQueryInputParametersOutputTypeDef] = None
+class InputChannelDataSourceOutput(BaseValidatorModel):
+    protectedQueryInputParameters: Optional[ProtectedQueryInputParametersOutput] = None
 
 
-class InputChannelDataSourceTypeDef(BaseValidatorModel):
-    protectedQueryInputParameters: Optional[ProtectedQueryInputParametersTypeDef] = None
+class InputChannelDataSource(BaseValidatorModel):
+    protectedQueryInputParameters: Optional[ProtectedQueryInputParameters] = None
 
 
-class ContainerConfigUnionTypeDef(BaseValidatorModel):
+class ContainerConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredModelAlgorithmRequestTypeDef(BaseValidatorModel):
+class CreateConfiguredModelAlgorithmRequest(BaseValidatorModel):
     name: str
     roleArn: str
     description: Optional[str] = None
-    trainingContainerConfig: Optional[ContainerConfigUnionTypeDef] = None
-    inferenceContainerConfig: Optional[InferenceContainerConfigTypeDef] = None
+    trainingContainerConfig: Optional[ContainerConfigUnion] = None
+    inferenceContainerConfig: Optional[InferenceContainerConfig] = None
     tags: Optional[Mapping[str, str]] = None
     kmsKeyArn: Optional[str] = None
 
 
-class ListCollaborationTrainedModelInferenceJobsResponseTypeDef(BaseValidatorModel):
-    collaborationTrainedModelInferenceJobs: List[ CollaborationTrainedModelInferenceJobSummaryTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationTrainedModelInferenceJobsResponse(BaseValidatorModel):
+    collaborationTrainedModelInferenceJobs: List[ CollaborationTrainedModelInferenceJobSummary ]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTrainedModelInferenceJobsResponseTypeDef(BaseValidatorModel):
-    trainedModelInferenceJobs: List[TrainedModelInferenceJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrainedModelInferenceJobsResponse(BaseValidatorModel):
+    trainedModelInferenceJobs: List[TrainedModelInferenceJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class InferenceOutputConfigurationUnionTypeDef(BaseValidatorModel):
+class InferenceOutputConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class StartTrainedModelInferenceJobRequestTypeDef(BaseValidatorModel):
+class StartTrainedModelInferenceJobRequest(BaseValidatorModel):
     membershipIdentifier: str
     name: str
     trainedModelArn: str
-    resourceConfig: InferenceResourceConfigTypeDef
-    outputConfiguration: InferenceOutputConfigurationUnionTypeDef
-    dataSource: ModelInferenceDataSourceTypeDef
+    resourceConfig: InferenceResourceConfig
+    outputConfiguration: InferenceOutputConfigurationUnion
+    dataSource: ModelInferenceDataSource
     configuredModelAlgorithmAssociationArn: Optional[str] = None
     description: Optional[str] = None
-    containerExecutionParameters: Optional[InferenceContainerExecutionParametersTypeDef] = None
+    containerExecutionParameters: Optional[InferenceContainerExecutionParameters] = None
     environment: Optional[Mapping[str, str]] = None
     kmsKeyArn: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class ListCollaborationTrainedModelExportJobsResponseTypeDef(BaseValidatorModel):
-    collaborationTrainedModelExportJobs: List[CollaborationTrainedModelExportJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationTrainedModelExportJobsResponse(BaseValidatorModel):
+    collaborationTrainedModelExportJobs: List[CollaborationTrainedModelExportJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TrainedModelExportOutputConfigurationUnionTypeDef(BaseValidatorModel):
+class TrainedModelExportOutputConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class StartTrainedModelExportJobRequestTypeDef(BaseValidatorModel):
+class StartTrainedModelExportJobRequest(BaseValidatorModel):
     name: str
     trainedModelArn: str
     membershipIdentifier: str
-    outputConfiguration: TrainedModelExportOutputConfigurationUnionTypeDef
+    outputConfiguration: TrainedModelExportOutputConfigurationUnion
     description: Optional[str] = None
 
 
-class PrivacyConfigurationOutputTypeDef(BaseValidatorModel):
-    policies: PrivacyConfigurationPoliciesOutputTypeDef
+class PrivacyConfigurationOutput(BaseValidatorModel):
+    policies: PrivacyConfigurationPoliciesOutput
 
 
-class PrivacyConfigurationTypeDef(BaseValidatorModel):
-    policies: PrivacyConfigurationPoliciesTypeDef
+class PrivacyConfiguration(BaseValidatorModel):
+    policies: PrivacyConfigurationPolicies
 
 
-class ListConfiguredAudienceModelsResponseTypeDef(BaseValidatorModel):
-    configuredAudienceModels: List[ConfiguredAudienceModelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfiguredAudienceModelsResponse(BaseValidatorModel):
+    configuredAudienceModels: List[ConfiguredAudienceModelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AudienceGenerationJobDataSourceUnionTypeDef(BaseValidatorModel):
+class AudienceGenerationJobDataSourceUnion(BaseValidatorModel):
     pass
 
 
-class StartAudienceGenerationJobRequestTypeDef(BaseValidatorModel):
+class StartAudienceGenerationJobRequest(BaseValidatorModel):
     name: str
     configuredAudienceModelArn: str
-    seedAudience: AudienceGenerationJobDataSourceUnionTypeDef
+    seedAudience: AudienceGenerationJobDataSourceUnion
     includeSeedInOutput: Optional[bool] = None
     collaborationId: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class InputChannelOutputTypeDef(BaseValidatorModel):
-    dataSource: InputChannelDataSourceOutputTypeDef
+class InputChannelOutput(BaseValidatorModel):
+    dataSource: InputChannelDataSourceOutput
     roleArn: str
 
 
-class InputChannelTypeDef(BaseValidatorModel):
-    dataSource: InputChannelDataSourceTypeDef
+class InputChannel(BaseValidatorModel):
+    dataSource: InputChannelDataSource
     roleArn: str
 
 
-class DatasetOutputTypeDef(BaseValidatorModel):
+class DatasetOutput(BaseValidatorModel):
     pass
 
 
-class GetTrainingDatasetResponseTypeDef(BaseValidatorModel):
+class GetTrainingDatasetResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     trainingDatasetArn: str
     name: str
-    trainingData: List[DatasetOutputTypeDef]
+    trainingData: List[DatasetOutput]
     status: Literal["ACTIVE"]
     roleArn: str
     tags: Dict[str, str]
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCollaborationConfiguredModelAlgorithmAssociationResponseTypeDef(BaseValidatorModel):
+class GetCollaborationConfiguredModelAlgorithmAssociationResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     configuredModelAlgorithmAssociationArn: str
@@ -1292,11 +1292,11 @@ class GetCollaborationConfiguredModelAlgorithmAssociationResponseTypeDef(BaseVal
     name: str
     description: str
     creatorAccountId: str
-    privacyConfiguration: PrivacyConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    privacyConfiguration: PrivacyConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConfiguredModelAlgorithmAssociationResponseTypeDef(BaseValidatorModel):
+class GetConfiguredModelAlgorithmAssociationResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     configuredModelAlgorithmAssociationArn: str
@@ -1304,24 +1304,24 @@ class GetConfiguredModelAlgorithmAssociationResponseTypeDef(BaseValidatorModel):
     collaborationIdentifier: str
     configuredModelAlgorithmArn: str
     name: str
-    privacyConfiguration: PrivacyConfigurationOutputTypeDef
+    privacyConfiguration: PrivacyConfigurationOutput
     description: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMLInputChannelResponseTypeDef(BaseValidatorModel):
+class GetMLInputChannelResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
     membershipIdentifier: str
     collaborationIdentifier: str
-    inputChannel: InputChannelOutputTypeDef
+    inputChannel: InputChannelOutput
     protectedQueryIdentifier: str
     mlInputChannelArn: str
     name: str
     configuredModelAlgorithmAssociations: List[str]
     status: MLInputChannelStatusType
-    statusDetails: StatusDetailsTypeDef
+    statusDetails: StatusDetails
     retentionInDays: int
     numberOfRecords: int
     numberOfFiles: float
@@ -1329,30 +1329,30 @@ class GetMLInputChannelResponseTypeDef(BaseValidatorModel):
     description: str
     kmsKeyArn: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PrivacyConfigurationUnionTypeDef(BaseValidatorModel):
+class PrivacyConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredModelAlgorithmAssociationRequestTypeDef(BaseValidatorModel):
+class CreateConfiguredModelAlgorithmAssociationRequest(BaseValidatorModel):
     membershipIdentifier: str
     configuredModelAlgorithmArn: str
     name: str
     description: Optional[str] = None
-    privacyConfiguration: Optional[PrivacyConfigurationUnionTypeDef] = None
+    privacyConfiguration: Optional[PrivacyConfigurationUnion] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class InputChannelUnionTypeDef(BaseValidatorModel):
+class InputChannelUnion(BaseValidatorModel):
     pass
 
 
-class CreateMLInputChannelRequestTypeDef(BaseValidatorModel):
+class CreateMLInputChannelRequest(BaseValidatorModel):
     membershipIdentifier: str
     configuredModelAlgorithmAssociations: Sequence[str]
-    inputChannel: InputChannelUnionTypeDef
+    inputChannel: InputChannelUnion
     name: str
     retentionInDays: int
     description: Optional[str] = None
@@ -1360,14 +1360,14 @@ class CreateMLInputChannelRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class DatasetUnionTypeDef(BaseValidatorModel):
+class DatasetUnion(BaseValidatorModel):
     pass
 
 
-class CreateTrainingDatasetRequestTypeDef(BaseValidatorModel):
+class CreateTrainingDatasetRequest(BaseValidatorModel):
     name: str
     roleArn: str
-    trainingData: Sequence[DatasetUnionTypeDef]
+    trainingData: Sequence[DatasetUnion]
     tags: Optional[Mapping[str, str]] = None
     description: Optional[str] = None
 

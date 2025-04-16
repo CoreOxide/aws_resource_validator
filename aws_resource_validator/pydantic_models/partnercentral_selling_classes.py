@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.partnercentral_selling_constants import *
 
-class AcceptEngagementInvitationRequestTypeDef(BaseValidatorModel):
+class AcceptEngagementInvitationRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
 
 
-class AccountReceiverTypeDef(BaseValidatorModel):
+class AccountReceiver(BaseValidatorModel):
     AwsAccountId: str
     Alias: Optional[str] = None
 
 
-class AddressSummaryTypeDef(BaseValidatorModel):
+class AddressSummary(BaseValidatorModel):
     City: Optional[str] = None
     CountryCode: Optional[CountryCodeType] = None
     PostalCode: Optional[str] = None
     StateOrRegion: Optional[str] = None
 
 
-class AddressTypeDef(BaseValidatorModel):
+class Address(BaseValidatorModel):
     City: Optional[str] = None
     CountryCode: Optional[CountryCodeType] = None
     PostalCode: Optional[str] = None
@@ -37,21 +37,21 @@ class AddressTypeDef(BaseValidatorModel):
     StreetAddress: Optional[str] = None
 
 
-class AssigneeContactTypeDef(BaseValidatorModel):
+class AssigneeContact(BaseValidatorModel):
     BusinessTitle: str
     Email: str
     FirstName: str
     LastName: str
 
 
-class AssociateOpportunityRequestTypeDef(BaseValidatorModel):
+class AssociateOpportunityRequest(BaseValidatorModel):
     Catalog: str
     OpportunityIdentifier: str
     RelatedEntityIdentifier: str
     RelatedEntityType: RelatedEntityTypeType
 
 
-class ContactTypeDef(BaseValidatorModel):
+class Contact(BaseValidatorModel):
     BusinessTitle: Optional[str] = None
     Email: Optional[str] = None
     FirstName: Optional[str] = None
@@ -59,17 +59,17 @@ class ContactTypeDef(BaseValidatorModel):
     Phone: Optional[str] = None
 
 
-class AwsOpportunityInsightsTypeDef(BaseValidatorModel):
+class AwsOpportunityInsights(BaseValidatorModel):
     EngagementScore: Optional[EngagementScoreType] = None
     NextBestActions: Optional[str] = None
 
 
-class ProfileNextStepsHistoryTypeDef(BaseValidatorModel):
+class ProfileNextStepsHistory(BaseValidatorModel):
     Time: datetime
     Value: str
 
 
-class ExpectedCustomerSpendTypeDef(BaseValidatorModel):
+class ExpectedCustomerSpend(BaseValidatorModel):
     Amount: str
     CurrencyCode: ExpectedCustomerSpendCurrencyCodeEnumType
     Frequency: Literal["Monthly"]
@@ -77,24 +77,24 @@ class ExpectedCustomerSpendTypeDef(BaseValidatorModel):
     EstimationUrl: Optional[str] = None
 
 
-class AwsOpportunityRelatedEntitiesTypeDef(BaseValidatorModel):
+class AwsOpportunityRelatedEntities(BaseValidatorModel):
     AwsProducts: Optional[List[str]] = None
     Solutions: Optional[List[str]] = None
 
 
-class AwsSubmissionTypeDef(BaseValidatorModel):
+class AwsSubmission(BaseValidatorModel):
     InvolvementType: SalesInvolvementTypeType
     Visibility: Optional[VisibilityType] = None
 
 
-class AwsTeamMemberTypeDef(BaseValidatorModel):
+class AwsTeamMember(BaseValidatorModel):
     BusinessTitle: Optional[AwsMemberBusinessTitleType] = None
     Email: Optional[str] = None
     FirstName: Optional[str] = None
     LastName: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -102,12 +102,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class CreateResourceSnapshotRequestTypeDef(BaseValidatorModel):
+class CreateResourceSnapshotRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
     EngagementIdentifier: str
@@ -116,43 +116,43 @@ class CreateResourceSnapshotRequestTypeDef(BaseValidatorModel):
     ResourceType: Literal["Opportunity"]
 
 
-class EngagementCustomerProjectDetailsTypeDef(BaseValidatorModel):
+class EngagementCustomerProjectDetails(BaseValidatorModel):
     BusinessProblem: str
     TargetCompletionDate: str
     Title: str
 
 
-class EngagementCustomerTypeDef(BaseValidatorModel):
+class EngagementCustomer(BaseValidatorModel):
     CompanyName: str
     CountryCode: CountryCodeType
     Industry: IndustryType
     WebsiteUrl: str
 
 
-class DeleteResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
+class DeleteResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobIdentifier: str
 
 
-class DisassociateOpportunityRequestTypeDef(BaseValidatorModel):
+class DisassociateOpportunityRequest(BaseValidatorModel):
     Catalog: str
     OpportunityIdentifier: str
     RelatedEntityIdentifier: str
     RelatedEntityType: RelatedEntityTypeType
 
 
-class EngagementMemberSummaryTypeDef(BaseValidatorModel):
+class EngagementMemberSummary(BaseValidatorModel):
     CompanyName: Optional[str] = None
     WebsiteUrl: Optional[str] = None
 
 
-class EngagementMemberTypeDef(BaseValidatorModel):
+class EngagementMember(BaseValidatorModel):
     AccountId: Optional[str] = None
     CompanyName: Optional[str] = None
     WebsiteUrl: Optional[str] = None
 
 
-class EngagementResourceAssociationSummaryTypeDef(BaseValidatorModel):
+class EngagementResourceAssociationSummary(BaseValidatorModel):
     Catalog: str
     CreatedBy: Optional[str] = None
     EngagementId: Optional[str] = None
@@ -160,12 +160,12 @@ class EngagementResourceAssociationSummaryTypeDef(BaseValidatorModel):
     ResourceType: Optional[Literal["Opportunity"]] = None
 
 
-class EngagementSortTypeDef(BaseValidatorModel):
+class EngagementSort(BaseValidatorModel):
     SortBy: Literal["CreatedDate"]
     SortOrder: SortOrderType
 
 
-class EngagementSummaryTypeDef(BaseValidatorModel):
+class EngagementSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     CreatedBy: Optional[str] = None
@@ -174,27 +174,27 @@ class EngagementSummaryTypeDef(BaseValidatorModel):
     Title: Optional[str] = None
 
 
-class GetAwsOpportunitySummaryRequestTypeDef(BaseValidatorModel):
+class GetAwsOpportunitySummaryRequest(BaseValidatorModel):
     Catalog: str
     RelatedOpportunityIdentifier: str
 
 
-class GetEngagementInvitationRequestTypeDef(BaseValidatorModel):
+class GetEngagementInvitationRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
 
 
-class GetEngagementRequestTypeDef(BaseValidatorModel):
+class GetEngagementRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
 
 
-class GetOpportunityRequestTypeDef(BaseValidatorModel):
+class GetOpportunityRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
 
 
-class MarketingOutputTypeDef(BaseValidatorModel):
+class MarketingOutput(BaseValidatorModel):
     AwsFundingUsed: Optional[AwsFundingUsedType] = None
     CampaignName: Optional[str] = None
     Channels: Optional[List[ChannelType]] = None
@@ -202,18 +202,18 @@ class MarketingOutputTypeDef(BaseValidatorModel):
     UseCases: Optional[List[str]] = None
 
 
-class RelatedEntityIdentifiersTypeDef(BaseValidatorModel):
+class RelatedEntityIdentifiers(BaseValidatorModel):
     AwsMarketplaceOffers: Optional[List[str]] = None
     AwsProducts: Optional[List[str]] = None
     Solutions: Optional[List[str]] = None
 
 
-class GetResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
+class GetResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobIdentifier: str
 
 
-class GetResourceSnapshotRequestTypeDef(BaseValidatorModel):
+class GetResourceSnapshotRequest(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: str
     ResourceIdentifier: str
@@ -222,23 +222,23 @@ class GetResourceSnapshotRequestTypeDef(BaseValidatorModel):
     Revision: Optional[int] = None
 
 
-class GetSellingSystemSettingsRequestTypeDef(BaseValidatorModel):
+class GetSellingSystemSettingsRequest(BaseValidatorModel):
     Catalog: str
 
 
-class LifeCycleForViewTypeDef(BaseValidatorModel):
+class LifeCycleForView(BaseValidatorModel):
     NextSteps: Optional[str] = None
     ReviewStatus: Optional[ReviewStatusType] = None
     Stage: Optional[StageType] = None
     TargetCloseDate: Optional[str] = None
 
 
-class NextStepsHistoryOutputTypeDef(BaseValidatorModel):
+class NextStepsHistoryOutput(BaseValidatorModel):
     Time: datetime
     Value: str
 
 
-class LifeCycleSummaryTypeDef(BaseValidatorModel):
+class LifeCycleSummary(BaseValidatorModel):
     ClosedLostReason: Optional[ClosedLostReasonType] = None
     NextSteps: Optional[str] = None
     ReviewComments: Optional[str] = None
@@ -248,7 +248,7 @@ class LifeCycleSummaryTypeDef(BaseValidatorModel):
     TargetCloseDate: Optional[str] = None
 
 
-class ListEngagementByAcceptingInvitationTaskSummaryTypeDef(BaseValidatorModel):
+class ListEngagementByAcceptingInvitationTaskSummary(BaseValidatorModel):
     EngagementInvitationId: Optional[str] = None
     Message: Optional[str] = None
     OpportunityId: Optional[str] = None
@@ -260,18 +260,18 @@ class ListEngagementByAcceptingInvitationTaskSummaryTypeDef(BaseValidatorModel):
     TaskStatus: Optional[TaskStatusType] = None
 
 
-class ListTasksSortBaseTypeDef(BaseValidatorModel):
+class ListTasksSortBase(BaseValidatorModel):
     SortBy: Literal["StartTime"]
     SortOrder: SortOrderType
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListEngagementFromOpportunityTaskSummaryTypeDef(BaseValidatorModel):
+class ListEngagementFromOpportunityTaskSummary(BaseValidatorModel):
     EngagementId: Optional[str] = None
     EngagementInvitationId: Optional[str] = None
     Message: Optional[str] = None
@@ -284,19 +284,19 @@ class ListEngagementFromOpportunityTaskSummaryTypeDef(BaseValidatorModel):
     TaskStatus: Optional[TaskStatusType] = None
 
 
-class OpportunityEngagementInvitationSortTypeDef(BaseValidatorModel):
+class OpportunityEngagementInvitationSort(BaseValidatorModel):
     SortBy: Literal["InvitationDate"]
     SortOrder: SortOrderType
 
 
-class ListEngagementMembersRequestTypeDef(BaseValidatorModel):
+class ListEngagementMembersRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListEngagementResourceAssociationsRequestTypeDef(BaseValidatorModel):
+class ListEngagementResourceAssociationsRequest(BaseValidatorModel):
     Catalog: str
     CreatedBy: Optional[str] = None
     EngagementIdentifier: Optional[str] = None
@@ -306,24 +306,24 @@ class ListEngagementResourceAssociationsRequestTypeDef(BaseValidatorModel):
     ResourceType: Optional[Literal["Opportunity"]] = None
 
 
-class OpportunitySortTypeDef(BaseValidatorModel):
+class OpportunitySort(BaseValidatorModel):
     SortBy: OpportunitySortNameType
     SortOrder: SortOrderType
 
 
-class SortObjectTypeDef(BaseValidatorModel):
+class SortObject(BaseValidatorModel):
     SortBy: Optional[Literal["CreatedDate"]] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class ResourceSnapshotJobSummaryTypeDef(BaseValidatorModel):
+class ResourceSnapshotJobSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     EngagementId: Optional[str] = None
     Id: Optional[str] = None
     Status: Optional[ResourceSnapshotJobStatusType] = None
 
 
-class ListResourceSnapshotsRequestTypeDef(BaseValidatorModel):
+class ListResourceSnapshotsRequest(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: str
     CreatedBy: Optional[str] = None
@@ -334,7 +334,7 @@ class ListResourceSnapshotsRequestTypeDef(BaseValidatorModel):
     ResourceType: Optional[Literal["Opportunity"]] = None
 
 
-class ResourceSnapshotSummaryTypeDef(BaseValidatorModel):
+class ResourceSnapshotSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedBy: Optional[str] = None
     ResourceId: Optional[str] = None
@@ -343,12 +343,12 @@ class ResourceSnapshotSummaryTypeDef(BaseValidatorModel):
     Revision: Optional[int] = None
 
 
-class SolutionSortTypeDef(BaseValidatorModel):
+class SolutionSort(BaseValidatorModel):
     SortBy: SolutionSortNameType
     SortOrder: SortOrderType
 
 
-class SolutionBaseTypeDef(BaseValidatorModel):
+class SolutionBase(BaseValidatorModel):
     Catalog: str
     Category: str
     CreatedDate: datetime
@@ -358,11 +358,11 @@ class SolutionBaseTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class MarketingTypeDef(BaseValidatorModel):
+class Marketing(BaseValidatorModel):
     AwsFundingUsed: Optional[AwsFundingUsedType] = None
     CampaignName: Optional[str] = None
     Channels: Optional[Sequence[ChannelType]] = None
@@ -370,12 +370,12 @@ class MarketingTypeDef(BaseValidatorModel):
     UseCases: Optional[Sequence[str]] = None
 
 
-class MonetaryValueTypeDef(BaseValidatorModel):
+class MonetaryValue(BaseValidatorModel):
     Amount: str
     CurrencyCode: CurrencyCodeType
 
 
-class SenderContactTypeDef(BaseValidatorModel):
+class SenderContact(BaseValidatorModel):
     Email: str
     BusinessTitle: Optional[str] = None
     FirstName: Optional[str] = None
@@ -383,54 +383,54 @@ class SenderContactTypeDef(BaseValidatorModel):
     Phone: Optional[str] = None
 
 
-class PutSellingSystemSettingsRequestTypeDef(BaseValidatorModel):
+class PutSellingSystemSettingsRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobRoleIdentifier: Optional[str] = None
 
 
-class RejectEngagementInvitationRequestTypeDef(BaseValidatorModel):
+class RejectEngagementInvitationRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
     RejectionReason: Optional[str] = None
 
 
-class StartResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
+class StartResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobIdentifier: str
 
 
-class StopResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
+class StopResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobIdentifier: str
 
 
-class SubmitOpportunityRequestTypeDef(BaseValidatorModel):
+class SubmitOpportunityRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
     InvolvementType: SalesInvolvementTypeType
     Visibility: Optional[VisibilityType] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class ReceiverTypeDef(BaseValidatorModel):
-    Account: Optional[AccountReceiverTypeDef] = None
+class Receiver(BaseValidatorModel):
+    Account: Optional[AccountReceiver] = None
 
 
-class AccountSummaryTypeDef(BaseValidatorModel):
+class AccountSummary(BaseValidatorModel):
     CompanyName: str
-    Address: Optional[AddressSummaryTypeDef] = None
+    Address: Optional[AddressSummary] = None
     Industry: Optional[IndustryType] = None
     OtherIndustry: Optional[str] = None
     WebsiteUrl: Optional[str] = None
 
 
-class AccountTypeDef(BaseValidatorModel):
+class Account(BaseValidatorModel):
     CompanyName: str
-    Address: Optional[AddressTypeDef] = None
+    Address: Optional[Address] = None
     AwsAccountId: Optional[str] = None
     Duns: Optional[str] = None
     Industry: Optional[IndustryType] = None
@@ -438,50 +438,50 @@ class AccountTypeDef(BaseValidatorModel):
     WebsiteUrl: Optional[str] = None
 
 
-class AssignOpportunityRequestTypeDef(BaseValidatorModel):
-    Assignee: AssigneeContactTypeDef
+class AssignOpportunityRequest(BaseValidatorModel):
+    Assignee: AssigneeContact
     Catalog: str
     Identifier: str
 
 
-class AwsOpportunityCustomerTypeDef(BaseValidatorModel):
-    Contacts: Optional[List[ContactTypeDef]] = None
+class AwsOpportunityCustomer(BaseValidatorModel):
+    Contacts: Optional[List[Contact]] = None
 
 
-class AwsOpportunityLifeCycleTypeDef(BaseValidatorModel):
+class AwsOpportunityLifeCycle(BaseValidatorModel):
     ClosedLostReason: Optional[AwsClosedLostReasonType] = None
     NextSteps: Optional[str] = None
-    NextStepsHistory: Optional[List[ProfileNextStepsHistoryTypeDef]] = None
+    NextStepsHistory: Optional[List[ProfileNextStepsHistory]] = None
     Stage: Optional[AwsOpportunityStageType] = None
     TargetCloseDate: Optional[str] = None
 
 
-class AwsOpportunityProjectTypeDef(BaseValidatorModel):
-    ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpendTypeDef]] = None
+class AwsOpportunityProject(BaseValidatorModel):
+    ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpend]] = None
 
 
-class ProjectDetailsOutputTypeDef(BaseValidatorModel):
+class ProjectDetailsOutput(BaseValidatorModel):
     BusinessProblem: str
-    ExpectedCustomerSpend: List[ExpectedCustomerSpendTypeDef]
+    ExpectedCustomerSpend: List[ExpectedCustomerSpend]
     TargetCompletionDate: str
     Title: str
 
 
-class ProjectDetailsTypeDef(BaseValidatorModel):
+class ProjectDetails(BaseValidatorModel):
     BusinessProblem: str
-    ExpectedCustomerSpend: Sequence[ExpectedCustomerSpendTypeDef]
+    ExpectedCustomerSpend: Sequence[ExpectedCustomerSpend]
     TargetCompletionDate: str
     Title: str
 
 
-class ProjectOutputTypeDef(BaseValidatorModel):
+class ProjectOutput(BaseValidatorModel):
     AdditionalComments: Optional[str] = None
     ApnPrograms: Optional[List[str]] = None
     CompetitorName: Optional[CompetitorNameType] = None
     CustomerBusinessProblem: Optional[str] = None
     CustomerUseCase: Optional[str] = None
     DeliveryModels: Optional[List[DeliveryModelType]] = None
-    ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpendTypeDef]] = None
+    ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpend]] = None
     OtherCompetitorNames: Optional[str] = None
     OtherSolutionDescription: Optional[str] = None
     RelatedOpportunityIdentifier: Optional[str] = None
@@ -489,19 +489,19 @@ class ProjectOutputTypeDef(BaseValidatorModel):
     Title: Optional[str] = None
 
 
-class ProjectSummaryTypeDef(BaseValidatorModel):
+class ProjectSummary(BaseValidatorModel):
     DeliveryModels: Optional[List[DeliveryModelType]] = None
-    ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpendTypeDef]] = None
+    ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpend]] = None
 
 
-class ProjectTypeDef(BaseValidatorModel):
+class Project(BaseValidatorModel):
     AdditionalComments: Optional[str] = None
     ApnPrograms: Optional[Sequence[str]] = None
     CompetitorName: Optional[CompetitorNameType] = None
     CustomerBusinessProblem: Optional[str] = None
     CustomerUseCase: Optional[str] = None
     DeliveryModels: Optional[Sequence[DeliveryModelType]] = None
-    ExpectedCustomerSpend: Optional[Sequence[ExpectedCustomerSpendTypeDef]] = None
+    ExpectedCustomerSpend: Optional[Sequence[ExpectedCustomerSpend]] = None
     OtherCompetitorNames: Optional[str] = None
     OtherSolutionDescription: Optional[str] = None
     RelatedOpportunityIdentifier: Optional[str] = None
@@ -509,50 +509,50 @@ class ProjectTypeDef(BaseValidatorModel):
     Title: Optional[str] = None
 
 
-class ProjectViewTypeDef(BaseValidatorModel):
+class ProjectView(BaseValidatorModel):
     CustomerUseCase: Optional[str] = None
     DeliveryModels: Optional[List[DeliveryModelType]] = None
-    ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpendTypeDef]] = None
+    ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpend]] = None
     OtherSolutionDescription: Optional[str] = None
     SalesActivities: Optional[List[SalesActivityType]] = None
 
 
-class CreateEngagementInvitationResponseTypeDef(BaseValidatorModel):
+class CreateEngagementInvitationResponse(BaseValidatorModel):
     Arn: str
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEngagementResponseTypeDef(BaseValidatorModel):
+class CreateEngagementResponse(BaseValidatorModel):
     Arn: str
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOpportunityResponseTypeDef(BaseValidatorModel):
+class CreateOpportunityResponse(BaseValidatorModel):
     Id: str
     LastModifiedDate: datetime
     PartnerOpportunityIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateResourceSnapshotJobResponseTypeDef(BaseValidatorModel):
+class CreateResourceSnapshotJobResponse(BaseValidatorModel):
     Arn: str
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateResourceSnapshotResponseTypeDef(BaseValidatorModel):
+class CreateResourceSnapshotResponse(BaseValidatorModel):
     Arn: str
     Revision: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourceSnapshotJobResponseTypeDef(BaseValidatorModel):
+class GetResourceSnapshotJobResponse(BaseValidatorModel):
     Arn: str
     Catalog: str
     CreatedAt: datetime
@@ -565,22 +565,22 @@ class GetResourceSnapshotJobResponseTypeDef(BaseValidatorModel):
     ResourceSnapshotTemplateName: str
     ResourceType: Literal["Opportunity"]
     Status: ResourceSnapshotJobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSellingSystemSettingsResponseTypeDef(BaseValidatorModel):
+class GetSellingSystemSettingsResponse(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobRoleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutSellingSystemSettingsResponseTypeDef(BaseValidatorModel):
+class PutSellingSystemSettingsResponse(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobRoleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartEngagementByAcceptingInvitationTaskResponseTypeDef(BaseValidatorModel):
+class StartEngagementByAcceptingInvitationTaskResponse(BaseValidatorModel):
     EngagementInvitationId: str
     Message: str
     OpportunityId: str
@@ -590,10 +590,10 @@ class StartEngagementByAcceptingInvitationTaskResponseTypeDef(BaseValidatorModel
     TaskArn: str
     TaskId: str
     TaskStatus: TaskStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartEngagementFromOpportunityTaskResponseTypeDef(BaseValidatorModel):
+class StartEngagementFromOpportunityTaskResponse(BaseValidatorModel):
     EngagementId: str
     EngagementInvitationId: str
     Message: str
@@ -604,101 +604,101 @@ class StartEngagementFromOpportunityTaskResponseTypeDef(BaseValidatorModel):
     TaskArn: str
     TaskId: str
     TaskStatus: TaskStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateOpportunityResponseTypeDef(BaseValidatorModel):
+class UpdateOpportunityResponse(BaseValidatorModel):
     Id: str
     LastModifiedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
+class CreateResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
     EngagementIdentifier: str
     ResourceIdentifier: str
     ResourceSnapshotTemplateIdentifier: str
     ResourceType: Literal["Opportunity"]
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class StartEngagementByAcceptingInvitationTaskRequestTypeDef(BaseValidatorModel):
+class StartEngagementByAcceptingInvitationTaskRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
     Identifier: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class StartEngagementFromOpportunityTaskRequestTypeDef(BaseValidatorModel):
-    AwsSubmission: AwsSubmissionTypeDef
+class StartEngagementFromOpportunityTaskRequest(BaseValidatorModel):
+    AwsSubmission: AwsSubmission
     Catalog: str
     ClientToken: str
     Identifier: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CustomerProjectsContextTypeDef(BaseValidatorModel):
-    Customer: Optional[EngagementCustomerTypeDef] = None
-    Project: Optional[EngagementCustomerProjectDetailsTypeDef] = None
+class CustomerProjectsContext(BaseValidatorModel):
+    Customer: Optional[EngagementCustomer] = None
+    Project: Optional[EngagementCustomerProjectDetails] = None
 
 
-class ListEngagementMembersResponseTypeDef(BaseValidatorModel):
-    EngagementMemberList: List[EngagementMemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEngagementMembersResponse(BaseValidatorModel):
+    EngagementMemberList: List[EngagementMember]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEngagementResourceAssociationsResponseTypeDef(BaseValidatorModel):
-    EngagementResourceAssociationSummaries: List[EngagementResourceAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEngagementResourceAssociationsResponse(BaseValidatorModel):
+    EngagementResourceAssociationSummaries: List[EngagementResourceAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEngagementsRequestTypeDef(BaseValidatorModel):
+class ListEngagementsRequest(BaseValidatorModel):
     Catalog: str
     CreatedBy: Optional[Sequence[str]] = None
     EngagementIdentifier: Optional[Sequence[str]] = None
     ExcludeCreatedBy: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Sort: Optional[EngagementSortTypeDef] = None
+    Sort: Optional[EngagementSort] = None
 
 
-class ListEngagementsResponseTypeDef(BaseValidatorModel):
-    EngagementSummaryList: List[EngagementSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEngagementsResponse(BaseValidatorModel):
+    EngagementSummaryList: List[EngagementSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class LastModifiedDateTypeDef(BaseValidatorModel):
-    AfterLastModifiedDate: Optional[TimestampTypeDef] = None
-    BeforeLastModifiedDate: Optional[TimestampTypeDef] = None
+class LastModifiedDate(BaseValidatorModel):
+    AfterLastModifiedDate: Optional[Timestamp] = None
+    BeforeLastModifiedDate: Optional[Timestamp] = None
 
 
-class NextStepsHistoryTypeDef(BaseValidatorModel):
-    Time: TimestampTypeDef
+class NextStepsHistory(BaseValidatorModel):
+    Time: Timestamp
     Value: str
 
 
-class LifeCycleOutputTypeDef(BaseValidatorModel):
+class LifeCycleOutput(BaseValidatorModel):
     ClosedLostReason: Optional[ClosedLostReasonType] = None
     NextSteps: Optional[str] = None
-    NextStepsHistory: Optional[List[NextStepsHistoryOutputTypeDef]] = None
+    NextStepsHistory: Optional[List[NextStepsHistoryOutput]] = None
     ReviewComments: Optional[str] = None
     ReviewStatus: Optional[ReviewStatusType] = None
     ReviewStatusReason: Optional[str] = None
@@ -706,106 +706,106 @@ class LifeCycleOutputTypeDef(BaseValidatorModel):
     TargetCloseDate: Optional[str] = None
 
 
-class ListEngagementByAcceptingInvitationTasksResponseTypeDef(BaseValidatorModel):
-    TaskSummaries: List[ListEngagementByAcceptingInvitationTaskSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEngagementByAcceptingInvitationTasksResponse(BaseValidatorModel):
+    TaskSummaries: List[ListEngagementByAcceptingInvitationTaskSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEngagementByAcceptingInvitationTasksRequestTypeDef(BaseValidatorModel):
+class ListEngagementByAcceptingInvitationTasksRequest(BaseValidatorModel):
     Catalog: str
     EngagementInvitationIdentifier: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     OpportunityIdentifier: Optional[Sequence[str]] = None
-    Sort: Optional[ListTasksSortBaseTypeDef] = None
+    Sort: Optional[ListTasksSortBase] = None
     TaskIdentifier: Optional[Sequence[str]] = None
     TaskStatus: Optional[Sequence[TaskStatusType]] = None
 
 
-class ListEngagementFromOpportunityTasksRequestTypeDef(BaseValidatorModel):
+class ListEngagementFromOpportunityTasksRequest(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     OpportunityIdentifier: Optional[Sequence[str]] = None
-    Sort: Optional[ListTasksSortBaseTypeDef] = None
+    Sort: Optional[ListTasksSortBase] = None
     TaskIdentifier: Optional[Sequence[str]] = None
     TaskStatus: Optional[Sequence[TaskStatusType]] = None
 
 
-class ListEngagementByAcceptingInvitationTasksRequestPaginateTypeDef(BaseValidatorModel):
+class ListEngagementByAcceptingInvitationTasksRequestPaginate(BaseValidatorModel):
     Catalog: str
     EngagementInvitationIdentifier: Optional[Sequence[str]] = None
     OpportunityIdentifier: Optional[Sequence[str]] = None
-    Sort: Optional[ListTasksSortBaseTypeDef] = None
+    Sort: Optional[ListTasksSortBase] = None
     TaskIdentifier: Optional[Sequence[str]] = None
     TaskStatus: Optional[Sequence[TaskStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEngagementFromOpportunityTasksRequestPaginateTypeDef(BaseValidatorModel):
+class ListEngagementFromOpportunityTasksRequestPaginate(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: Optional[Sequence[str]] = None
     OpportunityIdentifier: Optional[Sequence[str]] = None
-    Sort: Optional[ListTasksSortBaseTypeDef] = None
+    Sort: Optional[ListTasksSortBase] = None
     TaskIdentifier: Optional[Sequence[str]] = None
     TaskStatus: Optional[Sequence[TaskStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEngagementMembersRequestPaginateTypeDef(BaseValidatorModel):
+class ListEngagementMembersRequestPaginate(BaseValidatorModel):
     Catalog: str
     Identifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEngagementResourceAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListEngagementResourceAssociationsRequestPaginate(BaseValidatorModel):
     Catalog: str
     CreatedBy: Optional[str] = None
     EngagementIdentifier: Optional[str] = None
     ResourceIdentifier: Optional[str] = None
     ResourceType: Optional[Literal["Opportunity"]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEngagementsRequestPaginateTypeDef(BaseValidatorModel):
+class ListEngagementsRequestPaginate(BaseValidatorModel):
     Catalog: str
     CreatedBy: Optional[Sequence[str]] = None
     EngagementIdentifier: Optional[Sequence[str]] = None
     ExcludeCreatedBy: Optional[Sequence[str]] = None
-    Sort: Optional[EngagementSortTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Sort: Optional[EngagementSort] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceSnapshotsRequestPaginateTypeDef(BaseValidatorModel):
+class ListResourceSnapshotsRequestPaginate(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: str
     CreatedBy: Optional[str] = None
     ResourceIdentifier: Optional[str] = None
     ResourceSnapshotTemplateIdentifier: Optional[str] = None
     ResourceType: Optional[Literal["Opportunity"]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEngagementFromOpportunityTasksResponseTypeDef(BaseValidatorModel):
-    TaskSummaries: List[ListEngagementFromOpportunityTaskSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEngagementFromOpportunityTasksResponse(BaseValidatorModel):
+    TaskSummaries: List[ListEngagementFromOpportunityTaskSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEngagementInvitationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListEngagementInvitationsRequestPaginate(BaseValidatorModel):
     Catalog: str
     ParticipantType: ParticipantTypeType
     EngagementIdentifier: Optional[Sequence[str]] = None
     PayloadType: Optional[Sequence[Literal["OpportunityInvitation"]]] = None
     SenderAwsAccountId: Optional[Sequence[str]] = None
-    Sort: Optional[OpportunityEngagementInvitationSortTypeDef] = None
+    Sort: Optional[OpportunityEngagementInvitationSort] = None
     Status: Optional[Sequence[InvitationStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEngagementInvitationsRequestTypeDef(BaseValidatorModel):
+class ListEngagementInvitationsRequest(BaseValidatorModel):
     Catalog: str
     ParticipantType: ParticipantTypeType
     EngagementIdentifier: Optional[Sequence[str]] = None
@@ -813,72 +813,72 @@ class ListEngagementInvitationsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     PayloadType: Optional[Sequence[Literal["OpportunityInvitation"]]] = None
     SenderAwsAccountId: Optional[Sequence[str]] = None
-    Sort: Optional[OpportunityEngagementInvitationSortTypeDef] = None
+    Sort: Optional[OpportunityEngagementInvitationSort] = None
     Status: Optional[Sequence[InvitationStatusType]] = None
 
 
-class ListResourceSnapshotJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListResourceSnapshotJobsRequestPaginate(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: Optional[str] = None
-    Sort: Optional[SortObjectTypeDef] = None
+    Sort: Optional[SortObject] = None
     Status: Optional[ResourceSnapshotJobStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceSnapshotJobsRequestTypeDef(BaseValidatorModel):
+class ListResourceSnapshotJobsRequest(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Sort: Optional[SortObjectTypeDef] = None
+    Sort: Optional[SortObject] = None
     Status: Optional[ResourceSnapshotJobStatusType] = None
 
 
-class ListResourceSnapshotJobsResponseTypeDef(BaseValidatorModel):
-    ResourceSnapshotJobSummaries: List[ResourceSnapshotJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceSnapshotJobsResponse(BaseValidatorModel):
+    ResourceSnapshotJobSummaries: List[ResourceSnapshotJobSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListResourceSnapshotsResponseTypeDef(BaseValidatorModel):
-    ResourceSnapshotSummaries: List[ResourceSnapshotSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceSnapshotsResponse(BaseValidatorModel):
+    ResourceSnapshotSummaries: List[ResourceSnapshotSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListSolutionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSolutionsRequestPaginate(BaseValidatorModel):
     Catalog: str
     Category: Optional[Sequence[str]] = None
     Identifier: Optional[Sequence[str]] = None
-    Sort: Optional[SolutionSortTypeDef] = None
+    Sort: Optional[SolutionSort] = None
     Status: Optional[Sequence[SolutionStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSolutionsRequestTypeDef(BaseValidatorModel):
+class ListSolutionsRequest(BaseValidatorModel):
     Catalog: str
     Category: Optional[Sequence[str]] = None
     Identifier: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Sort: Optional[SolutionSortTypeDef] = None
+    Sort: Optional[SolutionSort] = None
     Status: Optional[Sequence[SolutionStatusType]] = None
 
 
-class ListSolutionsResponseTypeDef(BaseValidatorModel):
-    SolutionSummaries: List[SolutionBaseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSolutionsResponse(BaseValidatorModel):
+    SolutionSummaries: List[SolutionBase]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SoftwareRevenueTypeDef(BaseValidatorModel):
+class SoftwareRevenue(BaseValidatorModel):
     DeliveryModel: Optional[RevenueModelType] = None
     EffectiveDate: Optional[str] = None
     ExpirationDate: Optional[str] = None
-    Value: Optional[MonetaryValueTypeDef] = None
+    Value: Optional[MonetaryValue] = None
 
 
-class EngagementInvitationSummaryTypeDef(BaseValidatorModel):
+class EngagementInvitationSummary(BaseValidatorModel):
     Catalog: str
     Id: str
     Arn: Optional[str] = None
@@ -888,80 +888,80 @@ class EngagementInvitationSummaryTypeDef(BaseValidatorModel):
     InvitationDate: Optional[datetime] = None
     ParticipantType: Optional[ParticipantTypeType] = None
     PayloadType: Optional[Literal["OpportunityInvitation"]] = None
-    Receiver: Optional[ReceiverTypeDef] = None
+    Receiver: Optional[Receiver] = None
     SenderAwsAccountId: Optional[str] = None
     SenderCompanyName: Optional[str] = None
     Status: Optional[InvitationStatusType] = None
 
 
-class CustomerSummaryTypeDef(BaseValidatorModel):
-    Account: Optional[AccountSummaryTypeDef] = None
+class CustomerSummary(BaseValidatorModel):
+    Account: Optional[AccountSummary] = None
 
 
-class CustomerOutputTypeDef(BaseValidatorModel):
-    Account: Optional[AccountTypeDef] = None
-    Contacts: Optional[List[ContactTypeDef]] = None
+class CustomerOutput(BaseValidatorModel):
+    Account: Optional[Account] = None
+    Contacts: Optional[List[Contact]] = None
 
 
-class CustomerTypeDef(BaseValidatorModel):
-    Account: Optional[AccountTypeDef] = None
-    Contacts: Optional[Sequence[ContactTypeDef]] = None
+class Customer(BaseValidatorModel):
+    Account: Optional[Account] = None
+    Contacts: Optional[Sequence[Contact]] = None
 
 
-class GetAwsOpportunitySummaryResponseTypeDef(BaseValidatorModel):
+class GetAwsOpportunitySummaryResponse(BaseValidatorModel):
     Catalog: str
-    Customer: AwsOpportunityCustomerTypeDef
-    Insights: AwsOpportunityInsightsTypeDef
+    Customer: AwsOpportunityCustomer
+    Insights: AwsOpportunityInsights
     InvolvementType: SalesInvolvementTypeType
     InvolvementTypeChangeReason: InvolvementTypeChangeReasonType
-    LifeCycle: AwsOpportunityLifeCycleTypeDef
-    OpportunityTeam: List[AwsTeamMemberTypeDef]
+    LifeCycle: AwsOpportunityLifeCycle
+    OpportunityTeam: List[AwsTeamMember]
     Origin: OpportunityOriginType
-    Project: AwsOpportunityProjectTypeDef
-    RelatedEntityIds: AwsOpportunityRelatedEntitiesTypeDef
+    Project: AwsOpportunityProject
+    RelatedEntityIds: AwsOpportunityRelatedEntities
     RelatedOpportunityId: str
     Visibility: VisibilityType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OpportunityInvitationPayloadOutputTypeDef(BaseValidatorModel):
-    Customer: EngagementCustomerTypeDef
-    Project: ProjectDetailsOutputTypeDef
+class OpportunityInvitationPayloadOutput(BaseValidatorModel):
+    Customer: EngagementCustomer
+    Project: ProjectDetailsOutput
     ReceiverResponsibilities: List[ReceiverResponsibilityType]
-    SenderContacts: Optional[List[SenderContactTypeDef]] = None
+    SenderContacts: Optional[List[SenderContact]] = None
 
 
-class EngagementContextPayloadTypeDef(BaseValidatorModel):
-    CustomerProject: Optional[CustomerProjectsContextTypeDef] = None
+class EngagementContextPayload(BaseValidatorModel):
+    CustomerProject: Optional[CustomerProjectsContext] = None
 
 
-class ListOpportunitiesRequestPaginateTypeDef(BaseValidatorModel):
+class ListOpportunitiesRequestPaginate(BaseValidatorModel):
     Catalog: str
     CustomerCompanyName: Optional[Sequence[str]] = None
     Identifier: Optional[Sequence[str]] = None
-    LastModifiedDate: Optional[LastModifiedDateTypeDef] = None
+    LastModifiedDate: Optional[LastModifiedDate] = None
     LifeCycleReviewStatus: Optional[Sequence[ReviewStatusType]] = None
     LifeCycleStage: Optional[Sequence[StageType]] = None
-    Sort: Optional[OpportunitySortTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Sort: Optional[OpportunitySort] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOpportunitiesRequestTypeDef(BaseValidatorModel):
+class ListOpportunitiesRequest(BaseValidatorModel):
     Catalog: str
     CustomerCompanyName: Optional[Sequence[str]] = None
     Identifier: Optional[Sequence[str]] = None
-    LastModifiedDate: Optional[LastModifiedDateTypeDef] = None
+    LastModifiedDate: Optional[LastModifiedDate] = None
     LifeCycleReviewStatus: Optional[Sequence[ReviewStatusType]] = None
     LifeCycleStage: Optional[Sequence[StageType]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Sort: Optional[OpportunitySortTypeDef] = None
+    Sort: Optional[OpportunitySort] = None
 
 
-class LifeCycleTypeDef(BaseValidatorModel):
+class LifeCycle(BaseValidatorModel):
     ClosedLostReason: Optional[ClosedLostReasonType] = None
     NextSteps: Optional[str] = None
-    NextStepsHistory: Optional[Sequence[NextStepsHistoryTypeDef]] = None
+    NextStepsHistory: Optional[Sequence[NextStepsHistory]] = None
     ReviewComments: Optional[str] = None
     ReviewStatus: Optional[ReviewStatusType] = None
     ReviewStatusReason: Optional[str] = None
@@ -969,208 +969,208 @@ class LifeCycleTypeDef(BaseValidatorModel):
     TargetCloseDate: Optional[str] = None
 
 
-class ListEngagementInvitationsResponseTypeDef(BaseValidatorModel):
-    EngagementInvitationSummaries: List[EngagementInvitationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEngagementInvitationsResponse(BaseValidatorModel):
+    EngagementInvitationSummaries: List[EngagementInvitationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class OpportunitySummaryTypeDef(BaseValidatorModel):
+class OpportunitySummary(BaseValidatorModel):
     Catalog: str
     Arn: Optional[str] = None
     CreatedDate: Optional[datetime] = None
-    Customer: Optional[CustomerSummaryTypeDef] = None
+    Customer: Optional[CustomerSummary] = None
     Id: Optional[str] = None
     LastModifiedDate: Optional[datetime] = None
-    LifeCycle: Optional[LifeCycleSummaryTypeDef] = None
+    LifeCycle: Optional[LifeCycleSummary] = None
     OpportunityType: Optional[OpportunityTypeType] = None
     PartnerOpportunityIdentifier: Optional[str] = None
-    Project: Optional[ProjectSummaryTypeDef] = None
+    Project: Optional[ProjectSummary] = None
 
 
-class GetOpportunityResponseTypeDef(BaseValidatorModel):
+class GetOpportunityResponse(BaseValidatorModel):
     Arn: str
     Catalog: str
     CreatedDate: datetime
-    Customer: CustomerOutputTypeDef
+    Customer: CustomerOutput
     Id: str
     LastModifiedDate: datetime
-    LifeCycle: LifeCycleOutputTypeDef
-    Marketing: MarketingOutputTypeDef
+    LifeCycle: LifeCycleOutput
+    Marketing: MarketingOutput
     NationalSecurity: NationalSecurityType
-    OpportunityTeam: List[ContactTypeDef]
+    OpportunityTeam: List[Contact]
     OpportunityType: OpportunityTypeType
     PartnerOpportunityIdentifier: str
     PrimaryNeedsFromAws: List[PrimaryNeedFromAwsType]
-    Project: ProjectOutputTypeDef
-    RelatedEntityIdentifiers: RelatedEntityIdentifiersTypeDef
-    SoftwareRevenue: SoftwareRevenueTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Project: ProjectOutput
+    RelatedEntityIdentifiers: RelatedEntityIdentifiers
+    SoftwareRevenue: SoftwareRevenue
+    ResponseMetadata: ResponseMetadata
 
 
-class OpportunitySummaryViewTypeDef(BaseValidatorModel):
-    Customer: Optional[CustomerOutputTypeDef] = None
-    Lifecycle: Optional[LifeCycleForViewTypeDef] = None
-    OpportunityTeam: Optional[List[ContactTypeDef]] = None
+class OpportunitySummaryView(BaseValidatorModel):
+    Customer: Optional[CustomerOutput] = None
+    Lifecycle: Optional[LifeCycleForView] = None
+    OpportunityTeam: Optional[List[Contact]] = None
     OpportunityType: Optional[OpportunityTypeType] = None
     PrimaryNeedsFromAws: Optional[List[PrimaryNeedFromAwsType]] = None
-    Project: Optional[ProjectViewTypeDef] = None
-    RelatedEntityIdentifiers: Optional[RelatedEntityIdentifiersTypeDef] = None
+    Project: Optional[ProjectView] = None
+    RelatedEntityIdentifiers: Optional[RelatedEntityIdentifiers] = None
 
 
-class PayloadOutputTypeDef(BaseValidatorModel):
-    OpportunityInvitation: Optional[OpportunityInvitationPayloadOutputTypeDef] = None
+class PayloadOutput(BaseValidatorModel):
+    OpportunityInvitation: Optional[OpportunityInvitationPayloadOutput] = None
 
 
-class ProjectDetailsUnionTypeDef(BaseValidatorModel):
+class ProjectDetailsUnion(BaseValidatorModel):
     pass
 
 
-class OpportunityInvitationPayloadTypeDef(BaseValidatorModel):
-    Customer: EngagementCustomerTypeDef
-    Project: ProjectDetailsUnionTypeDef
+class OpportunityInvitationPayload(BaseValidatorModel):
+    Customer: EngagementCustomer
+    Project: ProjectDetailsUnion
     ReceiverResponsibilities: Sequence[ReceiverResponsibilityType]
-    SenderContacts: Optional[Sequence[SenderContactTypeDef]] = None
+    SenderContacts: Optional[Sequence[SenderContact]] = None
 
 
-class ListOpportunitiesResponseTypeDef(BaseValidatorModel):
-    OpportunitySummaries: List[OpportunitySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOpportunitiesResponse(BaseValidatorModel):
+    OpportunitySummaries: List[OpportunitySummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ResourceSnapshotPayloadTypeDef(BaseValidatorModel):
-    OpportunitySummary: Optional[OpportunitySummaryViewTypeDef] = None
+class ResourceSnapshotPayload(BaseValidatorModel):
+    OpportunitySummary: Optional[OpportunitySummaryView] = None
 
 
-class GetEngagementInvitationResponseTypeDef(BaseValidatorModel):
+class GetEngagementInvitationResponse(BaseValidatorModel):
     Arn: str
     Catalog: str
     EngagementDescription: str
     EngagementId: str
     EngagementTitle: str
-    ExistingMembers: List[EngagementMemberSummaryTypeDef]
+    ExistingMembers: List[EngagementMemberSummary]
     ExpirationDate: datetime
     Id: str
     InvitationDate: datetime
     InvitationMessage: str
-    Payload: PayloadOutputTypeDef
+    Payload: PayloadOutput
     PayloadType: Literal["OpportunityInvitation"]
-    Receiver: ReceiverTypeDef
+    Receiver: Receiver
     RejectionReason: str
     SenderAwsAccountId: str
     SenderCompanyName: str
     Status: InvitationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EngagementContextDetailsTypeDef(BaseValidatorModel):
+class EngagementContextDetails(BaseValidatorModel):
     pass
 
 
-class CreateEngagementRequestTypeDef(BaseValidatorModel):
+class CreateEngagementRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
     Description: str
     Title: str
-    Contexts: Optional[Sequence[EngagementContextDetailsTypeDef]] = None
+    Contexts: Optional[Sequence[EngagementContextDetails]] = None
 
 
-class GetEngagementResponseTypeDef(BaseValidatorModel):
+class GetEngagementResponse(BaseValidatorModel):
     Arn: str
-    Contexts: List[EngagementContextDetailsTypeDef]
+    Contexts: List[EngagementContextDetails]
     CreatedAt: datetime
     CreatedBy: str
     Description: str
     Id: str
     MemberCount: int
     Title: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ProjectUnionTypeDef(BaseValidatorModel):
+class ProjectUnion(BaseValidatorModel):
     pass
 
 
-class CustomerUnionTypeDef(BaseValidatorModel):
+class CustomerUnion(BaseValidatorModel):
     pass
 
 
-class MarketingUnionTypeDef(BaseValidatorModel):
+class MarketingUnion(BaseValidatorModel):
     pass
 
 
-class LifeCycleUnionTypeDef(BaseValidatorModel):
+class LifeCycleUnion(BaseValidatorModel):
     pass
 
 
-class CreateOpportunityRequestTypeDef(BaseValidatorModel):
+class CreateOpportunityRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
-    Customer: Optional[CustomerUnionTypeDef] = None
-    LifeCycle: Optional[LifeCycleUnionTypeDef] = None
-    Marketing: Optional[MarketingUnionTypeDef] = None
+    Customer: Optional[CustomerUnion] = None
+    LifeCycle: Optional[LifeCycleUnion] = None
+    Marketing: Optional[MarketingUnion] = None
     NationalSecurity: Optional[NationalSecurityType] = None
-    OpportunityTeam: Optional[Sequence[ContactTypeDef]] = None
+    OpportunityTeam: Optional[Sequence[Contact]] = None
     OpportunityType: Optional[OpportunityTypeType] = None
     Origin: Optional[OpportunityOriginType] = None
     PartnerOpportunityIdentifier: Optional[str] = None
     PrimaryNeedsFromAws: Optional[Sequence[PrimaryNeedFromAwsType]] = None
-    Project: Optional[ProjectUnionTypeDef] = None
-    SoftwareRevenue: Optional[SoftwareRevenueTypeDef] = None
+    Project: Optional[ProjectUnion] = None
+    SoftwareRevenue: Optional[SoftwareRevenue] = None
 
 
-class UpdateOpportunityRequestTypeDef(BaseValidatorModel):
+class UpdateOpportunityRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
-    LastModifiedDate: TimestampTypeDef
-    Customer: Optional[CustomerUnionTypeDef] = None
-    LifeCycle: Optional[LifeCycleUnionTypeDef] = None
-    Marketing: Optional[MarketingUnionTypeDef] = None
+    LastModifiedDate: Timestamp
+    Customer: Optional[CustomerUnion] = None
+    LifeCycle: Optional[LifeCycleUnion] = None
+    Marketing: Optional[MarketingUnion] = None
     NationalSecurity: Optional[NationalSecurityType] = None
     OpportunityType: Optional[OpportunityTypeType] = None
     PartnerOpportunityIdentifier: Optional[str] = None
     PrimaryNeedsFromAws: Optional[Sequence[PrimaryNeedFromAwsType]] = None
-    Project: Optional[ProjectUnionTypeDef] = None
-    SoftwareRevenue: Optional[SoftwareRevenueTypeDef] = None
+    Project: Optional[ProjectUnion] = None
+    SoftwareRevenue: Optional[SoftwareRevenue] = None
 
 
-class GetResourceSnapshotResponseTypeDef(BaseValidatorModel):
+class GetResourceSnapshotResponse(BaseValidatorModel):
     Arn: str
     Catalog: str
     CreatedAt: datetime
     CreatedBy: str
     EngagementId: str
-    Payload: ResourceSnapshotPayloadTypeDef
+    Payload: ResourceSnapshotPayload
     ResourceId: str
     ResourceSnapshotTemplateName: str
     ResourceType: Literal["Opportunity"]
     Revision: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OpportunityInvitationPayloadUnionTypeDef(BaseValidatorModel):
+class OpportunityInvitationPayloadUnion(BaseValidatorModel):
     pass
 
 
-class PayloadTypeDef(BaseValidatorModel):
-    OpportunityInvitation: Optional[OpportunityInvitationPayloadUnionTypeDef] = None
+class Payload(BaseValidatorModel):
+    OpportunityInvitation: Optional[OpportunityInvitationPayloadUnion] = None
 
 
-class PayloadUnionTypeDef(BaseValidatorModel):
+class PayloadUnion(BaseValidatorModel):
     pass
 
 
-class InvitationTypeDef(BaseValidatorModel):
+class Invitation(BaseValidatorModel):
     Message: str
-    Payload: PayloadUnionTypeDef
-    Receiver: ReceiverTypeDef
+    Payload: PayloadUnion
+    Receiver: Receiver
 
 
-class CreateEngagementInvitationRequestTypeDef(BaseValidatorModel):
+class CreateEngagementInvitationRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
     EngagementIdentifier: str
-    Invitation: InvitationTypeDef
+    Invitation: Invitation
 
 

@@ -1,6 +1,6 @@
 # Cloudformation Classes
 
-# AccountGateResultTypeDef
+# AccountGateResult
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['FAILED', 'SKIPPED', 'SUCCEEDED']]
@@ -9,7 +9,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AccountLimitTypeDef
+# AccountLimit
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -18,18 +18,18 @@
 - **Type**: typing.Optional[int]
 
 
-# ActivateTypeOutputTypeDef
+# ActivateTypeOutput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AutoDeploymentTypeDef
+# AutoDeployment
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -44,7 +44,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDescribeTypeConfigurationsErrorTypeDef
+# BatchDescribeTypeConfigurationsError
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -53,42 +53,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TypeConfigurationIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.TypeConfigurationIdentifierTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# BatchDescribeTypeConfigurationsInputTypeDef
+# BatchDescribeTypeConfigurationsInput
 
 ### TypeConfigurationIdentifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.TypeConfigurationIdentifierTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.TypeConfigurationIdentifier]
 - **Required**: Yes
 
 
-# BatchDescribeTypeConfigurationsOutputTypeDef
+# BatchDescribeTypeConfigurationsOutput
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.BatchDescribeTypeConfigurationsErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.BatchDescribeTypeConfigurationsError]
 - **Required**: Yes
 
 ### UnprocessedTypeConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TypeConfigurationIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TypeConfigurationIdentifier]
 - **Required**: Yes
 
 ### TypeConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TypeConfigurationDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TypeConfigurationDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelUpdateStackInputStackCancelUpdateTypeDef
-
-### ClientRequestToken
-- **Type**: typing.Optional[str]
-
-
-# CancelUpdateStackInputTypeDef
+# CancelUpdateStackInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -98,28 +92,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChangeSetHookResourceTargetDetailsTypeDef
+# CancelUpdateStackInputStackCancelUpdate
 
-### LogicalResourceId
+### ClientRequestToken
 - **Type**: typing.Optional[str]
 
-### ResourceType
-- **Type**: typing.Optional[str]
 
-### ResourceAction
-- **Type**: typing.Optional[typing.Literal['Add', 'Dynamic', 'Import', 'Modify', 'Remove']]
+# Change
 
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-# ChangeSetHookTargetDetailsTypeDef
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### TargetType
-- **Type**: typing.Optional[typing.Literal['RESOURCE']]
-
-### ResourceTargetDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ChangeSetHookResourceTargetDetailsTypeDef]
-
-
-# ChangeSetHookTypeDef
+# ChangeSetHook
 
 ### InvocationPoint
 - **Type**: typing.Optional[typing.Literal['PRE_PROVISION']]
@@ -137,10 +122,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TargetDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ChangeSetHookTargetDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ChangeSetHookTargetDetails]
 
 
-# ChangeSetSummaryTypeDef
+# ChangeSetHookResourceTargetDetails
+
+### LogicalResourceId
+- **Type**: typing.Optional[str]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### ResourceAction
+- **Type**: typing.Optional[typing.Literal['Add', 'Dynamic', 'Import', 'Modify', 'Remove']]
+
+
+# ChangeSetHookTargetDetails
+
+### TargetType
+- **Type**: typing.Optional[typing.Literal['RESOURCE']]
+
+### ResourceTargetDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ChangeSetHookResourceTargetDetails]
+
+
+# ChangeSetSummary
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -182,13 +188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ChangeTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ContinueUpdateRollbackInputTypeDef
+# ContinueUpdateRollbackInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -204,7 +204,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateChangeSetInputTypeDef
+# CreateChangeSetInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -224,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
 
 ### Capabilities
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
@@ -236,13 +236,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnion]
 
 ### NotificationARNs
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -254,7 +254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATE', 'IMPORT', 'UPDATE']]
 
 ### ResourcesToImport
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceToImportTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceToImport]]
 
 ### IncludeNestedStacks
 - **Type**: typing.Optional[bool]
@@ -266,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateChangeSetOutputTypeDef
+# CreateChangeSetOutput
 
 ### Id
 - **Type**: <class 'str'>
@@ -277,38 +277,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateGeneratedTemplateInputTypeDef
+# CreateGeneratedTemplateInput
 
 ### GeneratedTemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceDefinition]]
 
 ### StackName
 - **Type**: typing.Optional[str]
 
 ### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.TemplateConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateGeneratedTemplateOutputTypeDef
+# CreateGeneratedTemplateOutput
 
 ### GeneratedTemplateId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStackInputServiceResourceCreateStackTypeDef
+# CreateStackInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -321,13 +321,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
 
 ### DisableRollback
 - **Type**: typing.Optional[bool]
 
 ### RollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnion]
 
 ### TimeoutInMinutes
 - **Type**: typing.Optional[int]
@@ -354,7 +354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -366,7 +366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateStackInputTypeDef
+# CreateStackInputServiceResourceCreateStack
 
 ### StackName
 - **Type**: <class 'str'>
@@ -379,13 +379,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
 
 ### DisableRollback
 - **Type**: typing.Optional[bool]
 
 ### RollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnion]
 
 ### TimeoutInMinutes
 - **Type**: typing.Optional[int]
@@ -412,7 +412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -424,7 +424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateStackInstancesInputTypeDef
+# CreateStackInstancesInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -438,13 +438,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### DeploymentTargets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsUnion]
 
 ### ParameterOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
 
 ### OperationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnion]
 
 ### OperationId
 - **Type**: typing.Optional[str]
@@ -453,32 +453,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# CreateStackInstancesOutputTypeDef
+# CreateStackInstancesOutput
 
 ### OperationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStackOutputTypeDef
+# CreateStackOutput
 
 ### StackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStackRefactorInputTypeDef
+# CreateStackRefactorInput
 
 ### StackDefinitions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.StackDefinitionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.StackDefinition]
 - **Required**: Yes
 
 ### Description
@@ -488,21 +488,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ResourceMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceMapping]]
 
 
-# CreateStackRefactorOutputTypeDef
+# CreateStackRefactorOutput
 
 ### StackRefactorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStackSetInputTypeDef
+# CreateStackSetInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -521,13 +521,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
 
 ### Capabilities
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
 
 ### AdministrationRoleARN
 - **Type**: typing.Optional[str]
@@ -539,7 +539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SELF_MANAGED', 'SERVICE_MANAGED']]
 
 ### AutoDeployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.AutoDeploymentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CallAs
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
@@ -548,21 +548,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ManagedExecution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ManagedExecutionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateStackSetOutputTypeDef
+# CreateStackSetOutput
 
 ### StackSetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteChangeSetInputTypeDef
+# DeleteChangeSetInput
 
 ### ChangeSetName
 - **Type**: <class 'str'>
@@ -572,29 +572,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteGeneratedTemplateInputTypeDef
+# DeleteGeneratedTemplateInput
 
 ### GeneratedTemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStackInputStackDeleteTypeDef
-
-### RetainResources
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### RoleARN
-- **Type**: typing.Optional[str]
-
-### ClientRequestToken
-- **Type**: typing.Optional[str]
-
-### DeletionMode
-- **Type**: typing.Optional[typing.Literal['FORCE_DELETE_STACK', 'STANDARD']]
-
-
-# DeleteStackInputTypeDef
+# DeleteStackInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -613,7 +598,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FORCE_DELETE_STACK', 'STANDARD']]
 
 
-# DeleteStackInstancesInputTypeDef
+# DeleteStackInputStackDelete
+
+### RetainResources
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### RoleARN
+- **Type**: typing.Optional[str]
+
+### ClientRequestToken
+- **Type**: typing.Optional[str]
+
+### DeletionMode
+- **Type**: typing.Optional[typing.Literal['FORCE_DELETE_STACK', 'STANDARD']]
+
+
+# DeleteStackInstancesInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -631,10 +631,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### DeploymentTargets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsUnion]
 
 ### OperationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnion]
 
 ### OperationId
 - **Type**: typing.Optional[str]
@@ -643,18 +643,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# DeleteStackInstancesOutputTypeDef
+# DeleteStackInstancesOutput
 
 ### OperationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteStackSetInputTypeDef
+# DeleteStackSetInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -664,22 +664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# DeploymentTargetsOutputTypeDef
-
-### Accounts
-- **Type**: typing.Optional[typing.List[str]]
-
-### AccountsUrl
-- **Type**: typing.Optional[str]
-
-### OrganizationalUnitIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### AccountFilterType
-- **Type**: typing.Optional[typing.Literal['DIFFERENCE', 'INTERSECTION', 'NONE', 'UNION']]
-
-
-# DeploymentTargetsTypeDef
+# DeploymentTargets
 
 ### Accounts
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -694,39 +679,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DIFFERENCE', 'INTERSECTION', 'NONE', 'UNION']]
 
 
-# DeploymentTargetsUnionTypeDef
+# DeploymentTargetsOutput
+
+### Accounts
+- **Type**: typing.Optional[typing.List[str]]
+
+### AccountsUrl
+- **Type**: typing.Optional[str]
+
+### OrganizationalUnitIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### AccountFilterType
+- **Type**: typing.Optional[typing.Literal['DIFFERENCE', 'INTERSECTION', 'NONE', 'UNION']]
+
+
+# DeploymentTargetsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DescribeAccountLimitsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# DescribeAccountLimitsInputTypeDef
+# DescribeAccountLimitsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeAccountLimitsOutputTypeDef
+# DescribeAccountLimitsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# DescribeAccountLimitsOutput
 
 ### AccountLimits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.AccountLimitTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.AccountLimit]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeChangeSetHooksInputTypeDef
+# DescribeChangeSetHooksInput
 
 ### ChangeSetName
 - **Type**: <class 'str'>
@@ -742,7 +742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeChangeSetHooksOutputTypeDef
+# DescribeChangeSetHooksOutput
 
 ### ChangeSetId
 - **Type**: <class 'str'>
@@ -753,7 +753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Hooks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ChangeSetHookTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ChangeSetHook]
 - **Required**: Yes
 
 ### Status
@@ -769,14 +769,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeChangeSetInputPaginateTypeDef
+# DescribeChangeSetInput
+
+### ChangeSetName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StackName
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### IncludePropertyValues
+- **Type**: typing.Optional[bool]
+
+
+# DescribeChangeSetInputPaginate
 
 ### ChangeSetName
 - **Type**: <class 'str'>
@@ -789,26 +805,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
 
 
-# DescribeChangeSetInputTypeDef
-
-### ChangeSetName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StackName
-- **Type**: typing.Optional[str]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### IncludePropertyValues
-- **Type**: typing.Optional[bool]
-
-
-# DescribeChangeSetInputWaitTypeDef
+# DescribeChangeSetInputWait
 
 ### ChangeSetName
 - **Type**: <class 'str'>
@@ -824,10 +824,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeChangeSetOutputTypeDef
+# DescribeChangeSetOutput
 
 ### ChangeSetName
 - **Type**: <class 'str'>
@@ -850,7 +850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]
 - **Required**: Yes
 
 ### CreationTime
@@ -874,7 +874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RollbackConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationOutput'>
 - **Required**: Yes
 
 ### Capabilities
@@ -882,11 +882,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]
 - **Required**: Yes
 
 ### Changes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ChangeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Change]
 - **Required**: Yes
 
 ### IncludeNestedStacks
@@ -910,21 +910,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeGeneratedTemplateInputTypeDef
+# DescribeGeneratedTemplateInput
 
 ### GeneratedTemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeGeneratedTemplateOutputTypeDef
+# DescribeGeneratedTemplateOutput
 
 ### GeneratedTemplateId
 - **Type**: <class 'str'>
@@ -935,7 +935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceDetail]
 - **Required**: Yes
 
 ### Status
@@ -955,7 +955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Progress
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.TemplateProgressTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.TemplateProgress'>
 - **Required**: Yes
 
 ### StackId
@@ -963,7 +963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TemplateConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.TemplateConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.TemplateConfiguration'>
 - **Required**: Yes
 
 ### TotalWarnings
@@ -971,34 +971,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeOrganizationsAccessInputTypeDef
+# DescribeOrganizationsAccessInput
 
 ### CallAs
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# DescribeOrganizationsAccessOutputTypeDef
+# DescribeOrganizationsAccessOutput
 
 ### Status
 - **Type**: typing.Literal['DISABLED', 'DISABLED_PERMANENTLY', 'ENABLED']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribePublisherInputTypeDef
+# DescribePublisherInput
 
 ### PublisherId
 - **Type**: typing.Optional[str]
 
 
-# DescribePublisherOutputTypeDef
+# DescribePublisherOutput
 
 ### PublisherId
 - **Type**: <class 'str'>
@@ -1017,18 +1017,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeResourceScanInputTypeDef
+# DescribeResourceScanInput
 
 ### ResourceScanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeResourceScanOutputTypeDef
+# DescribeResourceScanOutput
 
 ### ResourceScanId
 - **Type**: <class 'str'>
@@ -1067,18 +1067,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStackDriftDetectionStatusInputTypeDef
+# DescribeStackDriftDetectionStatusInput
 
 ### StackDriftDetectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeStackDriftDetectionStatusOutputTypeDef
+# DescribeStackDriftDetectionStatusOutput
 
 ### StackId
 - **Type**: <class 'str'>
@@ -1109,43 +1109,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStackEventsInputPaginateTypeDef
+# DescribeStackEventsInput
+
+### StackName
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeStackEventsInputPaginate
 
 ### StackName
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
 
 
-# DescribeStackEventsInputTypeDef
-
-### StackName
-- **Type**: typing.Optional[str]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeStackEventsOutputTypeDef
+# DescribeStackEventsOutput
 
 ### StackEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeStackInstanceInputTypeDef
+# DescribeStackInstanceInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -1163,45 +1163,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# DescribeStackInstanceOutputTypeDef
+# DescribeStackInstanceOutput
 
 ### StackInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStackRefactorInputTypeDef
+# DescribeStackRefactorInput
 
 ### StackRefactorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeStackRefactorInputWaitExtraTypeDef
-
-### StackRefactorId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
-
-
-# DescribeStackRefactorInputWaitTypeDef
+# DescribeStackRefactorInputWait
 
 ### StackRefactorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeStackRefactorOutputTypeDef
+# DescribeStackRefactorInputWaitExtra
+
+### StackRefactorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# DescribeStackRefactorOutput
 
 ### Description
 - **Type**: <class 'str'>
@@ -1232,11 +1232,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStackResourceDriftsInputTypeDef
+# DescribeStackResourceDriftsInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -1252,21 +1252,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeStackResourceDriftsOutputTypeDef
+# DescribeStackResourceDriftsOutput
 
 ### StackResourceDrifts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDriftTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDrift]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeStackResourceInputTypeDef
+# DescribeStackResourceInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -1277,18 +1277,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeStackResourceOutputTypeDef
+# DescribeStackResourceOutput
 
 ### StackResourceDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStackResourcesInputTypeDef
+# DescribeStackResourcesInput
 
 ### StackName
 - **Type**: typing.Optional[str]
@@ -1300,18 +1300,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeStackResourcesOutputTypeDef
+# DescribeStackResourcesOutput
 
 ### StackResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStackSetInputTypeDef
+# DescribeStackSetInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -1321,7 +1321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# DescribeStackSetOperationInputTypeDef
+# DescribeStackSetOperationInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -1335,47 +1335,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# DescribeStackSetOperationOutputTypeDef
+# DescribeStackSetOperationOutput
 
 ### StackSetOperation
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStackSetOutputTypeDef
+# DescribeStackSetOutput
 
 ### StackSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStacksInputPaginateTypeDef
+# DescribeStacksInput
+
+### StackName
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeStacksInputPaginate
 
 ### StackName
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
 
 
-# DescribeStacksInputTypeDef
-
-### StackName
-- **Type**: typing.Optional[str]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeStacksInputWaitExtraExtraExtraExtraExtraTypeDef
+# DescribeStacksInputWait
 
 ### StackName
 - **Type**: typing.Optional[str]
@@ -1384,22 +1384,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeStacksInputWaitExtraExtraExtraExtraTypeDef
-
-### StackName
-- **Type**: typing.Optional[str]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
-
-
-# DescribeStacksInputWaitExtraExtraExtraTypeDef
+# DescribeStacksInputWaitExtra
 
 ### StackName
 - **Type**: typing.Optional[str]
@@ -1408,22 +1396,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeStacksInputWaitExtraExtraTypeDef
-
-### StackName
-- **Type**: typing.Optional[str]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
-
-
-# DescribeStacksInputWaitExtraTypeDef
+# DescribeStacksInputWaitExtraExtra
 
 ### StackName
 - **Type**: typing.Optional[str]
@@ -1432,10 +1408,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeStacksInputWaitTypeDef
+# DescribeStacksInputWaitExtraExtraExtra
 
 ### StackName
 - **Type**: typing.Optional[str]
@@ -1444,41 +1420,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeStacksOutputTypeDef
+# DescribeStacksInputWaitExtraExtraExtraExtra
+
+### StackName
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# DescribeStacksInputWaitExtraExtraExtraExtraExtra
+
+### StackName
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# DescribeStacksOutput
 
 ### Stacks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Stack]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeTypeRegistrationInputTypeDef
+# DescribeTypeRegistrationInput
 
 ### RegistrationToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTypeRegistrationInputWaitTypeDef
+# DescribeTypeRegistrationInputWait
 
 ### RegistrationToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeTypeRegistrationOutputTypeDef
+# DescribeTypeRegistrationOutput
 
 ### ProgressStatus
 - **Type**: typing.Literal['COMPLETE', 'FAILED', 'IN_PROGRESS']
@@ -1497,11 +1497,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectStackDriftInputTypeDef
+# DetectStackDriftInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -1511,18 +1511,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DetectStackDriftOutputTypeDef
+# DetectStackDriftOutput
 
 ### StackDriftDetectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectStackResourceDriftInputTypeDef
+# DetectStackResourceDriftInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -1533,25 +1533,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectStackResourceDriftOutputTypeDef
+# DetectStackResourceDriftOutput
 
 ### StackResourceDrift
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDriftTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDrift'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectStackSetDriftInputTypeDef
+# DetectStackSetDriftInput
 
 ### StackSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### OperationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnion]
 
 ### OperationId
 - **Type**: typing.Optional[str]
@@ -1560,25 +1560,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# DetectStackSetDriftOutputTypeDef
+# DetectStackSetDriftOutput
 
 ### OperationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EstimateTemplateCostInputTypeDef
+# EstimateTemplateCostInput
 
 ### TemplateBody
 - **Type**: typing.Optional[str]
@@ -1587,21 +1587,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
 
 
-# EstimateTemplateCostOutputTypeDef
+# EstimateTemplateCostOutput
 
 ### Url
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExecuteChangeSetInputTypeDef
+# ExecuteChangeSetInput
 
 ### ChangeSetName
 - **Type**: <class 'str'>
@@ -1620,14 +1620,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExecuteStackRefactorInputTypeDef
+# ExecuteStackRefactorInput
 
 ### StackRefactorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ExportTypeDef
+# Export
 
 ### ExportingStackId
 - **Type**: typing.Optional[str]
@@ -1639,7 +1639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetGeneratedTemplateInputTypeDef
+# GetGeneratedTemplateInput
 
 ### GeneratedTemplateName
 - **Type**: <class 'str'>
@@ -1649,7 +1649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['JSON', 'YAML']]
 
 
-# GetGeneratedTemplateOutputTypeDef
+# GetGeneratedTemplateOutput
 
 ### Status
 - **Type**: typing.Literal['COMPLETE', 'CREATE_IN_PROGRESS', 'CREATE_PENDING', 'DELETE_IN_PROGRESS', 'DELETE_PENDING', 'FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_PENDING']
@@ -1660,29 +1660,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetStackPolicyInputTypeDef
+# GetStackPolicyInput
 
 ### StackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetStackPolicyOutputTypeDef
+# GetStackPolicyOutput
 
 ### StackPolicyBody
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTemplateInputTypeDef
+# GetTemplateInput
 
 ### StackName
 - **Type**: typing.Optional[str]
@@ -1694,7 +1694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Original', 'Processed']]
 
 
-# GetTemplateOutputTypeDef
+# GetTemplateOutput
 
 ### TemplateBody
 - **Type**: typing.Dict[str, typing.Any]
@@ -1705,11 +1705,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTemplateSummaryInputTypeDef
+# GetTemplateSummaryInput
 
 ### TemplateBody
 - **Type**: typing.Optional[str]
@@ -1727,13 +1727,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 ### TemplateSummaryConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.TemplateSummaryConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetTemplateSummaryOutputTypeDef
+# GetTemplateSummaryOutput
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterDeclarationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterDeclaration]
 - **Required**: Yes
 
 ### Description
@@ -1765,19 +1765,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceIdentifierSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceIdentifierSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceIdentifierSummary]
 - **Required**: Yes
 
 ### Warnings
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.WarningsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.Warnings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HookResultSummaryTypeDef
+# HookResultSummary
 
 ### InvocationPoint
 - **Type**: typing.Optional[typing.Literal['PRE_PROVISION']]
@@ -1801,7 +1801,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportStacksToStackSetInputTypeDef
+# ImportStacksToStackSetInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -1817,7 +1817,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### OperationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnion]
 
 ### OperationId
 - **Type**: typing.Optional[str]
@@ -1826,28 +1826,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# ImportStacksToStackSetOutputTypeDef
+# ImportStacksToStackSetOutput
 
 ### OperationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListChangeSetsInputPaginateTypeDef
-
-### StackName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListChangeSetsInputTypeDef
+# ListChangeSetsInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -1857,53 +1847,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChangeSetsOutputTypeDef
+# ListChangeSetsInputPaginate
+
+### StackName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListChangeSetsOutput
 
 ### Summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ChangeSetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ChangeSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListExportsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListExportsInputTypeDef
+# ListExportsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListExportsOutputTypeDef
+# ListExportsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListExportsOutput
 
 ### Exports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ExportTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Export]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListGeneratedTemplatesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListGeneratedTemplatesInputTypeDef
+# ListGeneratedTemplatesInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1912,21 +1906,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListGeneratedTemplatesOutputTypeDef
+# ListGeneratedTemplatesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListGeneratedTemplatesOutput
 
 ### Summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TemplateSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListHookResultsInputTypeDef
+# ListHookResultsInput
 
 ### TargetType
 - **Type**: typing.Literal['CHANGE_SET', 'CLOUD_CONTROL', 'RESOURCE', 'STACK']
@@ -1940,7 +1940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHookResultsOutputTypeDef
+# ListHookResultsOutput
 
 ### TargetType
 - **Type**: typing.Literal['CHANGE_SET', 'CLOUD_CONTROL', 'RESOURCE', 'STACK']
@@ -1951,73 +1951,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HookResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.HookResultSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.HookResultSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImportsInputPaginateTypeDef
+# ListImportsInput
+
+### ExportName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListImportsInputPaginate
 
 ### ExportName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
 
 
-# ListImportsInputTypeDef
-
-### ExportName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListImportsOutputTypeDef
+# ListImportsOutput
 
 ### Imports
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceScanRelatedResourcesInputPaginateTypeDef
+# ListResourceScanRelatedResourcesInput
 
 ### ResourceScanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ScannedResourceIdentifierTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceScanRelatedResourcesInputTypeDef
-
-### ResourceScanId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Resources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ScannedResourceIdentifierTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ScannedResourceIdentifier]
 - **Required**: Yes
 
 ### NextToken
@@ -2027,43 +2013,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListResourceScanRelatedResourcesOutputTypeDef
+# ListResourceScanRelatedResourcesInputPaginate
+
+### ResourceScanId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Resources
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ScannedResourceIdentifier]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListResourceScanRelatedResourcesOutput
 
 ### RelatedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ScannedResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ScannedResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceScanResourcesInputPaginateTypeDef
-
-### ResourceScanId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceIdentifier
-- **Type**: typing.Optional[str]
-
-### ResourceTypePrefix
-- **Type**: typing.Optional[str]
-
-### TagKey
-- **Type**: typing.Optional[str]
-
-### TagValue
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceScanResourcesInputTypeDef
+# ListResourceScanResourcesInput
 
 ### ResourceScanId
 - **Type**: <class 'str'>
@@ -2088,27 +2066,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListResourceScanResourcesOutputTypeDef
+# ListResourceScanResourcesInputPaginate
+
+### ResourceScanId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceIdentifier
+- **Type**: typing.Optional[str]
+
+### ResourceTypePrefix
+- **Type**: typing.Optional[str]
+
+### TagKey
+- **Type**: typing.Optional[str]
+
+### TagValue
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListResourceScanResourcesOutput
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ScannedResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ScannedResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceScansInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceScansInputTypeDef
+# ListResourceScansInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2117,21 +2111,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListResourceScansOutputTypeDef
+# ListResourceScansInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListResourceScansOutput
 
 ### ResourceScanSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceScanSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceScanSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStackInstanceResourceDriftsInputTypeDef
+# ListStackInstanceResourceDriftsInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -2162,43 +2162,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# ListStackInstanceResourceDriftsOutputTypeDef
+# ListStackInstanceResourceDriftsOutput
 
 ### Summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceResourceDriftsSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceResourceDriftsSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStackInstancesInputPaginateTypeDef
-
-### StackSetName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceFilterTypeDef]]
-
-### StackInstanceAccount
-- **Type**: typing.Optional[str]
-
-### StackInstanceRegion
-- **Type**: typing.Optional[str]
-
-### CallAs
-- **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListStackInstancesInputTypeDef
+# ListStackInstancesInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -2211,7 +2189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceFilter]]
 
 ### StackInstanceAccount
 - **Type**: typing.Optional[str]
@@ -2223,31 +2201,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# ListStackInstancesOutputTypeDef
+# ListStackInstancesInputPaginate
+
+### StackSetName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceFilter]]
+
+### StackInstanceAccount
+- **Type**: typing.Optional[str]
+
+### StackInstanceRegion
+- **Type**: typing.Optional[str]
+
+### CallAs
+- **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListStackInstancesOutput
 
 ### Summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStackRefactorActionsInputPaginateTypeDef
-
-### StackRefactorId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListStackRefactorActionsInputTypeDef
+# ListStackRefactorActionsInput
 
 ### StackRefactorId
 - **Type**: <class 'str'>
@@ -2260,30 +2250,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListStackRefactorActionsOutputTypeDef
+# ListStackRefactorActionsInputPaginate
+
+### StackRefactorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListStackRefactorActionsOutput
 
 ### StackRefactorActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackRefactorActionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackRefactorAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStackRefactorsInputPaginateTypeDef
-
-### ExecutionStatusFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AVAILABLE', 'EXECUTE_COMPLETE', 'EXECUTE_FAILED', 'EXECUTE_IN_PROGRESS', 'OBSOLETE', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UNAVAILABLE']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListStackRefactorsInputTypeDef
+# ListStackRefactorsInput
 
 ### ExecutionStatusFilter
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AVAILABLE', 'EXECUTE_COMPLETE', 'EXECUTE_FAILED', 'EXECUTE_IN_PROGRESS', 'OBSOLETE', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UNAVAILABLE']]]
@@ -2295,55 +2286,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListStackRefactorsOutputTypeDef
+# ListStackRefactorsInputPaginate
+
+### ExecutionStatusFilter
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AVAILABLE', 'EXECUTE_COMPLETE', 'EXECUTE_FAILED', 'EXECUTE_IN_PROGRESS', 'OBSOLETE', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UNAVAILABLE']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListStackRefactorsOutput
 
 ### StackRefactorSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackRefactorSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackRefactorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStackResourcesInputPaginateTypeDef
+# ListStackResourcesInput
+
+### StackName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListStackResourcesInputPaginate
 
 ### StackName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
 
 
-# ListStackResourcesInputTypeDef
-
-### StackName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListStackResourcesOutputTypeDef
+# ListStackResourcesOutput
 
 ### StackResourceSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStackSetAutoDeploymentTargetsInputTypeDef
+# ListStackSetAutoDeploymentTargetsInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -2359,41 +2359,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# ListStackSetAutoDeploymentTargetsOutputTypeDef
+# ListStackSetAutoDeploymentTargetsOutput
 
 ### Summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetAutoDeploymentTargetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetAutoDeploymentTargetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStackSetOperationResultsInputPaginateTypeDef
-
-### StackSetName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### OperationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CallAs
-- **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.OperationResultFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListStackSetOperationResultsInputTypeDef
+# ListStackSetOperationResultsInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -2413,37 +2393,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.OperationResultFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.OperationResultFilter]]
 
 
-# ListStackSetOperationResultsOutputTypeDef
-
-### Summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationResultSummaryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListStackSetOperationsInputPaginateTypeDef
+# ListStackSetOperationResultsInputPaginate
 
 ### StackSetName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OperationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CallAs
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.OperationResultFilter]]
+
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
 
 
-# ListStackSetOperationsInputTypeDef
+# ListStackSetOperationResultsOutput
+
+### Summaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationResultSummary]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListStackSetOperationsInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -2459,33 +2446,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# ListStackSetOperationsOutputTypeDef
+# ListStackSetOperationsInputPaginate
+
+### StackSetName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CallAs
+- **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListStackSetOperationsOutput
 
 ### Summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStackSetsInputPaginateTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETED']]
-
-### CallAs
-- **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
-
-
-# ListStackSetsInputTypeDef
+# ListStackSetsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2500,95 +2488,107 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# ListStackSetsOutputTypeDef
+# ListStackSetsInputPaginate
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETED']]
+
+### CallAs
+- **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
+
+
+# ListStackSetsOutput
 
 ### Summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStacksInputPaginateTypeDef
+# ListStacksInput
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### StackStatusFilter
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CREATE_COMPLETE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'IMPORT_COMPLETE', 'IMPORT_IN_PROGRESS', 'IMPORT_ROLLBACK_COMPLETE', 'IMPORT_ROLLBACK_FAILED', 'IMPORT_ROLLBACK_IN_PROGRESS', 'REVIEW_IN_PROGRESS', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UPDATE_COMPLETE', 'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_ROLLBACK_COMPLETE', 'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_ROLLBACK_FAILED', 'UPDATE_ROLLBACK_IN_PROGRESS']]]
+
+
+# ListStacksInputPaginate
 
 ### StackStatusFilter
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CREATE_COMPLETE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'IMPORT_COMPLETE', 'IMPORT_IN_PROGRESS', 'IMPORT_ROLLBACK_COMPLETE', 'IMPORT_ROLLBACK_FAILED', 'IMPORT_ROLLBACK_IN_PROGRESS', 'REVIEW_IN_PROGRESS', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UPDATE_COMPLETE', 'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_ROLLBACK_COMPLETE', 'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_ROLLBACK_FAILED', 'UPDATE_ROLLBACK_IN_PROGRESS']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.PaginatorConfig]
 
 
-# ListStacksInputTypeDef
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### StackStatusFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CREATE_COMPLETE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'IMPORT_COMPLETE', 'IMPORT_IN_PROGRESS', 'IMPORT_ROLLBACK_COMPLETE', 'IMPORT_ROLLBACK_FAILED', 'IMPORT_ROLLBACK_IN_PROGRESS', 'REVIEW_IN_PROGRESS', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UPDATE_COMPLETE', 'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_ROLLBACK_COMPLETE', 'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_ROLLBACK_FAILED', 'UPDATE_ROLLBACK_IN_PROGRESS']]]
-
-
-# ListStacksOutputTypeDef
+# ListStacksOutput
 
 ### StackSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.StackSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTypeRegistrationsOutputTypeDef
+# ListTypeRegistrationsOutput
 
 ### RegistrationTokenList
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTypeVersionsOutputTypeDef
+# ListTypeVersionsOutput
 
 ### TypeVersionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TypeVersionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TypeVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTypesOutputTypeDef
+# ListTypesOutput
 
 ### TypeSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TypeSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TypeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LoggingConfigTypeDef
+# LoggingConfig
 
 ### LogRoleArn
 - **Type**: <class 'str'>
@@ -2599,13 +2599,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ManagedExecutionTypeDef
+# ManagedExecution
 
 ### Active
 - **Type**: typing.Optional[bool]
 
 
-# ModuleInfoTypeDef
+# ModuleInfo
 
 ### TypeHierarchy
 - **Type**: typing.Optional[str]
@@ -2614,7 +2614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OperationResultFilterTypeDef
+# OperationResultFilter
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['OPERATION_RESULT_STATUS']]
@@ -2623,7 +2623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OutputTypeDef
+# Output
 
 ### OutputKey
 - **Type**: typing.Optional[str]
@@ -2638,7 +2638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2650,13 +2650,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParameterConstraintsTypeDef
+# Parameter
+
+### ParameterKey
+- **Type**: typing.Optional[str]
+
+### ParameterValue
+- **Type**: typing.Optional[str]
+
+### UsePreviousValue
+- **Type**: typing.Optional[bool]
+
+### ResolvedValue
+- **Type**: typing.Optional[str]
+
+
+# ParameterConstraints
 
 ### AllowedValues
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ParameterDeclarationTypeDef
+# ParameterDeclaration
 
 ### ParameterKey
 - **Type**: typing.Optional[str]
@@ -2674,25 +2689,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ParameterConstraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterConstraintsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ParameterTypeDef
-
-### ParameterKey
-- **Type**: typing.Optional[str]
-
-### ParameterValue
-- **Type**: typing.Optional[str]
-
-### UsePreviousValue
-- **Type**: typing.Optional[bool]
-
-### ResolvedValue
-- **Type**: typing.Optional[str]
-
-
-# PhysicalResourceIdContextKeyValuePairTypeDef
+# PhysicalResourceIdContextKeyValuePair
 
 ### Key
 - **Type**: <class 'str'>
@@ -2703,7 +2703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PropertyDifferenceTypeDef
+# PropertyDifference
 
 ### PropertyPath
 - **Type**: <class 'str'>
@@ -2722,18 +2722,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PublishTypeOutputTypeDef
+# PublishTypeOutput
 
 ### PublicTypeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RecordHandlerProgressInputTypeDef
+# RecordHandlerProgressInput
 
 ### BearerToken
 - **Type**: <class 'str'>
@@ -2759,7 +2759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterPublisherInputTypeDef
+# RegisterPublisherInput
 
 ### AcceptTermsAndConditions
 - **Type**: typing.Optional[bool]
@@ -2768,29 +2768,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterPublisherOutputTypeDef
+# RegisterPublisherOutput
 
 ### PublisherId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RegisterTypeOutputTypeDef
+# RegisterTypeOutput
 
 ### RegistrationToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RequiredActivatedTypeTypeDef
+# RequiredActivatedType
 
 ### TypeNameAlias
 - **Type**: typing.Optional[str]
@@ -2805,22 +2805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[int]]
 
 
-# ResourceChangeDetailTypeDef
-
-### Target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceTargetDefinitionTypeDef]
-
-### Evaluation
-- **Type**: typing.Optional[typing.Literal['Dynamic', 'Static']]
-
-### ChangeSource
-- **Type**: typing.Optional[typing.Literal['Automatic', 'DirectModification', 'ParameterReference', 'ResourceAttribute', 'ResourceReference']]
-
-### CausingEntity
-- **Type**: typing.Optional[str]
-
-
-# ResourceChangeTypeDef
+# ResourceChange
 
 ### PolicyAction
 - **Type**: typing.Optional[typing.Literal['Delete', 'ReplaceAndDelete', 'ReplaceAndRetain', 'ReplaceAndSnapshot', 'Retain', 'Snapshot']]
@@ -2844,13 +2829,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['CreationPolicy', 'DeletionPolicy', 'Metadata', 'Properties', 'Tags', 'UpdatePolicy', 'UpdateReplacePolicy']]]
 
 ### Details
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceChangeDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceChangeDetail]]
 
 ### ChangeSetId
 - **Type**: typing.Optional[str]
 
 ### ModuleInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ModuleInfoTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BeforeContext
 - **Type**: typing.Optional[str]
@@ -2859,7 +2844,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceDefinitionTypeDef
+# ResourceChangeDetail
+
+### Target
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceTargetDefinition]
+
+### Evaluation
+- **Type**: typing.Optional[typing.Literal['Dynamic', 'Static']]
+
+### ChangeSource
+- **Type**: typing.Optional[typing.Literal['Automatic', 'DirectModification', 'ParameterReference', 'ResourceAttribute', 'ResourceReference']]
+
+### CausingEntity
+- **Type**: typing.Optional[str]
+
+
+# ResourceDefinition
 
 ### ResourceType
 - **Type**: <class 'str'>
@@ -2873,7 +2873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceDetailTypeDef
+# ResourceDetail
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -2891,10 +2891,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Warnings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.WarningDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.WarningDetail]]
 
 
-# ResourceIdentifierSummaryTypeDef
+# ResourceIdentifierSummary
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -2906,7 +2906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ResourceLocationTypeDef
+# ResourceLocation
 
 ### StackName
 - **Type**: <class 'str'>
@@ -2917,18 +2917,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResourceMappingTypeDef
+# ResourceMapping
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResourceLocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResourceLocation'>
 - **Required**: Yes
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResourceLocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResourceLocation'>
 - **Required**: Yes
 
 
-# ResourceScanSummaryTypeDef
+# ResourceScanSummary
 
 ### ResourceScanId
 - **Type**: typing.Optional[str]
@@ -2949,7 +2949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ResourceTargetDefinitionTypeDef
+# ResourceTargetDefinition
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['CreationPolicy', 'DeletionPolicy', 'Metadata', 'Properties', 'Tags', 'UpdatePolicy', 'UpdateReplacePolicy']]
@@ -2973,7 +2973,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Add', 'Modify', 'Remove']]
 
 
-# ResourceToImportTypeDef
+# ResourceToImport
 
 ### ResourceType
 - **Type**: <class 'str'>
@@ -2988,7 +2988,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -3010,31 +3010,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RollbackConfigurationOutputTypeDef
+# RollbackConfiguration
 
 ### RollbackTriggers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackTriggerTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackTrigger]]
 
 ### MonitoringTimeInMinutes
 - **Type**: typing.Optional[int]
 
 
-# RollbackConfigurationTypeDef
+# RollbackConfigurationOutput
 
 ### RollbackTriggers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackTriggerTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackTrigger]]
 
 ### MonitoringTimeInMinutes
 - **Type**: typing.Optional[int]
 
 
-# RollbackConfigurationUnionTypeDef
+# RollbackConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RollbackStackInputTypeDef
+# RollbackStackInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -3050,35 +3050,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RollbackStackOutputTypeDef
+# RollbackStackOutput
 
 ### StackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RollbackTriggerTypeDef
+# RollbackTrigger
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ScannedResourceIdentifierTypeDef
-
-### ResourceType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceIdentifier
-- **Type**: typing.Mapping[str, str]
-- **Required**: Yes
-
-
-# ScannedResourceTypeDef
+# ScannedResource
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -3090,7 +3079,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SetStackPolicyInputTypeDef
+# ScannedResourceIdentifier
+
+### ResourceType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceIdentifier
+- **Type**: typing.Mapping[str, str]
+- **Required**: Yes
+
+
+# SetStackPolicyInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -3103,18 +3103,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetTypeConfigurationOutputTypeDef
+# SetTypeConfigurationOutput
 
 ### ConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SignalResourceInputTypeDef
+# SignalResourceInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -3133,7 +3133,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StackDefinitionTypeDef
+# Stack
+
+### StackName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### StackStatus
+- **Type**: typing.Literal['CREATE_COMPLETE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'IMPORT_COMPLETE', 'IMPORT_IN_PROGRESS', 'IMPORT_ROLLBACK_COMPLETE', 'IMPORT_ROLLBACK_FAILED', 'IMPORT_ROLLBACK_IN_PROGRESS', 'REVIEW_IN_PROGRESS', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UPDATE_COMPLETE', 'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_ROLLBACK_COMPLETE', 'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_ROLLBACK_FAILED', 'UPDATE_ROLLBACK_IN_PROGRESS']
+- **Required**: Yes
+
+### StackId
+- **Type**: typing.Optional[str]
+
+### ChangeSetId
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Parameters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
+
+### DeletionTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### RollbackConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationOutput]
+
+### StackStatusReason
+- **Type**: typing.Optional[str]
+
+### DisableRollback
+- **Type**: typing.Optional[bool]
+
+### NotificationARNs
+- **Type**: typing.Optional[typing.List[str]]
+
+### TimeoutInMinutes
+- **Type**: typing.Optional[int]
+
+### Capabilities
+- **Type**: typing.Optional[typing.List[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
+
+### Outputs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Output]]
+
+### RoleARN
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
+
+### EnableTerminationProtection
+- **Type**: typing.Optional[bool]
+
+### ParentId
+- **Type**: typing.Optional[str]
+
+### RootId
+- **Type**: typing.Optional[str]
+
+### DriftInformation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackDriftInformation]
+
+### RetainExceptOnCreate
+- **Type**: typing.Optional[bool]
+
+### DeletionMode
+- **Type**: typing.Optional[typing.Literal['FORCE_DELETE_STACK', 'STANDARD']]
+
+### DetailedStatus
+- **Type**: typing.Optional[typing.Literal['CONFIGURATION_COMPLETE', 'VALIDATION_FAILED']]
+
+
+# StackDefinition
 
 ### StackName
 - **Type**: typing.Optional[str]
@@ -3145,7 +3226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StackDriftInformationSummaryTypeDef
+# StackDriftInformation
 
 ### StackDriftStatus
 - **Type**: typing.Literal['DRIFTED', 'IN_SYNC', 'NOT_CHECKED', 'UNKNOWN']
@@ -3155,7 +3236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# StackDriftInformationTypeDef
+# StackDriftInformationSummary
 
 ### StackDriftStatus
 - **Type**: typing.Literal['DRIFTED', 'IN_SYNC', 'NOT_CHECKED', 'UNKNOWN']
@@ -3165,7 +3246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# StackEventTypeDef
+# StackEvent
 
 ### StackId
 - **Type**: <class 'str'>
@@ -3223,13 +3304,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CONFIGURATION_COMPLETE', 'VALIDATION_FAILED']]
 
 
-# StackInstanceComprehensiveStatusTypeDef
+# StackInstance
+
+### StackSetId
+- **Type**: typing.Optional[str]
+
+### Region
+- **Type**: typing.Optional[str]
+
+### Account
+- **Type**: typing.Optional[str]
+
+### StackId
+- **Type**: typing.Optional[str]
+
+### ParameterOverrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CURRENT', 'INOPERABLE', 'OUTDATED']]
+
+### StackInstanceStatus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceComprehensiveStatus]
+
+### StatusReason
+- **Type**: typing.Optional[str]
+
+### OrganizationalUnitId
+- **Type**: typing.Optional[str]
+
+### DriftStatus
+- **Type**: typing.Optional[typing.Literal['DRIFTED', 'IN_SYNC', 'NOT_CHECKED', 'UNKNOWN']]
+
+### LastDriftCheckTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastOperationId
+- **Type**: typing.Optional[str]
+
+
+# StackInstanceComprehensiveStatus
 
 ### DetailedStatus
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'FAILED', 'FAILED_IMPORT', 'INOPERABLE', 'PENDING', 'RUNNING', 'SKIPPED_SUSPENDED_ACCOUNT', 'SUCCEEDED']]
 
 
-# StackInstanceFilterTypeDef
+# StackInstanceFilter
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['DETAILED_STATUS', 'DRIFT_STATUS', 'LAST_OPERATION_ID']]
@@ -3238,7 +3358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StackInstanceResourceDriftsSummaryTypeDef
+# StackInstanceResourceDriftsSummary
 
 ### StackId
 - **Type**: <class 'str'>
@@ -3264,13 +3384,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PhysicalResourceIdContext
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.PhysicalResourceIdContextKeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.PhysicalResourceIdContextKeyValuePair]]
 
 ### PropertyDifferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.PropertyDifferenceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.PropertyDifference]]
 
 
-# StackInstanceSummaryTypeDef
+# StackInstanceSummary
 
 ### StackSetId
 - **Type**: typing.Optional[str]
@@ -3291,7 +3411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StackInstanceStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceComprehensiveStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceComprehensiveStatus]
 
 ### OrganizationalUnitId
 - **Type**: typing.Optional[str]
@@ -3306,46 +3426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StackInstanceTypeDef
-
-### StackSetId
-- **Type**: typing.Optional[str]
-
-### Region
-- **Type**: typing.Optional[str]
-
-### Account
-- **Type**: typing.Optional[str]
-
-### StackId
-- **Type**: typing.Optional[str]
-
-### ParameterOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['CURRENT', 'INOPERABLE', 'OUTDATED']]
-
-### StackInstanceStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackInstanceComprehensiveStatusTypeDef]
-
-### StatusReason
-- **Type**: typing.Optional[str]
-
-### OrganizationalUnitId
-- **Type**: typing.Optional[str]
-
-### DriftStatus
-- **Type**: typing.Optional[typing.Literal['DRIFTED', 'IN_SYNC', 'NOT_CHECKED', 'UNKNOWN']]
-
-### LastDriftCheckTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastOperationId
-- **Type**: typing.Optional[str]
-
-
-# StackRefactorActionTypeDef
+# StackRefactorAction
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['CREATE', 'MOVE']]
@@ -3369,16 +3450,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TagResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
 
 ### UntagResources
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceMapping
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceMappingTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StackRefactorSummaryTypeDef
+# StackRefactorSummary
 
 ### StackRefactorId
 - **Type**: typing.Optional[str]
@@ -3399,7 +3480,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StackResourceDetailTypeDef
+# StackResource
+
+### LogicalResourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Timestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResourceStatus
+- **Type**: typing.Literal['CREATE_COMPLETE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'DELETE_SKIPPED', 'EXPORT_COMPLETE', 'EXPORT_FAILED', 'EXPORT_IN_PROGRESS', 'EXPORT_ROLLBACK_COMPLETE', 'EXPORT_ROLLBACK_FAILED', 'EXPORT_ROLLBACK_IN_PROGRESS', 'IMPORT_COMPLETE', 'IMPORT_FAILED', 'IMPORT_IN_PROGRESS', 'IMPORT_ROLLBACK_COMPLETE', 'IMPORT_ROLLBACK_FAILED', 'IMPORT_ROLLBACK_IN_PROGRESS', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UPDATE_COMPLETE', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_ROLLBACK_COMPLETE', 'UPDATE_ROLLBACK_FAILED', 'UPDATE_ROLLBACK_IN_PROGRESS']
+- **Required**: Yes
+
+### StackName
+- **Type**: typing.Optional[str]
+
+### StackId
+- **Type**: typing.Optional[str]
+
+### PhysicalResourceId
+- **Type**: typing.Optional[str]
+
+### ResourceStatusReason
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### DriftInformation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDriftInformation]
+
+### ModuleInfo
+- **Type**: <class 'NoneType'>
+
+
+# StackResourceDetail
 
 ### LogicalResourceId
 - **Type**: <class 'str'>
@@ -3436,33 +3557,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DriftInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDriftInformationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDriftInformation]
 
 ### ModuleInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ModuleInfoTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StackResourceDriftInformationSummaryTypeDef
-
-### StackResourceDriftStatus
-- **Type**: typing.Literal['DELETED', 'IN_SYNC', 'MODIFIED', 'NOT_CHECKED']
-- **Required**: Yes
-
-### LastCheckTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# StackResourceDriftInformationTypeDef
-
-### StackResourceDriftStatus
-- **Type**: typing.Literal['DELETED', 'IN_SYNC', 'MODIFIED', 'NOT_CHECKED']
-- **Required**: Yes
-
-### LastCheckTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# StackResourceDriftTypeDef
+# StackResourceDrift
 
 ### StackId
 - **Type**: <class 'str'>
@@ -3488,7 +3589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PhysicalResourceIdContext
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.PhysicalResourceIdContextKeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.PhysicalResourceIdContextKeyValuePair]]
 
 ### ExpectedProperties
 - **Type**: typing.Optional[str]
@@ -3497,13 +3598,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PropertyDifferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.PropertyDifferenceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.PropertyDifference]]
 
 ### ModuleInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ModuleInfoTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StackResourceSummaryTypeDef
+# StackResourceDriftInformation
+
+### StackResourceDriftStatus
+- **Type**: typing.Literal['DELETED', 'IN_SYNC', 'MODIFIED', 'NOT_CHECKED']
+- **Required**: Yes
+
+### LastCheckTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# StackResourceDriftInformationSummary
+
+### StackResourceDriftStatus
+- **Type**: typing.Literal['DELETED', 'IN_SYNC', 'MODIFIED', 'NOT_CHECKED']
+- **Required**: Yes
+
+### LastCheckTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# StackResourceSummary
 
 ### LogicalResourceId
 - **Type**: <class 'str'>
@@ -3528,53 +3649,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DriftInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDriftInformationSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDriftInformationSummary]
 
 ### ModuleInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ModuleInfoTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StackResourceTypeDef
+# StackSet
 
-### LogicalResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Timestamp
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResourceStatus
-- **Type**: typing.Literal['CREATE_COMPLETE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'DELETE_SKIPPED', 'EXPORT_COMPLETE', 'EXPORT_FAILED', 'EXPORT_IN_PROGRESS', 'EXPORT_ROLLBACK_COMPLETE', 'EXPORT_ROLLBACK_FAILED', 'EXPORT_ROLLBACK_IN_PROGRESS', 'IMPORT_COMPLETE', 'IMPORT_FAILED', 'IMPORT_IN_PROGRESS', 'IMPORT_ROLLBACK_COMPLETE', 'IMPORT_ROLLBACK_FAILED', 'IMPORT_ROLLBACK_IN_PROGRESS', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UPDATE_COMPLETE', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_ROLLBACK_COMPLETE', 'UPDATE_ROLLBACK_FAILED', 'UPDATE_ROLLBACK_IN_PROGRESS']
-- **Required**: Yes
-
-### StackName
+### StackSetName
 - **Type**: typing.Optional[str]
 
-### StackId
-- **Type**: typing.Optional[str]
-
-### PhysicalResourceId
-- **Type**: typing.Optional[str]
-
-### ResourceStatusReason
+### StackSetId
 - **Type**: typing.Optional[str]
 
 ### Description
 - **Type**: typing.Optional[str]
 
-### DriftInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackResourceDriftInformationTypeDef]
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETED']]
 
-### ModuleInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ModuleInfoTypeDef]
+### TemplateBody
+- **Type**: typing.Optional[str]
+
+### Parameters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
+
+### Capabilities
+- **Type**: typing.Optional[typing.List[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
+
+### StackSetARN
+- **Type**: typing.Optional[str]
+
+### AdministrationRoleARN
+- **Type**: typing.Optional[str]
+
+### ExecutionRoleName
+- **Type**: typing.Optional[str]
+
+### StackSetDriftDetectionDetails
+- **Type**: <class 'NoneType'>
+
+### AutoDeployment
+- **Type**: <class 'NoneType'>
+
+### PermissionModel
+- **Type**: typing.Optional[typing.Literal['SELF_MANAGED', 'SERVICE_MANAGED']]
+
+### OrganizationalUnitIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### ManagedExecution
+- **Type**: <class 'NoneType'>
+
+### Regions
+- **Type**: typing.Optional[typing.List[str]]
 
 
-# StackSetAutoDeploymentTargetSummaryTypeDef
+# StackSetAutoDeploymentTargetSummary
 
 ### OrganizationalUnitId
 - **Type**: typing.Optional[str]
@@ -3583,7 +3718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# StackSetDriftDetectionDetailsTypeDef
+# StackSetDriftDetectionDetails
 
 ### DriftStatus
 - **Type**: typing.Optional[typing.Literal['DRIFTED', 'IN_SYNC', 'NOT_CHECKED']]
@@ -3610,31 +3745,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StackSetOperationPreferencesOutputTypeDef
+# StackSetOperation
 
-### RegionConcurrencyType
-- **Type**: typing.Optional[typing.Literal['PARALLEL', 'SEQUENTIAL']]
+### OperationId
+- **Type**: typing.Optional[str]
 
-### RegionOrder
-- **Type**: typing.Optional[typing.List[str]]
+### StackSetId
+- **Type**: typing.Optional[str]
 
-### FailureToleranceCount
-- **Type**: typing.Optional[int]
+### Action
+- **Type**: typing.Optional[typing.Literal['CREATE', 'DELETE', 'DETECT_DRIFT', 'UPDATE']]
 
-### FailureTolerancePercentage
-- **Type**: typing.Optional[int]
+### Status
+- **Type**: typing.Optional[typing.Literal['FAILED', 'QUEUED', 'RUNNING', 'STOPPED', 'STOPPING', 'SUCCEEDED']]
 
-### MaxConcurrentCount
-- **Type**: typing.Optional[int]
+### OperationPreferences
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesOutput]
 
-### MaxConcurrentPercentage
-- **Type**: typing.Optional[int]
+### RetainStacks
+- **Type**: typing.Optional[bool]
 
-### ConcurrencyMode
-- **Type**: typing.Optional[typing.Literal['SOFT_FAILURE_TOLERANCE', 'STRICT_FAILURE_TOLERANCE']]
+### AdministrationRoleARN
+- **Type**: typing.Optional[str]
+
+### ExecutionRoleName
+- **Type**: typing.Optional[str]
+
+### CreationTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### DeploymentTargets
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsOutput]
+
+### StackSetDriftDetectionDetails
+- **Type**: <class 'NoneType'>
+
+### StatusReason
+- **Type**: typing.Optional[str]
+
+### StatusDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationStatusDetails]
 
 
-# StackSetOperationPreferencesTypeDef
+# StackSetOperationPreferences
 
 ### RegionConcurrencyType
 - **Type**: typing.Optional[typing.Literal['PARALLEL', 'SEQUENTIAL']]
@@ -3658,13 +3814,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SOFT_FAILURE_TOLERANCE', 'STRICT_FAILURE_TOLERANCE']]
 
 
-# StackSetOperationPreferencesUnionTypeDef
+# StackSetOperationPreferencesOutput
+
+### RegionConcurrencyType
+- **Type**: typing.Optional[typing.Literal['PARALLEL', 'SEQUENTIAL']]
+
+### RegionOrder
+- **Type**: typing.Optional[typing.List[str]]
+
+### FailureToleranceCount
+- **Type**: typing.Optional[int]
+
+### FailureTolerancePercentage
+- **Type**: typing.Optional[int]
+
+### MaxConcurrentCount
+- **Type**: typing.Optional[int]
+
+### MaxConcurrentPercentage
+- **Type**: typing.Optional[int]
+
+### ConcurrencyMode
+- **Type**: typing.Optional[typing.Literal['SOFT_FAILURE_TOLERANCE', 'STRICT_FAILURE_TOLERANCE']]
+
+
+# StackSetOperationPreferencesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StackSetOperationResultSummaryTypeDef
+# StackSetOperationResultSummary
 
 ### Account
 - **Type**: typing.Optional[str]
@@ -3679,19 +3859,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AccountGateResult
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.AccountGateResultTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OrganizationalUnitId
 - **Type**: typing.Optional[str]
 
 
-# StackSetOperationStatusDetailsTypeDef
+# StackSetOperationStatusDetails
 
 ### FailedStackInstancesCount
 - **Type**: typing.Optional[int]
 
 
-# StackSetOperationSummaryTypeDef
+# StackSetOperationSummary
 
 ### OperationId
 - **Type**: typing.Optional[str]
@@ -3712,58 +3892,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StatusDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationStatusDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationStatusDetails]
 
 ### OperationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesOutput]
 
 
-# StackSetOperationTypeDef
-
-### OperationId
-- **Type**: typing.Optional[str]
-
-### StackSetId
-- **Type**: typing.Optional[str]
-
-### Action
-- **Type**: typing.Optional[typing.Literal['CREATE', 'DELETE', 'DETECT_DRIFT', 'UPDATE']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['FAILED', 'QUEUED', 'RUNNING', 'STOPPED', 'STOPPING', 'SUCCEEDED']]
-
-### OperationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesOutputTypeDef]
-
-### RetainStacks
-- **Type**: typing.Optional[bool]
-
-### AdministrationRoleARN
-- **Type**: typing.Optional[str]
-
-### ExecutionRoleName
-- **Type**: typing.Optional[str]
-
-### CreationTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### EndTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### DeploymentTargets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsOutputTypeDef]
-
-### StackSetDriftDetectionDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetDriftDetectionDetailsTypeDef]
-
-### StatusReason
-- **Type**: typing.Optional[str]
-
-### StatusDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationStatusDetailsTypeDef]
-
-
-# StackSetSummaryTypeDef
+# StackSetSummary
 
 ### StackSetName
 - **Type**: typing.Optional[str]
@@ -3778,7 +3913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETED']]
 
 ### AutoDeployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.AutoDeploymentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PermissionModel
 - **Type**: typing.Optional[typing.Literal['SELF_MANAGED', 'SERVICE_MANAGED']]
@@ -3790,64 +3925,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### ManagedExecution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ManagedExecutionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StackSetTypeDef
-
-### StackSetName
-- **Type**: typing.Optional[str]
-
-### StackSetId
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETED']]
-
-### TemplateBody
-- **Type**: typing.Optional[str]
-
-### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
-
-### Capabilities
-- **Type**: typing.Optional[typing.List[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
-
-### StackSetARN
-- **Type**: typing.Optional[str]
-
-### AdministrationRoleARN
-- **Type**: typing.Optional[str]
-
-### ExecutionRoleName
-- **Type**: typing.Optional[str]
-
-### StackSetDriftDetectionDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetDriftDetectionDetailsTypeDef]
-
-### AutoDeployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.AutoDeploymentTypeDef]
-
-### PermissionModel
-- **Type**: typing.Optional[typing.Literal['SELF_MANAGED', 'SERVICE_MANAGED']]
-
-### OrganizationalUnitIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### ManagedExecution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ManagedExecutionTypeDef]
-
-### Regions
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# StackSummaryTypeDef
+# StackSummary
 
 ### StackName
 - **Type**: <class 'str'>
@@ -3883,108 +3964,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DriftInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackDriftInformationSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackDriftInformationSummary]
 
 
-# StackTypeDef
-
-### StackName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### StackStatus
-- **Type**: typing.Literal['CREATE_COMPLETE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'IMPORT_COMPLETE', 'IMPORT_IN_PROGRESS', 'IMPORT_ROLLBACK_COMPLETE', 'IMPORT_ROLLBACK_FAILED', 'IMPORT_ROLLBACK_IN_PROGRESS', 'REVIEW_IN_PROGRESS', 'ROLLBACK_COMPLETE', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'UPDATE_COMPLETE', 'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_ROLLBACK_COMPLETE', 'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS', 'UPDATE_ROLLBACK_FAILED', 'UPDATE_ROLLBACK_IN_PROGRESS']
-- **Required**: Yes
-
-### StackId
-- **Type**: typing.Optional[str]
-
-### ChangeSetId
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
-
-### DeletionTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### RollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationOutputTypeDef]
-
-### StackStatusReason
-- **Type**: typing.Optional[str]
-
-### DisableRollback
-- **Type**: typing.Optional[bool]
-
-### NotificationARNs
-- **Type**: typing.Optional[typing.List[str]]
-
-### TimeoutInMinutes
-- **Type**: typing.Optional[int]
-
-### Capabilities
-- **Type**: typing.Optional[typing.List[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
-
-### Outputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.OutputTypeDef]]
-
-### RoleARN
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
-
-### EnableTerminationProtection
-- **Type**: typing.Optional[bool]
-
-### ParentId
-- **Type**: typing.Optional[str]
-
-### RootId
-- **Type**: typing.Optional[str]
-
-### DriftInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackDriftInformationTypeDef]
-
-### RetainExceptOnCreate
-- **Type**: typing.Optional[bool]
-
-### DeletionMode
-- **Type**: typing.Optional[typing.Literal['FORCE_DELETE_STACK', 'STANDARD']]
-
-### DetailedStatus
-- **Type**: typing.Optional[typing.Literal['CONFIGURATION_COMPLETE', 'VALIDATION_FAILED']]
-
-
-# StartResourceScanInputTypeDef
+# StartResourceScanInput
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 
-# StartResourceScanOutputTypeDef
+# StartResourceScanOutput
 
 ### ResourceScanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopStackSetOperationInputTypeDef
+# StopStackSetOperationInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -3998,7 +3998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -4009,7 +4009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TemplateConfigurationTypeDef
+# TemplateConfiguration
 
 ### DeletionPolicy
 - **Type**: typing.Optional[typing.Literal['DELETE', 'RETAIN']]
@@ -4018,7 +4018,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETE', 'RETAIN']]
 
 
-# TemplateParameterTypeDef
+# TemplateParameter
 
 ### ParameterKey
 - **Type**: typing.Optional[str]
@@ -4033,7 +4033,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TemplateProgressTypeDef
+# TemplateProgress
 
 ### ResourcesSucceeded
 - **Type**: typing.Optional[int]
@@ -4048,13 +4048,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TemplateSummaryConfigTypeDef
-
-### TreatUnrecognizedResourceTypesAsWarnings
-- **Type**: typing.Optional[bool]
-
-
-# TemplateSummaryTypeDef
+# TemplateSummary
 
 ### GeneratedTemplateId
 - **Type**: typing.Optional[str]
@@ -4078,18 +4072,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TestTypeOutputTypeDef
+# TemplateSummaryConfig
+
+### TreatUnrecognizedResourceTypesAsWarnings
+- **Type**: typing.Optional[bool]
+
+
+# TestTypeOutput
 
 ### TypeVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TypeConfigurationDetailsTypeDef
+# TypeConfigurationDetails
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -4113,13 +4113,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TypeConfigurationIdentifierTypeDef
+# TypeConfigurationIdentifier
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TypeFiltersTypeDef
+# TypeFilters
 
 ### Category
 - **Type**: typing.Optional[typing.Literal['ACTIVATED', 'AWS_TYPES', 'REGISTERED', 'THIRD_PARTY']]
@@ -4131,19 +4131,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TypeSummaryTypeDef
+# TypeSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TypeVersionSummaryTypeDef
+# TypeVersionSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UpdateGeneratedTemplateInputTypeDef
+# UpdateGeneratedTemplateInput
 
 ### GeneratedTemplateName
 - **Type**: <class 'str'>
@@ -4153,7 +4153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AddResources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ResourceDefinition]]
 
 ### RemoveResources
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -4162,75 +4162,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.TemplateConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateGeneratedTemplateOutputTypeDef
+# UpdateGeneratedTemplateOutput
 
 ### GeneratedTemplateId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateStackInputStackUpdateTypeDef
-
-### TemplateBody
-- **Type**: typing.Optional[str]
-
-### TemplateURL
-- **Type**: typing.Optional[str]
-
-### UsePreviousTemplate
-- **Type**: typing.Optional[bool]
-
-### StackPolicyDuringUpdateBody
-- **Type**: typing.Optional[str]
-
-### StackPolicyDuringUpdateURL
-- **Type**: typing.Optional[str]
-
-### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
-
-### Capabilities
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
-
-### ResourceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### RoleARN
-- **Type**: typing.Optional[str]
-
-### RollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnionTypeDef]
-
-### StackPolicyBody
-- **Type**: typing.Optional[str]
-
-### StackPolicyURL
-- **Type**: typing.Optional[str]
-
-### NotificationARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
-
-### DisableRollback
-- **Type**: typing.Optional[bool]
-
-### ClientRequestToken
-- **Type**: typing.Optional[str]
-
-### RetainExceptOnCreate
-- **Type**: typing.Optional[bool]
-
-
-# UpdateStackInputTypeDef
+# UpdateStackInput
 
 ### StackName
 - **Type**: <class 'str'>
@@ -4252,7 +4198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
 
 ### Capabilities
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
@@ -4264,7 +4210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnion]
 
 ### StackPolicyBody
 - **Type**: typing.Optional[str]
@@ -4276,7 +4222,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
 
 ### DisableRollback
 - **Type**: typing.Optional[bool]
@@ -4288,7 +4234,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateStackInstancesInputTypeDef
+# UpdateStackInputStackUpdate
+
+### TemplateBody
+- **Type**: typing.Optional[str]
+
+### TemplateURL
+- **Type**: typing.Optional[str]
+
+### UsePreviousTemplate
+- **Type**: typing.Optional[bool]
+
+### StackPolicyDuringUpdateBody
+- **Type**: typing.Optional[str]
+
+### StackPolicyDuringUpdateURL
+- **Type**: typing.Optional[str]
+
+### Parameters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
+
+### Capabilities
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
+
+### ResourceTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### RoleARN
+- **Type**: typing.Optional[str]
+
+### RollbackConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.RollbackConfigurationUnion]
+
+### StackPolicyBody
+- **Type**: typing.Optional[str]
+
+### StackPolicyURL
+- **Type**: typing.Optional[str]
+
+### NotificationARNs
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
+
+### DisableRollback
+- **Type**: typing.Optional[bool]
+
+### ClientRequestToken
+- **Type**: typing.Optional[str]
+
+### RetainExceptOnCreate
+- **Type**: typing.Optional[bool]
+
+
+# UpdateStackInstancesInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -4302,13 +4302,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### DeploymentTargets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsUnion]
 
 ### ParameterOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
 
 ### OperationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnion]
 
 ### OperationId
 - **Type**: typing.Optional[str]
@@ -4317,29 +4317,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 
-# UpdateStackInstancesOutputTypeDef
+# UpdateStackInstancesOutput
 
 ### OperationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateStackOutputTypeDef
+# UpdateStackOutput
 
 ### StackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateStackSetInputTypeDef
+# UpdateStackSetInput
 
 ### StackSetName
 - **Type**: <class 'str'>
@@ -4358,16 +4358,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Parameter]]
 
 ### Capabilities
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CAPABILITY_AUTO_EXPAND', 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM']]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudformation_classes.Tag]]
 
 ### OperationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.StackSetOperationPreferencesUnion]
 
 ### AdministrationRoleARN
 - **Type**: typing.Optional[str]
@@ -4376,13 +4376,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeploymentTargets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.DeploymentTargetsUnion]
 
 ### PermissionModel
 - **Type**: typing.Optional[typing.Literal['SELF_MANAGED', 'SERVICE_MANAGED']]
 
 ### AutoDeployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.AutoDeploymentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OperationId
 - **Type**: typing.Optional[str]
@@ -4397,21 +4397,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELEGATED_ADMIN', 'SELF']]
 
 ### ManagedExecution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudformation_classes.ManagedExecutionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateStackSetOutputTypeDef
+# UpdateStackSetOutput
 
 ### OperationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTerminationProtectionInputTypeDef
+# UpdateTerminationProtectionInput
 
 ### EnableTerminationProtection
 - **Type**: <class 'bool'>
@@ -4422,18 +4422,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTerminationProtectionOutputTypeDef
+# UpdateTerminationProtectionOutput
 
 ### StackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ValidateTemplateInputTypeDef
+# ValidateTemplateInput
 
 ### TemplateBody
 - **Type**: typing.Optional[str]
@@ -4442,10 +4442,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ValidateTemplateOutputTypeDef
+# ValidateTemplateOutput
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TemplateParameterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudformation_classes.TemplateParameter]
 - **Required**: Yes
 
 ### Description
@@ -4465,11 +4465,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudformation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]
@@ -4478,13 +4478,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# WarningDetailTypeDef
+# WarningDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WarningsTypeDef
+# Warnings
 
 ### UnrecognizedResourceTypes
 - **Type**: typing.Optional[typing.List[str]]

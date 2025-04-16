@@ -12,22 +12,22 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudformation_constants import *
 
-class AccountGateResultTypeDef(BaseValidatorModel):
+class AccountGateResult(BaseValidatorModel):
     Status: Optional[AccountGateStatusType] = None
     StatusReason: Optional[str] = None
 
 
-class AccountLimitTypeDef(BaseValidatorModel):
+class AccountLimit(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[int] = None
 
 
-class LoggingConfigTypeDef(BaseValidatorModel):
+class LoggingConfig(BaseValidatorModel):
     LogRoleArn: str
     LogGroupName: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -35,12 +35,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AutoDeploymentTypeDef(BaseValidatorModel):
+class AutoDeployment(BaseValidatorModel):
     Enabled: Optional[bool] = None
     RetainStacksOnAccountRemoval: Optional[bool] = None
 
 
-class TypeConfigurationDetailsTypeDef(BaseValidatorModel):
+class TypeConfigurationDetails(BaseValidatorModel):
     Arn: Optional[str] = None
     Alias: Optional[str] = None
     Configuration: Optional[str] = None
@@ -50,22 +50,22 @@ class TypeConfigurationDetailsTypeDef(BaseValidatorModel):
     IsDefaultConfiguration: Optional[bool] = None
 
 
-class CancelUpdateStackInputStackCancelUpdateTypeDef(BaseValidatorModel):
+class CancelUpdateStackInputStackCancelUpdate(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
-class CancelUpdateStackInputTypeDef(BaseValidatorModel):
+class CancelUpdateStackInput(BaseValidatorModel):
     StackName: str
     ClientRequestToken: Optional[str] = None
 
 
-class ChangeSetHookResourceTargetDetailsTypeDef(BaseValidatorModel):
+class ChangeSetHookResourceTargetDetails(BaseValidatorModel):
     LogicalResourceId: Optional[str] = None
     ResourceType: Optional[str] = None
     ResourceAction: Optional[ChangeActionType] = None
 
 
-class ChangeSetSummaryTypeDef(BaseValidatorModel):
+class ChangeSetSummary(BaseValidatorModel):
     StackId: Optional[str] = None
     StackName: Optional[str] = None
     ChangeSetId: Optional[str] = None
@@ -81,69 +81,69 @@ class ChangeSetSummaryTypeDef(BaseValidatorModel):
     ImportExistingResources: Optional[bool] = None
 
 
-class ContinueUpdateRollbackInputTypeDef(BaseValidatorModel):
+class ContinueUpdateRollbackInput(BaseValidatorModel):
     StackName: str
     RoleARN: Optional[str] = None
     ResourcesToSkip: Optional[Sequence[str]] = None
     ClientRequestToken: Optional[str] = None
 
 
-class ParameterTypeDef(BaseValidatorModel):
+class Parameter(BaseValidatorModel):
     ParameterKey: Optional[str] = None
     ParameterValue: Optional[str] = None
     UsePreviousValue: Optional[bool] = None
     ResolvedValue: Optional[str] = None
 
 
-class ResourceToImportTypeDef(BaseValidatorModel):
+class ResourceToImport(BaseValidatorModel):
     ResourceType: str
     LogicalResourceId: str
     ResourceIdentifier: Mapping[str, str]
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ResourceDefinitionTypeDef(BaseValidatorModel):
+class ResourceDefinition(BaseValidatorModel):
     ResourceType: str
     ResourceIdentifier: Mapping[str, str]
     LogicalResourceId: Optional[str] = None
 
 
-class TemplateConfigurationTypeDef(BaseValidatorModel):
+class TemplateConfiguration(BaseValidatorModel):
     DeletionPolicy: Optional[GeneratedTemplateDeletionPolicyType] = None
     UpdateReplacePolicy: Optional[GeneratedTemplateUpdateReplacePolicyType] = None
 
 
-class StackDefinitionTypeDef(BaseValidatorModel):
+class StackDefinition(BaseValidatorModel):
     StackName: Optional[str] = None
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
 
 
-class ManagedExecutionTypeDef(BaseValidatorModel):
+class ManagedExecution(BaseValidatorModel):
     Active: Optional[bool] = None
 
 
-class DeleteChangeSetInputTypeDef(BaseValidatorModel):
+class DeleteChangeSetInput(BaseValidatorModel):
     ChangeSetName: str
     StackName: Optional[str] = None
 
 
-class DeleteGeneratedTemplateInputTypeDef(BaseValidatorModel):
+class DeleteGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
 
 
-class DeleteStackInputStackDeleteTypeDef(BaseValidatorModel):
+class DeleteStackInputStackDelete(BaseValidatorModel):
     RetainResources: Optional[Sequence[str]] = None
     RoleARN: Optional[str] = None
     ClientRequestToken: Optional[str] = None
     DeletionMode: Optional[DeletionModeType] = None
 
 
-class DeleteStackInputTypeDef(BaseValidatorModel):
+class DeleteStackInput(BaseValidatorModel):
     StackName: str
     RetainResources: Optional[Sequence[str]] = None
     RoleARN: Optional[str] = None
@@ -151,87 +151,87 @@ class DeleteStackInputTypeDef(BaseValidatorModel):
     DeletionMode: Optional[DeletionModeType] = None
 
 
-class DeleteStackSetInputTypeDef(BaseValidatorModel):
+class DeleteStackSetInput(BaseValidatorModel):
     StackSetName: str
     CallAs: Optional[CallAsType] = None
 
 
-class DeploymentTargetsOutputTypeDef(BaseValidatorModel):
+class DeploymentTargetsOutput(BaseValidatorModel):
     Accounts: Optional[List[str]] = None
     AccountsUrl: Optional[str] = None
     OrganizationalUnitIds: Optional[List[str]] = None
     AccountFilterType: Optional[AccountFilterTypeType] = None
 
 
-class DeploymentTargetsTypeDef(BaseValidatorModel):
+class DeploymentTargets(BaseValidatorModel):
     Accounts: Optional[Sequence[str]] = None
     AccountsUrl: Optional[str] = None
     OrganizationalUnitIds: Optional[Sequence[str]] = None
     AccountFilterType: Optional[AccountFilterTypeType] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeAccountLimitsInputTypeDef(BaseValidatorModel):
+class DescribeAccountLimitsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeChangeSetHooksInputTypeDef(BaseValidatorModel):
+class DescribeChangeSetHooksInput(BaseValidatorModel):
     ChangeSetName: str
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
     LogicalResourceId: Optional[str] = None
 
 
-class DescribeChangeSetInputTypeDef(BaseValidatorModel):
+class DescribeChangeSetInput(BaseValidatorModel):
     ChangeSetName: str
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
     IncludePropertyValues: Optional[bool] = None
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeGeneratedTemplateInputTypeDef(BaseValidatorModel):
+class DescribeGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
 
 
-class TemplateProgressTypeDef(BaseValidatorModel):
+class TemplateProgress(BaseValidatorModel):
     ResourcesSucceeded: Optional[int] = None
     ResourcesFailed: Optional[int] = None
     ResourcesProcessing: Optional[int] = None
     ResourcesPending: Optional[int] = None
 
 
-class DescribeOrganizationsAccessInputTypeDef(BaseValidatorModel):
+class DescribeOrganizationsAccessInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
-class DescribePublisherInputTypeDef(BaseValidatorModel):
+class DescribePublisherInput(BaseValidatorModel):
     PublisherId: Optional[str] = None
 
 
-class DescribeResourceScanInputTypeDef(BaseValidatorModel):
+class DescribeResourceScanInput(BaseValidatorModel):
     ResourceScanId: str
 
 
-class DescribeStackDriftDetectionStatusInputTypeDef(BaseValidatorModel):
+class DescribeStackDriftDetectionStatusInput(BaseValidatorModel):
     StackDriftDetectionId: str
 
 
-class DescribeStackEventsInputTypeDef(BaseValidatorModel):
+class DescribeStackEventsInput(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
 
 
-class StackEventTypeDef(BaseValidatorModel):
+class StackEvent(BaseValidatorModel):
     StackId: str
     EventId: str
     StackName: str
@@ -251,73 +251,73 @@ class StackEventTypeDef(BaseValidatorModel):
     DetailedStatus: Optional[DetailedStatusType] = None
 
 
-class DescribeStackInstanceInputTypeDef(BaseValidatorModel):
+class DescribeStackInstanceInput(BaseValidatorModel):
     StackSetName: str
     StackInstanceAccount: str
     StackInstanceRegion: str
     CallAs: Optional[CallAsType] = None
 
 
-class DescribeStackRefactorInputTypeDef(BaseValidatorModel):
+class DescribeStackRefactorInput(BaseValidatorModel):
     StackRefactorId: str
 
 
-class DescribeStackResourceDriftsInputTypeDef(BaseValidatorModel):
+class DescribeStackResourceDriftsInput(BaseValidatorModel):
     StackName: str
     StackResourceDriftStatusFilters: Optional[Sequence[StackResourceDriftStatusType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeStackResourceInputTypeDef(BaseValidatorModel):
+class DescribeStackResourceInput(BaseValidatorModel):
     StackName: str
     LogicalResourceId: str
 
 
-class DescribeStackResourcesInputTypeDef(BaseValidatorModel):
+class DescribeStackResourcesInput(BaseValidatorModel):
     StackName: Optional[str] = None
     LogicalResourceId: Optional[str] = None
     PhysicalResourceId: Optional[str] = None
 
 
-class DescribeStackSetInputTypeDef(BaseValidatorModel):
+class DescribeStackSetInput(BaseValidatorModel):
     StackSetName: str
     CallAs: Optional[CallAsType] = None
 
 
-class DescribeStackSetOperationInputTypeDef(BaseValidatorModel):
+class DescribeStackSetOperationInput(BaseValidatorModel):
     StackSetName: str
     OperationId: str
     CallAs: Optional[CallAsType] = None
 
 
-class DescribeStacksInputTypeDef(BaseValidatorModel):
+class DescribeStacksInput(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
 
 
-class RequiredActivatedTypeTypeDef(BaseValidatorModel):
+class RequiredActivatedType(BaseValidatorModel):
     TypeNameAlias: Optional[str] = None
     OriginalTypeName: Optional[str] = None
     PublisherId: Optional[str] = None
     SupportedMajorVersions: Optional[List[int]] = None
 
 
-class DescribeTypeRegistrationInputTypeDef(BaseValidatorModel):
+class DescribeTypeRegistrationInput(BaseValidatorModel):
     RegistrationToken: str
 
 
-class DetectStackDriftInputTypeDef(BaseValidatorModel):
+class DetectStackDriftInput(BaseValidatorModel):
     StackName: str
     LogicalResourceIds: Optional[Sequence[str]] = None
 
 
-class DetectStackResourceDriftInputTypeDef(BaseValidatorModel):
+class DetectStackResourceDriftInput(BaseValidatorModel):
     StackName: str
     LogicalResourceId: str
 
 
-class ExecuteChangeSetInputTypeDef(BaseValidatorModel):
+class ExecuteChangeSetInput(BaseValidatorModel):
     ChangeSetName: str
     StackName: Optional[str] = None
     ClientRequestToken: Optional[str] = None
@@ -325,46 +325,46 @@ class ExecuteChangeSetInputTypeDef(BaseValidatorModel):
     RetainExceptOnCreate: Optional[bool] = None
 
 
-class ExecuteStackRefactorInputTypeDef(BaseValidatorModel):
+class ExecuteStackRefactorInput(BaseValidatorModel):
     StackRefactorId: str
 
 
-class ExportTypeDef(BaseValidatorModel):
+class Export(BaseValidatorModel):
     ExportingStackId: Optional[str] = None
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class GetGeneratedTemplateInputTypeDef(BaseValidatorModel):
+class GetGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
     Format: Optional[TemplateFormatType] = None
 
 
-class GetStackPolicyInputTypeDef(BaseValidatorModel):
+class GetStackPolicyInput(BaseValidatorModel):
     StackName: str
 
 
-class GetTemplateInputTypeDef(BaseValidatorModel):
+class GetTemplateInput(BaseValidatorModel):
     StackName: Optional[str] = None
     ChangeSetName: Optional[str] = None
     TemplateStage: Optional[TemplateStageType] = None
 
 
-class TemplateSummaryConfigTypeDef(BaseValidatorModel):
+class TemplateSummaryConfig(BaseValidatorModel):
     TreatUnrecognizedResourceTypesAsWarnings: Optional[bool] = None
 
 
-class ResourceIdentifierSummaryTypeDef(BaseValidatorModel):
+class ResourceIdentifierSummary(BaseValidatorModel):
     ResourceType: Optional[str] = None
     LogicalResourceIds: Optional[List[str]] = None
     ResourceIdentifiers: Optional[List[str]] = None
 
 
-class WarningsTypeDef(BaseValidatorModel):
+class Warnings(BaseValidatorModel):
     UnrecognizedResourceTypes: Optional[List[str]] = None
 
 
-class HookResultSummaryTypeDef(BaseValidatorModel):
+class HookResultSummary(BaseValidatorModel):
     InvocationPoint: Optional[Literal["PRE_PROVISION"]] = None
     FailureMode: Optional[HookFailureModeType] = None
     TypeName: Optional[str] = None
@@ -374,21 +374,21 @@ class HookResultSummaryTypeDef(BaseValidatorModel):
     HookStatusReason: Optional[str] = None
 
 
-class ListChangeSetsInputTypeDef(BaseValidatorModel):
+class ListChangeSetsInput(BaseValidatorModel):
     StackName: str
     NextToken: Optional[str] = None
 
 
-class ListExportsInputTypeDef(BaseValidatorModel):
+class ListExportsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListGeneratedTemplatesInputTypeDef(BaseValidatorModel):
+class ListGeneratedTemplatesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class TemplateSummaryTypeDef(BaseValidatorModel):
+class TemplateSummary(BaseValidatorModel):
     GeneratedTemplateId: Optional[str] = None
     GeneratedTemplateName: Optional[str] = None
     Status: Optional[GeneratedTemplateStatusType] = None
@@ -398,29 +398,29 @@ class TemplateSummaryTypeDef(BaseValidatorModel):
     NumberOfResources: Optional[int] = None
 
 
-class ListHookResultsInputTypeDef(BaseValidatorModel):
+class ListHookResultsInput(BaseValidatorModel):
     TargetType: ListHookResultsTargetTypeType
     TargetId: str
     NextToken: Optional[str] = None
 
 
-class ListImportsInputTypeDef(BaseValidatorModel):
+class ListImportsInput(BaseValidatorModel):
     ExportName: str
     NextToken: Optional[str] = None
 
 
-class ScannedResourceIdentifierTypeDef(BaseValidatorModel):
+class ScannedResourceIdentifier(BaseValidatorModel):
     ResourceType: str
     ResourceIdentifier: Mapping[str, str]
 
 
-class ScannedResourceTypeDef(BaseValidatorModel):
+class ScannedResource(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceIdentifier: Optional[Dict[str, str]] = None
     ManagedByStack: Optional[bool] = None
 
 
-class ListResourceScanResourcesInputTypeDef(BaseValidatorModel):
+class ListResourceScanResourcesInput(BaseValidatorModel):
     ResourceScanId: str
     ResourceIdentifier: Optional[str] = None
     ResourceTypePrefix: Optional[str] = None
@@ -430,12 +430,12 @@ class ListResourceScanResourcesInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListResourceScansInputTypeDef(BaseValidatorModel):
+class ListResourceScansInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ResourceScanSummaryTypeDef(BaseValidatorModel):
+class ResourceScanSummary(BaseValidatorModel):
     ResourceScanId: Optional[str] = None
     Status: Optional[ResourceScanStatusType] = None
     StatusReason: Optional[str] = None
@@ -444,7 +444,7 @@ class ResourceScanSummaryTypeDef(BaseValidatorModel):
     PercentageCompleted: Optional[float] = None
 
 
-class ListStackInstanceResourceDriftsInputTypeDef(BaseValidatorModel):
+class ListStackInstanceResourceDriftsInput(BaseValidatorModel):
     StackSetName: str
     StackInstanceAccount: str
     StackInstanceRegion: str
@@ -455,24 +455,24 @@ class ListStackInstanceResourceDriftsInputTypeDef(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
-class StackInstanceFilterTypeDef(BaseValidatorModel):
+class StackInstanceFilter(BaseValidatorModel):
     Name: Optional[StackInstanceFilterNameType] = None
     Values: Optional[str] = None
 
 
-class ListStackRefactorActionsInputTypeDef(BaseValidatorModel):
+class ListStackRefactorActionsInput(BaseValidatorModel):
     StackRefactorId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListStackRefactorsInputTypeDef(BaseValidatorModel):
+class ListStackRefactorsInput(BaseValidatorModel):
     ExecutionStatusFilter: Optional[Sequence[StackRefactorExecutionStatusType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class StackRefactorSummaryTypeDef(BaseValidatorModel):
+class StackRefactorSummary(BaseValidatorModel):
     StackRefactorId: Optional[str] = None
     Description: Optional[str] = None
     ExecutionStatus: Optional[StackRefactorExecutionStatusType] = None
@@ -481,82 +481,82 @@ class StackRefactorSummaryTypeDef(BaseValidatorModel):
     StatusReason: Optional[str] = None
 
 
-class ListStackResourcesInputTypeDef(BaseValidatorModel):
+class ListStackResourcesInput(BaseValidatorModel):
     StackName: str
     NextToken: Optional[str] = None
 
 
-class ListStackSetAutoDeploymentTargetsInputTypeDef(BaseValidatorModel):
+class ListStackSetAutoDeploymentTargetsInput(BaseValidatorModel):
     StackSetName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     CallAs: Optional[CallAsType] = None
 
 
-class StackSetAutoDeploymentTargetSummaryTypeDef(BaseValidatorModel):
+class StackSetAutoDeploymentTargetSummary(BaseValidatorModel):
     OrganizationalUnitId: Optional[str] = None
     Regions: Optional[List[str]] = None
 
 
-class OperationResultFilterTypeDef(BaseValidatorModel):
+class OperationResultFilter(BaseValidatorModel):
     Name: Optional[Literal["OPERATION_RESULT_STATUS"]] = None
     Values: Optional[str] = None
 
 
-class ListStackSetOperationsInputTypeDef(BaseValidatorModel):
+class ListStackSetOperationsInput(BaseValidatorModel):
     StackSetName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     CallAs: Optional[CallAsType] = None
 
 
-class ListStackSetsInputTypeDef(BaseValidatorModel):
+class ListStackSetsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Status: Optional[StackSetStatusType] = None
     CallAs: Optional[CallAsType] = None
 
 
-class ListStacksInputTypeDef(BaseValidatorModel):
+class ListStacksInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     StackStatusFilter: Optional[Sequence[StackStatusType]] = None
 
 
-class TypeFiltersTypeDef(BaseValidatorModel):
+class TypeFilters(BaseValidatorModel):
     Category: Optional[CategoryType] = None
     PublisherId: Optional[str] = None
     TypeNamePrefix: Optional[str] = None
 
 
-class ModuleInfoTypeDef(BaseValidatorModel):
+class ModuleInfo(BaseValidatorModel):
     TypeHierarchy: Optional[str] = None
     LogicalIdHierarchy: Optional[str] = None
 
 
-class OutputTypeDef(BaseValidatorModel):
+class Output(BaseValidatorModel):
     OutputKey: Optional[str] = None
     OutputValue: Optional[str] = None
     Description: Optional[str] = None
     ExportName: Optional[str] = None
 
 
-class ParameterConstraintsTypeDef(BaseValidatorModel):
+class ParameterConstraints(BaseValidatorModel):
     AllowedValues: Optional[List[str]] = None
 
 
-class PhysicalResourceIdContextKeyValuePairTypeDef(BaseValidatorModel):
+class PhysicalResourceIdContextKeyValuePair(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class PropertyDifferenceTypeDef(BaseValidatorModel):
+class PropertyDifference(BaseValidatorModel):
     PropertyPath: str
     ExpectedValue: str
     ActualValue: str
     DifferenceType: DifferenceTypeType
 
 
-class RecordHandlerProgressInputTypeDef(BaseValidatorModel):
+class RecordHandlerProgressInput(BaseValidatorModel):
     BearerToken: str
     OperationStatus: OperationStatusType
     CurrentOperationStatus: Optional[OperationStatusType] = None
@@ -566,12 +566,12 @@ class RecordHandlerProgressInputTypeDef(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
-class RegisterPublisherInputTypeDef(BaseValidatorModel):
+class RegisterPublisherInput(BaseValidatorModel):
     AcceptTermsAndConditions: Optional[bool] = None
     ConnectionArn: Optional[str] = None
 
 
-class ResourceTargetDefinitionTypeDef(BaseValidatorModel):
+class ResourceTargetDefinition(BaseValidatorModel):
     Attribute: Optional[ResourceAttributeType] = None
     Name: Optional[str] = None
     RequiresRecreation: Optional[RequiresRecreationType] = None
@@ -581,56 +581,56 @@ class ResourceTargetDefinitionTypeDef(BaseValidatorModel):
     AttributeChangeType: Optional[AttributeChangeTypeType] = None
 
 
-class ResourceLocationTypeDef(BaseValidatorModel):
+class ResourceLocation(BaseValidatorModel):
     StackName: str
     LogicalResourceId: str
 
 
-class RollbackStackInputTypeDef(BaseValidatorModel):
+class RollbackStackInput(BaseValidatorModel):
     StackName: str
     RoleARN: Optional[str] = None
     ClientRequestToken: Optional[str] = None
     RetainExceptOnCreate: Optional[bool] = None
 
 
-class SetStackPolicyInputTypeDef(BaseValidatorModel):
+class SetStackPolicyInput(BaseValidatorModel):
     StackName: str
     StackPolicyBody: Optional[str] = None
     StackPolicyURL: Optional[str] = None
 
 
-class SignalResourceInputTypeDef(BaseValidatorModel):
+class SignalResourceInput(BaseValidatorModel):
     StackName: str
     LogicalResourceId: str
     UniqueId: str
     Status: ResourceSignalStatusType
 
 
-class StackDriftInformationSummaryTypeDef(BaseValidatorModel):
+class StackDriftInformationSummary(BaseValidatorModel):
     StackDriftStatus: StackDriftStatusType
     LastCheckTimestamp: Optional[datetime] = None
 
 
-class StackDriftInformationTypeDef(BaseValidatorModel):
+class StackDriftInformation(BaseValidatorModel):
     StackDriftStatus: StackDriftStatusType
     LastCheckTimestamp: Optional[datetime] = None
 
 
-class StackInstanceComprehensiveStatusTypeDef(BaseValidatorModel):
+class StackInstanceComprehensiveStatus(BaseValidatorModel):
     DetailedStatus: Optional[StackInstanceDetailedStatusType] = None
 
 
-class StackResourceDriftInformationTypeDef(BaseValidatorModel):
+class StackResourceDriftInformation(BaseValidatorModel):
     StackResourceDriftStatus: StackResourceDriftStatusType
     LastCheckTimestamp: Optional[datetime] = None
 
 
-class StackResourceDriftInformationSummaryTypeDef(BaseValidatorModel):
+class StackResourceDriftInformationSummary(BaseValidatorModel):
     StackResourceDriftStatus: StackResourceDriftStatusType
     LastCheckTimestamp: Optional[datetime] = None
 
 
-class StackSetDriftDetectionDetailsTypeDef(BaseValidatorModel):
+class StackSetDriftDetectionDetails(BaseValidatorModel):
     DriftStatus: Optional[StackSetDriftStatusType] = None
     DriftDetectionStatus: Optional[StackSetDriftDetectionStatusType] = None
     LastDriftCheckTimestamp: Optional[datetime] = None
@@ -641,7 +641,7 @@ class StackSetDriftDetectionDetailsTypeDef(BaseValidatorModel):
     FailedStackInstancesCount: Optional[int] = None
 
 
-class StackSetOperationPreferencesOutputTypeDef(BaseValidatorModel):
+class StackSetOperationPreferencesOutput(BaseValidatorModel):
     RegionConcurrencyType: Optional[RegionConcurrencyTypeType] = None
     RegionOrder: Optional[List[str]] = None
     FailureToleranceCount: Optional[int] = None
@@ -651,7 +651,7 @@ class StackSetOperationPreferencesOutputTypeDef(BaseValidatorModel):
     ConcurrencyMode: Optional[ConcurrencyModeType] = None
 
 
-class StackSetOperationPreferencesTypeDef(BaseValidatorModel):
+class StackSetOperationPreferences(BaseValidatorModel):
     RegionConcurrencyType: Optional[RegionConcurrencyTypeType] = None
     RegionOrder: Optional[Sequence[str]] = None
     FailureToleranceCount: Optional[int] = None
@@ -661,107 +661,107 @@ class StackSetOperationPreferencesTypeDef(BaseValidatorModel):
     ConcurrencyMode: Optional[ConcurrencyModeType] = None
 
 
-class StackSetOperationStatusDetailsTypeDef(BaseValidatorModel):
+class StackSetOperationStatusDetails(BaseValidatorModel):
     FailedStackInstancesCount: Optional[int] = None
 
 
-class StartResourceScanInputTypeDef(BaseValidatorModel):
+class StartResourceScanInput(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
-class StopStackSetOperationInputTypeDef(BaseValidatorModel):
+class StopStackSetOperationInput(BaseValidatorModel):
     StackSetName: str
     OperationId: str
     CallAs: Optional[CallAsType] = None
 
 
-class TemplateParameterTypeDef(BaseValidatorModel):
+class TemplateParameter(BaseValidatorModel):
     ParameterKey: Optional[str] = None
     DefaultValue: Optional[str] = None
     NoEcho: Optional[bool] = None
     Description: Optional[str] = None
 
 
-class UpdateTerminationProtectionInputTypeDef(BaseValidatorModel):
+class UpdateTerminationProtectionInput(BaseValidatorModel):
     EnableTerminationProtection: bool
     StackName: str
 
 
-class ValidateTemplateInputTypeDef(BaseValidatorModel):
+class ValidateTemplateInput(BaseValidatorModel):
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
 
 
-class StackSetOperationResultSummaryTypeDef(BaseValidatorModel):
+class StackSetOperationResultSummary(BaseValidatorModel):
     Account: Optional[str] = None
     Region: Optional[str] = None
     Status: Optional[StackSetOperationResultStatusType] = None
     StatusReason: Optional[str] = None
-    AccountGateResult: Optional[AccountGateResultTypeDef] = None
+    AccountGateResult: Optional[AccountGateResult] = None
     OrganizationalUnitId: Optional[str] = None
 
 
-class ActivateTypeOutputTypeDef(BaseValidatorModel):
+class ActivateTypeOutput(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChangeSetOutputTypeDef(BaseValidatorModel):
+class CreateChangeSetOutput(BaseValidatorModel):
     Id: str
     StackId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGeneratedTemplateOutputTypeDef(BaseValidatorModel):
+class CreateGeneratedTemplateOutput(BaseValidatorModel):
     GeneratedTemplateId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStackInstancesOutputTypeDef(BaseValidatorModel):
+class CreateStackInstancesOutput(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStackOutputTypeDef(BaseValidatorModel):
+class CreateStackOutput(BaseValidatorModel):
     StackId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStackRefactorOutputTypeDef(BaseValidatorModel):
+class CreateStackRefactorOutput(BaseValidatorModel):
     StackRefactorId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStackSetOutputTypeDef(BaseValidatorModel):
+class CreateStackSetOutput(BaseValidatorModel):
     StackSetId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteStackInstancesOutputTypeDef(BaseValidatorModel):
+class DeleteStackInstancesOutput(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountLimitsOutputTypeDef(BaseValidatorModel):
-    AccountLimits: List[AccountLimitTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAccountLimitsOutput(BaseValidatorModel):
+    AccountLimits: List[AccountLimit]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeOrganizationsAccessOutputTypeDef(BaseValidatorModel):
+class DescribeOrganizationsAccessOutput(BaseValidatorModel):
     Status: OrganizationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePublisherOutputTypeDef(BaseValidatorModel):
+class DescribePublisherOutput(BaseValidatorModel):
     PublisherId: str
     PublisherStatus: PublisherStatusType
     IdentityProvider: IdentityProviderType
     PublisherProfile: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeResourceScanOutputTypeDef(BaseValidatorModel):
+class DescribeResourceScanOutput(BaseValidatorModel):
     ResourceScanId: str
     Status: ResourceScanStatusType
     StatusReason: str
@@ -771,10 +771,10 @@ class DescribeResourceScanOutputTypeDef(BaseValidatorModel):
     ResourceTypes: List[str]
     ResourcesScanned: int
     ResourcesRead: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStackDriftDetectionStatusOutputTypeDef(BaseValidatorModel):
+class DescribeStackDriftDetectionStatusOutput(BaseValidatorModel):
     StackId: str
     StackDriftDetectionId: str
     StackDriftStatus: StackDriftStatusType
@@ -782,10 +782,10 @@ class DescribeStackDriftDetectionStatusOutputTypeDef(BaseValidatorModel):
     DetectionStatusReason: str
     DriftedStackResourceCount: int
     Timestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStackRefactorOutputTypeDef(BaseValidatorModel):
+class DescribeStackRefactorOutput(BaseValidatorModel):
     Description: str
     StackRefactorId: str
     StackIds: List[str]
@@ -793,545 +793,545 @@ class DescribeStackRefactorOutputTypeDef(BaseValidatorModel):
     ExecutionStatusReason: str
     Status: StackRefactorStatusType
     StatusReason: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTypeRegistrationOutputTypeDef(BaseValidatorModel):
+class DescribeTypeRegistrationOutput(BaseValidatorModel):
     ProgressStatus: RegistrationStatusType
     Description: str
     TypeArn: str
     TypeVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DetectStackDriftOutputTypeDef(BaseValidatorModel):
+class DetectStackDriftOutput(BaseValidatorModel):
     StackDriftDetectionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DetectStackSetDriftOutputTypeDef(BaseValidatorModel):
+class DetectStackSetDriftOutput(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class EstimateTemplateCostOutputTypeDef(BaseValidatorModel):
+class EstimateTemplateCostOutput(BaseValidatorModel):
     Url: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetGeneratedTemplateOutputTypeDef(BaseValidatorModel):
+class GetGeneratedTemplateOutput(BaseValidatorModel):
     Status: GeneratedTemplateStatusType
     TemplateBody: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetStackPolicyOutputTypeDef(BaseValidatorModel):
+class GetStackPolicyOutput(BaseValidatorModel):
     StackPolicyBody: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTemplateOutputTypeDef(BaseValidatorModel):
+class GetTemplateOutput(BaseValidatorModel):
     TemplateBody: Dict[str, Any]
     StagesAvailable: List[TemplateStageType]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportStacksToStackSetOutputTypeDef(BaseValidatorModel):
+class ImportStacksToStackSetOutput(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListImportsOutputTypeDef(BaseValidatorModel):
+class ListImportsOutput(BaseValidatorModel):
     Imports: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTypeRegistrationsOutputTypeDef(BaseValidatorModel):
+class ListTypeRegistrationsOutput(BaseValidatorModel):
     RegistrationTokenList: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PublishTypeOutputTypeDef(BaseValidatorModel):
+class PublishTypeOutput(BaseValidatorModel):
     PublicTypeArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterPublisherOutputTypeDef(BaseValidatorModel):
+class RegisterPublisherOutput(BaseValidatorModel):
     PublisherId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterTypeOutputTypeDef(BaseValidatorModel):
+class RegisterTypeOutput(BaseValidatorModel):
     RegistrationToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RollbackStackOutputTypeDef(BaseValidatorModel):
+class RollbackStackOutput(BaseValidatorModel):
     StackId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetTypeConfigurationOutputTypeDef(BaseValidatorModel):
+class SetTypeConfigurationOutput(BaseValidatorModel):
     ConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartResourceScanOutputTypeDef(BaseValidatorModel):
+class StartResourceScanOutput(BaseValidatorModel):
     ResourceScanId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TestTypeOutputTypeDef(BaseValidatorModel):
+class TestTypeOutput(BaseValidatorModel):
     TypeVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGeneratedTemplateOutputTypeDef(BaseValidatorModel):
+class UpdateGeneratedTemplateOutput(BaseValidatorModel):
     GeneratedTemplateId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateStackInstancesOutputTypeDef(BaseValidatorModel):
+class UpdateStackInstancesOutput(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateStackOutputTypeDef(BaseValidatorModel):
+class UpdateStackOutput(BaseValidatorModel):
     StackId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateStackSetOutputTypeDef(BaseValidatorModel):
+class UpdateStackSetOutput(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTerminationProtectionOutputTypeDef(BaseValidatorModel):
+class UpdateTerminationProtectionOutput(BaseValidatorModel):
     StackId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TypeConfigurationIdentifierTypeDef(BaseValidatorModel):
+class TypeConfigurationIdentifier(BaseValidatorModel):
     pass
 
 
-class BatchDescribeTypeConfigurationsErrorTypeDef(BaseValidatorModel):
+class BatchDescribeTypeConfigurationsError(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
-    TypeConfigurationIdentifier: Optional[TypeConfigurationIdentifierTypeDef] = None
+    TypeConfigurationIdentifier: Optional[TypeConfigurationIdentifier] = None
 
 
-class BatchDescribeTypeConfigurationsInputTypeDef(BaseValidatorModel):
-    TypeConfigurationIdentifiers: Sequence[TypeConfigurationIdentifierTypeDef]
+class BatchDescribeTypeConfigurationsInput(BaseValidatorModel):
+    TypeConfigurationIdentifiers: Sequence[TypeConfigurationIdentifier]
 
 
-class ChangeSetHookTargetDetailsTypeDef(BaseValidatorModel):
+class ChangeSetHookTargetDetails(BaseValidatorModel):
     TargetType: Optional[Literal["RESOURCE"]] = None
-    ResourceTargetDetails: Optional[ChangeSetHookResourceTargetDetailsTypeDef] = None
+    ResourceTargetDetails: Optional[ChangeSetHookResourceTargetDetails] = None
 
 
-class ListChangeSetsOutputTypeDef(BaseValidatorModel):
-    Summaries: List[ChangeSetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChangeSetsOutput(BaseValidatorModel):
+    Summaries: List[ChangeSetSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EstimateTemplateCostInputTypeDef(BaseValidatorModel):
+class EstimateTemplateCostInput(BaseValidatorModel):
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
-    Parameters: Optional[Sequence[ParameterTypeDef]] = None
+    Parameters: Optional[Sequence[Parameter]] = None
 
 
-class CreateGeneratedTemplateInputTypeDef(BaseValidatorModel):
+class CreateGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
-    Resources: Optional[Sequence[ResourceDefinitionTypeDef]] = None
+    Resources: Optional[Sequence[ResourceDefinition]] = None
     StackName: Optional[str] = None
-    TemplateConfiguration: Optional[TemplateConfigurationTypeDef] = None
+    TemplateConfiguration: Optional[TemplateConfiguration] = None
 
 
-class UpdateGeneratedTemplateInputTypeDef(BaseValidatorModel):
+class UpdateGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
     NewGeneratedTemplateName: Optional[str] = None
-    AddResources: Optional[Sequence[ResourceDefinitionTypeDef]] = None
+    AddResources: Optional[Sequence[ResourceDefinition]] = None
     RemoveResources: Optional[Sequence[str]] = None
     RefreshAllResources: Optional[bool] = None
-    TemplateConfiguration: Optional[TemplateConfigurationTypeDef] = None
+    TemplateConfiguration: Optional[TemplateConfiguration] = None
 
 
-class CreateStackSetInputTypeDef(BaseValidatorModel):
+class CreateStackSetInput(BaseValidatorModel):
     StackSetName: str
     Description: Optional[str] = None
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
     StackId: Optional[str] = None
-    Parameters: Optional[Sequence[ParameterTypeDef]] = None
+    Parameters: Optional[Sequence[Parameter]] = None
     Capabilities: Optional[Sequence[CapabilityType]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     AdministrationRoleARN: Optional[str] = None
     ExecutionRoleName: Optional[str] = None
     PermissionModel: Optional[PermissionModelsType] = None
-    AutoDeployment: Optional[AutoDeploymentTypeDef] = None
+    AutoDeployment: Optional[AutoDeployment] = None
     CallAs: Optional[CallAsType] = None
     ClientRequestToken: Optional[str] = None
-    ManagedExecution: Optional[ManagedExecutionTypeDef] = None
+    ManagedExecution: Optional[ManagedExecution] = None
 
 
-class StackSetSummaryTypeDef(BaseValidatorModel):
+class StackSetSummary(BaseValidatorModel):
     StackSetName: Optional[str] = None
     StackSetId: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[StackSetStatusType] = None
-    AutoDeployment: Optional[AutoDeploymentTypeDef] = None
+    AutoDeployment: Optional[AutoDeployment] = None
     PermissionModel: Optional[PermissionModelsType] = None
     DriftStatus: Optional[StackDriftStatusType] = None
     LastDriftCheckTimestamp: Optional[datetime] = None
-    ManagedExecution: Optional[ManagedExecutionTypeDef] = None
+    ManagedExecution: Optional[ManagedExecution] = None
 
 
-class DescribeAccountLimitsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeAccountLimitsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeChangeSetInputPaginateTypeDef(BaseValidatorModel):
+class DescribeChangeSetInputPaginate(BaseValidatorModel):
     ChangeSetName: str
     StackName: Optional[str] = None
     IncludePropertyValues: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeStackEventsInputPaginateTypeDef(BaseValidatorModel):
+class DescribeStackEventsInputPaginate(BaseValidatorModel):
     StackName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeStacksInputPaginateTypeDef(BaseValidatorModel):
+class DescribeStacksInputPaginate(BaseValidatorModel):
     StackName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListChangeSetsInputPaginateTypeDef(BaseValidatorModel):
+class ListChangeSetsInputPaginate(BaseValidatorModel):
     StackName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListExportsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListExportsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGeneratedTemplatesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListGeneratedTemplatesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListImportsInputPaginateTypeDef(BaseValidatorModel):
+class ListImportsInputPaginate(BaseValidatorModel):
     ExportName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceScanResourcesInputPaginateTypeDef(BaseValidatorModel):
+class ListResourceScanResourcesInputPaginate(BaseValidatorModel):
     ResourceScanId: str
     ResourceIdentifier: Optional[str] = None
     ResourceTypePrefix: Optional[str] = None
     TagKey: Optional[str] = None
     TagValue: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceScansInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListResourceScansInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStackRefactorActionsInputPaginateTypeDef(BaseValidatorModel):
+class ListStackRefactorActionsInputPaginate(BaseValidatorModel):
     StackRefactorId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStackRefactorsInputPaginateTypeDef(BaseValidatorModel):
+class ListStackRefactorsInputPaginate(BaseValidatorModel):
     ExecutionStatusFilter: Optional[Sequence[StackRefactorExecutionStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStackResourcesInputPaginateTypeDef(BaseValidatorModel):
+class ListStackResourcesInputPaginate(BaseValidatorModel):
     StackName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStackSetOperationsInputPaginateTypeDef(BaseValidatorModel):
+class ListStackSetOperationsInputPaginate(BaseValidatorModel):
     StackSetName: str
     CallAs: Optional[CallAsType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStackSetsInputPaginateTypeDef(BaseValidatorModel):
+class ListStackSetsInputPaginate(BaseValidatorModel):
     Status: Optional[StackSetStatusType] = None
     CallAs: Optional[CallAsType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStacksInputPaginateTypeDef(BaseValidatorModel):
+class ListStacksInputPaginate(BaseValidatorModel):
     StackStatusFilter: Optional[Sequence[StackStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeChangeSetInputWaitTypeDef(BaseValidatorModel):
+class DescribeChangeSetInputWait(BaseValidatorModel):
     ChangeSetName: str
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
     IncludePropertyValues: Optional[bool] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStackRefactorInputWaitExtraTypeDef(BaseValidatorModel):
+class DescribeStackRefactorInputWaitExtra(BaseValidatorModel):
     StackRefactorId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStackRefactorInputWaitTypeDef(BaseValidatorModel):
+class DescribeStackRefactorInputWait(BaseValidatorModel):
     StackRefactorId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStacksInputWaitExtraExtraExtraExtraExtraTypeDef(BaseValidatorModel):
+class DescribeStacksInputWaitExtraExtraExtraExtraExtra(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStacksInputWaitExtraExtraExtraExtraTypeDef(BaseValidatorModel):
+class DescribeStacksInputWaitExtraExtraExtraExtra(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStacksInputWaitExtraExtraExtraTypeDef(BaseValidatorModel):
+class DescribeStacksInputWaitExtraExtraExtra(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStacksInputWaitExtraExtraTypeDef(BaseValidatorModel):
+class DescribeStacksInputWaitExtraExtra(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStacksInputWaitExtraTypeDef(BaseValidatorModel):
+class DescribeStacksInputWaitExtra(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStacksInputWaitTypeDef(BaseValidatorModel):
+class DescribeStacksInputWait(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeTypeRegistrationInputWaitTypeDef(BaseValidatorModel):
+class DescribeTypeRegistrationInputWait(BaseValidatorModel):
     RegistrationToken: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStackEventsOutputTypeDef(BaseValidatorModel):
-    StackEvents: List[StackEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStackEventsOutput(BaseValidatorModel):
+    StackEvents: List[StackEvent]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListExportsOutputTypeDef(BaseValidatorModel):
-    Exports: List[ExportTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExportsOutput(BaseValidatorModel):
+    Exports: List[Export]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetTemplateSummaryInputTypeDef(BaseValidatorModel):
+class GetTemplateSummaryInput(BaseValidatorModel):
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
     StackName: Optional[str] = None
     StackSetName: Optional[str] = None
     CallAs: Optional[CallAsType] = None
-    TemplateSummaryConfig: Optional[TemplateSummaryConfigTypeDef] = None
+    TemplateSummaryConfig: Optional[TemplateSummaryConfig] = None
 
 
-class ListHookResultsOutputTypeDef(BaseValidatorModel):
+class ListHookResultsOutput(BaseValidatorModel):
     TargetType: ListHookResultsTargetTypeType
     TargetId: str
-    HookResults: List[HookResultSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    HookResults: List[HookResultSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGeneratedTemplatesOutputTypeDef(BaseValidatorModel):
-    Summaries: List[TemplateSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGeneratedTemplatesOutput(BaseValidatorModel):
+    Summaries: List[TemplateSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListResourceScanRelatedResourcesInputPaginateTypeDef(BaseValidatorModel):
+class ListResourceScanRelatedResourcesInputPaginate(BaseValidatorModel):
     ResourceScanId: str
-    Resources: Sequence[ScannedResourceIdentifierTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Resources: Sequence[ScannedResourceIdentifier]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceScanRelatedResourcesInputTypeDef(BaseValidatorModel):
+class ListResourceScanRelatedResourcesInput(BaseValidatorModel):
     ResourceScanId: str
-    Resources: Sequence[ScannedResourceIdentifierTypeDef]
+    Resources: Sequence[ScannedResourceIdentifier]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListResourceScanRelatedResourcesOutputTypeDef(BaseValidatorModel):
-    RelatedResources: List[ScannedResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceScanRelatedResourcesOutput(BaseValidatorModel):
+    RelatedResources: List[ScannedResource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListResourceScanResourcesOutputTypeDef(BaseValidatorModel):
-    Resources: List[ScannedResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceScanResourcesOutput(BaseValidatorModel):
+    Resources: List[ScannedResource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListResourceScansOutputTypeDef(BaseValidatorModel):
-    ResourceScanSummaries: List[ResourceScanSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceScansOutput(BaseValidatorModel):
+    ResourceScanSummaries: List[ResourceScanSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListStackInstancesInputPaginateTypeDef(BaseValidatorModel):
+class ListStackInstancesInputPaginate(BaseValidatorModel):
     StackSetName: str
-    Filters: Optional[Sequence[StackInstanceFilterTypeDef]] = None
+    Filters: Optional[Sequence[StackInstanceFilter]] = None
     StackInstanceAccount: Optional[str] = None
     StackInstanceRegion: Optional[str] = None
     CallAs: Optional[CallAsType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStackInstancesInputTypeDef(BaseValidatorModel):
+class ListStackInstancesInput(BaseValidatorModel):
     StackSetName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    Filters: Optional[Sequence[StackInstanceFilterTypeDef]] = None
+    Filters: Optional[Sequence[StackInstanceFilter]] = None
     StackInstanceAccount: Optional[str] = None
     StackInstanceRegion: Optional[str] = None
     CallAs: Optional[CallAsType] = None
 
 
-class ListStackRefactorsOutputTypeDef(BaseValidatorModel):
-    StackRefactorSummaries: List[StackRefactorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStackRefactorsOutput(BaseValidatorModel):
+    StackRefactorSummaries: List[StackRefactorSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListStackSetAutoDeploymentTargetsOutputTypeDef(BaseValidatorModel):
-    Summaries: List[StackSetAutoDeploymentTargetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStackSetAutoDeploymentTargetsOutput(BaseValidatorModel):
+    Summaries: List[StackSetAutoDeploymentTargetSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListStackSetOperationResultsInputPaginateTypeDef(BaseValidatorModel):
+class ListStackSetOperationResultsInputPaginate(BaseValidatorModel):
     StackSetName: str
     OperationId: str
     CallAs: Optional[CallAsType] = None
-    Filters: Optional[Sequence[OperationResultFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[OperationResultFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStackSetOperationResultsInputTypeDef(BaseValidatorModel):
+class ListStackSetOperationResultsInput(BaseValidatorModel):
     StackSetName: str
     OperationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     CallAs: Optional[CallAsType] = None
-    Filters: Optional[Sequence[OperationResultFilterTypeDef]] = None
+    Filters: Optional[Sequence[OperationResultFilter]] = None
 
 
-class TypeVersionSummaryTypeDef(BaseValidatorModel):
+class TypeVersionSummary(BaseValidatorModel):
     pass
 
 
-class ListTypeVersionsOutputTypeDef(BaseValidatorModel):
-    TypeVersionSummaries: List[TypeVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTypeVersionsOutput(BaseValidatorModel):
+    TypeVersionSummaries: List[TypeVersionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TypeSummaryTypeDef(BaseValidatorModel):
+class TypeSummary(BaseValidatorModel):
     pass
 
 
-class ListTypesOutputTypeDef(BaseValidatorModel):
-    TypeSummaries: List[TypeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTypesOutput(BaseValidatorModel):
+    TypeSummaries: List[TypeSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ParameterDeclarationTypeDef(BaseValidatorModel):
+class ParameterDeclaration(BaseValidatorModel):
     ParameterKey: Optional[str] = None
     DefaultValue: Optional[str] = None
     ParameterType: Optional[str] = None
     NoEcho: Optional[bool] = None
     Description: Optional[str] = None
-    ParameterConstraints: Optional[ParameterConstraintsTypeDef] = None
+    ParameterConstraints: Optional[ParameterConstraints] = None
 
 
-class StackInstanceResourceDriftsSummaryTypeDef(BaseValidatorModel):
+class StackInstanceResourceDriftsSummary(BaseValidatorModel):
     StackId: str
     LogicalResourceId: str
     ResourceType: str
     StackResourceDriftStatus: StackResourceDriftStatusType
     Timestamp: datetime
     PhysicalResourceId: Optional[str] = None
-    PhysicalResourceIdContext: Optional[List[PhysicalResourceIdContextKeyValuePairTypeDef]] = None
-    PropertyDifferences: Optional[List[PropertyDifferenceTypeDef]] = None
+    PhysicalResourceIdContext: Optional[List[PhysicalResourceIdContextKeyValuePair]] = None
+    PropertyDifferences: Optional[List[PropertyDifference]] = None
 
 
-class StackResourceDriftTypeDef(BaseValidatorModel):
+class StackResourceDrift(BaseValidatorModel):
     StackId: str
     LogicalResourceId: str
     ResourceType: str
     StackResourceDriftStatus: StackResourceDriftStatusType
     Timestamp: datetime
     PhysicalResourceId: Optional[str] = None
-    PhysicalResourceIdContext: Optional[List[PhysicalResourceIdContextKeyValuePairTypeDef]] = None
+    PhysicalResourceIdContext: Optional[List[PhysicalResourceIdContextKeyValuePair]] = None
     ExpectedProperties: Optional[str] = None
     ActualProperties: Optional[str] = None
-    PropertyDifferences: Optional[List[PropertyDifferenceTypeDef]] = None
-    ModuleInfo: Optional[ModuleInfoTypeDef] = None
+    PropertyDifferences: Optional[List[PropertyDifference]] = None
+    ModuleInfo: Optional[ModuleInfo] = None
 
 
-class ResourceChangeDetailTypeDef(BaseValidatorModel):
-    Target: Optional[ResourceTargetDefinitionTypeDef] = None
+class ResourceChangeDetail(BaseValidatorModel):
+    Target: Optional[ResourceTargetDefinition] = None
     Evaluation: Optional[EvaluationTypeType] = None
     ChangeSource: Optional[ChangeSourceType] = None
     CausingEntity: Optional[str] = None
 
 
-class ResourceMappingTypeDef(BaseValidatorModel):
-    Source: ResourceLocationTypeDef
-    Destination: ResourceLocationTypeDef
+class ResourceMapping(BaseValidatorModel):
+    Source: ResourceLocation
+    Destination: ResourceLocation
 
 
-class RollbackTriggerTypeDef(BaseValidatorModel):
+class RollbackTrigger(BaseValidatorModel):
     pass
 
 
-class RollbackConfigurationOutputTypeDef(BaseValidatorModel):
-    RollbackTriggers: Optional[List[RollbackTriggerTypeDef]] = None
+class RollbackConfigurationOutput(BaseValidatorModel):
+    RollbackTriggers: Optional[List[RollbackTrigger]] = None
     MonitoringTimeInMinutes: Optional[int] = None
 
 
-class RollbackConfigurationTypeDef(BaseValidatorModel):
-    RollbackTriggers: Optional[Sequence[RollbackTriggerTypeDef]] = None
+class RollbackConfiguration(BaseValidatorModel):
+    RollbackTriggers: Optional[Sequence[RollbackTrigger]] = None
     MonitoringTimeInMinutes: Optional[int] = None
 
 
-class StackSummaryTypeDef(BaseValidatorModel):
+class StackSummary(BaseValidatorModel):
     StackName: str
     CreationTime: datetime
     StackStatus: StackStatusType
@@ -1342,31 +1342,31 @@ class StackSummaryTypeDef(BaseValidatorModel):
     StackStatusReason: Optional[str] = None
     ParentId: Optional[str] = None
     RootId: Optional[str] = None
-    DriftInformation: Optional[StackDriftInformationSummaryTypeDef] = None
+    DriftInformation: Optional[StackDriftInformationSummary] = None
 
 
-class StackInstanceSummaryTypeDef(BaseValidatorModel):
+class StackInstanceSummary(BaseValidatorModel):
     StackSetId: Optional[str] = None
     Region: Optional[str] = None
     Account: Optional[str] = None
     StackId: Optional[str] = None
     Status: Optional[StackInstanceStatusType] = None
     StatusReason: Optional[str] = None
-    StackInstanceStatus: Optional[StackInstanceComprehensiveStatusTypeDef] = None
+    StackInstanceStatus: Optional[StackInstanceComprehensiveStatus] = None
     OrganizationalUnitId: Optional[str] = None
     DriftStatus: Optional[StackDriftStatusType] = None
     LastDriftCheckTimestamp: Optional[datetime] = None
     LastOperationId: Optional[str] = None
 
 
-class StackInstanceTypeDef(BaseValidatorModel):
+class StackInstance(BaseValidatorModel):
     StackSetId: Optional[str] = None
     Region: Optional[str] = None
     Account: Optional[str] = None
     StackId: Optional[str] = None
-    ParameterOverrides: Optional[List[ParameterTypeDef]] = None
+    ParameterOverrides: Optional[List[Parameter]] = None
     Status: Optional[StackInstanceStatusType] = None
-    StackInstanceStatus: Optional[StackInstanceComprehensiveStatusTypeDef] = None
+    StackInstanceStatus: Optional[StackInstanceComprehensiveStatus] = None
     StatusReason: Optional[str] = None
     OrganizationalUnitId: Optional[str] = None
     DriftStatus: Optional[StackDriftStatusType] = None
@@ -1374,7 +1374,7 @@ class StackInstanceTypeDef(BaseValidatorModel):
     LastOperationId: Optional[str] = None
 
 
-class StackResourceDetailTypeDef(BaseValidatorModel):
+class StackResourceDetail(BaseValidatorModel):
     LogicalResourceId: str
     ResourceType: str
     LastUpdatedTimestamp: datetime
@@ -1385,11 +1385,11 @@ class StackResourceDetailTypeDef(BaseValidatorModel):
     ResourceStatusReason: Optional[str] = None
     Description: Optional[str] = None
     Metadata: Optional[str] = None
-    DriftInformation: Optional[StackResourceDriftInformationTypeDef] = None
-    ModuleInfo: Optional[ModuleInfoTypeDef] = None
+    DriftInformation: Optional[StackResourceDriftInformation] = None
+    ModuleInfo: Optional[ModuleInfo] = None
 
 
-class StackResourceTypeDef(BaseValidatorModel):
+class StackResource(BaseValidatorModel):
     LogicalResourceId: str
     ResourceType: str
     Timestamp: datetime
@@ -1399,108 +1399,108 @@ class StackResourceTypeDef(BaseValidatorModel):
     PhysicalResourceId: Optional[str] = None
     ResourceStatusReason: Optional[str] = None
     Description: Optional[str] = None
-    DriftInformation: Optional[StackResourceDriftInformationTypeDef] = None
-    ModuleInfo: Optional[ModuleInfoTypeDef] = None
+    DriftInformation: Optional[StackResourceDriftInformation] = None
+    ModuleInfo: Optional[ModuleInfo] = None
 
 
-class StackResourceSummaryTypeDef(BaseValidatorModel):
+class StackResourceSummary(BaseValidatorModel):
     LogicalResourceId: str
     ResourceType: str
     LastUpdatedTimestamp: datetime
     ResourceStatus: ResourceStatusType
     PhysicalResourceId: Optional[str] = None
     ResourceStatusReason: Optional[str] = None
-    DriftInformation: Optional[StackResourceDriftInformationSummaryTypeDef] = None
-    ModuleInfo: Optional[ModuleInfoTypeDef] = None
+    DriftInformation: Optional[StackResourceDriftInformationSummary] = None
+    ModuleInfo: Optional[ModuleInfo] = None
 
 
-class StackSetTypeDef(BaseValidatorModel):
+class StackSet(BaseValidatorModel):
     StackSetName: Optional[str] = None
     StackSetId: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[StackSetStatusType] = None
     TemplateBody: Optional[str] = None
-    Parameters: Optional[List[ParameterTypeDef]] = None
+    Parameters: Optional[List[Parameter]] = None
     Capabilities: Optional[List[CapabilityType]] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     StackSetARN: Optional[str] = None
     AdministrationRoleARN: Optional[str] = None
     ExecutionRoleName: Optional[str] = None
-    StackSetDriftDetectionDetails: Optional[StackSetDriftDetectionDetailsTypeDef] = None
-    AutoDeployment: Optional[AutoDeploymentTypeDef] = None
+    StackSetDriftDetectionDetails: Optional[StackSetDriftDetectionDetails] = None
+    AutoDeployment: Optional[AutoDeployment] = None
     PermissionModel: Optional[PermissionModelsType] = None
     OrganizationalUnitIds: Optional[List[str]] = None
-    ManagedExecution: Optional[ManagedExecutionTypeDef] = None
+    ManagedExecution: Optional[ManagedExecution] = None
     Regions: Optional[List[str]] = None
 
 
-class StackSetOperationSummaryTypeDef(BaseValidatorModel):
+class StackSetOperationSummary(BaseValidatorModel):
     OperationId: Optional[str] = None
     Action: Optional[StackSetOperationActionType] = None
     Status: Optional[StackSetOperationStatusType] = None
     CreationTimestamp: Optional[datetime] = None
     EndTimestamp: Optional[datetime] = None
     StatusReason: Optional[str] = None
-    StatusDetails: Optional[StackSetOperationStatusDetailsTypeDef] = None
-    OperationPreferences: Optional[StackSetOperationPreferencesOutputTypeDef] = None
+    StatusDetails: Optional[StackSetOperationStatusDetails] = None
+    OperationPreferences: Optional[StackSetOperationPreferencesOutput] = None
 
 
-class StackSetOperationTypeDef(BaseValidatorModel):
+class StackSetOperation(BaseValidatorModel):
     OperationId: Optional[str] = None
     StackSetId: Optional[str] = None
     Action: Optional[StackSetOperationActionType] = None
     Status: Optional[StackSetOperationStatusType] = None
-    OperationPreferences: Optional[StackSetOperationPreferencesOutputTypeDef] = None
+    OperationPreferences: Optional[StackSetOperationPreferencesOutput] = None
     RetainStacks: Optional[bool] = None
     AdministrationRoleARN: Optional[str] = None
     ExecutionRoleName: Optional[str] = None
     CreationTimestamp: Optional[datetime] = None
     EndTimestamp: Optional[datetime] = None
-    DeploymentTargets: Optional[DeploymentTargetsOutputTypeDef] = None
-    StackSetDriftDetectionDetails: Optional[StackSetDriftDetectionDetailsTypeDef] = None
+    DeploymentTargets: Optional[DeploymentTargetsOutput] = None
+    StackSetDriftDetectionDetails: Optional[StackSetDriftDetectionDetails] = None
     StatusReason: Optional[str] = None
-    StatusDetails: Optional[StackSetOperationStatusDetailsTypeDef] = None
+    StatusDetails: Optional[StackSetOperationStatusDetails] = None
 
 
-class ValidateTemplateOutputTypeDef(BaseValidatorModel):
-    Parameters: List[TemplateParameterTypeDef]
+class ValidateTemplateOutput(BaseValidatorModel):
+    Parameters: List[TemplateParameter]
     Description: str
     Capabilities: List[CapabilityType]
     CapabilitiesReason: str
     DeclaredTransforms: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListStackSetOperationResultsOutputTypeDef(BaseValidatorModel):
-    Summaries: List[StackSetOperationResultSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStackSetOperationResultsOutput(BaseValidatorModel):
+    Summaries: List[StackSetOperationResultSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BatchDescribeTypeConfigurationsOutputTypeDef(BaseValidatorModel):
-    Errors: List[BatchDescribeTypeConfigurationsErrorTypeDef]
-    UnprocessedTypeConfigurations: List[TypeConfigurationIdentifierTypeDef]
-    TypeConfigurations: List[TypeConfigurationDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDescribeTypeConfigurationsOutput(BaseValidatorModel):
+    Errors: List[BatchDescribeTypeConfigurationsError]
+    UnprocessedTypeConfigurations: List[TypeConfigurationIdentifier]
+    TypeConfigurations: List[TypeConfigurationDetails]
+    ResponseMetadata: ResponseMetadata
 
 
-class ChangeSetHookTypeDef(BaseValidatorModel):
+class ChangeSetHook(BaseValidatorModel):
     InvocationPoint: Optional[Literal["PRE_PROVISION"]] = None
     FailureMode: Optional[HookFailureModeType] = None
     TypeName: Optional[str] = None
     TypeVersionId: Optional[str] = None
     TypeConfigurationVersionId: Optional[str] = None
-    TargetDetails: Optional[ChangeSetHookTargetDetailsTypeDef] = None
+    TargetDetails: Optional[ChangeSetHookTargetDetails] = None
 
 
-class ListStackSetsOutputTypeDef(BaseValidatorModel):
-    Summaries: List[StackSetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStackSetsOutput(BaseValidatorModel):
+    Summaries: List[StackSetSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetTemplateSummaryOutputTypeDef(BaseValidatorModel):
-    Parameters: List[ParameterDeclarationTypeDef]
+class GetTemplateSummaryOutput(BaseValidatorModel):
+    Parameters: List[ParameterDeclaration]
     Description: str
     Capabilities: List[CapabilityType]
     CapabilitiesReason: str
@@ -1508,29 +1508,29 @@ class GetTemplateSummaryOutputTypeDef(BaseValidatorModel):
     Version: str
     Metadata: str
     DeclaredTransforms: List[str]
-    ResourceIdentifierSummaries: List[ResourceIdentifierSummaryTypeDef]
-    Warnings: WarningsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResourceIdentifierSummaries: List[ResourceIdentifierSummary]
+    Warnings: Warnings
+    ResponseMetadata: ResponseMetadata
 
 
-class ListStackInstanceResourceDriftsOutputTypeDef(BaseValidatorModel):
-    Summaries: List[StackInstanceResourceDriftsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStackInstanceResourceDriftsOutput(BaseValidatorModel):
+    Summaries: List[StackInstanceResourceDriftsSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeStackResourceDriftsOutputTypeDef(BaseValidatorModel):
-    StackResourceDrifts: List[StackResourceDriftTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStackResourceDriftsOutput(BaseValidatorModel):
+    StackResourceDrifts: List[StackResourceDrift]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DetectStackResourceDriftOutputTypeDef(BaseValidatorModel):
-    StackResourceDrift: StackResourceDriftTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectStackResourceDriftOutput(BaseValidatorModel):
+    StackResourceDrift: StackResourceDrift
+    ResponseMetadata: ResponseMetadata
 
 
-class ResourceChangeTypeDef(BaseValidatorModel):
+class ResourceChange(BaseValidatorModel):
     PolicyAction: Optional[PolicyActionType] = None
     Action: Optional[ChangeActionType] = None
     LogicalResourceId: Optional[str] = None
@@ -1538,21 +1538,21 @@ class ResourceChangeTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     Replacement: Optional[ReplacementType] = None
     Scope: Optional[List[ResourceAttributeType]] = None
-    Details: Optional[List[ResourceChangeDetailTypeDef]] = None
+    Details: Optional[List[ResourceChangeDetail]] = None
     ChangeSetId: Optional[str] = None
-    ModuleInfo: Optional[ModuleInfoTypeDef] = None
+    ModuleInfo: Optional[ModuleInfo] = None
     BeforeContext: Optional[str] = None
     AfterContext: Optional[str] = None
 
 
-class CreateStackRefactorInputTypeDef(BaseValidatorModel):
-    StackDefinitions: Sequence[StackDefinitionTypeDef]
+class CreateStackRefactorInput(BaseValidatorModel):
+    StackDefinitions: Sequence[StackDefinition]
     Description: Optional[str] = None
     EnableStackCreation: Optional[bool] = None
-    ResourceMappings: Optional[Sequence[ResourceMappingTypeDef]] = None
+    ResourceMappings: Optional[Sequence[ResourceMapping]] = None
 
 
-class StackRefactorActionTypeDef(BaseValidatorModel):
+class StackRefactorAction(BaseValidatorModel):
     Action: Optional[StackRefactorActionTypeType] = None
     Entity: Optional[StackRefactorActionEntityType] = None
     PhysicalResourceId: Optional[str] = None
@@ -1560,237 +1560,237 @@ class StackRefactorActionTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Detection: Optional[StackRefactorDetectionType] = None
     DetectionReason: Optional[str] = None
-    TagResources: Optional[List[TagTypeDef]] = None
+    TagResources: Optional[List[Tag]] = None
     UntagResources: Optional[List[str]] = None
-    ResourceMapping: Optional[ResourceMappingTypeDef] = None
+    ResourceMapping: Optional[ResourceMapping] = None
 
 
-class StackTypeDef(BaseValidatorModel):
+class Stack(BaseValidatorModel):
     StackName: str
     CreationTime: datetime
     StackStatus: StackStatusType
     StackId: Optional[str] = None
     ChangeSetId: Optional[str] = None
     Description: Optional[str] = None
-    Parameters: Optional[List[ParameterTypeDef]] = None
+    Parameters: Optional[List[Parameter]] = None
     DeletionTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
-    RollbackConfiguration: Optional[RollbackConfigurationOutputTypeDef] = None
+    RollbackConfiguration: Optional[RollbackConfigurationOutput] = None
     StackStatusReason: Optional[str] = None
     DisableRollback: Optional[bool] = None
     NotificationARNs: Optional[List[str]] = None
     TimeoutInMinutes: Optional[int] = None
     Capabilities: Optional[List[CapabilityType]] = None
-    Outputs: Optional[List[OutputTypeDef]] = None
+    Outputs: Optional[List[Output]] = None
     RoleARN: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     EnableTerminationProtection: Optional[bool] = None
     ParentId: Optional[str] = None
     RootId: Optional[str] = None
-    DriftInformation: Optional[StackDriftInformationTypeDef] = None
+    DriftInformation: Optional[StackDriftInformation] = None
     RetainExceptOnCreate: Optional[bool] = None
     DeletionMode: Optional[DeletionModeType] = None
     DetailedStatus: Optional[DetailedStatusType] = None
 
 
-class ListStacksOutputTypeDef(BaseValidatorModel):
-    StackSummaries: List[StackSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStacksOutput(BaseValidatorModel):
+    StackSummaries: List[StackSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListStackInstancesOutputTypeDef(BaseValidatorModel):
-    Summaries: List[StackInstanceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStackInstancesOutput(BaseValidatorModel):
+    Summaries: List[StackInstanceSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeStackInstanceOutputTypeDef(BaseValidatorModel):
-    StackInstance: StackInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStackInstanceOutput(BaseValidatorModel):
+    StackInstance: StackInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStackResourceOutputTypeDef(BaseValidatorModel):
-    StackResourceDetail: StackResourceDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStackResourceOutput(BaseValidatorModel):
+    StackResourceDetail: StackResourceDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStackResourcesOutputTypeDef(BaseValidatorModel):
-    StackResources: List[StackResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStackResourcesOutput(BaseValidatorModel):
+    StackResources: List[StackResource]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListStackResourcesOutputTypeDef(BaseValidatorModel):
-    StackResourceSummaries: List[StackResourceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStackResourcesOutput(BaseValidatorModel):
+    StackResourceSummaries: List[StackResourceSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeStackSetOutputTypeDef(BaseValidatorModel):
-    StackSet: StackSetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStackSetOutput(BaseValidatorModel):
+    StackSet: StackSet
+    ResponseMetadata: ResponseMetadata
 
 
-class DeploymentTargetsUnionTypeDef(BaseValidatorModel):
+class DeploymentTargetsUnion(BaseValidatorModel):
     pass
 
 
-class StackSetOperationPreferencesUnionTypeDef(BaseValidatorModel):
+class StackSetOperationPreferencesUnion(BaseValidatorModel):
     pass
 
 
-class CreateStackInstancesInputTypeDef(BaseValidatorModel):
+class CreateStackInstancesInput(BaseValidatorModel):
     StackSetName: str
     Regions: Sequence[str]
     Accounts: Optional[Sequence[str]] = None
-    DeploymentTargets: Optional[DeploymentTargetsUnionTypeDef] = None
-    ParameterOverrides: Optional[Sequence[ParameterTypeDef]] = None
-    OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
+    DeploymentTargets: Optional[DeploymentTargetsUnion] = None
+    ParameterOverrides: Optional[Sequence[Parameter]] = None
+    OperationPreferences: Optional[StackSetOperationPreferencesUnion] = None
     OperationId: Optional[str] = None
     CallAs: Optional[CallAsType] = None
 
 
-class DeleteStackInstancesInputTypeDef(BaseValidatorModel):
+class DeleteStackInstancesInput(BaseValidatorModel):
     StackSetName: str
     Regions: Sequence[str]
     RetainStacks: bool
     Accounts: Optional[Sequence[str]] = None
-    DeploymentTargets: Optional[DeploymentTargetsUnionTypeDef] = None
-    OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
+    DeploymentTargets: Optional[DeploymentTargetsUnion] = None
+    OperationPreferences: Optional[StackSetOperationPreferencesUnion] = None
     OperationId: Optional[str] = None
     CallAs: Optional[CallAsType] = None
 
 
-class DetectStackSetDriftInputTypeDef(BaseValidatorModel):
+class DetectStackSetDriftInput(BaseValidatorModel):
     StackSetName: str
-    OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
+    OperationPreferences: Optional[StackSetOperationPreferencesUnion] = None
     OperationId: Optional[str] = None
     CallAs: Optional[CallAsType] = None
 
 
-class ImportStacksToStackSetInputTypeDef(BaseValidatorModel):
+class ImportStacksToStackSetInput(BaseValidatorModel):
     StackSetName: str
     StackIds: Optional[Sequence[str]] = None
     StackIdsUrl: Optional[str] = None
     OrganizationalUnitIds: Optional[Sequence[str]] = None
-    OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
+    OperationPreferences: Optional[StackSetOperationPreferencesUnion] = None
     OperationId: Optional[str] = None
     CallAs: Optional[CallAsType] = None
 
 
-class UpdateStackInstancesInputTypeDef(BaseValidatorModel):
+class UpdateStackInstancesInput(BaseValidatorModel):
     StackSetName: str
     Regions: Sequence[str]
     Accounts: Optional[Sequence[str]] = None
-    DeploymentTargets: Optional[DeploymentTargetsUnionTypeDef] = None
-    ParameterOverrides: Optional[Sequence[ParameterTypeDef]] = None
-    OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
+    DeploymentTargets: Optional[DeploymentTargetsUnion] = None
+    ParameterOverrides: Optional[Sequence[Parameter]] = None
+    OperationPreferences: Optional[StackSetOperationPreferencesUnion] = None
     OperationId: Optional[str] = None
     CallAs: Optional[CallAsType] = None
 
 
-class UpdateStackSetInputTypeDef(BaseValidatorModel):
+class UpdateStackSetInput(BaseValidatorModel):
     StackSetName: str
     Description: Optional[str] = None
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
     UsePreviousTemplate: Optional[bool] = None
-    Parameters: Optional[Sequence[ParameterTypeDef]] = None
+    Parameters: Optional[Sequence[Parameter]] = None
     Capabilities: Optional[Sequence[CapabilityType]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    OperationPreferences: Optional[StackSetOperationPreferencesUnion] = None
     AdministrationRoleARN: Optional[str] = None
     ExecutionRoleName: Optional[str] = None
-    DeploymentTargets: Optional[DeploymentTargetsUnionTypeDef] = None
+    DeploymentTargets: Optional[DeploymentTargetsUnion] = None
     PermissionModel: Optional[PermissionModelsType] = None
-    AutoDeployment: Optional[AutoDeploymentTypeDef] = None
+    AutoDeployment: Optional[AutoDeployment] = None
     OperationId: Optional[str] = None
     Accounts: Optional[Sequence[str]] = None
     Regions: Optional[Sequence[str]] = None
     CallAs: Optional[CallAsType] = None
-    ManagedExecution: Optional[ManagedExecutionTypeDef] = None
+    ManagedExecution: Optional[ManagedExecution] = None
 
 
-class ListStackSetOperationsOutputTypeDef(BaseValidatorModel):
-    Summaries: List[StackSetOperationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStackSetOperationsOutput(BaseValidatorModel):
+    Summaries: List[StackSetOperationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeStackSetOperationOutputTypeDef(BaseValidatorModel):
-    StackSetOperation: StackSetOperationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStackSetOperationOutput(BaseValidatorModel):
+    StackSetOperation: StackSetOperation
+    ResponseMetadata: ResponseMetadata
 
 
-class WarningDetailTypeDef(BaseValidatorModel):
+class WarningDetail(BaseValidatorModel):
     pass
 
 
-class ResourceDetailTypeDef(BaseValidatorModel):
+class ResourceDetail(BaseValidatorModel):
     ResourceType: Optional[str] = None
     LogicalResourceId: Optional[str] = None
     ResourceIdentifier: Optional[Dict[str, str]] = None
     ResourceStatus: Optional[GeneratedTemplateResourceStatusType] = None
     ResourceStatusReason: Optional[str] = None
-    Warnings: Optional[List[WarningDetailTypeDef]] = None
+    Warnings: Optional[List[WarningDetail]] = None
 
 
-class DescribeChangeSetHooksOutputTypeDef(BaseValidatorModel):
+class DescribeChangeSetHooksOutput(BaseValidatorModel):
     ChangeSetId: str
     ChangeSetName: str
-    Hooks: List[ChangeSetHookTypeDef]
+    Hooks: List[ChangeSetHook]
     Status: ChangeSetHooksStatusType
     StackId: str
     StackName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListStackRefactorActionsOutputTypeDef(BaseValidatorModel):
-    StackRefactorActions: List[StackRefactorActionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStackRefactorActionsOutput(BaseValidatorModel):
+    StackRefactorActions: List[StackRefactorAction]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeStacksOutputTypeDef(BaseValidatorModel):
-    Stacks: List[StackTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStacksOutput(BaseValidatorModel):
+    Stacks: List[Stack]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RollbackConfigurationUnionTypeDef(BaseValidatorModel):
+class RollbackConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateChangeSetInputTypeDef(BaseValidatorModel):
+class CreateChangeSetInput(BaseValidatorModel):
     StackName: str
     ChangeSetName: str
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
     UsePreviousTemplate: Optional[bool] = None
-    Parameters: Optional[Sequence[ParameterTypeDef]] = None
+    Parameters: Optional[Sequence[Parameter]] = None
     Capabilities: Optional[Sequence[CapabilityType]] = None
     ResourceTypes: Optional[Sequence[str]] = None
     RoleARN: Optional[str] = None
-    RollbackConfiguration: Optional[RollbackConfigurationUnionTypeDef] = None
+    RollbackConfiguration: Optional[RollbackConfigurationUnion] = None
     NotificationARNs: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
     ChangeSetType: Optional[ChangeSetTypeType] = None
-    ResourcesToImport: Optional[Sequence[ResourceToImportTypeDef]] = None
+    ResourcesToImport: Optional[Sequence[ResourceToImport]] = None
     IncludeNestedStacks: Optional[bool] = None
     OnStackFailure: Optional[OnStackFailureType] = None
     ImportExistingResources: Optional[bool] = None
 
 
-class CreateStackInputServiceResourceCreateStackTypeDef(BaseValidatorModel):
+class CreateStackInputServiceResourceCreateStack(BaseValidatorModel):
     StackName: str
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
-    Parameters: Optional[Sequence[ParameterTypeDef]] = None
+    Parameters: Optional[Sequence[Parameter]] = None
     DisableRollback: Optional[bool] = None
-    RollbackConfiguration: Optional[RollbackConfigurationUnionTypeDef] = None
+    RollbackConfiguration: Optional[RollbackConfigurationUnion] = None
     TimeoutInMinutes: Optional[int] = None
     NotificationARNs: Optional[Sequence[str]] = None
     Capabilities: Optional[Sequence[CapabilityType]] = None
@@ -1799,19 +1799,19 @@ class CreateStackInputServiceResourceCreateStackTypeDef(BaseValidatorModel):
     OnFailure: Optional[OnFailureType] = None
     StackPolicyBody: Optional[str] = None
     StackPolicyURL: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientRequestToken: Optional[str] = None
     EnableTerminationProtection: Optional[bool] = None
     RetainExceptOnCreate: Optional[bool] = None
 
 
-class CreateStackInputTypeDef(BaseValidatorModel):
+class CreateStackInput(BaseValidatorModel):
     StackName: str
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
-    Parameters: Optional[Sequence[ParameterTypeDef]] = None
+    Parameters: Optional[Sequence[Parameter]] = None
     DisableRollback: Optional[bool] = None
-    RollbackConfiguration: Optional[RollbackConfigurationUnionTypeDef] = None
+    RollbackConfiguration: Optional[RollbackConfigurationUnion] = None
     TimeoutInMinutes: Optional[int] = None
     NotificationARNs: Optional[Sequence[str]] = None
     Capabilities: Optional[Sequence[CapabilityType]] = None
@@ -1820,94 +1820,94 @@ class CreateStackInputTypeDef(BaseValidatorModel):
     OnFailure: Optional[OnFailureType] = None
     StackPolicyBody: Optional[str] = None
     StackPolicyURL: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientRequestToken: Optional[str] = None
     EnableTerminationProtection: Optional[bool] = None
     RetainExceptOnCreate: Optional[bool] = None
 
 
-class UpdateStackInputStackUpdateTypeDef(BaseValidatorModel):
+class UpdateStackInputStackUpdate(BaseValidatorModel):
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
     UsePreviousTemplate: Optional[bool] = None
     StackPolicyDuringUpdateBody: Optional[str] = None
     StackPolicyDuringUpdateURL: Optional[str] = None
-    Parameters: Optional[Sequence[ParameterTypeDef]] = None
+    Parameters: Optional[Sequence[Parameter]] = None
     Capabilities: Optional[Sequence[CapabilityType]] = None
     ResourceTypes: Optional[Sequence[str]] = None
     RoleARN: Optional[str] = None
-    RollbackConfiguration: Optional[RollbackConfigurationUnionTypeDef] = None
+    RollbackConfiguration: Optional[RollbackConfigurationUnion] = None
     StackPolicyBody: Optional[str] = None
     StackPolicyURL: Optional[str] = None
     NotificationARNs: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     DisableRollback: Optional[bool] = None
     ClientRequestToken: Optional[str] = None
     RetainExceptOnCreate: Optional[bool] = None
 
 
-class UpdateStackInputTypeDef(BaseValidatorModel):
+class UpdateStackInput(BaseValidatorModel):
     StackName: str
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
     UsePreviousTemplate: Optional[bool] = None
     StackPolicyDuringUpdateBody: Optional[str] = None
     StackPolicyDuringUpdateURL: Optional[str] = None
-    Parameters: Optional[Sequence[ParameterTypeDef]] = None
+    Parameters: Optional[Sequence[Parameter]] = None
     Capabilities: Optional[Sequence[CapabilityType]] = None
     ResourceTypes: Optional[Sequence[str]] = None
     RoleARN: Optional[str] = None
-    RollbackConfiguration: Optional[RollbackConfigurationUnionTypeDef] = None
+    RollbackConfiguration: Optional[RollbackConfigurationUnion] = None
     StackPolicyBody: Optional[str] = None
     StackPolicyURL: Optional[str] = None
     NotificationARNs: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     DisableRollback: Optional[bool] = None
     ClientRequestToken: Optional[str] = None
     RetainExceptOnCreate: Optional[bool] = None
 
 
-class DescribeGeneratedTemplateOutputTypeDef(BaseValidatorModel):
+class DescribeGeneratedTemplateOutput(BaseValidatorModel):
     GeneratedTemplateId: str
     GeneratedTemplateName: str
-    Resources: List[ResourceDetailTypeDef]
+    Resources: List[ResourceDetail]
     Status: GeneratedTemplateStatusType
     StatusReason: str
     CreationTime: datetime
     LastUpdatedTime: datetime
-    Progress: TemplateProgressTypeDef
+    Progress: TemplateProgress
     StackId: str
-    TemplateConfiguration: TemplateConfigurationTypeDef
+    TemplateConfiguration: TemplateConfiguration
     TotalWarnings: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ChangeTypeDef(BaseValidatorModel):
+class Change(BaseValidatorModel):
     pass
 
 
-class DescribeChangeSetOutputTypeDef(BaseValidatorModel):
+class DescribeChangeSetOutput(BaseValidatorModel):
     ChangeSetName: str
     ChangeSetId: str
     StackId: str
     StackName: str
     Description: str
-    Parameters: List[ParameterTypeDef]
+    Parameters: List[Parameter]
     CreationTime: datetime
     ExecutionStatus: ExecutionStatusType
     Status: ChangeSetStatusType
     StatusReason: str
     NotificationARNs: List[str]
-    RollbackConfiguration: RollbackConfigurationOutputTypeDef
+    RollbackConfiguration: RollbackConfigurationOutput
     Capabilities: List[CapabilityType]
-    Tags: List[TagTypeDef]
-    Changes: List[ChangeTypeDef]
+    Tags: List[Tag]
+    Changes: List[Change]
     IncludeNestedStacks: bool
     ParentChangeSetId: str
     RootChangeSetId: str
     OnStackFailure: OnStackFailureType
     ImportExistingResources: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

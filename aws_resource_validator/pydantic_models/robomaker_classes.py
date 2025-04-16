@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.robomaker_constants import *
 
-class BatchDeleteWorldsRequestTypeDef(BaseValidatorModel):
+class BatchDeleteWorldsRequest(BaseValidatorModel):
     worlds: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,159 +24,159 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchDescribeSimulationJobRequestTypeDef(BaseValidatorModel):
+class BatchDescribeSimulationJobRequest(BaseValidatorModel):
     jobs: Sequence[str]
 
 
-class BatchPolicyTypeDef(BaseValidatorModel):
+class BatchPolicy(BaseValidatorModel):
     timeoutInSeconds: Optional[int] = None
     maxConcurrency: Optional[int] = None
 
 
-class CancelDeploymentJobRequestTypeDef(BaseValidatorModel):
+class CancelDeploymentJobRequest(BaseValidatorModel):
     job: str
 
 
-class CancelSimulationJobBatchRequestTypeDef(BaseValidatorModel):
+class CancelSimulationJobBatchRequest(BaseValidatorModel):
     batch: str
 
 
-class CancelSimulationJobRequestTypeDef(BaseValidatorModel):
+class CancelSimulationJobRequest(BaseValidatorModel):
     job: str
 
 
-class CancelWorldExportJobRequestTypeDef(BaseValidatorModel):
+class CancelWorldExportJobRequest(BaseValidatorModel):
     job: str
 
 
-class CancelWorldGenerationJobRequestTypeDef(BaseValidatorModel):
+class CancelWorldGenerationJobRequest(BaseValidatorModel):
     job: str
 
 
-class ComputeResponseTypeDef(BaseValidatorModel):
+class ComputeResponse(BaseValidatorModel):
     simulationUnitLimit: Optional[int] = None
     computeType: Optional[ComputeTypeType] = None
     gpuUnitLimit: Optional[int] = None
 
 
-class ComputeTypeDef(BaseValidatorModel):
+class Compute(BaseValidatorModel):
     simulationUnitLimit: Optional[int] = None
     computeType: Optional[ComputeTypeType] = None
     gpuUnitLimit: Optional[int] = None
 
 
-class CreateFleetRequestTypeDef(BaseValidatorModel):
+class CreateFleetRequest(BaseValidatorModel):
     name: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class EnvironmentTypeDef(BaseValidatorModel):
+class Environment(BaseValidatorModel):
     uri: Optional[str] = None
 
 
-class RobotSoftwareSuiteTypeDef(BaseValidatorModel):
+class RobotSoftwareSuite(BaseValidatorModel):
     name: Optional[RobotSoftwareSuiteTypeType] = None
     version: Optional[RobotSoftwareSuiteVersionTypeType] = None
 
 
-class SourceConfigTypeDef(BaseValidatorModel):
+class SourceConfig(BaseValidatorModel):
     s3Bucket: Optional[str] = None
     s3Key: Optional[str] = None
     architecture: Optional[ArchitectureType] = None
 
 
-class SourceTypeDef(BaseValidatorModel):
+class Source(BaseValidatorModel):
     s3Bucket: Optional[str] = None
     s3Key: Optional[str] = None
     etag: Optional[str] = None
     architecture: Optional[ArchitectureType] = None
 
 
-class CreateRobotApplicationVersionRequestTypeDef(BaseValidatorModel):
+class CreateRobotApplicationVersionRequest(BaseValidatorModel):
     application: str
     currentRevisionId: Optional[str] = None
     s3Etags: Optional[Sequence[str]] = None
     imageDigest: Optional[str] = None
 
 
-class CreateRobotRequestTypeDef(BaseValidatorModel):
+class CreateRobotRequest(BaseValidatorModel):
     name: str
     architecture: ArchitectureType
     greengrassGroupId: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class RenderingEngineTypeDef(BaseValidatorModel):
+class RenderingEngine(BaseValidatorModel):
     name: Optional[Literal["OGRE"]] = None
     version: Optional[str] = None
 
 
-class SimulationSoftwareSuiteTypeDef(BaseValidatorModel):
+class SimulationSoftwareSuite(BaseValidatorModel):
     name: Optional[SimulationSoftwareSuiteTypeType] = None
     version: Optional[str] = None
 
 
-class CreateSimulationApplicationVersionRequestTypeDef(BaseValidatorModel):
+class CreateSimulationApplicationVersionRequest(BaseValidatorModel):
     application: str
     currentRevisionId: Optional[str] = None
     s3Etags: Optional[Sequence[str]] = None
     imageDigest: Optional[str] = None
 
 
-class LoggingConfigTypeDef(BaseValidatorModel):
+class LoggingConfig(BaseValidatorModel):
     recordAllRosTopics: Optional[bool] = None
 
 
-class OutputLocationTypeDef(BaseValidatorModel):
+class OutputLocation(BaseValidatorModel):
     s3Bucket: Optional[str] = None
     s3Prefix: Optional[str] = None
 
 
-class VPCConfigResponseTypeDef(BaseValidatorModel):
+class VPCConfigResponse(BaseValidatorModel):
     subnets: Optional[List[str]] = None
     securityGroups: Optional[List[str]] = None
     vpcId: Optional[str] = None
     assignPublicIp: Optional[bool] = None
 
 
-class WorldCountTypeDef(BaseValidatorModel):
+class WorldCount(BaseValidatorModel):
     floorplanCount: Optional[int] = None
     interiorCountPerFloorplan: Optional[int] = None
 
 
-class TemplateLocationTypeDef(BaseValidatorModel):
+class TemplateLocation(BaseValidatorModel):
     s3Bucket: str
     s3Key: str
 
 
-class S3KeyOutputTypeDef(BaseValidatorModel):
+class S3KeyOutput(BaseValidatorModel):
     s3Key: Optional[str] = None
     etag: Optional[str] = None
 
 
-class DeleteFleetRequestTypeDef(BaseValidatorModel):
+class DeleteFleetRequest(BaseValidatorModel):
     fleet: str
 
 
-class DeleteRobotApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteRobotApplicationRequest(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
 
-class DeleteRobotRequestTypeDef(BaseValidatorModel):
+class DeleteRobotRequest(BaseValidatorModel):
     robot: str
 
 
-class DeleteSimulationApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteSimulationApplicationRequest(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
 
-class DeleteWorldTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteWorldTemplateRequest(BaseValidatorModel):
     template: str
 
 
-class DeploymentLaunchConfigOutputTypeDef(BaseValidatorModel):
+class DeploymentLaunchConfigOutput(BaseValidatorModel):
     packageName: str
     launchFile: str
     preLaunchFile: Optional[str] = None
@@ -184,13 +184,13 @@ class DeploymentLaunchConfigOutputTypeDef(BaseValidatorModel):
     environmentVariables: Optional[Dict[str, str]] = None
 
 
-class S3ObjectTypeDef(BaseValidatorModel):
+class S3Object(BaseValidatorModel):
     bucket: str
     key: str
     etag: Optional[str] = None
 
 
-class DeploymentLaunchConfigTypeDef(BaseValidatorModel):
+class DeploymentLaunchConfig(BaseValidatorModel):
     packageName: str
     launchFile: str
     preLaunchFile: Optional[str] = None
@@ -198,20 +198,20 @@ class DeploymentLaunchConfigTypeDef(BaseValidatorModel):
     environmentVariables: Optional[Mapping[str, str]] = None
 
 
-class DeregisterRobotRequestTypeDef(BaseValidatorModel):
+class DeregisterRobotRequest(BaseValidatorModel):
     fleet: str
     robot: str
 
 
-class DescribeDeploymentJobRequestTypeDef(BaseValidatorModel):
+class DescribeDeploymentJobRequest(BaseValidatorModel):
     job: str
 
 
-class DescribeFleetRequestTypeDef(BaseValidatorModel):
+class DescribeFleetRequest(BaseValidatorModel):
     fleet: str
 
 
-class RobotTypeDef(BaseValidatorModel):
+class Robot(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     fleetArn: Optional[str] = None
@@ -223,25 +223,25 @@ class RobotTypeDef(BaseValidatorModel):
     lastDeploymentTime: Optional[datetime] = None
 
 
-class DescribeRobotApplicationRequestTypeDef(BaseValidatorModel):
+class DescribeRobotApplicationRequest(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
 
-class DescribeRobotRequestTypeDef(BaseValidatorModel):
+class DescribeRobotRequest(BaseValidatorModel):
     robot: str
 
 
-class DescribeSimulationApplicationRequestTypeDef(BaseValidatorModel):
+class DescribeSimulationApplicationRequest(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
 
-class DescribeSimulationJobBatchRequestTypeDef(BaseValidatorModel):
+class DescribeSimulationJobBatchRequest(BaseValidatorModel):
     batch: str
 
 
-class SimulationJobSummaryTypeDef(BaseValidatorModel):
+class SimulationJobSummary(BaseValidatorModel):
     arn: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
     name: Optional[str] = None
@@ -252,44 +252,44 @@ class SimulationJobSummaryTypeDef(BaseValidatorModel):
     computeType: Optional[ComputeTypeType] = None
 
 
-class DescribeSimulationJobRequestTypeDef(BaseValidatorModel):
+class DescribeSimulationJobRequest(BaseValidatorModel):
     job: str
 
 
-class NetworkInterfaceTypeDef(BaseValidatorModel):
+class NetworkInterface(BaseValidatorModel):
     networkInterfaceId: Optional[str] = None
     privateIpAddress: Optional[str] = None
     publicIpAddress: Optional[str] = None
 
 
-class DescribeWorldExportJobRequestTypeDef(BaseValidatorModel):
+class DescribeWorldExportJobRequest(BaseValidatorModel):
     job: str
 
 
-class DescribeWorldGenerationJobRequestTypeDef(BaseValidatorModel):
+class DescribeWorldGenerationJobRequest(BaseValidatorModel):
     job: str
 
 
-class DescribeWorldRequestTypeDef(BaseValidatorModel):
+class DescribeWorldRequest(BaseValidatorModel):
     world: str
 
 
-class DescribeWorldTemplateRequestTypeDef(BaseValidatorModel):
+class DescribeWorldTemplateRequest(BaseValidatorModel):
     template: str
 
 
-class WorldFailureTypeDef(BaseValidatorModel):
+class WorldFailure(BaseValidatorModel):
     failureCode: Optional[WorldGenerationJobErrorCodeType] = None
     sampleFailureReason: Optional[str] = None
     failureCount: Optional[int] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     name: Optional[str] = None
     values: Optional[Sequence[str]] = None
 
 
-class FleetTypeDef(BaseValidatorModel):
+class Fleet(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -298,18 +298,18 @@ class FleetTypeDef(BaseValidatorModel):
     lastDeploymentTime: Optional[datetime] = None
 
 
-class GetWorldTemplateBodyRequestTypeDef(BaseValidatorModel):
+class GetWorldTemplateBodyRequest(BaseValidatorModel):
     template: Optional[str] = None
     generationJob: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class SimulationJobBatchSummaryTypeDef(BaseValidatorModel):
+class SimulationJobBatchSummary(BaseValidatorModel):
     arn: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
     createdAt: Optional[datetime] = None
@@ -319,16 +319,16 @@ class SimulationJobBatchSummaryTypeDef(BaseValidatorModel):
     createdRequestCount: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListWorldTemplatesRequestTypeDef(BaseValidatorModel):
+class ListWorldTemplatesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class TemplateSummaryTypeDef(BaseValidatorModel):
+class TemplateSummary(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
@@ -336,36 +336,36 @@ class TemplateSummaryTypeDef(BaseValidatorModel):
     version: Optional[str] = None
 
 
-class WorldSummaryTypeDef(BaseValidatorModel):
+class WorldSummary(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     generationJob: Optional[str] = None
     template: Optional[str] = None
 
 
-class PortMappingTypeDef(BaseValidatorModel):
+class PortMapping(BaseValidatorModel):
     jobPort: int
     applicationPort: int
     enableOnPublicIp: Optional[bool] = None
 
 
-class ProgressDetailTypeDef(BaseValidatorModel):
+class ProgressDetail(BaseValidatorModel):
     currentProgress: Optional[RobotDeploymentStepType] = None
     percentDone: Optional[float] = None
     estimatedTimeRemainingSeconds: Optional[int] = None
     targetResource: Optional[str] = None
 
 
-class RegisterRobotRequestTypeDef(BaseValidatorModel):
+class RegisterRobotRequest(BaseValidatorModel):
     fleet: str
     robot: str
 
 
-class RestartSimulationJobRequestTypeDef(BaseValidatorModel):
+class RestartSimulationJobRequest(BaseValidatorModel):
     job: str
 
 
-class ToolTypeDef(BaseValidatorModel):
+class Tool(BaseValidatorModel):
     name: str
     command: str
     streamUI: Optional[bool] = None
@@ -373,82 +373,82 @@ class ToolTypeDef(BaseValidatorModel):
     exitBehavior: Optional[ExitBehaviorType] = None
 
 
-class UploadConfigurationTypeDef(BaseValidatorModel):
+class UploadConfiguration(BaseValidatorModel):
     name: str
     path: str
     uploadBehavior: UploadBehaviorType
 
 
-class WorldConfigTypeDef(BaseValidatorModel):
+class WorldConfig(BaseValidatorModel):
     world: Optional[str] = None
 
 
-class VPCConfigOutputTypeDef(BaseValidatorModel):
+class VPCConfigOutput(BaseValidatorModel):
     subnets: List[str]
     securityGroups: Optional[List[str]] = None
     assignPublicIp: Optional[bool] = None
 
 
-class SyncDeploymentJobRequestTypeDef(BaseValidatorModel):
+class SyncDeploymentJobRequest(BaseValidatorModel):
     clientRequestToken: str
     fleet: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class VPCConfigTypeDef(BaseValidatorModel):
+class VPCConfig(BaseValidatorModel):
     subnets: Sequence[str]
     securityGroups: Optional[Sequence[str]] = None
     assignPublicIp: Optional[bool] = None
 
 
-class BatchDeleteWorldsResponseTypeDef(BaseValidatorModel):
+class BatchDeleteWorldsResponse(BaseValidatorModel):
     unprocessedWorlds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFleetResponseTypeDef(BaseValidatorModel):
+class CreateFleetResponse(BaseValidatorModel):
     arn: str
     name: str
     createdAt: datetime
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRobotResponseTypeDef(BaseValidatorModel):
+class CreateRobotResponse(BaseValidatorModel):
     arn: str
     name: str
     createdAt: datetime
     greengrassGroupId: str
     architecture: ArchitectureType
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWorldTemplateResponseTypeDef(BaseValidatorModel):
+class CreateWorldTemplateResponse(BaseValidatorModel):
     arn: str
     clientRequestToken: str
     createdAt: datetime
     name: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeregisterRobotResponseTypeDef(BaseValidatorModel):
+class DeregisterRobotResponse(BaseValidatorModel):
     fleet: str
     robot: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeRobotResponseTypeDef(BaseValidatorModel):
+class DescribeRobotResponse(BaseValidatorModel):
     arn: str
     name: str
     fleetArn: str
@@ -459,20 +459,20 @@ class DescribeRobotResponseTypeDef(BaseValidatorModel):
     lastDeploymentJob: str
     lastDeploymentTime: datetime
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorldResponseTypeDef(BaseValidatorModel):
+class DescribeWorldResponse(BaseValidatorModel):
     arn: str
     generationJob: str
     template: str
     createdAt: datetime
     tags: Dict[str, str]
     worldDescriptionBody: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorldTemplateResponseTypeDef(BaseValidatorModel):
+class DescribeWorldTemplateResponse(BaseValidatorModel):
     arn: str
     clientRequestToken: str
     name: str
@@ -480,217 +480,217 @@ class DescribeWorldTemplateResponseTypeDef(BaseValidatorModel):
     lastUpdatedAt: datetime
     tags: Dict[str, str]
     version: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetWorldTemplateBodyResponseTypeDef(BaseValidatorModel):
+class GetWorldTemplateBodyResponse(BaseValidatorModel):
     templateBody: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterRobotResponseTypeDef(BaseValidatorModel):
+class RegisterRobotResponse(BaseValidatorModel):
     fleet: str
     robot: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateWorldTemplateResponseTypeDef(BaseValidatorModel):
+class UpdateWorldTemplateResponse(BaseValidatorModel):
     arn: str
     name: str
     createdAt: datetime
     lastUpdatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RobotApplicationSummaryTypeDef(BaseValidatorModel):
+class RobotApplicationSummary(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     version: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
-    robotSoftwareSuite: Optional[RobotSoftwareSuiteTypeDef] = None
+    robotSoftwareSuite: Optional[RobotSoftwareSuite] = None
 
 
-class CreateRobotApplicationRequestTypeDef(BaseValidatorModel):
+class CreateRobotApplicationRequest(BaseValidatorModel):
     name: str
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
-    sources: Optional[Sequence[SourceConfigTypeDef]] = None
+    robotSoftwareSuite: RobotSoftwareSuite
+    sources: Optional[Sequence[SourceConfig]] = None
     tags: Optional[Mapping[str, str]] = None
-    environment: Optional[EnvironmentTypeDef] = None
+    environment: Optional[Environment] = None
 
 
-class UpdateRobotApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateRobotApplicationRequest(BaseValidatorModel):
     application: str
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
-    sources: Optional[Sequence[SourceConfigTypeDef]] = None
+    robotSoftwareSuite: RobotSoftwareSuite
+    sources: Optional[Sequence[SourceConfig]] = None
     currentRevisionId: Optional[str] = None
-    environment: Optional[EnvironmentTypeDef] = None
+    environment: Optional[Environment] = None
 
 
-class CreateRobotApplicationResponseTypeDef(BaseValidatorModel):
+class CreateRobotApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
     version: str
-    sources: List[SourceTypeDef]
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    sources: List[Source]
+    robotSoftwareSuite: RobotSoftwareSuite
     lastUpdatedAt: datetime
     revisionId: str
     tags: Dict[str, str]
-    environment: EnvironmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    environment: Environment
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRobotApplicationVersionResponseTypeDef(BaseValidatorModel):
+class CreateRobotApplicationVersionResponse(BaseValidatorModel):
     arn: str
     name: str
     version: str
-    sources: List[SourceTypeDef]
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    sources: List[Source]
+    robotSoftwareSuite: RobotSoftwareSuite
     lastUpdatedAt: datetime
     revisionId: str
-    environment: EnvironmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    environment: Environment
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeRobotApplicationResponseTypeDef(BaseValidatorModel):
+class DescribeRobotApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
     version: str
-    sources: List[SourceTypeDef]
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    sources: List[Source]
+    robotSoftwareSuite: RobotSoftwareSuite
     revisionId: str
     lastUpdatedAt: datetime
     tags: Dict[str, str]
-    environment: EnvironmentTypeDef
+    environment: Environment
     imageDigest: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRobotApplicationResponseTypeDef(BaseValidatorModel):
+class UpdateRobotApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
     version: str
-    sources: List[SourceTypeDef]
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    sources: List[Source]
+    robotSoftwareSuite: RobotSoftwareSuite
     lastUpdatedAt: datetime
     revisionId: str
-    environment: EnvironmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    environment: Environment
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSimulationApplicationRequestTypeDef(BaseValidatorModel):
+class CreateSimulationApplicationRequest(BaseValidatorModel):
     name: str
-    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
-    sources: Optional[Sequence[SourceConfigTypeDef]] = None
-    renderingEngine: Optional[RenderingEngineTypeDef] = None
+    simulationSoftwareSuite: SimulationSoftwareSuite
+    robotSoftwareSuite: RobotSoftwareSuite
+    sources: Optional[Sequence[SourceConfig]] = None
+    renderingEngine: Optional[RenderingEngine] = None
     tags: Optional[Mapping[str, str]] = None
-    environment: Optional[EnvironmentTypeDef] = None
+    environment: Optional[Environment] = None
 
 
-class CreateSimulationApplicationResponseTypeDef(BaseValidatorModel):
+class CreateSimulationApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
     version: str
-    sources: List[SourceTypeDef]
-    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
-    renderingEngine: RenderingEngineTypeDef
+    sources: List[Source]
+    simulationSoftwareSuite: SimulationSoftwareSuite
+    robotSoftwareSuite: RobotSoftwareSuite
+    renderingEngine: RenderingEngine
     lastUpdatedAt: datetime
     revisionId: str
     tags: Dict[str, str]
-    environment: EnvironmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    environment: Environment
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSimulationApplicationVersionResponseTypeDef(BaseValidatorModel):
+class CreateSimulationApplicationVersionResponse(BaseValidatorModel):
     arn: str
     name: str
     version: str
-    sources: List[SourceTypeDef]
-    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
-    renderingEngine: RenderingEngineTypeDef
+    sources: List[Source]
+    simulationSoftwareSuite: SimulationSoftwareSuite
+    robotSoftwareSuite: RobotSoftwareSuite
+    renderingEngine: RenderingEngine
     lastUpdatedAt: datetime
     revisionId: str
-    environment: EnvironmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    environment: Environment
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSimulationApplicationResponseTypeDef(BaseValidatorModel):
+class DescribeSimulationApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
     version: str
-    sources: List[SourceTypeDef]
-    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
-    renderingEngine: RenderingEngineTypeDef
+    sources: List[Source]
+    simulationSoftwareSuite: SimulationSoftwareSuite
+    robotSoftwareSuite: RobotSoftwareSuite
+    renderingEngine: RenderingEngine
     revisionId: str
     lastUpdatedAt: datetime
     tags: Dict[str, str]
-    environment: EnvironmentTypeDef
+    environment: Environment
     imageDigest: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SimulationApplicationSummaryTypeDef(BaseValidatorModel):
+class SimulationApplicationSummary(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     version: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
-    robotSoftwareSuite: Optional[RobotSoftwareSuiteTypeDef] = None
-    simulationSoftwareSuite: Optional[SimulationSoftwareSuiteTypeDef] = None
+    robotSoftwareSuite: Optional[RobotSoftwareSuite] = None
+    simulationSoftwareSuite: Optional[SimulationSoftwareSuite] = None
 
 
-class UpdateSimulationApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateSimulationApplicationRequest(BaseValidatorModel):
     application: str
-    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
-    sources: Optional[Sequence[SourceConfigTypeDef]] = None
-    renderingEngine: Optional[RenderingEngineTypeDef] = None
+    simulationSoftwareSuite: SimulationSoftwareSuite
+    robotSoftwareSuite: RobotSoftwareSuite
+    sources: Optional[Sequence[SourceConfig]] = None
+    renderingEngine: Optional[RenderingEngine] = None
     currentRevisionId: Optional[str] = None
-    environment: Optional[EnvironmentTypeDef] = None
+    environment: Optional[Environment] = None
 
 
-class UpdateSimulationApplicationResponseTypeDef(BaseValidatorModel):
+class UpdateSimulationApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
     version: str
-    sources: List[SourceTypeDef]
-    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
-    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
-    renderingEngine: RenderingEngineTypeDef
+    sources: List[Source]
+    simulationSoftwareSuite: SimulationSoftwareSuite
+    robotSoftwareSuite: RobotSoftwareSuite
+    renderingEngine: RenderingEngine
     lastUpdatedAt: datetime
     revisionId: str
-    environment: EnvironmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    environment: Environment
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWorldExportJobRequestTypeDef(BaseValidatorModel):
+class CreateWorldExportJobRequest(BaseValidatorModel):
     worlds: Sequence[str]
-    outputLocation: OutputLocationTypeDef
+    outputLocation: OutputLocation
     iamRole: str
     clientRequestToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateWorldExportJobResponseTypeDef(BaseValidatorModel):
+class CreateWorldExportJobResponse(BaseValidatorModel):
     arn: str
     status: WorldExportJobStatusType
     createdAt: datetime
     failureCode: WorldExportJobErrorCodeType
     clientRequestToken: str
-    outputLocation: OutputLocationTypeDef
+    outputLocation: OutputLocation
     iamRole: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorldExportJobResponseTypeDef(BaseValidatorModel):
+class DescribeWorldExportJobResponse(BaseValidatorModel):
     arn: str
     status: WorldExportJobStatusType
     createdAt: datetime
@@ -698,374 +698,374 @@ class DescribeWorldExportJobResponseTypeDef(BaseValidatorModel):
     failureReason: str
     clientRequestToken: str
     worlds: List[str]
-    outputLocation: OutputLocationTypeDef
+    outputLocation: OutputLocation
     iamRole: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class WorldExportJobSummaryTypeDef(BaseValidatorModel):
+class WorldExportJobSummary(BaseValidatorModel):
     arn: Optional[str] = None
     status: Optional[WorldExportJobStatusType] = None
     createdAt: Optional[datetime] = None
     worlds: Optional[List[str]] = None
-    outputLocation: Optional[OutputLocationTypeDef] = None
+    outputLocation: Optional[OutputLocation] = None
 
 
-class CreateWorldGenerationJobRequestTypeDef(BaseValidatorModel):
+class CreateWorldGenerationJobRequest(BaseValidatorModel):
     template: str
-    worldCount: WorldCountTypeDef
+    worldCount: WorldCount
     clientRequestToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     worldTags: Optional[Mapping[str, str]] = None
 
 
-class CreateWorldGenerationJobResponseTypeDef(BaseValidatorModel):
+class CreateWorldGenerationJobResponse(BaseValidatorModel):
     arn: str
     status: WorldGenerationJobStatusType
     createdAt: datetime
     failureCode: WorldGenerationJobErrorCodeType
     clientRequestToken: str
     template: str
-    worldCount: WorldCountTypeDef
+    worldCount: WorldCount
     tags: Dict[str, str]
     worldTags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class WorldGenerationJobSummaryTypeDef(BaseValidatorModel):
+class WorldGenerationJobSummary(BaseValidatorModel):
     arn: Optional[str] = None
     template: Optional[str] = None
     createdAt: Optional[datetime] = None
     status: Optional[WorldGenerationJobStatusType] = None
-    worldCount: Optional[WorldCountTypeDef] = None
+    worldCount: Optional[WorldCount] = None
     succeededWorldCount: Optional[int] = None
     failedWorldCount: Optional[int] = None
 
 
-class CreateWorldTemplateRequestTypeDef(BaseValidatorModel):
+class CreateWorldTemplateRequest(BaseValidatorModel):
     clientRequestToken: Optional[str] = None
     name: Optional[str] = None
     templateBody: Optional[str] = None
-    templateLocation: Optional[TemplateLocationTypeDef] = None
+    templateLocation: Optional[TemplateLocation] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateWorldTemplateRequestTypeDef(BaseValidatorModel):
+class UpdateWorldTemplateRequest(BaseValidatorModel):
     template: str
     name: Optional[str] = None
     templateBody: Optional[str] = None
-    templateLocation: Optional[TemplateLocationTypeDef] = None
+    templateLocation: Optional[TemplateLocation] = None
 
 
-class DeploymentApplicationConfigOutputTypeDef(BaseValidatorModel):
+class DeploymentApplicationConfigOutput(BaseValidatorModel):
     application: str
     applicationVersion: str
-    launchConfig: DeploymentLaunchConfigOutputTypeDef
+    launchConfig: DeploymentLaunchConfigOutput
 
 
-class DeploymentConfigTypeDef(BaseValidatorModel):
+class DeploymentConfig(BaseValidatorModel):
     concurrentDeploymentPercentage: Optional[int] = None
     failureThresholdPercentage: Optional[int] = None
     robotDeploymentTimeoutInSeconds: Optional[int] = None
-    downloadConditionFile: Optional[S3ObjectTypeDef] = None
+    downloadConditionFile: Optional[S3Object] = None
 
 
-class DescribeFleetResponseTypeDef(BaseValidatorModel):
+class DescribeFleetResponse(BaseValidatorModel):
     name: str
     arn: str
-    robots: List[RobotTypeDef]
+    robots: List[Robot]
     createdAt: datetime
     lastDeploymentStatus: DeploymentStatusType
     lastDeploymentJob: str
     lastDeploymentTime: datetime
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRobotsResponseTypeDef(BaseValidatorModel):
-    robots: List[RobotTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRobotsResponse(BaseValidatorModel):
+    robots: List[Robot]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSimulationJobsResponseTypeDef(BaseValidatorModel):
-    simulationJobSummaries: List[SimulationJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSimulationJobsResponse(BaseValidatorModel):
+    simulationJobSummaries: List[SimulationJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class FailureSummaryTypeDef(BaseValidatorModel):
+class FailureSummary(BaseValidatorModel):
     totalFailureCount: Optional[int] = None
-    failures: Optional[List[WorldFailureTypeDef]] = None
+    failures: Optional[List[WorldFailure]] = None
 
 
-class ListDeploymentJobsRequestTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
+class ListDeploymentJobsRequest(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListFleetsRequestTypeDef(BaseValidatorModel):
+class ListFleetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
 
 
-class ListRobotApplicationsRequestTypeDef(BaseValidatorModel):
+class ListRobotApplicationsRequest(BaseValidatorModel):
     versionQualifier: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
 
 
-class ListRobotsRequestTypeDef(BaseValidatorModel):
+class ListRobotsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
 
 
-class ListSimulationApplicationsRequestTypeDef(BaseValidatorModel):
+class ListSimulationApplicationsRequest(BaseValidatorModel):
     versionQualifier: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
 
 
-class ListSimulationJobBatchesRequestTypeDef(BaseValidatorModel):
+class ListSimulationJobBatchesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
 
 
-class ListSimulationJobsRequestTypeDef(BaseValidatorModel):
+class ListSimulationJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
 
 
-class ListWorldExportJobsRequestTypeDef(BaseValidatorModel):
+class ListWorldExportJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
 
 
-class ListWorldGenerationJobsRequestTypeDef(BaseValidatorModel):
+class ListWorldGenerationJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
 
 
-class ListWorldsRequestTypeDef(BaseValidatorModel):
+class ListWorldsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
 
 
-class ListFleetsResponseTypeDef(BaseValidatorModel):
-    fleetDetails: List[FleetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFleetsResponse(BaseValidatorModel):
+    fleetDetails: List[Fleet]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDeploymentJobsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDeploymentJobsRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFleetsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFleetsRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRobotApplicationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRobotApplicationsRequestPaginate(BaseValidatorModel):
     versionQualifier: Optional[str] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRobotsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListRobotsRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSimulationApplicationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSimulationApplicationsRequestPaginate(BaseValidatorModel):
     versionQualifier: Optional[str] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSimulationJobBatchesRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSimulationJobBatchesRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSimulationJobsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSimulationJobsRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorldExportJobsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListWorldExportJobsRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorldGenerationJobsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListWorldGenerationJobsRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorldTemplatesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListWorldTemplatesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorldsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListWorldsRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSimulationJobBatchesResponseTypeDef(BaseValidatorModel):
-    simulationJobBatchSummaries: List[SimulationJobBatchSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSimulationJobBatchesResponse(BaseValidatorModel):
+    simulationJobBatchSummaries: List[SimulationJobBatchSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListWorldTemplatesResponseTypeDef(BaseValidatorModel):
-    templateSummaries: List[TemplateSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorldTemplatesResponse(BaseValidatorModel):
+    templateSummaries: List[TemplateSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListWorldsResponseTypeDef(BaseValidatorModel):
-    worldSummaries: List[WorldSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorldsResponse(BaseValidatorModel):
+    worldSummaries: List[WorldSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PortForwardingConfigOutputTypeDef(BaseValidatorModel):
-    portMappings: Optional[List[PortMappingTypeDef]] = None
+class PortForwardingConfigOutput(BaseValidatorModel):
+    portMappings: Optional[List[PortMapping]] = None
 
 
-class PortForwardingConfigTypeDef(BaseValidatorModel):
-    portMappings: Optional[Sequence[PortMappingTypeDef]] = None
+class PortForwardingConfig(BaseValidatorModel):
+    portMappings: Optional[Sequence[PortMapping]] = None
 
 
-class RobotDeploymentTypeDef(BaseValidatorModel):
+class RobotDeployment(BaseValidatorModel):
     arn: Optional[str] = None
     deploymentStartTime: Optional[datetime] = None
     deploymentFinishTime: Optional[datetime] = None
     status: Optional[RobotStatusType] = None
-    progressDetail: Optional[ProgressDetailTypeDef] = None
+    progressDetail: Optional[ProgressDetail] = None
     failureReason: Optional[str] = None
     failureCode: Optional[DeploymentJobErrorCodeType] = None
 
 
-class ListRobotApplicationsResponseTypeDef(BaseValidatorModel):
-    robotApplicationSummaries: List[RobotApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRobotApplicationsResponse(BaseValidatorModel):
+    robotApplicationSummaries: List[RobotApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSimulationApplicationsResponseTypeDef(BaseValidatorModel):
-    simulationApplicationSummaries: List[SimulationApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSimulationApplicationsResponse(BaseValidatorModel):
+    simulationApplicationSummaries: List[SimulationApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListWorldExportJobsResponseTypeDef(BaseValidatorModel):
-    worldExportJobSummaries: List[WorldExportJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorldExportJobsResponse(BaseValidatorModel):
+    worldExportJobSummaries: List[WorldExportJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListWorldGenerationJobsResponseTypeDef(BaseValidatorModel):
-    worldGenerationJobSummaries: List[WorldGenerationJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorldGenerationJobsResponse(BaseValidatorModel):
+    worldGenerationJobSummaries: List[WorldGenerationJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateDeploymentJobResponseTypeDef(BaseValidatorModel):
+class CreateDeploymentJobResponse(BaseValidatorModel):
     arn: str
     fleet: str
     status: DeploymentStatusType
-    deploymentApplicationConfigs: List[DeploymentApplicationConfigOutputTypeDef]
+    deploymentApplicationConfigs: List[DeploymentApplicationConfigOutput]
     failureReason: str
     failureCode: DeploymentJobErrorCodeType
     createdAt: datetime
-    deploymentConfig: DeploymentConfigTypeDef
+    deploymentConfig: DeploymentConfig
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeploymentJobTypeDef(BaseValidatorModel):
+class DeploymentJob(BaseValidatorModel):
     arn: Optional[str] = None
     fleet: Optional[str] = None
     status: Optional[DeploymentStatusType] = None
-    deploymentApplicationConfigs: Optional[List[DeploymentApplicationConfigOutputTypeDef]] = None
-    deploymentConfig: Optional[DeploymentConfigTypeDef] = None
+    deploymentApplicationConfigs: Optional[List[DeploymentApplicationConfigOutput]] = None
+    deploymentConfig: Optional[DeploymentConfig] = None
     failureReason: Optional[str] = None
     failureCode: Optional[DeploymentJobErrorCodeType] = None
     createdAt: Optional[datetime] = None
 
 
-class SyncDeploymentJobResponseTypeDef(BaseValidatorModel):
+class SyncDeploymentJobResponse(BaseValidatorModel):
     arn: str
     fleet: str
     status: DeploymentStatusType
-    deploymentConfig: DeploymentConfigTypeDef
-    deploymentApplicationConfigs: List[DeploymentApplicationConfigOutputTypeDef]
+    deploymentConfig: DeploymentConfig
+    deploymentApplicationConfigs: List[DeploymentApplicationConfigOutput]
     failureReason: str
     failureCode: DeploymentJobErrorCodeType
     createdAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeploymentLaunchConfigUnionTypeDef(BaseValidatorModel):
+class DeploymentLaunchConfigUnion(BaseValidatorModel):
     pass
 
 
-class DeploymentApplicationConfigTypeDef(BaseValidatorModel):
+class DeploymentApplicationConfig(BaseValidatorModel):
     application: str
     applicationVersion: str
-    launchConfig: DeploymentLaunchConfigUnionTypeDef
+    launchConfig: DeploymentLaunchConfigUnion
 
 
-class FinishedWorldsSummaryTypeDef(BaseValidatorModel):
+class FinishedWorldsSummary(BaseValidatorModel):
     finishedCount: Optional[int] = None
     succeededWorlds: Optional[List[str]] = None
-    failureSummary: Optional[FailureSummaryTypeDef] = None
+    failureSummary: Optional[FailureSummary] = None
 
 
-class LaunchConfigOutputTypeDef(BaseValidatorModel):
+class LaunchConfigOutput(BaseValidatorModel):
     packageName: Optional[str] = None
     launchFile: Optional[str] = None
     environmentVariables: Optional[Dict[str, str]] = None
-    portForwardingConfig: Optional[PortForwardingConfigOutputTypeDef] = None
+    portForwardingConfig: Optional[PortForwardingConfigOutput] = None
     streamUI: Optional[bool] = None
     command: Optional[List[str]] = None
 
 
-class DescribeDeploymentJobResponseTypeDef(BaseValidatorModel):
+class DescribeDeploymentJobResponse(BaseValidatorModel):
     arn: str
     fleet: str
     status: DeploymentStatusType
-    deploymentConfig: DeploymentConfigTypeDef
-    deploymentApplicationConfigs: List[DeploymentApplicationConfigOutputTypeDef]
+    deploymentConfig: DeploymentConfig
+    deploymentApplicationConfigs: List[DeploymentApplicationConfigOutput]
     failureReason: str
     failureCode: DeploymentJobErrorCodeType
     createdAt: datetime
-    robotDeploymentSummary: List[RobotDeploymentTypeDef]
+    robotDeploymentSummary: List[RobotDeployment]
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDeploymentJobsResponseTypeDef(BaseValidatorModel):
-    deploymentJobs: List[DeploymentJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDeploymentJobsResponse(BaseValidatorModel):
+    deploymentJobs: List[DeploymentJob]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeWorldGenerationJobResponseTypeDef(BaseValidatorModel):
+class DescribeWorldGenerationJobResponse(BaseValidatorModel):
     arn: str
     status: WorldGenerationJobStatusType
     createdAt: datetime
@@ -1073,64 +1073,64 @@ class DescribeWorldGenerationJobResponseTypeDef(BaseValidatorModel):
     failureReason: str
     clientRequestToken: str
     template: str
-    worldCount: WorldCountTypeDef
-    finishedWorldsSummary: FinishedWorldsSummaryTypeDef
+    worldCount: WorldCount
+    finishedWorldsSummary: FinishedWorldsSummary
     tags: Dict[str, str]
     worldTags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RobotApplicationConfigOutputTypeDef(BaseValidatorModel):
+class RobotApplicationConfigOutput(BaseValidatorModel):
     application: str
-    launchConfig: LaunchConfigOutputTypeDef
+    launchConfig: LaunchConfigOutput
     applicationVersion: Optional[str] = None
-    uploadConfigurations: Optional[List[UploadConfigurationTypeDef]] = None
+    uploadConfigurations: Optional[List[UploadConfiguration]] = None
     useDefaultUploadConfigurations: Optional[bool] = None
-    tools: Optional[List[ToolTypeDef]] = None
+    tools: Optional[List[Tool]] = None
     useDefaultTools: Optional[bool] = None
 
 
-class SimulationApplicationConfigOutputTypeDef(BaseValidatorModel):
+class SimulationApplicationConfigOutput(BaseValidatorModel):
     application: str
-    launchConfig: LaunchConfigOutputTypeDef
+    launchConfig: LaunchConfigOutput
     applicationVersion: Optional[str] = None
-    uploadConfigurations: Optional[List[UploadConfigurationTypeDef]] = None
-    worldConfigs: Optional[List[WorldConfigTypeDef]] = None
+    uploadConfigurations: Optional[List[UploadConfiguration]] = None
+    worldConfigs: Optional[List[WorldConfig]] = None
     useDefaultUploadConfigurations: Optional[bool] = None
-    tools: Optional[List[ToolTypeDef]] = None
+    tools: Optional[List[Tool]] = None
     useDefaultTools: Optional[bool] = None
 
 
-class PortForwardingConfigUnionTypeDef(BaseValidatorModel):
+class PortForwardingConfigUnion(BaseValidatorModel):
     pass
 
 
-class LaunchConfigTypeDef(BaseValidatorModel):
+class LaunchConfig(BaseValidatorModel):
     packageName: Optional[str] = None
     launchFile: Optional[str] = None
     environmentVariables: Optional[Mapping[str, str]] = None
-    portForwardingConfig: Optional[PortForwardingConfigUnionTypeDef] = None
+    portForwardingConfig: Optional[PortForwardingConfigUnion] = None
     streamUI: Optional[bool] = None
     command: Optional[Sequence[str]] = None
 
 
-class DeploymentApplicationConfigUnionTypeDef(BaseValidatorModel):
+class DeploymentApplicationConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateDeploymentJobRequestTypeDef(BaseValidatorModel):
+class CreateDeploymentJobRequest(BaseValidatorModel):
     clientRequestToken: str
     fleet: str
-    deploymentApplicationConfigs: Sequence[DeploymentApplicationConfigUnionTypeDef]
-    deploymentConfig: Optional[DeploymentConfigTypeDef] = None
+    deploymentApplicationConfigs: Sequence[DeploymentApplicationConfigUnion]
+    deploymentConfig: Optional[DeploymentConfig] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DataSourceTypeDef(BaseValidatorModel):
+class DataSource(BaseValidatorModel):
     pass
 
 
-class CreateSimulationJobResponseTypeDef(BaseValidatorModel):
+class CreateSimulationJobResponse(BaseValidatorModel):
     arn: str
     status: SimulationJobStatusType
     lastStartedAt: datetime
@@ -1138,21 +1138,21 @@ class CreateSimulationJobResponseTypeDef(BaseValidatorModel):
     failureBehavior: FailureBehaviorType
     failureCode: SimulationJobErrorCodeType
     clientRequestToken: str
-    outputLocation: OutputLocationTypeDef
-    loggingConfig: LoggingConfigTypeDef
+    outputLocation: OutputLocation
+    loggingConfig: LoggingConfig
     maxJobDurationInSeconds: int
     simulationTimeMillis: int
     iamRole: str
-    robotApplications: List[RobotApplicationConfigOutputTypeDef]
-    simulationApplications: List[SimulationApplicationConfigOutputTypeDef]
-    dataSources: List[DataSourceTypeDef]
+    robotApplications: List[RobotApplicationConfigOutput]
+    simulationApplications: List[SimulationApplicationConfigOutput]
+    dataSources: List[DataSource]
     tags: Dict[str, str]
-    vpcConfig: VPCConfigResponseTypeDef
-    compute: ComputeResponseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    vpcConfig: VPCConfigResponse
+    compute: ComputeResponse
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSimulationJobResponseTypeDef(BaseValidatorModel):
+class DescribeSimulationJobResponse(BaseValidatorModel):
     arn: str
     name: str
     status: SimulationJobStatusType
@@ -1162,41 +1162,41 @@ class DescribeSimulationJobResponseTypeDef(BaseValidatorModel):
     failureCode: SimulationJobErrorCodeType
     failureReason: str
     clientRequestToken: str
-    outputLocation: OutputLocationTypeDef
-    loggingConfig: LoggingConfigTypeDef
+    outputLocation: OutputLocation
+    loggingConfig: LoggingConfig
     maxJobDurationInSeconds: int
     simulationTimeMillis: int
     iamRole: str
-    robotApplications: List[RobotApplicationConfigOutputTypeDef]
-    simulationApplications: List[SimulationApplicationConfigOutputTypeDef]
-    dataSources: List[DataSourceTypeDef]
+    robotApplications: List[RobotApplicationConfigOutput]
+    simulationApplications: List[SimulationApplicationConfigOutput]
+    dataSources: List[DataSource]
     tags: Dict[str, str]
-    vpcConfig: VPCConfigResponseTypeDef
-    networkInterface: NetworkInterfaceTypeDef
-    compute: ComputeResponseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    vpcConfig: VPCConfigResponse
+    networkInterface: NetworkInterface
+    compute: ComputeResponse
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSourceConfigOutputTypeDef(BaseValidatorModel):
+class DataSourceConfigOutput(BaseValidatorModel):
     pass
 
 
-class SimulationJobRequestOutputTypeDef(BaseValidatorModel):
+class SimulationJobRequestOutput(BaseValidatorModel):
     maxJobDurationInSeconds: int
-    outputLocation: Optional[OutputLocationTypeDef] = None
-    loggingConfig: Optional[LoggingConfigTypeDef] = None
+    outputLocation: Optional[OutputLocation] = None
+    loggingConfig: Optional[LoggingConfig] = None
     iamRole: Optional[str] = None
     failureBehavior: Optional[FailureBehaviorType] = None
     useDefaultApplications: Optional[bool] = None
-    robotApplications: Optional[List[RobotApplicationConfigOutputTypeDef]] = None
-    simulationApplications: Optional[List[SimulationApplicationConfigOutputTypeDef]] = None
-    dataSources: Optional[List[DataSourceConfigOutputTypeDef]] = None
-    vpcConfig: Optional[VPCConfigOutputTypeDef] = None
-    compute: Optional[ComputeTypeDef] = None
+    robotApplications: Optional[List[RobotApplicationConfigOutput]] = None
+    simulationApplications: Optional[List[SimulationApplicationConfigOutput]] = None
+    dataSources: Optional[List[DataSourceConfigOutput]] = None
+    vpcConfig: Optional[VPCConfigOutput] = None
+    compute: Optional[Compute] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class SimulationJobTypeDef(BaseValidatorModel):
+class SimulationJob(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     status: Optional[SimulationJobStatusType] = None
@@ -1206,143 +1206,143 @@ class SimulationJobTypeDef(BaseValidatorModel):
     failureCode: Optional[SimulationJobErrorCodeType] = None
     failureReason: Optional[str] = None
     clientRequestToken: Optional[str] = None
-    outputLocation: Optional[OutputLocationTypeDef] = None
-    loggingConfig: Optional[LoggingConfigTypeDef] = None
+    outputLocation: Optional[OutputLocation] = None
+    loggingConfig: Optional[LoggingConfig] = None
     maxJobDurationInSeconds: Optional[int] = None
     simulationTimeMillis: Optional[int] = None
     iamRole: Optional[str] = None
-    robotApplications: Optional[List[RobotApplicationConfigOutputTypeDef]] = None
-    simulationApplications: Optional[List[SimulationApplicationConfigOutputTypeDef]] = None
-    dataSources: Optional[List[DataSourceTypeDef]] = None
+    robotApplications: Optional[List[RobotApplicationConfigOutput]] = None
+    simulationApplications: Optional[List[SimulationApplicationConfigOutput]] = None
+    dataSources: Optional[List[DataSource]] = None
     tags: Optional[Dict[str, str]] = None
-    vpcConfig: Optional[VPCConfigResponseTypeDef] = None
-    networkInterface: Optional[NetworkInterfaceTypeDef] = None
-    compute: Optional[ComputeResponseTypeDef] = None
+    vpcConfig: Optional[VPCConfigResponse] = None
+    networkInterface: Optional[NetworkInterface] = None
+    compute: Optional[ComputeResponse] = None
 
 
-class FailedCreateSimulationJobRequestTypeDef(BaseValidatorModel):
-    request: Optional[SimulationJobRequestOutputTypeDef] = None
+class FailedCreateSimulationJobRequest(BaseValidatorModel):
+    request: Optional[SimulationJobRequestOutput] = None
     failureReason: Optional[str] = None
     failureCode: Optional[SimulationJobErrorCodeType] = None
     failedAt: Optional[datetime] = None
 
 
-class BatchDescribeSimulationJobResponseTypeDef(BaseValidatorModel):
-    jobs: List[SimulationJobTypeDef]
+class BatchDescribeSimulationJobResponse(BaseValidatorModel):
+    jobs: List[SimulationJob]
     unprocessedJobs: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LaunchConfigUnionTypeDef(BaseValidatorModel):
+class LaunchConfigUnion(BaseValidatorModel):
     pass
 
 
-class RobotApplicationConfigTypeDef(BaseValidatorModel):
+class RobotApplicationConfig(BaseValidatorModel):
     application: str
-    launchConfig: LaunchConfigUnionTypeDef
+    launchConfig: LaunchConfigUnion
     applicationVersion: Optional[str] = None
-    uploadConfigurations: Optional[Sequence[UploadConfigurationTypeDef]] = None
+    uploadConfigurations: Optional[Sequence[UploadConfiguration]] = None
     useDefaultUploadConfigurations: Optional[bool] = None
-    tools: Optional[Sequence[ToolTypeDef]] = None
+    tools: Optional[Sequence[Tool]] = None
     useDefaultTools: Optional[bool] = None
 
 
-class SimulationApplicationConfigTypeDef(BaseValidatorModel):
+class SimulationApplicationConfig(BaseValidatorModel):
     application: str
-    launchConfig: LaunchConfigUnionTypeDef
+    launchConfig: LaunchConfigUnion
     applicationVersion: Optional[str] = None
-    uploadConfigurations: Optional[Sequence[UploadConfigurationTypeDef]] = None
-    worldConfigs: Optional[Sequence[WorldConfigTypeDef]] = None
+    uploadConfigurations: Optional[Sequence[UploadConfiguration]] = None
+    worldConfigs: Optional[Sequence[WorldConfig]] = None
     useDefaultUploadConfigurations: Optional[bool] = None
-    tools: Optional[Sequence[ToolTypeDef]] = None
+    tools: Optional[Sequence[Tool]] = None
     useDefaultTools: Optional[bool] = None
 
 
-class DescribeSimulationJobBatchResponseTypeDef(BaseValidatorModel):
+class DescribeSimulationJobBatchResponse(BaseValidatorModel):
     arn: str
     status: SimulationJobBatchStatusType
     lastUpdatedAt: datetime
     createdAt: datetime
     clientRequestToken: str
-    batchPolicy: BatchPolicyTypeDef
+    batchPolicy: BatchPolicy
     failureCode: Literal["InternalServiceError"]
     failureReason: str
-    failedRequests: List[FailedCreateSimulationJobRequestTypeDef]
-    pendingRequests: List[SimulationJobRequestOutputTypeDef]
-    createdRequests: List[SimulationJobSummaryTypeDef]
+    failedRequests: List[FailedCreateSimulationJobRequest]
+    pendingRequests: List[SimulationJobRequestOutput]
+    createdRequests: List[SimulationJobSummary]
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSimulationJobBatchResponseTypeDef(BaseValidatorModel):
+class StartSimulationJobBatchResponse(BaseValidatorModel):
     arn: str
     status: SimulationJobBatchStatusType
     createdAt: datetime
     clientRequestToken: str
-    batchPolicy: BatchPolicyTypeDef
+    batchPolicy: BatchPolicy
     failureCode: Literal["InternalServiceError"]
     failureReason: str
-    failedRequests: List[FailedCreateSimulationJobRequestTypeDef]
-    pendingRequests: List[SimulationJobRequestOutputTypeDef]
-    createdRequests: List[SimulationJobSummaryTypeDef]
+    failedRequests: List[FailedCreateSimulationJobRequest]
+    pendingRequests: List[SimulationJobRequestOutput]
+    createdRequests: List[SimulationJobSummary]
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSourceConfigUnionTypeDef(BaseValidatorModel):
+class DataSourceConfigUnion(BaseValidatorModel):
     pass
 
 
-class RobotApplicationConfigUnionTypeDef(BaseValidatorModel):
+class RobotApplicationConfigUnion(BaseValidatorModel):
     pass
 
 
-class SimulationApplicationConfigUnionTypeDef(BaseValidatorModel):
+class SimulationApplicationConfigUnion(BaseValidatorModel):
     pass
 
 
-class VPCConfigUnionTypeDef(BaseValidatorModel):
+class VPCConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateSimulationJobRequestTypeDef(BaseValidatorModel):
+class CreateSimulationJobRequest(BaseValidatorModel):
     maxJobDurationInSeconds: int
     iamRole: str
     clientRequestToken: Optional[str] = None
-    outputLocation: Optional[OutputLocationTypeDef] = None
-    loggingConfig: Optional[LoggingConfigTypeDef] = None
+    outputLocation: Optional[OutputLocation] = None
+    loggingConfig: Optional[LoggingConfig] = None
     failureBehavior: Optional[FailureBehaviorType] = None
-    robotApplications: Optional[Sequence[RobotApplicationConfigUnionTypeDef]] = None
-    simulationApplications: Optional[Sequence[SimulationApplicationConfigUnionTypeDef]] = None
-    dataSources: Optional[Sequence[DataSourceConfigUnionTypeDef]] = None
+    robotApplications: Optional[Sequence[RobotApplicationConfigUnion]] = None
+    simulationApplications: Optional[Sequence[SimulationApplicationConfigUnion]] = None
+    dataSources: Optional[Sequence[DataSourceConfigUnion]] = None
     tags: Optional[Mapping[str, str]] = None
-    vpcConfig: Optional[VPCConfigUnionTypeDef] = None
-    compute: Optional[ComputeTypeDef] = None
+    vpcConfig: Optional[VPCConfigUnion] = None
+    compute: Optional[Compute] = None
 
 
-class SimulationJobRequestTypeDef(BaseValidatorModel):
+class SimulationJobRequest(BaseValidatorModel):
     maxJobDurationInSeconds: int
-    outputLocation: Optional[OutputLocationTypeDef] = None
-    loggingConfig: Optional[LoggingConfigTypeDef] = None
+    outputLocation: Optional[OutputLocation] = None
+    loggingConfig: Optional[LoggingConfig] = None
     iamRole: Optional[str] = None
     failureBehavior: Optional[FailureBehaviorType] = None
     useDefaultApplications: Optional[bool] = None
-    robotApplications: Optional[Sequence[RobotApplicationConfigUnionTypeDef]] = None
-    simulationApplications: Optional[Sequence[SimulationApplicationConfigUnionTypeDef]] = None
-    dataSources: Optional[Sequence[DataSourceConfigUnionTypeDef]] = None
-    vpcConfig: Optional[VPCConfigUnionTypeDef] = None
-    compute: Optional[ComputeTypeDef] = None
+    robotApplications: Optional[Sequence[RobotApplicationConfigUnion]] = None
+    simulationApplications: Optional[Sequence[SimulationApplicationConfigUnion]] = None
+    dataSources: Optional[Sequence[DataSourceConfigUnion]] = None
+    vpcConfig: Optional[VPCConfigUnion] = None
+    compute: Optional[Compute] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class SimulationJobRequestUnionTypeDef(BaseValidatorModel):
+class SimulationJobRequestUnion(BaseValidatorModel):
     pass
 
 
-class StartSimulationJobBatchRequestTypeDef(BaseValidatorModel):
-    createSimulationJobRequests: Sequence[SimulationJobRequestUnionTypeDef]
+class StartSimulationJobBatchRequest(BaseValidatorModel):
+    createSimulationJobRequests: Sequence[SimulationJobRequestUnion]
     clientRequestToken: Optional[str] = None
-    batchPolicy: Optional[BatchPolicyTypeDef] = None
+    batchPolicy: Optional[BatchPolicy] = None
     tags: Optional[Mapping[str, str]] = None
 
 

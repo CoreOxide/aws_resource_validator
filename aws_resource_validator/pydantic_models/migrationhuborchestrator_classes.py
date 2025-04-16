@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.migrationhuborchestrator_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,47 +20,47 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class StepInputOutputTypeDef(BaseValidatorModel):
+class StepInputOutput(BaseValidatorModel):
     integerValue: Optional[int] = None
     stringValue: Optional[str] = None
     listOfStringsValue: Optional[List[str]] = None
     mapOfStringValue: Optional[Dict[str, str]] = None
 
 
-class TemplateSourceTypeDef(BaseValidatorModel):
+class TemplateSource(BaseValidatorModel):
     workflowId: Optional[str] = None
 
 
-class ToolTypeDef(BaseValidatorModel):
+class Tool(BaseValidatorModel):
     name: Optional[str] = None
     url: Optional[str] = None
 
 
-class TemplateInputTypeDef(BaseValidatorModel):
+class TemplateInput(BaseValidatorModel):
     inputName: Optional[str] = None
     dataType: Optional[DataTypeType] = None
     required: Optional[bool] = None
 
 
-class StepOutputTypeDef(BaseValidatorModel):
+class StepOutput(BaseValidatorModel):
     name: Optional[str] = None
     dataType: Optional[DataTypeType] = None
     required: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListMigrationWorkflowTemplatesRequestTypeDef(BaseValidatorModel):
+class ListMigrationWorkflowTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     name: Optional[str] = None
 
 
-class ListMigrationWorkflowsRequestTypeDef(BaseValidatorModel):
+class ListMigrationWorkflowsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     templateId: Optional[str] = None
@@ -69,12 +69,12 @@ class ListMigrationWorkflowsRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class ListPluginsRequestTypeDef(BaseValidatorModel):
+class ListPluginsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class PluginSummaryTypeDef(BaseValidatorModel):
+class PluginSummary(BaseValidatorModel):
     pluginId: Optional[str] = None
     hostname: Optional[str] = None
     status: Optional[PluginHealthType] = None
@@ -83,252 +83,252 @@ class PluginSummaryTypeDef(BaseValidatorModel):
     registeredTime: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListTemplateStepGroupsRequestTypeDef(BaseValidatorModel):
+class ListTemplateStepGroupsRequest(BaseValidatorModel):
     templateId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTemplateStepsRequestTypeDef(BaseValidatorModel):
+class ListTemplateStepsRequest(BaseValidatorModel):
     templateId: str
     stepGroupId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListWorkflowStepGroupsRequestTypeDef(BaseValidatorModel):
+class ListWorkflowStepGroupsRequest(BaseValidatorModel):
     workflowId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListWorkflowStepsRequestTypeDef(BaseValidatorModel):
+class ListWorkflowStepsRequest(BaseValidatorModel):
     workflowId: str
     stepGroupId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class PlatformCommandTypeDef(BaseValidatorModel):
+class PlatformCommand(BaseValidatorModel):
     linux: Optional[str] = None
     windows: Optional[str] = None
 
 
-class PlatformScriptKeyTypeDef(BaseValidatorModel):
+class PlatformScriptKey(BaseValidatorModel):
     linux: Optional[str] = None
     windows: Optional[str] = None
 
 
-class StepInputTypeDef(BaseValidatorModel):
+class StepInput(BaseValidatorModel):
     integerValue: Optional[int] = None
     stringValue: Optional[str] = None
     listOfStringsValue: Optional[Sequence[str]] = None
     mapOfStringValue: Optional[Mapping[str, str]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class WorkflowStepOutputUnionOutputTypeDef(BaseValidatorModel):
+class WorkflowStepOutputUnionOutput(BaseValidatorModel):
     integerValue: Optional[int] = None
     stringValue: Optional[str] = None
     listOfStringValue: Optional[List[str]] = None
 
 
-class WorkflowStepOutputUnionTypeDef(BaseValidatorModel):
+class WorkflowStepOutputUnion(BaseValidatorModel):
     integerValue: Optional[int] = None
     stringValue: Optional[str] = None
     listOfStringValue: Optional[Sequence[str]] = None
 
 
-class CreateTemplateResponseTypeDef(BaseValidatorModel):
+class CreateTemplateResponse(BaseValidatorModel):
     templateId: str
     templateArn: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTemplateResponseTypeDef(BaseValidatorModel):
+class UpdateTemplateResponse(BaseValidatorModel):
     templateId: str
     templateArn: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTemplateRequestTypeDef(BaseValidatorModel):
+class CreateTemplateRequest(BaseValidatorModel):
     templateName: str
-    templateSource: TemplateSourceTypeDef
+    templateSource: TemplateSource
     templateDescription: Optional[str] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class ListMigrationWorkflowTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+class ListMigrationWorkflowTemplatesRequestPaginate(BaseValidatorModel):
     name: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMigrationWorkflowsRequestPaginateTypeDef(BaseValidatorModel):
+class ListMigrationWorkflowsRequestPaginate(BaseValidatorModel):
     templateId: Optional[str] = None
     adsApplicationConfigurationName: Optional[str] = None
     status: Optional[MigrationWorkflowStatusEnumType] = None
     name: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPluginsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPluginsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplateStepGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTemplateStepGroupsRequestPaginate(BaseValidatorModel):
     templateId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplateStepsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTemplateStepsRequestPaginate(BaseValidatorModel):
     templateId: str
     stepGroupId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkflowStepGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListWorkflowStepGroupsRequestPaginate(BaseValidatorModel):
     workflowId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkflowStepsRequestPaginateTypeDef(BaseValidatorModel):
+class ListWorkflowStepsRequestPaginate(BaseValidatorModel):
     workflowId: str
     stepGroupId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TemplateSummaryTypeDef(BaseValidatorModel):
+class TemplateSummary(BaseValidatorModel):
     pass
 
 
-class ListMigrationWorkflowTemplatesResponseTypeDef(BaseValidatorModel):
-    templateSummary: List[TemplateSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMigrationWorkflowTemplatesResponse(BaseValidatorModel):
+    templateSummary: List[TemplateSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MigrationWorkflowSummaryTypeDef(BaseValidatorModel):
+class MigrationWorkflowSummary(BaseValidatorModel):
     pass
 
 
-class ListMigrationWorkflowsResponseTypeDef(BaseValidatorModel):
-    migrationWorkflowSummary: List[MigrationWorkflowSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMigrationWorkflowsResponse(BaseValidatorModel):
+    migrationWorkflowSummary: List[MigrationWorkflowSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListPluginsResponseTypeDef(BaseValidatorModel):
-    plugins: List[PluginSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPluginsResponse(BaseValidatorModel):
+    plugins: List[PluginSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TemplateStepGroupSummaryTypeDef(BaseValidatorModel):
+class TemplateStepGroupSummary(BaseValidatorModel):
     pass
 
 
-class ListTemplateStepGroupsResponseTypeDef(BaseValidatorModel):
-    templateStepGroupSummary: List[TemplateStepGroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTemplateStepGroupsResponse(BaseValidatorModel):
+    templateStepGroupSummary: List[TemplateStepGroupSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TemplateStepSummaryTypeDef(BaseValidatorModel):
+class TemplateStepSummary(BaseValidatorModel):
     pass
 
 
-class ListTemplateStepsResponseTypeDef(BaseValidatorModel):
-    templateStepSummaryList: List[TemplateStepSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTemplateStepsResponse(BaseValidatorModel):
+    templateStepSummaryList: List[TemplateStepSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WorkflowStepGroupSummaryTypeDef(BaseValidatorModel):
+class WorkflowStepGroupSummary(BaseValidatorModel):
     pass
 
 
-class ListWorkflowStepGroupsResponseTypeDef(BaseValidatorModel):
-    workflowStepGroupsSummary: List[WorkflowStepGroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkflowStepGroupsResponse(BaseValidatorModel):
+    workflowStepGroupsSummary: List[WorkflowStepGroupSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WorkflowStepSummaryTypeDef(BaseValidatorModel):
+class WorkflowStepSummary(BaseValidatorModel):
     pass
 
 
-class ListWorkflowStepsResponseTypeDef(BaseValidatorModel):
-    workflowStepsSummary: List[WorkflowStepSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkflowStepsResponse(BaseValidatorModel):
+    workflowStepsSummary: List[WorkflowStepSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StepAutomationConfigurationTypeDef(BaseValidatorModel):
+class StepAutomationConfiguration(BaseValidatorModel):
     scriptLocationS3Bucket: Optional[str] = None
-    scriptLocationS3Key: Optional[PlatformScriptKeyTypeDef] = None
-    command: Optional[PlatformCommandTypeDef] = None
+    scriptLocationS3Key: Optional[PlatformScriptKey] = None
+    command: Optional[PlatformCommand] = None
     runEnvironment: Optional[RunEnvironmentType] = None
     targetType: Optional[TargetTypeType] = None
 
 
-class WorkflowStepAutomationConfigurationTypeDef(BaseValidatorModel):
+class WorkflowStepAutomationConfiguration(BaseValidatorModel):
     scriptLocationS3Bucket: Optional[str] = None
-    scriptLocationS3Key: Optional[PlatformScriptKeyTypeDef] = None
-    command: Optional[PlatformCommandTypeDef] = None
+    scriptLocationS3Key: Optional[PlatformScriptKey] = None
+    command: Optional[PlatformCommand] = None
     runEnvironment: Optional[RunEnvironmentType] = None
     targetType: Optional[TargetTypeType] = None
 
 
-class WorkflowStepExtraTypeDef(BaseValidatorModel):
+class WorkflowStepExtra(BaseValidatorModel):
     name: Optional[str] = None
     dataType: Optional[DataTypeType] = None
     required: Optional[bool] = None
-    value: Optional[WorkflowStepOutputUnionOutputTypeDef] = None
+    value: Optional[WorkflowStepOutputUnionOutput] = None
 
 
-class StepInputUnionTypeDef(BaseValidatorModel):
+class StepInputUnion(BaseValidatorModel):
     pass
 
 
-class CreateMigrationWorkflowRequestTypeDef(BaseValidatorModel):
+class CreateMigrationWorkflowRequest(BaseValidatorModel):
     name: str
     templateId: str
-    inputParameters: Mapping[str, StepInputUnionTypeDef]
+    inputParameters: Mapping[str, StepInputUnion]
     description: Optional[str] = None
     applicationConfigurationId: Optional[str] = None
     stepTargets: Optional[Sequence[str]] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class WorkflowStepOutputUnionUnionTypeDef(BaseValidatorModel):
+class WorkflowStepOutputUnionUnion(BaseValidatorModel):
     pass
 
 
-class WorkflowStepOutputTypeDef(BaseValidatorModel):
+class WorkflowStepOutput(BaseValidatorModel):
     name: Optional[str] = None
     dataType: Optional[DataTypeType] = None
     required: Optional[bool] = None
-    value: Optional[WorkflowStepOutputUnionUnionTypeDef] = None
+    value: Optional[WorkflowStepOutputUnionUnion] = None
 
 

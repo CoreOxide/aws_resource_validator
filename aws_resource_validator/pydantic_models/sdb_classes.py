@@ -12,32 +12,32 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sdb_constants import *
 
-class AttributeTypeDef(BaseValidatorModel):
+class Attribute(BaseValidatorModel):
     Name: str
     Value: str
     AlternateNameEncoding: Optional[str] = None
     AlternateValueEncoding: Optional[str] = None
 
 
-class CreateDomainRequestTypeDef(BaseValidatorModel):
+class CreateDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
-class UpdateConditionTypeDef(BaseValidatorModel):
+class UpdateCondition(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
     Exists: Optional[bool] = None
 
 
-class DeleteDomainRequestTypeDef(BaseValidatorModel):
+class DeleteDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DomainMetadataRequestTypeDef(BaseValidatorModel):
+class DomainMetadataRequest(BaseValidatorModel):
     DomainName: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -45,55 +45,55 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetAttributesRequestTypeDef(BaseValidatorModel):
+class GetAttributesRequest(BaseValidatorModel):
     DomainName: str
     ItemName: str
     AttributeNames: Optional[Sequence[str]] = None
     ConsistentRead: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListDomainsRequestTypeDef(BaseValidatorModel):
+class ListDomainsRequest(BaseValidatorModel):
     MaxNumberOfDomains: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ReplaceableAttributeTypeDef(BaseValidatorModel):
+class ReplaceableAttribute(BaseValidatorModel):
     Name: str
     Value: str
     Replace: Optional[bool] = None
 
 
-class SelectRequestTypeDef(BaseValidatorModel):
+class SelectRequest(BaseValidatorModel):
     SelectExpression: str
     NextToken: Optional[str] = None
     ConsistentRead: Optional[bool] = None
 
 
-class DeletableItemTypeDef(BaseValidatorModel):
+class DeletableItem(BaseValidatorModel):
     Name: str
-    Attributes: Optional[Sequence[AttributeTypeDef]] = None
+    Attributes: Optional[Sequence[Attribute]] = None
 
 
-class ItemTypeDef(BaseValidatorModel):
+class Item(BaseValidatorModel):
     Name: str
-    Attributes: List[AttributeTypeDef]
+    Attributes: List[Attribute]
     AlternateNameEncoding: Optional[str] = None
 
 
-class DeleteAttributesRequestTypeDef(BaseValidatorModel):
+class DeleteAttributesRequest(BaseValidatorModel):
     DomainName: str
     ItemName: str
-    Attributes: Optional[Sequence[AttributeTypeDef]] = None
-    Expected: Optional[UpdateConditionTypeDef] = None
+    Attributes: Optional[Sequence[Attribute]] = None
+    Expected: Optional[UpdateCondition] = None
 
 
-class DomainMetadataResultTypeDef(BaseValidatorModel):
+class DomainMetadataResult(BaseValidatorModel):
     ItemCount: int
     ItemNamesSizeBytes: int
     AttributeNameCount: int
@@ -101,59 +101,59 @@ class DomainMetadataResultTypeDef(BaseValidatorModel):
     AttributeValueCount: int
     AttributeValuesSizeBytes: int
     Timestamp: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAttributesResultTypeDef(BaseValidatorModel):
-    Attributes: List[AttributeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAttributesResult(BaseValidatorModel):
+    Attributes: List[Attribute]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDomainsResultTypeDef(BaseValidatorModel):
+class ListDomainsResult(BaseValidatorModel):
     DomainNames: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDomainsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDomainsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SelectRequestPaginateTypeDef(BaseValidatorModel):
+class SelectRequestPaginate(BaseValidatorModel):
     SelectExpression: str
     ConsistentRead: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class PutAttributesRequestTypeDef(BaseValidatorModel):
+class PutAttributesRequest(BaseValidatorModel):
     DomainName: str
     ItemName: str
-    Attributes: Sequence[ReplaceableAttributeTypeDef]
-    Expected: Optional[UpdateConditionTypeDef] = None
+    Attributes: Sequence[ReplaceableAttribute]
+    Expected: Optional[UpdateCondition] = None
 
 
-class ReplaceableItemTypeDef(BaseValidatorModel):
+class ReplaceableItem(BaseValidatorModel):
     Name: str
-    Attributes: Sequence[ReplaceableAttributeTypeDef]
+    Attributes: Sequence[ReplaceableAttribute]
 
 
-class BatchDeleteAttributesRequestTypeDef(BaseValidatorModel):
+class BatchDeleteAttributesRequest(BaseValidatorModel):
     DomainName: str
-    Items: Sequence[DeletableItemTypeDef]
+    Items: Sequence[DeletableItem]
 
 
-class SelectResultTypeDef(BaseValidatorModel):
-    Items: List[ItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SelectResult(BaseValidatorModel):
+    Items: List[Item]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BatchPutAttributesRequestTypeDef(BaseValidatorModel):
+class BatchPutAttributesRequest(BaseValidatorModel):
     DomainName: str
-    Items: Sequence[ReplaceableItemTypeDef]
+    Items: Sequence[ReplaceableItem]
 
 

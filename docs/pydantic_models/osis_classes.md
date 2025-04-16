@@ -6,14 +6,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BufferOptionsTypeDef
+# BufferOptions
 
 ### PersistentBufferEnabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# ChangeProgressStageTypeDef
+# ChangeProgressStage
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ChangeProgressStatusTypeDef
+# ChangeProgressStatus
 
 ### StartTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -40,17 +40,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ChangeProgressStages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.ChangeProgressStageTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.ChangeProgressStage]]
 
 
-# CloudWatchLogDestinationTypeDef
+# CloudWatchLogDestination
 
 ### LogGroup
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreatePipelineRequestTypeDef
+# CreatePipelineRequest
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -69,47 +69,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.LogPublishingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.VpcOptionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.VpcOptionsUnion]
 
 ### BufferOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.BufferOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.EncryptionAtRestOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.osis_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.osis_classes.Tag]]
 
 
-# CreatePipelineResponseTypeDef
+# CreatePipelineResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.Pipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeletePipelineRequestTypeDef
+# DeletePipelineRequest
 
 ### PipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EncryptionAtRestOptionsTypeDef
+# EncryptionAtRestOptions
 
 ### KmsKeyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPipelineBlueprintRequestTypeDef
+# GetPipelineBlueprintRequest
 
 ### BlueprintName
 - **Type**: <class 'str'>
@@ -119,10 +119,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetPipelineBlueprintResponseTypeDef
+# GetPipelineBlueprintResponse
 
 ### Blueprint
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.PipelineBlueprintTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.PipelineBlueprint'>
 - **Required**: Yes
 
 ### Format
@@ -130,58 +130,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPipelineChangeProgressRequestTypeDef
+# GetPipelineChangeProgressRequest
 
 ### PipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPipelineChangeProgressResponseTypeDef
+# GetPipelineChangeProgressResponse
 
 ### ChangeProgressStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.ChangeProgressStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.ChangeProgressStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPipelineRequestTypeDef
+# GetPipelineRequest
 
 ### PipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPipelineResponseTypeDef
+# GetPipelineResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.Pipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListPipelineBlueprintsResponseTypeDef
+# ListPipelineBlueprintsResponse
 
 ### Blueprints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.PipelineBlueprintSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.PipelineBlueprintSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListPipelinesRequestTypeDef
+# ListPipelinesRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -190,132 +190,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPipelinesResponseTypeDef
+# ListPipelinesResponse
 
 ### Pipelines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.PipelineSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.PipelineSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LogPublishingOptionsTypeDef
+# LogPublishingOptions
 
 ### IsLoggingEnabled
 - **Type**: typing.Optional[bool]
 
 ### CloudWatchLogDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.CloudWatchLogDestinationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PipelineBlueprintSummaryTypeDef
-
-### BlueprintName
-- **Type**: typing.Optional[str]
-
-### DisplayName
-- **Type**: typing.Optional[str]
-
-### DisplayDescription
-- **Type**: typing.Optional[str]
-
-### Service
-- **Type**: typing.Optional[str]
-
-### UseCase
-- **Type**: typing.Optional[str]
-
-
-# PipelineBlueprintTypeDef
-
-### BlueprintName
-- **Type**: typing.Optional[str]
-
-### PipelineConfigurationBody
-- **Type**: typing.Optional[str]
-
-### DisplayName
-- **Type**: typing.Optional[str]
-
-### DisplayDescription
-- **Type**: typing.Optional[str]
-
-### Service
-- **Type**: typing.Optional[str]
-
-### UseCase
-- **Type**: typing.Optional[str]
-
-
-# PipelineDestinationTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# PipelineStatusReasonTypeDef
-
-### Description
-- **Type**: typing.Optional[str]
-
-
-# PipelineSummaryTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETING', 'STARTING', 'START_FAILED', 'STOPPED', 'STOPPING', 'UPDATE_FAILED', 'UPDATING']]
-
-### StatusReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.PipelineStatusReasonTypeDef]
-
-### PipelineName
-- **Type**: typing.Optional[str]
-
-### PipelineArn
-- **Type**: typing.Optional[str]
-
-### MinUnits
-- **Type**: typing.Optional[int]
-
-### MaxUnits
-- **Type**: typing.Optional[int]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### Destinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.PipelineDestinationTypeDef]]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.TagTypeDef]]
-
-
-# PipelineTypeDef
+# Pipeline
 
 ### PipelineName
 - **Type**: typing.Optional[str]
@@ -333,7 +249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETING', 'STARTING', 'START_FAILED', 'STOPPED', 'STOPPING', 'UPDATE_FAILED', 'UPDATING']]
 
 ### StatusReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.PipelineStatusReasonTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.PipelineStatusReason]
 
 ### PipelineConfigurationBody
 - **Type**: typing.Optional[str]
@@ -348,31 +264,115 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.LogPublishingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcEndpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.VpcEndpointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.VpcEndpoint]]
 
 ### BufferOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.BufferOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.EncryptionAtRestOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcEndpointService
 - **Type**: typing.Optional[str]
 
 ### ServiceVpcEndpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.ServiceVpcEndpointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.ServiceVpcEndpoint]]
 
 ### Destinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.PipelineDestinationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.PipelineDestination]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.Tag]]
 
 
-# ResponseMetadataTypeDef
+# PipelineBlueprint
+
+### BlueprintName
+- **Type**: typing.Optional[str]
+
+### PipelineConfigurationBody
+- **Type**: typing.Optional[str]
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+### DisplayDescription
+- **Type**: typing.Optional[str]
+
+### Service
+- **Type**: typing.Optional[str]
+
+### UseCase
+- **Type**: typing.Optional[str]
+
+
+# PipelineBlueprintSummary
+
+### BlueprintName
+- **Type**: typing.Optional[str]
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+### DisplayDescription
+- **Type**: typing.Optional[str]
+
+### Service
+- **Type**: typing.Optional[str]
+
+### UseCase
+- **Type**: typing.Optional[str]
+
+
+# PipelineDestination
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PipelineStatusReason
+
+### Description
+- **Type**: typing.Optional[str]
+
+
+# PipelineSummary
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETING', 'STARTING', 'START_FAILED', 'STOPPED', 'STOPPING', 'UPDATE_FAILED', 'UPDATING']]
+
+### StatusReason
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.PipelineStatusReason]
+
+### PipelineName
+- **Type**: typing.Optional[str]
+
+### PipelineArn
+- **Type**: typing.Optional[str]
+
+### MinUnits
+- **Type**: typing.Optional[int]
+
+### MaxUnits
+- **Type**: typing.Optional[int]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### Destinations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.PipelineDestination]]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.osis_classes.Tag]]
+
+
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -394,60 +394,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceVpcEndpointTypeDef
+# ServiceVpcEndpoint
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StartPipelineRequestTypeDef
+# StartPipelineRequest
 
 ### PipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartPipelineResponseTypeDef
+# StartPipelineResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.Pipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopPipelineRequestTypeDef
+# StopPipelineRequest
 
 ### PipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopPipelineResponseTypeDef
+# StopPipelineResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.Pipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.osis_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -458,7 +447,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.osis_classes.Tag]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -469,7 +469,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePipelineRequestTypeDef
+# UpdatePipelineRequest
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -485,55 +485,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.LogPublishingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BufferOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.BufferOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.EncryptionAtRestOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdatePipelineResponseTypeDef
+# UpdatePipelineResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.Pipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ValidatePipelineRequestTypeDef
+# ValidatePipelineRequest
 
 ### PipelineConfigurationBody
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ValidatePipelineResponseTypeDef
+# ValidatePipelineResponse
 
 ### isValid
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.ValidationMessageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.osis_classes.ValidationMessage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.osis_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ValidationMessageTypeDef
+# ValidationMessage
 
 ### Message
 - **Type**: typing.Optional[str]
 
 
-# VpcAttachmentOptionsTypeDef
+# VpcAttachmentOptions
 
 ### AttachToVpc
 - **Type**: <class 'bool'>
@@ -543,7 +543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VpcEndpointTypeDef
+# VpcEndpoint
 
 ### VpcEndpointId
 - **Type**: typing.Optional[str]
@@ -552,26 +552,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.VpcOptionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.VpcOptionsOutput]
 
 
-# VpcOptionsOutputTypeDef
-
-### SubnetIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### SecurityGroupIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### VpcAttachmentOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.VpcAttachmentOptionsTypeDef]
-
-### VpcEndpointManagement
-- **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SERVICE']]
-
-
-# VpcOptionsTypeDef
+# VpcOptions
 
 ### SubnetIds
 - **Type**: typing.Sequence[str]
@@ -581,13 +565,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### VpcAttachmentOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.VpcAttachmentOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VpcEndpointManagement
 - **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SERVICE']]
 
 
-# VpcOptionsUnionTypeDef
+# VpcOptionsOutput
+
+### SubnetIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### SecurityGroupIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### VpcAttachmentOptions
+- **Type**: <class 'NoneType'>
+
+### VpcEndpointManagement
+- **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SERVICE']]
+
+
+# VpcOptionsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

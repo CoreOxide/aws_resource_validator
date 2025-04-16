@@ -12,15 +12,15 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mediaconnect_constants import *
 
-class VpcInterfaceAttachmentTypeDef(BaseValidatorModel):
+class VpcInterfaceAttachment(BaseValidatorModel):
     VpcInterfaceName: Optional[str] = None
 
 
-class MulticastSourceSettingsTypeDef(BaseValidatorModel):
+class MulticastSourceSettings(BaseValidatorModel):
     MulticastSourceIp: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -28,11 +28,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AddEgressGatewayBridgeRequestTypeDef(BaseValidatorModel):
+class AddEgressGatewayBridgeRequest(BaseValidatorModel):
     MaxBitrate: int
 
 
-class VpcInterfaceRequestTypeDef(BaseValidatorModel):
+class VpcInterfaceRequest(BaseValidatorModel):
     Name: str
     RoleArn: str
     SecurityGroupIds: Sequence[str]
@@ -40,7 +40,7 @@ class VpcInterfaceRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceType: Optional[NetworkInterfaceTypeType] = None
 
 
-class VpcInterfaceTypeDef(BaseValidatorModel):
+class VpcInterface(BaseValidatorModel):
     Name: str
     NetworkInterfaceIds: List[str]
     NetworkInterfaceType: NetworkInterfaceTypeType
@@ -49,17 +49,17 @@ class VpcInterfaceTypeDef(BaseValidatorModel):
     SubnetId: str
 
 
-class AddIngressGatewayBridgeRequestTypeDef(BaseValidatorModel):
+class AddIngressGatewayBridgeRequest(BaseValidatorModel):
     MaxBitrate: int
     MaxOutputs: int
 
 
-class AddMaintenanceTypeDef(BaseValidatorModel):
+class AddMaintenance(BaseValidatorModel):
     MaintenanceDay: MaintenanceDayType
     MaintenanceStartHour: str
 
 
-class EncryptionTypeDef(BaseValidatorModel):
+class Encryption(BaseValidatorModel):
     RoleArn: str
     Algorithm: Optional[AlgorithmType] = None
     ConstantInitializationVector: Optional[str] = None
@@ -71,132 +71,132 @@ class EncryptionTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
 
 
-class SilentAudioTypeDef(BaseValidatorModel):
+class SilentAudio(BaseValidatorModel):
     State: Optional[StateType] = None
     ThresholdSeconds: Optional[int] = None
 
 
-class BlackFramesTypeDef(BaseValidatorModel):
+class BlackFrames(BaseValidatorModel):
     State: Optional[StateType] = None
     ThresholdSeconds: Optional[int] = None
 
 
-class BridgeFlowOutputTypeDef(BaseValidatorModel):
+class BridgeFlowOutput(BaseValidatorModel):
     FlowArn: str
     FlowSourceArn: str
     Name: str
 
 
-class EgressGatewayBridgeTypeDef(BaseValidatorModel):
+class EgressGatewayBridge(BaseValidatorModel):
     MaxBitrate: int
     InstanceId: Optional[str] = None
 
 
-class IngressGatewayBridgeTypeDef(BaseValidatorModel):
+class IngressGatewayBridge(BaseValidatorModel):
     MaxBitrate: int
     MaxOutputs: int
     InstanceId: Optional[str] = None
 
 
-class MessageDetailTypeDef(BaseValidatorModel):
+class MessageDetail(BaseValidatorModel):
     Code: str
     Message: str
     ResourceName: Optional[str] = None
 
 
-class GatewayNetworkTypeDef(BaseValidatorModel):
+class GatewayNetwork(BaseValidatorModel):
     CidrBlock: str
     Name: str
 
 
-class DeleteBridgeRequestTypeDef(BaseValidatorModel):
+class DeleteBridgeRequest(BaseValidatorModel):
     BridgeArn: str
 
 
-class DeleteFlowRequestTypeDef(BaseValidatorModel):
+class DeleteFlowRequest(BaseValidatorModel):
     FlowArn: str
 
 
-class DeleteGatewayRequestTypeDef(BaseValidatorModel):
+class DeleteGatewayRequest(BaseValidatorModel):
     GatewayArn: str
 
 
-class DeregisterGatewayInstanceRequestTypeDef(BaseValidatorModel):
+class DeregisterGatewayInstanceRequest(BaseValidatorModel):
     GatewayInstanceArn: str
     Force: Optional[bool] = None
 
 
-class DescribeBridgeRequestTypeDef(BaseValidatorModel):
+class DescribeBridgeRequest(BaseValidatorModel):
     BridgeArn: str
 
 
-class DescribeFlowRequestTypeDef(BaseValidatorModel):
+class DescribeFlowRequest(BaseValidatorModel):
     FlowArn: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class MessagesTypeDef(BaseValidatorModel):
+class Messages(BaseValidatorModel):
     Errors: List[str]
 
 
-class DescribeFlowSourceMetadataRequestTypeDef(BaseValidatorModel):
+class DescribeFlowSourceMetadataRequest(BaseValidatorModel):
     FlowArn: str
 
 
-class DescribeFlowSourceThumbnailRequestTypeDef(BaseValidatorModel):
+class DescribeFlowSourceThumbnailRequest(BaseValidatorModel):
     FlowArn: str
 
 
-class DescribeGatewayInstanceRequestTypeDef(BaseValidatorModel):
+class DescribeGatewayInstanceRequest(BaseValidatorModel):
     GatewayInstanceArn: str
 
 
-class DescribeGatewayRequestTypeDef(BaseValidatorModel):
+class DescribeGatewayRequest(BaseValidatorModel):
     GatewayArn: str
 
 
-class DescribeOfferingRequestTypeDef(BaseValidatorModel):
+class DescribeOfferingRequest(BaseValidatorModel):
     OfferingArn: str
 
 
-class DescribeReservationRequestTypeDef(BaseValidatorModel):
+class DescribeReservationRequest(BaseValidatorModel):
     ReservationArn: str
 
 
-class InterfaceRequestTypeDef(BaseValidatorModel):
+class InterfaceRequest(BaseValidatorModel):
     Name: str
 
 
-class InterfaceTypeDef(BaseValidatorModel):
+class Interface(BaseValidatorModel):
     Name: str
 
 
-class EncodingParametersRequestTypeDef(BaseValidatorModel):
+class EncodingParametersRequest(BaseValidatorModel):
     CompressionFactor: float
     EncoderProfile: EncoderProfileType
 
 
-class EncodingParametersTypeDef(BaseValidatorModel):
+class EncodingParameters(BaseValidatorModel):
     CompressionFactor: float
     EncoderProfile: EncoderProfileType
 
 
-class SourcePriorityTypeDef(BaseValidatorModel):
+class SourcePriority(BaseValidatorModel):
     PrimarySource: Optional[str] = None
 
 
-class MaintenanceTypeDef(BaseValidatorModel):
+class Maintenance(BaseValidatorModel):
     MaintenanceDay: Optional[MaintenanceDayType] = None
     MaintenanceDeadline: Optional[str] = None
     MaintenanceScheduledDate: Optional[str] = None
     MaintenanceStartHour: Optional[str] = None
 
 
-class FmtpRequestTypeDef(BaseValidatorModel):
+class FmtpRequest(BaseValidatorModel):
     ChannelOrder: Optional[str] = None
     Colorimetry: Optional[ColorimetryType] = None
     ExactFramerate: Optional[str] = None
@@ -206,7 +206,7 @@ class FmtpRequestTypeDef(BaseValidatorModel):
     Tcs: Optional[TcsType] = None
 
 
-class FmtpTypeDef(BaseValidatorModel):
+class Fmtp(BaseValidatorModel):
     ChannelOrder: Optional[str] = None
     Colorimetry: Optional[ColorimetryType] = None
     ExactFramerate: Optional[str] = None
@@ -216,29 +216,29 @@ class FmtpTypeDef(BaseValidatorModel):
     Tcs: Optional[TcsType] = None
 
 
-class FrameResolutionTypeDef(BaseValidatorModel):
+class FrameResolution(BaseValidatorModel):
     FrameHeight: int
     FrameWidth: int
 
 
-class FrozenFramesTypeDef(BaseValidatorModel):
+class FrozenFrames(BaseValidatorModel):
     State: Optional[StateType] = None
     ThresholdSeconds: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListBridgesRequestTypeDef(BaseValidatorModel):
+class ListBridgesRequest(BaseValidatorModel):
     FilterArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListedBridgeTypeDef(BaseValidatorModel):
+class ListedBridge(BaseValidatorModel):
     BridgeArn: str
     BridgeState: BridgeStateType
     BridgeType: str
@@ -246,139 +246,139 @@ class ListedBridgeTypeDef(BaseValidatorModel):
     PlacementArn: str
 
 
-class ListEntitlementsRequestTypeDef(BaseValidatorModel):
+class ListEntitlementsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListedEntitlementTypeDef(BaseValidatorModel):
+class ListedEntitlement(BaseValidatorModel):
     EntitlementArn: str
     EntitlementName: str
     DataTransferSubscriberFeePercent: Optional[int] = None
 
 
-class ListFlowsRequestTypeDef(BaseValidatorModel):
+class ListFlowsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListGatewayInstancesRequestTypeDef(BaseValidatorModel):
+class ListGatewayInstancesRequest(BaseValidatorModel):
     FilterArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListedGatewayInstanceTypeDef(BaseValidatorModel):
+class ListedGatewayInstance(BaseValidatorModel):
     GatewayArn: str
     GatewayInstanceArn: str
     InstanceId: str
     InstanceState: Optional[InstanceStateType] = None
 
 
-class ListGatewaysRequestTypeDef(BaseValidatorModel):
+class ListGatewaysRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListedGatewayTypeDef(BaseValidatorModel):
+class ListedGateway(BaseValidatorModel):
     GatewayArn: str
     GatewayState: GatewayStateType
     Name: str
 
 
-class ListOfferingsRequestTypeDef(BaseValidatorModel):
+class ListOfferingsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListReservationsRequestTypeDef(BaseValidatorModel):
+class ListReservationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class ResourceSpecificationTypeDef(BaseValidatorModel):
+class ResourceSpecification(BaseValidatorModel):
     ResourceType: Literal["Mbps_Outbound_Bandwidth"]
     ReservedBitrate: Optional[int] = None
 
 
-class PurchaseOfferingRequestTypeDef(BaseValidatorModel):
+class PurchaseOfferingRequest(BaseValidatorModel):
     OfferingArn: str
     ReservationName: str
     Start: str
 
 
-class RemoveBridgeOutputRequestTypeDef(BaseValidatorModel):
+class RemoveBridgeOutputRequest(BaseValidatorModel):
     BridgeArn: str
     OutputName: str
 
 
-class RemoveBridgeSourceRequestTypeDef(BaseValidatorModel):
+class RemoveBridgeSourceRequest(BaseValidatorModel):
     BridgeArn: str
     SourceName: str
 
 
-class RemoveFlowMediaStreamRequestTypeDef(BaseValidatorModel):
+class RemoveFlowMediaStreamRequest(BaseValidatorModel):
     FlowArn: str
     MediaStreamName: str
 
 
-class RemoveFlowOutputRequestTypeDef(BaseValidatorModel):
+class RemoveFlowOutputRequest(BaseValidatorModel):
     FlowArn: str
     OutputArn: str
 
 
-class RemoveFlowSourceRequestTypeDef(BaseValidatorModel):
+class RemoveFlowSourceRequest(BaseValidatorModel):
     FlowArn: str
     SourceArn: str
 
 
-class RemoveFlowVpcInterfaceRequestTypeDef(BaseValidatorModel):
+class RemoveFlowVpcInterfaceRequest(BaseValidatorModel):
     FlowArn: str
     VpcInterfaceName: str
 
 
-class RevokeFlowEntitlementRequestTypeDef(BaseValidatorModel):
+class RevokeFlowEntitlementRequest(BaseValidatorModel):
     EntitlementArn: str
     FlowArn: str
 
 
-class StartFlowRequestTypeDef(BaseValidatorModel):
+class StartFlowRequest(BaseValidatorModel):
     FlowArn: str
 
 
-class StopFlowRequestTypeDef(BaseValidatorModel):
+class StopFlowRequest(BaseValidatorModel):
     FlowArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateEgressGatewayBridgeRequestTypeDef(BaseValidatorModel):
+class UpdateEgressGatewayBridgeRequest(BaseValidatorModel):
     MaxBitrate: Optional[int] = None
 
 
-class UpdateIngressGatewayBridgeRequestTypeDef(BaseValidatorModel):
+class UpdateIngressGatewayBridgeRequest(BaseValidatorModel):
     MaxBitrate: Optional[int] = None
     MaxOutputs: Optional[int] = None
 
 
-class UpdateBridgeStateRequestTypeDef(BaseValidatorModel):
+class UpdateBridgeStateRequest(BaseValidatorModel):
     BridgeArn: str
     DesiredState: DesiredStateType
 
 
-class UpdateEncryptionTypeDef(BaseValidatorModel):
+class UpdateEncryption(BaseValidatorModel):
     Algorithm: Optional[AlgorithmType] = None
     ConstantInitializationVector: Optional[str] = None
     DeviceId: Optional[str] = None
@@ -390,200 +390,200 @@ class UpdateEncryptionTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
 
 
-class UpdateMaintenanceTypeDef(BaseValidatorModel):
+class UpdateMaintenance(BaseValidatorModel):
     MaintenanceDay: Optional[MaintenanceDayType] = None
     MaintenanceScheduledDate: Optional[str] = None
     MaintenanceStartHour: Optional[str] = None
 
 
-class UpdateGatewayInstanceRequestTypeDef(BaseValidatorModel):
+class UpdateGatewayInstanceRequest(BaseValidatorModel):
     GatewayInstanceArn: str
     BridgePlacement: Optional[BridgePlacementType] = None
 
 
-class AddBridgeFlowSourceRequestTypeDef(BaseValidatorModel):
+class AddBridgeFlowSourceRequest(BaseValidatorModel):
     FlowArn: str
     Name: str
-    FlowVpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
+    FlowVpcInterfaceAttachment: Optional[VpcInterfaceAttachment] = None
 
 
-class BridgeFlowSourceTypeDef(BaseValidatorModel):
+class BridgeFlowSource(BaseValidatorModel):
     FlowArn: str
     Name: str
-    FlowVpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
+    FlowVpcInterfaceAttachment: Optional[VpcInterfaceAttachment] = None
     OutputArn: Optional[str] = None
 
 
-class GatewayBridgeSourceTypeDef(BaseValidatorModel):
+class GatewayBridgeSource(BaseValidatorModel):
     BridgeArn: str
-    VpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
+    VpcInterfaceAttachment: Optional[VpcInterfaceAttachment] = None
 
 
-class SetGatewayBridgeSourceRequestTypeDef(BaseValidatorModel):
+class SetGatewayBridgeSourceRequest(BaseValidatorModel):
     BridgeArn: str
-    VpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
+    VpcInterfaceAttachment: Optional[VpcInterfaceAttachment] = None
 
 
-class UpdateBridgeFlowSourceRequestTypeDef(BaseValidatorModel):
+class UpdateBridgeFlowSourceRequest(BaseValidatorModel):
     FlowArn: Optional[str] = None
-    FlowVpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
+    FlowVpcInterfaceAttachment: Optional[VpcInterfaceAttachment] = None
 
 
-class UpdateGatewayBridgeSourceRequestTypeDef(BaseValidatorModel):
+class UpdateGatewayBridgeSourceRequest(BaseValidatorModel):
     BridgeArn: Optional[str] = None
-    VpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
+    VpcInterfaceAttachment: Optional[VpcInterfaceAttachment] = None
 
 
-class AddBridgeNetworkOutputRequestTypeDef(BaseValidatorModel):
+class AddBridgeNetworkOutputRequest(BaseValidatorModel):
     pass
 
 
-class AddBridgeOutputRequestTypeDef(BaseValidatorModel):
-    NetworkOutput: Optional[AddBridgeNetworkOutputRequestTypeDef] = None
+class AddBridgeOutputRequest(BaseValidatorModel):
+    NetworkOutput: Optional[AddBridgeNetworkOutputRequest] = None
 
 
-class DeleteBridgeResponseTypeDef(BaseValidatorModel):
+class DeleteBridgeResponse(BaseValidatorModel):
     BridgeArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFlowResponseTypeDef(BaseValidatorModel):
+class DeleteFlowResponse(BaseValidatorModel):
     FlowArn: str
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteGatewayResponseTypeDef(BaseValidatorModel):
+class DeleteGatewayResponse(BaseValidatorModel):
     GatewayArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeregisterGatewayInstanceResponseTypeDef(BaseValidatorModel):
+class DeregisterGatewayInstanceResponse(BaseValidatorModel):
     GatewayInstanceArn: str
     InstanceState: InstanceStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveBridgeOutputResponseTypeDef(BaseValidatorModel):
+class RemoveBridgeOutputResponse(BaseValidatorModel):
     BridgeArn: str
     OutputName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveBridgeSourceResponseTypeDef(BaseValidatorModel):
+class RemoveBridgeSourceResponse(BaseValidatorModel):
     BridgeArn: str
     SourceName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveFlowMediaStreamResponseTypeDef(BaseValidatorModel):
+class RemoveFlowMediaStreamResponse(BaseValidatorModel):
     FlowArn: str
     MediaStreamName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveFlowOutputResponseTypeDef(BaseValidatorModel):
+class RemoveFlowOutputResponse(BaseValidatorModel):
     FlowArn: str
     OutputArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveFlowSourceResponseTypeDef(BaseValidatorModel):
+class RemoveFlowSourceResponse(BaseValidatorModel):
     FlowArn: str
     SourceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveFlowVpcInterfaceResponseTypeDef(BaseValidatorModel):
+class RemoveFlowVpcInterfaceResponse(BaseValidatorModel):
     FlowArn: str
     NonDeletedNetworkInterfaceIds: List[str]
     VpcInterfaceName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RevokeFlowEntitlementResponseTypeDef(BaseValidatorModel):
+class RevokeFlowEntitlementResponse(BaseValidatorModel):
     EntitlementArn: str
     FlowArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartFlowResponseTypeDef(BaseValidatorModel):
+class StartFlowResponse(BaseValidatorModel):
     FlowArn: str
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopFlowResponseTypeDef(BaseValidatorModel):
+class StopFlowResponse(BaseValidatorModel):
     FlowArn: str
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBridgeStateResponseTypeDef(BaseValidatorModel):
+class UpdateBridgeStateResponse(BaseValidatorModel):
     BridgeArn: str
     DesiredState: DesiredStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGatewayInstanceResponseTypeDef(BaseValidatorModel):
+class UpdateGatewayInstanceResponse(BaseValidatorModel):
     BridgePlacement: BridgePlacementType
     GatewayInstanceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddFlowVpcInterfacesRequestTypeDef(BaseValidatorModel):
+class AddFlowVpcInterfacesRequest(BaseValidatorModel):
     FlowArn: str
-    VpcInterfaces: Sequence[VpcInterfaceRequestTypeDef]
+    VpcInterfaces: Sequence[VpcInterfaceRequest]
 
 
-class AddFlowVpcInterfacesResponseTypeDef(BaseValidatorModel):
+class AddFlowVpcInterfacesResponse(BaseValidatorModel):
     FlowArn: str
-    VpcInterfaces: List[VpcInterfaceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    VpcInterfaces: List[VpcInterface]
+    ResponseMetadata: ResponseMetadata
 
 
-class EntitlementTypeDef(BaseValidatorModel):
+class Entitlement(BaseValidatorModel):
     EntitlementArn: str
     Name: str
     Subscribers: List[str]
     DataTransferSubscriberFeePercent: Optional[int] = None
     Description: Optional[str] = None
-    Encryption: Optional[EncryptionTypeDef] = None
+    Encryption: Optional[Encryption] = None
     EntitlementStatus: Optional[EntitlementStatusType] = None
 
 
-class GrantEntitlementRequestTypeDef(BaseValidatorModel):
+class GrantEntitlementRequest(BaseValidatorModel):
     Subscribers: Sequence[str]
     DataTransferSubscriberFeePercent: Optional[int] = None
     Description: Optional[str] = None
-    Encryption: Optional[EncryptionTypeDef] = None
+    Encryption: Optional[Encryption] = None
     EntitlementStatus: Optional[EntitlementStatusType] = None
     Name: Optional[str] = None
 
 
-class AudioMonitoringSettingTypeDef(BaseValidatorModel):
-    SilentAudio: Optional[SilentAudioTypeDef] = None
+class AudioMonitoringSetting(BaseValidatorModel):
+    SilentAudio: Optional[SilentAudio] = None
 
 
-class BridgeNetworkOutputTypeDef(BaseValidatorModel):
+class BridgeNetworkOutput(BaseValidatorModel):
     pass
 
 
-class BridgeOutputTypeDef(BaseValidatorModel):
-    FlowOutput: Optional[BridgeFlowOutputTypeDef] = None
-    NetworkOutput: Optional[BridgeNetworkOutputTypeDef] = None
+class BridgeOutput(BaseValidatorModel):
+    FlowOutput: Optional[BridgeFlowOutput] = None
+    NetworkOutput: Optional[BridgeNetworkOutput] = None
 
 
-class GatewayInstanceTypeDef(BaseValidatorModel):
+class GatewayInstance(BaseValidatorModel):
     BridgePlacement: BridgePlacementType
     ConnectionStatus: ConnectionStatusType
     GatewayArn: str
@@ -591,176 +591,176 @@ class GatewayInstanceTypeDef(BaseValidatorModel):
     InstanceId: str
     InstanceState: InstanceStateType
     RunningBridgeCount: int
-    InstanceMessages: Optional[List[MessageDetailTypeDef]] = None
+    InstanceMessages: Optional[List[MessageDetail]] = None
 
 
-class ThumbnailDetailsTypeDef(BaseValidatorModel):
+class ThumbnailDetails(BaseValidatorModel):
     FlowArn: str
-    ThumbnailMessages: List[MessageDetailTypeDef]
+    ThumbnailMessages: List[MessageDetail]
     Thumbnail: Optional[str] = None
     Timecode: Optional[str] = None
     Timestamp: Optional[datetime] = None
 
 
-class CreateGatewayRequestTypeDef(BaseValidatorModel):
+class CreateGatewayRequest(BaseValidatorModel):
     EgressCidrBlocks: Sequence[str]
     Name: str
-    Networks: Sequence[GatewayNetworkTypeDef]
+    Networks: Sequence[GatewayNetwork]
 
 
-class GatewayTypeDef(BaseValidatorModel):
+class Gateway(BaseValidatorModel):
     EgressCidrBlocks: List[str]
     GatewayArn: str
     Name: str
-    Networks: List[GatewayNetworkTypeDef]
-    GatewayMessages: Optional[List[MessageDetailTypeDef]] = None
+    Networks: List[GatewayNetwork]
+    GatewayMessages: Optional[List[MessageDetail]] = None
     GatewayState: Optional[GatewayStateType] = None
 
 
-class DescribeFlowRequestWaitExtraExtraTypeDef(BaseValidatorModel):
+class DescribeFlowRequestWaitExtraExtra(BaseValidatorModel):
     FlowArn: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeFlowRequestWaitExtraTypeDef(BaseValidatorModel):
+class DescribeFlowRequestWaitExtra(BaseValidatorModel):
     FlowArn: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeFlowRequestWaitTypeDef(BaseValidatorModel):
+class DescribeFlowRequestWait(BaseValidatorModel):
     FlowArn: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DestinationConfigurationRequestTypeDef(BaseValidatorModel):
+class DestinationConfigurationRequest(BaseValidatorModel):
     DestinationIp: str
     DestinationPort: int
-    Interface: InterfaceRequestTypeDef
+    Interface: InterfaceRequest
 
 
-class InputConfigurationRequestTypeDef(BaseValidatorModel):
+class InputConfigurationRequest(BaseValidatorModel):
     InputPort: int
-    Interface: InterfaceRequestTypeDef
+    Interface: InterfaceRequest
 
 
-class DestinationConfigurationTypeDef(BaseValidatorModel):
+class DestinationConfiguration(BaseValidatorModel):
     DestinationIp: str
     DestinationPort: int
-    Interface: InterfaceTypeDef
+    Interface: Interface
     OutboundIp: str
 
 
-class InputConfigurationTypeDef(BaseValidatorModel):
+class InputConfiguration(BaseValidatorModel):
     InputIp: str
     InputPort: int
-    Interface: InterfaceTypeDef
+    Interface: Interface
 
 
-class FailoverConfigTypeDef(BaseValidatorModel):
+class FailoverConfig(BaseValidatorModel):
     FailoverMode: Optional[FailoverModeType] = None
     RecoveryWindow: Optional[int] = None
-    SourcePriority: Optional[SourcePriorityTypeDef] = None
+    SourcePriority: Optional[SourcePriority] = None
     State: Optional[StateType] = None
 
 
-class UpdateFailoverConfigTypeDef(BaseValidatorModel):
+class UpdateFailoverConfig(BaseValidatorModel):
     FailoverMode: Optional[FailoverModeType] = None
     RecoveryWindow: Optional[int] = None
-    SourcePriority: Optional[SourcePriorityTypeDef] = None
+    SourcePriority: Optional[SourcePriority] = None
     State: Optional[StateType] = None
 
 
-class ListedFlowTypeDef(BaseValidatorModel):
+class ListedFlow(BaseValidatorModel):
     AvailabilityZone: str
     Description: str
     FlowArn: str
     Name: str
     SourceType: SourceTypeType
     Status: StatusType
-    Maintenance: Optional[MaintenanceTypeDef] = None
+    Maintenance: Optional[Maintenance] = None
 
 
-class MediaStreamAttributesRequestTypeDef(BaseValidatorModel):
-    Fmtp: Optional[FmtpRequestTypeDef] = None
+class MediaStreamAttributesRequest(BaseValidatorModel):
+    Fmtp: Optional[FmtpRequest] = None
     Lang: Optional[str] = None
 
 
-class MediaStreamAttributesTypeDef(BaseValidatorModel):
-    Fmtp: FmtpTypeDef
+class MediaStreamAttributes(BaseValidatorModel):
+    Fmtp: Fmtp
     Lang: Optional[str] = None
 
 
-class TransportStreamTypeDef(BaseValidatorModel):
+class TransportStream(BaseValidatorModel):
     Pid: int
     StreamType: str
     Channels: Optional[int] = None
     Codec: Optional[str] = None
     FrameRate: Optional[str] = None
-    FrameResolution: Optional[FrameResolutionTypeDef] = None
+    FrameResolution: Optional[FrameResolution] = None
     SampleRate: Optional[int] = None
     SampleSize: Optional[int] = None
 
 
-class VideoMonitoringSettingTypeDef(BaseValidatorModel):
-    BlackFrames: Optional[BlackFramesTypeDef] = None
-    FrozenFrames: Optional[FrozenFramesTypeDef] = None
+class VideoMonitoringSetting(BaseValidatorModel):
+    BlackFrames: Optional[BlackFrames] = None
+    FrozenFrames: Optional[FrozenFrames] = None
 
 
-class ListBridgesRequestPaginateTypeDef(BaseValidatorModel):
+class ListBridgesRequestPaginate(BaseValidatorModel):
     FilterArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEntitlementsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEntitlementsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFlowsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFlowsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGatewayInstancesRequestPaginateTypeDef(BaseValidatorModel):
+class ListGatewayInstancesRequestPaginate(BaseValidatorModel):
     FilterArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGatewaysRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListGatewaysRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOfferingsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOfferingsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListReservationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListReservationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBridgesResponseTypeDef(BaseValidatorModel):
-    Bridges: List[ListedBridgeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBridgesResponse(BaseValidatorModel):
+    Bridges: List[ListedBridge]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEntitlementsResponseTypeDef(BaseValidatorModel):
-    Entitlements: List[ListedEntitlementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEntitlementsResponse(BaseValidatorModel):
+    Entitlements: List[ListedEntitlement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGatewayInstancesResponseTypeDef(BaseValidatorModel):
-    Instances: List[ListedGatewayInstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGatewayInstancesResponse(BaseValidatorModel):
+    Instances: List[ListedGatewayInstance]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGatewaysResponseTypeDef(BaseValidatorModel):
-    Gateways: List[ListedGatewayTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGatewaysResponse(BaseValidatorModel):
+    Gateways: List[ListedGateway]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class OfferingTypeDef(BaseValidatorModel):
+class Offering(BaseValidatorModel):
     CurrencyCode: str
     Duration: int
     DurationUnits: Literal["MONTHS"]
@@ -768,10 +768,10 @@ class OfferingTypeDef(BaseValidatorModel):
     OfferingDescription: str
     PricePerUnit: str
     PriceUnits: Literal["HOURLY"]
-    ResourceSpecification: ResourceSpecificationTypeDef
+    ResourceSpecification: ResourceSpecification
 
 
-class ReservationTypeDef(BaseValidatorModel):
+class Reservation(BaseValidatorModel):
     CurrencyCode: str
     Duration: int
     DurationUnits: Literal["MONTHS"]
@@ -783,454 +783,454 @@ class ReservationTypeDef(BaseValidatorModel):
     ReservationArn: str
     ReservationName: str
     ReservationState: ReservationStateType
-    ResourceSpecification: ResourceSpecificationTypeDef
+    ResourceSpecification: ResourceSpecification
     Start: str
 
 
-class UpdateBridgeNetworkOutputRequestTypeDef(BaseValidatorModel):
+class UpdateBridgeNetworkOutputRequest(BaseValidatorModel):
     pass
 
 
-class UpdateBridgeOutputRequestTypeDef(BaseValidatorModel):
+class UpdateBridgeOutputRequest(BaseValidatorModel):
     BridgeArn: str
     OutputName: str
-    NetworkOutput: Optional[UpdateBridgeNetworkOutputRequestTypeDef] = None
+    NetworkOutput: Optional[UpdateBridgeNetworkOutputRequest] = None
 
 
-class UpdateFlowEntitlementRequestTypeDef(BaseValidatorModel):
+class UpdateFlowEntitlementRequest(BaseValidatorModel):
     EntitlementArn: str
     FlowArn: str
     Description: Optional[str] = None
-    Encryption: Optional[UpdateEncryptionTypeDef] = None
+    Encryption: Optional[UpdateEncryption] = None
     EntitlementStatus: Optional[EntitlementStatusType] = None
     Subscribers: Optional[Sequence[str]] = None
 
 
-class AddBridgeOutputsRequestTypeDef(BaseValidatorModel):
+class AddBridgeOutputsRequest(BaseValidatorModel):
     BridgeArn: str
-    Outputs: Sequence[AddBridgeOutputRequestTypeDef]
+    Outputs: Sequence[AddBridgeOutputRequest]
 
 
-class AddBridgeNetworkSourceRequestTypeDef(BaseValidatorModel):
+class AddBridgeNetworkSourceRequest(BaseValidatorModel):
     pass
 
 
-class AddBridgeSourceRequestTypeDef(BaseValidatorModel):
-    FlowSource: Optional[AddBridgeFlowSourceRequestTypeDef] = None
-    NetworkSource: Optional[AddBridgeNetworkSourceRequestTypeDef] = None
+class AddBridgeSourceRequest(BaseValidatorModel):
+    FlowSource: Optional[AddBridgeFlowSourceRequest] = None
+    NetworkSource: Optional[AddBridgeNetworkSourceRequest] = None
 
 
-class BridgeNetworkSourceTypeDef(BaseValidatorModel):
+class BridgeNetworkSource(BaseValidatorModel):
     pass
 
 
-class BridgeSourceTypeDef(BaseValidatorModel):
-    FlowSource: Optional[BridgeFlowSourceTypeDef] = None
-    NetworkSource: Optional[BridgeNetworkSourceTypeDef] = None
+class BridgeSource(BaseValidatorModel):
+    FlowSource: Optional[BridgeFlowSource] = None
+    NetworkSource: Optional[BridgeNetworkSource] = None
 
 
-class UpdateBridgeNetworkSourceRequestTypeDef(BaseValidatorModel):
+class UpdateBridgeNetworkSourceRequest(BaseValidatorModel):
     pass
 
 
-class UpdateBridgeSourceRequestTypeDef(BaseValidatorModel):
+class UpdateBridgeSourceRequest(BaseValidatorModel):
     BridgeArn: str
     SourceName: str
-    FlowSource: Optional[UpdateBridgeFlowSourceRequestTypeDef] = None
-    NetworkSource: Optional[UpdateBridgeNetworkSourceRequestTypeDef] = None
+    FlowSource: Optional[UpdateBridgeFlowSourceRequest] = None
+    NetworkSource: Optional[UpdateBridgeNetworkSourceRequest] = None
 
 
-class GrantFlowEntitlementsResponseTypeDef(BaseValidatorModel):
-    Entitlements: List[EntitlementTypeDef]
+class GrantFlowEntitlementsResponse(BaseValidatorModel):
+    Entitlements: List[Entitlement]
     FlowArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFlowEntitlementResponseTypeDef(BaseValidatorModel):
-    Entitlement: EntitlementTypeDef
+class UpdateFlowEntitlementResponse(BaseValidatorModel):
+    Entitlement: Entitlement
     FlowArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GrantFlowEntitlementsRequestTypeDef(BaseValidatorModel):
-    Entitlements: Sequence[GrantEntitlementRequestTypeDef]
+class GrantFlowEntitlementsRequest(BaseValidatorModel):
+    Entitlements: Sequence[GrantEntitlementRequest]
     FlowArn: str
 
 
-class AddBridgeOutputsResponseTypeDef(BaseValidatorModel):
+class AddBridgeOutputsResponse(BaseValidatorModel):
     BridgeArn: str
-    Outputs: List[BridgeOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Outputs: List[BridgeOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBridgeOutputResponseTypeDef(BaseValidatorModel):
+class UpdateBridgeOutputResponse(BaseValidatorModel):
     BridgeArn: str
-    Output: BridgeOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Output: BridgeOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGatewayInstanceResponseTypeDef(BaseValidatorModel):
-    GatewayInstance: GatewayInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGatewayInstanceResponse(BaseValidatorModel):
+    GatewayInstance: GatewayInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFlowSourceThumbnailResponseTypeDef(BaseValidatorModel):
-    ThumbnailDetails: ThumbnailDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFlowSourceThumbnailResponse(BaseValidatorModel):
+    ThumbnailDetails: ThumbnailDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGatewayResponseTypeDef(BaseValidatorModel):
-    Gateway: GatewayTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateGatewayResponse(BaseValidatorModel):
+    Gateway: Gateway
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGatewayResponseTypeDef(BaseValidatorModel):
-    Gateway: GatewayTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGatewayResponse(BaseValidatorModel):
+    Gateway: Gateway
+    ResponseMetadata: ResponseMetadata
 
 
-class MediaStreamOutputConfigurationRequestTypeDef(BaseValidatorModel):
+class MediaStreamOutputConfigurationRequest(BaseValidatorModel):
     EncodingName: EncodingNameType
     MediaStreamName: str
-    DestinationConfigurations: Optional[Sequence[DestinationConfigurationRequestTypeDef]] = None
-    EncodingParameters: Optional[EncodingParametersRequestTypeDef] = None
+    DestinationConfigurations: Optional[Sequence[DestinationConfigurationRequest]] = None
+    EncodingParameters: Optional[EncodingParametersRequest] = None
 
 
-class MediaStreamSourceConfigurationRequestTypeDef(BaseValidatorModel):
+class MediaStreamSourceConfigurationRequest(BaseValidatorModel):
     EncodingName: EncodingNameType
     MediaStreamName: str
-    InputConfigurations: Optional[Sequence[InputConfigurationRequestTypeDef]] = None
+    InputConfigurations: Optional[Sequence[InputConfigurationRequest]] = None
 
 
-class MediaStreamOutputConfigurationTypeDef(BaseValidatorModel):
+class MediaStreamOutputConfiguration(BaseValidatorModel):
     EncodingName: EncodingNameType
     MediaStreamName: str
-    DestinationConfigurations: Optional[List[DestinationConfigurationTypeDef]] = None
-    EncodingParameters: Optional[EncodingParametersTypeDef] = None
+    DestinationConfigurations: Optional[List[DestinationConfiguration]] = None
+    EncodingParameters: Optional[EncodingParameters] = None
 
 
-class MediaStreamSourceConfigurationTypeDef(BaseValidatorModel):
+class MediaStreamSourceConfiguration(BaseValidatorModel):
     EncodingName: EncodingNameType
     MediaStreamName: str
-    InputConfigurations: Optional[List[InputConfigurationTypeDef]] = None
+    InputConfigurations: Optional[List[InputConfiguration]] = None
 
 
-class UpdateBridgeRequestTypeDef(BaseValidatorModel):
+class UpdateBridgeRequest(BaseValidatorModel):
     BridgeArn: str
-    EgressGatewayBridge: Optional[UpdateEgressGatewayBridgeRequestTypeDef] = None
-    IngressGatewayBridge: Optional[UpdateIngressGatewayBridgeRequestTypeDef] = None
-    SourceFailoverConfig: Optional[UpdateFailoverConfigTypeDef] = None
+    EgressGatewayBridge: Optional[UpdateEgressGatewayBridgeRequest] = None
+    IngressGatewayBridge: Optional[UpdateIngressGatewayBridgeRequest] = None
+    SourceFailoverConfig: Optional[UpdateFailoverConfig] = None
 
 
-class ListFlowsResponseTypeDef(BaseValidatorModel):
-    Flows: List[ListedFlowTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFlowsResponse(BaseValidatorModel):
+    Flows: List[ListedFlow]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AddMediaStreamRequestTypeDef(BaseValidatorModel):
+class AddMediaStreamRequest(BaseValidatorModel):
     MediaStreamId: int
     MediaStreamName: str
     MediaStreamType: MediaStreamTypeType
-    Attributes: Optional[MediaStreamAttributesRequestTypeDef] = None
+    Attributes: Optional[MediaStreamAttributesRequest] = None
     ClockRate: Optional[int] = None
     Description: Optional[str] = None
     VideoFormat: Optional[str] = None
 
 
-class UpdateFlowMediaStreamRequestTypeDef(BaseValidatorModel):
+class UpdateFlowMediaStreamRequest(BaseValidatorModel):
     FlowArn: str
     MediaStreamName: str
-    Attributes: Optional[MediaStreamAttributesRequestTypeDef] = None
+    Attributes: Optional[MediaStreamAttributesRequest] = None
     ClockRate: Optional[int] = None
     Description: Optional[str] = None
     MediaStreamType: Optional[MediaStreamTypeType] = None
     VideoFormat: Optional[str] = None
 
 
-class MediaStreamTypeDef(BaseValidatorModel):
+class MediaStream(BaseValidatorModel):
     Fmt: int
     MediaStreamId: int
     MediaStreamName: str
     MediaStreamType: MediaStreamTypeType
-    Attributes: Optional[MediaStreamAttributesTypeDef] = None
+    Attributes: Optional[MediaStreamAttributes] = None
     ClockRate: Optional[int] = None
     Description: Optional[str] = None
     VideoFormat: Optional[str] = None
 
 
-class TransportStreamProgramTypeDef(BaseValidatorModel):
+class TransportStreamProgram(BaseValidatorModel):
     PcrPid: int
     ProgramNumber: int
     ProgramPid: int
-    Streams: List[TransportStreamTypeDef]
+    Streams: List[TransportStream]
     ProgramName: Optional[str] = None
 
 
-class MonitoringConfigOutputTypeDef(BaseValidatorModel):
+class MonitoringConfigOutput(BaseValidatorModel):
     ThumbnailState: Optional[ThumbnailStateType] = None
-    AudioMonitoringSettings: Optional[List[AudioMonitoringSettingTypeDef]] = None
+    AudioMonitoringSettings: Optional[List[AudioMonitoringSetting]] = None
     ContentQualityAnalysisState: Optional[ContentQualityAnalysisStateType] = None
-    VideoMonitoringSettings: Optional[List[VideoMonitoringSettingTypeDef]] = None
+    VideoMonitoringSettings: Optional[List[VideoMonitoringSetting]] = None
 
 
-class MonitoringConfigTypeDef(BaseValidatorModel):
+class MonitoringConfig(BaseValidatorModel):
     ThumbnailState: Optional[ThumbnailStateType] = None
-    AudioMonitoringSettings: Optional[Sequence[AudioMonitoringSettingTypeDef]] = None
+    AudioMonitoringSettings: Optional[Sequence[AudioMonitoringSetting]] = None
     ContentQualityAnalysisState: Optional[ContentQualityAnalysisStateType] = None
-    VideoMonitoringSettings: Optional[Sequence[VideoMonitoringSettingTypeDef]] = None
+    VideoMonitoringSettings: Optional[Sequence[VideoMonitoringSetting]] = None
 
 
-class DescribeOfferingResponseTypeDef(BaseValidatorModel):
-    Offering: OfferingTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeOfferingResponse(BaseValidatorModel):
+    Offering: Offering
+    ResponseMetadata: ResponseMetadata
 
 
-class ListOfferingsResponseTypeDef(BaseValidatorModel):
-    Offerings: List[OfferingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOfferingsResponse(BaseValidatorModel):
+    Offerings: List[Offering]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeReservationResponseTypeDef(BaseValidatorModel):
-    Reservation: ReservationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeReservationResponse(BaseValidatorModel):
+    Reservation: Reservation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListReservationsResponseTypeDef(BaseValidatorModel):
-    Reservations: List[ReservationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReservationsResponse(BaseValidatorModel):
+    Reservations: List[Reservation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PurchaseOfferingResponseTypeDef(BaseValidatorModel):
-    Reservation: ReservationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PurchaseOfferingResponse(BaseValidatorModel):
+    Reservation: Reservation
+    ResponseMetadata: ResponseMetadata
 
 
-class AddBridgeSourcesRequestTypeDef(BaseValidatorModel):
+class AddBridgeSourcesRequest(BaseValidatorModel):
     BridgeArn: str
-    Sources: Sequence[AddBridgeSourceRequestTypeDef]
+    Sources: Sequence[AddBridgeSourceRequest]
 
 
-class CreateBridgeRequestTypeDef(BaseValidatorModel):
+class CreateBridgeRequest(BaseValidatorModel):
     Name: str
     PlacementArn: str
-    Sources: Sequence[AddBridgeSourceRequestTypeDef]
-    EgressGatewayBridge: Optional[AddEgressGatewayBridgeRequestTypeDef] = None
-    IngressGatewayBridge: Optional[AddIngressGatewayBridgeRequestTypeDef] = None
-    Outputs: Optional[Sequence[AddBridgeOutputRequestTypeDef]] = None
-    SourceFailoverConfig: Optional[FailoverConfigTypeDef] = None
+    Sources: Sequence[AddBridgeSourceRequest]
+    EgressGatewayBridge: Optional[AddEgressGatewayBridgeRequest] = None
+    IngressGatewayBridge: Optional[AddIngressGatewayBridgeRequest] = None
+    Outputs: Optional[Sequence[AddBridgeOutputRequest]] = None
+    SourceFailoverConfig: Optional[FailoverConfig] = None
 
 
-class AddBridgeSourcesResponseTypeDef(BaseValidatorModel):
+class AddBridgeSourcesResponse(BaseValidatorModel):
     BridgeArn: str
-    Sources: List[BridgeSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Sources: List[BridgeSource]
+    ResponseMetadata: ResponseMetadata
 
 
-class BridgeTypeDef(BaseValidatorModel):
+class Bridge(BaseValidatorModel):
     BridgeArn: str
     BridgeState: BridgeStateType
     Name: str
     PlacementArn: str
-    BridgeMessages: Optional[List[MessageDetailTypeDef]] = None
-    EgressGatewayBridge: Optional[EgressGatewayBridgeTypeDef] = None
-    IngressGatewayBridge: Optional[IngressGatewayBridgeTypeDef] = None
-    Outputs: Optional[List[BridgeOutputTypeDef]] = None
-    SourceFailoverConfig: Optional[FailoverConfigTypeDef] = None
-    Sources: Optional[List[BridgeSourceTypeDef]] = None
+    BridgeMessages: Optional[List[MessageDetail]] = None
+    EgressGatewayBridge: Optional[EgressGatewayBridge] = None
+    IngressGatewayBridge: Optional[IngressGatewayBridge] = None
+    Outputs: Optional[List[BridgeOutput]] = None
+    SourceFailoverConfig: Optional[FailoverConfig] = None
+    Sources: Optional[List[BridgeSource]] = None
 
 
-class UpdateBridgeSourceResponseTypeDef(BaseValidatorModel):
+class UpdateBridgeSourceResponse(BaseValidatorModel):
     BridgeArn: str
-    Source: BridgeSourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Source: BridgeSource
+    ResponseMetadata: ResponseMetadata
 
 
-class TransportTypeDef(BaseValidatorModel):
+class Transport(BaseValidatorModel):
     pass
 
 
-class OutputTypeDef(BaseValidatorModel):
+class Output(BaseValidatorModel):
     Name: str
     OutputArn: str
     DataTransferSubscriberFeePercent: Optional[int] = None
     Description: Optional[str] = None
     Destination: Optional[str] = None
-    Encryption: Optional[EncryptionTypeDef] = None
+    Encryption: Optional[Encryption] = None
     EntitlementArn: Optional[str] = None
     ListenerAddress: Optional[str] = None
     MediaLiveInputArn: Optional[str] = None
-    MediaStreamOutputConfigurations: Optional[List[MediaStreamOutputConfigurationTypeDef]] = None
+    MediaStreamOutputConfigurations: Optional[List[MediaStreamOutputConfiguration]] = None
     Port: Optional[int] = None
-    Transport: Optional[TransportTypeDef] = None
-    VpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
+    Transport: Optional[Transport] = None
+    VpcInterfaceAttachment: Optional[VpcInterfaceAttachment] = None
     BridgeArn: Optional[str] = None
     BridgePorts: Optional[List[int]] = None
     OutputStatus: Optional[OutputStatusType] = None
 
 
-class SourceTypeDef(BaseValidatorModel):
+class Source(BaseValidatorModel):
     Name: str
     SourceArn: str
     DataTransferSubscriberFeePercent: Optional[int] = None
-    Decryption: Optional[EncryptionTypeDef] = None
+    Decryption: Optional[Encryption] = None
     Description: Optional[str] = None
     EntitlementArn: Optional[str] = None
     IngestIp: Optional[str] = None
     IngestPort: Optional[int] = None
-    MediaStreamSourceConfigurations: Optional[List[MediaStreamSourceConfigurationTypeDef]] = None
+    MediaStreamSourceConfigurations: Optional[List[MediaStreamSourceConfiguration]] = None
     SenderControlPort: Optional[int] = None
     SenderIpAddress: Optional[str] = None
-    Transport: Optional[TransportTypeDef] = None
+    Transport: Optional[Transport] = None
     VpcInterfaceName: Optional[str] = None
     WhitelistCidr: Optional[str] = None
-    GatewayBridgeSource: Optional[GatewayBridgeSourceTypeDef] = None
+    GatewayBridgeSource: Optional[GatewayBridgeSource] = None
 
 
-class AddFlowMediaStreamsRequestTypeDef(BaseValidatorModel):
+class AddFlowMediaStreamsRequest(BaseValidatorModel):
     FlowArn: str
-    MediaStreams: Sequence[AddMediaStreamRequestTypeDef]
+    MediaStreams: Sequence[AddMediaStreamRequest]
 
 
-class AddFlowMediaStreamsResponseTypeDef(BaseValidatorModel):
+class AddFlowMediaStreamsResponse(BaseValidatorModel):
     FlowArn: str
-    MediaStreams: List[MediaStreamTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    MediaStreams: List[MediaStream]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFlowMediaStreamResponseTypeDef(BaseValidatorModel):
+class UpdateFlowMediaStreamResponse(BaseValidatorModel):
     FlowArn: str
-    MediaStream: MediaStreamTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    MediaStream: MediaStream
+    ResponseMetadata: ResponseMetadata
 
 
-class TransportMediaInfoTypeDef(BaseValidatorModel):
-    Programs: List[TransportStreamProgramTypeDef]
+class TransportMediaInfo(BaseValidatorModel):
+    Programs: List[TransportStreamProgram]
 
 
-class CreateBridgeResponseTypeDef(BaseValidatorModel):
-    Bridge: BridgeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateBridgeResponse(BaseValidatorModel):
+    Bridge: Bridge
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBridgeResponseTypeDef(BaseValidatorModel):
-    Bridge: BridgeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBridgeResponse(BaseValidatorModel):
+    Bridge: Bridge
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBridgeResponseTypeDef(BaseValidatorModel):
-    Bridge: BridgeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateBridgeResponse(BaseValidatorModel):
+    Bridge: Bridge
+    ResponseMetadata: ResponseMetadata
 
 
-class AddOutputRequestTypeDef(BaseValidatorModel):
+class AddOutputRequest(BaseValidatorModel):
     pass
 
 
-class AddFlowOutputsRequestTypeDef(BaseValidatorModel):
+class AddFlowOutputsRequest(BaseValidatorModel):
     FlowArn: str
-    Outputs: Sequence[AddOutputRequestTypeDef]
+    Outputs: Sequence[AddOutputRequest]
 
 
-class SetSourceRequestTypeDef(BaseValidatorModel):
+class SetSourceRequest(BaseValidatorModel):
     pass
 
 
-class AddFlowSourcesRequestTypeDef(BaseValidatorModel):
+class AddFlowSourcesRequest(BaseValidatorModel):
     FlowArn: str
-    Sources: Sequence[SetSourceRequestTypeDef]
+    Sources: Sequence[SetSourceRequest]
 
 
-class AddFlowOutputsResponseTypeDef(BaseValidatorModel):
+class AddFlowOutputsResponse(BaseValidatorModel):
     FlowArn: str
-    Outputs: List[OutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Outputs: List[Output]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFlowOutputResponseTypeDef(BaseValidatorModel):
+class UpdateFlowOutputResponse(BaseValidatorModel):
     FlowArn: str
-    Output: OutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Output: Output
+    ResponseMetadata: ResponseMetadata
 
 
-class AddFlowSourcesResponseTypeDef(BaseValidatorModel):
+class AddFlowSourcesResponse(BaseValidatorModel):
     FlowArn: str
-    Sources: List[SourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Sources: List[Source]
+    ResponseMetadata: ResponseMetadata
 
 
-class FlowTypeDef(BaseValidatorModel):
+class Flow(BaseValidatorModel):
     AvailabilityZone: str
-    Entitlements: List[EntitlementTypeDef]
+    Entitlements: List[Entitlement]
     FlowArn: str
     Name: str
-    Outputs: List[OutputTypeDef]
-    Source: SourceTypeDef
+    Outputs: List[Output]
+    Source: Source
     Status: StatusType
     Description: Optional[str] = None
     EgressIp: Optional[str] = None
-    MediaStreams: Optional[List[MediaStreamTypeDef]] = None
-    SourceFailoverConfig: Optional[FailoverConfigTypeDef] = None
-    Sources: Optional[List[SourceTypeDef]] = None
-    VpcInterfaces: Optional[List[VpcInterfaceTypeDef]] = None
-    Maintenance: Optional[MaintenanceTypeDef] = None
-    SourceMonitoringConfig: Optional[MonitoringConfigOutputTypeDef] = None
+    MediaStreams: Optional[List[MediaStream]] = None
+    SourceFailoverConfig: Optional[FailoverConfig] = None
+    Sources: Optional[List[Source]] = None
+    VpcInterfaces: Optional[List[VpcInterface]] = None
+    Maintenance: Optional[Maintenance] = None
+    SourceMonitoringConfig: Optional[MonitoringConfigOutput] = None
 
 
-class UpdateFlowSourceResponseTypeDef(BaseValidatorModel):
+class UpdateFlowSourceResponse(BaseValidatorModel):
     FlowArn: str
-    Source: SourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Source: Source
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFlowSourceMetadataResponseTypeDef(BaseValidatorModel):
+class DescribeFlowSourceMetadataResponse(BaseValidatorModel):
     FlowArn: str
-    Messages: List[MessageDetailTypeDef]
+    Messages: List[MessageDetail]
     Timestamp: datetime
-    TransportMediaInfo: TransportMediaInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    TransportMediaInfo: TransportMediaInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class MonitoringConfigUnionTypeDef(BaseValidatorModel):
+class MonitoringConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateFlowRequestTypeDef(BaseValidatorModel):
+class CreateFlowRequest(BaseValidatorModel):
     Name: str
     AvailabilityZone: Optional[str] = None
-    Entitlements: Optional[Sequence[GrantEntitlementRequestTypeDef]] = None
-    MediaStreams: Optional[Sequence[AddMediaStreamRequestTypeDef]] = None
-    Outputs: Optional[Sequence[AddOutputRequestTypeDef]] = None
-    Source: Optional[SetSourceRequestTypeDef] = None
-    SourceFailoverConfig: Optional[FailoverConfigTypeDef] = None
-    Sources: Optional[Sequence[SetSourceRequestTypeDef]] = None
-    VpcInterfaces: Optional[Sequence[VpcInterfaceRequestTypeDef]] = None
-    Maintenance: Optional[AddMaintenanceTypeDef] = None
-    SourceMonitoringConfig: Optional[MonitoringConfigUnionTypeDef] = None
+    Entitlements: Optional[Sequence[GrantEntitlementRequest]] = None
+    MediaStreams: Optional[Sequence[AddMediaStreamRequest]] = None
+    Outputs: Optional[Sequence[AddOutputRequest]] = None
+    Source: Optional[SetSourceRequest] = None
+    SourceFailoverConfig: Optional[FailoverConfig] = None
+    Sources: Optional[Sequence[SetSourceRequest]] = None
+    VpcInterfaces: Optional[Sequence[VpcInterfaceRequest]] = None
+    Maintenance: Optional[AddMaintenance] = None
+    SourceMonitoringConfig: Optional[MonitoringConfigUnion] = None
 
 
-class UpdateFlowRequestTypeDef(BaseValidatorModel):
+class UpdateFlowRequest(BaseValidatorModel):
     FlowArn: str
-    SourceFailoverConfig: Optional[UpdateFailoverConfigTypeDef] = None
-    Maintenance: Optional[UpdateMaintenanceTypeDef] = None
-    SourceMonitoringConfig: Optional[MonitoringConfigUnionTypeDef] = None
+    SourceFailoverConfig: Optional[UpdateFailoverConfig] = None
+    Maintenance: Optional[UpdateMaintenance] = None
+    SourceMonitoringConfig: Optional[MonitoringConfigUnion] = None
 
 
-class CreateFlowResponseTypeDef(BaseValidatorModel):
-    Flow: FlowTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFlowResponse(BaseValidatorModel):
+    Flow: Flow
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFlowResponseTypeDef(BaseValidatorModel):
-    Flow: FlowTypeDef
-    Messages: MessagesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFlowResponse(BaseValidatorModel):
+    Flow: Flow
+    Messages: Messages
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFlowResponseTypeDef(BaseValidatorModel):
-    Flow: FlowTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFlowResponse(BaseValidatorModel):
+    Flow: Flow
+    ResponseMetadata: ResponseMetadata
 
 

@@ -12,37 +12,37 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.gamelift_constants import *
 
-class AcceptMatchInputTypeDef(BaseValidatorModel):
+class AcceptMatchInput(BaseValidatorModel):
     TicketId: str
     PlayerIds: Sequence[str]
     AcceptanceType: AcceptanceTypeType
 
 
-class AnywhereConfigurationTypeDef(BaseValidatorModel):
+class AnywhereConfiguration(BaseValidatorModel):
     Cost: str
 
 
-class AttributeValueOutputTypeDef(BaseValidatorModel):
+class AttributeValueOutput(BaseValidatorModel):
     S: Optional[str] = None
     N: Optional[float] = None
     SL: Optional[List[str]] = None
     SDM: Optional[Dict[str, float]] = None
 
 
-class AttributeValueTypeDef(BaseValidatorModel):
+class AttributeValue(BaseValidatorModel):
     S: Optional[str] = None
     N: Optional[float] = None
     SL: Optional[Sequence[str]] = None
     SDM: Optional[Mapping[str, float]] = None
 
 
-class AwsCredentialsTypeDef(BaseValidatorModel):
+class AwsCredentials(BaseValidatorModel):
     AccessKeyId: Optional[str] = None
     SecretAccessKey: Optional[str] = None
     SessionToken: Optional[str] = None
 
 
-class BuildTypeDef(BaseValidatorModel):
+class Build(BaseValidatorModel):
     BuildId: Optional[str] = None
     BuildArn: Optional[str] = None
     Name: Optional[str] = None
@@ -54,15 +54,15 @@ class BuildTypeDef(BaseValidatorModel):
     ServerSdkVersion: Optional[str] = None
 
 
-class CertificateConfigurationTypeDef(BaseValidatorModel):
+class CertificateConfiguration(BaseValidatorModel):
     CertificateType: CertificateTypeType
 
 
-class ClaimFilterOptionTypeDef(BaseValidatorModel):
+class ClaimFilterOption(BaseValidatorModel):
     InstanceStatuses: Optional[Sequence[FilterInstanceStatusType]] = None
 
 
-class GameServerTypeDef(BaseValidatorModel):
+class GameServer(BaseValidatorModel):
     GameServerGroupName: Optional[str] = None
     GameServerGroupArn: Optional[str] = None
     GameServerId: Optional[str] = None
@@ -76,7 +76,7 @@ class GameServerTypeDef(BaseValidatorModel):
     LastHealthCheckTime: Optional[datetime] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -84,47 +84,47 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ContainerAttributeTypeDef(BaseValidatorModel):
+class ContainerAttribute(BaseValidatorModel):
     ContainerName: Optional[str] = None
     ContainerRuntimeId: Optional[str] = None
 
 
-class ConnectionPortRangeTypeDef(BaseValidatorModel):
+class ConnectionPortRange(BaseValidatorModel):
     FromPort: int
     ToPort: int
 
 
-class ContainerDependencyTypeDef(BaseValidatorModel):
+class ContainerDependency(BaseValidatorModel):
     ContainerName: str
     Condition: ContainerDependencyConditionType
 
 
-class ContainerEnvironmentTypeDef(BaseValidatorModel):
+class ContainerEnvironment(BaseValidatorModel):
     Name: str
     Value: str
 
 
-class ContainerFleetLocationAttributesTypeDef(BaseValidatorModel):
+class ContainerFleetLocationAttributes(BaseValidatorModel):
     Location: Optional[str] = None
     Status: Optional[ContainerFleetLocationStatusType] = None
 
 
-class DeploymentDetailsTypeDef(BaseValidatorModel):
+class DeploymentDetails(BaseValidatorModel):
     LatestDeploymentId: Optional[str] = None
 
 
-class GameSessionCreationLimitPolicyTypeDef(BaseValidatorModel):
+class GameSessionCreationLimitPolicy(BaseValidatorModel):
     NewGameSessionsPerCreator: Optional[int] = None
     PolicyPeriodInMinutes: Optional[int] = None
 
 
-class LogConfigurationTypeDef(BaseValidatorModel):
+class LogConfiguration(BaseValidatorModel):
     LogDestination: Optional[LogDestinationType] = None
     S3BucketName: Optional[str] = None
     LogGroupArn: Optional[str] = None
 
 
-class ContainerHealthCheckOutputTypeDef(BaseValidatorModel):
+class ContainerHealthCheckOutput(BaseValidatorModel):
     Command: List[str]
     Interval: Optional[int] = None
     Retries: Optional[int] = None
@@ -132,7 +132,7 @@ class ContainerHealthCheckOutputTypeDef(BaseValidatorModel):
     Timeout: Optional[int] = None
 
 
-class ContainerHealthCheckTypeDef(BaseValidatorModel):
+class ContainerHealthCheck(BaseValidatorModel):
     Command: Sequence[str]
     Interval: Optional[int] = None
     Retries: Optional[int] = None
@@ -140,87 +140,87 @@ class ContainerHealthCheckTypeDef(BaseValidatorModel):
     Timeout: Optional[int] = None
 
 
-class ContainerIdentifierTypeDef(BaseValidatorModel):
+class ContainerIdentifier(BaseValidatorModel):
     ContainerName: Optional[str] = None
     ContainerRuntimeId: Optional[str] = None
 
 
-class ContainerMountPointTypeDef(BaseValidatorModel):
+class ContainerMountPoint(BaseValidatorModel):
     InstancePath: str
     ContainerPath: Optional[str] = None
     AccessLevel: Optional[ContainerMountPointAccessLevelType] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     Bucket: Optional[str] = None
     Key: Optional[str] = None
     RoleArn: Optional[str] = None
     ObjectVersion: Optional[str] = None
 
 
-class LocationConfigurationTypeDef(BaseValidatorModel):
+class LocationConfiguration(BaseValidatorModel):
     Location: str
 
 
-class ResourceCreationLimitPolicyTypeDef(BaseValidatorModel):
+class ResourceCreationLimitPolicy(BaseValidatorModel):
     NewGameSessionsPerCreator: Optional[int] = None
     PolicyPeriodInMinutes: Optional[int] = None
 
 
-class LocationStateTypeDef(BaseValidatorModel):
+class LocationState(BaseValidatorModel):
     Location: Optional[str] = None
     Status: Optional[FleetStatusType] = None
 
 
-class InstanceDefinitionTypeDef(BaseValidatorModel):
+class InstanceDefinition(BaseValidatorModel):
     InstanceType: GameServerGroupInstanceTypeType
     WeightedCapacity: Optional[str] = None
 
 
-class LaunchTemplateSpecificationTypeDef(BaseValidatorModel):
+class LaunchTemplateSpecification(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     Version: Optional[str] = None
 
 
-class GamePropertyTypeDef(BaseValidatorModel):
+class GameProperty(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class GameSessionQueueDestinationTypeDef(BaseValidatorModel):
+class GameSessionQueueDestination(BaseValidatorModel):
     DestinationArn: Optional[str] = None
 
 
-class PlayerLatencyPolicyTypeDef(BaseValidatorModel):
+class PlayerLatencyPolicy(BaseValidatorModel):
     MaximumIndividualPlayerLatencyMilliseconds: Optional[int] = None
     PolicyDurationSeconds: Optional[int] = None
 
 
-class LocationModelTypeDef(BaseValidatorModel):
+class LocationModel(BaseValidatorModel):
     LocationName: Optional[str] = None
     LocationArn: Optional[str] = None
 
 
-class MatchmakingRuleSetTypeDef(BaseValidatorModel):
+class MatchmakingRuleSet(BaseValidatorModel):
     RuleSetBody: str
     RuleSetName: Optional[str] = None
     RuleSetArn: Optional[str] = None
     CreationTime: Optional[datetime] = None
 
 
-class CreatePlayerSessionInputTypeDef(BaseValidatorModel):
+class CreatePlayerSessionInput(BaseValidatorModel):
     GameSessionId: str
     PlayerId: str
     PlayerData: Optional[str] = None
 
 
-class PlayerSessionTypeDef(BaseValidatorModel):
+class PlayerSession(BaseValidatorModel):
     PlayerSessionId: Optional[str] = None
     PlayerId: Optional[str] = None
     GameSessionId: Optional[str] = None
@@ -235,18 +235,18 @@ class PlayerSessionTypeDef(BaseValidatorModel):
     PlayerData: Optional[str] = None
 
 
-class CreatePlayerSessionsInputTypeDef(BaseValidatorModel):
+class CreatePlayerSessionsInput(BaseValidatorModel):
     GameSessionId: str
     PlayerIds: Sequence[str]
     PlayerDataMap: Optional[Mapping[str, str]] = None
 
 
-class CreateVpcPeeringAuthorizationInputTypeDef(BaseValidatorModel):
+class CreateVpcPeeringAuthorizationInput(BaseValidatorModel):
     GameLiftAwsAccountId: str
     PeerVpcId: str
 
 
-class VpcPeeringAuthorizationTypeDef(BaseValidatorModel):
+class VpcPeeringAuthorization(BaseValidatorModel):
     GameLiftAwsAccountId: Optional[str] = None
     PeerVpcAwsAccountId: Optional[str] = None
     PeerVpcId: Optional[str] = None
@@ -254,157 +254,157 @@ class VpcPeeringAuthorizationTypeDef(BaseValidatorModel):
     ExpirationTime: Optional[datetime] = None
 
 
-class CreateVpcPeeringConnectionInputTypeDef(BaseValidatorModel):
+class CreateVpcPeeringConnectionInput(BaseValidatorModel):
     FleetId: str
     PeerVpcAwsAccountId: str
     PeerVpcId: str
 
 
-class DeleteAliasInputTypeDef(BaseValidatorModel):
+class DeleteAliasInput(BaseValidatorModel):
     AliasId: str
 
 
-class DeleteBuildInputTypeDef(BaseValidatorModel):
+class DeleteBuildInput(BaseValidatorModel):
     BuildId: str
 
 
-class DeleteContainerFleetInputTypeDef(BaseValidatorModel):
+class DeleteContainerFleetInput(BaseValidatorModel):
     FleetId: str
 
 
-class DeleteContainerGroupDefinitionInputTypeDef(BaseValidatorModel):
+class DeleteContainerGroupDefinitionInput(BaseValidatorModel):
     Name: str
     VersionNumber: Optional[int] = None
     VersionCountToRetain: Optional[int] = None
 
 
-class DeleteFleetInputTypeDef(BaseValidatorModel):
+class DeleteFleetInput(BaseValidatorModel):
     FleetId: str
 
 
-class DeleteFleetLocationsInputTypeDef(BaseValidatorModel):
+class DeleteFleetLocationsInput(BaseValidatorModel):
     FleetId: str
     Locations: Sequence[str]
 
 
-class DeleteGameServerGroupInputTypeDef(BaseValidatorModel):
+class DeleteGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     DeleteOption: Optional[GameServerGroupDeleteOptionType] = None
 
 
-class DeleteGameSessionQueueInputTypeDef(BaseValidatorModel):
+class DeleteGameSessionQueueInput(BaseValidatorModel):
     Name: str
 
 
-class DeleteLocationInputTypeDef(BaseValidatorModel):
+class DeleteLocationInput(BaseValidatorModel):
     LocationName: str
 
 
-class DeleteMatchmakingConfigurationInputTypeDef(BaseValidatorModel):
+class DeleteMatchmakingConfigurationInput(BaseValidatorModel):
     Name: str
 
 
-class DeleteMatchmakingRuleSetInputTypeDef(BaseValidatorModel):
+class DeleteMatchmakingRuleSetInput(BaseValidatorModel):
     Name: str
 
 
-class DeleteScalingPolicyInputTypeDef(BaseValidatorModel):
+class DeleteScalingPolicyInput(BaseValidatorModel):
     Name: str
     FleetId: str
 
 
-class DeleteScriptInputTypeDef(BaseValidatorModel):
+class DeleteScriptInput(BaseValidatorModel):
     ScriptId: str
 
 
-class DeleteVpcPeeringAuthorizationInputTypeDef(BaseValidatorModel):
+class DeleteVpcPeeringAuthorizationInput(BaseValidatorModel):
     GameLiftAwsAccountId: str
     PeerVpcId: str
 
 
-class DeleteVpcPeeringConnectionInputTypeDef(BaseValidatorModel):
+class DeleteVpcPeeringConnectionInput(BaseValidatorModel):
     FleetId: str
     VpcPeeringConnectionId: str
 
 
-class DeploymentConfigurationTypeDef(BaseValidatorModel):
+class DeploymentConfiguration(BaseValidatorModel):
     ProtectionStrategy: Optional[DeploymentProtectionStrategyType] = None
     MinimumHealthyPercentage: Optional[int] = None
     ImpairmentStrategy: Optional[DeploymentImpairmentStrategyType] = None
 
 
-class DeregisterComputeInputTypeDef(BaseValidatorModel):
+class DeregisterComputeInput(BaseValidatorModel):
     FleetId: str
     ComputeName: str
 
 
-class DeregisterGameServerInputTypeDef(BaseValidatorModel):
+class DeregisterGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: str
 
 
-class DescribeAliasInputTypeDef(BaseValidatorModel):
+class DescribeAliasInput(BaseValidatorModel):
     AliasId: str
 
 
-class DescribeBuildInputTypeDef(BaseValidatorModel):
+class DescribeBuildInput(BaseValidatorModel):
     BuildId: str
 
 
-class DescribeComputeInputTypeDef(BaseValidatorModel):
+class DescribeComputeInput(BaseValidatorModel):
     FleetId: str
     ComputeName: str
 
 
-class DescribeContainerFleetInputTypeDef(BaseValidatorModel):
+class DescribeContainerFleetInput(BaseValidatorModel):
     FleetId: str
 
 
-class DescribeContainerGroupDefinitionInputTypeDef(BaseValidatorModel):
+class DescribeContainerGroupDefinitionInput(BaseValidatorModel):
     Name: str
     VersionNumber: Optional[int] = None
 
 
-class DescribeEC2InstanceLimitsInputTypeDef(BaseValidatorModel):
+class DescribeEC2InstanceLimitsInput(BaseValidatorModel):
     EC2InstanceType: Optional[EC2InstanceTypeType] = None
     Location: Optional[str] = None
 
 
-class EC2InstanceLimitTypeDef(BaseValidatorModel):
+class EC2InstanceLimit(BaseValidatorModel):
     EC2InstanceType: Optional[EC2InstanceTypeType] = None
     CurrentInstances: Optional[int] = None
     InstanceLimit: Optional[int] = None
     Location: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeFleetAttributesInputTypeDef(BaseValidatorModel):
+class DescribeFleetAttributesInput(BaseValidatorModel):
     FleetIds: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeFleetCapacityInputTypeDef(BaseValidatorModel):
+class DescribeFleetCapacityInput(BaseValidatorModel):
     FleetIds: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeFleetDeploymentInputTypeDef(BaseValidatorModel):
+class DescribeFleetDeploymentInput(BaseValidatorModel):
     FleetId: str
     DeploymentId: Optional[str] = None
 
 
-class LocationalDeploymentTypeDef(BaseValidatorModel):
+class LocationalDeployment(BaseValidatorModel):
     DeploymentStatus: Optional[DeploymentStatusType] = None
 
 
-class EventTypeDef(BaseValidatorModel):
+class Event(BaseValidatorModel):
     EventId: Optional[str] = None
     ResourceId: Optional[str] = None
     EventCode: Optional[EventCodeType] = None
@@ -414,24 +414,24 @@ class EventTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
 
 
-class DescribeFleetLocationAttributesInputTypeDef(BaseValidatorModel):
+class DescribeFleetLocationAttributesInput(BaseValidatorModel):
     FleetId: str
     Locations: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeFleetLocationCapacityInputTypeDef(BaseValidatorModel):
+class DescribeFleetLocationCapacityInput(BaseValidatorModel):
     FleetId: str
     Location: str
 
 
-class DescribeFleetLocationUtilizationInputTypeDef(BaseValidatorModel):
+class DescribeFleetLocationUtilizationInput(BaseValidatorModel):
     FleetId: str
     Location: str
 
 
-class FleetUtilizationTypeDef(BaseValidatorModel):
+class FleetUtilization(BaseValidatorModel):
     FleetId: Optional[str] = None
     FleetArn: Optional[str] = None
     ActiveServerProcessCount: Optional[int] = None
@@ -441,41 +441,41 @@ class FleetUtilizationTypeDef(BaseValidatorModel):
     Location: Optional[str] = None
 
 
-class DescribeFleetPortSettingsInputTypeDef(BaseValidatorModel):
+class DescribeFleetPortSettingsInput(BaseValidatorModel):
     FleetId: str
     Location: Optional[str] = None
 
 
-class DescribeFleetUtilizationInputTypeDef(BaseValidatorModel):
+class DescribeFleetUtilizationInput(BaseValidatorModel):
     FleetIds: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeGameServerGroupInputTypeDef(BaseValidatorModel):
+class DescribeGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
 
 
-class DescribeGameServerInputTypeDef(BaseValidatorModel):
+class DescribeGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: str
 
 
-class DescribeGameServerInstancesInputTypeDef(BaseValidatorModel):
+class DescribeGameServerInstancesInput(BaseValidatorModel):
     GameServerGroupName: str
     InstanceIds: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GameServerInstanceTypeDef(BaseValidatorModel):
+class GameServerInstance(BaseValidatorModel):
     GameServerGroupName: Optional[str] = None
     GameServerGroupArn: Optional[str] = None
     InstanceId: Optional[str] = None
     InstanceStatus: Optional[GameServerInstanceStatusType] = None
 
 
-class DescribeGameSessionDetailsInputTypeDef(BaseValidatorModel):
+class DescribeGameSessionDetailsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
     GameSessionId: Optional[str] = None
     AliasId: Optional[str] = None
@@ -485,17 +485,17 @@ class DescribeGameSessionDetailsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeGameSessionPlacementInputTypeDef(BaseValidatorModel):
+class DescribeGameSessionPlacementInput(BaseValidatorModel):
     PlacementId: str
 
 
-class DescribeGameSessionQueuesInputTypeDef(BaseValidatorModel):
+class DescribeGameSessionQueuesInput(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeGameSessionsInputTypeDef(BaseValidatorModel):
+class DescribeGameSessionsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
     GameSessionId: Optional[str] = None
     AliasId: Optional[str] = None
@@ -505,7 +505,7 @@ class DescribeGameSessionsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeInstancesInputTypeDef(BaseValidatorModel):
+class DescribeInstancesInput(BaseValidatorModel):
     FleetId: str
     InstanceId: Optional[str] = None
     Limit: Optional[int] = None
@@ -513,24 +513,24 @@ class DescribeInstancesInputTypeDef(BaseValidatorModel):
     Location: Optional[str] = None
 
 
-class DescribeMatchmakingConfigurationsInputTypeDef(BaseValidatorModel):
+class DescribeMatchmakingConfigurationsInput(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     RuleSetName: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeMatchmakingInputTypeDef(BaseValidatorModel):
+class DescribeMatchmakingInput(BaseValidatorModel):
     TicketIds: Sequence[str]
 
 
-class DescribeMatchmakingRuleSetsInputTypeDef(BaseValidatorModel):
+class DescribeMatchmakingRuleSetsInput(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribePlayerSessionsInputTypeDef(BaseValidatorModel):
+class DescribePlayerSessionsInput(BaseValidatorModel):
     GameSessionId: Optional[str] = None
     PlayerId: Optional[str] = None
     PlayerSessionId: Optional[str] = None
@@ -539,11 +539,11 @@ class DescribePlayerSessionsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeRuntimeConfigurationInputTypeDef(BaseValidatorModel):
+class DescribeRuntimeConfigurationInput(BaseValidatorModel):
     FleetId: str
 
 
-class DescribeScalingPoliciesInputTypeDef(BaseValidatorModel):
+class DescribeScalingPoliciesInput(BaseValidatorModel):
     FleetId: str
     StatusFilter: Optional[ScalingStatusTypeType] = None
     Limit: Optional[int] = None
@@ -551,20 +551,20 @@ class DescribeScalingPoliciesInputTypeDef(BaseValidatorModel):
     Location: Optional[str] = None
 
 
-class DescribeScriptInputTypeDef(BaseValidatorModel):
+class DescribeScriptInput(BaseValidatorModel):
     ScriptId: str
 
 
-class DescribeVpcPeeringConnectionsInputTypeDef(BaseValidatorModel):
+class DescribeVpcPeeringConnectionsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
 
 
-class DesiredPlayerSessionTypeDef(BaseValidatorModel):
+class DesiredPlayerSession(BaseValidatorModel):
     PlayerId: Optional[str] = None
     PlayerData: Optional[str] = None
 
 
-class EC2InstanceCountsTypeDef(BaseValidatorModel):
+class EC2InstanceCounts(BaseValidatorModel):
     DESIRED: Optional[int] = None
     MINIMUM: Optional[int] = None
     MAXIMUM: Optional[int] = None
@@ -574,89 +574,89 @@ class EC2InstanceCountsTypeDef(BaseValidatorModel):
     TERMINATING: Optional[int] = None
 
 
-class FilterConfigurationOutputTypeDef(BaseValidatorModel):
+class FilterConfigurationOutput(BaseValidatorModel):
     AllowedLocations: Optional[List[str]] = None
 
 
-class FilterConfigurationTypeDef(BaseValidatorModel):
+class FilterConfiguration(BaseValidatorModel):
     AllowedLocations: Optional[Sequence[str]] = None
 
 
-class GameServerContainerGroupCountsTypeDef(BaseValidatorModel):
+class GameServerContainerGroupCounts(BaseValidatorModel):
     PENDING: Optional[int] = None
     ACTIVE: Optional[int] = None
     IDLE: Optional[int] = None
     TERMINATING: Optional[int] = None
 
 
-class TargetTrackingConfigurationTypeDef(BaseValidatorModel):
+class TargetTrackingConfiguration(BaseValidatorModel):
     TargetValue: float
 
 
-class MatchedPlayerSessionTypeDef(BaseValidatorModel):
+class MatchedPlayerSession(BaseValidatorModel):
     PlayerId: Optional[str] = None
     PlayerSessionId: Optional[str] = None
 
 
-class PlacedPlayerSessionTypeDef(BaseValidatorModel):
+class PlacedPlayerSession(BaseValidatorModel):
     PlayerId: Optional[str] = None
     PlayerSessionId: Optional[str] = None
 
 
-class PlayerLatencyTypeDef(BaseValidatorModel):
+class PlayerLatency(BaseValidatorModel):
     PlayerId: Optional[str] = None
     RegionIdentifier: Optional[str] = None
     LatencyInMilliseconds: Optional[float] = None
 
 
-class PriorityConfigurationOverrideOutputTypeDef(BaseValidatorModel):
+class PriorityConfigurationOverrideOutput(BaseValidatorModel):
     LocationOrder: List[str]
     PlacementFallbackStrategy: Optional[PlacementFallbackStrategyType] = None
 
 
-class PriorityConfigurationOutputTypeDef(BaseValidatorModel):
+class PriorityConfigurationOutput(BaseValidatorModel):
     PriorityOrder: Optional[List[PriorityTypeType]] = None
     LocationOrder: Optional[List[str]] = None
 
 
-class GetComputeAccessInputTypeDef(BaseValidatorModel):
+class GetComputeAccessInput(BaseValidatorModel):
     FleetId: str
     ComputeName: str
 
 
-class GetComputeAuthTokenInputTypeDef(BaseValidatorModel):
+class GetComputeAuthTokenInput(BaseValidatorModel):
     FleetId: str
     ComputeName: str
 
 
-class GetGameSessionLogUrlInputTypeDef(BaseValidatorModel):
+class GetGameSessionLogUrlInput(BaseValidatorModel):
     GameSessionId: str
 
 
-class GetInstanceAccessInputTypeDef(BaseValidatorModel):
+class GetInstanceAccessInput(BaseValidatorModel):
     FleetId: str
     InstanceId: str
 
 
-class InstanceCredentialsTypeDef(BaseValidatorModel):
+class InstanceCredentials(BaseValidatorModel):
     UserName: Optional[str] = None
     Secret: Optional[str] = None
 
 
-class ListAliasesInputTypeDef(BaseValidatorModel):
+class ListAliasesInput(BaseValidatorModel):
     RoutingStrategyType: Optional[RoutingStrategyTypeType] = None
     Name: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListBuildsInputTypeDef(BaseValidatorModel):
+class ListBuildsInput(BaseValidatorModel):
     Status: Optional[BuildStatusType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListComputeInputTypeDef(BaseValidatorModel):
+class ListComputeInput(BaseValidatorModel):
     FleetId: str
     Location: Optional[str] = None
     ContainerGroupDefinitionName: Optional[str] = None
@@ -665,79 +665,79 @@ class ListComputeInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListContainerFleetsInputTypeDef(BaseValidatorModel):
+class ListContainerFleetsInput(BaseValidatorModel):
     ContainerGroupDefinitionName: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListContainerGroupDefinitionVersionsInputTypeDef(BaseValidatorModel):
+class ListContainerGroupDefinitionVersionsInput(BaseValidatorModel):
     Name: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListContainerGroupDefinitionsInputTypeDef(BaseValidatorModel):
+class ListContainerGroupDefinitionsInput(BaseValidatorModel):
     ContainerGroupType: Optional[ContainerGroupTypeType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListFleetDeploymentsInputTypeDef(BaseValidatorModel):
+class ListFleetDeploymentsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListFleetsInputTypeDef(BaseValidatorModel):
+class ListFleetsInput(BaseValidatorModel):
     BuildId: Optional[str] = None
     ScriptId: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListGameServerGroupsInputTypeDef(BaseValidatorModel):
+class ListGameServerGroupsInput(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListGameServersInputTypeDef(BaseValidatorModel):
+class ListGameServersInput(BaseValidatorModel):
     GameServerGroupName: str
     SortOrder: Optional[SortOrderType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListLocationsInputTypeDef(BaseValidatorModel):
+class ListLocationsInput(BaseValidatorModel):
     Filters: Optional[Sequence[LocationFilterType]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListScriptsInputTypeDef(BaseValidatorModel):
+class ListScriptsInput(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class PriorityConfigurationOverrideTypeDef(BaseValidatorModel):
+class PriorityConfigurationOverride(BaseValidatorModel):
     LocationOrder: Sequence[str]
     PlacementFallbackStrategy: Optional[PlacementFallbackStrategyType] = None
 
 
-class PriorityConfigurationTypeDef(BaseValidatorModel):
+class PriorityConfiguration(BaseValidatorModel):
     PriorityOrder: Optional[Sequence[PriorityTypeType]] = None
     LocationOrder: Optional[Sequence[str]] = None
 
 
-class TargetConfigurationTypeDef(BaseValidatorModel):
+class TargetConfiguration(BaseValidatorModel):
     TargetValue: float
 
 
-class RegisterComputeInputTypeDef(BaseValidatorModel):
+class RegisterComputeInput(BaseValidatorModel):
     FleetId: str
     ComputeName: str
     CertificatePath: Optional[str] = None
@@ -746,7 +746,7 @@ class RegisterComputeInputTypeDef(BaseValidatorModel):
     Location: Optional[str] = None
 
 
-class RegisterGameServerInputTypeDef(BaseValidatorModel):
+class RegisterGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: str
     InstanceId: str
@@ -754,26 +754,26 @@ class RegisterGameServerInputTypeDef(BaseValidatorModel):
     GameServerData: Optional[str] = None
 
 
-class RequestUploadCredentialsInputTypeDef(BaseValidatorModel):
+class RequestUploadCredentialsInput(BaseValidatorModel):
     BuildId: str
 
 
-class ResolveAliasInputTypeDef(BaseValidatorModel):
+class ResolveAliasInput(BaseValidatorModel):
     AliasId: str
 
 
-class ResumeGameServerGroupInputTypeDef(BaseValidatorModel):
+class ResumeGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     ResumeActions: Sequence[Literal["REPLACE_INSTANCE_TYPES"]]
 
 
-class ServerProcessTypeDef(BaseValidatorModel):
+class ServerProcess(BaseValidatorModel):
     LaunchPath: str
     ConcurrentExecutions: int
     Parameters: Optional[str] = None
 
 
-class SearchGameSessionsInputTypeDef(BaseValidatorModel):
+class SearchGameSessionsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
     AliasId: Optional[str] = None
     Location: Optional[str] = None
@@ -783,48 +783,48 @@ class SearchGameSessionsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class StartFleetActionsInputTypeDef(BaseValidatorModel):
+class StartFleetActionsInput(BaseValidatorModel):
     FleetId: str
     Actions: Sequence[Literal["AUTO_SCALING"]]
     Location: Optional[str] = None
 
 
-class StopFleetActionsInputTypeDef(BaseValidatorModel):
+class StopFleetActionsInput(BaseValidatorModel):
     FleetId: str
     Actions: Sequence[Literal["AUTO_SCALING"]]
     Location: Optional[str] = None
 
 
-class StopGameSessionPlacementInputTypeDef(BaseValidatorModel):
+class StopGameSessionPlacementInput(BaseValidatorModel):
     PlacementId: str
 
 
-class StopMatchmakingInputTypeDef(BaseValidatorModel):
+class StopMatchmakingInput(BaseValidatorModel):
     TicketId: str
 
 
-class SuspendGameServerGroupInputTypeDef(BaseValidatorModel):
+class SuspendGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     SuspendActions: Sequence[Literal["REPLACE_INSTANCE_TYPES"]]
 
 
-class TerminateGameSessionInputTypeDef(BaseValidatorModel):
+class TerminateGameSessionInput(BaseValidatorModel):
     GameSessionId: str
     TerminationMode: TerminationModeType
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdateBuildInputTypeDef(BaseValidatorModel):
+class UpdateBuildInput(BaseValidatorModel):
     BuildId: str
     Name: Optional[str] = None
     Version: Optional[str] = None
 
 
-class UpdateFleetCapacityInputTypeDef(BaseValidatorModel):
+class UpdateFleetCapacityInput(BaseValidatorModel):
     FleetId: str
     DesiredInstances: Optional[int] = None
     MinSize: Optional[int] = None
@@ -832,7 +832,7 @@ class UpdateFleetCapacityInputTypeDef(BaseValidatorModel):
     Location: Optional[str] = None
 
 
-class UpdateGameServerInputTypeDef(BaseValidatorModel):
+class UpdateGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: str
     GameServerData: Optional[str] = None
@@ -840,184 +840,184 @@ class UpdateGameServerInputTypeDef(BaseValidatorModel):
     HealthCheck: Optional[Literal["HEALTHY"]] = None
 
 
-class ValidateMatchmakingRuleSetInputTypeDef(BaseValidatorModel):
+class ValidateMatchmakingRuleSetInput(BaseValidatorModel):
     RuleSetBody: str
 
 
-class VpcPeeringConnectionStatusTypeDef(BaseValidatorModel):
+class VpcPeeringConnectionStatus(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
 
-class RoutingStrategyTypeDef(BaseValidatorModel):
+class RoutingStrategy(BaseValidatorModel):
     pass
 
 
-class AliasTypeDef(BaseValidatorModel):
+class Alias(BaseValidatorModel):
     AliasId: Optional[str] = None
     Name: Optional[str] = None
     AliasArn: Optional[str] = None
     Description: Optional[str] = None
-    RoutingStrategy: Optional[RoutingStrategyTypeDef] = None
+    RoutingStrategy: Optional[RoutingStrategy] = None
     CreationTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
 
 
-class UpdateAliasInputTypeDef(BaseValidatorModel):
+class UpdateAliasInput(BaseValidatorModel):
     AliasId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
-    RoutingStrategy: Optional[RoutingStrategyTypeDef] = None
+    RoutingStrategy: Optional[RoutingStrategy] = None
 
 
-class PlayerOutputTypeDef(BaseValidatorModel):
+class PlayerOutput(BaseValidatorModel):
     PlayerId: Optional[str] = None
-    PlayerAttributes: Optional[Dict[str, AttributeValueOutputTypeDef]] = None
+    PlayerAttributes: Optional[Dict[str, AttributeValueOutput]] = None
     Team: Optional[str] = None
     LatencyInMs: Optional[Dict[str, int]] = None
 
 
-class ClaimGameServerInputTypeDef(BaseValidatorModel):
+class ClaimGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: Optional[str] = None
     GameServerData: Optional[str] = None
-    FilterOption: Optional[ClaimFilterOptionTypeDef] = None
+    FilterOption: Optional[ClaimFilterOption] = None
 
 
-class ClaimGameServerOutputTypeDef(BaseValidatorModel):
-    GameServer: GameServerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ClaimGameServerOutput(BaseValidatorModel):
+    GameServer: GameServer
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBuildOutputTypeDef(BaseValidatorModel):
-    Build: BuildTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBuildOutput(BaseValidatorModel):
+    Build: Build
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGameServerOutputTypeDef(BaseValidatorModel):
-    GameServer: GameServerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGameServerOutput(BaseValidatorModel):
+    GameServer: GameServer
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetComputeAuthTokenOutputTypeDef(BaseValidatorModel):
+class GetComputeAuthTokenOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
     ComputeName: str
     ComputeArn: str
     AuthToken: str
     ExpirationTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetGameSessionLogUrlOutputTypeDef(BaseValidatorModel):
+class GetGameSessionLogUrlOutput(BaseValidatorModel):
     PreSignedUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBuildsOutputTypeDef(BaseValidatorModel):
-    Builds: List[BuildTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBuildsOutput(BaseValidatorModel):
+    Builds: List[Build]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListFleetsOutputTypeDef(BaseValidatorModel):
+class ListFleetsOutput(BaseValidatorModel):
     FleetIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGameServersOutputTypeDef(BaseValidatorModel):
-    GameServers: List[GameServerTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGameServersOutput(BaseValidatorModel):
+    GameServers: List[GameServer]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutScalingPolicyOutputTypeDef(BaseValidatorModel):
+class PutScalingPolicyOutput(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterGameServerOutputTypeDef(BaseValidatorModel):
-    GameServer: GameServerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RegisterGameServerOutput(BaseValidatorModel):
+    GameServer: GameServer
+    ResponseMetadata: ResponseMetadata
 
 
-class ResolveAliasOutputTypeDef(BaseValidatorModel):
+class ResolveAliasOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartFleetActionsOutputTypeDef(BaseValidatorModel):
+class StartFleetActionsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopFleetActionsOutputTypeDef(BaseValidatorModel):
+class StopFleetActionsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBuildOutputTypeDef(BaseValidatorModel):
-    Build: BuildTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateBuildOutput(BaseValidatorModel):
+    Build: Build
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFleetAttributesOutputTypeDef(BaseValidatorModel):
+class UpdateFleetAttributesOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFleetCapacityOutputTypeDef(BaseValidatorModel):
+class UpdateFleetCapacityOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
     Location: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFleetPortSettingsOutputTypeDef(BaseValidatorModel):
+class UpdateFleetPortSettingsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGameServerOutputTypeDef(BaseValidatorModel):
-    GameServer: GameServerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateGameServerOutput(BaseValidatorModel):
+    GameServer: GameServer
+    ResponseMetadata: ResponseMetadata
 
 
-class ValidateMatchmakingRuleSetOutputTypeDef(BaseValidatorModel):
+class ValidateMatchmakingRuleSetOutput(BaseValidatorModel):
     Valid: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class IpPermissionTypeDef(BaseValidatorModel):
+class IpPermission(BaseValidatorModel):
     pass
 
 
-class DescribeFleetPortSettingsOutputTypeDef(BaseValidatorModel):
+class DescribeFleetPortSettingsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
-    InboundPermissions: List[IpPermissionTypeDef]
+    InboundPermissions: List[IpPermission]
     UpdateStatus: Literal["PENDING_UPDATE"]
     Location: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFleetPortSettingsInputTypeDef(BaseValidatorModel):
+class UpdateFleetPortSettingsInput(BaseValidatorModel):
     FleetId: str
-    InboundPermissionAuthorizations: Optional[Sequence[IpPermissionTypeDef]] = None
-    InboundPermissionRevocations: Optional[Sequence[IpPermissionTypeDef]] = None
+    InboundPermissionAuthorizations: Optional[Sequence[IpPermission]] = None
+    InboundPermissionRevocations: Optional[Sequence[IpPermission]] = None
 
 
-class ContainerFleetTypeDef(BaseValidatorModel):
+class ContainerFleet(BaseValidatorModel):
     FleetId: Optional[str] = None
     FleetArn: Optional[str] = None
     FleetRoleArn: Optional[str] = None
@@ -1025,8 +1025,8 @@ class ContainerFleetTypeDef(BaseValidatorModel):
     GameServerContainerGroupDefinitionArn: Optional[str] = None
     PerInstanceContainerGroupDefinitionName: Optional[str] = None
     PerInstanceContainerGroupDefinitionArn: Optional[str] = None
-    InstanceConnectionPortRange: Optional[ConnectionPortRangeTypeDef] = None
-    InstanceInboundPermissions: Optional[List[IpPermissionTypeDef]] = None
+    InstanceConnectionPortRange: Optional[ConnectionPortRange] = None
+    InstanceInboundPermissions: Optional[List[IpPermission]] = None
     GameServerContainerGroupsPerInstance: Optional[int] = None
     MaximumGameServerContainerGroupsPerInstance: Optional[int] = None
     InstanceType: Optional[str] = None
@@ -1035,140 +1035,140 @@ class ContainerFleetTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     MetricGroups: Optional[List[str]] = None
     NewGameSessionProtectionPolicy: Optional[ProtectionPolicyType] = None
-    GameSessionCreationLimitPolicy: Optional[GameSessionCreationLimitPolicyTypeDef] = None
+    GameSessionCreationLimitPolicy: Optional[GameSessionCreationLimitPolicy] = None
     Status: Optional[ContainerFleetStatusType] = None
-    DeploymentDetails: Optional[DeploymentDetailsTypeDef] = None
-    LogConfiguration: Optional[LogConfigurationTypeDef] = None
-    LocationAttributes: Optional[List[ContainerFleetLocationAttributesTypeDef]] = None
+    DeploymentDetails: Optional[DeploymentDetails] = None
+    LogConfiguration: Optional[LogConfiguration] = None
+    LocationAttributes: Optional[List[ContainerFleetLocationAttributes]] = None
 
 
-class GetComputeAccessOutputTypeDef(BaseValidatorModel):
+class GetComputeAccessOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
     ComputeName: str
     ComputeArn: str
-    Credentials: AwsCredentialsTypeDef
+    Credentials: AwsCredentials
     Target: str
-    ContainerIdentifiers: List[ContainerIdentifierTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ContainerIdentifiers: List[ContainerIdentifier]
+    ResponseMetadata: ResponseMetadata
 
 
-class ContainerPortRangeTypeDef(BaseValidatorModel):
+class ContainerPortRange(BaseValidatorModel):
     pass
 
 
-class ContainerPortConfigurationOutputTypeDef(BaseValidatorModel):
-    ContainerPortRanges: List[ContainerPortRangeTypeDef]
+class ContainerPortConfigurationOutput(BaseValidatorModel):
+    ContainerPortRanges: List[ContainerPortRange]
 
 
-class ContainerPortConfigurationTypeDef(BaseValidatorModel):
-    ContainerPortRanges: Sequence[ContainerPortRangeTypeDef]
+class ContainerPortConfiguration(BaseValidatorModel):
+    ContainerPortRanges: Sequence[ContainerPortRange]
 
 
-class CreateAliasInputTypeDef(BaseValidatorModel):
+class CreateAliasInput(BaseValidatorModel):
     Name: str
-    RoutingStrategy: RoutingStrategyTypeDef
+    RoutingStrategy: RoutingStrategy
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateLocationInputTypeDef(BaseValidatorModel):
+class CreateLocationInput(BaseValidatorModel):
     LocationName: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateMatchmakingRuleSetInputTypeDef(BaseValidatorModel):
+class CreateMatchmakingRuleSetInput(BaseValidatorModel):
     Name: str
     RuleSetBody: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateBuildInputTypeDef(BaseValidatorModel):
+class CreateBuildInput(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
-    StorageLocation: Optional[S3LocationTypeDef] = None
+    StorageLocation: Optional[S3Location] = None
     OperatingSystem: Optional[OperatingSystemType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ServerSdkVersion: Optional[str] = None
 
 
-class CreateBuildOutputTypeDef(BaseValidatorModel):
-    Build: BuildTypeDef
-    UploadCredentials: AwsCredentialsTypeDef
-    StorageLocation: S3LocationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateBuildOutput(BaseValidatorModel):
+    Build: Build
+    UploadCredentials: AwsCredentials
+    StorageLocation: S3Location
+    ResponseMetadata: ResponseMetadata
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class CreateScriptInputTypeDef(BaseValidatorModel):
+class CreateScriptInput(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
-    StorageLocation: Optional[S3LocationTypeDef] = None
-    ZipFile: Optional[BlobTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    StorageLocation: Optional[S3Location] = None
+    ZipFile: Optional[Blob] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class RequestUploadCredentialsOutputTypeDef(BaseValidatorModel):
-    UploadCredentials: AwsCredentialsTypeDef
-    StorageLocation: S3LocationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RequestUploadCredentialsOutput(BaseValidatorModel):
+    UploadCredentials: AwsCredentials
+    StorageLocation: S3Location
+    ResponseMetadata: ResponseMetadata
 
 
-class ScriptTypeDef(BaseValidatorModel):
+class Script(BaseValidatorModel):
     ScriptId: Optional[str] = None
     ScriptArn: Optional[str] = None
     Name: Optional[str] = None
     Version: Optional[str] = None
     SizeOnDisk: Optional[int] = None
     CreationTime: Optional[datetime] = None
-    StorageLocation: Optional[S3LocationTypeDef] = None
+    StorageLocation: Optional[S3Location] = None
 
 
-class UpdateScriptInputTypeDef(BaseValidatorModel):
+class UpdateScriptInput(BaseValidatorModel):
     ScriptId: str
     Name: Optional[str] = None
     Version: Optional[str] = None
-    StorageLocation: Optional[S3LocationTypeDef] = None
-    ZipFile: Optional[BlobTypeDef] = None
+    StorageLocation: Optional[S3Location] = None
+    ZipFile: Optional[Blob] = None
 
 
-class CreateContainerFleetInputTypeDef(BaseValidatorModel):
+class CreateContainerFleetInput(BaseValidatorModel):
     FleetRoleArn: str
     Description: Optional[str] = None
     GameServerContainerGroupDefinitionName: Optional[str] = None
     PerInstanceContainerGroupDefinitionName: Optional[str] = None
-    InstanceConnectionPortRange: Optional[ConnectionPortRangeTypeDef] = None
-    InstanceInboundPermissions: Optional[Sequence[IpPermissionTypeDef]] = None
+    InstanceConnectionPortRange: Optional[ConnectionPortRange] = None
+    InstanceInboundPermissions: Optional[Sequence[IpPermission]] = None
     GameServerContainerGroupsPerInstance: Optional[int] = None
     InstanceType: Optional[str] = None
     BillingType: Optional[ContainerFleetBillingTypeType] = None
-    Locations: Optional[Sequence[LocationConfigurationTypeDef]] = None
+    Locations: Optional[Sequence[LocationConfiguration]] = None
     MetricGroups: Optional[Sequence[str]] = None
     NewGameSessionProtectionPolicy: Optional[ProtectionPolicyType] = None
-    GameSessionCreationLimitPolicy: Optional[GameSessionCreationLimitPolicyTypeDef] = None
-    LogConfiguration: Optional[LogConfigurationTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    GameSessionCreationLimitPolicy: Optional[GameSessionCreationLimitPolicy] = None
+    LogConfiguration: Optional[LogConfiguration] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateFleetLocationsInputTypeDef(BaseValidatorModel):
+class CreateFleetLocationsInput(BaseValidatorModel):
     FleetId: str
-    Locations: Sequence[LocationConfigurationTypeDef]
+    Locations: Sequence[LocationConfiguration]
 
 
-class FleetAttributesTypeDef(BaseValidatorModel):
+class FleetAttributes(BaseValidatorModel):
     FleetId: Optional[str] = None
     FleetArn: Optional[str] = None
     FleetType: Optional[FleetTypeType] = None
@@ -1187,51 +1187,51 @@ class FleetAttributesTypeDef(BaseValidatorModel):
     LogPaths: Optional[List[str]] = None
     NewGameSessionProtectionPolicy: Optional[ProtectionPolicyType] = None
     OperatingSystem: Optional[OperatingSystemType] = None
-    ResourceCreationLimitPolicy: Optional[ResourceCreationLimitPolicyTypeDef] = None
+    ResourceCreationLimitPolicy: Optional[ResourceCreationLimitPolicy] = None
     MetricGroups: Optional[List[str]] = None
     StoppedActions: Optional[List[Literal["AUTO_SCALING"]]] = None
     InstanceRoleArn: Optional[str] = None
-    CertificateConfiguration: Optional[CertificateConfigurationTypeDef] = None
+    CertificateConfiguration: Optional[CertificateConfiguration] = None
     ComputeType: Optional[ComputeTypeType] = None
-    AnywhereConfiguration: Optional[AnywhereConfigurationTypeDef] = None
+    AnywhereConfiguration: Optional[AnywhereConfiguration] = None
     InstanceRoleCredentialsProvider: Optional[Literal["SHARED_CREDENTIAL_FILE"]] = None
 
 
-class UpdateFleetAttributesInputTypeDef(BaseValidatorModel):
+class UpdateFleetAttributesInput(BaseValidatorModel):
     FleetId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     NewGameSessionProtectionPolicy: Optional[ProtectionPolicyType] = None
-    ResourceCreationLimitPolicy: Optional[ResourceCreationLimitPolicyTypeDef] = None
+    ResourceCreationLimitPolicy: Optional[ResourceCreationLimitPolicy] = None
     MetricGroups: Optional[Sequence[str]] = None
-    AnywhereConfiguration: Optional[AnywhereConfigurationTypeDef] = None
+    AnywhereConfiguration: Optional[AnywhereConfiguration] = None
 
 
-class CreateFleetLocationsOutputTypeDef(BaseValidatorModel):
+class CreateFleetLocationsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
-    LocationStates: List[LocationStateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    LocationStates: List[LocationState]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFleetLocationsOutputTypeDef(BaseValidatorModel):
+class DeleteFleetLocationsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
-    LocationStates: List[LocationStateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    LocationStates: List[LocationState]
+    ResponseMetadata: ResponseMetadata
 
 
-class LocationAttributesTypeDef(BaseValidatorModel):
-    LocationState: Optional[LocationStateTypeDef] = None
+class LocationAttributes(BaseValidatorModel):
+    LocationState: Optional[LocationState] = None
     StoppedActions: Optional[List[Literal["AUTO_SCALING"]]] = None
     UpdateStatus: Optional[Literal["PENDING_UPDATE"]] = None
 
 
-class GameServerGroupTypeDef(BaseValidatorModel):
+class GameServerGroup(BaseValidatorModel):
     GameServerGroupName: Optional[str] = None
     GameServerGroupArn: Optional[str] = None
     RoleArn: Optional[str] = None
-    InstanceDefinitions: Optional[List[InstanceDefinitionTypeDef]] = None
+    InstanceDefinitions: Optional[List[InstanceDefinition]] = None
     BalancingStrategy: Optional[BalancingStrategyType] = None
     GameServerProtectionPolicy: Optional[GameServerProtectionPolicyType] = None
     AutoScalingGroupArn: Optional[str] = None
@@ -1242,20 +1242,20 @@ class GameServerGroupTypeDef(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
-class UpdateGameServerGroupInputTypeDef(BaseValidatorModel):
+class UpdateGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     RoleArn: Optional[str] = None
-    InstanceDefinitions: Optional[Sequence[InstanceDefinitionTypeDef]] = None
+    InstanceDefinitions: Optional[Sequence[InstanceDefinition]] = None
     GameServerProtectionPolicy: Optional[GameServerProtectionPolicyType] = None
     BalancingStrategy: Optional[BalancingStrategyType] = None
 
 
-class CreateGameSessionInputTypeDef(BaseValidatorModel):
+class CreateGameSessionInput(BaseValidatorModel):
     MaximumPlayerSessionCount: int
     FleetId: Optional[str] = None
     AliasId: Optional[str] = None
     Name: Optional[str] = None
-    GameProperties: Optional[Sequence[GamePropertyTypeDef]] = None
+    GameProperties: Optional[Sequence[GameProperty]] = None
     CreatorId: Optional[str] = None
     GameSessionId: Optional[str] = None
     IdempotencyToken: Optional[str] = None
@@ -1263,7 +1263,7 @@ class CreateGameSessionInputTypeDef(BaseValidatorModel):
     Location: Optional[str] = None
 
 
-class CreateMatchmakingConfigurationInputTypeDef(BaseValidatorModel):
+class CreateMatchmakingConfigurationInput(BaseValidatorModel):
     Name: str
     RequestTimeoutSeconds: int
     AcceptanceRequired: bool
@@ -1274,14 +1274,14 @@ class CreateMatchmakingConfigurationInputTypeDef(BaseValidatorModel):
     NotificationTarget: Optional[str] = None
     AdditionalPlayerCount: Optional[int] = None
     CustomEventData: Optional[str] = None
-    GameProperties: Optional[Sequence[GamePropertyTypeDef]] = None
+    GameProperties: Optional[Sequence[GameProperty]] = None
     GameSessionData: Optional[str] = None
     BackfillMode: Optional[BackfillModeType] = None
     FlexMatchMode: Optional[FlexMatchModeType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class GameSessionTypeDef(BaseValidatorModel):
+class GameSession(BaseValidatorModel):
     GameSessionId: Optional[str] = None
     Name: Optional[str] = None
     FleetId: Optional[str] = None
@@ -1292,7 +1292,7 @@ class GameSessionTypeDef(BaseValidatorModel):
     MaximumPlayerSessionCount: Optional[int] = None
     Status: Optional[GameSessionStatusType] = None
     StatusReason: Optional[GameSessionStatusReasonType] = None
-    GameProperties: Optional[List[GamePropertyTypeDef]] = None
+    GameProperties: Optional[List[GameProperty]] = None
     IpAddress: Optional[str] = None
     DnsName: Optional[str] = None
     Port: Optional[int] = None
@@ -1303,7 +1303,7 @@ class GameSessionTypeDef(BaseValidatorModel):
     Location: Optional[str] = None
 
 
-class MatchmakingConfigurationTypeDef(BaseValidatorModel):
+class MatchmakingConfiguration(BaseValidatorModel):
     Name: Optional[str] = None
     ConfigurationArn: Optional[str] = None
     Description: Optional[str] = None
@@ -1317,22 +1317,22 @@ class MatchmakingConfigurationTypeDef(BaseValidatorModel):
     AdditionalPlayerCount: Optional[int] = None
     CustomEventData: Optional[str] = None
     CreationTime: Optional[datetime] = None
-    GameProperties: Optional[List[GamePropertyTypeDef]] = None
+    GameProperties: Optional[List[GameProperty]] = None
     GameSessionData: Optional[str] = None
     BackfillMode: Optional[BackfillModeType] = None
     FlexMatchMode: Optional[FlexMatchModeType] = None
 
 
-class UpdateGameSessionInputTypeDef(BaseValidatorModel):
+class UpdateGameSessionInput(BaseValidatorModel):
     GameSessionId: str
     MaximumPlayerSessionCount: Optional[int] = None
     Name: Optional[str] = None
     PlayerSessionCreationPolicy: Optional[PlayerSessionCreationPolicyType] = None
     ProtectionPolicy: Optional[ProtectionPolicyType] = None
-    GameProperties: Optional[Sequence[GamePropertyTypeDef]] = None
+    GameProperties: Optional[Sequence[GameProperty]] = None
 
 
-class UpdateMatchmakingConfigurationInputTypeDef(BaseValidatorModel):
+class UpdateMatchmakingConfigurationInput(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     GameSessionQueueArns: Optional[Sequence[str]] = None
@@ -1343,61 +1343,61 @@ class UpdateMatchmakingConfigurationInputTypeDef(BaseValidatorModel):
     NotificationTarget: Optional[str] = None
     AdditionalPlayerCount: Optional[int] = None
     CustomEventData: Optional[str] = None
-    GameProperties: Optional[Sequence[GamePropertyTypeDef]] = None
+    GameProperties: Optional[Sequence[GameProperty]] = None
     GameSessionData: Optional[str] = None
     BackfillMode: Optional[BackfillModeType] = None
     FlexMatchMode: Optional[FlexMatchModeType] = None
 
 
-class CreateLocationOutputTypeDef(BaseValidatorModel):
-    Location: LocationModelTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateLocationOutput(BaseValidatorModel):
+    Location: LocationModel
+    ResponseMetadata: ResponseMetadata
 
 
-class ListLocationsOutputTypeDef(BaseValidatorModel):
-    Locations: List[LocationModelTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLocationsOutput(BaseValidatorModel):
+    Locations: List[LocationModel]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateMatchmakingRuleSetOutputTypeDef(BaseValidatorModel):
-    RuleSet: MatchmakingRuleSetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMatchmakingRuleSetOutput(BaseValidatorModel):
+    RuleSet: MatchmakingRuleSet
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMatchmakingRuleSetsOutputTypeDef(BaseValidatorModel):
-    RuleSets: List[MatchmakingRuleSetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMatchmakingRuleSetsOutput(BaseValidatorModel):
+    RuleSets: List[MatchmakingRuleSet]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreatePlayerSessionOutputTypeDef(BaseValidatorModel):
-    PlayerSession: PlayerSessionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePlayerSessionOutput(BaseValidatorModel):
+    PlayerSession: PlayerSession
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePlayerSessionsOutputTypeDef(BaseValidatorModel):
-    PlayerSessions: List[PlayerSessionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePlayerSessionsOutput(BaseValidatorModel):
+    PlayerSessions: List[PlayerSession]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePlayerSessionsOutputTypeDef(BaseValidatorModel):
-    PlayerSessions: List[PlayerSessionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePlayerSessionsOutput(BaseValidatorModel):
+    PlayerSessions: List[PlayerSession]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateVpcPeeringAuthorizationOutputTypeDef(BaseValidatorModel):
-    VpcPeeringAuthorization: VpcPeeringAuthorizationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVpcPeeringAuthorizationOutput(BaseValidatorModel):
+    VpcPeeringAuthorization: VpcPeeringAuthorization
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeVpcPeeringAuthorizationsOutputTypeDef(BaseValidatorModel):
-    VpcPeeringAuthorizations: List[VpcPeeringAuthorizationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeVpcPeeringAuthorizationsOutput(BaseValidatorModel):
+    VpcPeeringAuthorizations: List[VpcPeeringAuthorization]
+    ResponseMetadata: ResponseMetadata
 
 
-class FleetDeploymentTypeDef(BaseValidatorModel):
+class FleetDeployment(BaseValidatorModel):
     DeploymentId: Optional[str] = None
     FleetId: Optional[str] = None
     GameServerBinaryArn: Optional[str] = None
@@ -1405,299 +1405,299 @@ class FleetDeploymentTypeDef(BaseValidatorModel):
     PerInstanceBinaryArn: Optional[str] = None
     RollbackPerInstanceBinaryArn: Optional[str] = None
     DeploymentStatus: Optional[DeploymentStatusType] = None
-    DeploymentConfiguration: Optional[DeploymentConfigurationTypeDef] = None
+    DeploymentConfiguration: Optional[DeploymentConfiguration] = None
     CreationTime: Optional[datetime] = None
 
 
-class UpdateContainerFleetInputTypeDef(BaseValidatorModel):
+class UpdateContainerFleetInput(BaseValidatorModel):
     FleetId: str
     GameServerContainerGroupDefinitionName: Optional[str] = None
     PerInstanceContainerGroupDefinitionName: Optional[str] = None
     GameServerContainerGroupsPerInstance: Optional[int] = None
-    InstanceConnectionPortRange: Optional[ConnectionPortRangeTypeDef] = None
-    InstanceInboundPermissionAuthorizations: Optional[Sequence[IpPermissionTypeDef]] = None
-    InstanceInboundPermissionRevocations: Optional[Sequence[IpPermissionTypeDef]] = None
-    DeploymentConfiguration: Optional[DeploymentConfigurationTypeDef] = None
+    InstanceConnectionPortRange: Optional[ConnectionPortRange] = None
+    InstanceInboundPermissionAuthorizations: Optional[Sequence[IpPermission]] = None
+    InstanceInboundPermissionRevocations: Optional[Sequence[IpPermission]] = None
+    DeploymentConfiguration: Optional[DeploymentConfiguration] = None
     Description: Optional[str] = None
     MetricGroups: Optional[Sequence[str]] = None
     NewGameSessionProtectionPolicy: Optional[ProtectionPolicyType] = None
-    GameSessionCreationLimitPolicy: Optional[GameSessionCreationLimitPolicyTypeDef] = None
-    LogConfiguration: Optional[LogConfigurationTypeDef] = None
+    GameSessionCreationLimitPolicy: Optional[GameSessionCreationLimitPolicy] = None
+    LogConfiguration: Optional[LogConfiguration] = None
     RemoveAttributes: Optional[Sequence[Literal["PER_INSTANCE_CONTAINER_GROUP_DEFINITION"]]] = None
 
 
-class DescribeEC2InstanceLimitsOutputTypeDef(BaseValidatorModel):
-    EC2InstanceLimits: List[EC2InstanceLimitTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEC2InstanceLimitsOutput(BaseValidatorModel):
+    EC2InstanceLimits: List[EC2InstanceLimit]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFleetAttributesInputPaginateTypeDef(BaseValidatorModel):
+class DescribeFleetAttributesInputPaginate(BaseValidatorModel):
     FleetIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeFleetCapacityInputPaginateTypeDef(BaseValidatorModel):
+class DescribeFleetCapacityInputPaginate(BaseValidatorModel):
     FleetIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeFleetUtilizationInputPaginateTypeDef(BaseValidatorModel):
+class DescribeFleetUtilizationInputPaginate(BaseValidatorModel):
     FleetIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeGameServerInstancesInputPaginateTypeDef(BaseValidatorModel):
+class DescribeGameServerInstancesInputPaginate(BaseValidatorModel):
     GameServerGroupName: str
     InstanceIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeGameSessionDetailsInputPaginateTypeDef(BaseValidatorModel):
+class DescribeGameSessionDetailsInputPaginate(BaseValidatorModel):
     FleetId: Optional[str] = None
     GameSessionId: Optional[str] = None
     AliasId: Optional[str] = None
     Location: Optional[str] = None
     StatusFilter: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeGameSessionQueuesInputPaginateTypeDef(BaseValidatorModel):
+class DescribeGameSessionQueuesInputPaginate(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeGameSessionsInputPaginateTypeDef(BaseValidatorModel):
+class DescribeGameSessionsInputPaginate(BaseValidatorModel):
     FleetId: Optional[str] = None
     GameSessionId: Optional[str] = None
     AliasId: Optional[str] = None
     Location: Optional[str] = None
     StatusFilter: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeInstancesInputPaginateTypeDef(BaseValidatorModel):
+class DescribeInstancesInputPaginate(BaseValidatorModel):
     FleetId: str
     InstanceId: Optional[str] = None
     Location: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMatchmakingConfigurationsInputPaginateTypeDef(BaseValidatorModel):
+class DescribeMatchmakingConfigurationsInputPaginate(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     RuleSetName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMatchmakingRuleSetsInputPaginateTypeDef(BaseValidatorModel):
+class DescribeMatchmakingRuleSetsInputPaginate(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribePlayerSessionsInputPaginateTypeDef(BaseValidatorModel):
+class DescribePlayerSessionsInputPaginate(BaseValidatorModel):
     GameSessionId: Optional[str] = None
     PlayerId: Optional[str] = None
     PlayerSessionId: Optional[str] = None
     PlayerSessionStatusFilter: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeScalingPoliciesInputPaginateTypeDef(BaseValidatorModel):
+class DescribeScalingPoliciesInputPaginate(BaseValidatorModel):
     FleetId: str
     StatusFilter: Optional[ScalingStatusTypeType] = None
     Location: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAliasesInputPaginateTypeDef(BaseValidatorModel):
+class ListAliasesInputPaginate(BaseValidatorModel):
     RoutingStrategyType: Optional[RoutingStrategyTypeType] = None
     Name: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBuildsInputPaginateTypeDef(BaseValidatorModel):
+class ListBuildsInputPaginate(BaseValidatorModel):
     Status: Optional[BuildStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListComputeInputPaginateTypeDef(BaseValidatorModel):
+class ListComputeInputPaginate(BaseValidatorModel):
     FleetId: str
     Location: Optional[str] = None
     ContainerGroupDefinitionName: Optional[str] = None
     ComputeStatus: Optional[ListComputeInputStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListContainerFleetsInputPaginateTypeDef(BaseValidatorModel):
+class ListContainerFleetsInputPaginate(BaseValidatorModel):
     ContainerGroupDefinitionName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListContainerGroupDefinitionVersionsInputPaginateTypeDef(BaseValidatorModel):
+class ListContainerGroupDefinitionVersionsInputPaginate(BaseValidatorModel):
     Name: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListContainerGroupDefinitionsInputPaginateTypeDef(BaseValidatorModel):
+class ListContainerGroupDefinitionsInputPaginate(BaseValidatorModel):
     ContainerGroupType: Optional[ContainerGroupTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFleetDeploymentsInputPaginateTypeDef(BaseValidatorModel):
+class ListFleetDeploymentsInputPaginate(BaseValidatorModel):
     FleetId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFleetsInputPaginateTypeDef(BaseValidatorModel):
+class ListFleetsInputPaginate(BaseValidatorModel):
     BuildId: Optional[str] = None
     ScriptId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGameServerGroupsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListGameServerGroupsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGameServersInputPaginateTypeDef(BaseValidatorModel):
+class ListGameServersInputPaginate(BaseValidatorModel):
     GameServerGroupName: str
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLocationsInputPaginateTypeDef(BaseValidatorModel):
+class ListLocationsInputPaginate(BaseValidatorModel):
     Filters: Optional[Sequence[LocationFilterType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListScriptsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListScriptsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchGameSessionsInputPaginateTypeDef(BaseValidatorModel):
+class SearchGameSessionsInputPaginate(BaseValidatorModel):
     FleetId: Optional[str] = None
     AliasId: Optional[str] = None
     Location: Optional[str] = None
     FilterExpression: Optional[str] = None
     SortExpression: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DescribeFleetEventsInputPaginateTypeDef(BaseValidatorModel):
+class DescribeFleetEventsInputPaginate(BaseValidatorModel):
     FleetId: str
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeFleetEventsInputTypeDef(BaseValidatorModel):
+class DescribeFleetEventsInput(BaseValidatorModel):
     FleetId: str
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeFleetEventsOutputTypeDef(BaseValidatorModel):
-    Events: List[EventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFleetEventsOutput(BaseValidatorModel):
+    Events: List[Event]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeFleetLocationUtilizationOutputTypeDef(BaseValidatorModel):
-    FleetUtilization: FleetUtilizationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFleetLocationUtilizationOutput(BaseValidatorModel):
+    FleetUtilization: FleetUtilization
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFleetUtilizationOutputTypeDef(BaseValidatorModel):
-    FleetUtilization: List[FleetUtilizationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFleetUtilizationOutput(BaseValidatorModel):
+    FleetUtilization: List[FleetUtilization]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeGameServerInstancesOutputTypeDef(BaseValidatorModel):
-    GameServerInstances: List[GameServerInstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGameServerInstancesOutput(BaseValidatorModel):
+    GameServerInstances: List[GameServerInstance]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class InstanceTypeDef(BaseValidatorModel):
+class Instance(BaseValidatorModel):
     pass
 
 
-class DescribeInstancesOutputTypeDef(BaseValidatorModel):
-    Instances: List[InstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInstancesOutput(BaseValidatorModel):
+    Instances: List[Instance]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FleetCapacityTypeDef(BaseValidatorModel):
+class FleetCapacity(BaseValidatorModel):
     FleetId: Optional[str] = None
     FleetArn: Optional[str] = None
     InstanceType: Optional[EC2InstanceTypeType] = None
-    InstanceCounts: Optional[EC2InstanceCountsTypeDef] = None
+    InstanceCounts: Optional[EC2InstanceCounts] = None
     Location: Optional[str] = None
-    GameServerContainerGroupCounts: Optional[GameServerContainerGroupCountsTypeDef] = None
+    GameServerContainerGroupCounts: Optional[GameServerContainerGroupCounts] = None
 
 
-class GameServerGroupAutoScalingPolicyTypeDef(BaseValidatorModel):
-    TargetTrackingConfiguration: TargetTrackingConfigurationTypeDef
+class GameServerGroupAutoScalingPolicy(BaseValidatorModel):
+    TargetTrackingConfiguration: TargetTrackingConfiguration
     EstimatedInstanceWarmup: Optional[int] = None
 
 
-class GameSessionConnectionInfoTypeDef(BaseValidatorModel):
+class GameSessionConnectionInfo(BaseValidatorModel):
     GameSessionArn: Optional[str] = None
     IpAddress: Optional[str] = None
     DnsName: Optional[str] = None
     Port: Optional[int] = None
-    MatchedPlayerSessions: Optional[List[MatchedPlayerSessionTypeDef]] = None
+    MatchedPlayerSessions: Optional[List[MatchedPlayerSession]] = None
 
 
-class GameSessionPlacementTypeDef(BaseValidatorModel):
+class GameSessionPlacement(BaseValidatorModel):
     PlacementId: Optional[str] = None
     GameSessionQueueName: Optional[str] = None
     Status: Optional[GameSessionPlacementStateType] = None
-    GameProperties: Optional[List[GamePropertyTypeDef]] = None
+    GameProperties: Optional[List[GameProperty]] = None
     MaximumPlayerSessionCount: Optional[int] = None
     GameSessionName: Optional[str] = None
     GameSessionId: Optional[str] = None
     GameSessionArn: Optional[str] = None
     GameSessionRegion: Optional[str] = None
-    PlayerLatencies: Optional[List[PlayerLatencyTypeDef]] = None
+    PlayerLatencies: Optional[List[PlayerLatency]] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     IpAddress: Optional[str] = None
     DnsName: Optional[str] = None
     Port: Optional[int] = None
-    PlacedPlayerSessions: Optional[List[PlacedPlayerSessionTypeDef]] = None
+    PlacedPlayerSessions: Optional[List[PlacedPlayerSession]] = None
     GameSessionData: Optional[str] = None
     MatchmakerData: Optional[str] = None
-    PriorityConfigurationOverride: Optional[PriorityConfigurationOverrideOutputTypeDef] = None
+    PriorityConfigurationOverride: Optional[PriorityConfigurationOverrideOutput] = None
 
 
-class GameSessionQueueTypeDef(BaseValidatorModel):
+class GameSessionQueue(BaseValidatorModel):
     Name: Optional[str] = None
     GameSessionQueueArn: Optional[str] = None
     TimeoutInSeconds: Optional[int] = None
-    PlayerLatencyPolicies: Optional[List[PlayerLatencyPolicyTypeDef]] = None
-    Destinations: Optional[List[GameSessionQueueDestinationTypeDef]] = None
-    FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
-    PriorityConfiguration: Optional[PriorityConfigurationOutputTypeDef] = None
+    PlayerLatencyPolicies: Optional[List[PlayerLatencyPolicy]] = None
+    Destinations: Optional[List[GameSessionQueueDestination]] = None
+    FilterConfiguration: Optional[FilterConfigurationOutput] = None
+    PriorityConfiguration: Optional[PriorityConfigurationOutput] = None
     CustomEventData: Optional[str] = None
     NotificationTarget: Optional[str] = None
 
 
-class InstanceAccessTypeDef(BaseValidatorModel):
+class InstanceAccess(BaseValidatorModel):
     FleetId: Optional[str] = None
     InstanceId: Optional[str] = None
     IpAddress: Optional[str] = None
     OperatingSystem: Optional[OperatingSystemType] = None
-    Credentials: Optional[InstanceCredentialsTypeDef] = None
+    Credentials: Optional[InstanceCredentials] = None
 
 
-class PutScalingPolicyInputTypeDef(BaseValidatorModel):
+class PutScalingPolicyInput(BaseValidatorModel):
     Name: str
     FleetId: str
     MetricName: MetricNameType
@@ -1707,10 +1707,10 @@ class PutScalingPolicyInputTypeDef(BaseValidatorModel):
     ComparisonOperator: Optional[ComparisonOperatorTypeType] = None
     EvaluationPeriods: Optional[int] = None
     PolicyType: Optional[PolicyTypeType] = None
-    TargetConfiguration: Optional[TargetConfigurationTypeDef] = None
+    TargetConfiguration: Optional[TargetConfiguration] = None
 
 
-class ScalingPolicyTypeDef(BaseValidatorModel):
+class ScalingPolicy(BaseValidatorModel):
     FleetId: Optional[str] = None
     FleetArn: Optional[str] = None
     Name: Optional[str] = None
@@ -1722,294 +1722,294 @@ class ScalingPolicyTypeDef(BaseValidatorModel):
     EvaluationPeriods: Optional[int] = None
     MetricName: Optional[MetricNameType] = None
     PolicyType: Optional[PolicyTypeType] = None
-    TargetConfiguration: Optional[TargetConfigurationTypeDef] = None
+    TargetConfiguration: Optional[TargetConfiguration] = None
     UpdateStatus: Optional[Literal["PENDING_UPDATE"]] = None
     Location: Optional[str] = None
 
 
-class RuntimeConfigurationOutputTypeDef(BaseValidatorModel):
-    ServerProcesses: Optional[List[ServerProcessTypeDef]] = None
+class RuntimeConfigurationOutput(BaseValidatorModel):
+    ServerProcesses: Optional[List[ServerProcess]] = None
     MaxConcurrentGameSessionActivations: Optional[int] = None
     GameSessionActivationTimeoutSeconds: Optional[int] = None
 
 
-class RuntimeConfigurationTypeDef(BaseValidatorModel):
-    ServerProcesses: Optional[Sequence[ServerProcessTypeDef]] = None
+class RuntimeConfiguration(BaseValidatorModel):
+    ServerProcesses: Optional[Sequence[ServerProcess]] = None
     MaxConcurrentGameSessionActivations: Optional[int] = None
     GameSessionActivationTimeoutSeconds: Optional[int] = None
 
 
-class VpcPeeringConnectionTypeDef(BaseValidatorModel):
+class VpcPeeringConnection(BaseValidatorModel):
     FleetId: Optional[str] = None
     FleetArn: Optional[str] = None
     IpV4CidrBlock: Optional[str] = None
     VpcPeeringConnectionId: Optional[str] = None
-    Status: Optional[VpcPeeringConnectionStatusTypeDef] = None
+    Status: Optional[VpcPeeringConnectionStatus] = None
     PeerVpcId: Optional[str] = None
     GameLiftVpcId: Optional[str] = None
 
 
-class CreateAliasOutputTypeDef(BaseValidatorModel):
-    Alias: AliasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAliasOutput(BaseValidatorModel):
+    Alias: Alias
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAliasOutputTypeDef(BaseValidatorModel):
-    Alias: AliasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAliasOutput(BaseValidatorModel):
+    Alias: Alias
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAliasesOutputTypeDef(BaseValidatorModel):
-    Aliases: List[AliasTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAliasesOutput(BaseValidatorModel):
+    Aliases: List[Alias]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateAliasOutputTypeDef(BaseValidatorModel):
-    Alias: AliasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAliasOutput(BaseValidatorModel):
+    Alias: Alias
+    ResponseMetadata: ResponseMetadata
 
 
-class AttributeValueUnionTypeDef(BaseValidatorModel):
+class AttributeValueUnion(BaseValidatorModel):
     pass
 
 
-class PlayerTypeDef(BaseValidatorModel):
+class Player(BaseValidatorModel):
     PlayerId: Optional[str] = None
-    PlayerAttributes: Optional[Mapping[str, AttributeValueUnionTypeDef]] = None
+    PlayerAttributes: Optional[Mapping[str, AttributeValueUnion]] = None
     Team: Optional[str] = None
     LatencyInMs: Optional[Mapping[str, int]] = None
 
 
-class ComputeTypeDef(BaseValidatorModel):
+class Compute(BaseValidatorModel):
     pass
 
 
-class DescribeComputeOutputTypeDef(BaseValidatorModel):
-    Compute: ComputeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeComputeOutput(BaseValidatorModel):
+    Compute: Compute
+    ResponseMetadata: ResponseMetadata
 
 
-class ListComputeOutputTypeDef(BaseValidatorModel):
-    ComputeList: List[ComputeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComputeOutput(BaseValidatorModel):
+    ComputeList: List[Compute]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RegisterComputeOutputTypeDef(BaseValidatorModel):
-    Compute: ComputeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RegisterComputeOutput(BaseValidatorModel):
+    Compute: Compute
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateContainerFleetOutputTypeDef(BaseValidatorModel):
-    ContainerFleet: ContainerFleetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateContainerFleetOutput(BaseValidatorModel):
+    ContainerFleet: ContainerFleet
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeContainerFleetOutputTypeDef(BaseValidatorModel):
-    ContainerFleet: ContainerFleetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeContainerFleetOutput(BaseValidatorModel):
+    ContainerFleet: ContainerFleet
+    ResponseMetadata: ResponseMetadata
 
 
-class ListContainerFleetsOutputTypeDef(BaseValidatorModel):
-    ContainerFleets: List[ContainerFleetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListContainerFleetsOutput(BaseValidatorModel):
+    ContainerFleets: List[ContainerFleet]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateContainerFleetOutputTypeDef(BaseValidatorModel):
-    ContainerFleet: ContainerFleetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateContainerFleetOutput(BaseValidatorModel):
+    ContainerFleet: ContainerFleet
+    ResponseMetadata: ResponseMetadata
 
 
-class GameServerContainerDefinitionTypeDef(BaseValidatorModel):
+class GameServerContainerDefinition(BaseValidatorModel):
     ContainerName: Optional[str] = None
-    DependsOn: Optional[List[ContainerDependencyTypeDef]] = None
-    MountPoints: Optional[List[ContainerMountPointTypeDef]] = None
-    EnvironmentOverride: Optional[List[ContainerEnvironmentTypeDef]] = None
+    DependsOn: Optional[List[ContainerDependency]] = None
+    MountPoints: Optional[List[ContainerMountPoint]] = None
+    EnvironmentOverride: Optional[List[ContainerEnvironment]] = None
     ImageUri: Optional[str] = None
-    PortConfiguration: Optional[ContainerPortConfigurationOutputTypeDef] = None
+    PortConfiguration: Optional[ContainerPortConfigurationOutput] = None
     ResolvedImageDigest: Optional[str] = None
     ServerSdkVersion: Optional[str] = None
 
 
-class SupportContainerDefinitionTypeDef(BaseValidatorModel):
+class SupportContainerDefinition(BaseValidatorModel):
     ContainerName: Optional[str] = None
-    DependsOn: Optional[List[ContainerDependencyTypeDef]] = None
-    MountPoints: Optional[List[ContainerMountPointTypeDef]] = None
-    EnvironmentOverride: Optional[List[ContainerEnvironmentTypeDef]] = None
+    DependsOn: Optional[List[ContainerDependency]] = None
+    MountPoints: Optional[List[ContainerMountPoint]] = None
+    EnvironmentOverride: Optional[List[ContainerEnvironment]] = None
     Essential: Optional[bool] = None
-    HealthCheck: Optional[ContainerHealthCheckOutputTypeDef] = None
+    HealthCheck: Optional[ContainerHealthCheckOutput] = None
     ImageUri: Optional[str] = None
     MemoryHardLimitMebibytes: Optional[int] = None
-    PortConfiguration: Optional[ContainerPortConfigurationOutputTypeDef] = None
+    PortConfiguration: Optional[ContainerPortConfigurationOutput] = None
     ResolvedImageDigest: Optional[str] = None
     Vcpu: Optional[float] = None
 
 
-class CreateScriptOutputTypeDef(BaseValidatorModel):
-    Script: ScriptTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateScriptOutput(BaseValidatorModel):
+    Script: Script
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeScriptOutputTypeDef(BaseValidatorModel):
-    Script: ScriptTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeScriptOutput(BaseValidatorModel):
+    Script: Script
+    ResponseMetadata: ResponseMetadata
 
 
-class ListScriptsOutputTypeDef(BaseValidatorModel):
-    Scripts: List[ScriptTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListScriptsOutput(BaseValidatorModel):
+    Scripts: List[Script]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateScriptOutputTypeDef(BaseValidatorModel):
-    Script: ScriptTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateScriptOutput(BaseValidatorModel):
+    Script: Script
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFleetOutputTypeDef(BaseValidatorModel):
-    FleetAttributes: FleetAttributesTypeDef
-    LocationStates: List[LocationStateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFleetOutput(BaseValidatorModel):
+    FleetAttributes: FleetAttributes
+    LocationStates: List[LocationState]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFleetAttributesOutputTypeDef(BaseValidatorModel):
-    FleetAttributes: List[FleetAttributesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFleetAttributesOutput(BaseValidatorModel):
+    FleetAttributes: List[FleetAttributes]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeFleetLocationAttributesOutputTypeDef(BaseValidatorModel):
+class DescribeFleetLocationAttributesOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
-    LocationAttributes: List[LocationAttributesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    LocationAttributes: List[LocationAttributes]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateGameServerGroupOutputTypeDef(BaseValidatorModel):
-    GameServerGroup: GameServerGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateGameServerGroupOutput(BaseValidatorModel):
+    GameServerGroup: GameServerGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteGameServerGroupOutputTypeDef(BaseValidatorModel):
-    GameServerGroup: GameServerGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteGameServerGroupOutput(BaseValidatorModel):
+    GameServerGroup: GameServerGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGameServerGroupOutputTypeDef(BaseValidatorModel):
-    GameServerGroup: GameServerGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGameServerGroupOutput(BaseValidatorModel):
+    GameServerGroup: GameServerGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGameServerGroupsOutputTypeDef(BaseValidatorModel):
-    GameServerGroups: List[GameServerGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGameServerGroupsOutput(BaseValidatorModel):
+    GameServerGroups: List[GameServerGroup]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ResumeGameServerGroupOutputTypeDef(BaseValidatorModel):
-    GameServerGroup: GameServerGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ResumeGameServerGroupOutput(BaseValidatorModel):
+    GameServerGroup: GameServerGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class SuspendGameServerGroupOutputTypeDef(BaseValidatorModel):
-    GameServerGroup: GameServerGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class SuspendGameServerGroupOutput(BaseValidatorModel):
+    GameServerGroup: GameServerGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGameServerGroupOutputTypeDef(BaseValidatorModel):
-    GameServerGroup: GameServerGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateGameServerGroupOutput(BaseValidatorModel):
+    GameServerGroup: GameServerGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGameSessionOutputTypeDef(BaseValidatorModel):
-    GameSession: GameSessionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateGameSessionOutput(BaseValidatorModel):
+    GameSession: GameSession
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGameSessionsOutputTypeDef(BaseValidatorModel):
-    GameSessions: List[GameSessionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGameSessionsOutput(BaseValidatorModel):
+    GameSessions: List[GameSession]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GameSessionDetailTypeDef(BaseValidatorModel):
-    GameSession: Optional[GameSessionTypeDef] = None
+class GameSessionDetail(BaseValidatorModel):
+    GameSession: Optional[GameSession] = None
     ProtectionPolicy: Optional[ProtectionPolicyType] = None
 
 
-class SearchGameSessionsOutputTypeDef(BaseValidatorModel):
-    GameSessions: List[GameSessionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchGameSessionsOutput(BaseValidatorModel):
+    GameSessions: List[GameSession]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TerminateGameSessionOutputTypeDef(BaseValidatorModel):
-    GameSession: GameSessionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class TerminateGameSessionOutput(BaseValidatorModel):
+    GameSession: GameSession
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGameSessionOutputTypeDef(BaseValidatorModel):
-    GameSession: GameSessionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateGameSessionOutput(BaseValidatorModel):
+    GameSession: GameSession
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMatchmakingConfigurationOutputTypeDef(BaseValidatorModel):
-    Configuration: MatchmakingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMatchmakingConfigurationOutput(BaseValidatorModel):
+    Configuration: MatchmakingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMatchmakingConfigurationsOutputTypeDef(BaseValidatorModel):
-    Configurations: List[MatchmakingConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMatchmakingConfigurationsOutput(BaseValidatorModel):
+    Configurations: List[MatchmakingConfiguration]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateMatchmakingConfigurationOutputTypeDef(BaseValidatorModel):
-    Configuration: MatchmakingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateMatchmakingConfigurationOutput(BaseValidatorModel):
+    Configuration: MatchmakingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFleetDeploymentOutputTypeDef(BaseValidatorModel):
-    FleetDeployment: FleetDeploymentTypeDef
-    LocationalDeployments: Dict[str, LocationalDeploymentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFleetDeploymentOutput(BaseValidatorModel):
+    FleetDeployment: FleetDeployment
+    LocationalDeployments: Dict[str, LocationalDeployment]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFleetDeploymentsOutputTypeDef(BaseValidatorModel):
-    FleetDeployments: List[FleetDeploymentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFleetDeploymentsOutput(BaseValidatorModel):
+    FleetDeployments: List[FleetDeployment]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeFleetCapacityOutputTypeDef(BaseValidatorModel):
-    FleetCapacity: List[FleetCapacityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFleetCapacityOutput(BaseValidatorModel):
+    FleetCapacity: List[FleetCapacity]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeFleetLocationCapacityOutputTypeDef(BaseValidatorModel):
-    FleetCapacity: FleetCapacityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFleetLocationCapacityOutput(BaseValidatorModel):
+    FleetCapacity: FleetCapacity
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGameServerGroupInputTypeDef(BaseValidatorModel):
+class CreateGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     RoleArn: str
     MinSize: int
     MaxSize: int
-    LaunchTemplate: LaunchTemplateSpecificationTypeDef
-    InstanceDefinitions: Sequence[InstanceDefinitionTypeDef]
-    AutoScalingPolicy: Optional[GameServerGroupAutoScalingPolicyTypeDef] = None
+    LaunchTemplate: LaunchTemplateSpecification
+    InstanceDefinitions: Sequence[InstanceDefinition]
+    AutoScalingPolicy: Optional[GameServerGroupAutoScalingPolicy] = None
     BalancingStrategy: Optional[BalancingStrategyType] = None
     GameServerProtectionPolicy: Optional[GameServerProtectionPolicyType] = None
     VpcSubnets: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class MatchmakingTicketTypeDef(BaseValidatorModel):
+class MatchmakingTicket(BaseValidatorModel):
     TicketId: Optional[str] = None
     ConfigurationName: Optional[str] = None
     ConfigurationArn: Optional[str] = None
@@ -2018,116 +2018,116 @@ class MatchmakingTicketTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    Players: Optional[List[PlayerOutputTypeDef]] = None
-    GameSessionConnectionInfo: Optional[GameSessionConnectionInfoTypeDef] = None
+    Players: Optional[List[PlayerOutput]] = None
+    GameSessionConnectionInfo: Optional[GameSessionConnectionInfo] = None
     EstimatedWaitTime: Optional[int] = None
 
 
-class DescribeGameSessionPlacementOutputTypeDef(BaseValidatorModel):
-    GameSessionPlacement: GameSessionPlacementTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGameSessionPlacementOutput(BaseValidatorModel):
+    GameSessionPlacement: GameSessionPlacement
+    ResponseMetadata: ResponseMetadata
 
 
-class StartGameSessionPlacementOutputTypeDef(BaseValidatorModel):
-    GameSessionPlacement: GameSessionPlacementTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartGameSessionPlacementOutput(BaseValidatorModel):
+    GameSessionPlacement: GameSessionPlacement
+    ResponseMetadata: ResponseMetadata
 
 
-class StopGameSessionPlacementOutputTypeDef(BaseValidatorModel):
-    GameSessionPlacement: GameSessionPlacementTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopGameSessionPlacementOutput(BaseValidatorModel):
+    GameSessionPlacement: GameSessionPlacement
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGameSessionQueueOutputTypeDef(BaseValidatorModel):
-    GameSessionQueue: GameSessionQueueTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateGameSessionQueueOutput(BaseValidatorModel):
+    GameSessionQueue: GameSessionQueue
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGameSessionQueuesOutputTypeDef(BaseValidatorModel):
-    GameSessionQueues: List[GameSessionQueueTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGameSessionQueuesOutput(BaseValidatorModel):
+    GameSessionQueues: List[GameSessionQueue]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateGameSessionQueueOutputTypeDef(BaseValidatorModel):
-    GameSessionQueue: GameSessionQueueTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateGameSessionQueueOutput(BaseValidatorModel):
+    GameSessionQueue: GameSessionQueue
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInstanceAccessOutputTypeDef(BaseValidatorModel):
-    InstanceAccess: InstanceAccessTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInstanceAccessOutput(BaseValidatorModel):
+    InstanceAccess: InstanceAccess
+    ResponseMetadata: ResponseMetadata
 
 
-class PriorityConfigurationOverrideUnionTypeDef(BaseValidatorModel):
+class PriorityConfigurationOverrideUnion(BaseValidatorModel):
     pass
 
 
-class StartGameSessionPlacementInputTypeDef(BaseValidatorModel):
+class StartGameSessionPlacementInput(BaseValidatorModel):
     PlacementId: str
     GameSessionQueueName: str
     MaximumPlayerSessionCount: int
-    GameProperties: Optional[Sequence[GamePropertyTypeDef]] = None
+    GameProperties: Optional[Sequence[GameProperty]] = None
     GameSessionName: Optional[str] = None
-    PlayerLatencies: Optional[Sequence[PlayerLatencyTypeDef]] = None
-    DesiredPlayerSessions: Optional[Sequence[DesiredPlayerSessionTypeDef]] = None
+    PlayerLatencies: Optional[Sequence[PlayerLatency]] = None
+    DesiredPlayerSessions: Optional[Sequence[DesiredPlayerSession]] = None
     GameSessionData: Optional[str] = None
-    PriorityConfigurationOverride: Optional[PriorityConfigurationOverrideUnionTypeDef] = None
+    PriorityConfigurationOverride: Optional[PriorityConfigurationOverrideUnion] = None
 
 
-class FilterConfigurationUnionTypeDef(BaseValidatorModel):
+class FilterConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PriorityConfigurationUnionTypeDef(BaseValidatorModel):
+class PriorityConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateGameSessionQueueInputTypeDef(BaseValidatorModel):
+class CreateGameSessionQueueInput(BaseValidatorModel):
     Name: str
     TimeoutInSeconds: Optional[int] = None
-    PlayerLatencyPolicies: Optional[Sequence[PlayerLatencyPolicyTypeDef]] = None
-    Destinations: Optional[Sequence[GameSessionQueueDestinationTypeDef]] = None
-    FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
-    PriorityConfiguration: Optional[PriorityConfigurationUnionTypeDef] = None
+    PlayerLatencyPolicies: Optional[Sequence[PlayerLatencyPolicy]] = None
+    Destinations: Optional[Sequence[GameSessionQueueDestination]] = None
+    FilterConfiguration: Optional[FilterConfigurationUnion] = None
+    PriorityConfiguration: Optional[PriorityConfigurationUnion] = None
     CustomEventData: Optional[str] = None
     NotificationTarget: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateGameSessionQueueInputTypeDef(BaseValidatorModel):
+class UpdateGameSessionQueueInput(BaseValidatorModel):
     Name: str
     TimeoutInSeconds: Optional[int] = None
-    PlayerLatencyPolicies: Optional[Sequence[PlayerLatencyPolicyTypeDef]] = None
-    Destinations: Optional[Sequence[GameSessionQueueDestinationTypeDef]] = None
-    FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
-    PriorityConfiguration: Optional[PriorityConfigurationUnionTypeDef] = None
+    PlayerLatencyPolicies: Optional[Sequence[PlayerLatencyPolicy]] = None
+    Destinations: Optional[Sequence[GameSessionQueueDestination]] = None
+    FilterConfiguration: Optional[FilterConfigurationUnion] = None
+    PriorityConfiguration: Optional[PriorityConfigurationUnion] = None
     CustomEventData: Optional[str] = None
     NotificationTarget: Optional[str] = None
 
 
-class DescribeScalingPoliciesOutputTypeDef(BaseValidatorModel):
-    ScalingPolicies: List[ScalingPolicyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeScalingPoliciesOutput(BaseValidatorModel):
+    ScalingPolicies: List[ScalingPolicy]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeRuntimeConfigurationOutputTypeDef(BaseValidatorModel):
-    RuntimeConfiguration: RuntimeConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeRuntimeConfigurationOutput(BaseValidatorModel):
+    RuntimeConfiguration: RuntimeConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRuntimeConfigurationOutputTypeDef(BaseValidatorModel):
-    RuntimeConfiguration: RuntimeConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateRuntimeConfigurationOutput(BaseValidatorModel):
+    RuntimeConfiguration: RuntimeConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeVpcPeeringConnectionsOutputTypeDef(BaseValidatorModel):
-    VpcPeeringConnections: List[VpcPeeringConnectionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeVpcPeeringConnectionsOutput(BaseValidatorModel):
+    VpcPeeringConnections: List[VpcPeeringConnection]
+    ResponseMetadata: ResponseMetadata
 
 
-class ContainerGroupDefinitionTypeDef(BaseValidatorModel):
+class ContainerGroupDefinition(BaseValidatorModel):
     Name: str
     ContainerGroupDefinitionArn: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -2135,71 +2135,71 @@ class ContainerGroupDefinitionTypeDef(BaseValidatorModel):
     ContainerGroupType: Optional[ContainerGroupTypeType] = None
     TotalMemoryLimitMebibytes: Optional[int] = None
     TotalVcpuLimit: Optional[float] = None
-    GameServerContainerDefinition: Optional[GameServerContainerDefinitionTypeDef] = None
-    SupportContainerDefinitions: Optional[List[SupportContainerDefinitionTypeDef]] = None
+    GameServerContainerDefinition: Optional[GameServerContainerDefinition] = None
+    SupportContainerDefinitions: Optional[List[SupportContainerDefinition]] = None
     VersionNumber: Optional[int] = None
     VersionDescription: Optional[str] = None
     Status: Optional[ContainerGroupDefinitionStatusType] = None
     StatusReason: Optional[str] = None
 
 
-class ContainerPortConfigurationUnionTypeDef(BaseValidatorModel):
+class ContainerPortConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class GameServerContainerDefinitionInputTypeDef(BaseValidatorModel):
+class GameServerContainerDefinitionInput(BaseValidatorModel):
     ContainerName: str
     ImageUri: str
-    PortConfiguration: ContainerPortConfigurationUnionTypeDef
+    PortConfiguration: ContainerPortConfigurationUnion
     ServerSdkVersion: str
-    DependsOn: Optional[Sequence[ContainerDependencyTypeDef]] = None
-    MountPoints: Optional[Sequence[ContainerMountPointTypeDef]] = None
-    EnvironmentOverride: Optional[Sequence[ContainerEnvironmentTypeDef]] = None
+    DependsOn: Optional[Sequence[ContainerDependency]] = None
+    MountPoints: Optional[Sequence[ContainerMountPoint]] = None
+    EnvironmentOverride: Optional[Sequence[ContainerEnvironment]] = None
 
 
-class ContainerHealthCheckUnionTypeDef(BaseValidatorModel):
+class ContainerHealthCheckUnion(BaseValidatorModel):
     pass
 
 
-class SupportContainerDefinitionInputTypeDef(BaseValidatorModel):
+class SupportContainerDefinitionInput(BaseValidatorModel):
     ContainerName: str
     ImageUri: str
-    DependsOn: Optional[Sequence[ContainerDependencyTypeDef]] = None
-    MountPoints: Optional[Sequence[ContainerMountPointTypeDef]] = None
-    EnvironmentOverride: Optional[Sequence[ContainerEnvironmentTypeDef]] = None
+    DependsOn: Optional[Sequence[ContainerDependency]] = None
+    MountPoints: Optional[Sequence[ContainerMountPoint]] = None
+    EnvironmentOverride: Optional[Sequence[ContainerEnvironment]] = None
     Essential: Optional[bool] = None
-    HealthCheck: Optional[ContainerHealthCheckUnionTypeDef] = None
+    HealthCheck: Optional[ContainerHealthCheckUnion] = None
     MemoryHardLimitMebibytes: Optional[int] = None
-    PortConfiguration: Optional[ContainerPortConfigurationUnionTypeDef] = None
+    PortConfiguration: Optional[ContainerPortConfigurationUnion] = None
     Vcpu: Optional[float] = None
 
 
-class DescribeGameSessionDetailsOutputTypeDef(BaseValidatorModel):
-    GameSessionDetails: List[GameSessionDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGameSessionDetailsOutput(BaseValidatorModel):
+    GameSessionDetails: List[GameSessionDetail]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeMatchmakingOutputTypeDef(BaseValidatorModel):
-    TicketList: List[MatchmakingTicketTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMatchmakingOutput(BaseValidatorModel):
+    TicketList: List[MatchmakingTicket]
+    ResponseMetadata: ResponseMetadata
 
 
-class StartMatchBackfillOutputTypeDef(BaseValidatorModel):
-    MatchmakingTicket: MatchmakingTicketTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartMatchBackfillOutput(BaseValidatorModel):
+    MatchmakingTicket: MatchmakingTicket
+    ResponseMetadata: ResponseMetadata
 
 
-class StartMatchmakingOutputTypeDef(BaseValidatorModel):
-    MatchmakingTicket: MatchmakingTicketTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartMatchmakingOutput(BaseValidatorModel):
+    MatchmakingTicket: MatchmakingTicket
+    ResponseMetadata: ResponseMetadata
 
 
-class RuntimeConfigurationUnionTypeDef(BaseValidatorModel):
+class RuntimeConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateFleetInputTypeDef(BaseValidatorModel):
+class CreateFleetInput(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     BuildId: Optional[str] = None
@@ -2208,88 +2208,88 @@ class CreateFleetInputTypeDef(BaseValidatorModel):
     ServerLaunchParameters: Optional[str] = None
     LogPaths: Optional[Sequence[str]] = None
     EC2InstanceType: Optional[EC2InstanceTypeType] = None
-    EC2InboundPermissions: Optional[Sequence[IpPermissionTypeDef]] = None
+    EC2InboundPermissions: Optional[Sequence[IpPermission]] = None
     NewGameSessionProtectionPolicy: Optional[ProtectionPolicyType] = None
-    RuntimeConfiguration: Optional[RuntimeConfigurationUnionTypeDef] = None
-    ResourceCreationLimitPolicy: Optional[ResourceCreationLimitPolicyTypeDef] = None
+    RuntimeConfiguration: Optional[RuntimeConfigurationUnion] = None
+    ResourceCreationLimitPolicy: Optional[ResourceCreationLimitPolicy] = None
     MetricGroups: Optional[Sequence[str]] = None
     PeerVpcAwsAccountId: Optional[str] = None
     PeerVpcId: Optional[str] = None
     FleetType: Optional[FleetTypeType] = None
     InstanceRoleArn: Optional[str] = None
-    CertificateConfiguration: Optional[CertificateConfigurationTypeDef] = None
-    Locations: Optional[Sequence[LocationConfigurationTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    CertificateConfiguration: Optional[CertificateConfiguration] = None
+    Locations: Optional[Sequence[LocationConfiguration]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ComputeType: Optional[ComputeTypeType] = None
-    AnywhereConfiguration: Optional[AnywhereConfigurationTypeDef] = None
+    AnywhereConfiguration: Optional[AnywhereConfiguration] = None
     InstanceRoleCredentialsProvider: Optional[Literal["SHARED_CREDENTIAL_FILE"]] = None
 
 
-class UpdateRuntimeConfigurationInputTypeDef(BaseValidatorModel):
+class UpdateRuntimeConfigurationInput(BaseValidatorModel):
     FleetId: str
-    RuntimeConfiguration: RuntimeConfigurationUnionTypeDef
+    RuntimeConfiguration: RuntimeConfigurationUnion
 
 
-class PlayerUnionTypeDef(BaseValidatorModel):
+class PlayerUnion(BaseValidatorModel):
     pass
 
 
-class StartMatchBackfillInputTypeDef(BaseValidatorModel):
+class StartMatchBackfillInput(BaseValidatorModel):
     ConfigurationName: str
-    Players: Sequence[PlayerUnionTypeDef]
+    Players: Sequence[PlayerUnion]
     TicketId: Optional[str] = None
     GameSessionArn: Optional[str] = None
 
 
-class StartMatchmakingInputTypeDef(BaseValidatorModel):
+class StartMatchmakingInput(BaseValidatorModel):
     ConfigurationName: str
-    Players: Sequence[PlayerUnionTypeDef]
+    Players: Sequence[PlayerUnion]
     TicketId: Optional[str] = None
 
 
-class CreateContainerGroupDefinitionOutputTypeDef(BaseValidatorModel):
-    ContainerGroupDefinition: ContainerGroupDefinitionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateContainerGroupDefinitionOutput(BaseValidatorModel):
+    ContainerGroupDefinition: ContainerGroupDefinition
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeContainerGroupDefinitionOutputTypeDef(BaseValidatorModel):
-    ContainerGroupDefinition: ContainerGroupDefinitionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeContainerGroupDefinitionOutput(BaseValidatorModel):
+    ContainerGroupDefinition: ContainerGroupDefinition
+    ResponseMetadata: ResponseMetadata
 
 
-class ListContainerGroupDefinitionVersionsOutputTypeDef(BaseValidatorModel):
-    ContainerGroupDefinitions: List[ContainerGroupDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListContainerGroupDefinitionVersionsOutput(BaseValidatorModel):
+    ContainerGroupDefinitions: List[ContainerGroupDefinition]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListContainerGroupDefinitionsOutputTypeDef(BaseValidatorModel):
-    ContainerGroupDefinitions: List[ContainerGroupDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListContainerGroupDefinitionsOutput(BaseValidatorModel):
+    ContainerGroupDefinitions: List[ContainerGroupDefinition]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateContainerGroupDefinitionOutputTypeDef(BaseValidatorModel):
-    ContainerGroupDefinition: ContainerGroupDefinitionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateContainerGroupDefinitionOutput(BaseValidatorModel):
+    ContainerGroupDefinition: ContainerGroupDefinition
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateContainerGroupDefinitionInputTypeDef(BaseValidatorModel):
+class CreateContainerGroupDefinitionInput(BaseValidatorModel):
     Name: str
     TotalMemoryLimitMebibytes: int
     TotalVcpuLimit: float
     OperatingSystem: Literal["AMAZON_LINUX_2023"]
     ContainerGroupType: Optional[ContainerGroupTypeType] = None
-    GameServerContainerDefinition: Optional[GameServerContainerDefinitionInputTypeDef] = None
-    SupportContainerDefinitions: Optional[Sequence[SupportContainerDefinitionInputTypeDef]] = None
+    GameServerContainerDefinition: Optional[GameServerContainerDefinitionInput] = None
+    SupportContainerDefinitions: Optional[Sequence[SupportContainerDefinitionInput]] = None
     VersionDescription: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateContainerGroupDefinitionInputTypeDef(BaseValidatorModel):
+class UpdateContainerGroupDefinitionInput(BaseValidatorModel):
     Name: str
-    GameServerContainerDefinition: Optional[GameServerContainerDefinitionInputTypeDef] = None
-    SupportContainerDefinitions: Optional[Sequence[SupportContainerDefinitionInputTypeDef]] = None
+    GameServerContainerDefinition: Optional[GameServerContainerDefinitionInput] = None
+    SupportContainerDefinitions: Optional[Sequence[SupportContainerDefinitionInput]] = None
     TotalMemoryLimitMebibytes: Optional[int] = None
     TotalVcpuLimit: Optional[float] = None
     VersionDescription: Optional[str] = None

@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kinesis_video_webrtc_storage_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,16 +20,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class JoinStorageSessionAsViewerInputTypeDef(BaseValidatorModel):
+class JoinStorageSessionAsViewerInput(BaseValidatorModel):
     channelArn: str
     clientId: str
 
 
-class JoinStorageSessionInputTypeDef(BaseValidatorModel):
+class JoinStorageSessionInput(BaseValidatorModel):
     channelArn: str
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 

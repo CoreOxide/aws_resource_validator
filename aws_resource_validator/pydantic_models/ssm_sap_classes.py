@@ -12,30 +12,30 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ssm_sap_constants import *
 
-class ApplicationCredentialTypeDef(BaseValidatorModel):
+class ApplicationCredential(BaseValidatorModel):
     DatabaseName: str
     CredentialType: Literal["ADMIN"]
     SecretId: str
 
 
-class IpAddressMemberTypeDef(BaseValidatorModel):
+class IpAddressMember(BaseValidatorModel):
     IpAddress: Optional[str] = None
     Primary: Optional[bool] = None
     AllocationType: Optional[AllocationTypeType] = None
 
 
-class BackintConfigTypeDef(BaseValidatorModel):
+class BackintConfig(BaseValidatorModel):
     BackintMode: Literal["AWSBackup"]
     EnsureNoBackupInProcess: bool
 
 
-class ComponentInfoTypeDef(BaseValidatorModel):
+class ComponentInfo(BaseValidatorModel):
     ComponentType: ComponentTypeType
     Sid: str
     Ec2InstanceId: str
 
 
-class ComponentSummaryTypeDef(BaseValidatorModel):
+class ComponentSummary(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ComponentId: Optional[str] = None
     ComponentType: Optional[ComponentTypeType] = None
@@ -43,13 +43,13 @@ class ComponentSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class DatabaseConnectionTypeDef(BaseValidatorModel):
+class DatabaseConnection(BaseValidatorModel):
     DatabaseConnectionMethod: Optional[DatabaseConnectionMethodType] = None
     DatabaseArn: Optional[str] = None
     ConnectionIp: Optional[str] = None
 
 
-class HostTypeDef(BaseValidatorModel):
+class Host(BaseValidatorModel):
     HostName: Optional[str] = None
     HostIp: Optional[str] = None
     EC2InstanceId: Optional[str] = None
@@ -58,7 +58,7 @@ class HostTypeDef(BaseValidatorModel):
     OsVersion: Optional[str] = None
 
 
-class ResilienceTypeDef(BaseValidatorModel):
+class Resilience(BaseValidatorModel):
     HsrTier: Optional[str] = None
     HsrReplicationMode: Optional[ReplicationModeType] = None
     HsrOperationMode: Optional[OperationModeType] = None
@@ -66,7 +66,7 @@ class ResilienceTypeDef(BaseValidatorModel):
     EnqueueReplication: Optional[bool] = None
 
 
-class DatabaseSummaryTypeDef(BaseValidatorModel):
+class DatabaseSummary(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ComponentId: Optional[str] = None
     DatabaseId: Optional[str] = None
@@ -75,13 +75,13 @@ class DatabaseSummaryTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class DeleteResourcePermissionInputTypeDef(BaseValidatorModel):
+class DeleteResourcePermissionInput(BaseValidatorModel):
     ResourceArn: str
     ActionType: Optional[Literal["RESTORE"]] = None
     SourceResourceArn: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -89,105 +89,105 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeregisterApplicationInputTypeDef(BaseValidatorModel):
+class DeregisterApplicationInput(BaseValidatorModel):
     ApplicationId: str
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Name: str
     Value: str
     Operator: FilterOperatorType
 
 
-class GetApplicationInputTypeDef(BaseValidatorModel):
+class GetApplicationInput(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ApplicationArn: Optional[str] = None
     AppRegistryArn: Optional[str] = None
 
 
-class GetComponentInputTypeDef(BaseValidatorModel):
+class GetComponentInput(BaseValidatorModel):
     ApplicationId: str
     ComponentId: str
 
 
-class GetDatabaseInputTypeDef(BaseValidatorModel):
+class GetDatabaseInput(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ComponentId: Optional[str] = None
     DatabaseId: Optional[str] = None
     DatabaseArn: Optional[str] = None
 
 
-class GetOperationInputTypeDef(BaseValidatorModel):
+class GetOperationInput(BaseValidatorModel):
     OperationId: str
 
 
-class GetResourcePermissionInputTypeDef(BaseValidatorModel):
+class GetResourcePermissionInput(BaseValidatorModel):
     ResourceArn: str
     ActionType: Optional[Literal["RESTORE"]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListComponentsInputTypeDef(BaseValidatorModel):
+class ListComponentsInput(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDatabasesInputTypeDef(BaseValidatorModel):
+class ListDatabasesInput(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ComponentId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ResourceTypeDef(BaseValidatorModel):
+class Resource(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     ResourceType: Optional[str] = None
 
 
-class PutResourcePermissionInputTypeDef(BaseValidatorModel):
+class PutResourcePermissionInput(BaseValidatorModel):
     ActionType: Literal["RESTORE"]
     SourceResourceArn: str
     ResourceArn: str
 
 
-class StartApplicationInputTypeDef(BaseValidatorModel):
+class StartApplicationInput(BaseValidatorModel):
     ApplicationId: str
 
 
-class StartApplicationRefreshInputTypeDef(BaseValidatorModel):
+class StartApplicationRefreshInput(BaseValidatorModel):
     ApplicationId: str
 
 
-class StopApplicationInputTypeDef(BaseValidatorModel):
+class StopApplicationInput(BaseValidatorModel):
     ApplicationId: str
     StopConnectedEntity: Optional[Literal["DBMS"]] = None
     IncludeEc2InstanceShutdown: Optional[bool] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class DatabaseTypeDef(BaseValidatorModel):
+class Database(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ComponentId: Optional[str] = None
-    Credentials: Optional[List[ApplicationCredentialTypeDef]] = None
+    Credentials: Optional[List[ApplicationCredential]] = None
     DatabaseId: Optional[str] = None
     DatabaseName: Optional[str] = None
     DatabaseType: Optional[DatabaseTypeType] = None
@@ -199,190 +199,190 @@ class DatabaseTypeDef(BaseValidatorModel):
     ConnectedComponentArns: Optional[List[str]] = None
 
 
-class AssociatedHostTypeDef(BaseValidatorModel):
+class AssociatedHost(BaseValidatorModel):
     Hostname: Optional[str] = None
     Ec2InstanceId: Optional[str] = None
-    IpAddresses: Optional[List[IpAddressMemberTypeDef]] = None
+    IpAddresses: Optional[List[IpAddressMember]] = None
     OsVersion: Optional[str] = None
 
 
-class UpdateApplicationSettingsInputTypeDef(BaseValidatorModel):
+class UpdateApplicationSettingsInput(BaseValidatorModel):
     ApplicationId: str
-    CredentialsToAddOrUpdate: Optional[Sequence[ApplicationCredentialTypeDef]] = None
-    CredentialsToRemove: Optional[Sequence[ApplicationCredentialTypeDef]] = None
-    Backint: Optional[BackintConfigTypeDef] = None
+    CredentialsToAddOrUpdate: Optional[Sequence[ApplicationCredential]] = None
+    CredentialsToRemove: Optional[Sequence[ApplicationCredential]] = None
+    Backint: Optional[BackintConfig] = None
     DatabaseArn: Optional[str] = None
 
 
-class RegisterApplicationInputTypeDef(BaseValidatorModel):
+class RegisterApplicationInput(BaseValidatorModel):
     ApplicationId: str
     ApplicationType: ApplicationTypeType
     Instances: Sequence[str]
     SapInstanceNumber: Optional[str] = None
     Sid: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
-    Credentials: Optional[Sequence[ApplicationCredentialTypeDef]] = None
+    Credentials: Optional[Sequence[ApplicationCredential]] = None
     DatabaseArn: Optional[str] = None
-    ComponentsInfo: Optional[Sequence[ComponentInfoTypeDef]] = None
+    ComponentsInfo: Optional[Sequence[ComponentInfo]] = None
 
 
-class DeleteResourcePermissionOutputTypeDef(BaseValidatorModel):
+class DeleteResourcePermissionOutput(BaseValidatorModel):
     Policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationTypeDef(BaseValidatorModel):
+class Application(BaseValidatorModel):
     pass
 
 
-class GetApplicationOutputTypeDef(BaseValidatorModel):
-    Application: ApplicationTypeDef
+class GetApplicationOutput(BaseValidatorModel):
+    Application: Application
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcePermissionOutputTypeDef(BaseValidatorModel):
+class GetResourcePermissionOutput(BaseValidatorModel):
     Policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationSummaryTypeDef(BaseValidatorModel):
+class ApplicationSummary(BaseValidatorModel):
     pass
 
 
-class ListApplicationsOutputTypeDef(BaseValidatorModel):
-    Applications: List[ApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsOutput(BaseValidatorModel):
+    Applications: List[ApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListComponentsOutputTypeDef(BaseValidatorModel):
-    Components: List[ComponentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComponentsOutput(BaseValidatorModel):
+    Components: List[ComponentSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDatabasesOutputTypeDef(BaseValidatorModel):
-    Databases: List[DatabaseSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatabasesOutput(BaseValidatorModel):
+    Databases: List[DatabaseSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResourcePermissionOutputTypeDef(BaseValidatorModel):
+class PutResourcePermissionOutput(BaseValidatorModel):
     Policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterApplicationOutputTypeDef(BaseValidatorModel):
-    Application: ApplicationTypeDef
+class RegisterApplicationOutput(BaseValidatorModel):
+    Application: Application
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartApplicationOutputTypeDef(BaseValidatorModel):
+class StartApplicationOutput(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartApplicationRefreshOutputTypeDef(BaseValidatorModel):
+class StartApplicationRefreshOutput(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopApplicationOutputTypeDef(BaseValidatorModel):
+class StopApplicationOutput(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationSettingsOutputTypeDef(BaseValidatorModel):
+class UpdateApplicationSettingsOutput(BaseValidatorModel):
     Message: str
     OperationIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationsInputTypeDef(BaseValidatorModel):
+class ListApplicationsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class ListOperationEventsInputTypeDef(BaseValidatorModel):
+class ListOperationEventsInput(BaseValidatorModel):
     OperationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class ListOperationsInputTypeDef(BaseValidatorModel):
+class ListOperationsInput(BaseValidatorModel):
     ApplicationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class OperationTypeDef(BaseValidatorModel):
+class Operation(BaseValidatorModel):
     pass
 
 
-class GetOperationOutputTypeDef(BaseValidatorModel):
-    Operation: OperationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetOperationOutput(BaseValidatorModel):
+    Operation: Operation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListOperationsOutputTypeDef(BaseValidatorModel):
-    Operations: List[OperationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOperationsOutput(BaseValidatorModel):
+    Operations: List[Operation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListApplicationsInputPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListApplicationsInputPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListComponentsInputPaginateTypeDef(BaseValidatorModel):
+class ListComponentsInputPaginate(BaseValidatorModel):
     ApplicationId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatabasesInputPaginateTypeDef(BaseValidatorModel):
+class ListDatabasesInputPaginate(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ComponentId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOperationEventsInputPaginateTypeDef(BaseValidatorModel):
+class ListOperationEventsInputPaginate(BaseValidatorModel):
     OperationId: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOperationsInputPaginateTypeDef(BaseValidatorModel):
+class ListOperationsInputPaginate(BaseValidatorModel):
     ApplicationId: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class OperationEventTypeDef(BaseValidatorModel):
+class OperationEvent(BaseValidatorModel):
     Description: Optional[str] = None
-    Resource: Optional[ResourceTypeDef] = None
+    Resource: Optional[Resource] = None
     Status: Optional[OperationEventStatusType] = None
     StatusMessage: Optional[str] = None
     Timestamp: Optional[datetime] = None
 
 
-class GetDatabaseOutputTypeDef(BaseValidatorModel):
-    Database: DatabaseTypeDef
+class GetDatabaseOutput(BaseValidatorModel):
+    Database: Database
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ComponentTypeDef(BaseValidatorModel):
+class Component(BaseValidatorModel):
     ComponentId: Optional[str] = None
     Sid: Optional[str] = None
     SystemNumber: Optional[str] = None
@@ -395,25 +395,25 @@ class ComponentTypeDef(BaseValidatorModel):
     SapFeature: Optional[str] = None
     SapKernelVersion: Optional[str] = None
     HdbVersion: Optional[str] = None
-    Resilience: Optional[ResilienceTypeDef] = None
-    AssociatedHost: Optional[AssociatedHostTypeDef] = None
+    Resilience: Optional[Resilience] = None
+    AssociatedHost: Optional[AssociatedHost] = None
     Databases: Optional[List[str]] = None
-    Hosts: Optional[List[HostTypeDef]] = None
+    Hosts: Optional[List[Host]] = None
     PrimaryHost: Optional[str] = None
-    DatabaseConnection: Optional[DatabaseConnectionTypeDef] = None
+    DatabaseConnection: Optional[DatabaseConnection] = None
     LastUpdated: Optional[datetime] = None
     Arn: Optional[str] = None
 
 
-class ListOperationEventsOutputTypeDef(BaseValidatorModel):
-    OperationEvents: List[OperationEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOperationEventsOutput(BaseValidatorModel):
+    OperationEvents: List[OperationEvent]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetComponentOutputTypeDef(BaseValidatorModel):
-    Component: ComponentTypeDef
+class GetComponentOutput(BaseValidatorModel):
+    Component: Component
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

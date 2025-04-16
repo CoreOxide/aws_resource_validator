@@ -1,6 +1,6 @@
 # Devicefarm Classes
 
-# AccountSettingsTypeDef
+# AccountSettings
 
 ### awsAccountNumber
 - **Type**: typing.Optional[str]
@@ -15,7 +15,7 @@
 - **Type**: typing.Optional[int]
 
 ### trialMinutes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TrialMinutesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TrialMinutes]
 
 ### maxSlots
 - **Type**: typing.Optional[typing.Dict[str, int]]
@@ -27,7 +27,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# ArtifactTypeDef
+# Artifact
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -39,7 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CPUTypeDef
+# CPU
 
 ### frequency
 - **Type**: typing.Optional[str]
@@ -51,7 +51,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# CountersTypeDef
+# Counters
 
 ### total
 - **Type**: typing.Optional[int]
@@ -75,7 +75,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateDevicePoolRequestTypeDef
+# CreateDevicePoolRequest
 
 ### projectArn
 - **Type**: <class 'str'>
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.RuleTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.Rule]
 - **Required**: Yes
 
 ### description
@@ -96,18 +96,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateDevicePoolResultTypeDef
+# CreateDevicePoolResult
 
 ### devicePool
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DevicePoolTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DevicePool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateInstanceProfileRequestTypeDef
+# CreateInstanceProfileRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -126,29 +126,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateInstanceProfileResultTypeDef
+# CreateInstanceProfileResult
 
 ### instanceProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateNetworkProfileResultTypeDef
+# CreateNetworkProfileResult
 
 ### networkProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.NetworkProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.NetworkProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateProjectRequestTypeDef
+# CreateProjectRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -158,21 +158,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.VpcConfigUnion]
 
 
-# CreateProjectResultTypeDef
+# CreateProjectResult
 
 ### project
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Project'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRemoteAccessSessionConfigurationTypeDef
+# CreateRemoteAccessSessionConfiguration
 
 ### billingMethod
 - **Type**: typing.Optional[typing.Literal['METERED', 'UNMETERED']]
@@ -181,10 +181,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### deviceProxy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceProxyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceProxy]
 
 
-# CreateRemoteAccessSessionRequestTypeDef
+# CreateRemoteAccessSessionRequest
 
 ### projectArn
 - **Type**: <class 'str'>
@@ -216,7 +216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.CreateRemoteAccessSessionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.CreateRemoteAccessSessionConfiguration]
 
 ### interactionMode
 - **Type**: typing.Optional[typing.Literal['INTERACTIVE', 'NO_VIDEO', 'VIDEO_ONLY']]
@@ -225,18 +225,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateRemoteAccessSessionResultTypeDef
+# CreateRemoteAccessSessionResult
 
 ### remoteAccessSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.RemoteAccessSessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.RemoteAccessSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTestGridProjectRequestTypeDef
+# CreateTestGridProjectRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -246,21 +246,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridVpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridVpcConfigUnion]
 
 
-# CreateTestGridProjectResultTypeDef
+# CreateTestGridProjectResult
 
 ### testGridProject
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.TestGridProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.TestGridProject'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTestGridUrlRequestTypeDef
+# CreateTestGridUrlRequest
 
 ### projectArn
 - **Type**: <class 'str'>
@@ -271,7 +271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTestGridUrlResultTypeDef
+# CreateTestGridUrlResult
 
 ### url
 - **Type**: <class 'str'>
@@ -282,22 +282,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateUploadResultTypeDef
+# CreateUploadResult
 
 ### upload
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.UploadTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Upload'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVPCEConfigurationRequestTypeDef
+# CreateVPCEConfigurationRequest
 
 ### vpceConfigurationName
 - **Type**: <class 'str'>
@@ -315,30 +315,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateVPCEConfigurationResultTypeDef
+# CreateVPCEConfigurationResult
 
 ### vpceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.VPCEConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.VPCEConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomerArtifactPathsOutputTypeDef
-
-### iosPaths
-- **Type**: typing.Optional[typing.List[str]]
-
-### androidPaths
-- **Type**: typing.Optional[typing.List[str]]
-
-### deviceHostPaths
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# CustomerArtifactPathsTypeDef
+# CustomerArtifactPaths
 
 ### iosPaths
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -350,173 +338,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CustomerArtifactPathsUnionTypeDef
+# CustomerArtifactPathsOutput
+
+### iosPaths
+- **Type**: typing.Optional[typing.List[str]]
+
+### androidPaths
+- **Type**: typing.Optional[typing.List[str]]
+
+### deviceHostPaths
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# CustomerArtifactPathsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteDevicePoolRequestTypeDef
+# DeleteDevicePoolRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInstanceProfileRequestTypeDef
+# DeleteInstanceProfileRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteNetworkProfileRequestTypeDef
+# DeleteNetworkProfileRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteProjectRequestTypeDef
+# DeleteProjectRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRemoteAccessSessionRequestTypeDef
+# DeleteRemoteAccessSessionRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRunRequestTypeDef
+# DeleteRunRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTestGridProjectRequestTypeDef
+# DeleteTestGridProjectRequest
 
 ### projectArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUploadRequestTypeDef
+# DeleteUploadRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVPCEConfigurationRequestTypeDef
+# DeleteVPCEConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeviceFilterOutputTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DeviceFilterUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DeviceInstanceTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### deviceArn
-- **Type**: typing.Optional[str]
-
-### labels
-- **Type**: typing.Optional[typing.List[str]]
-
-### status
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'IN_USE', 'NOT_AVAILABLE', 'PREPARING']]
-
-### udid
-- **Type**: typing.Optional[str]
-
-### instanceProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfileTypeDef]
-
-
-# DeviceMinutesTypeDef
-
-### total
-- **Type**: typing.Optional[float]
-
-### metered
-- **Type**: typing.Optional[float]
-
-### unmetered
-- **Type**: typing.Optional[float]
-
-
-# DevicePoolCompatibilityResultTypeDef
-
-### device
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceTypeDef]
-
-### compatible
-- **Type**: typing.Optional[bool]
-
-### incompatibilityMessages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.IncompatibilityMessageTypeDef]]
-
-
-# DevicePoolTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DeviceProxyTypeDef
-
-### host
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### port
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-
-# DeviceSelectionConfigurationTypeDef
-
-### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceFilterUnionTypeDef]
-- **Required**: Yes
-
-### maxDevices
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-
-# DeviceSelectionResultTypeDef
-
-### filters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceFilterOutputTypeDef]]
-
-### matchedDevicesCount
-- **Type**: typing.Optional[int]
-
-### maxDevices
-- **Type**: typing.Optional[int]
-
-
-# DeviceTypeDef
+# Device
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -543,10 +446,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### cpu
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.CPUTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.CPU]
 
 ### resolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ResolutionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Resolution]
 
 ### heapSize
 - **Type**: typing.Optional[int]
@@ -576,13 +479,110 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### instances
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceInstanceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceInstance]]
 
 ### availability
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'BUSY', 'HIGHLY_AVAILABLE', 'TEMPORARY_NOT_AVAILABLE']]
 
 
-# ExecutionConfigurationTypeDef
+# DeviceFilterOutput
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeviceFilterUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeviceInstance
+
+### arn
+- **Type**: typing.Optional[str]
+
+### deviceArn
+- **Type**: typing.Optional[str]
+
+### labels
+- **Type**: typing.Optional[typing.List[str]]
+
+### status
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'IN_USE', 'NOT_AVAILABLE', 'PREPARING']]
+
+### udid
+- **Type**: typing.Optional[str]
+
+### instanceProfile
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfile]
+
+
+# DeviceMinutes
+
+### total
+- **Type**: typing.Optional[float]
+
+### metered
+- **Type**: typing.Optional[float]
+
+### unmetered
+- **Type**: typing.Optional[float]
+
+
+# DevicePool
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DevicePoolCompatibilityResult
+
+### device
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Device]
+
+### compatible
+- **Type**: typing.Optional[bool]
+
+### incompatibilityMessages
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.IncompatibilityMessage]]
+
+
+# DeviceProxy
+
+### host
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### port
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# DeviceSelectionConfiguration
+
+### filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceFilterUnion]
+- **Required**: Yes
+
+### maxDevices
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# DeviceSelectionResult
+
+### filters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceFilterOutput]]
+
+### matchedDevicesCount
+- **Type**: typing.Optional[int]
+
+### maxDevices
+- **Type**: typing.Optional[int]
+
+
+# ExecutionConfiguration
 
 ### jobTimeoutMinutes
 - **Type**: typing.Optional[int]
@@ -600,36 +600,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# GetAccountSettingsResultTypeDef
+# GetAccountSettingsResult
 
 ### accountSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.AccountSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.AccountSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDeviceInstanceRequestTypeDef
+# GetDeviceInstanceRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDeviceInstanceResultTypeDef
+# GetDeviceInstanceResult
 
 ### deviceInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DeviceInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DeviceInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDevicePoolCompatibilityRequestTypeDef
+# GetDevicePoolCompatibilityRequest
 
 ### devicePoolArn
 - **Type**: <class 'str'>
@@ -642,238 +642,238 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['APPIUM_JAVA_JUNIT', 'APPIUM_JAVA_TESTNG', 'APPIUM_NODE', 'APPIUM_PYTHON', 'APPIUM_RUBY', 'APPIUM_WEB_JAVA_JUNIT', 'APPIUM_WEB_JAVA_TESTNG', 'APPIUM_WEB_NODE', 'APPIUM_WEB_PYTHON', 'APPIUM_WEB_RUBY', 'BUILTIN_FUZZ', 'INSTRUMENTATION', 'XCTEST', 'XCTEST_UI']]
 
 ### test
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ScheduleRunTestTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ScheduleRunTest]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ScheduleRunConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ScheduleRunConfiguration]
 
 
-# GetDevicePoolCompatibilityResultTypeDef
+# GetDevicePoolCompatibilityResult
 
 ### compatibleDevices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DevicePoolCompatibilityResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DevicePoolCompatibilityResult]
 - **Required**: Yes
 
 ### incompatibleDevices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DevicePoolCompatibilityResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DevicePoolCompatibilityResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDevicePoolRequestTypeDef
+# GetDevicePoolRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDevicePoolResultTypeDef
+# GetDevicePoolResult
 
 ### devicePool
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DevicePoolTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DevicePool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDeviceRequestTypeDef
+# GetDeviceRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDeviceResultTypeDef
+# GetDeviceResult
 
 ### device
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DeviceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Device'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetInstanceProfileRequestTypeDef
+# GetInstanceProfileRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetInstanceProfileResultTypeDef
+# GetInstanceProfileResult
 
 ### instanceProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJobRequestTypeDef
+# GetJobRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetJobResultTypeDef
+# GetJobResult
 
 ### job
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.JobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Job'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetNetworkProfileRequestTypeDef
+# GetNetworkProfileRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetNetworkProfileResultTypeDef
+# GetNetworkProfileResult
 
 ### networkProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.NetworkProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.NetworkProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOfferingStatusRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
-
-
-# GetOfferingStatusRequestTypeDef
+# GetOfferingStatusRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetOfferingStatusResultTypeDef
+# GetOfferingStatusRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
+
+
+# GetOfferingStatusResult
 
 ### current
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.devicefarm_classes.OfferingStatusTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.devicefarm_classes.OfferingStatus]
 - **Required**: Yes
 
 ### nextPeriod
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.devicefarm_classes.OfferingStatusTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.devicefarm_classes.OfferingStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetProjectRequestTypeDef
+# GetProjectRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetProjectResultTypeDef
+# GetProjectResult
 
 ### project
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Project'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRemoteAccessSessionRequestTypeDef
+# GetRemoteAccessSessionRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRemoteAccessSessionResultTypeDef
+# GetRemoteAccessSessionResult
 
 ### remoteAccessSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.RemoteAccessSessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.RemoteAccessSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRunRequestTypeDef
+# GetRunRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRunResultTypeDef
+# GetRunResult
 
 ### run
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.RunTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Run'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSuiteRequestTypeDef
+# GetSuiteRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSuiteResultTypeDef
+# GetSuiteResult
 
 ### suite
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.SuiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Suite'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTestGridProjectRequestTypeDef
+# GetTestGridProjectRequest
 
 ### projectArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTestGridProjectResultTypeDef
+# GetTestGridProjectResult
 
 ### testGridProject
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.TestGridProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.TestGridProject'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTestGridSessionRequestTypeDef
+# GetTestGridSessionRequest
 
 ### projectArn
 - **Type**: typing.Optional[str]
@@ -885,78 +885,78 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetTestGridSessionResultTypeDef
+# GetTestGridSessionResult
 
 ### testGridSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.TestGridSessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.TestGridSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTestRequestTypeDef
+# GetTestRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTestResultTypeDef
+# GetTestResult
 
 ### test
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.TestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Test'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetUploadRequestTypeDef
+# GetUploadRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetUploadResultTypeDef
+# GetUploadResult
 
 ### upload
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.UploadTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Upload'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetVPCEConfigurationRequestTypeDef
+# GetVPCEConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetVPCEConfigurationResultTypeDef
+# GetVPCEConfigurationResult
 
 ### vpceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.VPCEConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.VPCEConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IncompatibilityMessageTypeDef
+# IncompatibilityMessage
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# InstallToRemoteAccessSessionRequestTypeDef
+# InstallToRemoteAccessSessionRequest
 
 ### remoteAccessSessionArn
 - **Type**: <class 'str'>
@@ -967,18 +967,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InstallToRemoteAccessSessionResultTypeDef
+# InstallToRemoteAccessSessionResult
 
 ### appUpload
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.UploadTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Upload'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InstanceProfileTypeDef
+# InstanceProfile
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -999,33 +999,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# JobTypeDef
+# Job
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListArtifactsResultTypeDef
+# ListArtifactsResult
 
 ### artifacts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.ArtifactTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Artifact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDeviceInstancesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
-
-
-# ListDeviceInstancesRequestTypeDef
+# ListDeviceInstancesRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1034,47 +1028,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDeviceInstancesResultTypeDef
+# ListDeviceInstancesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
+
+
+# ListDeviceInstancesResult
 
 ### deviceInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDevicePoolsResultTypeDef
+# ListDevicePoolsResult
 
 ### devicePools
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DevicePoolTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DevicePool]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDevicesRequestPaginateTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceFilterUnionTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
-
-
-# ListDevicesRequestTypeDef
+# ListDevicesRequest
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1083,30 +1071,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceFilterUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceFilterUnion]]
 
 
-# ListDevicesResultTypeDef
+# ListDevicesRequestPaginate
+
+### arn
+- **Type**: typing.Optional[str]
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceFilterUnion]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
+
+
+# ListDevicesResult
 
 ### devices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Device]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListInstanceProfilesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
-
-
-# ListInstanceProfilesRequestTypeDef
+# ListInstanceProfilesRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1115,333 +1109,339 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInstanceProfilesResultTypeDef
+# ListInstanceProfilesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
+
+
+# ListInstanceProfilesResult
 
 ### instanceProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfileTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfile]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListJobsRequestPaginateTypeDef
+# ListJobsRequest
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListJobsRequestPaginate
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
 
 
-# ListJobsRequestTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListJobsResultTypeDef
+# ListJobsResult
 
 ### jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.JobTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Job]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNetworkProfilesResultTypeDef
+# ListNetworkProfilesResult
 
 ### networkProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.NetworkProfileTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.NetworkProfile]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOfferingPromotionsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
-
-
-# ListOfferingPromotionsRequestTypeDef
+# ListOfferingPromotionsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOfferingPromotionsResultTypeDef
+# ListOfferingPromotionsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
+
+
+# ListOfferingPromotionsResult
 
 ### offeringPromotions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.OfferingPromotionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.OfferingPromotion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOfferingTransactionsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
-
-
-# ListOfferingTransactionsRequestTypeDef
+# ListOfferingTransactionsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOfferingTransactionsResultTypeDef
+# ListOfferingTransactionsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
+
+
+# ListOfferingTransactionsResult
 
 ### offeringTransactions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.OfferingTransactionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.OfferingTransaction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOfferingsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
-
-
-# ListOfferingsRequestTypeDef
+# ListOfferingsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOfferingsResultTypeDef
+# ListOfferingsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
+
+
+# ListOfferingsResult
 
 ### offerings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.OfferingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Offering]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProjectsRequestPaginateTypeDef
+# ListProjectsRequest
+
+### arn
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListProjectsRequestPaginate
 
 ### arn
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
 
 
-# ListProjectsRequestTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListProjectsResultTypeDef
+# ListProjectsResult
 
 ### projects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.ProjectTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Project]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRemoteAccessSessionsRequestPaginateTypeDef
+# ListRemoteAccessSessionsRequest
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListRemoteAccessSessionsRequestPaginate
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
 
 
-# ListRemoteAccessSessionsRequestTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListRemoteAccessSessionsResultTypeDef
+# ListRemoteAccessSessionsResult
 
 ### remoteAccessSessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.RemoteAccessSessionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.RemoteAccessSession]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRunsRequestPaginateTypeDef
+# ListRunsRequest
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListRunsRequestPaginate
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
 
 
-# ListRunsRequestTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListRunsResultTypeDef
+# ListRunsResult
 
 ### runs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.RunTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Run]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSamplesRequestPaginateTypeDef
+# ListSamplesRequest
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListSamplesRequestPaginate
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
 
 
-# ListSamplesRequestTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListSamplesResultTypeDef
+# ListSamplesResult
 
 ### samples
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.SampleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Sample]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSuitesRequestPaginateTypeDef
+# ListSuitesRequest
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListSuitesRequestPaginate
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
 
 
-# ListSuitesRequestTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListSuitesResultTypeDef
+# ListSuitesResult
 
 ### suites
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.SuiteTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Suite]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTestGridProjectsRequestTypeDef
+# ListTestGridProjectsRequest
 
 ### maxResult
 - **Type**: typing.Optional[int]
@@ -1450,21 +1450,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTestGridProjectsResultTypeDef
+# ListTestGridProjectsResult
 
 ### testGridProjects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridProjectTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridProject]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTestGridSessionActionsRequestTypeDef
+# ListTestGridSessionActionsRequest
 
 ### sessionArn
 - **Type**: <class 'str'>
@@ -1477,35 +1477,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTestGridSessionActionsResultTypeDef
+# ListTestGridSessionActionsResult
 
 ### actions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridSessionActionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridSessionAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTestGridSessionArtifactsResultTypeDef
+# ListTestGridSessionArtifactsResult
 
 ### artifacts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridSessionArtifactTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridSessionArtifact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTestGridSessionsRequestTypeDef
+# ListTestGridSessionsRequest
 
 ### projectArn
 - **Type**: <class 'str'>
@@ -1515,16 +1515,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CLOSED', 'ERRORED']]
 
 ### creationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Timestamp]
 
 ### creationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Timestamp]
 
 ### endTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Timestamp]
 
 ### endTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Timestamp]
 
 ### maxResult
 - **Type**: typing.Optional[int]
@@ -1533,109 +1533,103 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTestGridSessionsResultTypeDef
+# ListTestGridSessionsResult
 
 ### testGridSessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridSessionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridSession]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTestsRequestPaginateTypeDef
+# ListTestsRequest
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTestsRequestPaginate
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
 
 
-# ListTestsRequestTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListTestsResultTypeDef
+# ListTestsResult
 
 ### tests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.TestTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Test]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListUniqueProblemsRequestPaginateTypeDef
+# ListUniqueProblemsRequest
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListUniqueProblemsRequestPaginate
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
 
 
-# ListUniqueProblemsRequestTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListUniqueProblemsResultTypeDef
+# ListUniqueProblemsResult
 
 ### uniqueProblems
-- **Type**: typing.Dict[typing.Literal['ERRORED', 'FAILED', 'PASSED', 'PENDING', 'SKIPPED', 'STOPPED', 'WARNED'], typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.UniqueProblemTypeDef]]
+- **Type**: typing.Dict[typing.Literal['ERRORED', 'FAILED', 'PASSED', 'PENDING', 'SKIPPED', 'STOPPED', 'WARNED'], typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.UniqueProblem]]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListUploadsResultTypeDef
+# ListUploadsResult
 
 ### uploads
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.UploadTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Upload]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListVPCEConfigurationsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfigTypeDef]
-
-
-# ListVPCEConfigurationsRequestTypeDef
+# ListVPCEConfigurationsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1644,21 +1638,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVPCEConfigurationsResultTypeDef
+# ListVPCEConfigurationsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.PaginatorConfig]
+
+
+# ListVPCEConfigurationsResult
 
 ### vpceConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.VPCEConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.VPCEConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# LocationTypeDef
+# Location
 
 ### latitude
 - **Type**: <class 'float'>
@@ -1669,7 +1669,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MonetaryAmountTypeDef
+# MonetaryAmount
 
 ### amount
 - **Type**: typing.Optional[float]
@@ -1678,28 +1678,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['USD']]
 
 
-# NetworkProfileTypeDef
+# NetworkProfile
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OfferingPromotionTypeDef
+# Offering
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OfferingStatusTypeDef
+# OfferingPromotion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OfferingTransactionTypeDef
+# OfferingStatus
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# OfferingTransaction
 
 ### offeringStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.OfferingStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.OfferingStatus]
 
 ### transactionId
 - **Type**: typing.Optional[str]
@@ -1711,16 +1717,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### cost
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.MonetaryAmountTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.MonetaryAmount]
 
 
-# OfferingTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1732,31 +1732,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProblemDetailTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-
-# ProblemTypeDef
+# Problem
 
 ### run
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ProblemDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ProblemDetail]
 
 ### job
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ProblemDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ProblemDetail]
 
 ### suite
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ProblemDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ProblemDetail]
 
 ### test
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ProblemDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ProblemDetail]
 
 ### device
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Device]
 
 ### result
 - **Type**: typing.Optional[typing.Literal['ERRORED', 'FAILED', 'PASSED', 'PENDING', 'SKIPPED', 'STOPPED', 'WARNED']]
@@ -1765,7 +1756,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProjectTypeDef
+# ProblemDetail
+
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+
+# Project
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1780,10 +1780,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.VpcConfigOutput]
 
 
-# PurchaseOfferingRequestTypeDef
+# PurchaseOfferingRequest
 
 ### offeringId
 - **Type**: <class 'str'>
@@ -1797,18 +1797,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PurchaseOfferingResultTypeDef
+# PurchaseOfferingResult
 
 ### offeringTransaction
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.OfferingTransactionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.OfferingTransaction'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RadiosTypeDef
+# Radios
 
 ### wifi
 - **Type**: typing.Optional[bool]
@@ -1823,16 +1823,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RecurringChargeTypeDef
+# RecurringCharge
 
 ### cost
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.MonetaryAmountTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.MonetaryAmount]
 
 ### frequency
 - **Type**: typing.Optional[typing.Literal['MONTHLY']]
 
 
-# RemoteAccessSessionTypeDef
+# RemoteAccessSession
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1859,7 +1859,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### device
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Device]
 
 ### instanceArn
 - **Type**: typing.Optional[str]
@@ -1883,7 +1883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['METERED', 'UNMETERED']]
 
 ### deviceMinutes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceMinutesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceMinutes]
 
 ### endpoint
 - **Type**: typing.Optional[str]
@@ -1898,13 +1898,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.VpcConfigOutput]
 
 ### deviceProxy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceProxyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceProxy]
 
 
-# RenewOfferingRequestTypeDef
+# RenewOfferingRequest
 
 ### offeringId
 - **Type**: <class 'str'>
@@ -1915,18 +1915,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RenewOfferingResultTypeDef
+# RenewOfferingResult
 
 ### offeringTransaction
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.OfferingTransactionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.OfferingTransaction'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResolutionTypeDef
+# Resolution
 
 ### width
 - **Type**: typing.Optional[int]
@@ -1935,7 +1935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1957,25 +1957,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuleTypeDef
+# Rule
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RunTypeDef
+# Run
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SampleTypeDef
+# Sample
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ScheduleRunConfigurationTypeDef
+# ScheduleRunConfiguration
 
 ### extraDataPackageArn
 - **Type**: typing.Optional[str]
@@ -1987,19 +1987,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Location]
 
 ### vpceConfigurationArns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### deviceProxy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceProxyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceProxy]
 
 ### customerArtifactPaths
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.CustomerArtifactPathsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.CustomerArtifactPathsUnion]
 
 ### radios
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.RadiosTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.Radios]
 
 ### auxiliaryApps
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -2008,14 +2008,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['METERED', 'UNMETERED']]
 
 
-# ScheduleRunRequestTypeDef
+# ScheduleRunRequest
 
 ### projectArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### test
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ScheduleRunTestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ScheduleRunTest'>
 - **Required**: Yes
 
 ### appArn
@@ -2025,107 +2025,96 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### deviceSelectionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceSelectionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.DeviceSelectionConfiguration]
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ScheduleRunConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ScheduleRunConfiguration]
 
 ### executionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ExecutionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.ExecutionConfiguration]
 
 
-# ScheduleRunResultTypeDef
+# ScheduleRunResult
 
 ### run
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.RunTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Run'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ScheduleRunTestTypeDef
+# ScheduleRunTest
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StopJobRequestTypeDef
+# StopJobRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopJobResultTypeDef
+# StopJobResult
 
 ### job
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.JobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Job'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopRemoteAccessSessionRequestTypeDef
+# StopRemoteAccessSessionRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopRemoteAccessSessionResultTypeDef
+# StopRemoteAccessSessionResult
 
 ### remoteAccessSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.RemoteAccessSessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.RemoteAccessSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopRunRequestTypeDef
+# StopRunRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopRunResultTypeDef
+# StopRunResult
 
 ### run
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.RunTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Run'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SuiteTypeDef
+# Suite
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -2136,7 +2125,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestGridProjectTypeDef
+# TagResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.Tag]
+- **Required**: Yes
+
+
+# Test
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TestGridProject
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -2148,37 +2154,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridVpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridVpcConfigOutput]
 
 ### created
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TestGridSessionActionTypeDef
-
-### action
-- **Type**: typing.Optional[str]
-
-### started
-- **Type**: typing.Optional[datetime.datetime]
-
-### duration
-- **Type**: typing.Optional[int]
-
-### statusCode
-- **Type**: typing.Optional[str]
-
-### requestMethod
-- **Type**: typing.Optional[str]
-
-
-# TestGridSessionArtifactTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# TestGridSessionTypeDef
+# TestGridSession
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -2199,22 +2181,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestGridVpcConfigOutputTypeDef
+# TestGridSessionAction
 
-### securityGroupIds
-- **Type**: typing.List[str]
-- **Required**: Yes
+### action
+- **Type**: typing.Optional[str]
 
-### subnetIds
-- **Type**: typing.List[str]
-- **Required**: Yes
+### started
+- **Type**: typing.Optional[datetime.datetime]
 
-### vpcId
-- **Type**: <class 'str'>
-- **Required**: Yes
+### duration
+- **Type**: typing.Optional[int]
+
+### statusCode
+- **Type**: typing.Optional[str]
+
+### requestMethod
+- **Type**: typing.Optional[str]
 
 
-# TestGridVpcConfigTypeDef
+# TestGridSessionArtifact
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TestGridVpcConfig
 
 ### securityGroupIds
 - **Type**: typing.Sequence[str]
@@ -2229,25 +2220,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestGridVpcConfigUnionTypeDef
+# TestGridVpcConfigOutput
+
+### securityGroupIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### subnetIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### vpcId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# TestGridVpcConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TestTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TimestampTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# TrialMinutesTypeDef
+# TrialMinutes
 
 ### total
 - **Type**: typing.Optional[float]
@@ -2256,16 +2256,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# UniqueProblemTypeDef
+# UniqueProblem
 
 ### message
 - **Type**: typing.Optional[str]
 
 ### problems
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.ProblemTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devicefarm_classes.Problem]]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2276,7 +2276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDeviceInstanceRequestTypeDef
+# UpdateDeviceInstanceRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -2289,18 +2289,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateDeviceInstanceResultTypeDef
+# UpdateDeviceInstanceResult
 
 ### deviceInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DeviceInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DeviceInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDevicePoolRequestTypeDef
+# UpdateDevicePoolRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -2313,7 +2313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.RuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.devicefarm_classes.Rule]]
 
 ### maxDevices
 - **Type**: typing.Optional[int]
@@ -2322,18 +2322,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateDevicePoolResultTypeDef
+# UpdateDevicePoolResult
 
 ### devicePool
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DevicePoolTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.DevicePool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateInstanceProfileRequestTypeDef
+# UpdateInstanceProfileRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -2355,29 +2355,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateInstanceProfileResultTypeDef
+# UpdateInstanceProfileResult
 
 ### instanceProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.InstanceProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateNetworkProfileResultTypeDef
+# UpdateNetworkProfileResult
 
 ### networkProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.NetworkProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.NetworkProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateProjectRequestTypeDef
+# UpdateProjectRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -2390,21 +2390,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.VpcConfigUnion]
 
 
-# UpdateProjectResultTypeDef
+# UpdateProjectResult
 
 ### project
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Project'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTestGridProjectRequestTypeDef
+# UpdateTestGridProjectRequest
 
 ### projectArn
 - **Type**: <class 'str'>
@@ -2417,21 +2417,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridVpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devicefarm_classes.TestGridVpcConfigUnion]
 
 
-# UpdateTestGridProjectResultTypeDef
+# UpdateTestGridProjectResult
 
 ### testGridProject
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.TestGridProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.TestGridProject'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateUploadRequestTypeDef
+# UpdateUploadRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -2447,18 +2447,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateUploadResultTypeDef
+# UpdateUploadResult
 
 ### upload
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.UploadTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.Upload'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateVPCEConfigurationRequestTypeDef
+# UpdateVPCEConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -2477,24 +2477,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateVPCEConfigurationResultTypeDef
+# UpdateVPCEConfigurationResult
 
 ### vpceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.VPCEConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.VPCEConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devicefarm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UploadTypeDef
+# Upload
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# VPCEConfigurationTypeDef
+# VPCEConfiguration
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -2512,22 +2512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VpcConfigOutputTypeDef
-
-### securityGroupIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### subnetIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### vpcId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# VpcConfigTypeDef
+# VpcConfig
 
 ### securityGroupIds
 - **Type**: typing.Sequence[str]
@@ -2542,7 +2527,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VpcConfigUnionTypeDef
+# VpcConfigOutput
+
+### securityGroupIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### subnetIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### vpcId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# VpcConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

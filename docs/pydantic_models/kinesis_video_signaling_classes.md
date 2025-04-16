@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetIceServerConfigRequestTypeDef
+# GetIceServerConfigRequest
 
 ### ChannelARN
 - **Type**: <class 'str'>
@@ -22,18 +22,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetIceServerConfigResponseTypeDef
+# GetIceServerConfigResponse
 
 ### IceServerList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesis_video_signaling_classes.IceServerTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesis_video_signaling_classes.IceServer]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_signaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_signaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IceServerTypeDef
+# IceServer
 
 ### Uris
 - **Type**: typing.Optional[typing.List[str]]
@@ -48,7 +48,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -70,7 +70,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendAlexaOfferToMasterRequestTypeDef
+# SendAlexaOfferToMasterRequest
 
 ### ChannelARN
 - **Type**: <class 'str'>
@@ -85,14 +85,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendAlexaOfferToMasterResponseTypeDef
+# SendAlexaOfferToMasterResponse
 
 ### Answer
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_signaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_signaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

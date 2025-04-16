@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.applicationcostprofiler_constants import *
 
-class DeleteReportDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteReportDefinitionRequest(BaseValidatorModel):
     reportId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,67 +24,67 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetReportDefinitionRequestTypeDef(BaseValidatorModel):
+class GetReportDefinitionRequest(BaseValidatorModel):
     reportId: str
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     bucket: str
     prefix: str
 
 
-class SourceS3LocationTypeDef(BaseValidatorModel):
+class SourceS3Location(BaseValidatorModel):
     bucket: str
     key: str
     region: Optional[S3BucketRegionType] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListReportDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListReportDefinitionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class DeleteReportDefinitionResultTypeDef(BaseValidatorModel):
+class DeleteReportDefinitionResult(BaseValidatorModel):
     reportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportApplicationUsageResultTypeDef(BaseValidatorModel):
+class ImportApplicationUsageResult(BaseValidatorModel):
     importId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutReportDefinitionResultTypeDef(BaseValidatorModel):
+class PutReportDefinitionResult(BaseValidatorModel):
     reportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateReportDefinitionResultTypeDef(BaseValidatorModel):
+class UpdateReportDefinitionResult(BaseValidatorModel):
     reportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportApplicationUsageRequestTypeDef(BaseValidatorModel):
-    sourceS3Location: SourceS3LocationTypeDef
+class ImportApplicationUsageRequest(BaseValidatorModel):
+    sourceS3Location: SourceS3Location
 
 
-class ListReportDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListReportDefinitionsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ReportDefinitionTypeDef(BaseValidatorModel):
+class ReportDefinition(BaseValidatorModel):
     pass
 
 
-class ListReportDefinitionsResultTypeDef(BaseValidatorModel):
-    reportDefinitions: List[ReportDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReportDefinitionsResult(BaseValidatorModel):
+    reportDefinitions: List[ReportDefinition]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

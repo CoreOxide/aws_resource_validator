@@ -1,24 +1,30 @@
 # Imagebuilder Classes
 
-# AccountAggregationTypeDef
+# AccountAggregation
 
 ### accountId
 - **Type**: typing.Optional[str]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SeverityCountsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SeverityCounts]
 
 
-# AdditionalInstanceConfigurationTypeDef
+# AdditionalInstanceConfiguration
 
 ### systemsManagerAgent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SystemsManagerAgentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SystemsManagerAgent]
 
 ### userDataOverride
 - **Type**: typing.Optional[str]
 
 
-# AmiDistributionConfigurationOutputTypeDef
+# Ami
+
+### region
+- **Type**: typing.Optional[str]
+
+### image
+- **Type**: typing.Optional[str]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -26,20 +32,14 @@
 ### description
 - **Type**: typing.Optional[str]
 
-### targetAccountIds
-- **Type**: typing.Optional[typing.List[str]]
+### state
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageState]
 
-### amiTags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### kmsKeyId
+### accountId
 - **Type**: typing.Optional[str]
 
-### launchPermission
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LaunchPermissionConfigurationOutputTypeDef]
 
-
-# AmiDistributionConfigurationTypeDef
+# AmiDistributionConfiguration
 
 ### name
 - **Type**: typing.Optional[str]
@@ -57,22 +57,10 @@
 - **Type**: typing.Optional[str]
 
 ### launchPermission
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LaunchPermissionConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LaunchPermissionConfigurationUnion]
 
 
-# AmiDistributionConfigurationUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AmiTypeDef
-
-### region
-- **Type**: typing.Optional[str]
-
-### image
-- **Type**: typing.Optional[str]
+# AmiDistributionConfigurationOutput
 
 ### name
 - **Type**: typing.Optional[str]
@@ -80,12 +68,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### description
 - **Type**: typing.Optional[str]
 
-### state
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageStateTypeDef]
+### targetAccountIds
+- **Type**: typing.Optional[typing.List[str]]
 
-### accountId
+### amiTags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### kmsKeyId
 - **Type**: typing.Optional[str]
 
+### launchPermission
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LaunchPermissionConfigurationOutput]
+
+
+# AmiDistributionConfigurationUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -93,7 +93,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelImageCreationRequestTypeDef
+# CancelImageCreationRequest
 
 ### imageBuildVersionArn
 - **Type**: <class 'str'>
@@ -104,7 +104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelImageCreationResponseTypeDef
+# CancelImageCreationResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -119,11 +119,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelLifecycleExecutionRequestTypeDef
+# CancelLifecycleExecutionRequest
 
 ### lifecycleExecutionId
 - **Type**: <class 'str'>
@@ -134,55 +134,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelLifecycleExecutionResponseTypeDef
+# CancelLifecycleExecutionResponse
 
 ### lifecycleExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ComponentConfigurationOutputTypeDef
-
-### componentArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentParameterOutputTypeDef]]
-
-
-# ComponentConfigurationTypeDef
-
-### componentArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentParameterUnionTypeDef]]
-
-
-# ComponentConfigurationUnionTypeDef
+# Component
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ComponentParameterOutputTypeDef
+# ComponentConfiguration
 
-### name
+### componentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### value
-- **Type**: typing.List[str]
+### parameters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentParameterUnion]]
+
+
+# ComponentConfigurationOutput
+
+### componentArn
+- **Type**: <class 'str'>
 - **Required**: Yes
 
+### parameters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentParameterOutput]]
 
-# ComponentParameterTypeDef
+
+# ComponentConfigurationUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ComponentParameter
 
 ### name
 - **Type**: <class 'str'>
@@ -193,13 +188,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ComponentParameterUnionTypeDef
+# ComponentParameterOutput
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# ComponentParameterUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ComponentStateTypeDef
+# ComponentState
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DEPRECATED', 'DISABLED']]
@@ -208,41 +214,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ComponentSummaryTypeDef
+# ComponentSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ComponentTypeDef
+# ComponentVersion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ComponentVersionTypeDef
+# Container
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ContainerDistributionConfigurationOutputTypeDef
-
-### targetRepository
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.TargetContainerRepositoryTypeDef'>
-- **Required**: Yes
-
-### description
+### region
 - **Type**: typing.Optional[str]
 
-### containerTags
+### imageUris
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ContainerDistributionConfigurationTypeDef
+# ContainerDistributionConfiguration
 
 ### targetRepository
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.TargetContainerRepositoryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.TargetContainerRepository'>
 - **Required**: Yes
 
 ### description
@@ -252,40 +248,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ContainerDistributionConfigurationUnionTypeDef
+# ContainerDistributionConfigurationOutput
+
+### targetRepository
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.TargetContainerRepository'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### containerTags
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ContainerDistributionConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContainerRecipeSummaryTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### containerType
-- **Type**: typing.Optional[typing.Literal['DOCKER']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### platform
-- **Type**: typing.Optional[typing.Literal['Linux', 'Windows', 'macOS']]
-
-### owner
-- **Type**: typing.Optional[str]
-
-### parentImage
-- **Type**: typing.Optional[str]
-
-### dateCreated
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# ContainerRecipeTypeDef
+# ContainerRecipe
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -309,10 +291,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### components
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentConfigurationOutput]]
 
 ### instanceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceConfigurationOutput]
 
 ### dockerfileTemplateData
 - **Type**: typing.Optional[str]
@@ -336,19 +318,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### targetRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.TargetContainerRepositoryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.TargetContainerRepository]
 
 
-# ContainerTypeDef
+# ContainerRecipeSummary
 
-### region
+### arn
 - **Type**: typing.Optional[str]
 
-### imageUris
-- **Type**: typing.Optional[typing.List[str]]
+### containerType
+- **Type**: typing.Optional[typing.Literal['DOCKER']]
+
+### name
+- **Type**: typing.Optional[str]
+
+### platform
+- **Type**: typing.Optional[typing.Literal['Linux', 'Windows', 'macOS']]
+
+### owner
+- **Type**: typing.Optional[str]
+
+### parentImage
+- **Type**: typing.Optional[str]
+
+### dateCreated
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# CreateComponentRequestTypeDef
+# CreateComponentRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -388,7 +388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateComponentResponseTypeDef
+# CreateComponentResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -403,11 +403,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateContainerRecipeRequestTypeDef
+# CreateContainerRecipeRequest
 
 ### containerType
 - **Type**: typing.Literal['DOCKER']
@@ -422,7 +422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### components
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentConfigurationUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentConfigurationUnion]
 - **Required**: Yes
 
 ### parentImage
@@ -430,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### targetRepository
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.TargetContainerRepositoryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.TargetContainerRepository'>
 - **Required**: Yes
 
 ### clientToken
@@ -441,7 +441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### instanceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceConfigurationUnion]
 
 ### dockerfileTemplateData
 - **Type**: typing.Optional[str]
@@ -465,7 +465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateContainerRecipeResponseTypeDef
+# CreateContainerRecipeResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -480,18 +480,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDistributionConfigurationRequestTypeDef
+# CreateDistributionConfigurationRequest
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### distributions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionUnion]
 - **Required**: Yes
 
 ### clientToken
@@ -505,7 +505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateDistributionConfigurationResponseTypeDef
+# CreateDistributionConfigurationResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -520,11 +520,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateImagePipelineRequestTypeDef
+# CreateImagePipelineRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -551,13 +551,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imageTestsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageTestsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageTestsConfiguration]
 
 ### enhancedImageMetadataEnabled
 - **Type**: typing.Optional[bool]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ScheduleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Schedule]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -566,16 +566,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### imageScanningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanningConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanningConfigurationUnion]
 
 ### workflows
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowConfigurationUnion]]
 
 ### executionRole
 - **Type**: typing.Optional[str]
 
 
-# CreateImagePipelineResponseTypeDef
+# CreateImagePipelineResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -590,11 +590,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateImageRecipeRequestTypeDef
+# CreateImageRecipeRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -605,7 +605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### components
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentConfigurationUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentConfigurationUnion]
 - **Required**: Yes
 
 ### parentImage
@@ -620,7 +620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### blockDeviceMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceBlockDeviceMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceBlockDeviceMapping]]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -629,10 +629,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### additionalInstanceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.AdditionalInstanceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.AdditionalInstanceConfiguration]
 
 
-# CreateImageRecipeResponseTypeDef
+# CreateImageRecipeResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -647,11 +647,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateImageRequestTypeDef
+# CreateImageRequest
 
 ### infrastructureConfigurationArn
 - **Type**: <class 'str'>
@@ -671,7 +671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imageTestsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageTestsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageTestsConfiguration]
 
 ### enhancedImageMetadataEnabled
 - **Type**: typing.Optional[bool]
@@ -680,16 +680,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### imageScanningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanningConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanningConfigurationUnion]
 
 ### workflows
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowConfigurationUnion]]
 
 ### executionRole
 - **Type**: typing.Optional[str]
 
 
-# CreateImageResponseTypeDef
+# CreateImageResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -704,11 +704,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateInfrastructureConfigurationRequestTypeDef
+# CreateInfrastructureConfigurationRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -735,7 +735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LoggingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Logging]
 
 ### keyPair
 - **Type**: typing.Optional[str]
@@ -750,16 +750,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### instanceMetadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceMetadataOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceMetadataOptions]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### placement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.PlacementTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Placement]
 
 
-# CreateInfrastructureConfigurationResponseTypeDef
+# CreateInfrastructureConfigurationResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -774,11 +774,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLifecyclePolicyRequestTypeDef
+# CreateLifecyclePolicyRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -793,11 +793,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### policyDetails
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailUnion]
 - **Required**: Yes
 
 ### resourceSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionUnion'>
 - **Required**: Yes
 
 ### clientToken
@@ -814,7 +814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateLifecyclePolicyResponseTypeDef
+# CreateLifecyclePolicyResponse
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -825,11 +825,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateWorkflowResponseTypeDef
+# CreateWorkflowResponse
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -840,11 +840,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CvssScoreAdjustmentTypeDef
+# CvssScore
+
+### baseScore
+- **Type**: typing.Optional[float]
+
+### scoringVector
+- **Type**: typing.Optional[str]
+
+### version
+- **Type**: typing.Optional[str]
+
+### source
+- **Type**: typing.Optional[str]
+
+
+# CvssScoreAdjustment
 
 ### metric
 - **Type**: typing.Optional[str]
@@ -853,7 +868,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CvssScoreDetailsTypeDef
+# CvssScoreDetails
 
 ### scoreSource
 - **Type**: typing.Optional[str]
@@ -871,32 +886,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### adjustments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.CvssScoreAdjustmentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.CvssScoreAdjustment]]
 
 
-# CvssScoreTypeDef
-
-### baseScore
-- **Type**: typing.Optional[float]
-
-### scoringVector
-- **Type**: typing.Optional[str]
-
-### version
-- **Type**: typing.Optional[str]
-
-### source
-- **Type**: typing.Optional[str]
-
-
-# DeleteComponentRequestTypeDef
+# DeleteComponentRequest
 
 ### componentBuildVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteComponentResponseTypeDef
+# DeleteComponentResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -907,18 +907,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteContainerRecipeRequestTypeDef
+# DeleteContainerRecipeRequest
 
 ### containerRecipeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteContainerRecipeResponseTypeDef
+# DeleteContainerRecipeResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -929,18 +929,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDistributionConfigurationRequestTypeDef
+# DeleteDistributionConfigurationRequest
 
 ### distributionConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDistributionConfigurationResponseTypeDef
+# DeleteDistributionConfigurationResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -951,18 +951,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteImagePipelineRequestTypeDef
+# DeleteImagePipelineRequest
 
 ### imagePipelineArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteImagePipelineResponseTypeDef
+# DeleteImagePipelineResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -973,18 +973,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteImageRecipeRequestTypeDef
+# DeleteImageRecipeRequest
 
 ### imageRecipeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteImageRecipeResponseTypeDef
+# DeleteImageRecipeResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -995,18 +995,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteImageRequestTypeDef
+# DeleteImageRequest
 
 ### imageBuildVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteImageResponseTypeDef
+# DeleteImageResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -1017,18 +1017,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteInfrastructureConfigurationRequestTypeDef
+# DeleteInfrastructureConfigurationRequest
 
 ### infrastructureConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInfrastructureConfigurationResponseTypeDef
+# DeleteInfrastructureConfigurationResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -1039,47 +1039,100 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteLifecyclePolicyRequestTypeDef
+# DeleteLifecyclePolicyRequest
 
 ### lifecyclePolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLifecyclePolicyResponseTypeDef
+# DeleteLifecyclePolicyResponse
 
 ### lifecyclePolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteWorkflowRequestTypeDef
+# DeleteWorkflowRequest
 
 ### workflowBuildVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteWorkflowResponseTypeDef
+# DeleteWorkflowResponse
 
 ### workflowBuildVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DistributionConfigurationSummaryTypeDef
+# Distribution
+
+### region
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### amiDistributionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.AmiDistributionConfigurationUnion]
+
+### containerDistributionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ContainerDistributionConfigurationUnion]
+
+### licenseConfigurationArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### launchTemplateConfigurations
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.LaunchTemplateConfiguration]]
+
+### s3ExportConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.S3ExportConfiguration]
+
+### fastLaunchConfigurations
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FastLaunchConfiguration]]
+
+
+# DistributionConfiguration
+
+### timeoutMinutes
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### distributions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionOutput]]
+
+### dateCreated
+- **Type**: typing.Optional[str]
+
+### dateUpdated
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# DistributionConfigurationSummary
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1103,91 +1156,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# DistributionConfigurationTypeDef
-
-### timeoutMinutes
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### distributions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionOutputTypeDef]]
-
-### dateCreated
-- **Type**: typing.Optional[str]
-
-### dateUpdated
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# DistributionOutputTypeDef
+# DistributionOutput
 
 ### region
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### amiDistributionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.AmiDistributionConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.AmiDistributionConfigurationOutput]
 
 ### containerDistributionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ContainerDistributionConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ContainerDistributionConfigurationOutput]
 
 ### licenseConfigurationArns
 - **Type**: typing.Optional[typing.List[str]]
 
 ### launchTemplateConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LaunchTemplateConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LaunchTemplateConfiguration]]
 
 ### s3ExportConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.S3ExportConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.S3ExportConfiguration]
 
 ### fastLaunchConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.FastLaunchConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.FastLaunchConfiguration]]
 
 
-# DistributionTypeDef
-
-### region
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### amiDistributionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.AmiDistributionConfigurationUnionTypeDef]
-
-### containerDistributionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ContainerDistributionConfigurationUnionTypeDef]
-
-### licenseConfigurationArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### launchTemplateConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.LaunchTemplateConfigurationTypeDef]]
-
-### s3ExportConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.S3ExportConfigurationTypeDef]
-
-### fastLaunchConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FastLaunchConfigurationTypeDef]]
-
-
-# DistributionUnionTypeDef
+# DistributionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EbsInstanceBlockDeviceSpecificationTypeDef
+# EbsInstanceBlockDeviceSpecification
 
 ### encrypted
 - **Type**: typing.Optional[bool]
@@ -1214,16 +1214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EcrConfigurationOutputTypeDef
-
-### repositoryName
-- **Type**: typing.Optional[str]
-
-### containerTags
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# EcrConfigurationTypeDef
+# EcrConfiguration
 
 ### repositoryName
 - **Type**: typing.Optional[str]
@@ -1232,26 +1223,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# FastLaunchConfigurationTypeDef
+# EcrConfigurationOutput
+
+### repositoryName
+- **Type**: typing.Optional[str]
+
+### containerTags
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# FastLaunchConfiguration
 
 ### enabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### snapshotConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.FastLaunchSnapshotConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.FastLaunchSnapshotConfiguration]
 
 ### maxParallelLaunches
 - **Type**: typing.Optional[int]
 
 ### launchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.FastLaunchLaunchTemplateSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.FastLaunchLaunchTemplateSpecification]
 
 ### accountId
 - **Type**: typing.Optional[str]
 
 
-# FastLaunchLaunchTemplateSpecificationTypeDef
+# FastLaunchLaunchTemplateSpecification
 
 ### launchTemplateId
 - **Type**: typing.Optional[str]
@@ -1263,13 +1263,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FastLaunchSnapshotConfigurationTypeDef
+# FastLaunchSnapshotConfiguration
 
 ### targetResourceCount
 - **Type**: typing.Optional[int]
 
 
-# FilterTypeDef
+# Filter
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1278,14 +1278,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetComponentPolicyRequestTypeDef
+# GetComponentPolicyRequest
 
 ### componentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetComponentPolicyResponseTypeDef
+# GetComponentPolicyResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -1296,40 +1296,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetComponentRequestTypeDef
+# GetComponentRequest
 
 ### componentBuildVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetComponentResponseTypeDef
+# GetComponentResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### component
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.Component'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetContainerRecipePolicyRequestTypeDef
+# GetContainerRecipePolicyRequest
 
 ### containerRecipeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetContainerRecipePolicyResponseTypeDef
+# GetContainerRecipePolicyResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -1340,84 +1340,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetContainerRecipeRequestTypeDef
+# GetContainerRecipeRequest
 
 ### containerRecipeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetContainerRecipeResponseTypeDef
+# GetContainerRecipeResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### containerRecipe
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ContainerRecipeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ContainerRecipe'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDistributionConfigurationRequestTypeDef
+# GetDistributionConfigurationRequest
 
 ### distributionConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDistributionConfigurationResponseTypeDef
+# GetDistributionConfigurationResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### distributionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImagePipelineRequestTypeDef
+# GetImagePipelineRequest
 
 ### imagePipelineArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetImagePipelineResponseTypeDef
+# GetImagePipelineResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### imagePipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ImagePipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ImagePipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImagePolicyRequestTypeDef
+# GetImagePolicyRequest
 
 ### imageArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetImagePolicyResponseTypeDef
+# GetImagePolicyResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -1428,18 +1428,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImageRecipePolicyRequestTypeDef
+# GetImageRecipePolicyRequest
 
 ### imageRecipeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetImageRecipePolicyResponseTypeDef
+# GetImageRecipePolicyResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -1450,113 +1450,113 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImageRecipeRequestTypeDef
+# GetImageRecipeRequest
 
 ### imageRecipeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetImageRecipeResponseTypeDef
+# GetImageRecipeResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### imageRecipe
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ImageRecipeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ImageRecipe'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImageRequestTypeDef
+# GetImageRequest
 
 ### imageBuildVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetImageResponseTypeDef
+# GetImageResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### image
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ImageTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.Image'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetInfrastructureConfigurationRequestTypeDef
+# GetInfrastructureConfigurationRequest
 
 ### infrastructureConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetInfrastructureConfigurationResponseTypeDef
+# GetInfrastructureConfigurationResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### infrastructureConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.InfrastructureConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.InfrastructureConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLifecycleExecutionRequestTypeDef
+# GetLifecycleExecutionRequest
 
 ### lifecycleExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLifecycleExecutionResponseTypeDef
+# GetLifecycleExecutionResponse
 
 ### lifecycleExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecution'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLifecyclePolicyRequestTypeDef
+# GetLifecyclePolicyRequest
 
 ### lifecyclePolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLifecyclePolicyResponseTypeDef
+# GetLifecyclePolicyResponse
 
 ### lifecyclePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMarketplaceResourceRequestTypeDef
+# GetMarketplaceResourceRequest
 
 ### resourceType
 - **Type**: typing.Literal['COMPONENT_ARTIFACT', 'COMPONENT_DATA']
@@ -1570,7 +1570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetMarketplaceResourceResponseTypeDef
+# GetMarketplaceResourceResponse
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1585,43 +1585,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetWorkflowExecutionRequestTypeDef
+# GetWorkflowExecutionRequest
 
 ### workflowExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetWorkflowRequestTypeDef
+# GetWorkflowRequest
 
 ### workflowBuildVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetWorkflowResponseTypeDef
+# GetWorkflowResponse
 
 ### workflow
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.Workflow'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetWorkflowStepExecutionRequestTypeDef
+# GetWorkflowStepExecutionRequest
 
 ### stepExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetWorkflowStepExecutionResponseTypeDef
+# GetWorkflowStepExecutionResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -1692,20 +1692,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImageAggregationTypeDef
+# Image
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ImageAggregation
 
 ### imageBuildVersionArn
 - **Type**: typing.Optional[str]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SeverityCountsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SeverityCounts]
 
 
-# ImagePackageTypeDef
+# ImagePackage
 
 ### packageName
 - **Type**: typing.Optional[str]
@@ -1714,16 +1720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImagePipelineAggregationTypeDef
-
-### imagePipelineArn
-- **Type**: typing.Optional[str]
-
-### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SeverityCountsTypeDef]
-
-
-# ImagePipelineTypeDef
+# ImagePipeline
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1753,10 +1750,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imageTestsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageTestsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageTestsConfiguration]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ScheduleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Schedule]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -1777,16 +1774,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### imageScanningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanningConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanningConfigurationOutput]
 
 ### executionRole
 - **Type**: typing.Optional[str]
 
 ### workflows
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowConfigurationOutput]]
 
 
-# ImageRecipeSummaryTypeDef
+# ImagePipelineAggregation
+
+### imagePipelineArn
+- **Type**: typing.Optional[str]
+
+### severityCounts
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SeverityCounts]
+
+
+# ImageRecipe
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ImageRecipeSummary
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1810,34 +1822,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ImageRecipeTypeDef
+# ImageScanFinding
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ImageScanFindingAggregationTypeDef
+# ImageScanFindingAggregation
 
 ### accountAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.AccountAggregationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.AccountAggregation]
 
 ### imageAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageAggregationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageAggregation]
 
 ### imagePipelineAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImagePipelineAggregationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImagePipelineAggregation]
 
 ### vulnerabilityIdAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.VulnerabilityIdAggregationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.VulnerabilityIdAggregation]
 
 
-# ImageScanFindingTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ImageScanFindingsFilterTypeDef
+# ImageScanFindingsFilter
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1846,7 +1852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ImageScanStateTypeDef
+# ImageScanState
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ABANDONED', 'COLLECTING', 'COMPLETED', 'FAILED', 'PENDING', 'SCANNING', 'TIMED_OUT']]
@@ -1855,31 +1861,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImageScanningConfigurationOutputTypeDef
+# ImageScanningConfiguration
 
 ### imageScanningEnabled
 - **Type**: typing.Optional[bool]
 
 ### ecrConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.EcrConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.EcrConfiguration]
 
 
-# ImageScanningConfigurationTypeDef
+# ImageScanningConfigurationOutput
 
 ### imageScanningEnabled
 - **Type**: typing.Optional[bool]
 
 ### ecrConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.EcrConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.EcrConfigurationOutput]
 
 
-# ImageScanningConfigurationUnionTypeDef
+# ImageScanningConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ImageStateTypeDef
+# ImageState
 
 ### status
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'BUILDING', 'CANCELLED', 'CREATING', 'DELETED', 'DEPRECATED', 'DISABLED', 'DISTRIBUTING', 'FAILED', 'INTEGRATING', 'PENDING', 'TESTING']]
@@ -1888,13 +1894,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImageSummaryTypeDef
+# ImageSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ImageTestsConfigurationTypeDef
+# ImageTestsConfiguration
 
 ### imageTestsEnabled
 - **Type**: typing.Optional[bool]
@@ -1903,19 +1909,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ImageTypeDef
+# ImageVersion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ImageVersionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ImportComponentResponseTypeDef
+# ImportComponentResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -1930,11 +1930,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImportDiskImageRequestTypeDef
+# ImportDiskImageRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -1974,7 +1974,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ImportDiskImageResponseTypeDef
+# ImportDiskImageResponse
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -1985,11 +1985,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImportVmImageRequestTypeDef
+# ImportVmImageRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -2021,7 +2021,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ImportVmImageResponseTypeDef
+# ImportVmImageResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -2036,44 +2036,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InfrastructureConfigurationSummaryTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### dateCreated
-- **Type**: typing.Optional[str]
-
-### dateUpdated
-- **Type**: typing.Optional[str]
-
-### resourceTags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### instanceTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-### instanceProfileName
-- **Type**: typing.Optional[str]
-
-### placement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.PlacementTypeDef]
-
-
-# InfrastructureConfigurationTypeDef
+# InfrastructureConfiguration
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -2097,7 +2064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LoggingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Logging]
 
 ### keyPair
 - **Type**: typing.Optional[str]
@@ -2118,28 +2085,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### instanceMetadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceMetadataOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceMetadataOptions]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### placement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.PlacementTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Placement]
 
 
-# InspectorScoreDetailsTypeDef
+# InfrastructureConfigurationSummary
+
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### dateCreated
+- **Type**: typing.Optional[str]
+
+### dateUpdated
+- **Type**: typing.Optional[str]
+
+### resourceTags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### instanceTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### instanceProfileName
+- **Type**: typing.Optional[str]
+
+### placement
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Placement]
+
+
+# InspectorScoreDetails
 
 ### adjustedCvss
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.CvssScoreDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.CvssScoreDetails]
 
 
-# InstanceBlockDeviceMappingTypeDef
+# InstanceBlockDeviceMapping
 
 ### deviceName
 - **Type**: typing.Optional[str]
 
 ### ebs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.EbsInstanceBlockDeviceSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.EbsInstanceBlockDeviceSpecification]
 
 ### virtualName
 - **Type**: typing.Optional[str]
@@ -2148,31 +2148,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InstanceConfigurationOutputTypeDef
+# InstanceConfiguration
 
 ### image
 - **Type**: typing.Optional[str]
 
 ### blockDeviceMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceBlockDeviceMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceBlockDeviceMapping]]
 
 
-# InstanceConfigurationTypeDef
+# InstanceConfigurationOutput
 
 ### image
 - **Type**: typing.Optional[str]
 
 ### blockDeviceMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceBlockDeviceMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceBlockDeviceMapping]]
 
 
-# InstanceConfigurationUnionTypeDef
+# InstanceConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# InstanceMetadataOptionsTypeDef
+# InstanceMetadataOptions
 
 ### httpTokens
 - **Type**: typing.Optional[str]
@@ -2181,22 +2181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LaunchPermissionConfigurationOutputTypeDef
-
-### userIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### userGroups
-- **Type**: typing.Optional[typing.List[str]]
-
-### organizationArns
-- **Type**: typing.Optional[typing.List[str]]
-
-### organizationalUnitArns
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# LaunchPermissionConfigurationTypeDef
+# LaunchPermissionConfiguration
 
 ### userIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -2211,13 +2196,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# LaunchPermissionConfigurationUnionTypeDef
+# LaunchPermissionConfigurationOutput
+
+### userIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### userGroups
+- **Type**: typing.Optional[typing.List[str]]
+
+### organizationArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### organizationalUnitArns
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# LaunchPermissionConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LaunchTemplateConfigurationTypeDef
+# LaunchTemplateConfiguration
 
 ### launchTemplateId
 - **Type**: <class 'str'>
@@ -2230,25 +2230,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LifecycleExecutionResourceActionTypeDef
+# LifecycleExecution
 
-### name
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETE', 'DEPRECATE', 'DISABLE']]
-
-### reason
+### lifecycleExecutionId
 - **Type**: typing.Optional[str]
 
-
-# LifecycleExecutionResourceStateTypeDef
-
-### status
-- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SKIPPED', 'SUCCESS']]
-
-### reason
+### lifecyclePolicyArn
 - **Type**: typing.Optional[str]
 
+### resourcesImpactedSummary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResourcesImpactedSummary]
 
-# LifecycleExecutionResourceTypeDef
+### state
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionState]
+
+### startTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### endTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# LifecycleExecutionResource
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -2257,16 +2260,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### state
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResourceStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResourceState]
 
 ### action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResourceActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResourceAction]
 
 ### region
 - **Type**: typing.Optional[str]
 
 ### snapshots
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionSnapshotResourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionSnapshotResource]]
 
 ### imageUris
 - **Type**: typing.Optional[typing.List[str]]
@@ -2278,22 +2281,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# LifecycleExecutionResourcesImpactedSummaryTypeDef
+# LifecycleExecutionResourceAction
+
+### name
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETE', 'DEPRECATE', 'DISABLE']]
+
+### reason
+- **Type**: typing.Optional[str]
+
+
+# LifecycleExecutionResourceState
+
+### status
+- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SKIPPED', 'SUCCESS']]
+
+### reason
+- **Type**: typing.Optional[str]
+
+
+# LifecycleExecutionResourcesImpactedSummary
 
 ### hasImpactedResources
 - **Type**: typing.Optional[bool]
 
 
-# LifecycleExecutionSnapshotResourceTypeDef
+# LifecycleExecutionSnapshotResource
 
 ### snapshotId
 - **Type**: typing.Optional[str]
 
 ### state
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResourceStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResourceState]
 
 
-# LifecycleExecutionStateTypeDef
+# LifecycleExecutionState
 
 ### status
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'IN_PROGRESS', 'PENDING', 'SUCCESS']]
@@ -2302,191 +2323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LifecycleExecutionTypeDef
-
-### lifecycleExecutionId
-- **Type**: typing.Optional[str]
-
-### lifecyclePolicyArn
-- **Type**: typing.Optional[str]
-
-### resourcesImpactedSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResourcesImpactedSummaryTypeDef]
-
-### state
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionStateTypeDef]
-
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### endTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# LifecyclePolicyDetailActionIncludeResourcesTypeDef
-
-### amis
-- **Type**: typing.Optional[bool]
-
-### snapshots
-- **Type**: typing.Optional[bool]
-
-### containers
-- **Type**: typing.Optional[bool]
-
-
-# LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef
-
-### value
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### unit
-- **Type**: typing.Literal['DAYS', 'MONTHS', 'WEEKS', 'YEARS']
-- **Required**: Yes
-
-
-# LifecyclePolicyDetailExclusionRulesAmisOutputTypeDef
-
-### isPublic
-- **Type**: typing.Optional[bool]
-
-### regions
-- **Type**: typing.Optional[typing.List[str]]
-
-### sharedAccounts
-- **Type**: typing.Optional[typing.List[str]]
-
-### lastLaunched
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef]
-
-### tagMap
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# LifecyclePolicyDetailExclusionRulesAmisTypeDef
-
-### isPublic
-- **Type**: typing.Optional[bool]
-
-### regions
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### sharedAccounts
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### lastLaunched
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef]
-
-### tagMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# LifecyclePolicyDetailExclusionRulesAmisUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# LifecyclePolicyDetailExclusionRulesOutputTypeDef
-
-### tagMap
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### amis
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisOutputTypeDef]
-
-
-# LifecyclePolicyDetailExclusionRulesTypeDef
-
-### tagMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### amis
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisUnionTypeDef]
-
-
-# LifecyclePolicyDetailOutputTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# LifecyclePolicyDetailUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# LifecyclePolicyResourceSelectionOutputTypeDef
-
-### recipes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionRecipeTypeDef]]
-
-### tagMap
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# LifecyclePolicyResourceSelectionRecipeTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### semanticVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# LifecyclePolicyResourceSelectionTypeDef
-
-### recipes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionRecipeTypeDef]]
-
-### tagMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# LifecyclePolicyResourceSelectionUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# LifecyclePolicySummaryTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### executionRole
-- **Type**: typing.Optional[str]
-
-### resourceType
-- **Type**: typing.Optional[typing.Literal['AMI_IMAGE', 'CONTAINER_IMAGE']]
-
-### dateCreated
-- **Type**: typing.Optional[datetime.datetime]
-
-### dateUpdated
-- **Type**: typing.Optional[datetime.datetime]
-
-### dateLastRun
-- **Type**: typing.Optional[datetime.datetime]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# LifecyclePolicyTypeDef
+# LifecyclePolicy
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -2507,10 +2344,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AMI_IMAGE', 'CONTAINER_IMAGE']]
 
 ### policyDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailOutput]]
 
 ### resourceSelection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionOutput]
 
 ### dateCreated
 - **Type**: typing.Optional[datetime.datetime]
@@ -2525,7 +2362,170 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ListComponentBuildVersionsRequestTypeDef
+# LifecyclePolicyDetailActionIncludeResources
+
+### amis
+- **Type**: typing.Optional[bool]
+
+### snapshots
+- **Type**: typing.Optional[bool]
+
+### containers
+- **Type**: typing.Optional[bool]
+
+
+# LifecyclePolicyDetailExclusionRules
+
+### tagMap
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### amis
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisUnion]
+
+
+# LifecyclePolicyDetailExclusionRulesAmis
+
+### isPublic
+- **Type**: typing.Optional[bool]
+
+### regions
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### sharedAccounts
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### lastLaunched
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisLastLaunched]
+
+### tagMap
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# LifecyclePolicyDetailExclusionRulesAmisLastLaunched
+
+### value
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### unit
+- **Type**: typing.Literal['DAYS', 'MONTHS', 'WEEKS', 'YEARS']
+- **Required**: Yes
+
+
+# LifecyclePolicyDetailExclusionRulesAmisOutput
+
+### isPublic
+- **Type**: typing.Optional[bool]
+
+### regions
+- **Type**: typing.Optional[typing.List[str]]
+
+### sharedAccounts
+- **Type**: typing.Optional[typing.List[str]]
+
+### lastLaunched
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisLastLaunched]
+
+### tagMap
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# LifecyclePolicyDetailExclusionRulesAmisUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LifecyclePolicyDetailExclusionRulesOutput
+
+### tagMap
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### amis
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisOutput]
+
+
+# LifecyclePolicyDetailOutput
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LifecyclePolicyDetailUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LifecyclePolicyResourceSelection
+
+### recipes
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionRecipe]]
+
+### tagMap
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# LifecyclePolicyResourceSelectionOutput
+
+### recipes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionRecipe]]
+
+### tagMap
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# LifecyclePolicyResourceSelectionRecipe
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### semanticVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# LifecyclePolicyResourceSelectionUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LifecyclePolicySummary
+
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### executionRole
+- **Type**: typing.Optional[str]
+
+### resourceType
+- **Type**: typing.Optional[typing.Literal['AMI_IMAGE', 'CONTAINER_IMAGE']]
+
+### dateCreated
+- **Type**: typing.Optional[datetime.datetime]
+
+### dateUpdated
+- **Type**: typing.Optional[datetime.datetime]
+
+### dateLastRun
+- **Type**: typing.Optional[datetime.datetime]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# ListComponentBuildVersionsRequest
 
 ### componentVersionArn
 - **Type**: <class 'str'>
@@ -2538,31 +2538,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComponentBuildVersionsResponseTypeDef
+# ListComponentBuildVersionsResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### componentSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListComponentsRequestTypeDef
+# ListComponentsRequest
 
 ### owner
 - **Type**: typing.Optional[typing.Literal['AWSMarketplace', 'Amazon', 'Self', 'Shared', 'ThirdParty']]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### byName
 - **Type**: typing.Optional[bool]
@@ -2574,31 +2574,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComponentsResponseTypeDef
+# ListComponentsResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### componentVersionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentVersionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ComponentVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListContainerRecipesRequestTypeDef
+# ListContainerRecipesRequest
 
 ### owner
 - **Type**: typing.Optional[typing.Literal['AWSMarketplace', 'Amazon', 'Self', 'Shared', 'ThirdParty']]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2607,28 +2607,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContainerRecipesResponseTypeDef
+# ListContainerRecipesResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### containerRecipeSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ContainerRecipeSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ContainerRecipeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionConfigurationsRequestTypeDef
+# ListDistributionConfigurationsRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2637,32 +2637,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionConfigurationsResponseTypeDef
+# ListDistributionConfigurationsResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### distributionConfigurationSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImageBuildVersionsRequestTypeDef
+# ListImageBuildVersionsRequest
 
 ### imageVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2671,25 +2671,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListImageBuildVersionsResponseTypeDef
+# ListImageBuildVersionsResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### imageSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImagePackagesRequestTypeDef
+# ListImagePackagesRequest
 
 ### imageBuildVersionArn
 - **Type**: <class 'str'>
@@ -2702,32 +2702,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListImagePackagesResponseTypeDef
+# ListImagePackagesResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### imagePackageList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImagePackageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImagePackage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImagePipelineImagesRequestTypeDef
+# ListImagePipelineImagesRequest
 
 ### imagePipelineArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2736,28 +2736,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListImagePipelineImagesResponseTypeDef
+# ListImagePipelineImagesResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### imageSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImagePipelinesRequestTypeDef
+# ListImagePipelinesRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2766,31 +2766,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListImagePipelinesResponseTypeDef
+# ListImagePipelinesResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### imagePipelineList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImagePipelineTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImagePipeline]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImageRecipesRequestTypeDef
+# ListImageRecipesRequest
 
 ### owner
 - **Type**: typing.Optional[typing.Literal['AWSMarketplace', 'Amazon', 'Self', 'Shared', 'ThirdParty']]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2799,25 +2799,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListImageRecipesResponseTypeDef
+# ListImageRecipesResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### imageRecipeSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageRecipeSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageRecipeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImageScanFindingAggregationsResponseTypeDef
+# ListImageScanFindingAggregationsResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -2828,21 +2828,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### responses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanFindingAggregationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanFindingAggregation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImageScanFindingsRequestTypeDef
+# ListImageScanFindingsRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanFindingsFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanFindingsFilter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2851,31 +2851,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListImageScanFindingsResponseTypeDef
+# ListImageScanFindingsResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanFindingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanFinding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImagesRequestTypeDef
+# ListImagesRequest
 
 ### owner
 - **Type**: typing.Optional[typing.Literal['AWSMarketplace', 'Amazon', 'Self', 'Shared', 'ThirdParty']]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### byName
 - **Type**: typing.Optional[bool]
@@ -2890,28 +2890,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListImagesResponseTypeDef
+# ListImagesResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### imageVersionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageVersionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListInfrastructureConfigurationsRequestTypeDef
+# ListInfrastructureConfigurationsRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2920,25 +2920,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInfrastructureConfigurationsResponseTypeDef
+# ListInfrastructureConfigurationsResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### infrastructureConfigurationSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.InfrastructureConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.InfrastructureConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLifecycleExecutionResourcesRequestTypeDef
+# ListLifecycleExecutionResourcesRequest
 
 ### lifecycleExecutionId
 - **Type**: <class 'str'>
@@ -2954,29 +2954,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLifecycleExecutionResourcesResponseTypeDef
+# ListLifecycleExecutionResourcesResponse
 
 ### lifecycleExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### lifecycleExecutionState
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionStateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionState'>
 - **Required**: Yes
 
 ### resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLifecycleExecutionsRequestTypeDef
+# ListLifecycleExecutionsRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2989,24 +2989,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLifecycleExecutionsResponseTypeDef
+# ListLifecycleExecutionsResponse
 
 ### lifecycleExecutions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecutionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecycleExecution]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLifecyclePoliciesRequestTypeDef
+# ListLifecyclePoliciesRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -3015,39 +3015,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLifecyclePoliciesResponseTypeDef
+# ListLifecyclePoliciesResponse
 
 ### lifecyclePolicySummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListWaitingWorkflowStepsRequestTypeDef
+# ListWaitingWorkflowStepsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -3056,21 +3056,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWaitingWorkflowStepsResponseTypeDef
+# ListWaitingWorkflowStepsResponse
 
 ### steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowStepExecutionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowStepExecution]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowBuildVersionsRequestTypeDef
+# ListWorkflowBuildVersionsRequest
 
 ### workflowVersionArn
 - **Type**: <class 'str'>
@@ -3083,21 +3083,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowBuildVersionsResponseTypeDef
+# ListWorkflowBuildVersionsResponse
 
 ### workflowSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowExecutionsRequestTypeDef
+# ListWorkflowExecutionsRequest
 
 ### imageBuildVersionArn
 - **Type**: <class 'str'>
@@ -3110,14 +3110,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowExecutionsResponseTypeDef
+# ListWorkflowExecutionsResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### workflowExecutions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowExecutionMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowExecutionMetadata]
 - **Required**: Yes
 
 ### imageBuildVersionArn
@@ -3129,14 +3129,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowStepExecutionsRequestTypeDef
+# ListWorkflowStepExecutionsRequest
 
 ### workflowExecutionId
 - **Type**: <class 'str'>
@@ -3149,14 +3149,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowStepExecutionsResponseTypeDef
+# ListWorkflowStepExecutionsResponse
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowStepMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowStepMetadata]
 - **Required**: Yes
 
 ### workflowBuildVersionArn
@@ -3176,20 +3176,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowsRequestTypeDef
+# ListWorkflowsRequest
 
 ### owner
 - **Type**: typing.Optional[typing.Literal['AWSMarketplace', 'Amazon', 'Self', 'Shared', 'ThirdParty']]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.Filter]]
 
 ### byName
 - **Type**: typing.Optional[bool]
@@ -3201,49 +3201,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowsResponseTypeDef
+# ListWorkflowsResponse
 
 ### workflowVersionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowVersionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# LoggingTypeDef
+# Logging
 
 ### s3Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.S3LogsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.S3Logs]
 
 
-# OutputResourcesTypeDef
+# OutputResources
 
 ### amis
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.AmiTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.Ami]]
 
 ### containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.ContainerTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.Container]]
 
 
-# PackageVulnerabilityDetailsTypeDef
+# PackageVulnerabilityDetails
 
 ### vulnerabilityId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### vulnerablePackages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.VulnerablePackageTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.VulnerablePackage]]
 
 ### source
 - **Type**: typing.Optional[str]
 
 ### cvss
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.CvssScoreTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.CvssScore]]
 
 ### relatedVulnerabilities
 - **Type**: typing.Optional[typing.List[str]]
@@ -3264,7 +3264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PlacementTypeDef
+# Placement
 
 ### availabilityZone
 - **Type**: typing.Optional[str]
@@ -3279,7 +3279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProductCodeListItemTypeDef
+# ProductCodeListItem
 
 ### productCodeId
 - **Type**: <class 'str'>
@@ -3290,7 +3290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutComponentPolicyRequestTypeDef
+# PutComponentPolicyRequest
 
 ### componentArn
 - **Type**: <class 'str'>
@@ -3301,7 +3301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutComponentPolicyResponseTypeDef
+# PutComponentPolicyResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -3312,11 +3312,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutContainerRecipePolicyRequestTypeDef
+# PutContainerRecipePolicyRequest
 
 ### containerRecipeArn
 - **Type**: <class 'str'>
@@ -3327,7 +3327,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutContainerRecipePolicyResponseTypeDef
+# PutContainerRecipePolicyResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -3338,11 +3338,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutImagePolicyRequestTypeDef
+# PutImagePolicyRequest
 
 ### imageArn
 - **Type**: <class 'str'>
@@ -3353,7 +3353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutImagePolicyResponseTypeDef
+# PutImagePolicyResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -3364,11 +3364,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutImageRecipePolicyRequestTypeDef
+# PutImageRecipePolicyRequest
 
 ### imageRecipeArn
 - **Type**: <class 'str'>
@@ -3379,7 +3379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutImageRecipePolicyResponseTypeDef
+# PutImageRecipePolicyResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -3390,11 +3390,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RemediationRecommendationTypeDef
+# Remediation
+
+### recommendation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.RemediationRecommendation]
+
+
+# RemediationRecommendation
 
 ### text
 - **Type**: typing.Optional[str]
@@ -3403,25 +3409,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemediationTypeDef
-
-### recommendation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.RemediationRecommendationTypeDef]
-
-
-# ResourceStateTypeDef
+# ResourceState
 
 ### status
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'DEPRECATED', 'DISABLED']]
 
 
-# ResourceStateUpdateExclusionRulesTypeDef
+# ResourceStateUpdateExclusionRules
 
 ### amis
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailExclusionRulesAmisUnion]
 
 
-# ResourceStateUpdateIncludeResourcesTypeDef
+# ResourceStateUpdateIncludeResources
 
 ### amis
 - **Type**: typing.Optional[bool]
@@ -3433,7 +3433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -3455,7 +3455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3ExportConfigurationTypeDef
+# S3ExportConfiguration
 
 ### roleName
 - **Type**: <class 'str'>
@@ -3473,7 +3473,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3LogsTypeDef
+# S3Logs
 
 ### s3BucketName
 - **Type**: typing.Optional[str]
@@ -3482,7 +3482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScheduleTypeDef
+# Schedule
 
 ### scheduleExpression
 - **Type**: typing.Optional[str]
@@ -3494,7 +3494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE', 'EXPRESSION_MATCH_ONLY']]
 
 
-# SendWorkflowStepActionRequestTypeDef
+# SendWorkflowStepActionRequest
 
 ### stepExecutionId
 - **Type**: <class 'str'>
@@ -3516,7 +3516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendWorkflowStepActionResponseTypeDef
+# SendWorkflowStepActionResponse
 
 ### stepExecutionId
 - **Type**: <class 'str'>
@@ -3531,17 +3531,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SeverityCountsTypeDef
+# SeverityCounts
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StartImagePipelineExecutionRequestTypeDef
+# StartImagePipelineExecutionRequest
 
 ### imagePipelineArn
 - **Type**: <class 'str'>
@@ -3552,7 +3552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartImagePipelineExecutionResponseTypeDef
+# StartImagePipelineExecutionResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -3567,18 +3567,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartResourceStateUpdateRequestTypeDef
+# StartResourceStateUpdateRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### state
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResourceStateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResourceState'>
 - **Required**: Yes
 
 ### clientToken
@@ -3589,16 +3589,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### includeResources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ResourceStateUpdateIncludeResourcesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ResourceStateUpdateIncludeResources]
 
 ### exclusionRules
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ResourceStateUpdateExclusionRulesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ResourceStateUpdateExclusionRules]
 
 ### updateAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Timestamp]
 
 
-# StartResourceStateUpdateResponseTypeDef
+# StartResourceStateUpdateResponse
 
 ### lifecycleExecutionId
 - **Type**: <class 'str'>
@@ -3609,17 +3609,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SystemsManagerAgentTypeDef
+# SystemsManagerAgent
 
 ### uninstallAfterBuild
 - **Type**: typing.Optional[bool]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3630,7 +3630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetContainerRepositoryTypeDef
+# TargetContainerRepository
 
 ### service
 - **Type**: typing.Literal['ECR']
@@ -3641,13 +3641,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3658,14 +3658,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDistributionConfigurationRequestTypeDef
+# UpdateDistributionConfigurationRequest
 
 ### distributionConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### distributions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.DistributionUnion]
 - **Required**: Yes
 
 ### clientToken
@@ -3676,7 +3676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDistributionConfigurationResponseTypeDef
+# UpdateDistributionConfigurationResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -3691,11 +3691,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateImagePipelineRequestTypeDef
+# UpdateImagePipelineRequest
 
 ### imagePipelineArn
 - **Type**: <class 'str'>
@@ -3722,28 +3722,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imageTestsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageTestsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageTestsConfiguration]
 
 ### enhancedImageMetadataEnabled
 - **Type**: typing.Optional[bool]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ScheduleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Schedule]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### imageScanningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanningConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.ImageScanningConfigurationUnion]
 
 ### workflows
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowConfigurationUnion]]
 
 ### executionRole
 - **Type**: typing.Optional[str]
 
 
-# UpdateImagePipelineResponseTypeDef
+# UpdateImagePipelineResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -3758,11 +3758,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateInfrastructureConfigurationRequestTypeDef
+# UpdateInfrastructureConfigurationRequest
 
 ### infrastructureConfigurationArn
 - **Type**: <class 'str'>
@@ -3789,7 +3789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.LoggingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Logging]
 
 ### keyPair
 - **Type**: typing.Optional[str]
@@ -3804,13 +3804,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### instanceMetadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceMetadataOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.InstanceMetadataOptions]
 
 ### placement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.PlacementTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.Placement]
 
 
-# UpdateInfrastructureConfigurationResponseTypeDef
+# UpdateInfrastructureConfigurationResponse
 
 ### requestId
 - **Type**: <class 'str'>
@@ -3825,11 +3825,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateLifecyclePolicyRequestTypeDef
+# UpdateLifecyclePolicyRequest
 
 ### lifecyclePolicyArn
 - **Type**: <class 'str'>
@@ -3844,11 +3844,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### policyDetails
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyDetailUnion]
 - **Required**: Yes
 
 ### resourceSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.LifecyclePolicyResourceSelectionUnion'>
 - **Required**: Yes
 
 ### clientToken
@@ -3862,27 +3862,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# UpdateLifecyclePolicyResponseTypeDef
+# UpdateLifecyclePolicyResponse
 
 ### lifecyclePolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.imagebuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VulnerabilityIdAggregationTypeDef
+# VulnerabilityIdAggregation
 
 ### vulnerabilityId
 - **Type**: typing.Optional[str]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SeverityCountsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.imagebuilder_classes.SeverityCounts]
 
 
-# VulnerablePackageTypeDef
+# VulnerablePackage
 
 ### name
 - **Type**: typing.Optional[str]
@@ -3915,14 +3915,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WorkflowConfigurationOutputTypeDef
+# Workflow
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# WorkflowConfiguration
 
 ### workflowArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowParameterOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowParameterUnion]]
 
 ### parallelGroup
 - **Type**: typing.Optional[str]
@@ -3931,14 +3937,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ABORT', 'CONTINUE']]
 
 
-# WorkflowConfigurationTypeDef
+# WorkflowConfigurationOutput
 
 ### workflowArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowParameterUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.imagebuilder_classes.WorkflowParameterOutput]]
 
 ### parallelGroup
 - **Type**: typing.Optional[str]
@@ -3947,30 +3953,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ABORT', 'CONTINUE']]
 
 
-# WorkflowConfigurationUnionTypeDef
+# WorkflowConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WorkflowExecutionMetadataTypeDef
+# WorkflowExecutionMetadata
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WorkflowParameterOutputTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### value
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# WorkflowParameterTypeDef
+# WorkflowParameter
 
 ### name
 - **Type**: <class 'str'>
@@ -3981,13 +3976,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# WorkflowParameterUnionTypeDef
+# WorkflowParameterOutput
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# WorkflowParameterUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WorkflowStateTypeDef
+# WorkflowState
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DEPRECATED']]
@@ -3996,7 +4002,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WorkflowStepExecutionTypeDef
+# WorkflowStepExecution
 
 ### stepExecutionId
 - **Type**: typing.Optional[str]
@@ -4020,7 +4026,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WorkflowStepMetadataTypeDef
+# WorkflowStepMetadata
 
 ### stepExecutionId
 - **Type**: typing.Optional[str]
@@ -4056,19 +4062,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WorkflowSummaryTypeDef
+# WorkflowSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WorkflowTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# WorkflowVersionTypeDef
+# WorkflowVersion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

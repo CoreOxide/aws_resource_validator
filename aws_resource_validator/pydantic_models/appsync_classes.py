@@ -12,43 +12,43 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.appsync_constants import *
 
-class CognitoUserPoolConfigTypeDef(BaseValidatorModel):
+class CognitoUserPoolConfig(BaseValidatorModel):
     userPoolId: str
     awsRegion: str
     appIdClientRegex: Optional[str] = None
 
 
-class LambdaAuthorizerConfigTypeDef(BaseValidatorModel):
+class LambdaAuthorizerConfig(BaseValidatorModel):
     authorizerUri: str
     authorizerResultTtlInSeconds: Optional[int] = None
     identityValidationExpression: Optional[str] = None
 
 
-class OpenIDConnectConfigTypeDef(BaseValidatorModel):
+class OpenIDConnectConfig(BaseValidatorModel):
     issuer: str
     clientId: Optional[str] = None
     iatTTL: Optional[int] = None
     authTTL: Optional[int] = None
 
 
-class ApiAssociationTypeDef(BaseValidatorModel):
+class ApiAssociation(BaseValidatorModel):
     domainName: Optional[str] = None
     apiId: Optional[str] = None
     associationStatus: Optional[AssociationStatusType] = None
     deploymentDetail: Optional[str] = None
 
 
-class AppSyncRuntimeTypeDef(BaseValidatorModel):
+class AppSyncRuntime(BaseValidatorModel):
     name: Literal["APPSYNC_JS"]
     runtimeVersion: str
 
 
-class AssociateApiRequestTypeDef(BaseValidatorModel):
+class AssociateApiRequest(BaseValidatorModel):
     domainName: str
     apiId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -56,72 +56,72 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class SourceApiAssociationConfigTypeDef(BaseValidatorModel):
+class SourceApiAssociationConfig(BaseValidatorModel):
     mergeType: Optional[MergeTypeType] = None
 
 
-class AuthModeTypeDef(BaseValidatorModel):
+class AuthMode(BaseValidatorModel):
     authType: AuthenticationTypeType
 
 
-class CognitoConfigTypeDef(BaseValidatorModel):
+class CognitoConfig(BaseValidatorModel):
     userPoolId: str
     awsRegion: str
     appIdClientRegex: Optional[str] = None
 
 
-class AwsIamConfigTypeDef(BaseValidatorModel):
+class AwsIamConfig(BaseValidatorModel):
     signingRegion: Optional[str] = None
     signingServiceName: Optional[str] = None
 
 
-class CachingConfigOutputTypeDef(BaseValidatorModel):
+class CachingConfigOutput(BaseValidatorModel):
     ttl: int
     cachingKeys: Optional[List[str]] = None
 
 
-class CachingConfigTypeDef(BaseValidatorModel):
+class CachingConfig(BaseValidatorModel):
     ttl: int
     cachingKeys: Optional[Sequence[str]] = None
 
 
-class CodeErrorLocationTypeDef(BaseValidatorModel):
+class CodeErrorLocation(BaseValidatorModel):
     line: Optional[int] = None
     column: Optional[int] = None
     span: Optional[int] = None
 
 
-class CreateApiKeyRequestTypeDef(BaseValidatorModel):
+class CreateApiKeyRequest(BaseValidatorModel):
     apiId: str
     description: Optional[str] = None
     expires: Optional[int] = None
 
 
-class ElasticsearchDataSourceConfigTypeDef(BaseValidatorModel):
+class ElasticsearchDataSourceConfig(BaseValidatorModel):
     endpoint: str
     awsRegion: str
 
 
-class EventBridgeDataSourceConfigTypeDef(BaseValidatorModel):
+class EventBridgeDataSourceConfig(BaseValidatorModel):
     eventBusArn: str
 
 
-class LambdaDataSourceConfigTypeDef(BaseValidatorModel):
+class LambdaDataSourceConfig(BaseValidatorModel):
     lambdaFunctionArn: str
 
 
-class OpenSearchServiceDataSourceConfigTypeDef(BaseValidatorModel):
+class OpenSearchServiceDataSourceConfig(BaseValidatorModel):
     endpoint: str
     awsRegion: str
 
 
-class CreateDomainNameRequestTypeDef(BaseValidatorModel):
+class CreateDomainNameRequest(BaseValidatorModel):
     domainName: str
     certificateArn: str
     description: Optional[str] = None
 
 
-class DomainNameConfigTypeDef(BaseValidatorModel):
+class DomainNameConfig(BaseValidatorModel):
     domainName: Optional[str] = None
     description: Optional[str] = None
     certificateArn: Optional[str] = None
@@ -129,243 +129,243 @@ class DomainNameConfigTypeDef(BaseValidatorModel):
     hostedZoneId: Optional[str] = None
 
 
-class EnhancedMetricsConfigTypeDef(BaseValidatorModel):
+class EnhancedMetricsConfig(BaseValidatorModel):
     resolverLevelMetricsBehavior: ResolverLevelMetricsBehaviorType
     dataSourceLevelMetricsBehavior: DataSourceLevelMetricsBehaviorType
     operationLevelMetricsConfig: OperationLevelMetricsConfigType
 
 
-class LogConfigTypeDef(BaseValidatorModel):
+class LogConfig(BaseValidatorModel):
     fieldLogLevel: FieldLogLevelType
     cloudWatchLogsRoleArn: str
     excludeVerboseContent: Optional[bool] = None
 
 
-class UserPoolConfigTypeDef(BaseValidatorModel):
+class UserPoolConfig(BaseValidatorModel):
     userPoolId: str
     awsRegion: str
     defaultAction: DefaultActionType
     appIdClientRegex: Optional[str] = None
 
 
-class DataSourceIntrospectionModelIndexTypeDef(BaseValidatorModel):
+class DataSourceIntrospectionModelIndex(BaseValidatorModel):
     name: Optional[str] = None
     fields: Optional[List[str]] = None
 
 
-class DeleteApiCacheRequestTypeDef(BaseValidatorModel):
+class DeleteApiCacheRequest(BaseValidatorModel):
     apiId: str
 
 
-class DeleteApiRequestTypeDef(BaseValidatorModel):
+class DeleteApiRequest(BaseValidatorModel):
     apiId: str
 
 
-class DeleteChannelNamespaceRequestTypeDef(BaseValidatorModel):
-    apiId: str
-    name: str
-
-
-class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
+class DeleteChannelNamespaceRequest(BaseValidatorModel):
     apiId: str
     name: str
 
 
-class DeleteDomainNameRequestTypeDef(BaseValidatorModel):
+class DeleteDataSourceRequest(BaseValidatorModel):
+    apiId: str
+    name: str
+
+
+class DeleteDomainNameRequest(BaseValidatorModel):
     domainName: str
 
 
-class DeleteFunctionRequestTypeDef(BaseValidatorModel):
+class DeleteFunctionRequest(BaseValidatorModel):
     apiId: str
     functionId: str
 
 
-class DeleteGraphqlApiRequestTypeDef(BaseValidatorModel):
+class DeleteGraphqlApiRequest(BaseValidatorModel):
     apiId: str
 
 
-class DeleteResolverRequestTypeDef(BaseValidatorModel):
+class DeleteResolverRequest(BaseValidatorModel):
     apiId: str
     typeName: str
     fieldName: str
 
 
-class DeleteTypeRequestTypeDef(BaseValidatorModel):
+class DeleteTypeRequest(BaseValidatorModel):
     apiId: str
     typeName: str
 
 
-class DeltaSyncConfigTypeDef(BaseValidatorModel):
+class DeltaSyncConfig(BaseValidatorModel):
     baseTableTTL: Optional[int] = None
     deltaSyncTableName: Optional[str] = None
     deltaSyncTableTTL: Optional[int] = None
 
 
-class DisassociateApiRequestTypeDef(BaseValidatorModel):
+class DisassociateApiRequest(BaseValidatorModel):
     domainName: str
 
 
-class DisassociateMergedGraphqlApiRequestTypeDef(BaseValidatorModel):
+class DisassociateMergedGraphqlApiRequest(BaseValidatorModel):
     sourceApiIdentifier: str
     associationId: str
 
 
-class DisassociateSourceGraphqlApiRequestTypeDef(BaseValidatorModel):
+class DisassociateSourceGraphqlApiRequest(BaseValidatorModel):
     mergedApiIdentifier: str
     associationId: str
 
 
-class ErrorDetailTypeDef(BaseValidatorModel):
+class ErrorDetail(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class EvaluateMappingTemplateRequestTypeDef(BaseValidatorModel):
+class EvaluateMappingTemplateRequest(BaseValidatorModel):
     template: str
     context: str
 
 
-class EventLogConfigTypeDef(BaseValidatorModel):
+class EventLogConfig(BaseValidatorModel):
     logLevel: EventLogLevelType
     cloudWatchLogsRoleArn: str
 
 
-class FlushApiCacheRequestTypeDef(BaseValidatorModel):
+class FlushApiCacheRequest(BaseValidatorModel):
     apiId: str
 
 
-class GetApiAssociationRequestTypeDef(BaseValidatorModel):
+class GetApiAssociationRequest(BaseValidatorModel):
     domainName: str
 
 
-class GetApiCacheRequestTypeDef(BaseValidatorModel):
+class GetApiCacheRequest(BaseValidatorModel):
     apiId: str
 
 
-class GetApiRequestTypeDef(BaseValidatorModel):
+class GetApiRequest(BaseValidatorModel):
     apiId: str
 
 
-class GetChannelNamespaceRequestTypeDef(BaseValidatorModel):
+class GetChannelNamespaceRequest(BaseValidatorModel):
     apiId: str
     name: str
 
 
-class GetDataSourceIntrospectionRequestTypeDef(BaseValidatorModel):
+class GetDataSourceIntrospectionRequest(BaseValidatorModel):
     introspectionId: str
     includeModelsSDL: Optional[bool] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class GetDataSourceRequestTypeDef(BaseValidatorModel):
+class GetDataSourceRequest(BaseValidatorModel):
     apiId: str
     name: str
 
 
-class GetDomainNameRequestTypeDef(BaseValidatorModel):
+class GetDomainNameRequest(BaseValidatorModel):
     domainName: str
 
 
-class GetFunctionRequestTypeDef(BaseValidatorModel):
+class GetFunctionRequest(BaseValidatorModel):
     apiId: str
     functionId: str
 
 
-class GetGraphqlApiEnvironmentVariablesRequestTypeDef(BaseValidatorModel):
+class GetGraphqlApiEnvironmentVariablesRequest(BaseValidatorModel):
     apiId: str
 
 
-class GetGraphqlApiRequestTypeDef(BaseValidatorModel):
+class GetGraphqlApiRequest(BaseValidatorModel):
     apiId: str
 
 
-class GetResolverRequestTypeDef(BaseValidatorModel):
+class GetResolverRequest(BaseValidatorModel):
     apiId: str
     typeName: str
     fieldName: str
 
 
-class GetSchemaCreationStatusRequestTypeDef(BaseValidatorModel):
+class GetSchemaCreationStatusRequest(BaseValidatorModel):
     apiId: str
 
 
-class GetSourceApiAssociationRequestTypeDef(BaseValidatorModel):
+class GetSourceApiAssociationRequest(BaseValidatorModel):
     mergedApiIdentifier: str
     associationId: str
 
 
-class LambdaConflictHandlerConfigTypeDef(BaseValidatorModel):
+class LambdaConflictHandlerConfig(BaseValidatorModel):
     lambdaConflictHandlerArn: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApiKeysRequestTypeDef(BaseValidatorModel):
+class ListApiKeysRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListApisRequestTypeDef(BaseValidatorModel):
+class ListApisRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListChannelNamespacesRequestTypeDef(BaseValidatorModel):
+class ListChannelNamespacesRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDataSourcesRequestTypeDef(BaseValidatorModel):
+class ListDataSourcesRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDomainNamesRequestTypeDef(BaseValidatorModel):
+class ListDomainNamesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListFunctionsRequestTypeDef(BaseValidatorModel):
+class ListFunctionsRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListGraphqlApisRequestTypeDef(BaseValidatorModel):
+class ListGraphqlApisRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     apiType: Optional[GraphQLApiTypeType] = None
     owner: Optional[OwnershipType] = None
 
 
-class ListResolversByFunctionRequestTypeDef(BaseValidatorModel):
+class ListResolversByFunctionRequest(BaseValidatorModel):
     apiId: str
     functionId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListResolversRequestTypeDef(BaseValidatorModel):
+class ListResolversRequest(BaseValidatorModel):
     apiId: str
     typeName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListSourceApiAssociationsRequestTypeDef(BaseValidatorModel):
+class ListSourceApiAssociationsRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class SourceApiAssociationSummaryTypeDef(BaseValidatorModel):
+class SourceApiAssociationSummary(BaseValidatorModel):
     associationId: Optional[str] = None
     associationArn: Optional[str] = None
     sourceApiId: Optional[str] = None
@@ -375,30 +375,30 @@ class SourceApiAssociationSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class PipelineConfigOutputTypeDef(BaseValidatorModel):
+class PipelineConfigOutput(BaseValidatorModel):
     functions: Optional[List[str]] = None
 
 
-class PipelineConfigTypeDef(BaseValidatorModel):
+class PipelineConfig(BaseValidatorModel):
     functions: Optional[Sequence[str]] = None
 
 
-class PutGraphqlApiEnvironmentVariablesRequestTypeDef(BaseValidatorModel):
+class PutGraphqlApiEnvironmentVariablesRequest(BaseValidatorModel):
     apiId: str
     environmentVariables: Mapping[str, str]
 
 
-class RdsDataApiConfigTypeDef(BaseValidatorModel):
+class RdsDataApiConfig(BaseValidatorModel):
     resourceArn: str
     secretArn: str
     databaseName: str
 
 
-class RdsHttpEndpointConfigTypeDef(BaseValidatorModel):
+class RdsHttpEndpointConfig(BaseValidatorModel):
     awsRegion: Optional[str] = None
     dbClusterIdentifier: Optional[str] = None
     databaseName: Optional[str] = None
@@ -406,157 +406,157 @@ class RdsHttpEndpointConfigTypeDef(BaseValidatorModel):
     awsSecretStoreArn: Optional[str] = None
 
 
-class StartSchemaMergeRequestTypeDef(BaseValidatorModel):
+class StartSchemaMergeRequest(BaseValidatorModel):
     associationId: str
     mergedApiIdentifier: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateDomainNameRequestTypeDef(BaseValidatorModel):
+class UpdateDomainNameRequest(BaseValidatorModel):
     domainName: str
     description: Optional[str] = None
 
 
-class AdditionalAuthenticationProviderTypeDef(BaseValidatorModel):
+class AdditionalAuthenticationProvider(BaseValidatorModel):
     authenticationType: Optional[AuthenticationTypeType] = None
-    openIDConnectConfig: Optional[OpenIDConnectConfigTypeDef] = None
-    userPoolConfig: Optional[CognitoUserPoolConfigTypeDef] = None
-    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfigTypeDef] = None
+    openIDConnectConfig: Optional[OpenIDConnectConfig] = None
+    userPoolConfig: Optional[CognitoUserPoolConfig] = None
+    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfig] = None
 
 
-class EvaluateCodeRequestTypeDef(BaseValidatorModel):
-    runtime: AppSyncRuntimeTypeDef
+class EvaluateCodeRequest(BaseValidatorModel):
+    runtime: AppSyncRuntime
     code: str
     context: str
     function: Optional[str] = None
 
 
-class AssociateApiResponseTypeDef(BaseValidatorModel):
-    apiAssociation: ApiAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateApiResponse(BaseValidatorModel):
+    apiAssociation: ApiAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class ApiCacheTypeDef(BaseValidatorModel):
+class ApiCache(BaseValidatorModel):
     pass
 
 
-class CreateApiCacheResponseTypeDef(BaseValidatorModel):
-    apiCache: ApiCacheTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateApiCacheResponse(BaseValidatorModel):
+    apiCache: ApiCache
+    ResponseMetadata: ResponseMetadata
 
 
-class ApiKeyTypeDef(BaseValidatorModel):
+class ApiKey(BaseValidatorModel):
     pass
 
 
-class CreateApiKeyResponseTypeDef(BaseValidatorModel):
-    apiKey: ApiKeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateApiKeyResponse(BaseValidatorModel):
+    apiKey: ApiKey
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateMergedGraphqlApiResponseTypeDef(BaseValidatorModel):
+class DisassociateMergedGraphqlApiResponse(BaseValidatorModel):
     sourceApiAssociationStatus: SourceApiAssociationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateSourceGraphqlApiResponseTypeDef(BaseValidatorModel):
+class DisassociateSourceGraphqlApiResponse(BaseValidatorModel):
     sourceApiAssociationStatus: SourceApiAssociationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetApiAssociationResponseTypeDef(BaseValidatorModel):
-    apiAssociation: ApiAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetApiAssociationResponse(BaseValidatorModel):
+    apiAssociation: ApiAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetApiCacheResponseTypeDef(BaseValidatorModel):
-    apiCache: ApiCacheTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetApiCacheResponse(BaseValidatorModel):
+    apiCache: ApiCache
+    ResponseMetadata: ResponseMetadata
 
 
-class GetGraphqlApiEnvironmentVariablesResponseTypeDef(BaseValidatorModel):
+class GetGraphqlApiEnvironmentVariablesResponse(BaseValidatorModel):
     environmentVariables: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIntrospectionSchemaResponseTypeDef(BaseValidatorModel):
+class GetIntrospectionSchemaResponse(BaseValidatorModel):
     schema: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSchemaCreationStatusResponseTypeDef(BaseValidatorModel):
+class GetSchemaCreationStatusResponse(BaseValidatorModel):
     status: SchemaStatusType
     details: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApiKeysResponseTypeDef(BaseValidatorModel):
-    apiKeys: List[ApiKeyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApiKeysResponse(BaseValidatorModel):
+    apiKeys: List[ApiKey]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutGraphqlApiEnvironmentVariablesResponseTypeDef(BaseValidatorModel):
+class PutGraphqlApiEnvironmentVariablesResponse(BaseValidatorModel):
     environmentVariables: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDataSourceIntrospectionResponseTypeDef(BaseValidatorModel):
+class StartDataSourceIntrospectionResponse(BaseValidatorModel):
     introspectionId: str
     introspectionStatus: DataSourceIntrospectionStatusType
     introspectionStatusDetail: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSchemaCreationResponseTypeDef(BaseValidatorModel):
+class StartSchemaCreationResponse(BaseValidatorModel):
     status: SchemaStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSchemaMergeResponseTypeDef(BaseValidatorModel):
+class StartSchemaMergeResponse(BaseValidatorModel):
     sourceApiAssociationStatus: SourceApiAssociationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApiCacheResponseTypeDef(BaseValidatorModel):
-    apiCache: ApiCacheTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateApiCacheResponse(BaseValidatorModel):
+    apiCache: ApiCache
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApiKeyResponseTypeDef(BaseValidatorModel):
-    apiKey: ApiKeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateApiKeyResponse(BaseValidatorModel):
+    apiKey: ApiKey
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateMergedGraphqlApiRequestTypeDef(BaseValidatorModel):
+class AssociateMergedGraphqlApiRequest(BaseValidatorModel):
     sourceApiIdentifier: str
     mergedApiIdentifier: str
     description: Optional[str] = None
-    sourceApiAssociationConfig: Optional[SourceApiAssociationConfigTypeDef] = None
+    sourceApiAssociationConfig: Optional[SourceApiAssociationConfig] = None
 
 
-class AssociateSourceGraphqlApiRequestTypeDef(BaseValidatorModel):
+class AssociateSourceGraphqlApiRequest(BaseValidatorModel):
     mergedApiIdentifier: str
     sourceApiIdentifier: str
     description: Optional[str] = None
-    sourceApiAssociationConfig: Optional[SourceApiAssociationConfigTypeDef] = None
+    sourceApiAssociationConfig: Optional[SourceApiAssociationConfig] = None
 
 
-class SourceApiAssociationTypeDef(BaseValidatorModel):
+class SourceApiAssociation(BaseValidatorModel):
     associationId: Optional[str] = None
     associationArn: Optional[str] = None
     sourceApiId: Optional[str] = None
@@ -564,24 +564,24 @@ class SourceApiAssociationTypeDef(BaseValidatorModel):
     mergedApiArn: Optional[str] = None
     mergedApiId: Optional[str] = None
     description: Optional[str] = None
-    sourceApiAssociationConfig: Optional[SourceApiAssociationConfigTypeDef] = None
+    sourceApiAssociationConfig: Optional[SourceApiAssociationConfig] = None
     sourceApiAssociationStatus: Optional[SourceApiAssociationStatusType] = None
     sourceApiAssociationStatusDetail: Optional[str] = None
     lastSuccessfulMergeDate: Optional[datetime] = None
 
 
-class UpdateSourceApiAssociationRequestTypeDef(BaseValidatorModel):
+class UpdateSourceApiAssociationRequest(BaseValidatorModel):
     associationId: str
     mergedApiIdentifier: str
     description: Optional[str] = None
-    sourceApiAssociationConfig: Optional[SourceApiAssociationConfigTypeDef] = None
+    sourceApiAssociationConfig: Optional[SourceApiAssociationConfig] = None
 
 
-class ChannelNamespaceTypeDef(BaseValidatorModel):
+class ChannelNamespace(BaseValidatorModel):
     apiId: Optional[str] = None
     name: Optional[str] = None
-    subscribeAuthModes: Optional[List[AuthModeTypeDef]] = None
-    publishAuthModes: Optional[List[AuthModeTypeDef]] = None
+    subscribeAuthModes: Optional[List[AuthMode]] = None
+    publishAuthModes: Optional[List[AuthMode]] = None
     codeHandlers: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     channelNamespaceArn: Optional[str] = None
@@ -589,170 +589,170 @@ class ChannelNamespaceTypeDef(BaseValidatorModel):
     lastModified: Optional[datetime] = None
 
 
-class CreateChannelNamespaceRequestTypeDef(BaseValidatorModel):
+class CreateChannelNamespaceRequest(BaseValidatorModel):
     apiId: str
     name: str
-    subscribeAuthModes: Optional[Sequence[AuthModeTypeDef]] = None
-    publishAuthModes: Optional[Sequence[AuthModeTypeDef]] = None
+    subscribeAuthModes: Optional[Sequence[AuthMode]] = None
+    publishAuthModes: Optional[Sequence[AuthMode]] = None
     codeHandlers: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateChannelNamespaceRequestTypeDef(BaseValidatorModel):
+class UpdateChannelNamespaceRequest(BaseValidatorModel):
     apiId: str
     name: str
-    subscribeAuthModes: Optional[Sequence[AuthModeTypeDef]] = None
-    publishAuthModes: Optional[Sequence[AuthModeTypeDef]] = None
+    subscribeAuthModes: Optional[Sequence[AuthMode]] = None
+    publishAuthModes: Optional[Sequence[AuthMode]] = None
     codeHandlers: Optional[str] = None
 
 
-class AuthProviderTypeDef(BaseValidatorModel):
+class AuthProvider(BaseValidatorModel):
     authType: AuthenticationTypeType
-    cognitoConfig: Optional[CognitoConfigTypeDef] = None
-    openIDConnectConfig: Optional[OpenIDConnectConfigTypeDef] = None
-    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfigTypeDef] = None
+    cognitoConfig: Optional[CognitoConfig] = None
+    openIDConnectConfig: Optional[OpenIDConnectConfig] = None
+    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfig] = None
 
 
-class AuthorizationConfigTypeDef(BaseValidatorModel):
+class AuthorizationConfig(BaseValidatorModel):
     authorizationType: Literal["AWS_IAM"]
-    awsIamConfig: Optional[AwsIamConfigTypeDef] = None
+    awsIamConfig: Optional[AwsIamConfig] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class StartSchemaCreationRequestTypeDef(BaseValidatorModel):
+class StartSchemaCreationRequest(BaseValidatorModel):
     apiId: str
-    definition: BlobTypeDef
+    definition: Blob
 
 
-class CodeErrorTypeDef(BaseValidatorModel):
+class CodeError(BaseValidatorModel):
     errorType: Optional[str] = None
     value: Optional[str] = None
-    location: Optional[CodeErrorLocationTypeDef] = None
+    location: Optional[CodeErrorLocation] = None
 
 
-class CreateDomainNameResponseTypeDef(BaseValidatorModel):
-    domainNameConfig: DomainNameConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDomainNameResponse(BaseValidatorModel):
+    domainNameConfig: DomainNameConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDomainNameResponseTypeDef(BaseValidatorModel):
-    domainNameConfig: DomainNameConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDomainNameResponse(BaseValidatorModel):
+    domainNameConfig: DomainNameConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDomainNamesResponseTypeDef(BaseValidatorModel):
-    domainNameConfigs: List[DomainNameConfigTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainNamesResponse(BaseValidatorModel):
+    domainNameConfigs: List[DomainNameConfig]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateDomainNameResponseTypeDef(BaseValidatorModel):
-    domainNameConfig: DomainNameConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDomainNameResponse(BaseValidatorModel):
+    domainNameConfig: DomainNameConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class DynamodbDataSourceConfigTypeDef(BaseValidatorModel):
+class DynamodbDataSourceConfig(BaseValidatorModel):
     tableName: str
     awsRegion: str
     useCallerCredentials: Optional[bool] = None
-    deltaSyncConfig: Optional[DeltaSyncConfigTypeDef] = None
+    deltaSyncConfig: Optional[DeltaSyncConfig] = None
     versioned: Optional[bool] = None
 
 
-class EvaluateMappingTemplateResponseTypeDef(BaseValidatorModel):
+class EvaluateMappingTemplateResponse(BaseValidatorModel):
     evaluationResult: str
-    error: ErrorDetailTypeDef
+    error: ErrorDetail
     logs: List[str]
     stash: str
     outErrors: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SyncConfigTypeDef(BaseValidatorModel):
+class SyncConfig(BaseValidatorModel):
     conflictHandler: Optional[ConflictHandlerTypeType] = None
     conflictDetection: Optional[ConflictDetectionTypeType] = None
-    lambdaConflictHandlerConfig: Optional[LambdaConflictHandlerConfigTypeDef] = None
+    lambdaConflictHandlerConfig: Optional[LambdaConflictHandlerConfig] = None
 
 
-class ListApiKeysRequestPaginateTypeDef(BaseValidatorModel):
+class ListApiKeysRequestPaginate(BaseValidatorModel):
     apiId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApisRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListApisRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListChannelNamespacesRequestPaginateTypeDef(BaseValidatorModel):
+class ListChannelNamespacesRequestPaginate(BaseValidatorModel):
     apiId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataSourcesRequestPaginate(BaseValidatorModel):
     apiId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDomainNamesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDomainNamesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFunctionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListFunctionsRequestPaginate(BaseValidatorModel):
     apiId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGraphqlApisRequestPaginateTypeDef(BaseValidatorModel):
+class ListGraphqlApisRequestPaginate(BaseValidatorModel):
     apiType: Optional[GraphQLApiTypeType] = None
     owner: Optional[OwnershipType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolversByFunctionRequestPaginateTypeDef(BaseValidatorModel):
+class ListResolversByFunctionRequestPaginate(BaseValidatorModel):
     apiId: str
     functionId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolversRequestPaginateTypeDef(BaseValidatorModel):
+class ListResolversRequestPaginate(BaseValidatorModel):
     apiId: str
     typeName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSourceApiAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSourceApiAssociationsRequestPaginate(BaseValidatorModel):
     apiId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSourceApiAssociationsResponseTypeDef(BaseValidatorModel):
-    sourceApiAssociationSummaries: List[SourceApiAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSourceApiAssociationsResponse(BaseValidatorModel):
+    sourceApiAssociationSummaries: List[SourceApiAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartDataSourceIntrospectionRequestTypeDef(BaseValidatorModel):
-    rdsDataApiConfig: Optional[RdsDataApiConfigTypeDef] = None
+class StartDataSourceIntrospectionRequest(BaseValidatorModel):
+    rdsDataApiConfig: Optional[RdsDataApiConfig] = None
 
 
-class RelationalDatabaseDataSourceConfigTypeDef(BaseValidatorModel):
+class RelationalDatabaseDataSourceConfig(BaseValidatorModel):
     relationalDatabaseSourceType: Optional[Literal["RDS_HTTP_ENDPOINT"]] = None
-    rdsHttpEndpointConfig: Optional[RdsHttpEndpointConfigTypeDef] = None
+    rdsHttpEndpointConfig: Optional[RdsHttpEndpointConfig] = None
 
 
-class CreateGraphqlApiRequestTypeDef(BaseValidatorModel):
+class CreateGraphqlApiRequest(BaseValidatorModel):
     name: str
     authenticationType: AuthenticationTypeType
-    logConfig: Optional[LogConfigTypeDef] = None
-    userPoolConfig: Optional[UserPoolConfigTypeDef] = None
-    openIDConnectConfig: Optional[OpenIDConnectConfigTypeDef] = None
+    logConfig: Optional[LogConfig] = None
+    userPoolConfig: Optional[UserPoolConfig] = None
+    openIDConnectConfig: Optional[OpenIDConnectConfig] = None
     tags: Optional[Mapping[str, str]] = None
-    additionalAuthenticationProviders: Optional[ Sequence[AdditionalAuthenticationProviderTypeDef] ] = None
+    additionalAuthenticationProviders: Optional[ Sequence[AdditionalAuthenticationProvider] ] = None
     xrayEnabled: Optional[bool] = None
-    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfigTypeDef] = None
+    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfig] = None
     apiType: Optional[GraphQLApiTypeType] = None
     mergedApiExecutionRoleArn: Optional[str] = None
     visibility: Optional[GraphQLApiVisibilityType] = None
@@ -760,23 +760,23 @@ class CreateGraphqlApiRequestTypeDef(BaseValidatorModel):
     introspectionConfig: Optional[GraphQLApiIntrospectionConfigType] = None
     queryDepthLimit: Optional[int] = None
     resolverCountLimit: Optional[int] = None
-    enhancedMetricsConfig: Optional[EnhancedMetricsConfigTypeDef] = None
+    enhancedMetricsConfig: Optional[EnhancedMetricsConfig] = None
 
 
-class GraphqlApiTypeDef(BaseValidatorModel):
+class GraphqlApi(BaseValidatorModel):
     name: Optional[str] = None
     apiId: Optional[str] = None
     authenticationType: Optional[AuthenticationTypeType] = None
-    logConfig: Optional[LogConfigTypeDef] = None
-    userPoolConfig: Optional[UserPoolConfigTypeDef] = None
-    openIDConnectConfig: Optional[OpenIDConnectConfigTypeDef] = None
+    logConfig: Optional[LogConfig] = None
+    userPoolConfig: Optional[UserPoolConfig] = None
+    openIDConnectConfig: Optional[OpenIDConnectConfig] = None
     arn: Optional[str] = None
     uris: Optional[Dict[str, str]] = None
     tags: Optional[Dict[str, str]] = None
-    additionalAuthenticationProviders: Optional[List[AdditionalAuthenticationProviderTypeDef]] = None
+    additionalAuthenticationProviders: Optional[List[AdditionalAuthenticationProvider]] = None
     xrayEnabled: Optional[bool] = None
     wafWebAclArn: Optional[str] = None
-    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfigTypeDef] = None
+    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfig] = None
     dns: Optional[Dict[str, str]] = None
     visibility: Optional[GraphQLApiVisibilityType] = None
     apiType: Optional[GraphQLApiTypeType] = None
@@ -786,107 +786,107 @@ class GraphqlApiTypeDef(BaseValidatorModel):
     introspectionConfig: Optional[GraphQLApiIntrospectionConfigType] = None
     queryDepthLimit: Optional[int] = None
     resolverCountLimit: Optional[int] = None
-    enhancedMetricsConfig: Optional[EnhancedMetricsConfigTypeDef] = None
+    enhancedMetricsConfig: Optional[EnhancedMetricsConfig] = None
 
 
-class UpdateGraphqlApiRequestTypeDef(BaseValidatorModel):
+class UpdateGraphqlApiRequest(BaseValidatorModel):
     apiId: str
     name: str
     authenticationType: AuthenticationTypeType
-    logConfig: Optional[LogConfigTypeDef] = None
-    userPoolConfig: Optional[UserPoolConfigTypeDef] = None
-    openIDConnectConfig: Optional[OpenIDConnectConfigTypeDef] = None
-    additionalAuthenticationProviders: Optional[ Sequence[AdditionalAuthenticationProviderTypeDef] ] = None
+    logConfig: Optional[LogConfig] = None
+    userPoolConfig: Optional[UserPoolConfig] = None
+    openIDConnectConfig: Optional[OpenIDConnectConfig] = None
+    additionalAuthenticationProviders: Optional[ Sequence[AdditionalAuthenticationProvider] ] = None
     xrayEnabled: Optional[bool] = None
-    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfigTypeDef] = None
+    lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfig] = None
     mergedApiExecutionRoleArn: Optional[str] = None
     ownerContact: Optional[str] = None
     introspectionConfig: Optional[GraphQLApiIntrospectionConfigType] = None
     queryDepthLimit: Optional[int] = None
     resolverCountLimit: Optional[int] = None
-    enhancedMetricsConfig: Optional[EnhancedMetricsConfigTypeDef] = None
+    enhancedMetricsConfig: Optional[EnhancedMetricsConfig] = None
 
 
-class AssociateMergedGraphqlApiResponseTypeDef(BaseValidatorModel):
-    sourceApiAssociation: SourceApiAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateMergedGraphqlApiResponse(BaseValidatorModel):
+    sourceApiAssociation: SourceApiAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateSourceGraphqlApiResponseTypeDef(BaseValidatorModel):
-    sourceApiAssociation: SourceApiAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateSourceGraphqlApiResponse(BaseValidatorModel):
+    sourceApiAssociation: SourceApiAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSourceApiAssociationResponseTypeDef(BaseValidatorModel):
-    sourceApiAssociation: SourceApiAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSourceApiAssociationResponse(BaseValidatorModel):
+    sourceApiAssociation: SourceApiAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSourceApiAssociationResponseTypeDef(BaseValidatorModel):
-    sourceApiAssociation: SourceApiAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSourceApiAssociationResponse(BaseValidatorModel):
+    sourceApiAssociation: SourceApiAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChannelNamespaceResponseTypeDef(BaseValidatorModel):
-    channelNamespace: ChannelNamespaceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateChannelNamespaceResponse(BaseValidatorModel):
+    channelNamespace: ChannelNamespace
+    ResponseMetadata: ResponseMetadata
 
 
-class GetChannelNamespaceResponseTypeDef(BaseValidatorModel):
-    channelNamespace: ChannelNamespaceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetChannelNamespaceResponse(BaseValidatorModel):
+    channelNamespace: ChannelNamespace
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelNamespacesResponseTypeDef(BaseValidatorModel):
-    channelNamespaces: List[ChannelNamespaceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelNamespacesResponse(BaseValidatorModel):
+    channelNamespaces: List[ChannelNamespace]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateChannelNamespaceResponseTypeDef(BaseValidatorModel):
-    channelNamespace: ChannelNamespaceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateChannelNamespaceResponse(BaseValidatorModel):
+    channelNamespace: ChannelNamespace
+    ResponseMetadata: ResponseMetadata
 
 
-class EventConfigOutputTypeDef(BaseValidatorModel):
-    authProviders: List[AuthProviderTypeDef]
-    connectionAuthModes: List[AuthModeTypeDef]
-    defaultPublishAuthModes: List[AuthModeTypeDef]
-    defaultSubscribeAuthModes: List[AuthModeTypeDef]
-    logConfig: Optional[EventLogConfigTypeDef] = None
+class EventConfigOutput(BaseValidatorModel):
+    authProviders: List[AuthProvider]
+    connectionAuthModes: List[AuthMode]
+    defaultPublishAuthModes: List[AuthMode]
+    defaultSubscribeAuthModes: List[AuthMode]
+    logConfig: Optional[EventLogConfig] = None
 
 
-class EventConfigTypeDef(BaseValidatorModel):
-    authProviders: Sequence[AuthProviderTypeDef]
-    connectionAuthModes: Sequence[AuthModeTypeDef]
-    defaultPublishAuthModes: Sequence[AuthModeTypeDef]
-    defaultSubscribeAuthModes: Sequence[AuthModeTypeDef]
-    logConfig: Optional[EventLogConfigTypeDef] = None
+class EventConfig(BaseValidatorModel):
+    authProviders: Sequence[AuthProvider]
+    connectionAuthModes: Sequence[AuthMode]
+    defaultPublishAuthModes: Sequence[AuthMode]
+    defaultSubscribeAuthModes: Sequence[AuthMode]
+    logConfig: Optional[EventLogConfig] = None
 
 
-class HttpDataSourceConfigTypeDef(BaseValidatorModel):
+class HttpDataSourceConfig(BaseValidatorModel):
     endpoint: Optional[str] = None
-    authorizationConfig: Optional[AuthorizationConfigTypeDef] = None
+    authorizationConfig: Optional[AuthorizationConfig] = None
 
 
-class EvaluateCodeErrorDetailTypeDef(BaseValidatorModel):
+class EvaluateCodeErrorDetail(BaseValidatorModel):
     message: Optional[str] = None
-    codeErrors: Optional[List[CodeErrorTypeDef]] = None
+    codeErrors: Optional[List[CodeError]] = None
 
 
-class DataSourceIntrospectionModelFieldTypeDef(BaseValidatorModel):
+class DataSourceIntrospectionModelField(BaseValidatorModel):
     pass
 
 
-class DataSourceIntrospectionModelTypeDef(BaseValidatorModel):
+class DataSourceIntrospectionModel(BaseValidatorModel):
     name: Optional[str] = None
-    fields: Optional[List[DataSourceIntrospectionModelFieldTypeDef]] = None
-    primaryKey: Optional[DataSourceIntrospectionModelIndexTypeDef] = None
-    indexes: Optional[List[DataSourceIntrospectionModelIndexTypeDef]] = None
+    fields: Optional[List[DataSourceIntrospectionModelField]] = None
+    primaryKey: Optional[DataSourceIntrospectionModelIndex] = None
+    indexes: Optional[List[DataSourceIntrospectionModelIndex]] = None
     sdl: Optional[str] = None
 
 
-class CreateFunctionRequestTypeDef(BaseValidatorModel):
+class CreateFunctionRequest(BaseValidatorModel):
     apiId: str
     name: str
     dataSourceName: str
@@ -894,13 +894,13 @@ class CreateFunctionRequestTypeDef(BaseValidatorModel):
     requestMappingTemplate: Optional[str] = None
     responseMappingTemplate: Optional[str] = None
     functionVersion: Optional[str] = None
-    syncConfig: Optional[SyncConfigTypeDef] = None
+    syncConfig: Optional[SyncConfig] = None
     maxBatchSize: Optional[int] = None
-    runtime: Optional[AppSyncRuntimeTypeDef] = None
+    runtime: Optional[AppSyncRuntime] = None
     code: Optional[str] = None
 
 
-class FunctionConfigurationTypeDef(BaseValidatorModel):
+class FunctionConfiguration(BaseValidatorModel):
     functionId: Optional[str] = None
     functionArn: Optional[str] = None
     name: Optional[str] = None
@@ -909,13 +909,13 @@ class FunctionConfigurationTypeDef(BaseValidatorModel):
     requestMappingTemplate: Optional[str] = None
     responseMappingTemplate: Optional[str] = None
     functionVersion: Optional[str] = None
-    syncConfig: Optional[SyncConfigTypeDef] = None
+    syncConfig: Optional[SyncConfig] = None
     maxBatchSize: Optional[int] = None
-    runtime: Optional[AppSyncRuntimeTypeDef] = None
+    runtime: Optional[AppSyncRuntime] = None
     code: Optional[str] = None
 
 
-class ResolverTypeDef(BaseValidatorModel):
+class Resolver(BaseValidatorModel):
     typeName: Optional[str] = None
     fieldName: Optional[str] = None
     dataSourceName: Optional[str] = None
@@ -923,16 +923,16 @@ class ResolverTypeDef(BaseValidatorModel):
     requestMappingTemplate: Optional[str] = None
     responseMappingTemplate: Optional[str] = None
     kind: Optional[ResolverKindType] = None
-    pipelineConfig: Optional[PipelineConfigOutputTypeDef] = None
-    syncConfig: Optional[SyncConfigTypeDef] = None
-    cachingConfig: Optional[CachingConfigOutputTypeDef] = None
+    pipelineConfig: Optional[PipelineConfigOutput] = None
+    syncConfig: Optional[SyncConfig] = None
+    cachingConfig: Optional[CachingConfigOutput] = None
     maxBatchSize: Optional[int] = None
-    runtime: Optional[AppSyncRuntimeTypeDef] = None
+    runtime: Optional[AppSyncRuntime] = None
     code: Optional[str] = None
     metricsConfig: Optional[ResolverLevelMetricsConfigType] = None
 
 
-class UpdateFunctionRequestTypeDef(BaseValidatorModel):
+class UpdateFunctionRequest(BaseValidatorModel):
     apiId: str
     name: str
     functionId: str
@@ -941,21 +941,21 @@ class UpdateFunctionRequestTypeDef(BaseValidatorModel):
     requestMappingTemplate: Optional[str] = None
     responseMappingTemplate: Optional[str] = None
     functionVersion: Optional[str] = None
-    syncConfig: Optional[SyncConfigTypeDef] = None
+    syncConfig: Optional[SyncConfig] = None
     maxBatchSize: Optional[int] = None
-    runtime: Optional[AppSyncRuntimeTypeDef] = None
+    runtime: Optional[AppSyncRuntime] = None
     code: Optional[str] = None
 
 
-class PipelineConfigUnionTypeDef(BaseValidatorModel):
+class PipelineConfigUnion(BaseValidatorModel):
     pass
 
 
-class CachingConfigUnionTypeDef(BaseValidatorModel):
+class CachingConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateResolverRequestTypeDef(BaseValidatorModel):
+class CreateResolverRequest(BaseValidatorModel):
     apiId: str
     typeName: str
     fieldName: str
@@ -963,16 +963,16 @@ class CreateResolverRequestTypeDef(BaseValidatorModel):
     requestMappingTemplate: Optional[str] = None
     responseMappingTemplate: Optional[str] = None
     kind: Optional[ResolverKindType] = None
-    pipelineConfig: Optional[PipelineConfigUnionTypeDef] = None
-    syncConfig: Optional[SyncConfigTypeDef] = None
-    cachingConfig: Optional[CachingConfigUnionTypeDef] = None
+    pipelineConfig: Optional[PipelineConfigUnion] = None
+    syncConfig: Optional[SyncConfig] = None
+    cachingConfig: Optional[CachingConfigUnion] = None
     maxBatchSize: Optional[int] = None
-    runtime: Optional[AppSyncRuntimeTypeDef] = None
+    runtime: Optional[AppSyncRuntime] = None
     code: Optional[str] = None
     metricsConfig: Optional[ResolverLevelMetricsConfigType] = None
 
 
-class UpdateResolverRequestTypeDef(BaseValidatorModel):
+class UpdateResolverRequest(BaseValidatorModel):
     apiId: str
     typeName: str
     fieldName: str
@@ -980,37 +980,37 @@ class UpdateResolverRequestTypeDef(BaseValidatorModel):
     requestMappingTemplate: Optional[str] = None
     responseMappingTemplate: Optional[str] = None
     kind: Optional[ResolverKindType] = None
-    pipelineConfig: Optional[PipelineConfigUnionTypeDef] = None
-    syncConfig: Optional[SyncConfigTypeDef] = None
-    cachingConfig: Optional[CachingConfigUnionTypeDef] = None
+    pipelineConfig: Optional[PipelineConfigUnion] = None
+    syncConfig: Optional[SyncConfig] = None
+    cachingConfig: Optional[CachingConfigUnion] = None
     maxBatchSize: Optional[int] = None
-    runtime: Optional[AppSyncRuntimeTypeDef] = None
+    runtime: Optional[AppSyncRuntime] = None
     code: Optional[str] = None
     metricsConfig: Optional[ResolverLevelMetricsConfigType] = None
 
 
-class CreateGraphqlApiResponseTypeDef(BaseValidatorModel):
-    graphqlApi: GraphqlApiTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateGraphqlApiResponse(BaseValidatorModel):
+    graphqlApi: GraphqlApi
+    ResponseMetadata: ResponseMetadata
 
 
-class GetGraphqlApiResponseTypeDef(BaseValidatorModel):
-    graphqlApi: GraphqlApiTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetGraphqlApiResponse(BaseValidatorModel):
+    graphqlApi: GraphqlApi
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGraphqlApisResponseTypeDef(BaseValidatorModel):
-    graphqlApis: List[GraphqlApiTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGraphqlApisResponse(BaseValidatorModel):
+    graphqlApis: List[GraphqlApi]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateGraphqlApiResponseTypeDef(BaseValidatorModel):
-    graphqlApi: GraphqlApiTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateGraphqlApiResponse(BaseValidatorModel):
+    graphqlApi: GraphqlApi
+    ResponseMetadata: ResponseMetadata
 
 
-class ApiTypeDef(BaseValidatorModel):
+class Api(BaseValidatorModel):
     apiId: Optional[str] = None
     name: Optional[str] = None
     ownerContact: Optional[str] = None
@@ -1020,140 +1020,140 @@ class ApiTypeDef(BaseValidatorModel):
     created: Optional[datetime] = None
     xrayEnabled: Optional[bool] = None
     wafWebAclArn: Optional[str] = None
-    eventConfig: Optional[EventConfigOutputTypeDef] = None
+    eventConfig: Optional[EventConfigOutput] = None
 
 
-class EvaluateCodeResponseTypeDef(BaseValidatorModel):
+class EvaluateCodeResponse(BaseValidatorModel):
     evaluationResult: str
-    error: EvaluateCodeErrorDetailTypeDef
+    error: EvaluateCodeErrorDetail
     logs: List[str]
     stash: str
     outErrors: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSourceIntrospectionResultTypeDef(BaseValidatorModel):
-    models: Optional[List[DataSourceIntrospectionModelTypeDef]] = None
+class DataSourceIntrospectionResult(BaseValidatorModel):
+    models: Optional[List[DataSourceIntrospectionModel]] = None
     nextToken: Optional[str] = None
 
 
-class CreateFunctionResponseTypeDef(BaseValidatorModel):
-    functionConfiguration: FunctionConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFunctionResponse(BaseValidatorModel):
+    functionConfiguration: FunctionConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFunctionResponseTypeDef(BaseValidatorModel):
-    functionConfiguration: FunctionConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFunctionResponse(BaseValidatorModel):
+    functionConfiguration: FunctionConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFunctionsResponseTypeDef(BaseValidatorModel):
-    functions: List[FunctionConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFunctionsResponse(BaseValidatorModel):
+    functions: List[FunctionConfiguration]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateFunctionResponseTypeDef(BaseValidatorModel):
-    functionConfiguration: FunctionConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFunctionResponse(BaseValidatorModel):
+    functionConfiguration: FunctionConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateResolverResponseTypeDef(BaseValidatorModel):
-    resolver: ResolverTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateResolverResponse(BaseValidatorModel):
+    resolver: Resolver
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResolverResponseTypeDef(BaseValidatorModel):
-    resolver: ResolverTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResolverResponse(BaseValidatorModel):
+    resolver: Resolver
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResolversByFunctionResponseTypeDef(BaseValidatorModel):
-    resolvers: List[ResolverTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResolversByFunctionResponse(BaseValidatorModel):
+    resolvers: List[Resolver]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListResolversResponseTypeDef(BaseValidatorModel):
-    resolvers: List[ResolverTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResolversResponse(BaseValidatorModel):
+    resolvers: List[Resolver]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateResolverResponseTypeDef(BaseValidatorModel):
-    resolver: ResolverTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateResolverResponse(BaseValidatorModel):
+    resolver: Resolver
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateApiResponseTypeDef(BaseValidatorModel):
-    api: ApiTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateApiResponse(BaseValidatorModel):
+    api: Api
+    ResponseMetadata: ResponseMetadata
 
 
-class GetApiResponseTypeDef(BaseValidatorModel):
-    api: ApiTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetApiResponse(BaseValidatorModel):
+    api: Api
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApisResponseTypeDef(BaseValidatorModel):
-    apis: List[ApiTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApisResponse(BaseValidatorModel):
+    apis: List[Api]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateApiResponseTypeDef(BaseValidatorModel):
-    api: ApiTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateApiResponse(BaseValidatorModel):
+    api: Api
+    ResponseMetadata: ResponseMetadata
 
 
-class EventConfigUnionTypeDef(BaseValidatorModel):
+class EventConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateApiRequestTypeDef(BaseValidatorModel):
+class CreateApiRequest(BaseValidatorModel):
     name: str
     ownerContact: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
-    eventConfig: Optional[EventConfigUnionTypeDef] = None
+    eventConfig: Optional[EventConfigUnion] = None
 
 
-class UpdateApiRequestTypeDef(BaseValidatorModel):
+class UpdateApiRequest(BaseValidatorModel):
     apiId: str
     name: str
     ownerContact: Optional[str] = None
-    eventConfig: Optional[EventConfigUnionTypeDef] = None
+    eventConfig: Optional[EventConfigUnion] = None
 
 
-class DataSourceTypeDef(BaseValidatorModel):
+class DataSource(BaseValidatorModel):
     pass
 
 
-class CreateDataSourceResponseTypeDef(BaseValidatorModel):
-    dataSource: DataSourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDataSourceResponse(BaseValidatorModel):
+    dataSource: DataSource
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDataSourceResponseTypeDef(BaseValidatorModel):
-    dataSource: DataSourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDataSourceResponse(BaseValidatorModel):
+    dataSource: DataSource
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDataSourcesResponseTypeDef(BaseValidatorModel):
-    dataSources: List[DataSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourcesResponse(BaseValidatorModel):
+    dataSources: List[DataSource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateDataSourceResponseTypeDef(BaseValidatorModel):
-    dataSource: DataSourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDataSourceResponse(BaseValidatorModel):
+    dataSource: DataSource
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDataSourceIntrospectionResponseTypeDef(BaseValidatorModel):
+class GetDataSourceIntrospectionResponse(BaseValidatorModel):
     introspectionId: str
     introspectionStatus: DataSourceIntrospectionStatusType
     introspectionStatusDetail: str
-    introspectionResult: DataSourceIntrospectionResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    introspectionResult: DataSourceIntrospectionResult
+    ResponseMetadata: ResponseMetadata
 
 

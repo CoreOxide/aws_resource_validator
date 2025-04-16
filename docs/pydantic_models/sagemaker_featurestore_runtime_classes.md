@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetRecordErrorTypeDef
+# BatchGetRecordError
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -25,21 +25,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetRecordIdentifierOutputTypeDef
-
-### FeatureGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RecordIdentifiersValueAsString
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### FeatureNames
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# BatchGetRecordIdentifierTypeDef
+# BatchGetRecordIdentifier
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -53,42 +39,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# BatchGetRecordIdentifierUnionTypeDef
+# BatchGetRecordIdentifierOutput
+
+### FeatureGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RecordIdentifiersValueAsString
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### FeatureNames
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# BatchGetRecordIdentifierUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetRecordRequestTypeDef
+# BatchGetRecordRequest
 
 ### Identifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordIdentifierUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordIdentifierUnion]
 - **Required**: Yes
 
 ### ExpirationTimeResponse
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 
-# BatchGetRecordResponseTypeDef
+# BatchGetRecordResponse
 
 ### Records
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordResultDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordResultDetail]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordError]
 - **Required**: Yes
 
 ### UnprocessedIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordIdentifierOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordIdentifierOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetRecordResultDetailTypeDef
+# BatchGetRecordResultDetail
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -99,14 +99,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Record
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueOutput]
 - **Required**: Yes
 
 ### ExpiresAt
 - **Type**: typing.Optional[str]
 
 
-# DeleteRecordRequestTypeDef
+# DeleteRecordRequest
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -127,27 +127,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HardDelete', 'SoftDelete']]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FeatureValueOutputTypeDef
-
-### FeatureName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ValueAsString
-- **Type**: typing.Optional[str]
-
-### ValueAsStringList
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# FeatureValueTypeDef
+# FeatureValue
 
 ### FeatureName
 - **Type**: <class 'str'>
@@ -160,13 +147,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# FeatureValueUnionTypeDef
+# FeatureValueOutput
+
+### FeatureName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ValueAsString
+- **Type**: typing.Optional[str]
+
+### ValueAsStringList
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# FeatureValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetRecordRequestTypeDef
+# GetRecordRequest
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -183,10 +183,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 
-# GetRecordResponseTypeDef
+# GetRecordResponse
 
 ### Record
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueOutput]
 - **Required**: Yes
 
 ### ExpiresAt
@@ -194,28 +194,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutRecordRequestTypeDef
+# PutRecordRequest
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Record
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueUnion]
 - **Required**: Yes
 
 ### TargetStores
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['OfflineStore', 'OnlineStore']]]
 
 ### TtlDuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.TtlDurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -237,7 +237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TtlDurationTypeDef
+# TtlDuration
 
 ### Unit
 - **Type**: typing.Literal['Days', 'Hours', 'Minutes', 'Seconds', 'Weeks']

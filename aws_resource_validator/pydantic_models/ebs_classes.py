@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ebs_constants import *
 
-class BlockTypeDef(BaseValidatorModel):
+class Block(BaseValidatorModel):
     BlockIndex: Optional[int] = None
     BlockToken: Optional[str] = None
 
 
-class ChangedBlockTypeDef(BaseValidatorModel):
+class ChangedBlock(BaseValidatorModel):
     BlockIndex: Optional[int] = None
     FirstBlockToken: Optional[str] = None
     SecondBlockToken: Optional[str] = None
 
 
-class CompleteSnapshotRequestTypeDef(BaseValidatorModel):
+class CompleteSnapshotRequest(BaseValidatorModel):
     SnapshotId: str
     ChangedBlocksCount: int
     Checksum: Optional[str] = None
@@ -31,7 +31,7 @@ class CompleteSnapshotRequestTypeDef(BaseValidatorModel):
     ChecksumAggregationMethod: Optional[Literal["LINEAR"]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -39,13 +39,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetSnapshotBlockRequestTypeDef(BaseValidatorModel):
+class GetSnapshotBlockRequest(BaseValidatorModel):
     SnapshotId: str
     BlockIndex: int
     BlockToken: str
 
 
-class ListChangedBlocksRequestTypeDef(BaseValidatorModel):
+class ListChangedBlocksRequest(BaseValidatorModel):
     SecondSnapshotId: str
     FirstSnapshotId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -53,73 +53,73 @@ class ListChangedBlocksRequestTypeDef(BaseValidatorModel):
     StartingBlockIndex: Optional[int] = None
 
 
-class ListSnapshotBlocksRequestTypeDef(BaseValidatorModel):
+class ListSnapshotBlocksRequest(BaseValidatorModel):
     SnapshotId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     StartingBlockIndex: Optional[int] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class PutSnapshotBlockRequestTypeDef(BaseValidatorModel):
+class PutSnapshotBlockRequest(BaseValidatorModel):
     SnapshotId: str
     BlockIndex: int
-    BlockData: BlobTypeDef
+    BlockData: Blob
     DataLength: int
     Checksum: str
     ChecksumAlgorithm: Literal["SHA256"]
     Progress: Optional[int] = None
 
 
-class CompleteSnapshotResponseTypeDef(BaseValidatorModel):
+class CompleteSnapshotResponse(BaseValidatorModel):
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSnapshotBlockResponseTypeDef(BaseValidatorModel):
+class GetSnapshotBlockResponse(BaseValidatorModel):
     DataLength: int
     BlockData: StreamingBody
     Checksum: str
     ChecksumAlgorithm: Literal["SHA256"]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChangedBlocksResponseTypeDef(BaseValidatorModel):
-    ChangedBlocks: List[ChangedBlockTypeDef]
+class ListChangedBlocksResponse(BaseValidatorModel):
+    ChangedBlocks: List[ChangedBlock]
     ExpiryTime: datetime
     VolumeSize: int
     BlockSize: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListSnapshotBlocksResponseTypeDef(BaseValidatorModel):
-    Blocks: List[BlockTypeDef]
+class ListSnapshotBlocksResponse(BaseValidatorModel):
+    Blocks: List[Block]
     ExpiryTime: datetime
     VolumeSize: int
     BlockSize: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutSnapshotBlockResponseTypeDef(BaseValidatorModel):
+class PutSnapshotBlockResponse(BaseValidatorModel):
     Checksum: str
     ChecksumAlgorithm: Literal["SHA256"]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSnapshotRequestTypeDef(BaseValidatorModel):
+class StartSnapshotRequest(BaseValidatorModel):
     VolumeSize: int
     ParentSnapshotId: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
     Encrypted: Optional[bool] = None
@@ -127,7 +127,7 @@ class StartSnapshotRequestTypeDef(BaseValidatorModel):
     Timeout: Optional[int] = None
 
 
-class StartSnapshotResponseTypeDef(BaseValidatorModel):
+class StartSnapshotResponse(BaseValidatorModel):
     Description: str
     SnapshotId: str
     OwnerId: str
@@ -135,10 +135,10 @@ class StartSnapshotResponseTypeDef(BaseValidatorModel):
     StartTime: datetime
     VolumeSize: int
     BlockSize: int
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     ParentSnapshotId: str
     KmsKeyArn: str
     SseType: SSETypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

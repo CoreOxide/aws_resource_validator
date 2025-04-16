@@ -6,7 +6,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchOutputTypeDef
+# Batch
+
+### batchJobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### batchJobParameters
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### exportDataSetNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# BatchOutput
 
 ### batchJobName
 - **Type**: <class 'str'>
@@ -19,10 +32,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# BatchStepInputTypeDef
+# BatchStepInput
 
 ### resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.MainframeResourceSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.MainframeResourceSummary'>
 - **Required**: Yes
 
 ### batchJobName
@@ -36,10 +49,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionProperties]
 
 
-# BatchStepOutputTypeDef
+# BatchStepOutput
 
 ### dataSetExportLocation
 - **Type**: typing.Optional[str]
@@ -48,39 +61,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dataSetDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSetTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSet]]
 
 
-# BatchSummaryTypeDef
+# BatchSummary
 
 ### stepInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.BatchStepInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.BatchStepInput'>
 - **Required**: Yes
 
 ### stepOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.BatchStepOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.BatchStepOutput]
 
 
-# BatchTypeDef
-
-### batchJobName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### batchJobParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### exportDataSetNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# BatchUnionTypeDef
+# BatchUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CloudFormationActionTypeDef
+# CloudFormation
+
+### templateLocation
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parameters
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# CloudFormationAction
 
 ### resource
 - **Type**: <class 'str'>
@@ -90,7 +100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Create', 'Delete']]
 
 
-# CloudFormationOutputTypeDef
+# CloudFormationOutput
 
 ### templateLocation
 - **Type**: <class 'str'>
@@ -100,50 +110,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# CloudFormationStepSummaryTypeDef
+# CloudFormationStepSummary
 
 ### createCloudformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CreateCloudFormationSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CreateCloudFormationSummary]
 
 ### deleteCloudformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.DeleteCloudFormationSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.DeleteCloudFormationSummary]
 
 
-# CloudFormationTypeDef
-
-### templateLocation
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# CloudFormationUnionTypeDef
+# CloudFormationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CompareActionOutputTypeDef
+# CompareActionOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CompareActionSummaryTypeDef
+# CompareActionSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CompareActionUnionTypeDef
+# CompareActionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CompareDataSetsStepInputTypeDef
+# CompareDataSetsStepInput
 
 ### sourceLocation
 - **Type**: <class 'str'>
@@ -154,15 +154,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sourceDataSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSet]
 - **Required**: Yes
 
 ### targetDataSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSet]
 - **Required**: Yes
 
 
-# CompareDataSetsStepOutputTypeDef
+# CompareDataSetsStepOutput
 
 ### comparisonOutputLocation
 - **Type**: <class 'str'>
@@ -173,17 +173,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CompareDataSetsSummaryTypeDef
+# CompareDataSetsSummary
 
 ### stepInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.CompareDataSetsStepInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.CompareDataSetsStepInput'>
 - **Required**: Yes
 
 ### stepOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareDataSetsStepOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareDataSetsStepOutput]
 
 
-# CompareDatabaseCDCStepInputTypeDef
+# CompareDatabaseCDCStepInput
 
 ### sourceLocation
 - **Type**: <class 'str'>
@@ -194,18 +194,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sourceMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.SourceDatabaseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.SourceDatabaseMetadata'>
 - **Required**: Yes
 
 ### targetMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TargetDatabaseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TargetDatabaseMetadata'>
 - **Required**: Yes
 
 ### outputLocation
 - **Type**: typing.Optional[str]
 
 
-# CompareDatabaseCDCStepOutputTypeDef
+# CompareDatabaseCDCStepOutput
 
 ### comparisonOutputLocation
 - **Type**: <class 'str'>
@@ -216,26 +216,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CompareDatabaseCDCSummaryTypeDef
+# CompareDatabaseCDCSummary
 
 ### stepInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.CompareDatabaseCDCStepInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.CompareDatabaseCDCStepInput'>
 - **Required**: Yes
 
 ### stepOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareDatabaseCDCStepOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareDatabaseCDCStepOutput]
 
 
-# CompareFileTypeTypeDef
+# CompareFileType
 
 ### datasets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareDataSetsSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareDataSetsSummary]
 
 ### databaseCDC
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareDatabaseCDCSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareDatabaseCDCSummary]
 
 
-# CreateCloudFormationStepInputTypeDef
+# CreateCloudFormationStepInput
 
 ### templateLocation
 - **Type**: <class 'str'>
@@ -245,7 +245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# CreateCloudFormationStepOutputTypeDef
+# CreateCloudFormationStepOutput
 
 ### stackId
 - **Type**: <class 'str'>
@@ -255,24 +255,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# CreateCloudFormationSummaryTypeDef
+# CreateCloudFormationSummary
 
 ### stepInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.CreateCloudFormationStepInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.CreateCloudFormationStepInput'>
 - **Required**: Yes
 
 ### stepOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CreateCloudFormationStepOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CreateCloudFormationStepOutput]
 
 
-# CreateTestCaseRequestTypeDef
+# CreateTestCaseRequest
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### steps
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnion]
 - **Required**: Yes
 
 ### description
@@ -285,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateTestCaseResponseTypeDef
+# CreateTestCaseResponse
 
 ### testCaseId
 - **Type**: <class 'str'>
@@ -296,18 +296,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTestConfigurationRequestTypeDef
+# CreateTestConfigurationRequest
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### resources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.ResourceUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.ResourceUnion]
 - **Required**: Yes
 
 ### description
@@ -323,10 +323,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### serviceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ServiceSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ServiceSettings]
 
 
-# CreateTestConfigurationResponseTypeDef
+# CreateTestConfigurationResponse
 
 ### testConfigurationId
 - **Type**: <class 'str'>
@@ -337,28 +337,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTestSuiteRequestTypeDef
+# CreateTestSuiteRequest
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### testCases
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestCasesUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestCasesUnion'>
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### beforeSteps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnion]]
 
 ### afterSteps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnion]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -367,7 +367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateTestSuiteResponseTypeDef
+# CreateTestSuiteResponse
 
 ### testSuiteId
 - **Type**: <class 'str'>
@@ -378,103 +378,103 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataSetTypeDef
+# DataSet
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DatabaseCDCTypeDef
+# DatabaseCDC
 
 ### sourceMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.SourceDatabaseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.SourceDatabaseMetadata'>
 - **Required**: Yes
 
 ### targetMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TargetDatabaseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TargetDatabaseMetadata'>
 - **Required**: Yes
 
 
-# DeleteCloudFormationStepInputTypeDef
+# DeleteCloudFormationStepInput
 
 ### stackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCloudFormationSummaryTypeDef
+# DeleteCloudFormationSummary
 
 ### stepInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.DeleteCloudFormationStepInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.DeleteCloudFormationStepInput'>
 - **Required**: Yes
 
 ### stepOutput
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
-# DeleteTestCaseRequestTypeDef
+# DeleteTestCaseRequest
 
 ### testCaseId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTestConfigurationRequestTypeDef
+# DeleteTestConfigurationRequest
 
 ### testConfigurationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTestRunRequestTypeDef
+# DeleteTestRunRequest
 
 ### testRunId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTestSuiteRequestTypeDef
+# DeleteTestSuiteRequest
 
 ### testSuiteId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# FileMetadataOutputTypeDef
+# File
+
+### fileType
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareFileType]
+
+
+# FileMetadata
 
 ### dataSets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSetTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.DataSet]]
 
 ### databaseCDC
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.DatabaseCDCTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.DatabaseCDC]
 
 
-# FileMetadataTypeDef
+# FileMetadataOutput
 
 ### dataSets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.DataSetTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSet]]
 
 ### databaseCDC
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.DatabaseCDCTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.DatabaseCDC]
 
 
-# FileMetadataUnionTypeDef
+# FileMetadataUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FileTypeDef
-
-### fileType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareFileTypeTypeDef]
-
-
-# GetTestCaseRequestTypeDef
+# GetTestCaseRequest
 
 ### testCaseId
 - **Type**: <class 'str'>
@@ -484,7 +484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetTestCaseResponseTypeDef
+# GetTestCaseResponse
 
 ### testCaseId
 - **Type**: <class 'str'>
@@ -503,7 +503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### latestVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestCaseLatestVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestCaseLatestVersion'>
 - **Required**: Yes
 
 ### testCaseVersion
@@ -527,7 +527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.StepOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.StepOutput]
 - **Required**: Yes
 
 ### tags
@@ -535,11 +535,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTestConfigurationRequestTypeDef
+# GetTestConfigurationRequest
 
 ### testConfigurationId
 - **Type**: <class 'str'>
@@ -549,7 +549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetTestConfigurationResponseTypeDef
+# GetTestConfigurationResponse
 
 ### testConfigurationId
 - **Type**: <class 'str'>
@@ -564,7 +564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### latestVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestConfigurationLatestVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestConfigurationLatestVersion'>
 - **Required**: Yes
 
 ### testConfigurationVersion
@@ -592,7 +592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.ResourceOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.ResourceOutput]
 - **Required**: Yes
 
 ### properties
@@ -604,15 +604,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### serviceSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ServiceSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ServiceSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTestRunStepRequestTypeDef
+# GetTestRunStepRequest
 
 ### testRunId
 - **Type**: <class 'str'>
@@ -629,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetTestRunStepResponseTypeDef
+# GetTestRunStepResponse
 
 ### stepName
 - **Type**: <class 'str'>
@@ -680,15 +680,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### stepRunSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.StepRunSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.StepRunSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTestSuiteRequestTypeDef
+# GetTestSuiteRequest
 
 ### testSuiteId
 - **Type**: <class 'str'>
@@ -698,7 +698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetTestSuiteResponseTypeDef
+# GetTestSuiteResponse
 
 ### testSuiteId
 - **Type**: <class 'str'>
@@ -709,7 +709,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### latestVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestSuiteLatestVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestSuiteLatestVersion'>
 - **Required**: Yes
 
 ### testSuiteVersion
@@ -741,15 +741,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### beforeSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.StepOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.StepOutput]
 - **Required**: Yes
 
 ### afterSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.StepOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.StepOutput]
 - **Required**: Yes
 
 ### testCases
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestCasesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TestCasesOutput'>
 - **Required**: Yes
 
 ### tags
@@ -757,11 +757,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InputFileOutputTypeDef
+# Input
+
+### file
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.InputFileUnion]
+
+
+# InputFile
 
 ### sourceLocation
 - **Type**: <class 'str'>
@@ -772,11 +778,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fileMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.FileMetadataOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.FileMetadataUnion'>
 - **Required**: Yes
 
 
-# InputFileTypeDef
+# InputFileOutput
 
 ### sourceLocation
 - **Type**: <class 'str'>
@@ -787,56 +793,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fileMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.FileMetadataUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.FileMetadataOutput'>
 - **Required**: Yes
 
 
-# InputFileUnionTypeDef
+# InputFileUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# InputOutputTypeDef
+# InputOutput
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.InputFileOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.InputFileOutput]
 
 
-# InputTypeDef
-
-### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.InputFileUnionTypeDef]
-
-
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTestCasesRequestPaginateTypeDef
-
-### testCaseIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfigTypeDef]
-
-
-# ListTestCasesRequestTypeDef
+# ListTestCasesRequest
 
 ### testCaseIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -848,30 +839,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTestCasesResponseTypeDef
+# ListTestCasesRequestPaginate
+
+### testCaseIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfig]
+
+
+# ListTestCasesResponse
 
 ### testCases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestCaseSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestCaseSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTestConfigurationsRequestPaginateTypeDef
-
-### testConfigurationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfigTypeDef]
-
-
-# ListTestConfigurationsRequestTypeDef
+# ListTestConfigurationsRequest
 
 ### testConfigurationIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -883,37 +874,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTestConfigurationsResponseTypeDef
+# ListTestConfigurationsRequestPaginate
+
+### testConfigurationIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfig]
+
+
+# ListTestConfigurationsResponse
 
 ### testConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTestRunStepsRequestPaginateTypeDef
-
-### testRunId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### testCaseId
-- **Type**: typing.Optional[str]
-
-### testSuiteId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfigTypeDef]
-
-
-# ListTestRunStepsRequestTypeDef
+# ListTestRunStepsRequest
 
 ### testRunId
 - **Type**: <class 'str'>
@@ -932,31 +916,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTestRunStepsResponseTypeDef
+# ListTestRunStepsRequestPaginate
+
+### testRunId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### testCaseId
+- **Type**: typing.Optional[str]
+
+### testSuiteId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfig]
+
+
+# ListTestRunStepsResponse
 
 ### testRunSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestRunStepSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestRunStepSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTestRunTestCasesRequestPaginateTypeDef
-
-### testRunId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfigTypeDef]
-
-
-# ListTestRunTestCasesRequestTypeDef
+# ListTestRunTestCasesRequest
 
 ### testRunId
 - **Type**: <class 'str'>
@@ -969,33 +959,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTestRunTestCasesResponseTypeDef
+# ListTestRunTestCasesRequestPaginate
+
+### testRunId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfig]
+
+
+# ListTestRunTestCasesResponse
 
 ### testRunTestCases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestCaseRunSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestCaseRunSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTestRunsRequestPaginateTypeDef
-
-### testSuiteId
-- **Type**: typing.Optional[str]
-
-### testRunIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfigTypeDef]
-
-
-# ListTestRunsRequestTypeDef
+# ListTestRunsRequest
 
 ### testSuiteId
 - **Type**: typing.Optional[str]
@@ -1010,30 +998,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTestRunsResponseTypeDef
+# ListTestRunsRequestPaginate
+
+### testSuiteId
+- **Type**: typing.Optional[str]
+
+### testRunIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfig]
+
+
+# ListTestRunsResponse
 
 ### testRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestRunSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestRunSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTestSuitesRequestPaginateTypeDef
-
-### testSuiteIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfigTypeDef]
-
-
-# ListTestSuitesRequestTypeDef
+# ListTestSuitesRequest
 
 ### testSuiteIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1045,21 +1036,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTestSuitesResponseTypeDef
+# ListTestSuitesRequestPaginate
+
+### testSuiteIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.PaginatorConfig]
+
+
+# ListTestSuitesResponse
 
 ### testSuites
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestSuiteSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apptest_classes.TestSuiteSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# M2ManagedActionPropertiesTypeDef
+# M2ManagedActionProperties
 
 ### forceStop
 - **Type**: typing.Optional[bool]
@@ -1068,7 +1068,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# M2ManagedApplicationActionTypeDef
+# M2ManagedApplication
+
+### applicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### runtime
+- **Type**: typing.Literal['MicroFocus']
+- **Required**: Yes
+
+### vpcEndpointServiceName
+- **Type**: typing.Optional[str]
+
+### listenerPort
+- **Type**: typing.Optional[str]
+
+
+# M2ManagedApplicationAction
 
 ### resource
 - **Type**: <class 'str'>
@@ -1079,10 +1096,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedActionPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedActionProperties]
 
 
-# M2ManagedApplicationStepInputTypeDef
+# M2ManagedApplicationStepInput
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -1103,26 +1120,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedActionPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedActionProperties]
 
 
-# M2ManagedApplicationStepOutputTypeDef
+# M2ManagedApplicationStepOutput
 
 ### importDataSetSummary
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# M2ManagedApplicationStepSummaryTypeDef
+# M2ManagedApplicationStepSummary
 
 ### stepInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationStepInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationStepInput'>
 - **Required**: Yes
 
 ### stepOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationStepOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationStepOutput]
 
 
-# M2ManagedApplicationSummaryTypeDef
+# M2ManagedApplicationSummary
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -1136,24 +1153,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# M2ManagedApplicationTypeDef
+# M2NonManagedApplication
 
-### applicationId
+### vpcEndpointServiceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### listenerPort
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### runtime
-- **Type**: typing.Literal['MicroFocus']
+- **Type**: typing.Literal['BluAge']
 - **Required**: Yes
 
-### vpcEndpointServiceName
-- **Type**: typing.Optional[str]
-
-### listenerPort
+### webAppName
 - **Type**: typing.Optional[str]
 
 
-# M2NonManagedApplicationActionTypeDef
+# M2NonManagedApplicationAction
 
 ### resource
 - **Type**: <class 'str'>
@@ -1164,7 +1182,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# M2NonManagedApplicationStepInputTypeDef
+# M2NonManagedApplicationStepInput
 
 ### vpcEndpointServiceName
 - **Type**: <class 'str'>
@@ -1186,17 +1204,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# M2NonManagedApplicationStepSummaryTypeDef
+# M2NonManagedApplicationStepSummary
 
 ### stepInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationStepInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationStepInput'>
 - **Required**: Yes
 
 ### stepOutput
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
-# M2NonManagedApplicationSummaryTypeDef
+# M2NonManagedApplicationSummary
 
 ### vpcEndpointServiceName
 - **Type**: <class 'str'>
@@ -1214,119 +1232,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# M2NonManagedApplicationTypeDef
-
-### vpcEndpointServiceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### listenerPort
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### runtime
-- **Type**: typing.Literal['BluAge']
-- **Required**: Yes
-
-### webAppName
-- **Type**: typing.Optional[str]
-
-
-# MainframeActionOutputTypeDef
+# MainframeAction
 
 ### resource
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### actionType
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.MainframeActionTypeOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.MainframeActionTypeUnion'>
 - **Required**: Yes
 
 ### properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionProperties]
 
 
-# MainframeActionPropertiesTypeDef
+# MainframeActionOutput
+
+### resource
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### actionType
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.MainframeActionTypeOutput'>
+- **Required**: Yes
+
+### properties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionProperties]
+
+
+# MainframeActionProperties
 
 ### dmsTaskArn
 - **Type**: typing.Optional[str]
 
 
-# MainframeActionSummaryTypeDef
+# MainframeActionSummary
 
 ### batch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.BatchSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.BatchSummary]
 
 ### tn3270
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TN3270SummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TN3270Summary]
 
 
-# MainframeActionTypeDef
-
-### resource
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### actionType
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.MainframeActionTypeUnionTypeDef'>
-- **Required**: Yes
-
-### properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionPropertiesTypeDef]
-
-
-# MainframeActionTypeOutputTypeDef
+# MainframeActionType
 
 ### batch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.BatchOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.BatchUnion]
 
 ### tn3270
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TN3270OutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TN3270Union]
 
 
-# MainframeActionTypeTypeDef
+# MainframeActionTypeOutput
 
 ### batch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.BatchUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.BatchOutput]
 
 ### tn3270
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TN3270UnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TN3270Output]
 
 
-# MainframeActionTypeUnionTypeDef
+# MainframeActionTypeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MainframeActionUnionTypeDef
+# MainframeActionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MainframeResourceSummaryTypeDef
+# MainframeResourceSummary
 
 ### m2ManagedApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationSummary]
 
 ### m2NonManagedApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationSummary]
 
 
-# OutputFileTypeDef
+# Output
+
+### file
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.OutputFile]
+
+
+# OutputFile
 
 ### fileLocation
 - **Type**: typing.Optional[str]
 
 
-# OutputTypeDef
-
-### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.OutputFileTypeDef]
-
-
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1338,67 +1338,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceActionSummaryTypeDef
-
-### cloudFormation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CloudFormationStepSummaryTypeDef]
-
-### m2ManagedApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationStepSummaryTypeDef]
-
-### m2NonManagedApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationStepSummaryTypeDef]
-
-
-# ResourceActionTypeDef
+# ResourceAction
 
 ### m2ManagedApplicationAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationAction]
 
 ### m2NonManagedApplicationAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationAction]
 
 ### cloudFormationAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CloudFormationActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CloudFormationAction]
 
 
-# ResourceOutputTypeDef
+# ResourceActionSummary
+
+### cloudFormation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CloudFormationStepSummary]
+
+### m2ManagedApplication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationStepSummary]
+
+### m2NonManagedApplication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationStepSummary]
+
+
+# ResourceOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResourceTypeOutputTypeDef
+# ResourceType
 
 ### cloudFormation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CloudFormationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CloudFormationUnion]
 
 ### m2ManagedApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplication]
 
 ### m2NonManagedApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplication]
 
 
-# ResourceTypeTypeDef
+# ResourceTypeOutput
 
 ### cloudFormation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CloudFormationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CloudFormationOutput]
 
 ### m2ManagedApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplicationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2ManagedApplication]
 
 ### m2NonManagedApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplicationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.M2NonManagedApplication]
 
 
-# ResourceUnionTypeDef
+# ResourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1420,31 +1420,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScriptSummaryTypeDef
+# Script
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ScriptTypeDef
+# ScriptSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceSettingsTypeDef
+# ServiceSettings
 
 ### kmsKeyId
 - **Type**: typing.Optional[str]
 
 
-# SourceDatabaseMetadataTypeDef
+# SourceDatabaseMetadata
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StartTestRunRequestTypeDef
+# StartTestRunRequest
 
 ### testSuiteId
 - **Type**: <class 'str'>
@@ -1460,7 +1460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StartTestRunResponseTypeDef
+# StartTestRunResponse
 
 ### testRunId
 - **Type**: <class 'str'>
@@ -1471,114 +1471,124 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StepActionOutputTypeDef
-
-### resourceAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ResourceActionTypeDef]
-
-### mainframeAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionOutputTypeDef]
-
-### compareAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareActionOutputTypeDef]
-
-
-# StepActionTypeDef
-
-### resourceAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ResourceActionTypeDef]
-
-### mainframeAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionUnionTypeDef]
-
-### compareAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareActionUnionTypeDef]
-
-
-# StepActionUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# StepOutputTypeDef
+# Step
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.StepActionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.StepActionUnion'>
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
 
-# StepRunSummaryTypeDef
-
-### mainframeAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionSummaryTypeDef]
-
-### compareAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareActionSummaryTypeDef]
+# StepAction
 
 ### resourceAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ResourceActionSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ResourceAction]
+
+### mainframeAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionUnion]
+
+### compareAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareActionUnion]
 
 
-# StepTypeDef
+# StepActionOutput
+
+### resourceAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ResourceAction]
+
+### mainframeAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionOutput]
+
+### compareAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareActionOutput]
+
+
+# StepActionUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StepOutput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.StepActionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.StepActionOutput'>
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
 
-# StepUnionTypeDef
+# StepRunSummary
+
+### mainframeAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionSummary]
+
+### compareAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.CompareActionSummary]
+
+### resourceAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ResourceActionSummary]
+
+
+# StepUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TN3270OutputTypeDef
+# TN3270
 
 ### script
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ScriptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.Script'>
+- **Required**: Yes
+
+### exportDataSetNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# TN3270Output
+
+### script
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.Script'>
 - **Required**: Yes
 
 ### exportDataSetNames
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# TN3270StepInputTypeDef
+# TN3270StepInput
 
 ### resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.MainframeResourceSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.MainframeResourceSummary'>
 - **Required**: Yes
 
 ### script
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ScriptSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ScriptSummary'>
 - **Required**: Yes
 
 ### exportDataSetNames
 - **Type**: typing.Optional[typing.List[str]]
 
 ### properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.MainframeActionProperties]
 
 
-# TN3270StepOutputTypeDef
+# TN3270StepOutput
 
 ### scriptOutputLocation
 - **Type**: <class 'str'>
@@ -1591,36 +1601,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dataSetDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSetTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apptest_classes.DataSet]]
 
 
-# TN3270SummaryTypeDef
+# TN3270Summary
 
 ### stepInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TN3270StepInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.TN3270StepInput'>
 - **Required**: Yes
 
 ### stepOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TN3270StepOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TN3270StepOutput]
 
 
-# TN3270TypeDef
-
-### script
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ScriptTypeDef'>
-- **Required**: Yes
-
-### exportDataSetNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# TN3270UnionTypeDef
+# TN3270Union
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1631,13 +1631,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetDatabaseMetadataTypeDef
+# TargetDatabaseMetadata
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TestCaseLatestVersionTypeDef
+# TestCaseLatestVersion
 
 ### version
 - **Type**: <class 'int'>
@@ -1651,7 +1651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestCaseRunSummaryTypeDef
+# TestCaseRunSummary
 
 ### testCaseId
 - **Type**: <class 'str'>
@@ -1680,7 +1680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TestCaseSummaryTypeDef
+# TestCaseSummary
 
 ### testCaseId
 - **Type**: <class 'str'>
@@ -1714,25 +1714,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestCasesOutputTypeDef
-
-### sequential
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# TestCasesTypeDef
+# TestCases
 
 ### sequential
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TestCasesUnionTypeDef
+# TestCasesOutput
+
+### sequential
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# TestCasesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TestConfigurationLatestVersionTypeDef
+# TestConfigurationLatestVersion
 
 ### version
 - **Type**: <class 'int'>
@@ -1746,7 +1746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestConfigurationSummaryTypeDef
+# TestConfigurationSummary
 
 ### testConfigurationId
 - **Type**: <class 'str'>
@@ -1780,7 +1780,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestRunStepSummaryTypeDef
+# TestRunStepSummary
 
 ### stepName
 - **Type**: <class 'str'>
@@ -1823,7 +1823,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TestRunSummaryTypeDef
+# TestRunSummary
 
 ### testRunId
 - **Type**: <class 'str'>
@@ -1862,7 +1862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TestSuiteLatestVersionTypeDef
+# TestSuiteLatestVersion
 
 ### version
 - **Type**: <class 'int'>
@@ -1876,7 +1876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestSuiteSummaryTypeDef
+# TestSuiteSummary
 
 ### testSuiteId
 - **Type**: <class 'str'>
@@ -1910,7 +1910,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1921,7 +1921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTestCaseRequestTypeDef
+# UpdateTestCaseRequest
 
 ### testCaseId
 - **Type**: <class 'str'>
@@ -1931,10 +1931,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### steps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnion]]
 
 
-# UpdateTestCaseResponseTypeDef
+# UpdateTestCaseResponse
 
 ### testCaseId
 - **Type**: <class 'str'>
@@ -1945,11 +1945,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTestConfigurationRequestTypeDef
+# UpdateTestConfigurationRequest
 
 ### testConfigurationId
 - **Type**: <class 'str'>
@@ -1959,16 +1959,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### resources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.ResourceUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.ResourceUnion]]
 
 ### properties
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### serviceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ServiceSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.ServiceSettings]
 
 
-# UpdateTestConfigurationResponseTypeDef
+# UpdateTestConfigurationResponse
 
 ### testConfigurationId
 - **Type**: <class 'str'>
@@ -1979,11 +1979,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTestSuiteRequestTypeDef
+# UpdateTestSuiteRequest
 
 ### testSuiteId
 - **Type**: <class 'str'>
@@ -1993,16 +1993,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### beforeSteps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnion]]
 
 ### afterSteps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apptest_classes.StepUnion]]
 
 ### testCases
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TestCasesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apptest_classes.TestCasesUnion]
 
 
-# UpdateTestSuiteResponseTypeDef
+# UpdateTestSuiteResponse
 
 ### testSuiteId
 - **Type**: <class 'str'>
@@ -2013,7 +2013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apptest_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

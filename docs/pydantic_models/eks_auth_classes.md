@@ -1,6 +1,6 @@
 # Eks Auth Classes
 
-# AssumeRoleForPodIdentityRequestTypeDef
+# AssumeRoleForPodIdentityRequest
 
 ### clusterName
 - **Type**: <class 'str'>
@@ -11,10 +11,10 @@
 - **Required**: Yes
 
 
-# AssumeRoleForPodIdentityResponseTypeDef
+# AssumeRoleForPodIdentityResponse
 
 ### subject
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.SubjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.Subject'>
 - **Required**: Yes
 
 ### audience
@@ -22,23 +22,23 @@
 - **Required**: Yes
 
 ### podIdentityAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.PodIdentityAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.PodIdentityAssociation'>
 - **Required**: Yes
 
 ### assumedRoleUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.AssumedRoleUserTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.AssumedRoleUser'>
 - **Required**: Yes
 
 ### credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.CredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.Credentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssumedRoleUserTypeDef
+# AssumedRoleUser
 
 ### arn
 - **Type**: <class 'str'>
@@ -55,7 +55,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CredentialsTypeDef
+# Credentials
 
 ### sessionToken
 - **Type**: <class 'str'>
@@ -74,7 +74,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PodIdentityAssociationTypeDef
+# PodIdentityAssociation
 
 ### associationArn
 - **Type**: <class 'str'>
@@ -85,7 +85,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -107,7 +107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SubjectTypeDef
+# Subject
 
 ### namespace
 - **Type**: <class 'str'>

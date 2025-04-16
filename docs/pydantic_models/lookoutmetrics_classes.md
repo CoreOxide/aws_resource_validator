@@ -1,79 +1,25 @@
 # Lookoutmetrics Classes
 
-# ActionTypeDef
+# Action
 
 ### SNSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.SNSConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LambdaConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.LambdaConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ActivateAnomalyDetectorRequestTypeDef
+# ActivateAnomalyDetectorRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AlertFiltersOutputTypeDef
-
-### MetricList
-- **Type**: typing.Optional[typing.List[str]]
-
-### DimensionFilterList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionFilterOutputTypeDef]]
-
-
-# AlertFiltersTypeDef
-
-### MetricList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### DimensionFilterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionFilterTypeDef]]
-
-
-# AlertFiltersUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AlertSummaryTypeDef
-
-### AlertArn
-- **Type**: typing.Optional[str]
-
-### AnomalyDetectorArn
-- **Type**: typing.Optional[str]
-
-### AlertName
-- **Type**: typing.Optional[str]
-
-### AlertSensitivityThreshold
-- **Type**: typing.Optional[int]
-
-### AlertType
-- **Type**: typing.Optional[typing.Literal['LAMBDA', 'SNS']]
-
-### AlertStatus
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
-
-### LastModificationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### CreationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# AlertTypeDef
+# Alert
 
 ### Action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.ActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AlertDescription
 - **Type**: typing.Optional[str]
@@ -103,31 +49,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### AlertFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AlertFiltersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AlertFiltersOutput]
 
 
-# AnomalyDetectorConfigSummaryTypeDef
+# AlertFilters
+
+### MetricList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### DimensionFilterList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionFilter]]
+
+
+# AlertFiltersOutput
+
+### MetricList
+- **Type**: typing.Optional[typing.List[str]]
+
+### DimensionFilterList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionFilterOutput]]
+
+
+# AlertFiltersUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AlertSummary
+
+### AlertArn
+- **Type**: typing.Optional[str]
+
+### AnomalyDetectorArn
+- **Type**: typing.Optional[str]
+
+### AlertName
+- **Type**: typing.Optional[str]
+
+### AlertSensitivityThreshold
+- **Type**: typing.Optional[int]
+
+### AlertType
+- **Type**: typing.Optional[typing.Literal['LAMBDA', 'SNS']]
+
+### AlertStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+
+### LastModificationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### CreationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# AnomalyDetectorConfig
 
 ### AnomalyDetectorFrequency
 - **Type**: typing.Optional[typing.Literal['P1D', 'PT10M', 'PT1H', 'PT5M']]
 
 
-# AnomalyDetectorConfigTypeDef
+# AnomalyDetectorConfigSummary
 
 ### AnomalyDetectorFrequency
 - **Type**: typing.Optional[typing.Literal['P1D', 'PT10M', 'PT1H', 'PT5M']]
 
 
-# AnomalyDetectorDataQualityMetricTypeDef
+# AnomalyDetectorDataQualityMetric
 
 ### StartTimestamp
 - **Type**: typing.Optional[datetime.datetime]
 
 ### MetricSetDataQualityMetricList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetDataQualityMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetDataQualityMetric]]
 
 
-# AnomalyDetectorSummaryTypeDef
+# AnomalyDetectorSummary
 
 ### AnomalyDetectorArn
 - **Type**: typing.Optional[str]
@@ -151,62 +151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# AnomalyGroupStatisticsTypeDef
-
-### EvaluationStartDate
-- **Type**: typing.Optional[str]
-
-### TotalCount
-- **Type**: typing.Optional[int]
-
-### ItemizedMetricStatsList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.ItemizedMetricStatsTypeDef]]
-
-
-# AnomalyGroupSummaryTypeDef
-
-### StartTime
-- **Type**: typing.Optional[str]
-
-### EndTime
-- **Type**: typing.Optional[str]
-
-### AnomalyGroupId
-- **Type**: typing.Optional[str]
-
-### AnomalyGroupScore
-- **Type**: typing.Optional[float]
-
-### PrimaryMetricName
-- **Type**: typing.Optional[str]
-
-
-# AnomalyGroupTimeSeriesFeedbackTypeDef
-
-### AnomalyGroupId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TimeSeriesId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### IsAnomaly
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-
-# AnomalyGroupTimeSeriesTypeDef
-
-### AnomalyGroupId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TimeSeriesId
-- **Type**: typing.Optional[str]
-
-
-# AnomalyGroupTypeDef
+# AnomalyGroup
 
 ### StartTime
 - **Type**: typing.Optional[str]
@@ -224,10 +169,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricLevelImpactList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricLevelImpactTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricLevelImpact]]
 
 
-# AppFlowConfigTypeDef
+# AnomalyGroupStatistics
+
+### EvaluationStartDate
+- **Type**: typing.Optional[str]
+
+### TotalCount
+- **Type**: typing.Optional[int]
+
+### ItemizedMetricStatsList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.ItemizedMetricStats]]
+
+
+# AnomalyGroupSummary
+
+### StartTime
+- **Type**: typing.Optional[str]
+
+### EndTime
+- **Type**: typing.Optional[str]
+
+### AnomalyGroupId
+- **Type**: typing.Optional[str]
+
+### AnomalyGroupScore
+- **Type**: typing.Optional[float]
+
+### PrimaryMetricName
+- **Type**: typing.Optional[str]
+
+
+# AnomalyGroupTimeSeries
+
+### AnomalyGroupId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TimeSeriesId
+- **Type**: typing.Optional[str]
+
+
+# AnomalyGroupTimeSeriesFeedback
+
+### AnomalyGroupId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TimeSeriesId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IsAnomaly
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# AppFlowConfig
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -236,7 +236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AthenaSourceConfigTypeDef
+# AthenaSourceConfig
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -257,10 +257,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BackTestConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.BackTestConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AttributeValueTypeDef
+# AttributeValue
 
 ### S
 - **Type**: typing.Optional[str]
@@ -281,13 +281,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AutoDetectionMetricSourceTypeDef
+# AutoDetectionMetricSource
 
 ### S3SourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AutoDetectionS3SourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AutoDetectionS3SourceConfig]
 
 
-# AutoDetectionS3SourceConfigTypeDef
+# AutoDetectionS3SourceConfig
 
 ### TemplatedPathList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -296,14 +296,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# BackTestAnomalyDetectorRequestTypeDef
+# BackTestAnomalyDetectorRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# BackTestConfigurationTypeDef
+# BackTestConfiguration
 
 ### RunBackTestMode
 - **Type**: <class 'bool'>
@@ -316,22 +316,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CloudWatchConfigTypeDef
+# CloudWatchConfig
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 ### BackTestConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.BackTestConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ContributionMatrixTypeDef
+# ContributionMatrix
 
 ### DimensionContributionList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionContributionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionContribution]]
 
 
-# CreateAlertRequestTypeDef
+# CreateAlertRequest
 
 ### AlertName
 - **Type**: <class 'str'>
@@ -342,7 +342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ActionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.Action'>
 - **Required**: Yes
 
 ### AlertSensitivityThreshold
@@ -355,28 +355,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### AlertFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AlertFiltersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AlertFiltersUnion]
 
 
-# CreateAlertResponseTypeDef
+# CreateAlertResponse
 
 ### AlertArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAnomalyDetectorRequestTypeDef
+# CreateAnomalyDetectorRequest
 
 ### AnomalyDetectorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AnomalyDetectorConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyDetectorConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyDetectorConfig'>
 - **Required**: Yes
 
 ### AnomalyDetectorDescription
@@ -389,18 +389,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateAnomalyDetectorResponseTypeDef
+# CreateAnomalyDetectorResponse
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMetricSetRequestTypeDef
+# CreateMetricSetRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
@@ -411,11 +411,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.Metric]
 - **Required**: Yes
 
 ### MetricSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSourceUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSourceUnion'>
 - **Required**: Yes
 
 ### MetricSetDescription
@@ -425,7 +425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TimestampColumn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.TimestampColumnTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DimensionList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -440,21 +440,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### DimensionFilterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetDimensionFilterUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetDimensionFilterUnion]]
 
 
-# CreateMetricSetResponseTypeDef
+# CreateMetricSetResponse
 
 ### MetricSetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CsvFormatDescriptorOutputTypeDef
+# CsvFormatDescriptor
+
+### FileCompression
+- **Type**: typing.Optional[typing.Literal['GZIP', 'NONE']]
+
+### Charset
+- **Type**: typing.Optional[str]
+
+### ContainsHeader
+- **Type**: typing.Optional[bool]
+
+### Delimiter
+- **Type**: typing.Optional[str]
+
+### HeaderList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### QuoteSymbol
+- **Type**: typing.Optional[str]
+
+
+# CsvFormatDescriptorOutput
 
 ### FileCompression
 - **Type**: typing.Optional[typing.Literal['GZIP', 'NONE']]
@@ -475,34 +496,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CsvFormatDescriptorTypeDef
-
-### FileCompression
-- **Type**: typing.Optional[typing.Literal['GZIP', 'NONE']]
-
-### Charset
-- **Type**: typing.Optional[str]
-
-### ContainsHeader
-- **Type**: typing.Optional[bool]
-
-### Delimiter
-- **Type**: typing.Optional[str]
-
-### HeaderList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### QuoteSymbol
-- **Type**: typing.Optional[str]
-
-
-# CsvFormatDescriptorUnionTypeDef
+# CsvFormatDescriptorUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DataQualityMetricTypeDef
+# DataQualityMetric
 
 ### MetricType
 - **Type**: typing.Optional[typing.Literal['BACKTEST_INFERENCE_DATA_END_TIME_STAMP', 'BACKTEST_INFERENCE_DATA_START_TIME_STAMP', 'BACKTEST_TRAINING_DATA_END_TIME_STAMP', 'BACKTEST_TRAINING_DATA_START_TIME_STAMP', 'COLUMN_COMPLETENESS', 'DIMENSION_UNIQUENESS', 'INVALID_ROWS_COMPLIANCE', 'ROWS_PARTIAL_COMPLIANCE', 'ROWS_PROCESSED', 'TIME_SERIES_COUNT']]
@@ -517,46 +517,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# DeactivateAnomalyDetectorRequestTypeDef
+# DeactivateAnomalyDetectorRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAlertRequestTypeDef
+# DeleteAlertRequest
 
 ### AlertArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAnomalyDetectorRequestTypeDef
+# DeleteAnomalyDetectorRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAlertRequestTypeDef
+# DescribeAlertRequest
 
 ### AlertArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAlertResponseTypeDef
+# DescribeAlertResponse
 
 ### Alert
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AlertTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.Alert'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAnomalyDetectionExecutionsRequestTypeDef
+# DescribeAnomalyDetectionExecutionsRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
@@ -572,28 +572,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAnomalyDetectionExecutionsResponseTypeDef
+# DescribeAnomalyDetectionExecutionsResponse
 
 ### ExecutionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.ExecutionStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.ExecutionStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeAnomalyDetectorRequestTypeDef
+# DescribeAnomalyDetectorRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAnomalyDetectorResponseTypeDef
+# DescribeAnomalyDetectorResponse
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
@@ -608,7 +608,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AnomalyDetectorConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyDetectorConfigSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyDetectorConfigSummary'>
 - **Required**: Yes
 
 ### CreationTime
@@ -636,18 +636,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeMetricSetRequestTypeDef
+# DescribeMetricSetRequest
 
 ### MetricSetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeMetricSetResponseTypeDef
+# DescribeMetricSetResponse
 
 ### MetricSetArn
 - **Type**: <class 'str'>
@@ -678,11 +678,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.Metric]
 - **Required**: Yes
 
 ### TimestampColumn
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.TimestampColumnTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.TimestampColumn'>
 - **Required**: Yes
 
 ### DimensionList
@@ -698,65 +698,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSourceOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSourceOutput'>
 - **Required**: Yes
 
 ### DimensionFilterList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetDimensionFilterOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetDimensionFilterOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectMetricSetConfigRequestTypeDef
+# DetectMetricSetConfigRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AutoDetectionMetricSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AutoDetectionMetricSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AutoDetectionMetricSource'>
 - **Required**: Yes
 
 
-# DetectMetricSetConfigResponseTypeDef
+# DetectMetricSetConfigResponse
 
 ### DetectedMetricSetConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedMetricSetConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedMetricSetConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectedCsvFormatDescriptorTypeDef
+# DetectedCsvFormatDescriptor
 
 ### FileCompression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 ### Charset
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 ### ContainsHeader
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 ### Delimiter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 ### HeaderList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 ### QuoteSymbol
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 
-# DetectedFieldTypeDef
+# DetectedField
 
 ### Value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AttributeValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AttributeValue]
 
 ### Confidence
 - **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'NONE']]
@@ -765,67 +765,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DetectedFileFormatDescriptorTypeDef
+# DetectedFileFormatDescriptor
 
 ### CsvFormatDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedCsvFormatDescriptorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedCsvFormatDescriptor]
 
 ### JsonFormatDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedJsonFormatDescriptorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedJsonFormatDescriptor]
 
 
-# DetectedJsonFormatDescriptorTypeDef
+# DetectedJsonFormatDescriptor
 
 ### FileCompression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 ### Charset
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 
-# DetectedMetricSetConfigTypeDef
+# DetectedMetricSetConfig
 
 ### Offset
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 ### MetricSetFrequency
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFieldTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedField]
 
 ### MetricSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedMetricSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedMetricSource]
 
 
-# DetectedMetricSourceTypeDef
+# DetectedMetricSource
 
 ### S3SourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedS3SourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedS3SourceConfig]
 
 
-# DetectedS3SourceConfigTypeDef
+# DetectedS3SourceConfig
 
 ### FileFormatDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFileFormatDescriptorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DetectedFileFormatDescriptor]
 
 
-# DimensionContributionTypeDef
+# DimensionContribution
 
 ### DimensionName
 - **Type**: typing.Optional[str]
 
 ### DimensionValueContributionList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionValueContributionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionValueContribution]]
 
 
-# DimensionFilterOutputTypeDef
-
-### DimensionName
-- **Type**: typing.Optional[str]
-
-### DimensionValueList
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# DimensionFilterTypeDef
+# DimensionFilter
 
 ### DimensionName
 - **Type**: typing.Optional[str]
@@ -834,7 +825,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DimensionNameValueTypeDef
+# DimensionFilterOutput
+
+### DimensionName
+- **Type**: typing.Optional[str]
+
+### DimensionValueList
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# DimensionNameValue
 
 ### DimensionName
 - **Type**: <class 'str'>
@@ -845,7 +845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DimensionValueContributionTypeDef
+# DimensionValueContribution
 
 ### DimensionValue
 - **Type**: typing.Optional[str]
@@ -854,7 +854,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ExecutionStatusTypeDef
+# ExecutionStatus
 
 ### Timestamp
 - **Type**: typing.Optional[str]
@@ -866,31 +866,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FileFormatDescriptorOutputTypeDef
+# FileFormatDescriptor
 
 ### CsvFormatDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.CsvFormatDescriptorOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.CsvFormatDescriptorUnion]
 
 ### JsonFormatDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.JsonFormatDescriptorTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# FileFormatDescriptorTypeDef
+# FileFormatDescriptorOutput
 
 ### CsvFormatDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.CsvFormatDescriptorUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.CsvFormatDescriptorOutput]
 
 ### JsonFormatDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.JsonFormatDescriptorTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# FileFormatDescriptorUnionTypeDef
+# FileFormatDescriptorUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FilterTypeDef
+# Filter
 
 ### DimensionValue
 - **Type**: typing.Optional[str]
@@ -899,7 +899,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EQUALS']]
 
 
-# GetAnomalyGroupRequestTypeDef
+# GetAnomalyGroupRequest
 
 ### AnomalyGroupId
 - **Type**: <class 'str'>
@@ -910,18 +910,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAnomalyGroupResponseTypeDef
+# GetAnomalyGroupResponse
 
 ### AnomalyGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDataQualityMetricsRequestTypeDef
+# GetDataQualityMetricsRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
@@ -931,25 +931,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDataQualityMetricsResponseTypeDef
+# GetDataQualityMetricsResponse
 
 ### AnomalyDetectorDataQualityMetricList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyDetectorDataQualityMetricTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyDetectorDataQualityMetric]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFeedbackRequestTypeDef
+# GetFeedbackRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AnomalyGroupTimeSeriesFeedback
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroupTimeSeriesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroupTimeSeries'>
 - **Required**: Yes
 
 ### MaxResults
@@ -959,27 +959,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFeedbackResponseTypeDef
+# GetFeedbackResponse
 
 ### AnomalyGroupTimeSeriesFeedback
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.TimeSeriesFeedbackTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.TimeSeriesFeedback]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetSampleDataRequestTypeDef
+# GetSampleDataRequest
 
 ### S3SourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.SampleDataS3SourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.SampleDataS3SourceConfig]
 
 
-# GetSampleDataResponseTypeDef
+# GetSampleDataResponse
 
 ### HeaderValues
 - **Type**: typing.List[str]
@@ -990,11 +990,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InterMetricImpactDetailsTypeDef
+# InterMetricImpactDetails
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -1009,7 +1009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ItemizedMetricStatsTypeDef
+# ItemizedMetricStats
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -1018,7 +1018,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# JsonFormatDescriptorTypeDef
+# JsonFormatDescriptor
 
 ### FileCompression
 - **Type**: typing.Optional[typing.Literal['GZIP', 'NONE']]
@@ -1027,7 +1027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LambdaConfigurationTypeDef
+# LambdaConfiguration
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -1038,7 +1038,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAlertsRequestTypeDef
+# ListAlertsRequest
 
 ### AnomalyDetectorArn
 - **Type**: typing.Optional[str]
@@ -1050,21 +1050,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAlertsResponseTypeDef
+# ListAlertsResponse
 
 ### AlertSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AlertSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AlertSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAnomalyDetectorsRequestTypeDef
+# ListAnomalyDetectorsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1073,21 +1073,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAnomalyDetectorsResponseTypeDef
+# ListAnomalyDetectorsResponse
 
 ### AnomalyDetectorSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyDetectorSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyDetectorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAnomalyGroupRelatedMetricsRequestTypeDef
+# ListAnomalyGroupRelatedMetricsRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
@@ -1107,21 +1107,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAnomalyGroupRelatedMetricsResponseTypeDef
+# ListAnomalyGroupRelatedMetricsResponse
 
 ### InterMetricImpactList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.InterMetricImpactDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.InterMetricImpactDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAnomalyGroupSummariesRequestTypeDef
+# ListAnomalyGroupSummariesRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
@@ -1138,25 +1138,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAnomalyGroupSummariesResponseTypeDef
+# ListAnomalyGroupSummariesResponse
 
 ### AnomalyGroupSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroupSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroupSummary]
 - **Required**: Yes
 
 ### AnomalyGroupStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroupStatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroupStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAnomalyGroupTimeSeriesRequestTypeDef
+# ListAnomalyGroupTimeSeriesRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
@@ -1177,7 +1177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAnomalyGroupTimeSeriesResponseTypeDef
+# ListAnomalyGroupTimeSeriesResponse
 
 ### AnomalyGroupId
 - **Type**: <class 'str'>
@@ -1192,18 +1192,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeSeriesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.TimeSeriesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.TimeSeries]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMetricSetsRequestTypeDef
+# ListMetricSetsRequest
 
 ### AnomalyDetectorArn
 - **Type**: typing.Optional[str]
@@ -1215,39 +1215,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMetricSetsResponseTypeDef
+# ListMetricSetsResponse
 
 ### MetricSetSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MetricLevelImpactTypeDef
+# Metric
+
+### MetricName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AggregationFunction
+- **Type**: typing.Literal['AVG', 'SUM']
+- **Required**: Yes
+
+### Namespace
+- **Type**: typing.Optional[str]
+
+
+# MetricLevelImpact
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -1256,43 +1270,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ContributionMatrix
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.ContributionMatrixTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# MetricSetDataQualityMetricTypeDef
+# MetricSetDataQualityMetric
 
 ### MetricSetArn
 - **Type**: typing.Optional[str]
 
 ### DataQualityMetricList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DataQualityMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DataQualityMetric]]
 
 
-# MetricSetDimensionFilterOutputTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### FilterList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.FilterTypeDef]]
-
-
-# MetricSetDimensionFilterTypeDef
+# MetricSetDimensionFilter
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### FilterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.Filter]]
 
 
-# MetricSetDimensionFilterUnionTypeDef
+# MetricSetDimensionFilterOutput
+
+### Name
+- **Type**: typing.Optional[str]
+
+### FilterList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.Filter]]
+
+
+# MetricSetDimensionFilterUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MetricSetSummaryTypeDef
+# MetricSetSummary
 
 ### MetricSetArn
 - **Type**: typing.Optional[str]
@@ -1316,80 +1330,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# MetricSourceOutputTypeDef
+# MetricSource
 
 ### S3SourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.S3SourceConfigOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AppFlowConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AppFlowConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.CloudWatchConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RDSSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.RDSSourceConfigOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RedshiftSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.RedshiftSourceConfigOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AthenaSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AthenaSourceConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# MetricSourceTypeDef
+# MetricSourceOutput
 
 ### S3SourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.S3SourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.S3SourceConfigOutput]
 
 ### AppFlowConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AppFlowConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.CloudWatchConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RDSSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.RDSSourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.RDSSourceConfigOutput]
 
 ### RedshiftSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.RedshiftSourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.RedshiftSourceConfigOutput]
 
 ### AthenaSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AthenaSourceConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# MetricSourceUnionTypeDef
+# MetricSourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MetricTypeDef
-
-### MetricName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AggregationFunction
-- **Type**: typing.Literal['AVG', 'SUM']
-- **Required**: Yes
-
-### Namespace
-- **Type**: typing.Optional[str]
-
-
-# PutFeedbackRequestTypeDef
+# PutFeedbackRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AnomalyGroupTimeSeriesFeedback
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroupTimeSeriesFeedbackTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyGroupTimeSeriesFeedback'>
 - **Required**: Yes
 
 
-# RDSSourceConfigOutputTypeDef
+# RDSSourceConfig
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -1413,10 +1413,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.VpcConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RDSSourceConfigTypeDef
+# RDSSourceConfigOutput
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -1440,37 +1440,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.VpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.VpcConfigurationOutput]
 
 
-# RedshiftSourceConfigOutputTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### DatabaseHost
-- **Type**: typing.Optional[str]
-
-### DatabasePort
-- **Type**: typing.Optional[int]
-
-### SecretManagerArn
-- **Type**: typing.Optional[str]
-
-### DatabaseName
-- **Type**: typing.Optional[str]
-
-### TableName
-- **Type**: typing.Optional[str]
-
-### RoleArn
-- **Type**: typing.Optional[str]
-
-### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.VpcConfigurationOutputTypeDef]
-
-
-# RedshiftSourceConfigTypeDef
+# RedshiftSourceConfig
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1494,10 +1467,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.VpcConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ResponseMetadataTypeDef
+# RedshiftSourceConfigOutput
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### DatabaseHost
+- **Type**: typing.Optional[str]
+
+### DatabasePort
+- **Type**: typing.Optional[int]
+
+### SecretManagerArn
+- **Type**: typing.Optional[str]
+
+### DatabaseName
+- **Type**: typing.Optional[str]
+
+### TableName
+- **Type**: typing.Optional[str]
+
+### RoleArn
+- **Type**: typing.Optional[str]
+
+### VpcConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.VpcConfigurationOutput]
+
+
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1519,22 +1519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3SourceConfigOutputTypeDef
-
-### RoleArn
-- **Type**: typing.Optional[str]
-
-### TemplatedPathList
-- **Type**: typing.Optional[typing.List[str]]
-
-### HistoricalDataPathList
-- **Type**: typing.Optional[typing.List[str]]
-
-### FileFormatDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.FileFormatDescriptorOutputTypeDef]
-
-
-# S3SourceConfigTypeDef
+# S3SourceConfig
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -1546,10 +1531,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FileFormatDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.FileFormatDescriptorTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SNSConfigurationTypeDef
+# S3SourceConfigOutput
+
+### RoleArn
+- **Type**: typing.Optional[str]
+
+### TemplatedPathList
+- **Type**: typing.Optional[typing.List[str]]
+
+### HistoricalDataPathList
+- **Type**: typing.Optional[typing.List[str]]
+
+### FileFormatDescriptor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.FileFormatDescriptorOutput]
+
+
+# SNSConfiguration
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -1563,14 +1563,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['JSON', 'LONG_TEXT', 'SHORT_TEXT']]
 
 
-# SampleDataS3SourceConfigTypeDef
+# SampleDataS3SourceConfig
 
 ### RoleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FileFormatDescriptor
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.FileFormatDescriptorUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.FileFormatDescriptorUnion'>
 - **Required**: Yes
 
 ### TemplatedPathList
@@ -1580,7 +1580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1591,7 +1591,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimeSeriesFeedbackTypeDef
+# TimeSeries
+
+### TimeSeriesId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DimensionList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionNameValue]
+- **Required**: Yes
+
+### MetricValueList
+- **Type**: typing.List[float]
+- **Required**: Yes
+
+
+# TimeSeriesFeedback
 
 ### TimeSeriesId
 - **Type**: typing.Optional[str]
@@ -1600,22 +1615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TimeSeriesTypeDef
-
-### TimeSeriesId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DimensionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutmetrics_classes.DimensionNameValueTypeDef]
-- **Required**: Yes
-
-### MetricValueList
-- **Type**: typing.List[float]
-- **Required**: Yes
-
-
-# TimestampColumnTypeDef
+# TimestampColumn
 
 ### ColumnName
 - **Type**: typing.Optional[str]
@@ -1624,7 +1624,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1635,7 +1635,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAlertRequestTypeDef
+# UpdateAlertRequest
 
 ### AlertArn
 - **Type**: <class 'str'>
@@ -1648,24 +1648,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.ActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AlertFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AlertFiltersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AlertFiltersUnion]
 
 
-# UpdateAlertResponseTypeDef
+# UpdateAlertResponse
 
 ### AlertArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateAnomalyDetectorRequestTypeDef
+# UpdateAnomalyDetectorRequest
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
@@ -1678,21 +1678,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AnomalyDetectorConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.AnomalyDetectorConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateAnomalyDetectorResponseTypeDef
+# UpdateAnomalyDetectorResponse
 
 ### AnomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateMetricSetRequestTypeDef
+# UpdateMetricSetRequest
 
 ### MetricSetArn
 - **Type**: <class 'str'>
@@ -1702,13 +1702,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.Metric]]
 
 ### Offset
 - **Type**: typing.Optional[int]
 
 ### TimestampColumn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.TimestampColumnTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DimensionList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1717,35 +1717,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['P1D', 'PT10M', 'PT1H', 'PT5M']]
 
 ### MetricSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSourceUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSourceUnion]
 
 ### DimensionFilterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetDimensionFilterUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutmetrics_classes.MetricSetDimensionFilterUnion]]
 
 
-# UpdateMetricSetResponseTypeDef
+# UpdateMetricSetResponse
 
 ### MetricSetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutmetrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VpcConfigurationOutputTypeDef
-
-### SubnetIdList
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### SecurityGroupIdList
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# VpcConfigurationTypeDef
+# VpcConfiguration
 
 ### SubnetIdList
 - **Type**: typing.Sequence[str]
@@ -1753,6 +1742,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SecurityGroupIdList
 - **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# VpcConfigurationOutput
+
+### SubnetIdList
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### SecurityGroupIdList
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

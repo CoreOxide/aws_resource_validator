@@ -1,6 +1,6 @@
 # Elb Classes
 
-# AccessLogTypeDef
+# AccessLog
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -16,7 +16,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AddAvailabilityZonesInputTypeDef
+# AddAvailabilityZonesInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -27,29 +27,29 @@
 - **Required**: Yes
 
 
-# AddAvailabilityZonesOutputTypeDef
+# AddAvailabilityZonesOutput
 
 ### AvailabilityZones
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AddTagsInputTypeDef
+# AddTagsInput
 
 ### LoadBalancerNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Tag]
 - **Required**: Yes
 
 
-# AdditionalAttributeTypeDef
+# AdditionalAttribute
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -58,7 +58,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AppCookieStickinessPolicyTypeDef
+# AppCookieStickinessPolicy
 
 ### PolicyName
 - **Type**: typing.Optional[str]
@@ -67,7 +67,7 @@
 - **Type**: typing.Optional[str]
 
 
-# ApplySecurityGroupsToLoadBalancerInputTypeDef
+# ApplySecurityGroupsToLoadBalancerInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -78,18 +78,18 @@
 - **Required**: Yes
 
 
-# ApplySecurityGroupsToLoadBalancerOutputTypeDef
+# ApplySecurityGroupsToLoadBalancerOutput
 
 ### SecurityGroups
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AttachLoadBalancerToSubnetsInputTypeDef
+# AttachLoadBalancerToSubnetsInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -100,18 +100,18 @@
 - **Required**: Yes
 
 
-# AttachLoadBalancerToSubnetsOutputTypeDef
+# AttachLoadBalancerToSubnetsOutput
 
 ### Subnets
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BackendServerDescriptionTypeDef
+# BackendServerDescription
 
 ### InstancePort
 - **Type**: typing.Optional[int]
@@ -126,29 +126,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConfigureHealthCheckInputTypeDef
+# ConfigureHealthCheckInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### HealthCheck
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.HealthCheckTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.HealthCheck'>
 - **Required**: Yes
 
 
-# ConfigureHealthCheckOutputTypeDef
+# ConfigureHealthCheckOutput
 
 ### HealthCheck
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.HealthCheckTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.HealthCheck'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConnectionDrainingTypeDef
+# ConnectionDraining
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -158,21 +158,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ConnectionSettingsTypeDef
+# ConnectionSettings
 
 ### IdleTimeout
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# CreateAccessPointInputTypeDef
+# CreateAccessPointInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Listeners
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.ListenerTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Listener]
 - **Required**: Yes
 
 ### AvailabilityZones
@@ -188,21 +188,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Tag]]
 
 
-# CreateAccessPointOutputTypeDef
+# CreateAccessPointOutput
 
 ### DNSName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAppCookieStickinessPolicyInputTypeDef
+# CreateAppCookieStickinessPolicyInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -217,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLBCookieStickinessPolicyInputTypeDef
+# CreateLBCookieStickinessPolicyInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -231,18 +231,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateLoadBalancerListenerInputTypeDef
+# CreateLoadBalancerListenerInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Listeners
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.ListenerTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Listener]
 - **Required**: Yes
 
 
-# CreateLoadBalancerPolicyInputTypeDef
+# CreateLoadBalancerPolicyInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -257,24 +257,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PolicyAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.PolicyAttributeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.PolicyAttribute]]
 
 
-# CrossZoneLoadBalancingTypeDef
+# CrossZoneLoadBalancing
 
 ### Enabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# DeleteAccessPointInputTypeDef
+# DeleteAccessPointInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLoadBalancerListenerInputTypeDef
+# DeleteLoadBalancerListenerInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -285,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLoadBalancerPolicyInputTypeDef
+# DeleteLoadBalancerPolicyInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -296,38 +296,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterEndPointsInputTypeDef
+# DeregisterEndPointsInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Instances
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Instance]
 - **Required**: Yes
 
 
-# DeregisterEndPointsOutputTypeDef
+# DeregisterEndPointsOutput
 
 ### Instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.Instance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAccessPointsInputPaginateTypeDef
-
-### LoadBalancerNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.PaginatorConfigTypeDef]
-
-
-# DescribeAccessPointsInputTypeDef
+# DescribeAccessPointsInput
 
 ### LoadBalancerNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -339,10 +330,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeAccessPointsOutputTypeDef
+# DescribeAccessPointsInputPaginate
+
+### LoadBalancerNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.PaginatorConfig]
+
+
+# DescribeAccessPointsOutput
 
 ### LoadBalancerDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.LoadBalancerDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.LoadBalancerDescription]
 - **Required**: Yes
 
 ### NextMarker
@@ -350,17 +350,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAccountLimitsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.PaginatorConfigTypeDef]
-
-
-# DescribeAccountLimitsInputTypeDef
+# DescribeAccountLimitsInput
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -369,10 +363,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeAccountLimitsOutputTypeDef
+# DescribeAccountLimitsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.PaginatorConfig]
+
+
+# DescribeAccountLimitsOutput
 
 ### Limits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.LimitTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.Limit]
 - **Required**: Yes
 
 ### NextMarker
@@ -380,89 +380,89 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEndPointStateInputTypeDef
+# DescribeEndPointStateInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Instances
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Instance]]
 
 
-# DescribeEndPointStateInputWaitExtraExtraTypeDef
+# DescribeEndPointStateInputWait
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Instances
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Instance]]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeEndPointStateInputWaitExtraTypeDef
-
-### LoadBalancerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Instances
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.WaiterConfigTypeDef]
-
-
-# DescribeEndPointStateInputWaitTypeDef
+# DescribeEndPointStateInputWaitExtra
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Instances
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Instance]]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeEndPointStateOutputTypeDef
+# DescribeEndPointStateInputWaitExtraExtra
+
+### LoadBalancerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Instances
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Instance]]
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# DescribeEndPointStateOutput
 
 ### InstanceStates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.InstanceStateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.InstanceState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLoadBalancerAttributesInputTypeDef
+# DescribeLoadBalancerAttributesInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLoadBalancerAttributesOutputTypeDef
+# DescribeLoadBalancerAttributesOutput
 
 ### LoadBalancerAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLoadBalancerPoliciesInputTypeDef
+# DescribeLoadBalancerPoliciesInput
 
 ### LoadBalancerName
 - **Type**: typing.Optional[str]
@@ -471,53 +471,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeLoadBalancerPoliciesOutputTypeDef
+# DescribeLoadBalancerPoliciesOutput
 
 ### PolicyDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.PolicyDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.PolicyDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLoadBalancerPolicyTypesInputTypeDef
+# DescribeLoadBalancerPolicyTypesInput
 
 ### PolicyTypeNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeLoadBalancerPolicyTypesOutputTypeDef
+# DescribeLoadBalancerPolicyTypesOutput
 
 ### PolicyTypeDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.PolicyTypeDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.PolicyTypeDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTagsInputTypeDef
+# DescribeTagsInput
 
 ### LoadBalancerNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeTagsOutputTypeDef
+# DescribeTagsOutput
 
 ### TagDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.TagDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.TagDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetachLoadBalancerFromSubnetsInputTypeDef
+# DetachLoadBalancerFromSubnetsInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -528,18 +528,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachLoadBalancerFromSubnetsOutputTypeDef
+# DetachLoadBalancerFromSubnetsOutput
 
 ### Subnets
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HealthCheckTypeDef
+# HealthCheck
 
 ### Target
 - **Type**: <class 'str'>
@@ -562,7 +562,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InstanceStateTypeDef
+# Instance
+
+### InstanceId
+- **Type**: typing.Optional[str]
+
+
+# InstanceState
 
 ### InstanceId
 - **Type**: typing.Optional[str]
@@ -577,13 +583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InstanceTypeDef
-
-### InstanceId
-- **Type**: typing.Optional[str]
-
-
-# LBCookieStickinessPolicyTypeDef
+# LBCookieStickinessPolicy
 
 ### PolicyName
 - **Type**: typing.Optional[str]
@@ -592,7 +592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LimitTypeDef
+# Limit
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -601,64 +601,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListenerDescriptionTypeDef
+# Listener
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ListenerDescription
 
 ### Listener
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.ListenerTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PolicyNames
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ListenerTypeDef
+# LoadBalancerAttributes
+
+### CrossZoneLoadBalancing
+- **Type**: <class 'NoneType'>
+
+### AccessLog
+- **Type**: <class 'NoneType'>
+
+### ConnectionDraining
+- **Type**: <class 'NoneType'>
+
+### ConnectionSettings
+- **Type**: <class 'NoneType'>
+
+### AdditionalAttributes
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.AdditionalAttribute]]
+
+
+# LoadBalancerAttributesOutput
+
+### CrossZoneLoadBalancing
+- **Type**: <class 'NoneType'>
+
+### AccessLog
+- **Type**: <class 'NoneType'>
+
+### ConnectionDraining
+- **Type**: <class 'NoneType'>
+
+### ConnectionSettings
+- **Type**: <class 'NoneType'>
+
+### AdditionalAttributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.AdditionalAttribute]]
+
+
+# LoadBalancerAttributesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LoadBalancerAttributesOutputTypeDef
-
-### CrossZoneLoadBalancing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.CrossZoneLoadBalancingTypeDef]
-
-### AccessLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.AccessLogTypeDef]
-
-### ConnectionDraining
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.ConnectionDrainingTypeDef]
-
-### ConnectionSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.ConnectionSettingsTypeDef]
-
-### AdditionalAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.AdditionalAttributeTypeDef]]
-
-
-# LoadBalancerAttributesTypeDef
-
-### CrossZoneLoadBalancing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.CrossZoneLoadBalancingTypeDef]
-
-### AccessLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.AccessLogTypeDef]
-
-### ConnectionDraining
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.ConnectionDrainingTypeDef]
-
-### ConnectionSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.ConnectionSettingsTypeDef]
-
-### AdditionalAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.AdditionalAttributeTypeDef]]
-
-
-# LoadBalancerAttributesUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# LoadBalancerDescriptionTypeDef
+# LoadBalancerDescription
 
 ### LoadBalancerName
 - **Type**: typing.Optional[str]
@@ -673,13 +673,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ListenerDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.ListenerDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.ListenerDescription]]
 
 ### Policies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.PoliciesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BackendServerDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.BackendServerDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.BackendServerDescription]]
 
 ### AvailabilityZones
 - **Type**: typing.Optional[typing.List[str]]
@@ -691,13 +691,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Instances
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.Instance]]
 
 ### HealthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.HealthCheckTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SourceSecurityGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.SourceSecurityGroupTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SecurityGroups
 - **Type**: typing.Optional[typing.List[str]]
@@ -709,33 +709,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyLoadBalancerAttributesInputTypeDef
+# ModifyLoadBalancerAttributesInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LoadBalancerAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesUnion'>
 - **Required**: Yes
 
 
-# ModifyLoadBalancerAttributesOutputTypeDef
+# ModifyLoadBalancerAttributesOutput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LoadBalancerAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -747,19 +747,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PoliciesTypeDef
+# Policies
 
 ### AppCookieStickinessPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.AppCookieStickinessPolicyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.AppCookieStickinessPolicy]]
 
 ### LBCookieStickinessPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.LBCookieStickinessPolicyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.LBCookieStickinessPolicy]]
 
 ### OtherPolicies
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PolicyAttributeDescriptionTypeDef
+# PolicyAttribute
 
 ### AttributeName
 - **Type**: typing.Optional[str]
@@ -768,7 +768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PolicyAttributeTypeDef
+# PolicyAttributeDescription
 
 ### AttributeName
 - **Type**: typing.Optional[str]
@@ -777,7 +777,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PolicyAttributeTypeDescriptionTypeDef
+# PolicyAttributeTypeDescription
 
 ### AttributeName
 - **Type**: typing.Optional[str]
@@ -795,7 +795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PolicyDescriptionTypeDef
+# PolicyDescription
 
 ### PolicyName
 - **Type**: typing.Optional[str]
@@ -804,10 +804,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PolicyAttributeDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.PolicyAttributeDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.PolicyAttributeDescription]]
 
 
-# PolicyTypeDescriptionTypeDef
+# PolicyTypeDescription
 
 ### PolicyTypeName
 - **Type**: typing.Optional[str]
@@ -816,32 +816,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PolicyAttributeTypeDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.PolicyAttributeTypeDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.PolicyAttributeTypeDescription]]
 
 
-# RegisterEndPointsInputTypeDef
+# RegisterEndPointsInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Instances
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.Instance]
 - **Required**: Yes
 
 
-# RegisterEndPointsOutputTypeDef
+# RegisterEndPointsOutput
 
 ### Instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elb_classes.Instance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RemoveAvailabilityZonesInputTypeDef
+# RemoveAvailabilityZonesInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -852,29 +852,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveAvailabilityZonesOutputTypeDef
+# RemoveAvailabilityZonesOutput
 
 ### AvailabilityZones
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RemoveTagsInputTypeDef
+# RemoveTagsInput
 
 ### LoadBalancerNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.TagKeyOnlyTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.TagKeyOnly]
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -896,7 +896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetLoadBalancerListenerSSLCertificateInputTypeDef
+# SetLoadBalancerListenerSSLCertificateInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -911,7 +911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetLoadBalancerPoliciesForBackendServerInputTypeDef
+# SetLoadBalancerPoliciesForBackendServerInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -926,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetLoadBalancerPoliciesOfListenerInputTypeDef
+# SetLoadBalancerPoliciesOfListenerInput
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -941,7 +941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SourceSecurityGroupTypeDef
+# SourceSecurityGroup
 
 ### OwnerAlias
 - **Type**: typing.Optional[str]
@@ -950,22 +950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagDescriptionTypeDef
-
-### LoadBalancerName
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.TagTypeDef]]
-
-
-# TagKeyOnlyTypeDef
-
-### Key
-- **Type**: typing.Optional[str]
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -975,7 +960,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WaiterConfigTypeDef
+# TagDescription
+
+### LoadBalancerName
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.Tag]]
+
+
+# TagKeyOnly
+
+### Key
+- **Type**: typing.Optional[str]
+
+
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

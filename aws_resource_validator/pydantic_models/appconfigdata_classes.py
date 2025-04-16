@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.appconfigdata_constants import *
 
-class GetLatestConfigurationRequestTypeDef(BaseValidatorModel):
+class GetLatestConfigurationRequest(BaseValidatorModel):
     ConfigurationToken: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,24 +24,24 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class StartConfigurationSessionRequestTypeDef(BaseValidatorModel):
+class StartConfigurationSessionRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     ConfigurationProfileIdentifier: str
     RequiredMinimumPollIntervalInSeconds: Optional[int] = None
 
 
-class GetLatestConfigurationResponseTypeDef(BaseValidatorModel):
+class GetLatestConfigurationResponse(BaseValidatorModel):
     NextPollConfigurationToken: str
     NextPollIntervalInSeconds: int
     ContentType: str
     Configuration: StreamingBody
     VersionLabel: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartConfigurationSessionResponseTypeDef(BaseValidatorModel):
+class StartConfigurationSessionResponse(BaseValidatorModel):
     InitialConfigurationToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

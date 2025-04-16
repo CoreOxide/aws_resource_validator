@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iotevents_data_constants import *
 
-class AcknowledgeActionConfigurationTypeDef(BaseValidatorModel):
+class AcknowledgeActionConfiguration(BaseValidatorModel):
     note: Optional[str] = None
 
 
-class AcknowledgeAlarmActionRequestTypeDef(BaseValidatorModel):
+class AcknowledgeAlarmActionRequest(BaseValidatorModel):
     requestId: str
     alarmModelName: str
     keyValue: Optional[str] = None
     note: Optional[str] = None
 
 
-class AlarmSummaryTypeDef(BaseValidatorModel):
+class AlarmSummary(BaseValidatorModel):
     alarmModelName: Optional[str] = None
     alarmModelVersion: Optional[str] = None
     keyValue: Optional[str] = None
@@ -32,13 +32,13 @@ class AlarmSummaryTypeDef(BaseValidatorModel):
     lastUpdateTime: Optional[datetime] = None
 
 
-class BatchAlarmActionErrorEntryTypeDef(BaseValidatorModel):
+class BatchAlarmActionErrorEntry(BaseValidatorModel):
     requestId: Optional[str] = None
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -46,46 +46,46 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchDeleteDetectorErrorEntryTypeDef(BaseValidatorModel):
+class BatchDeleteDetectorErrorEntry(BaseValidatorModel):
     messageId: Optional[str] = None
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
 
 
-class DeleteDetectorRequestTypeDef(BaseValidatorModel):
+class DeleteDetectorRequest(BaseValidatorModel):
     messageId: str
     detectorModelName: str
     keyValue: Optional[str] = None
 
 
-class DisableAlarmActionRequestTypeDef(BaseValidatorModel):
+class DisableAlarmActionRequest(BaseValidatorModel):
     requestId: str
     alarmModelName: str
     keyValue: Optional[str] = None
     note: Optional[str] = None
 
 
-class EnableAlarmActionRequestTypeDef(BaseValidatorModel):
+class EnableAlarmActionRequest(BaseValidatorModel):
     requestId: str
     alarmModelName: str
     keyValue: Optional[str] = None
     note: Optional[str] = None
 
 
-class BatchPutMessageErrorEntryTypeDef(BaseValidatorModel):
+class BatchPutMessageErrorEntry(BaseValidatorModel):
     messageId: Optional[str] = None
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
 
 
-class ResetAlarmActionRequestTypeDef(BaseValidatorModel):
+class ResetAlarmActionRequest(BaseValidatorModel):
     requestId: str
     alarmModelName: str
     keyValue: Optional[str] = None
     note: Optional[str] = None
 
 
-class SnoozeAlarmActionRequestTypeDef(BaseValidatorModel):
+class SnoozeAlarmActionRequest(BaseValidatorModel):
     requestId: str
     alarmModelName: str
     snoozeDuration: int
@@ -93,262 +93,262 @@ class SnoozeAlarmActionRequestTypeDef(BaseValidatorModel):
     note: Optional[str] = None
 
 
-class BatchUpdateDetectorErrorEntryTypeDef(BaseValidatorModel):
+class BatchUpdateDetectorErrorEntry(BaseValidatorModel):
     messageId: Optional[str] = None
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
 
 
-class DisableActionConfigurationTypeDef(BaseValidatorModel):
+class DisableActionConfiguration(BaseValidatorModel):
     note: Optional[str] = None
 
 
-class EnableActionConfigurationTypeDef(BaseValidatorModel):
+class EnableActionConfiguration(BaseValidatorModel):
     note: Optional[str] = None
 
 
-class ResetActionConfigurationTypeDef(BaseValidatorModel):
+class ResetActionConfiguration(BaseValidatorModel):
     note: Optional[str] = None
 
 
-class SnoozeActionConfigurationTypeDef(BaseValidatorModel):
+class SnoozeActionConfiguration(BaseValidatorModel):
     snoozeDuration: Optional[int] = None
     note: Optional[str] = None
 
 
-class DescribeAlarmRequestTypeDef(BaseValidatorModel):
+class DescribeAlarmRequest(BaseValidatorModel):
     alarmModelName: str
     keyValue: Optional[str] = None
 
 
-class DescribeDetectorRequestTypeDef(BaseValidatorModel):
+class DescribeDetectorRequest(BaseValidatorModel):
     detectorModelName: str
     keyValue: Optional[str] = None
 
 
-class TimerDefinitionTypeDef(BaseValidatorModel):
+class TimerDefinition(BaseValidatorModel):
     name: str
     seconds: int
 
 
-class VariableDefinitionTypeDef(BaseValidatorModel):
+class VariableDefinition(BaseValidatorModel):
     name: str
     value: str
 
 
-class DetectorStateSummaryTypeDef(BaseValidatorModel):
+class DetectorStateSummary(BaseValidatorModel):
     stateName: Optional[str] = None
 
 
-class TimerTypeDef(BaseValidatorModel):
+class Timer(BaseValidatorModel):
     name: str
     timestamp: datetime
 
 
-class VariableTypeDef(BaseValidatorModel):
+class Variable(BaseValidatorModel):
     name: str
     value: str
 
 
-class ListAlarmsRequestTypeDef(BaseValidatorModel):
+class ListAlarmsRequest(BaseValidatorModel):
     alarmModelName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDetectorsRequestTypeDef(BaseValidatorModel):
+class ListDetectorsRequest(BaseValidatorModel):
     detectorModelName: str
     stateName: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class TimestampValueTypeDef(BaseValidatorModel):
+class TimestampValue(BaseValidatorModel):
     timeInMillis: Optional[int] = None
 
 
-class StateChangeConfigurationTypeDef(BaseValidatorModel):
+class StateChangeConfiguration(BaseValidatorModel):
     triggerType: Optional[Literal["SNOOZE_TIMEOUT"]] = None
 
 
-class BatchAcknowledgeAlarmRequestTypeDef(BaseValidatorModel):
-    acknowledgeActionRequests: Sequence[AcknowledgeAlarmActionRequestTypeDef]
+class BatchAcknowledgeAlarmRequest(BaseValidatorModel):
+    acknowledgeActionRequests: Sequence[AcknowledgeAlarmActionRequest]
 
 
-class BatchAcknowledgeAlarmResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchAcknowledgeAlarmResponse(BaseValidatorModel):
+    errorEntries: List[BatchAlarmActionErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDisableAlarmResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDisableAlarmResponse(BaseValidatorModel):
+    errorEntries: List[BatchAlarmActionErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchEnableAlarmResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchEnableAlarmResponse(BaseValidatorModel):
+    errorEntries: List[BatchAlarmActionErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchResetAlarmResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchResetAlarmResponse(BaseValidatorModel):
+    errorEntries: List[BatchAlarmActionErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchSnoozeAlarmResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchSnoozeAlarmResponse(BaseValidatorModel):
+    errorEntries: List[BatchAlarmActionErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAlarmsResponseTypeDef(BaseValidatorModel):
-    alarmSummaries: List[AlarmSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAlarmsResponse(BaseValidatorModel):
+    alarmSummaries: List[AlarmSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchDeleteDetectorResponseTypeDef(BaseValidatorModel):
-    batchDeleteDetectorErrorEntries: List[BatchDeleteDetectorErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeleteDetectorResponse(BaseValidatorModel):
+    batchDeleteDetectorErrorEntries: List[BatchDeleteDetectorErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDeleteDetectorRequestTypeDef(BaseValidatorModel):
-    detectors: Sequence[DeleteDetectorRequestTypeDef]
+class BatchDeleteDetectorRequest(BaseValidatorModel):
+    detectors: Sequence[DeleteDetectorRequest]
 
 
-class BatchDisableAlarmRequestTypeDef(BaseValidatorModel):
-    disableActionRequests: Sequence[DisableAlarmActionRequestTypeDef]
+class BatchDisableAlarmRequest(BaseValidatorModel):
+    disableActionRequests: Sequence[DisableAlarmActionRequest]
 
 
-class BatchEnableAlarmRequestTypeDef(BaseValidatorModel):
-    enableActionRequests: Sequence[EnableAlarmActionRequestTypeDef]
+class BatchEnableAlarmRequest(BaseValidatorModel):
+    enableActionRequests: Sequence[EnableAlarmActionRequest]
 
 
-class BatchPutMessageResponseTypeDef(BaseValidatorModel):
-    BatchPutMessageErrorEntries: List[BatchPutMessageErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchPutMessageResponse(BaseValidatorModel):
+    BatchPutMessageErrorEntries: List[BatchPutMessageErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchResetAlarmRequestTypeDef(BaseValidatorModel):
-    resetActionRequests: Sequence[ResetAlarmActionRequestTypeDef]
+class BatchResetAlarmRequest(BaseValidatorModel):
+    resetActionRequests: Sequence[ResetAlarmActionRequest]
 
 
-class BatchSnoozeAlarmRequestTypeDef(BaseValidatorModel):
-    snoozeActionRequests: Sequence[SnoozeAlarmActionRequestTypeDef]
+class BatchSnoozeAlarmRequest(BaseValidatorModel):
+    snoozeActionRequests: Sequence[SnoozeAlarmActionRequest]
 
 
-class BatchUpdateDetectorResponseTypeDef(BaseValidatorModel):
-    batchUpdateDetectorErrorEntries: List[BatchUpdateDetectorErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdateDetectorResponse(BaseValidatorModel):
+    batchUpdateDetectorErrorEntries: List[BatchUpdateDetectorErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class CustomerActionTypeDef(BaseValidatorModel):
+class CustomerAction(BaseValidatorModel):
     actionName: Optional[CustomerActionNameType] = None
-    snoozeActionConfiguration: Optional[SnoozeActionConfigurationTypeDef] = None
-    enableActionConfiguration: Optional[EnableActionConfigurationTypeDef] = None
-    disableActionConfiguration: Optional[DisableActionConfigurationTypeDef] = None
-    acknowledgeActionConfiguration: Optional[AcknowledgeActionConfigurationTypeDef] = None
-    resetActionConfiguration: Optional[ResetActionConfigurationTypeDef] = None
+    snoozeActionConfiguration: Optional[SnoozeActionConfiguration] = None
+    enableActionConfiguration: Optional[EnableActionConfiguration] = None
+    disableActionConfiguration: Optional[DisableActionConfiguration] = None
+    acknowledgeActionConfiguration: Optional[AcknowledgeActionConfiguration] = None
+    resetActionConfiguration: Optional[ResetActionConfiguration] = None
 
 
-class DetectorStateDefinitionTypeDef(BaseValidatorModel):
+class DetectorStateDefinition(BaseValidatorModel):
     stateName: str
-    variables: Sequence[VariableDefinitionTypeDef]
-    timers: Sequence[TimerDefinitionTypeDef]
+    variables: Sequence[VariableDefinition]
+    timers: Sequence[TimerDefinition]
 
 
-class DetectorSummaryTypeDef(BaseValidatorModel):
+class DetectorSummary(BaseValidatorModel):
     detectorModelName: Optional[str] = None
     keyValue: Optional[str] = None
     detectorModelVersion: Optional[str] = None
-    state: Optional[DetectorStateSummaryTypeDef] = None
+    state: Optional[DetectorStateSummary] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
 
 
-class DetectorStateTypeDef(BaseValidatorModel):
+class DetectorState(BaseValidatorModel):
     stateName: str
-    variables: List[VariableTypeDef]
-    timers: List[TimerTypeDef]
+    variables: List[Variable]
+    timers: List[Timer]
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class MessageTypeDef(BaseValidatorModel):
+class Message(BaseValidatorModel):
     messageId: str
     inputName: str
-    payload: BlobTypeDef
-    timestamp: Optional[TimestampValueTypeDef] = None
+    payload: Blob
+    timestamp: Optional[TimestampValue] = None
 
 
-class SimpleRuleEvaluationTypeDef(BaseValidatorModel):
+class SimpleRuleEvaluation(BaseValidatorModel):
     pass
 
 
-class RuleEvaluationTypeDef(BaseValidatorModel):
-    simpleRuleEvaluation: Optional[SimpleRuleEvaluationTypeDef] = None
+class RuleEvaluation(BaseValidatorModel):
+    simpleRuleEvaluation: Optional[SimpleRuleEvaluation] = None
 
 
-class SystemEventTypeDef(BaseValidatorModel):
+class SystemEvent(BaseValidatorModel):
     eventType: Optional[Literal["STATE_CHANGE"]] = None
-    stateChangeConfiguration: Optional[StateChangeConfigurationTypeDef] = None
+    stateChangeConfiguration: Optional[StateChangeConfiguration] = None
 
 
-class UpdateDetectorRequestTypeDef(BaseValidatorModel):
+class UpdateDetectorRequest(BaseValidatorModel):
     messageId: str
     detectorModelName: str
-    state: DetectorStateDefinitionTypeDef
+    state: DetectorStateDefinition
     keyValue: Optional[str] = None
 
 
-class ListDetectorsResponseTypeDef(BaseValidatorModel):
-    detectorSummaries: List[DetectorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDetectorsResponse(BaseValidatorModel):
+    detectorSummaries: List[DetectorSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DetectorTypeDef(BaseValidatorModel):
+class Detector(BaseValidatorModel):
     detectorModelName: Optional[str] = None
     keyValue: Optional[str] = None
     detectorModelVersion: Optional[str] = None
-    state: Optional[DetectorStateTypeDef] = None
+    state: Optional[DetectorState] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
 
 
-class BatchPutMessageRequestTypeDef(BaseValidatorModel):
-    messages: Sequence[MessageTypeDef]
+class BatchPutMessageRequest(BaseValidatorModel):
+    messages: Sequence[Message]
 
 
-class AlarmStateTypeDef(BaseValidatorModel):
+class AlarmState(BaseValidatorModel):
     stateName: Optional[AlarmStateNameType] = None
-    ruleEvaluation: Optional[RuleEvaluationTypeDef] = None
-    customerAction: Optional[CustomerActionTypeDef] = None
-    systemEvent: Optional[SystemEventTypeDef] = None
+    ruleEvaluation: Optional[RuleEvaluation] = None
+    customerAction: Optional[CustomerAction] = None
+    systemEvent: Optional[SystemEvent] = None
 
 
-class BatchUpdateDetectorRequestTypeDef(BaseValidatorModel):
-    detectors: Sequence[UpdateDetectorRequestTypeDef]
+class BatchUpdateDetectorRequest(BaseValidatorModel):
+    detectors: Sequence[UpdateDetectorRequest]
 
 
-class DescribeDetectorResponseTypeDef(BaseValidatorModel):
-    detector: DetectorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDetectorResponse(BaseValidatorModel):
+    detector: Detector
+    ResponseMetadata: ResponseMetadata
 
 
-class AlarmTypeDef(BaseValidatorModel):
+class Alarm(BaseValidatorModel):
     alarmModelName: Optional[str] = None
     alarmModelVersion: Optional[str] = None
     keyValue: Optional[str] = None
-    alarmState: Optional[AlarmStateTypeDef] = None
+    alarmState: Optional[AlarmState] = None
     severity: Optional[int] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
 
 
-class DescribeAlarmResponseTypeDef(BaseValidatorModel):
-    alarm: AlarmTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAlarmResponse(BaseValidatorModel):
+    alarm: Alarm
+    ResponseMetadata: ResponseMetadata
 
 

@@ -12,31 +12,31 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.chime_sdk_meetings_constants import *
 
-class AttendeeCapabilitiesTypeDef(BaseValidatorModel):
+class AttendeeCapabilities(BaseValidatorModel):
     Audio: MediaCapabilitiesType
     Video: MediaCapabilitiesType
     Content: MediaCapabilitiesType
 
 
-class AttendeeFeaturesTypeDef(BaseValidatorModel):
+class AttendeeFeatures(BaseValidatorModel):
     MaxCount: Optional[int] = None
 
 
-class AttendeeIdItemTypeDef(BaseValidatorModel):
+class AttendeeIdItem(BaseValidatorModel):
     AttendeeId: str
 
 
-class AudioFeaturesTypeDef(BaseValidatorModel):
+class AudioFeatures(BaseValidatorModel):
     EchoReduction: Optional[MeetingFeatureStatusType] = None
 
 
-class CreateAttendeeErrorTypeDef(BaseValidatorModel):
+class CreateAttendeeError(BaseValidatorModel):
     ExternalUserId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -44,31 +44,31 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ContentFeaturesTypeDef(BaseValidatorModel):
+class ContentFeatures(BaseValidatorModel):
     MaxResolution: Optional[ContentResolutionType] = None
 
 
-class NotificationsConfigurationTypeDef(BaseValidatorModel):
+class NotificationsConfiguration(BaseValidatorModel):
     LambdaFunctionArn: Optional[str] = None
     SnsTopicArn: Optional[str] = None
     SqsQueueArn: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class DeleteAttendeeRequestTypeDef(BaseValidatorModel):
+class DeleteAttendeeRequest(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
 
 
-class DeleteMeetingRequestTypeDef(BaseValidatorModel):
+class DeleteMeetingRequest(BaseValidatorModel):
     MeetingId: str
 
 
-class EngineTranscribeSettingsTypeDef(BaseValidatorModel):
+class EngineTranscribeSettings(BaseValidatorModel):
     LanguageCode: Optional[TranscribeLanguageCodeType] = None
     VocabularyFilterMethod: Optional[TranscribeVocabularyFilterMethodType] = None
     VocabularyFilterName: Optional[str] = None
@@ -87,26 +87,26 @@ class EngineTranscribeSettingsTypeDef(BaseValidatorModel):
     VocabularyFilterNames: Optional[str] = None
 
 
-class GetAttendeeRequestTypeDef(BaseValidatorModel):
+class GetAttendeeRequest(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
 
 
-class GetMeetingRequestTypeDef(BaseValidatorModel):
+class GetMeetingRequest(BaseValidatorModel):
     MeetingId: str
 
 
-class ListAttendeesRequestTypeDef(BaseValidatorModel):
+class ListAttendeesRequest(BaseValidatorModel):
     MeetingId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class MediaPlacementTypeDef(BaseValidatorModel):
+class MediaPlacement(BaseValidatorModel):
     AudioHostUrl: Optional[str] = None
     AudioFallbackUrl: Optional[str] = None
     SignalingUrl: Optional[str] = None
@@ -117,167 +117,167 @@ class MediaPlacementTypeDef(BaseValidatorModel):
     EventIngestionUrl: Optional[str] = None
 
 
-class VideoFeaturesTypeDef(BaseValidatorModel):
+class VideoFeatures(BaseValidatorModel):
     MaxResolution: Optional[VideoResolutionType] = None
 
 
-class StopMeetingTranscriptionRequestTypeDef(BaseValidatorModel):
+class StopMeetingTranscriptionRequest(BaseValidatorModel):
     MeetingId: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class AttendeeTypeDef(BaseValidatorModel):
+class Attendee(BaseValidatorModel):
     ExternalUserId: Optional[str] = None
     AttendeeId: Optional[str] = None
     JoinToken: Optional[str] = None
-    Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
+    Capabilities: Optional[AttendeeCapabilities] = None
 
 
-class CreateAttendeeRequestItemTypeDef(BaseValidatorModel):
+class CreateAttendeeRequestItem(BaseValidatorModel):
     ExternalUserId: str
-    Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
+    Capabilities: Optional[AttendeeCapabilities] = None
 
 
-class CreateAttendeeRequestTypeDef(BaseValidatorModel):
+class CreateAttendeeRequest(BaseValidatorModel):
     MeetingId: str
     ExternalUserId: str
-    Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
+    Capabilities: Optional[AttendeeCapabilities] = None
 
 
-class UpdateAttendeeCapabilitiesRequestTypeDef(BaseValidatorModel):
+class UpdateAttendeeCapabilitiesRequest(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
-    Capabilities: AttendeeCapabilitiesTypeDef
+    Capabilities: AttendeeCapabilities
 
 
-class BatchUpdateAttendeeCapabilitiesExceptRequestTypeDef(BaseValidatorModel):
+class BatchUpdateAttendeeCapabilitiesExceptRequest(BaseValidatorModel):
     MeetingId: str
-    ExcludedAttendeeIds: Sequence[AttendeeIdItemTypeDef]
-    Capabilities: AttendeeCapabilitiesTypeDef
+    ExcludedAttendeeIds: Sequence[AttendeeIdItem]
+    Capabilities: AttendeeCapabilities
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class EngineTranscribeMedicalSettingsTypeDef(BaseValidatorModel):
+class EngineTranscribeMedicalSettings(BaseValidatorModel):
     pass
 
 
-class TranscriptionConfigurationTypeDef(BaseValidatorModel):
-    EngineTranscribeSettings: Optional[EngineTranscribeSettingsTypeDef] = None
-    EngineTranscribeMedicalSettings: Optional[EngineTranscribeMedicalSettingsTypeDef] = None
+class TranscriptionConfiguration(BaseValidatorModel):
+    EngineTranscribeSettings: Optional[EngineTranscribeSettings] = None
+    EngineTranscribeMedicalSettings: Optional[EngineTranscribeMedicalSettings] = None
 
 
-class MeetingFeaturesConfigurationTypeDef(BaseValidatorModel):
-    Audio: Optional[AudioFeaturesTypeDef] = None
-    Video: Optional[VideoFeaturesTypeDef] = None
-    Content: Optional[ContentFeaturesTypeDef] = None
-    Attendee: Optional[AttendeeFeaturesTypeDef] = None
+class MeetingFeaturesConfiguration(BaseValidatorModel):
+    Audio: Optional[AudioFeatures] = None
+    Video: Optional[VideoFeatures] = None
+    Content: Optional[ContentFeatures] = None
+    Attendee: Optional[AttendeeFeatures] = None
 
 
-class BatchCreateAttendeeResponseTypeDef(BaseValidatorModel):
-    Attendees: List[AttendeeTypeDef]
-    Errors: List[CreateAttendeeErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchCreateAttendeeResponse(BaseValidatorModel):
+    Attendees: List[Attendee]
+    Errors: List[CreateAttendeeError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAttendeeResponseTypeDef(BaseValidatorModel):
-    Attendee: AttendeeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAttendeeResponse(BaseValidatorModel):
+    Attendee: Attendee
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAttendeeResponseTypeDef(BaseValidatorModel):
-    Attendee: AttendeeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAttendeeResponse(BaseValidatorModel):
+    Attendee: Attendee
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAttendeesResponseTypeDef(BaseValidatorModel):
-    Attendees: List[AttendeeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAttendeesResponse(BaseValidatorModel):
+    Attendees: List[Attendee]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateAttendeeCapabilitiesResponseTypeDef(BaseValidatorModel):
-    Attendee: AttendeeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAttendeeCapabilitiesResponse(BaseValidatorModel):
+    Attendee: Attendee
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchCreateAttendeeRequestTypeDef(BaseValidatorModel):
+class BatchCreateAttendeeRequest(BaseValidatorModel):
     MeetingId: str
-    Attendees: Sequence[CreateAttendeeRequestItemTypeDef]
+    Attendees: Sequence[CreateAttendeeRequestItem]
 
 
-class StartMeetingTranscriptionRequestTypeDef(BaseValidatorModel):
+class StartMeetingTranscriptionRequest(BaseValidatorModel):
     MeetingId: str
-    TranscriptionConfiguration: TranscriptionConfigurationTypeDef
+    TranscriptionConfiguration: TranscriptionConfiguration
 
 
-class CreateMeetingRequestTypeDef(BaseValidatorModel):
+class CreateMeetingRequest(BaseValidatorModel):
     ClientRequestToken: str
     MediaRegion: str
     ExternalMeetingId: str
     MeetingHostId: Optional[str] = None
-    NotificationsConfiguration: Optional[NotificationsConfigurationTypeDef] = None
-    MeetingFeatures: Optional[MeetingFeaturesConfigurationTypeDef] = None
+    NotificationsConfiguration: Optional[NotificationsConfiguration] = None
+    MeetingFeatures: Optional[MeetingFeaturesConfiguration] = None
     PrimaryMeetingId: Optional[str] = None
     TenantIds: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateMeetingWithAttendeesRequestTypeDef(BaseValidatorModel):
+class CreateMeetingWithAttendeesRequest(BaseValidatorModel):
     ClientRequestToken: str
     MediaRegion: str
     ExternalMeetingId: str
-    Attendees: Sequence[CreateAttendeeRequestItemTypeDef]
+    Attendees: Sequence[CreateAttendeeRequestItem]
     MeetingHostId: Optional[str] = None
-    MeetingFeatures: Optional[MeetingFeaturesConfigurationTypeDef] = None
-    NotificationsConfiguration: Optional[NotificationsConfigurationTypeDef] = None
+    MeetingFeatures: Optional[MeetingFeaturesConfiguration] = None
+    NotificationsConfiguration: Optional[NotificationsConfiguration] = None
     PrimaryMeetingId: Optional[str] = None
     TenantIds: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class MeetingTypeDef(BaseValidatorModel):
+class Meeting(BaseValidatorModel):
     MeetingId: Optional[str] = None
     MeetingHostId: Optional[str] = None
     ExternalMeetingId: Optional[str] = None
     MediaRegion: Optional[str] = None
-    MediaPlacement: Optional[MediaPlacementTypeDef] = None
-    MeetingFeatures: Optional[MeetingFeaturesConfigurationTypeDef] = None
+    MediaPlacement: Optional[MediaPlacement] = None
+    MeetingFeatures: Optional[MeetingFeaturesConfiguration] = None
     PrimaryMeetingId: Optional[str] = None
     TenantIds: Optional[List[str]] = None
     MeetingArn: Optional[str] = None
 
 
-class CreateMeetingResponseTypeDef(BaseValidatorModel):
-    Meeting: MeetingTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMeetingResponse(BaseValidatorModel):
+    Meeting: Meeting
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMeetingWithAttendeesResponseTypeDef(BaseValidatorModel):
-    Meeting: MeetingTypeDef
-    Attendees: List[AttendeeTypeDef]
-    Errors: List[CreateAttendeeErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMeetingWithAttendeesResponse(BaseValidatorModel):
+    Meeting: Meeting
+    Attendees: List[Attendee]
+    Errors: List[CreateAttendeeError]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMeetingResponseTypeDef(BaseValidatorModel):
-    Meeting: MeetingTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMeetingResponse(BaseValidatorModel):
+    Meeting: Meeting
+    ResponseMetadata: ResponseMetadata
 
 

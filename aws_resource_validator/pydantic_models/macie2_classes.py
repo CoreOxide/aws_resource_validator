@@ -12,80 +12,80 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.macie2_constants import *
 
-class AcceptInvitationRequestTypeDef(BaseValidatorModel):
+class AcceptInvitationRequest(BaseValidatorModel):
     invitationId: str
     administratorAccountId: Optional[str] = None
     masterAccount: Optional[str] = None
 
 
-class AccessControlListTypeDef(BaseValidatorModel):
+class AccessControlList(BaseValidatorModel):
     allowsPublicReadAccess: Optional[bool] = None
     allowsPublicWriteAccess: Optional[bool] = None
 
 
-class AccountDetailTypeDef(BaseValidatorModel):
+class AccountDetail(BaseValidatorModel):
     accountId: str
     email: str
 
 
-class BlockPublicAccessTypeDef(BaseValidatorModel):
+class BlockPublicAccess(BaseValidatorModel):
     blockPublicAcls: Optional[bool] = None
     blockPublicPolicy: Optional[bool] = None
     ignorePublicAcls: Optional[bool] = None
     restrictPublicBuckets: Optional[bool] = None
 
 
-class AdminAccountTypeDef(BaseValidatorModel):
+class AdminAccount(BaseValidatorModel):
     accountId: Optional[str] = None
     status: Optional[AdminStatusType] = None
 
 
-class S3WordsListTypeDef(BaseValidatorModel):
+class S3WordsList(BaseValidatorModel):
     bucketName: str
     objectKey: str
 
 
-class AllowListStatusTypeDef(BaseValidatorModel):
+class AllowListStatus(BaseValidatorModel):
     code: AllowListStatusCodeType
     description: Optional[str] = None
 
 
-class ApiCallDetailsTypeDef(BaseValidatorModel):
+class ApiCallDetails(BaseValidatorModel):
     api: Optional[str] = None
     apiServiceName: Optional[str] = None
     firstSeen: Optional[datetime] = None
     lastSeen: Optional[datetime] = None
 
 
-class AutomatedDiscoveryAccountTypeDef(BaseValidatorModel):
+class AutomatedDiscoveryAccount(BaseValidatorModel):
     accountId: Optional[str] = None
     status: Optional[AutomatedDiscoveryAccountStatusType] = None
 
 
-class AutomatedDiscoveryAccountUpdateErrorTypeDef(BaseValidatorModel):
+class AutomatedDiscoveryAccountUpdateError(BaseValidatorModel):
     accountId: Optional[str] = None
     errorCode: Optional[AutomatedDiscoveryAccountUpdateErrorCodeType] = None
 
 
-class AutomatedDiscoveryAccountUpdateTypeDef(BaseValidatorModel):
+class AutomatedDiscoveryAccountUpdate(BaseValidatorModel):
     accountId: Optional[str] = None
     status: Optional[AutomatedDiscoveryAccountStatusType] = None
 
 
-class AwsAccountTypeDef(BaseValidatorModel):
+class AwsAccount(BaseValidatorModel):
     accountId: Optional[str] = None
     principalId: Optional[str] = None
 
 
-class AwsServiceTypeDef(BaseValidatorModel):
+class AwsService(BaseValidatorModel):
     invokedBy: Optional[str] = None
 
 
-class BatchGetCustomDataIdentifiersRequestTypeDef(BaseValidatorModel):
+class BatchGetCustomDataIdentifiersRequest(BaseValidatorModel):
     ids: Optional[Sequence[str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -93,34 +93,34 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BucketCountByEffectivePermissionTypeDef(BaseValidatorModel):
+class BucketCountByEffectivePermission(BaseValidatorModel):
     publiclyAccessible: Optional[int] = None
     publiclyReadable: Optional[int] = None
     publiclyWritable: Optional[int] = None
     unknown: Optional[int] = None
 
 
-class BucketCountByEncryptionTypeTypeDef(BaseValidatorModel):
+class BucketCountByEncryptionType(BaseValidatorModel):
     kmsManaged: Optional[int] = None
     s3Managed: Optional[int] = None
     unencrypted: Optional[int] = None
     unknown: Optional[int] = None
 
 
-class BucketCountBySharedAccessTypeTypeDef(BaseValidatorModel):
+class BucketCountBySharedAccessType(BaseValidatorModel):
     external: Optional[int] = None
     internal: Optional[int] = None
     notShared: Optional[int] = None
     unknown: Optional[int] = None
 
 
-class BucketCountPolicyAllowsUnencryptedObjectUploadsTypeDef(BaseValidatorModel):
+class BucketCountPolicyAllowsUnencryptedObjectUploads(BaseValidatorModel):
     allowsUnencryptedObjectUploads: Optional[int] = None
     deniesUnencryptedObjectUploads: Optional[int] = None
     unknown: Optional[int] = None
 
 
-class BucketCriteriaAdditionalPropertiesTypeDef(BaseValidatorModel):
+class BucketCriteriaAdditionalProperties(BaseValidatorModel):
     eq: Optional[Sequence[str]] = None
     gt: Optional[int] = None
     gte: Optional[int] = None
@@ -130,24 +130,24 @@ class BucketCriteriaAdditionalPropertiesTypeDef(BaseValidatorModel):
     prefix: Optional[str] = None
 
 
-class BucketPolicyTypeDef(BaseValidatorModel):
+class BucketPolicy(BaseValidatorModel):
     allowsPublicReadAccess: Optional[bool] = None
     allowsPublicWriteAccess: Optional[bool] = None
 
 
-class JobDetailsTypeDef(BaseValidatorModel):
+class JobDetails(BaseValidatorModel):
     isDefinedInJob: Optional[IsDefinedInJobType] = None
     isMonitoredByJob: Optional[IsMonitoredByJobType] = None
     lastJobId: Optional[str] = None
     lastJobRunTime: Optional[datetime] = None
 
 
-class KeyValuePairTypeDef(BaseValidatorModel):
+class KeyValuePair(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
 
-class ObjectCountByEncryptionTypeTypeDef(BaseValidatorModel):
+class ObjectCountByEncryptionType(BaseValidatorModel):
     customerManaged: Optional[int] = None
     kmsManaged: Optional[int] = None
     s3Managed: Optional[int] = None
@@ -155,82 +155,82 @@ class ObjectCountByEncryptionTypeTypeDef(BaseValidatorModel):
     unknown: Optional[int] = None
 
 
-class ObjectLevelStatisticsTypeDef(BaseValidatorModel):
+class ObjectLevelStatistics(BaseValidatorModel):
     fileType: Optional[int] = None
     storageClass: Optional[int] = None
     total: Optional[int] = None
 
 
-class ReplicationDetailsTypeDef(BaseValidatorModel):
+class ReplicationDetails(BaseValidatorModel):
     replicated: Optional[bool] = None
     replicatedExternally: Optional[bool] = None
     replicationAccounts: Optional[List[str]] = None
 
 
-class BucketSortCriteriaTypeDef(BaseValidatorModel):
+class BucketSortCriteria(BaseValidatorModel):
     attributeName: Optional[str] = None
     orderBy: Optional[OrderByType] = None
 
 
-class SensitivityAggregationsTypeDef(BaseValidatorModel):
+class SensitivityAggregations(BaseValidatorModel):
     classifiableSizeInBytes: Optional[int] = None
     publiclyAccessibleCount: Optional[int] = None
     totalCount: Optional[int] = None
     totalSizeInBytes: Optional[int] = None
 
 
-class CellTypeDef(BaseValidatorModel):
+class Cell(BaseValidatorModel):
     cellReference: Optional[str] = None
     column: Optional[int] = None
     columnName: Optional[str] = None
     row: Optional[int] = None
 
 
-class S3DestinationTypeDef(BaseValidatorModel):
+class S3Destination(BaseValidatorModel):
     bucketName: str
     kmsKeyArn: str
     keyPrefix: Optional[str] = None
 
 
-class ClassificationResultStatusTypeDef(BaseValidatorModel):
+class ClassificationResultStatus(BaseValidatorModel):
     code: Optional[str] = None
     reason: Optional[str] = None
 
 
-class SeverityLevelTypeDef(BaseValidatorModel):
+class SeverityLevel(BaseValidatorModel):
     occurrencesThreshold: int
     severity: DataIdentifierSeverityType
 
 
-class CreateInvitationsRequestTypeDef(BaseValidatorModel):
+class CreateInvitationsRequest(BaseValidatorModel):
     accountIds: Sequence[str]
     disableEmailNotification: Optional[bool] = None
     message: Optional[str] = None
 
 
-class UnprocessedAccountTypeDef(BaseValidatorModel):
+class UnprocessedAccount(BaseValidatorModel):
     accountId: Optional[str] = None
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
 
 
-class CreateSampleFindingsRequestTypeDef(BaseValidatorModel):
+class CreateSampleFindingsRequest(BaseValidatorModel):
     findingTypes: Optional[Sequence[FindingTypeType]] = None
 
 
-class SimpleCriterionForJobOutputTypeDef(BaseValidatorModel):
+class SimpleCriterionForJobOutput(BaseValidatorModel):
     comparator: Optional[JobComparatorType] = None
     key: Optional[SimpleCriterionKeyForJobType] = None
     values: Optional[List[str]] = None
 
 
-class SimpleCriterionForJobTypeDef(BaseValidatorModel):
+class SimpleCriterionForJob(BaseValidatorModel):
     comparator: Optional[JobComparatorType] = None
     key: Optional[SimpleCriterionKeyForJobType] = None
     values: Optional[Sequence[str]] = None
 
 
-class CriterionAdditionalPropertiesOutputTypeDef(BaseValidatorModel):
+class CriterionAdditionalPropertiesOutput(BaseValidatorModel):
     eq: Optional[List[str]] = None
     eqExactMatch: Optional[List[str]] = None
     gt: Optional[int] = None
@@ -240,7 +240,7 @@ class CriterionAdditionalPropertiesOutputTypeDef(BaseValidatorModel):
     neq: Optional[List[str]] = None
 
 
-class CriterionAdditionalPropertiesTypeDef(BaseValidatorModel):
+class CriterionAdditionalProperties(BaseValidatorModel):
     eq: Optional[Sequence[str]] = None
     eqExactMatch: Optional[Sequence[str]] = None
     gt: Optional[int] = None
@@ -250,103 +250,103 @@ class CriterionAdditionalPropertiesTypeDef(BaseValidatorModel):
     neq: Optional[Sequence[str]] = None
 
 
-class DeclineInvitationsRequestTypeDef(BaseValidatorModel):
+class DeclineInvitationsRequest(BaseValidatorModel):
     accountIds: Sequence[str]
 
 
-class DeleteInvitationsRequestTypeDef(BaseValidatorModel):
+class DeleteInvitationsRequest(BaseValidatorModel):
     accountIds: Sequence[str]
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeClassificationJobRequestTypeDef(BaseValidatorModel):
+class DescribeClassificationJobRequest(BaseValidatorModel):
     jobId: str
 
 
-class LastRunErrorStatusTypeDef(BaseValidatorModel):
+class LastRunErrorStatus(BaseValidatorModel):
     code: Optional[LastRunErrorStatusCodeType] = None
 
 
-class StatisticsTypeDef(BaseValidatorModel):
+class Statistics(BaseValidatorModel):
     approximateNumberOfObjectsToProcess: Optional[float] = None
     numberOfRuns: Optional[float] = None
 
 
-class UserPausedDetailsTypeDef(BaseValidatorModel):
+class UserPausedDetails(BaseValidatorModel):
     jobExpiresAt: Optional[datetime] = None
     jobImminentExpirationHealthEventArn: Optional[str] = None
     jobPausedAt: Optional[datetime] = None
 
 
-class DetectedDataDetailsTypeDef(BaseValidatorModel):
+class DetectedDataDetails(BaseValidatorModel):
     value: str
 
 
-class DisableOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
+class DisableOrganizationAdminAccountRequest(BaseValidatorModel):
     adminAccountId: str
 
 
-class DomainDetailsTypeDef(BaseValidatorModel):
+class DomainDetails(BaseValidatorModel):
     domainName: Optional[str] = None
 
 
-class EnableMacieRequestTypeDef(BaseValidatorModel):
+class EnableMacieRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
     findingPublishingFrequency: Optional[FindingPublishingFrequencyType] = None
     status: Optional[MacieStatusType] = None
 
 
-class EnableOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
+class EnableOrganizationAdminAccountRequest(BaseValidatorModel):
     adminAccountId: str
     clientToken: Optional[str] = None
 
 
-class FindingStatisticsSortCriteriaTypeDef(BaseValidatorModel):
+class FindingStatisticsSortCriteria(BaseValidatorModel):
     attributeName: Optional[FindingStatisticsSortAttributeNameType] = None
     orderBy: Optional[OrderByType] = None
 
 
-class SeverityTypeDef(BaseValidatorModel):
+class Severity(BaseValidatorModel):
     description: Optional[SeverityDescriptionType] = None
     score: Optional[int] = None
 
 
-class InvitationTypeDef(BaseValidatorModel):
+class Invitation(BaseValidatorModel):
     accountId: Optional[str] = None
     invitationId: Optional[str] = None
     invitedAt: Optional[datetime] = None
     relationshipStatus: Optional[RelationshipStatusType] = None
 
 
-class GetBucketStatisticsRequestTypeDef(BaseValidatorModel):
+class GetBucketStatisticsRequest(BaseValidatorModel):
     accountId: Optional[str] = None
 
 
-class GroupCountTypeDef(BaseValidatorModel):
+class GroupCount(BaseValidatorModel):
     count: Optional[int] = None
     groupKey: Optional[str] = None
 
 
-class SecurityHubConfigurationTypeDef(BaseValidatorModel):
+class SecurityHubConfiguration(BaseValidatorModel):
     publishClassificationFindings: bool
     publishPolicyFindings: bool
 
 
-class SortCriteriaTypeDef(BaseValidatorModel):
+class SortCriteria(BaseValidatorModel):
     attributeName: Optional[str] = None
     orderBy: Optional[OrderByType] = None
 
 
-class GetResourceProfileRequestTypeDef(BaseValidatorModel):
+class GetResourceProfileRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ResourceStatisticsTypeDef(BaseValidatorModel):
+class ResourceStatistics(BaseValidatorModel):
     totalBytesClassified: Optional[int] = None
     totalDetections: Optional[int] = None
     totalDetectionsSuppressed: Optional[int] = None
@@ -358,161 +358,161 @@ class ResourceStatisticsTypeDef(BaseValidatorModel):
     totalItemsSkippedPermissionDenied: Optional[int] = None
 
 
-class RetrievalConfigurationTypeDef(BaseValidatorModel):
+class RetrievalConfiguration(BaseValidatorModel):
     retrievalMode: RetrievalModeType
     externalId: Optional[str] = None
     roleName: Optional[str] = None
 
 
-class RevealConfigurationTypeDef(BaseValidatorModel):
+class RevealConfiguration(BaseValidatorModel):
     status: RevealStatusType
     kmsKeyId: Optional[str] = None
 
 
-class GetSensitiveDataOccurrencesAvailabilityRequestTypeDef(BaseValidatorModel):
+class GetSensitiveDataOccurrencesAvailabilityRequest(BaseValidatorModel):
     findingId: str
 
 
-class GetSensitiveDataOccurrencesRequestTypeDef(BaseValidatorModel):
+class GetSensitiveDataOccurrencesRequest(BaseValidatorModel):
     findingId: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class SensitivityInspectionTemplateExcludesOutputTypeDef(BaseValidatorModel):
+class SensitivityInspectionTemplateExcludesOutput(BaseValidatorModel):
     managedDataIdentifierIds: Optional[List[str]] = None
 
 
-class SensitivityInspectionTemplateIncludesOutputTypeDef(BaseValidatorModel):
+class SensitivityInspectionTemplateIncludesOutput(BaseValidatorModel):
     allowListIds: Optional[List[str]] = None
     customDataIdentifierIds: Optional[List[str]] = None
     managedDataIdentifierIds: Optional[List[str]] = None
 
 
-class UsageStatisticsFilterTypeDef(BaseValidatorModel):
+class UsageStatisticsFilter(BaseValidatorModel):
     comparator: Optional[UsageStatisticsFilterComparatorType] = None
     key: Optional[UsageStatisticsFilterKeyType] = None
     values: Optional[Sequence[str]] = None
 
 
-class UsageStatisticsSortByTypeDef(BaseValidatorModel):
+class UsageStatisticsSortBy(BaseValidatorModel):
     key: Optional[UsageStatisticsSortKeyType] = None
     orderBy: Optional[OrderByType] = None
 
 
-class GetUsageTotalsRequestTypeDef(BaseValidatorModel):
+class GetUsageTotalsRequest(BaseValidatorModel):
     timeRange: Optional[str] = None
 
 
-class IamUserTypeDef(BaseValidatorModel):
+class IamUser(BaseValidatorModel):
     accountId: Optional[str] = None
     arn: Optional[str] = None
     principalId: Optional[str] = None
     userName: Optional[str] = None
 
 
-class IpCityTypeDef(BaseValidatorModel):
+class IpCity(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class IpCountryTypeDef(BaseValidatorModel):
+class IpCountry(BaseValidatorModel):
     code: Optional[str] = None
     name: Optional[str] = None
 
 
-class IpGeoLocationTypeDef(BaseValidatorModel):
+class IpGeoLocation(BaseValidatorModel):
     lat: Optional[float] = None
     lon: Optional[float] = None
 
 
-class IpOwnerTypeDef(BaseValidatorModel):
+class IpOwner(BaseValidatorModel):
     asn: Optional[str] = None
     asnOrg: Optional[str] = None
     isp: Optional[str] = None
     org: Optional[str] = None
 
 
-class MonthlyScheduleTypeDef(BaseValidatorModel):
+class MonthlySchedule(BaseValidatorModel):
     dayOfMonth: Optional[int] = None
 
 
-class WeeklyScheduleTypeDef(BaseValidatorModel):
+class WeeklySchedule(BaseValidatorModel):
     dayOfWeek: Optional[DayOfWeekType] = None
 
 
-class SimpleScopeTermOutputTypeDef(BaseValidatorModel):
+class SimpleScopeTermOutput(BaseValidatorModel):
     comparator: Optional[JobComparatorType] = None
     key: Optional[ScopeFilterKeyType] = None
     values: Optional[List[str]] = None
 
 
-class SimpleScopeTermTypeDef(BaseValidatorModel):
+class SimpleScopeTerm(BaseValidatorModel):
     comparator: Optional[JobComparatorType] = None
     key: Optional[ScopeFilterKeyType] = None
     values: Optional[Sequence[str]] = None
 
 
-class S3BucketDefinitionForJobOutputTypeDef(BaseValidatorModel):
+class S3BucketDefinitionForJobOutput(BaseValidatorModel):
     accountId: str
     buckets: List[str]
 
 
-class ListAllowListsRequestTypeDef(BaseValidatorModel):
+class ListAllowListsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAutomatedDiscoveryAccountsRequestTypeDef(BaseValidatorModel):
+class ListAutomatedDiscoveryAccountsRequest(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListJobsSortCriteriaTypeDef(BaseValidatorModel):
+class ListJobsSortCriteria(BaseValidatorModel):
     attributeName: Optional[ListJobsSortAttributeNameType] = None
     orderBy: Optional[OrderByType] = None
 
 
-class ListClassificationScopesRequestTypeDef(BaseValidatorModel):
+class ListClassificationScopesRequest(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
 
 
-class ListCustomDataIdentifiersRequestTypeDef(BaseValidatorModel):
+class ListCustomDataIdentifiersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListFindingsFiltersRequestTypeDef(BaseValidatorModel):
+class ListFindingsFiltersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListInvitationsRequestTypeDef(BaseValidatorModel):
+class ListInvitationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListJobsFilterTermTypeDef(BaseValidatorModel):
+class ListJobsFilterTerm(BaseValidatorModel):
     comparator: Optional[JobComparatorType] = None
     key: Optional[ListJobsFilterKeyType] = None
     values: Optional[Sequence[str]] = None
 
 
-class ListManagedDataIdentifiersRequestTypeDef(BaseValidatorModel):
+class ListManagedDataIdentifiersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListMembersRequestTypeDef(BaseValidatorModel):
+class ListMembersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     onlyAssociated: Optional[str] = None
 
 
-class MemberTypeDef(BaseValidatorModel):
+class Member(BaseValidatorModel):
     accountId: Optional[str] = None
     administratorAccountId: Optional[str] = None
     arn: Optional[str] = None
@@ -524,120 +524,120 @@ class MemberTypeDef(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
-class ListOrganizationAdminAccountsRequestTypeDef(BaseValidatorModel):
+class ListOrganizationAdminAccountsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListResourceProfileArtifactsRequestTypeDef(BaseValidatorModel):
+class ListResourceProfileArtifactsRequest(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
 
 
-class ResourceProfileArtifactTypeDef(BaseValidatorModel):
+class ResourceProfileArtifact(BaseValidatorModel):
     arn: str
     classificationResultStatus: str
     sensitive: Optional[bool] = None
 
 
-class ListResourceProfileDetectionsRequestTypeDef(BaseValidatorModel):
+class ListResourceProfileDetectionsRequest(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListSensitivityInspectionTemplatesRequestTypeDef(BaseValidatorModel):
+class ListSensitivityInspectionTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class RangeTypeDef(BaseValidatorModel):
+class Range(BaseValidatorModel):
     end: Optional[int] = None
     start: Optional[int] = None
     startColumn: Optional[int] = None
 
 
-class RecordTypeDef(BaseValidatorModel):
+class Record(BaseValidatorModel):
     jsonPath: Optional[str] = None
     recordIndex: Optional[int] = None
 
 
-class S3BucketDefinitionForJobTypeDef(BaseValidatorModel):
+class S3BucketDefinitionForJob(BaseValidatorModel):
     accountId: str
     buckets: Sequence[str]
 
 
-class ServerSideEncryptionTypeDef(BaseValidatorModel):
+class ServerSideEncryption(BaseValidatorModel):
     encryptionType: Optional[EncryptionTypeType] = None
     kmsMasterKeyId: Optional[str] = None
 
 
-class S3ClassificationScopeExclusionTypeDef(BaseValidatorModel):
+class S3ClassificationScopeExclusion(BaseValidatorModel):
     bucketNames: List[str]
 
 
-class S3ClassificationScopeExclusionUpdateTypeDef(BaseValidatorModel):
+class S3ClassificationScopeExclusionUpdate(BaseValidatorModel):
     bucketNames: Sequence[str]
     operation: ClassificationScopeUpdateOperationType
 
 
-class SearchResourcesSimpleCriterionTypeDef(BaseValidatorModel):
+class SearchResourcesSimpleCriterion(BaseValidatorModel):
     comparator: Optional[SearchResourcesComparatorType] = None
     key: Optional[SearchResourcesSimpleCriterionKeyType] = None
     values: Optional[Sequence[str]] = None
 
 
-class SearchResourcesSortCriteriaTypeDef(BaseValidatorModel):
+class SearchResourcesSortCriteria(BaseValidatorModel):
     attributeName: Optional[SearchResourcesSortAttributeNameType] = None
     orderBy: Optional[OrderByType] = None
 
 
-class SearchResourcesTagCriterionPairTypeDef(BaseValidatorModel):
+class SearchResourcesTagCriterionPair(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
 
-class SensitivityInspectionTemplateExcludesTypeDef(BaseValidatorModel):
+class SensitivityInspectionTemplateExcludes(BaseValidatorModel):
     managedDataIdentifierIds: Optional[Sequence[str]] = None
 
 
-class SensitivityInspectionTemplateIncludesTypeDef(BaseValidatorModel):
+class SensitivityInspectionTemplateIncludes(BaseValidatorModel):
     allowListIds: Optional[Sequence[str]] = None
     customDataIdentifierIds: Optional[Sequence[str]] = None
     managedDataIdentifierIds: Optional[Sequence[str]] = None
 
 
-class ServiceLimitTypeDef(BaseValidatorModel):
+class ServiceLimit(BaseValidatorModel):
     isServiceLimited: Optional[bool] = None
     unit: Optional[Literal["TERABYTES"]] = None
     value: Optional[int] = None
 
 
-class SessionContextAttributesTypeDef(BaseValidatorModel):
+class SessionContextAttributes(BaseValidatorModel):
     creationDate: Optional[datetime] = None
     mfaAuthenticated: Optional[bool] = None
 
 
-class TagCriterionPairForJobTypeDef(BaseValidatorModel):
+class TagCriterionPairForJob(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class TagValuePairTypeDef(BaseValidatorModel):
+class TagValuePair(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
 
-class TestCustomDataIdentifierRequestTypeDef(BaseValidatorModel):
+class TestCustomDataIdentifierRequest(BaseValidatorModel):
     regex: str
     sampleText: str
     ignoreWords: Optional[Sequence[str]] = None
@@ -645,107 +645,107 @@ class TestCustomDataIdentifierRequestTypeDef(BaseValidatorModel):
     maximumMatchDistance: Optional[int] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateAutomatedDiscoveryConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateAutomatedDiscoveryConfigurationRequest(BaseValidatorModel):
     status: AutomatedDiscoveryStatusType
     autoEnableOrganizationMembers: Optional[AutoEnableModeType] = None
 
 
-class UpdateClassificationJobRequestTypeDef(BaseValidatorModel):
+class UpdateClassificationJobRequest(BaseValidatorModel):
     jobId: str
     jobStatus: JobStatusType
 
 
-class UpdateMacieSessionRequestTypeDef(BaseValidatorModel):
+class UpdateMacieSessionRequest(BaseValidatorModel):
     findingPublishingFrequency: Optional[FindingPublishingFrequencyType] = None
     status: Optional[MacieStatusType] = None
 
 
-class UpdateOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateOrganizationConfigurationRequest(BaseValidatorModel):
     autoEnable: bool
 
 
-class UpdateResourceProfileRequestTypeDef(BaseValidatorModel):
+class UpdateResourceProfileRequest(BaseValidatorModel):
     resourceArn: str
     sensitivityScoreOverride: Optional[int] = None
 
 
-class UpdateRetrievalConfigurationTypeDef(BaseValidatorModel):
+class UpdateRetrievalConfiguration(BaseValidatorModel):
     retrievalMode: RetrievalModeType
     roleName: Optional[str] = None
 
 
-class UserIdentityRootTypeDef(BaseValidatorModel):
+class UserIdentityRoot(BaseValidatorModel):
     accountId: Optional[str] = None
     arn: Optional[str] = None
     principalId: Optional[str] = None
 
 
-class CreateMemberRequestTypeDef(BaseValidatorModel):
-    account: AccountDetailTypeDef
+class CreateMemberRequest(BaseValidatorModel):
+    account: AccountDetail
     tags: Optional[Mapping[str, str]] = None
 
 
-class AccountLevelPermissionsTypeDef(BaseValidatorModel):
-    blockPublicAccess: Optional[BlockPublicAccessTypeDef] = None
+class AccountLevelPermissions(BaseValidatorModel):
+    blockPublicAccess: Optional[BlockPublicAccess] = None
 
 
-class AllowListCriteriaTypeDef(BaseValidatorModel):
+class AllowListCriteria(BaseValidatorModel):
     regex: Optional[str] = None
-    s3WordsList: Optional[S3WordsListTypeDef] = None
+    s3WordsList: Optional[S3WordsList] = None
 
 
-class FindingActionTypeDef(BaseValidatorModel):
+class FindingAction(BaseValidatorModel):
     actionType: Optional[Literal["AWS_API_CALL"]] = None
-    apiCallDetails: Optional[ApiCallDetailsTypeDef] = None
+    apiCallDetails: Optional[ApiCallDetails] = None
 
 
-class BatchUpdateAutomatedDiscoveryAccountsRequestTypeDef(BaseValidatorModel):
-    accounts: Optional[Sequence[AutomatedDiscoveryAccountUpdateTypeDef]] = None
+class BatchUpdateAutomatedDiscoveryAccountsRequest(BaseValidatorModel):
+    accounts: Optional[Sequence[AutomatedDiscoveryAccountUpdate]] = None
 
 
-class BatchGetCustomDataIdentifierSummaryTypeDef(BaseValidatorModel):
+class BatchGetCustomDataIdentifierSummary(BaseValidatorModel):
     pass
 
 
-class BatchGetCustomDataIdentifiersResponseTypeDef(BaseValidatorModel):
-    customDataIdentifiers: List[BatchGetCustomDataIdentifierSummaryTypeDef]
+class BatchGetCustomDataIdentifiersResponse(BaseValidatorModel):
+    customDataIdentifiers: List[BatchGetCustomDataIdentifierSummary]
     notFoundIdentifierIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdateAutomatedDiscoveryAccountsResponseTypeDef(BaseValidatorModel):
-    errors: List[AutomatedDiscoveryAccountUpdateErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdateAutomatedDiscoveryAccountsResponse(BaseValidatorModel):
+    errors: List[AutomatedDiscoveryAccountUpdateError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateClassificationJobResponseTypeDef(BaseValidatorModel):
+class CreateClassificationJobResponse(BaseValidatorModel):
     jobArn: str
     jobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCustomDataIdentifierResponseTypeDef(BaseValidatorModel):
+class CreateCustomDataIdentifierResponse(BaseValidatorModel):
     customDataIdentifierId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMemberResponseTypeDef(BaseValidatorModel):
+class CreateMemberResponse(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeOrganizationConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeOrganizationConfigurationResponse(BaseValidatorModel):
     autoEnable: bool
     maxAccountLimitReached: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAutomatedDiscoveryConfigurationResponseTypeDef(BaseValidatorModel):
+class GetAutomatedDiscoveryConfigurationResponse(BaseValidatorModel):
     autoEnableOrganizationMembers: AutoEnableModeType
     classificationScopeId: str
     disabledAt: datetime
@@ -753,24 +753,24 @@ class GetAutomatedDiscoveryConfigurationResponseTypeDef(BaseValidatorModel):
     lastUpdatedAt: datetime
     sensitivityInspectionTemplateId: str
     status: AutomatedDiscoveryStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInvitationsCountResponseTypeDef(BaseValidatorModel):
+class GetInvitationsCountResponse(BaseValidatorModel):
     invitationsCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMacieSessionResponseTypeDef(BaseValidatorModel):
+class GetMacieSessionResponse(BaseValidatorModel):
     createdAt: datetime
     findingPublishingFrequency: FindingPublishingFrequencyType
     serviceRole: str
     status: MacieStatusType
     updatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMemberResponseTypeDef(BaseValidatorModel):
+class GetMemberResponse(BaseValidatorModel):
     accountId: str
     administratorAccountId: str
     arn: str
@@ -780,60 +780,60 @@ class GetMemberResponseTypeDef(BaseValidatorModel):
     relationshipStatus: RelationshipStatusType
     tags: Dict[str, str]
     updatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSensitiveDataOccurrencesAvailabilityResponseTypeDef(BaseValidatorModel):
+class GetSensitiveDataOccurrencesAvailabilityResponse(BaseValidatorModel):
     code: AvailabilityCodeType
     reasons: List[UnavailabilityReasonCodeType]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AllowListSummaryTypeDef(BaseValidatorModel):
+class AllowListSummary(BaseValidatorModel):
     pass
 
 
-class ListAllowListsResponseTypeDef(BaseValidatorModel):
-    allowLists: List[AllowListSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAllowListsResponse(BaseValidatorModel):
+    allowLists: List[AllowListSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAutomatedDiscoveryAccountsResponseTypeDef(BaseValidatorModel):
-    items: List[AutomatedDiscoveryAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAutomatedDiscoveryAccountsResponse(BaseValidatorModel):
+    items: List[AutomatedDiscoveryAccount]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListFindingsResponseTypeDef(BaseValidatorModel):
+class ListFindingsResponse(BaseValidatorModel):
     findingIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListOrganizationAdminAccountsResponseTypeDef(BaseValidatorModel):
-    adminAccounts: List[AdminAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrganizationAdminAccountsResponse(BaseValidatorModel):
+    adminAccounts: List[AdminAccount]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TestCustomDataIdentifierResponseTypeDef(BaseValidatorModel):
+class TestCustomDataIdentifierResponse(BaseValidatorModel):
     matchCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BucketLevelPermissionsTypeDef(BaseValidatorModel):
-    accessControlList: Optional[AccessControlListTypeDef] = None
-    blockPublicAccess: Optional[BlockPublicAccessTypeDef] = None
-    bucketPolicy: Optional[BucketPolicyTypeDef] = None
+class BucketLevelPermissions(BaseValidatorModel):
+    accessControlList: Optional[AccessControlList] = None
+    blockPublicAccess: Optional[BlockPublicAccess] = None
+    bucketPolicy: Optional[BucketPolicy] = None
 
 
-class MatchingBucketTypeDef(BaseValidatorModel):
+class MatchingBucket(BaseValidatorModel):
     accountId: Optional[str] = None
     automatedDiscoveryMonitoringStatus: Optional[AutomatedDiscoveryMonitoringStatusType] = None
     bucketName: Optional[str] = None
@@ -841,46 +841,46 @@ class MatchingBucketTypeDef(BaseValidatorModel):
     classifiableSizeInBytes: Optional[int] = None
     errorCode: Optional[BucketMetadataErrorCodeType] = None
     errorMessage: Optional[str] = None
-    jobDetails: Optional[JobDetailsTypeDef] = None
+    jobDetails: Optional[JobDetails] = None
     lastAutomatedDiscoveryTime: Optional[datetime] = None
     objectCount: Optional[int] = None
-    objectCountByEncryptionType: Optional[ObjectCountByEncryptionTypeTypeDef] = None
+    objectCountByEncryptionType: Optional[ObjectCountByEncryptionType] = None
     sensitivityScore: Optional[int] = None
     sizeInBytes: Optional[int] = None
     sizeInBytesCompressed: Optional[int] = None
-    unclassifiableObjectCount: Optional[ObjectLevelStatisticsTypeDef] = None
-    unclassifiableObjectSizeInBytes: Optional[ObjectLevelStatisticsTypeDef] = None
+    unclassifiableObjectCount: Optional[ObjectLevelStatistics] = None
+    unclassifiableObjectSizeInBytes: Optional[ObjectLevelStatistics] = None
 
 
-class DescribeBucketsRequestTypeDef(BaseValidatorModel):
-    criteria: Optional[Mapping[str, BucketCriteriaAdditionalPropertiesTypeDef]] = None
+class DescribeBucketsRequest(BaseValidatorModel):
+    criteria: Optional[Mapping[str, BucketCriteriaAdditionalProperties]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    sortCriteria: Optional[BucketSortCriteriaTypeDef] = None
+    sortCriteria: Optional[BucketSortCriteria] = None
 
 
-class BucketStatisticsBySensitivityTypeDef(BaseValidatorModel):
-    classificationError: Optional[SensitivityAggregationsTypeDef] = None
-    notClassified: Optional[SensitivityAggregationsTypeDef] = None
-    notSensitive: Optional[SensitivityAggregationsTypeDef] = None
-    sensitive: Optional[SensitivityAggregationsTypeDef] = None
+class BucketStatisticsBySensitivity(BaseValidatorModel):
+    classificationError: Optional[SensitivityAggregations] = None
+    notClassified: Optional[SensitivityAggregations] = None
+    notSensitive: Optional[SensitivityAggregations] = None
+    sensitive: Optional[SensitivityAggregations] = None
 
 
-class ClassificationExportConfigurationTypeDef(BaseValidatorModel):
-    s3Destination: Optional[S3DestinationTypeDef] = None
+class ClassificationExportConfiguration(BaseValidatorModel):
+    s3Destination: Optional[S3Destination] = None
 
 
-class ClassificationScopeSummaryTypeDef(BaseValidatorModel):
+class ClassificationScopeSummary(BaseValidatorModel):
     pass
 
 
-class ListClassificationScopesResponseTypeDef(BaseValidatorModel):
-    classificationScopes: List[ClassificationScopeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClassificationScopesResponse(BaseValidatorModel):
+    classificationScopes: List[ClassificationScopeSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateCustomDataIdentifierRequestTypeDef(BaseValidatorModel):
+class CreateCustomDataIdentifierRequest(BaseValidatorModel):
     name: str
     regex: str
     clientToken: Optional[str] = None
@@ -888,288 +888,288 @@ class CreateCustomDataIdentifierRequestTypeDef(BaseValidatorModel):
     ignoreWords: Optional[Sequence[str]] = None
     keywords: Optional[Sequence[str]] = None
     maximumMatchDistance: Optional[int] = None
-    severityLevels: Optional[Sequence[SeverityLevelTypeDef]] = None
+    severityLevels: Optional[Sequence[SeverityLevel]] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateInvitationsResponseTypeDef(BaseValidatorModel):
-    unprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateInvitationsResponse(BaseValidatorModel):
+    unprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeclineInvitationsResponseTypeDef(BaseValidatorModel):
-    unprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeclineInvitationsResponse(BaseValidatorModel):
+    unprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteInvitationsResponseTypeDef(BaseValidatorModel):
-    unprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteInvitationsResponse(BaseValidatorModel):
+    unprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class FindingCriteriaOutputTypeDef(BaseValidatorModel):
-    criterion: Optional[Dict[str, CriterionAdditionalPropertiesOutputTypeDef]] = None
+class FindingCriteriaOutput(BaseValidatorModel):
+    criterion: Optional[Dict[str, CriterionAdditionalPropertiesOutput]] = None
 
 
-class FindingCriteriaTypeDef(BaseValidatorModel):
-    criterion: Optional[Mapping[str, CriterionAdditionalPropertiesTypeDef]] = None
+class FindingCriteria(BaseValidatorModel):
+    criterion: Optional[Mapping[str, CriterionAdditionalProperties]] = None
 
 
-class CustomDataIdentifierSummaryTypeDef(BaseValidatorModel):
+class CustomDataIdentifierSummary(BaseValidatorModel):
     pass
 
 
-class ListCustomDataIdentifiersResponseTypeDef(BaseValidatorModel):
-    items: List[CustomDataIdentifierSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCustomDataIdentifiersResponse(BaseValidatorModel):
+    items: List[CustomDataIdentifierSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeBucketsRequestPaginateTypeDef(BaseValidatorModel):
-    criteria: Optional[Mapping[str, BucketCriteriaAdditionalPropertiesTypeDef]] = None
-    sortCriteria: Optional[BucketSortCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeBucketsRequestPaginate(BaseValidatorModel):
+    criteria: Optional[Mapping[str, BucketCriteriaAdditionalProperties]] = None
+    sortCriteria: Optional[BucketSortCriteria] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAllowListsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAllowListsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAutomatedDiscoveryAccountsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAutomatedDiscoveryAccountsRequestPaginate(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClassificationScopesRequestPaginateTypeDef(BaseValidatorModel):
+class ListClassificationScopesRequestPaginate(BaseValidatorModel):
     name: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCustomDataIdentifiersRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCustomDataIdentifiersRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFindingsFiltersRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFindingsFiltersRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInvitationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListInvitationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedDataIdentifiersRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListManagedDataIdentifiersRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembersRequestPaginateTypeDef(BaseValidatorModel):
+class ListMembersRequestPaginate(BaseValidatorModel):
     onlyAssociated: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOrganizationAdminAccountsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOrganizationAdminAccountsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceProfileArtifactsRequestPaginateTypeDef(BaseValidatorModel):
+class ListResourceProfileArtifactsRequestPaginate(BaseValidatorModel):
     resourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceProfileDetectionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListResourceProfileDetectionsRequestPaginate(BaseValidatorModel):
     resourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSensitivityInspectionTemplatesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSensitivityInspectionTemplatesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetSensitiveDataOccurrencesResponseTypeDef(BaseValidatorModel):
+class GetSensitiveDataOccurrencesResponse(BaseValidatorModel):
     error: str
-    sensitiveDataOccurrences: Dict[str, List[DetectedDataDetailsTypeDef]]
+    sensitiveDataOccurrences: Dict[str, List[DetectedDataDetails]]
     status: RevealRequestStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DetectionTypeDef(BaseValidatorModel):
+class Detection(BaseValidatorModel):
     pass
 
 
-class ListResourceProfileDetectionsResponseTypeDef(BaseValidatorModel):
-    detections: List[DetectionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceProfileDetectionsResponse(BaseValidatorModel):
+    detections: List[Detection]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class FindingsFilterListItemTypeDef(BaseValidatorModel):
+class FindingsFilterListItem(BaseValidatorModel):
     pass
 
 
-class ListFindingsFiltersResponseTypeDef(BaseValidatorModel):
-    findingsFilterListItems: List[FindingsFilterListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFindingsFiltersResponse(BaseValidatorModel):
+    findingsFilterListItems: List[FindingsFilterListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetAdministratorAccountResponseTypeDef(BaseValidatorModel):
-    administrator: InvitationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAdministratorAccountResponse(BaseValidatorModel):
+    administrator: Invitation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMasterAccountResponseTypeDef(BaseValidatorModel):
-    master: InvitationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMasterAccountResponse(BaseValidatorModel):
+    master: Invitation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListInvitationsResponseTypeDef(BaseValidatorModel):
-    invitations: List[InvitationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInvitationsResponse(BaseValidatorModel):
+    invitations: List[Invitation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetFindingStatisticsResponseTypeDef(BaseValidatorModel):
-    countsByGroup: List[GroupCountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFindingStatisticsResponse(BaseValidatorModel):
+    countsByGroup: List[GroupCount]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFindingsPublicationConfigurationResponseTypeDef(BaseValidatorModel):
-    securityHubConfiguration: SecurityHubConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFindingsPublicationConfigurationResponse(BaseValidatorModel):
+    securityHubConfiguration: SecurityHubConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class PutFindingsPublicationConfigurationRequestTypeDef(BaseValidatorModel):
+class PutFindingsPublicationConfigurationRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
-    securityHubConfiguration: Optional[SecurityHubConfigurationTypeDef] = None
+    securityHubConfiguration: Optional[SecurityHubConfiguration] = None
 
 
-class GetFindingsRequestTypeDef(BaseValidatorModel):
+class GetFindingsRequest(BaseValidatorModel):
     findingIds: Sequence[str]
-    sortCriteria: Optional[SortCriteriaTypeDef] = None
+    sortCriteria: Optional[SortCriteria] = None
 
 
-class GetResourceProfileResponseTypeDef(BaseValidatorModel):
+class GetResourceProfileResponse(BaseValidatorModel):
     profileUpdatedAt: datetime
     sensitivityScore: int
     sensitivityScoreOverridden: bool
-    statistics: ResourceStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    statistics: ResourceStatistics
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRevealConfigurationResponseTypeDef(BaseValidatorModel):
-    configuration: RevealConfigurationTypeDef
-    retrievalConfiguration: RetrievalConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRevealConfigurationResponse(BaseValidatorModel):
+    configuration: RevealConfiguration
+    retrievalConfiguration: RetrievalConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRevealConfigurationResponseTypeDef(BaseValidatorModel):
-    configuration: RevealConfigurationTypeDef
-    retrievalConfiguration: RetrievalConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateRevealConfigurationResponse(BaseValidatorModel):
+    configuration: RevealConfiguration
+    retrievalConfiguration: RetrievalConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSensitiveDataOccurrencesRequestWaitTypeDef(BaseValidatorModel):
+class GetSensitiveDataOccurrencesRequestWait(BaseValidatorModel):
     findingId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetSensitivityInspectionTemplateResponseTypeDef(BaseValidatorModel):
+class GetSensitivityInspectionTemplateResponse(BaseValidatorModel):
     description: str
-    excludes: SensitivityInspectionTemplateExcludesOutputTypeDef
-    includes: SensitivityInspectionTemplateIncludesOutputTypeDef
+    excludes: SensitivityInspectionTemplateExcludesOutput
+    includes: SensitivityInspectionTemplateIncludesOutput
     name: str
     sensitivityInspectionTemplateId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetUsageStatisticsRequestPaginateTypeDef(BaseValidatorModel):
-    filterBy: Optional[Sequence[UsageStatisticsFilterTypeDef]] = None
-    sortBy: Optional[UsageStatisticsSortByTypeDef] = None
+class GetUsageStatisticsRequestPaginate(BaseValidatorModel):
+    filterBy: Optional[Sequence[UsageStatisticsFilter]] = None
+    sortBy: Optional[UsageStatisticsSortBy] = None
     timeRange: Optional[TimeRangeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetUsageStatisticsRequestTypeDef(BaseValidatorModel):
-    filterBy: Optional[Sequence[UsageStatisticsFilterTypeDef]] = None
+class GetUsageStatisticsRequest(BaseValidatorModel):
+    filterBy: Optional[Sequence[UsageStatisticsFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    sortBy: Optional[UsageStatisticsSortByTypeDef] = None
+    sortBy: Optional[UsageStatisticsSortBy] = None
     timeRange: Optional[TimeRangeType] = None
 
 
-class UsageTotalTypeDef(BaseValidatorModel):
+class UsageTotal(BaseValidatorModel):
     pass
 
 
-class GetUsageTotalsResponseTypeDef(BaseValidatorModel):
+class GetUsageTotalsResponse(BaseValidatorModel):
     timeRange: TimeRangeType
-    usageTotals: List[UsageTotalTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    usageTotals: List[UsageTotal]
+    ResponseMetadata: ResponseMetadata
 
 
-class IpAddressDetailsTypeDef(BaseValidatorModel):
+class IpAddressDetails(BaseValidatorModel):
     ipAddressV4: Optional[str] = None
-    ipCity: Optional[IpCityTypeDef] = None
-    ipCountry: Optional[IpCountryTypeDef] = None
-    ipGeoLocation: Optional[IpGeoLocationTypeDef] = None
-    ipOwner: Optional[IpOwnerTypeDef] = None
+    ipCity: Optional[IpCity] = None
+    ipCountry: Optional[IpCountry] = None
+    ipGeoLocation: Optional[IpGeoLocation] = None
+    ipOwner: Optional[IpOwner] = None
 
 
-class JobScheduleFrequencyOutputTypeDef(BaseValidatorModel):
+class JobScheduleFrequencyOutput(BaseValidatorModel):
     dailySchedule: Optional[Dict[str, Any]] = None
-    monthlySchedule: Optional[MonthlyScheduleTypeDef] = None
-    weeklySchedule: Optional[WeeklyScheduleTypeDef] = None
+    monthlySchedule: Optional[MonthlySchedule] = None
+    weeklySchedule: Optional[WeeklySchedule] = None
 
 
-class JobScheduleFrequencyTypeDef(BaseValidatorModel):
+class JobScheduleFrequency(BaseValidatorModel):
     dailySchedule: Optional[Mapping[str, Any]] = None
-    monthlySchedule: Optional[MonthlyScheduleTypeDef] = None
-    weeklySchedule: Optional[WeeklyScheduleTypeDef] = None
+    monthlySchedule: Optional[MonthlySchedule] = None
+    weeklySchedule: Optional[WeeklySchedule] = None
 
 
-class ListJobsFilterCriteriaTypeDef(BaseValidatorModel):
-    excludes: Optional[Sequence[ListJobsFilterTermTypeDef]] = None
-    includes: Optional[Sequence[ListJobsFilterTermTypeDef]] = None
+class ListJobsFilterCriteria(BaseValidatorModel):
+    excludes: Optional[Sequence[ListJobsFilterTerm]] = None
+    includes: Optional[Sequence[ListJobsFilterTerm]] = None
 
 
-class ManagedDataIdentifierSummaryTypeDef(BaseValidatorModel):
+class ManagedDataIdentifierSummary(BaseValidatorModel):
     pass
 
 
-class ListManagedDataIdentifiersResponseTypeDef(BaseValidatorModel):
-    items: List[ManagedDataIdentifierSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListManagedDataIdentifiersResponse(BaseValidatorModel):
+    items: List[ManagedDataIdentifierSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListMembersResponseTypeDef(BaseValidatorModel):
-    members: List[MemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMembersResponse(BaseValidatorModel):
+    members: List[Member]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListResourceProfileArtifactsResponseTypeDef(BaseValidatorModel):
-    artifacts: List[ResourceProfileArtifactTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceProfileArtifactsResponse(BaseValidatorModel):
+    artifacts: List[ResourceProfileArtifact]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SensitivityInspectionTemplatesEntryTypeDef(BaseValidatorModel):
+class SensitivityInspectionTemplatesEntry(BaseValidatorModel):
     pass
 
 
-class ListSensitivityInspectionTemplatesResponseTypeDef(BaseValidatorModel):
-    sensitivityInspectionTemplates: List[SensitivityInspectionTemplatesEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSensitivityInspectionTemplatesResponse(BaseValidatorModel):
+    sensitivityInspectionTemplates: List[SensitivityInspectionTemplatesEntry]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PageTypeDef(BaseValidatorModel):
-    lineRange: Optional[RangeTypeDef] = None
-    offsetRange: Optional[RangeTypeDef] = None
+class Page(BaseValidatorModel):
+    lineRange: Optional[Range] = None
+    offsetRange: Optional[Range] = None
     pageNumber: Optional[int] = None
 
 
-class S3ObjectTypeDef(BaseValidatorModel):
+class S3Object(BaseValidatorModel):
     bucketArn: Optional[str] = None
     eTag: Optional[str] = None
     extension: Optional[str] = None
@@ -1177,213 +1177,213 @@ class S3ObjectTypeDef(BaseValidatorModel):
     lastModified: Optional[datetime] = None
     path: Optional[str] = None
     publicAccess: Optional[bool] = None
-    serverSideEncryption: Optional[ServerSideEncryptionTypeDef] = None
+    serverSideEncryption: Optional[ServerSideEncryption] = None
     size: Optional[int] = None
     storageClass: Optional[StorageClassType] = None
-    tags: Optional[List[KeyValuePairTypeDef]] = None
+    tags: Optional[List[KeyValuePair]] = None
     versionId: Optional[str] = None
 
 
-class S3ClassificationScopeTypeDef(BaseValidatorModel):
-    excludes: S3ClassificationScopeExclusionTypeDef
+class S3ClassificationScope(BaseValidatorModel):
+    excludes: S3ClassificationScopeExclusion
 
 
-class S3ClassificationScopeUpdateTypeDef(BaseValidatorModel):
-    excludes: S3ClassificationScopeExclusionUpdateTypeDef
+class S3ClassificationScopeUpdate(BaseValidatorModel):
+    excludes: S3ClassificationScopeExclusionUpdate
 
 
-class SearchResourcesTagCriterionTypeDef(BaseValidatorModel):
+class SearchResourcesTagCriterion(BaseValidatorModel):
     comparator: Optional[SearchResourcesComparatorType] = None
-    tagValues: Optional[Sequence[SearchResourcesTagCriterionPairTypeDef]] = None
+    tagValues: Optional[Sequence[SearchResourcesTagCriterionPair]] = None
 
 
-class SessionIssuerTypeDef(BaseValidatorModel):
+class SessionIssuer(BaseValidatorModel):
     pass
 
 
-class SessionContextTypeDef(BaseValidatorModel):
-    attributes: Optional[SessionContextAttributesTypeDef] = None
-    sessionIssuer: Optional[SessionIssuerTypeDef] = None
+class SessionContext(BaseValidatorModel):
+    attributes: Optional[SessionContextAttributes] = None
+    sessionIssuer: Optional[SessionIssuer] = None
 
 
-class SuppressDataIdentifierTypeDef(BaseValidatorModel):
+class SuppressDataIdentifier(BaseValidatorModel):
     pass
 
 
-class UpdateResourceProfileDetectionsRequestTypeDef(BaseValidatorModel):
+class UpdateResourceProfileDetectionsRequest(BaseValidatorModel):
     resourceArn: str
-    suppressDataIdentifiers: Optional[Sequence[SuppressDataIdentifierTypeDef]] = None
+    suppressDataIdentifiers: Optional[Sequence[SuppressDataIdentifier]] = None
 
 
-class TagCriterionForJobOutputTypeDef(BaseValidatorModel):
+class TagCriterionForJobOutput(BaseValidatorModel):
     comparator: Optional[JobComparatorType] = None
-    tagValues: Optional[List[TagCriterionPairForJobTypeDef]] = None
+    tagValues: Optional[List[TagCriterionPairForJob]] = None
 
 
-class TagCriterionForJobTypeDef(BaseValidatorModel):
+class TagCriterionForJob(BaseValidatorModel):
     comparator: Optional[JobComparatorType] = None
-    tagValues: Optional[Sequence[TagCriterionPairForJobTypeDef]] = None
+    tagValues: Optional[Sequence[TagCriterionPairForJob]] = None
 
 
-class TagScopeTermOutputTypeDef(BaseValidatorModel):
+class TagScopeTermOutput(BaseValidatorModel):
     comparator: Optional[JobComparatorType] = None
     key: Optional[str] = None
-    tagValues: Optional[List[TagValuePairTypeDef]] = None
+    tagValues: Optional[List[TagValuePair]] = None
     target: Optional[Literal["S3_OBJECT"]] = None
 
 
-class TagScopeTermTypeDef(BaseValidatorModel):
+class TagScopeTerm(BaseValidatorModel):
     comparator: Optional[JobComparatorType] = None
     key: Optional[str] = None
-    tagValues: Optional[Sequence[TagValuePairTypeDef]] = None
+    tagValues: Optional[Sequence[TagValuePair]] = None
     target: Optional[Literal["S3_OBJECT"]] = None
 
 
-class UpdateRevealConfigurationRequestTypeDef(BaseValidatorModel):
-    configuration: RevealConfigurationTypeDef
-    retrievalConfiguration: Optional[UpdateRetrievalConfigurationTypeDef] = None
+class UpdateRevealConfigurationRequest(BaseValidatorModel):
+    configuration: RevealConfiguration
+    retrievalConfiguration: Optional[UpdateRetrievalConfiguration] = None
 
 
-class CreateAllowListRequestTypeDef(BaseValidatorModel):
+class CreateAllowListRequest(BaseValidatorModel):
     clientToken: str
-    criteria: AllowListCriteriaTypeDef
+    criteria: AllowListCriteria
     name: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class BucketPermissionConfigurationTypeDef(BaseValidatorModel):
-    accountLevelPermissions: Optional[AccountLevelPermissionsTypeDef] = None
-    bucketLevelPermissions: Optional[BucketLevelPermissionsTypeDef] = None
+class BucketPermissionConfiguration(BaseValidatorModel):
+    accountLevelPermissions: Optional[AccountLevelPermissions] = None
+    bucketLevelPermissions: Optional[BucketLevelPermissions] = None
 
 
-class MatchingResourceTypeDef(BaseValidatorModel):
-    matchingBucket: Optional[MatchingBucketTypeDef] = None
+class MatchingResource(BaseValidatorModel):
+    matchingBucket: Optional[MatchingBucket] = None
 
 
-class GetBucketStatisticsResponseTypeDef(BaseValidatorModel):
+class GetBucketStatisticsResponse(BaseValidatorModel):
     bucketCount: int
-    bucketCountByEffectivePermission: BucketCountByEffectivePermissionTypeDef
-    bucketCountByEncryptionType: BucketCountByEncryptionTypeTypeDef
-    bucketCountByObjectEncryptionRequirement: BucketCountPolicyAllowsUnencryptedObjectUploadsTypeDef
-    bucketCountBySharedAccessType: BucketCountBySharedAccessTypeTypeDef
-    bucketStatisticsBySensitivity: BucketStatisticsBySensitivityTypeDef
+    bucketCountByEffectivePermission: BucketCountByEffectivePermission
+    bucketCountByEncryptionType: BucketCountByEncryptionType
+    bucketCountByObjectEncryptionRequirement: BucketCountPolicyAllowsUnencryptedObjectUploads
+    bucketCountBySharedAccessType: BucketCountBySharedAccessType
+    bucketStatisticsBySensitivity: BucketStatisticsBySensitivity
     classifiableObjectCount: int
     classifiableSizeInBytes: int
     lastUpdated: datetime
     objectCount: int
     sizeInBytes: int
     sizeInBytesCompressed: int
-    unclassifiableObjectCount: ObjectLevelStatisticsTypeDef
-    unclassifiableObjectSizeInBytes: ObjectLevelStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    unclassifiableObjectCount: ObjectLevelStatistics
+    unclassifiableObjectSizeInBytes: ObjectLevelStatistics
+    ResponseMetadata: ResponseMetadata
 
 
-class GetClassificationExportConfigurationResponseTypeDef(BaseValidatorModel):
-    configuration: ClassificationExportConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetClassificationExportConfigurationResponse(BaseValidatorModel):
+    configuration: ClassificationExportConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class PutClassificationExportConfigurationRequestTypeDef(BaseValidatorModel):
-    configuration: ClassificationExportConfigurationTypeDef
+class PutClassificationExportConfigurationRequest(BaseValidatorModel):
+    configuration: ClassificationExportConfiguration
 
 
-class PutClassificationExportConfigurationResponseTypeDef(BaseValidatorModel):
-    configuration: ClassificationExportConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutClassificationExportConfigurationResponse(BaseValidatorModel):
+    configuration: ClassificationExportConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ListClassificationJobsRequestPaginateTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[ListJobsFilterCriteriaTypeDef] = None
-    sortCriteria: Optional[ListJobsSortCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListClassificationJobsRequestPaginate(BaseValidatorModel):
+    filterCriteria: Optional[ListJobsFilterCriteria] = None
+    sortCriteria: Optional[ListJobsSortCriteria] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClassificationJobsRequestTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[ListJobsFilterCriteriaTypeDef] = None
+class ListClassificationJobsRequest(BaseValidatorModel):
+    filterCriteria: Optional[ListJobsFilterCriteria] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    sortCriteria: Optional[ListJobsSortCriteriaTypeDef] = None
+    sortCriteria: Optional[ListJobsSortCriteria] = None
 
 
-class OccurrencesTypeDef(BaseValidatorModel):
-    cells: Optional[List[CellTypeDef]] = None
-    lineRanges: Optional[List[RangeTypeDef]] = None
-    offsetRanges: Optional[List[RangeTypeDef]] = None
-    pages: Optional[List[PageTypeDef]] = None
-    records: Optional[List[RecordTypeDef]] = None
+class Occurrences(BaseValidatorModel):
+    cells: Optional[List[Cell]] = None
+    lineRanges: Optional[List[Range]] = None
+    offsetRanges: Optional[List[Range]] = None
+    pages: Optional[List[Page]] = None
+    records: Optional[List[Record]] = None
 
 
-class SearchResourcesCriteriaTypeDef(BaseValidatorModel):
-    simpleCriterion: Optional[SearchResourcesSimpleCriterionTypeDef] = None
-    tagCriterion: Optional[SearchResourcesTagCriterionTypeDef] = None
+class SearchResourcesCriteria(BaseValidatorModel):
+    simpleCriterion: Optional[SearchResourcesSimpleCriterion] = None
+    tagCriterion: Optional[SearchResourcesTagCriterion] = None
 
 
-class UsageByAccountTypeDef(BaseValidatorModel):
+class UsageByAccount(BaseValidatorModel):
     pass
 
 
-class UsageRecordTypeDef(BaseValidatorModel):
+class UsageRecord(BaseValidatorModel):
     accountId: Optional[str] = None
     automatedDiscoveryFreeTrialStartDate: Optional[datetime] = None
     freeTrialStartDate: Optional[datetime] = None
-    usage: Optional[List[UsageByAccountTypeDef]] = None
+    usage: Optional[List[UsageByAccount]] = None
 
 
-class AssumedRoleTypeDef(BaseValidatorModel):
+class AssumedRole(BaseValidatorModel):
     accessKeyId: Optional[str] = None
     accountId: Optional[str] = None
     arn: Optional[str] = None
     principalId: Optional[str] = None
-    sessionContext: Optional[SessionContextTypeDef] = None
+    sessionContext: Optional[SessionContext] = None
 
 
-class FederatedUserTypeDef(BaseValidatorModel):
+class FederatedUser(BaseValidatorModel):
     accessKeyId: Optional[str] = None
     accountId: Optional[str] = None
     arn: Optional[str] = None
     principalId: Optional[str] = None
-    sessionContext: Optional[SessionContextTypeDef] = None
+    sessionContext: Optional[SessionContext] = None
 
 
-class CriteriaForJobOutputTypeDef(BaseValidatorModel):
-    simpleCriterion: Optional[SimpleCriterionForJobOutputTypeDef] = None
-    tagCriterion: Optional[TagCriterionForJobOutputTypeDef] = None
+class CriteriaForJobOutput(BaseValidatorModel):
+    simpleCriterion: Optional[SimpleCriterionForJobOutput] = None
+    tagCriterion: Optional[TagCriterionForJobOutput] = None
 
 
-class CriteriaForJobTypeDef(BaseValidatorModel):
-    simpleCriterion: Optional[SimpleCriterionForJobTypeDef] = None
-    tagCriterion: Optional[TagCriterionForJobTypeDef] = None
+class CriteriaForJob(BaseValidatorModel):
+    simpleCriterion: Optional[SimpleCriterionForJob] = None
+    tagCriterion: Optional[TagCriterionForJob] = None
 
 
-class JobScopeTermOutputTypeDef(BaseValidatorModel):
-    simpleScopeTerm: Optional[SimpleScopeTermOutputTypeDef] = None
-    tagScopeTerm: Optional[TagScopeTermOutputTypeDef] = None
+class JobScopeTermOutput(BaseValidatorModel):
+    simpleScopeTerm: Optional[SimpleScopeTermOutput] = None
+    tagScopeTerm: Optional[TagScopeTermOutput] = None
 
 
-class JobScopeTermTypeDef(BaseValidatorModel):
-    simpleScopeTerm: Optional[SimpleScopeTermTypeDef] = None
-    tagScopeTerm: Optional[TagScopeTermTypeDef] = None
+class JobScopeTerm(BaseValidatorModel):
+    simpleScopeTerm: Optional[SimpleScopeTerm] = None
+    tagScopeTerm: Optional[TagScopeTerm] = None
 
 
-class BucketPublicAccessTypeDef(BaseValidatorModel):
+class BucketPublicAccess(BaseValidatorModel):
     effectivePermission: Optional[EffectivePermissionType] = None
-    permissionConfiguration: Optional[BucketPermissionConfigurationTypeDef] = None
+    permissionConfiguration: Optional[BucketPermissionConfiguration] = None
 
 
-class SearchResourcesResponseTypeDef(BaseValidatorModel):
-    matchingResources: List[MatchingResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchResourcesResponse(BaseValidatorModel):
+    matchingResources: List[MatchingResource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class FindingCriteriaUnionTypeDef(BaseValidatorModel):
+class FindingCriteriaUnion(BaseValidatorModel):
     pass
 
 
-class CreateFindingsFilterRequestTypeDef(BaseValidatorModel):
+class CreateFindingsFilterRequest(BaseValidatorModel):
     action: FindingsFilterActionType
-    findingCriteria: FindingCriteriaUnionTypeDef
+    findingCriteria: FindingCriteriaUnion
     name: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
@@ -1391,45 +1391,45 @@ class CreateFindingsFilterRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetFindingStatisticsRequestTypeDef(BaseValidatorModel):
+class GetFindingStatisticsRequest(BaseValidatorModel):
     groupBy: GroupByType
-    findingCriteria: Optional[FindingCriteriaUnionTypeDef] = None
+    findingCriteria: Optional[FindingCriteriaUnion] = None
     size: Optional[int] = None
-    sortCriteria: Optional[FindingStatisticsSortCriteriaTypeDef] = None
+    sortCriteria: Optional[FindingStatisticsSortCriteria] = None
 
 
-class ListFindingsRequestPaginateTypeDef(BaseValidatorModel):
-    findingCriteria: Optional[FindingCriteriaUnionTypeDef] = None
-    sortCriteria: Optional[SortCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFindingsRequestPaginate(BaseValidatorModel):
+    findingCriteria: Optional[FindingCriteriaUnion] = None
+    sortCriteria: Optional[SortCriteria] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFindingsRequestTypeDef(BaseValidatorModel):
-    findingCriteria: Optional[FindingCriteriaUnionTypeDef] = None
+class ListFindingsRequest(BaseValidatorModel):
+    findingCriteria: Optional[FindingCriteriaUnion] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    sortCriteria: Optional[SortCriteriaTypeDef] = None
+    sortCriteria: Optional[SortCriteria] = None
 
 
-class CustomDetectionTypeDef(BaseValidatorModel):
+class CustomDetection(BaseValidatorModel):
     arn: Optional[str] = None
     count: Optional[int] = None
     name: Optional[str] = None
-    occurrences: Optional[OccurrencesTypeDef] = None
+    occurrences: Optional[Occurrences] = None
 
 
-class GetUsageStatisticsResponseTypeDef(BaseValidatorModel):
-    records: List[UsageRecordTypeDef]
+class GetUsageStatisticsResponse(BaseValidatorModel):
+    records: List[UsageRecord]
     timeRange: TimeRangeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BucketServerSideEncryptionTypeDef(BaseValidatorModel):
+class BucketServerSideEncryption(BaseValidatorModel):
     pass
 
 
-class BucketMetadataTypeDef(BaseValidatorModel):
+class BucketMetadata(BaseValidatorModel):
     accountId: Optional[str] = None
     allowsUnencryptedObjectUploads: Optional[AllowsUnencryptedObjectUploadsType] = None
     automatedDiscoveryMonitoringStatus: Optional[AutomatedDiscoveryMonitoringStatusType] = None
@@ -1440,187 +1440,187 @@ class BucketMetadataTypeDef(BaseValidatorModel):
     classifiableSizeInBytes: Optional[int] = None
     errorCode: Optional[BucketMetadataErrorCodeType] = None
     errorMessage: Optional[str] = None
-    jobDetails: Optional[JobDetailsTypeDef] = None
+    jobDetails: Optional[JobDetails] = None
     lastAutomatedDiscoveryTime: Optional[datetime] = None
     lastUpdated: Optional[datetime] = None
     objectCount: Optional[int] = None
-    objectCountByEncryptionType: Optional[ObjectCountByEncryptionTypeTypeDef] = None
-    publicAccess: Optional[BucketPublicAccessTypeDef] = None
+    objectCountByEncryptionType: Optional[ObjectCountByEncryptionType] = None
+    publicAccess: Optional[BucketPublicAccess] = None
     region: Optional[str] = None
-    replicationDetails: Optional[ReplicationDetailsTypeDef] = None
+    replicationDetails: Optional[ReplicationDetails] = None
     sensitivityScore: Optional[int] = None
-    serverSideEncryption: Optional[BucketServerSideEncryptionTypeDef] = None
+    serverSideEncryption: Optional[BucketServerSideEncryption] = None
     sharedAccess: Optional[SharedAccessType] = None
     sizeInBytes: Optional[int] = None
     sizeInBytesCompressed: Optional[int] = None
-    tags: Optional[List[KeyValuePairTypeDef]] = None
-    unclassifiableObjectCount: Optional[ObjectLevelStatisticsTypeDef] = None
-    unclassifiableObjectSizeInBytes: Optional[ObjectLevelStatisticsTypeDef] = None
+    tags: Optional[List[KeyValuePair]] = None
+    unclassifiableObjectCount: Optional[ObjectLevelStatistics] = None
+    unclassifiableObjectSizeInBytes: Optional[ObjectLevelStatistics] = None
     versioning: Optional[bool] = None
 
 
-class S3BucketOwnerTypeDef(BaseValidatorModel):
+class S3BucketOwner(BaseValidatorModel):
     pass
 
 
-class S3BucketTypeDef(BaseValidatorModel):
+class S3Bucket(BaseValidatorModel):
     allowsUnencryptedObjectUploads: Optional[AllowsUnencryptedObjectUploadsType] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
-    defaultServerSideEncryption: Optional[ServerSideEncryptionTypeDef] = None
+    defaultServerSideEncryption: Optional[ServerSideEncryption] = None
     name: Optional[str] = None
-    owner: Optional[S3BucketOwnerTypeDef] = None
-    publicAccess: Optional[BucketPublicAccessTypeDef] = None
-    tags: Optional[List[KeyValuePairTypeDef]] = None
+    owner: Optional[S3BucketOwner] = None
+    publicAccess: Optional[BucketPublicAccess] = None
+    tags: Optional[List[KeyValuePair]] = None
 
 
-class CustomDataIdentifiersTypeDef(BaseValidatorModel):
-    detections: Optional[List[CustomDetectionTypeDef]] = None
+class CustomDataIdentifiers(BaseValidatorModel):
+    detections: Optional[List[CustomDetection]] = None
     totalCount: Optional[int] = None
 
 
-class DefaultDetectionTypeDef(BaseValidatorModel):
+class DefaultDetection(BaseValidatorModel):
     pass
 
 
-class SensitiveDataItemTypeDef(BaseValidatorModel):
+class SensitiveDataItem(BaseValidatorModel):
     category: Optional[SensitiveDataItemCategoryType] = None
-    detections: Optional[List[DefaultDetectionTypeDef]] = None
+    detections: Optional[List[DefaultDetection]] = None
     totalCount: Optional[int] = None
 
 
-class SearchResourcesCriteriaBlockTypeDef(BaseValidatorModel):
+class SearchResourcesCriteriaBlock(BaseValidatorModel):
     pass
 
 
-class SearchResourcesBucketCriteriaTypeDef(BaseValidatorModel):
-    excludes: Optional[SearchResourcesCriteriaBlockTypeDef] = None
-    includes: Optional[SearchResourcesCriteriaBlockTypeDef] = None
+class SearchResourcesBucketCriteria(BaseValidatorModel):
+    excludes: Optional[SearchResourcesCriteriaBlock] = None
+    includes: Optional[SearchResourcesCriteriaBlock] = None
 
 
-class UserIdentityTypeDef(BaseValidatorModel):
+class UserIdentity(BaseValidatorModel):
     pass
 
 
-class FindingActorTypeDef(BaseValidatorModel):
-    domainDetails: Optional[DomainDetailsTypeDef] = None
-    ipAddressDetails: Optional[IpAddressDetailsTypeDef] = None
-    userIdentity: Optional[UserIdentityTypeDef] = None
+class FindingActor(BaseValidatorModel):
+    domainDetails: Optional[DomainDetails] = None
+    ipAddressDetails: Optional[IpAddressDetails] = None
+    userIdentity: Optional[UserIdentity] = None
 
 
-class CriteriaBlockForJobOutputTypeDef(BaseValidatorModel):
+class CriteriaBlockForJobOutput(BaseValidatorModel):
     pass
 
 
-class S3BucketCriteriaForJobOutputTypeDef(BaseValidatorModel):
-    excludes: Optional[CriteriaBlockForJobOutputTypeDef] = None
-    includes: Optional[CriteriaBlockForJobOutputTypeDef] = None
+class S3BucketCriteriaForJobOutput(BaseValidatorModel):
+    excludes: Optional[CriteriaBlockForJobOutput] = None
+    includes: Optional[CriteriaBlockForJobOutput] = None
 
 
-class CriteriaBlockForJobTypeDef(BaseValidatorModel):
+class CriteriaBlockForJob(BaseValidatorModel):
     pass
 
 
-class S3BucketCriteriaForJobTypeDef(BaseValidatorModel):
-    excludes: Optional[CriteriaBlockForJobTypeDef] = None
-    includes: Optional[CriteriaBlockForJobTypeDef] = None
+class S3BucketCriteriaForJob(BaseValidatorModel):
+    excludes: Optional[CriteriaBlockForJob] = None
+    includes: Optional[CriteriaBlockForJob] = None
 
 
-class JobScopingBlockOutputTypeDef(BaseValidatorModel):
+class JobScopingBlockOutput(BaseValidatorModel):
     pass
 
 
-class ScopingOutputTypeDef(BaseValidatorModel):
-    excludes: Optional[JobScopingBlockOutputTypeDef] = None
-    includes: Optional[JobScopingBlockOutputTypeDef] = None
+class ScopingOutput(BaseValidatorModel):
+    excludes: Optional[JobScopingBlockOutput] = None
+    includes: Optional[JobScopingBlockOutput] = None
 
 
-class JobScopingBlockTypeDef(BaseValidatorModel):
+class JobScopingBlock(BaseValidatorModel):
     pass
 
 
-class ScopingTypeDef(BaseValidatorModel):
-    excludes: Optional[JobScopingBlockTypeDef] = None
-    includes: Optional[JobScopingBlockTypeDef] = None
+class Scoping(BaseValidatorModel):
+    excludes: Optional[JobScopingBlock] = None
+    includes: Optional[JobScopingBlock] = None
 
 
-class DescribeBucketsResponseTypeDef(BaseValidatorModel):
-    buckets: List[BucketMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBucketsResponse(BaseValidatorModel):
+    buckets: List[BucketMetadata]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ResourcesAffectedTypeDef(BaseValidatorModel):
-    s3Bucket: Optional[S3BucketTypeDef] = None
-    s3Object: Optional[S3ObjectTypeDef] = None
+class ResourcesAffected(BaseValidatorModel):
+    s3Bucket: Optional[S3Bucket] = None
+    s3Object: Optional[S3Object] = None
 
 
-class ClassificationResultTypeDef(BaseValidatorModel):
+class ClassificationResult(BaseValidatorModel):
     additionalOccurrences: Optional[bool] = None
-    customDataIdentifiers: Optional[CustomDataIdentifiersTypeDef] = None
+    customDataIdentifiers: Optional[CustomDataIdentifiers] = None
     mimeType: Optional[str] = None
-    sensitiveData: Optional[List[SensitiveDataItemTypeDef]] = None
+    sensitiveData: Optional[List[SensitiveDataItem]] = None
     sizeClassified: Optional[int] = None
-    status: Optional[ClassificationResultStatusTypeDef] = None
+    status: Optional[ClassificationResultStatus] = None
 
 
-class SearchResourcesRequestPaginateTypeDef(BaseValidatorModel):
-    bucketCriteria: Optional[SearchResourcesBucketCriteriaTypeDef] = None
-    sortCriteria: Optional[SearchResourcesSortCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class SearchResourcesRequestPaginate(BaseValidatorModel):
+    bucketCriteria: Optional[SearchResourcesBucketCriteria] = None
+    sortCriteria: Optional[SearchResourcesSortCriteria] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchResourcesRequestTypeDef(BaseValidatorModel):
-    bucketCriteria: Optional[SearchResourcesBucketCriteriaTypeDef] = None
+class SearchResourcesRequest(BaseValidatorModel):
+    bucketCriteria: Optional[SearchResourcesBucketCriteria] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    sortCriteria: Optional[SearchResourcesSortCriteriaTypeDef] = None
+    sortCriteria: Optional[SearchResourcesSortCriteria] = None
 
 
-class PolicyDetailsTypeDef(BaseValidatorModel):
-    action: Optional[FindingActionTypeDef] = None
-    actor: Optional[FindingActorTypeDef] = None
+class PolicyDetails(BaseValidatorModel):
+    action: Optional[FindingAction] = None
+    actor: Optional[FindingActor] = None
 
 
-class JobSummaryTypeDef(BaseValidatorModel):
-    bucketCriteria: Optional[S3BucketCriteriaForJobOutputTypeDef] = None
-    bucketDefinitions: Optional[List[S3BucketDefinitionForJobOutputTypeDef]] = None
+class JobSummary(BaseValidatorModel):
+    bucketCriteria: Optional[S3BucketCriteriaForJobOutput] = None
+    bucketDefinitions: Optional[List[S3BucketDefinitionForJobOutput]] = None
     createdAt: Optional[datetime] = None
     jobId: Optional[str] = None
     jobStatus: Optional[JobStatusType] = None
     jobType: Optional[JobTypeType] = None
-    lastRunErrorStatus: Optional[LastRunErrorStatusTypeDef] = None
+    lastRunErrorStatus: Optional[LastRunErrorStatus] = None
     name: Optional[str] = None
-    userPausedDetails: Optional[UserPausedDetailsTypeDef] = None
+    userPausedDetails: Optional[UserPausedDetails] = None
 
 
-class S3JobDefinitionOutputTypeDef(BaseValidatorModel):
-    bucketCriteria: Optional[S3BucketCriteriaForJobOutputTypeDef] = None
-    bucketDefinitions: Optional[List[S3BucketDefinitionForJobOutputTypeDef]] = None
-    scoping: Optional[ScopingOutputTypeDef] = None
+class S3JobDefinitionOutput(BaseValidatorModel):
+    bucketCriteria: Optional[S3BucketCriteriaForJobOutput] = None
+    bucketDefinitions: Optional[List[S3BucketDefinitionForJobOutput]] = None
+    scoping: Optional[ScopingOutput] = None
 
 
-class S3JobDefinitionTypeDef(BaseValidatorModel):
-    bucketCriteria: Optional[S3BucketCriteriaForJobTypeDef] = None
-    bucketDefinitions: Optional[Sequence[S3BucketDefinitionForJobTypeDef]] = None
-    scoping: Optional[ScopingTypeDef] = None
+class S3JobDefinition(BaseValidatorModel):
+    bucketCriteria: Optional[S3BucketCriteriaForJob] = None
+    bucketDefinitions: Optional[Sequence[S3BucketDefinitionForJob]] = None
+    scoping: Optional[Scoping] = None
 
 
-class ClassificationDetailsTypeDef(BaseValidatorModel):
+class ClassificationDetails(BaseValidatorModel):
     detailedResultsLocation: Optional[str] = None
     jobArn: Optional[str] = None
     jobId: Optional[str] = None
     originType: Optional[OriginTypeType] = None
-    result: Optional[ClassificationResultTypeDef] = None
+    result: Optional[ClassificationResult] = None
 
 
-class ListClassificationJobsResponseTypeDef(BaseValidatorModel):
-    items: List[JobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClassificationJobsResponse(BaseValidatorModel):
+    items: List[JobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeClassificationJobResponseTypeDef(BaseValidatorModel):
+class DescribeClassificationJobResponse(BaseValidatorModel):
     allowListIds: List[str]
     clientToken: str
     createdAt: datetime
@@ -1631,33 +1631,33 @@ class DescribeClassificationJobResponseTypeDef(BaseValidatorModel):
     jobId: str
     jobStatus: JobStatusType
     jobType: JobTypeType
-    lastRunErrorStatus: LastRunErrorStatusTypeDef
+    lastRunErrorStatus: LastRunErrorStatus
     lastRunTime: datetime
     managedDataIdentifierIds: List[str]
     managedDataIdentifierSelector: ManagedDataIdentifierSelectorType
     name: str
-    s3JobDefinition: S3JobDefinitionOutputTypeDef
+    s3JobDefinition: S3JobDefinitionOutput
     samplingPercentage: int
-    scheduleFrequency: JobScheduleFrequencyOutputTypeDef
-    statistics: StatisticsTypeDef
+    scheduleFrequency: JobScheduleFrequencyOutput
+    statistics: Statistics
     tags: Dict[str, str]
-    userPausedDetails: UserPausedDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    userPausedDetails: UserPausedDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class S3JobDefinitionUnionTypeDef(BaseValidatorModel):
+class S3JobDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class JobScheduleFrequencyUnionTypeDef(BaseValidatorModel):
+class JobScheduleFrequencyUnion(BaseValidatorModel):
     pass
 
 
-class CreateClassificationJobRequestTypeDef(BaseValidatorModel):
+class CreateClassificationJobRequest(BaseValidatorModel):
     clientToken: str
     jobType: JobTypeType
     name: str
-    s3JobDefinition: S3JobDefinitionUnionTypeDef
+    s3JobDefinition: S3JobDefinitionUnion
     allowListIds: Optional[Sequence[str]] = None
     customDataIdentifierIds: Optional[Sequence[str]] = None
     description: Optional[str] = None
@@ -1665,16 +1665,16 @@ class CreateClassificationJobRequestTypeDef(BaseValidatorModel):
     managedDataIdentifierIds: Optional[Sequence[str]] = None
     managedDataIdentifierSelector: Optional[ManagedDataIdentifierSelectorType] = None
     samplingPercentage: Optional[int] = None
-    scheduleFrequency: Optional[JobScheduleFrequencyUnionTypeDef] = None
+    scheduleFrequency: Optional[JobScheduleFrequencyUnion] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class FindingTypeDef(BaseValidatorModel):
+class Finding(BaseValidatorModel):
     pass
 
 
-class GetFindingsResponseTypeDef(BaseValidatorModel):
-    findings: List[FindingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFindingsResponse(BaseValidatorModel):
+    findings: List[Finding]
+    ResponseMetadata: ResponseMetadata
 
 

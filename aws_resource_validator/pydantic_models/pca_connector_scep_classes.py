@@ -12,21 +12,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.pca_connector_scep_constants import *
 
-class ChallengeMetadataSummaryTypeDef(BaseValidatorModel):
+class ChallengeMetadataSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     ConnectorArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
 
-class ChallengeMetadataTypeDef(BaseValidatorModel):
+class ChallengeMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
     ConnectorArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
 
-class ChallengeTypeDef(BaseValidatorModel):
+class Challenge(BaseValidatorModel):
     Arn: Optional[str] = None
     ConnectorArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
@@ -34,19 +34,19 @@ class ChallengeTypeDef(BaseValidatorModel):
     Password: Optional[str] = None
 
 
-class OpenIdConfigurationTypeDef(BaseValidatorModel):
+class OpenIdConfiguration(BaseValidatorModel):
     Issuer: Optional[str] = None
     Subject: Optional[str] = None
     Audience: Optional[str] = None
 
 
-class CreateChallengeRequestTypeDef(BaseValidatorModel):
+class CreateChallengeRequest(BaseValidatorModel):
     ConnectorArn: str
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -54,133 +54,133 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteChallengeRequestTypeDef(BaseValidatorModel):
+class DeleteChallengeRequest(BaseValidatorModel):
     ChallengeArn: str
 
 
-class DeleteConnectorRequestTypeDef(BaseValidatorModel):
+class DeleteConnectorRequest(BaseValidatorModel):
     ConnectorArn: str
 
 
-class GetChallengeMetadataRequestTypeDef(BaseValidatorModel):
+class GetChallengeMetadataRequest(BaseValidatorModel):
     ChallengeArn: str
 
 
-class GetChallengePasswordRequestTypeDef(BaseValidatorModel):
+class GetChallengePasswordRequest(BaseValidatorModel):
     ChallengeArn: str
 
 
-class GetConnectorRequestTypeDef(BaseValidatorModel):
+class GetConnectorRequest(BaseValidatorModel):
     ConnectorArn: str
 
 
-class IntuneConfigurationTypeDef(BaseValidatorModel):
+class IntuneConfiguration(BaseValidatorModel):
     AzureApplicationId: str
     Domain: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListChallengeMetadataRequestTypeDef(BaseValidatorModel):
+class ListChallengeMetadataRequest(BaseValidatorModel):
     ConnectorArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListConnectorsRequestTypeDef(BaseValidatorModel):
+class ListConnectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class CreateChallengeResponseTypeDef(BaseValidatorModel):
-    Challenge: ChallengeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateChallengeResponse(BaseValidatorModel):
+    Challenge: Challenge
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateConnectorResponseTypeDef(BaseValidatorModel):
+class CreateConnectorResponse(BaseValidatorModel):
     ConnectorArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetChallengeMetadataResponseTypeDef(BaseValidatorModel):
-    ChallengeMetadata: ChallengeMetadataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetChallengeMetadataResponse(BaseValidatorModel):
+    ChallengeMetadata: ChallengeMetadata
+    ResponseMetadata: ResponseMetadata
 
 
-class GetChallengePasswordResponseTypeDef(BaseValidatorModel):
+class GetChallengePasswordResponse(BaseValidatorModel):
     Password: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChallengeMetadataResponseTypeDef(BaseValidatorModel):
-    Challenges: List[ChallengeMetadataSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChallengeMetadataResponse(BaseValidatorModel):
+    Challenges: List[ChallengeMetadataSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class MobileDeviceManagementTypeDef(BaseValidatorModel):
-    Intune: Optional[IntuneConfigurationTypeDef] = None
+class MobileDeviceManagement(BaseValidatorModel):
+    Intune: Optional[IntuneConfiguration] = None
 
 
-class ListChallengeMetadataRequestPaginateTypeDef(BaseValidatorModel):
+class ListChallengeMetadataRequestPaginate(BaseValidatorModel):
     ConnectorArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConnectorsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConnectorsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class CreateConnectorRequestTypeDef(BaseValidatorModel):
+class CreateConnectorRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
-    MobileDeviceManagement: Optional[MobileDeviceManagementTypeDef] = None
+    MobileDeviceManagement: Optional[MobileDeviceManagement] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class ConnectorSummaryTypeDef(BaseValidatorModel):
+class ConnectorSummary(BaseValidatorModel):
     pass
 
 
-class ListConnectorsResponseTypeDef(BaseValidatorModel):
-    Connectors: List[ConnectorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConnectorsResponse(BaseValidatorModel):
+    Connectors: List[ConnectorSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ConnectorTypeDef(BaseValidatorModel):
+class Connector(BaseValidatorModel):
     pass
 
 
-class GetConnectorResponseTypeDef(BaseValidatorModel):
-    Connector: ConnectorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConnectorResponse(BaseValidatorModel):
+    Connector: Connector
+    ResponseMetadata: ResponseMetadata
 
 

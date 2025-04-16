@@ -1,6 +1,6 @@
 # Stepfunctions Classes
 
-# ActivityFailedEventDetailsTypeDef
+# ActivityFailedEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -9,7 +9,7 @@
 - **Type**: typing.Optional[str]
 
 
-# ActivityListItemTypeDef
+# ActivityListItem
 
 ### activityArn
 - **Type**: <class 'str'>
@@ -24,7 +24,7 @@
 - **Required**: Yes
 
 
-# ActivityScheduleFailedEventDetailsTypeDef
+# ActivityScheduleFailedEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -33,22 +33,22 @@
 - **Type**: typing.Optional[str]
 
 
-# ActivityStartedEventDetailsTypeDef
+# ActivityStartedEventDetails
 
 ### workerName
 - **Type**: typing.Optional[str]
 
 
-# ActivitySucceededEventDetailsTypeDef
+# ActivitySucceededEventDetails
 
 ### output
 - **Type**: typing.Optional[str]
 
 ### outputDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetails]
 
 
-# ActivityTimedOutEventDetailsTypeDef
+# ActivityTimedOutEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -57,7 +57,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssignedVariablesDetailsTypeDef
+# AssignedVariablesDetails
 
 ### truncated
 - **Type**: typing.Optional[bool]
@@ -69,7 +69,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BillingDetailsTypeDef
+# BillingDetails
 
 ### billedMemoryUsedInMB
 - **Type**: typing.Optional[int]
@@ -78,32 +78,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CloudWatchEventsExecutionDataDetailsTypeDef
+# CloudWatchEventsExecutionDataDetails
 
 ### included
 - **Type**: typing.Optional[bool]
 
 
-# CloudWatchLogsLogGroupTypeDef
+# CloudWatchLogsLogGroup
 
 ### logGroupArn
 - **Type**: typing.Optional[str]
 
 
-# CreateActivityInputTypeDef
+# CreateActivityInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.Tag]]
 
 ### encryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.EncryptionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.EncryptionConfiguration]
 
 
-# CreateActivityOutputTypeDef
+# CreateActivityOutput
 
 ### activityArn
 - **Type**: <class 'str'>
@@ -114,25 +114,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStateMachineAliasInputTypeDef
+# CreateStateMachineAliasInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### routingConfiguration
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.RoutingConfigurationListItemTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.RoutingConfigurationListItem]
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
 
-# CreateStateMachineAliasOutputTypeDef
+# CreateStateMachineAliasOutput
 
 ### stateMachineAliasArn
 - **Type**: <class 'str'>
@@ -143,11 +143,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStateMachineOutputTypeDef
+# CreateStateMachineOutput
 
 ### stateMachineArn
 - **Type**: <class 'str'>
@@ -162,46 +162,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteActivityInputTypeDef
+# DeleteActivityInput
 
 ### activityArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStateMachineAliasInputTypeDef
+# DeleteStateMachineAliasInput
 
 ### stateMachineAliasArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStateMachineInputTypeDef
+# DeleteStateMachineInput
 
 ### stateMachineArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStateMachineVersionInputTypeDef
+# DeleteStateMachineVersionInput
 
 ### stateMachineVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeActivityInputTypeDef
+# DescribeActivityInput
 
 ### activityArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeActivityOutputTypeDef
+# DescribeActivityOutput
 
 ### activityArn
 - **Type**: <class 'str'>
@@ -216,15 +216,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### encryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.EncryptionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.EncryptionConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeExecutionInputTypeDef
+# DescribeExecutionInput
 
 ### executionArn
 - **Type**: <class 'str'>
@@ -234,14 +234,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL_DATA', 'METADATA_ONLY']]
 
 
-# DescribeMapRunInputTypeDef
+# DescribeMapRunInput
 
 ### mapRunArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeMapRunOutputTypeDef
+# DescribeMapRunOutput
 
 ### mapRunArn
 - **Type**: <class 'str'>
@@ -276,11 +276,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### itemCounts
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.MapRunItemCountsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.MapRunItemCounts'>
 - **Required**: Yes
 
 ### executionCounts
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.MapRunExecutionCountsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.MapRunExecutionCounts'>
 - **Required**: Yes
 
 ### redriveCount
@@ -292,18 +292,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStateMachineAliasInputTypeDef
+# DescribeStateMachineAliasInput
 
 ### stateMachineAliasArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeStateMachineAliasOutputTypeDef
+# DescribeStateMachineAliasOutput
 
 ### stateMachineAliasArn
 - **Type**: <class 'str'>
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### routingConfiguration
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.RoutingConfigurationListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.RoutingConfigurationListItem]
 - **Required**: Yes
 
 ### creationDate
@@ -330,11 +330,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStateMachineForExecutionInputTypeDef
+# DescribeStateMachineForExecutionInput
 
 ### executionArn
 - **Type**: <class 'str'>
@@ -344,7 +344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL_DATA', 'METADATA_ONLY']]
 
 
-# DescribeStateMachineForExecutionOutputTypeDef
+# DescribeStateMachineForExecutionOutput
 
 ### stateMachineArn
 - **Type**: <class 'str'>
@@ -367,11 +367,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### loggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.LoggingConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.LoggingConfigurationOutput'>
 - **Required**: Yes
 
 ### tracingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.TracingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.TracingConfiguration'>
 - **Required**: Yes
 
 ### mapRunArn
@@ -387,7 +387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### encryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.EncryptionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.EncryptionConfiguration'>
 - **Required**: Yes
 
 ### variableReferences
@@ -395,11 +395,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStateMachineInputTypeDef
+# DescribeStateMachineInput
 
 ### stateMachineArn
 - **Type**: <class 'str'>
@@ -409,13 +409,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL_DATA', 'METADATA_ONLY']]
 
 
-# EncryptionConfigurationTypeDef
+# EncryptionConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EvaluationFailedEventDetailsTypeDef
+# EvaluationFailedEventDetails
 
 ### state
 - **Type**: <class 'str'>
@@ -431,7 +431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecutionAbortedEventDetailsTypeDef
+# ExecutionAbortedEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -440,7 +440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecutionFailedEventDetailsTypeDef
+# ExecutionFailedEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -449,7 +449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecutionListItemTypeDef
+# ExecutionListItem
 
 ### executionArn
 - **Type**: <class 'str'>
@@ -493,22 +493,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ExecutionRedrivenEventDetailsTypeDef
+# ExecutionRedrivenEventDetails
 
 ### redriveCount
 - **Type**: typing.Optional[int]
 
 
-# ExecutionSucceededEventDetailsTypeDef
+# ExecutionSucceededEventDetails
 
 ### output
 - **Type**: typing.Optional[str]
 
 ### outputDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetails]
 
 
-# ExecutionTimedOutEventDetailsTypeDef
+# ExecutionTimedOutEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -517,7 +517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetActivityTaskInputTypeDef
+# GetActivityTaskInput
 
 ### activityArn
 - **Type**: <class 'str'>
@@ -527,23 +527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetExecutionHistoryInputPaginateTypeDef
-
-### executionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reverseOrder
-- **Type**: typing.Optional[bool]
-
-### includeExecutionData
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfigTypeDef]
-
-
-# GetExecutionHistoryInputTypeDef
+# GetExecutionHistoryInput
 
 ### executionArn
 - **Type**: <class 'str'>
@@ -562,33 +546,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# GetExecutionHistoryOutputTypeDef
+# GetExecutionHistoryInputPaginate
+
+### executionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reverseOrder
+- **Type**: typing.Optional[bool]
+
+### includeExecutionData
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfig]
+
+
+# GetExecutionHistoryOutput
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# HistoryEventExecutionDataDetailsTypeDef
-
-### truncated
-- **Type**: typing.Optional[bool]
-
-
-# HistoryEventTypeDef
+# HistoryEvent
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# InspectionDataRequestTypeDef
+# HistoryEventExecutionDataDetails
+
+### truncated
+- **Type**: typing.Optional[bool]
+
+
+# InspectionData
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# InspectionDataRequest
 
 ### protocol
 - **Type**: typing.Optional[str]
@@ -606,7 +612,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InspectionDataResponseTypeDef
+# InspectionDataResponse
 
 ### protocol
 - **Type**: typing.Optional[str]
@@ -624,13 +630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InspectionDataTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# LambdaFunctionFailedEventDetailsTypeDef
+# LambdaFunctionFailedEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -639,7 +639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LambdaFunctionScheduleFailedEventDetailsTypeDef
+# LambdaFunctionScheduleFailedEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -648,7 +648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LambdaFunctionStartFailedEventDetailsTypeDef
+# LambdaFunctionStartFailedEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -657,16 +657,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LambdaFunctionSucceededEventDetailsTypeDef
+# LambdaFunctionSucceededEventDetails
 
 ### output
 - **Type**: typing.Optional[str]
 
 ### outputDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetails]
 
 
-# LambdaFunctionTimedOutEventDetailsTypeDef
+# LambdaFunctionTimedOutEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -675,13 +675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListActivitiesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfigTypeDef]
-
-
-# ListActivitiesInputTypeDef
+# ListActivitiesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -690,39 +684,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListActivitiesOutputTypeDef
+# ListActivitiesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfig]
+
+
+# ListActivitiesOutput
 
 ### activities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.ActivityListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.ActivityListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListExecutionsInputPaginateTypeDef
-
-### stateMachineArn
-- **Type**: typing.Optional[str]
-
-### statusFilter
-- **Type**: typing.Optional[typing.Literal['ABORTED', 'FAILED', 'PENDING_REDRIVE', 'RUNNING', 'SUCCEEDED', 'TIMED_OUT']]
-
-### mapRunArn
-- **Type**: typing.Optional[str]
-
-### redriveFilter
-- **Type**: typing.Optional[typing.Literal['NOT_REDRIVEN', 'REDRIVEN']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfigTypeDef]
-
-
-# ListExecutionsInputTypeDef
+# ListExecutionsInput
 
 ### stateMachineArn
 - **Type**: typing.Optional[str]
@@ -743,31 +725,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NOT_REDRIVEN', 'REDRIVEN']]
 
 
-# ListExecutionsOutputTypeDef
+# ListExecutionsInputPaginate
+
+### stateMachineArn
+- **Type**: typing.Optional[str]
+
+### statusFilter
+- **Type**: typing.Optional[typing.Literal['ABORTED', 'FAILED', 'PENDING_REDRIVE', 'RUNNING', 'SUCCEEDED', 'TIMED_OUT']]
+
+### mapRunArn
+- **Type**: typing.Optional[str]
+
+### redriveFilter
+- **Type**: typing.Optional[typing.Literal['NOT_REDRIVEN', 'REDRIVEN']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfig]
+
+
+# ListExecutionsOutput
 
 ### executions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.ExecutionListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.ExecutionListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMapRunsInputPaginateTypeDef
-
-### executionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfigTypeDef]
-
-
-# ListMapRunsInputTypeDef
+# ListMapRunsInput
 
 ### executionArn
 - **Type**: <class 'str'>
@@ -780,21 +770,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMapRunsOutputTypeDef
+# ListMapRunsInputPaginate
+
+### executionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfig]
+
+
+# ListMapRunsOutput
 
 ### mapRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.MapRunListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.MapRunListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStateMachineAliasesInputTypeDef
+# ListStateMachineAliasesInput
 
 ### stateMachineArn
 - **Type**: <class 'str'>
@@ -807,21 +807,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListStateMachineAliasesOutputTypeDef
+# ListStateMachineAliasesOutput
 
 ### stateMachineAliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.StateMachineAliasListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.StateMachineAliasListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStateMachineVersionsInputTypeDef
+# ListStateMachineVersionsInput
 
 ### stateMachineArn
 - **Type**: <class 'str'>
@@ -834,27 +834,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListStateMachineVersionsOutputTypeDef
+# ListStateMachineVersionsOutput
 
 ### stateMachineVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.StateMachineVersionListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.StateMachineVersionListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStateMachinesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfigTypeDef]
-
-
-# ListStateMachinesInputTypeDef
+# ListStateMachinesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -863,57 +857,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListStateMachinesOutputTypeDef
+# ListStateMachinesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.PaginatorConfig]
+
+
+# ListStateMachinesOutput
 
 ### stateMachines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.StateMachineListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.StateMachineListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LogDestinationTypeDef
+# LogDestination
 
 ### cloudWatchLogsLogGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.CloudWatchLogsLogGroupTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.CloudWatchLogsLogGroup]
 
 
-# LoggingConfigurationOutputTypeDef
-
-### level
-- **Type**: typing.Optional[typing.Literal['ALL', 'ERROR', 'FATAL', 'OFF']]
-
-### includeExecutionData
-- **Type**: typing.Optional[bool]
-
-### destinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.LogDestinationTypeDef]]
-
-
-# LoggingConfigurationTypeDef
+# LoggingConfiguration
 
 ### level
 - **Type**: typing.Optional[typing.Literal['ALL', 'ERROR', 'FATAL', 'OFF']]
@@ -922,16 +910,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### destinations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.LogDestinationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.LogDestination]]
 
 
-# LoggingConfigurationUnionTypeDef
+# LoggingConfigurationOutput
+
+### level
+- **Type**: typing.Optional[typing.Literal['ALL', 'ERROR', 'FATAL', 'OFF']]
+
+### includeExecutionData
+- **Type**: typing.Optional[bool]
+
+### destinations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.LogDestination]]
+
+
+# LoggingConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MapIterationEventDetailsTypeDef
+# MapIterationEventDetails
 
 ### name
 - **Type**: typing.Optional[str]
@@ -940,7 +940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# MapRunExecutionCountsTypeDef
+# MapRunExecutionCounts
 
 ### pending
 - **Type**: <class 'int'>
@@ -981,7 +981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# MapRunFailedEventDetailsTypeDef
+# MapRunFailedEventDetails
 
 ### error
 - **Type**: typing.Optional[str]
@@ -990,7 +990,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MapRunItemCountsTypeDef
+# MapRunItemCounts
 
 ### pending
 - **Type**: <class 'int'>
@@ -1031,7 +1031,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# MapRunListItemTypeDef
+# MapRunListItem
 
 ### executionArn
 - **Type**: <class 'str'>
@@ -1053,7 +1053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# MapRunRedrivenEventDetailsTypeDef
+# MapRunRedrivenEventDetails
 
 ### mapRunArn
 - **Type**: typing.Optional[str]
@@ -1062,19 +1062,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# MapRunStartedEventDetailsTypeDef
+# MapRunStartedEventDetails
 
 ### mapRunArn
 - **Type**: typing.Optional[str]
 
 
-# MapStateStartedEventDetailsTypeDef
+# MapStateStartedEventDetails
 
 ### length
 - **Type**: typing.Optional[int]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1086,7 +1086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishStateMachineVersionInputTypeDef
+# PublishStateMachineVersionInput
 
 ### stateMachineArn
 - **Type**: <class 'str'>
@@ -1099,7 +1099,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishStateMachineVersionOutputTypeDef
+# PublishStateMachineVersionOutput
 
 ### creationDate
 - **Type**: <class 'datetime.datetime'>
@@ -1110,11 +1110,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RedriveExecutionInputTypeDef
+# RedriveExecutionInput
 
 ### executionArn
 - **Type**: <class 'str'>
@@ -1124,18 +1124,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RedriveExecutionOutputTypeDef
+# RedriveExecutionOutput
 
 ### redriveDate
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1157,7 +1157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RoutingConfigurationListItemTypeDef
+# RoutingConfigurationListItem
 
 ### stateMachineVersionArn
 - **Type**: <class 'str'>
@@ -1168,7 +1168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendTaskFailureInputTypeDef
+# SendTaskFailureInput
 
 ### taskToken
 - **Type**: <class 'str'>
@@ -1181,14 +1181,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendTaskHeartbeatInputTypeDef
+# SendTaskHeartbeatInput
 
 ### taskToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# SendTaskSuccessInputTypeDef
+# SendTaskSuccessInput
 
 ### taskToken
 - **Type**: <class 'str'>
@@ -1199,7 +1199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartExecutionOutputTypeDef
+# StartExecutionOutput
 
 ### executionArn
 - **Type**: <class 'str'>
@@ -1210,11 +1210,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StateExitedEventDetailsTypeDef
+# StateExitedEventDetails
 
 ### name
 - **Type**: <class 'str'>
@@ -1224,16 +1224,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### outputDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetails]
 
 ### assignedVariables
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### assignedVariablesDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.AssignedVariablesDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.AssignedVariablesDetails]
 
 
-# StateMachineAliasListItemTypeDef
+# StateMachineAliasListItem
 
 ### stateMachineAliasArn
 - **Type**: <class 'str'>
@@ -1244,13 +1244,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StateMachineListItemTypeDef
+# StateMachineListItem
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StateMachineVersionListItemTypeDef
+# StateMachineVersionListItem
 
 ### stateMachineVersionArn
 - **Type**: <class 'str'>
@@ -1261,7 +1261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopExecutionInputTypeDef
+# StopExecutionInput
 
 ### executionArn
 - **Type**: <class 'str'>
@@ -1274,29 +1274,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopExecutionOutputTypeDef
+# StopExecutionOutput
 
 ### stopDate
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceInputTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: typing.Optional[str]
@@ -1305,13 +1294,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TaskCredentialsTypeDef
+# TagResourceInput
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.Tag]
+- **Required**: Yes
+
+
+# TaskCredentials
 
 ### roleArn
 - **Type**: typing.Optional[str]
 
 
-# TaskFailedEventDetailsTypeDef
+# TaskFailedEventDetails
 
 ### resourceType
 - **Type**: <class 'str'>
@@ -1328,7 +1328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TaskScheduledEventDetailsTypeDef
+# TaskScheduledEventDetails
 
 ### resourceType
 - **Type**: <class 'str'>
@@ -1353,38 +1353,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### taskCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.TaskCredentialsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.TaskCredentials]
 
 
-# TaskStartFailedEventDetailsTypeDef
-
-### resourceType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### resource
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### error
-- **Type**: typing.Optional[str]
-
-### cause
-- **Type**: typing.Optional[str]
-
-
-# TaskStartedEventDetailsTypeDef
-
-### resourceType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### resource
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# TaskSubmitFailedEventDetailsTypeDef
+# TaskStartFailedEventDetails
 
 ### resourceType
 - **Type**: <class 'str'>
@@ -1401,7 +1373,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TaskSubmittedEventDetailsTypeDef
+# TaskStartedEventDetails
+
+### resourceType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### resource
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# TaskSubmitFailedEventDetails
+
+### resourceType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### resource
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### error
+- **Type**: typing.Optional[str]
+
+### cause
+- **Type**: typing.Optional[str]
+
+
+# TaskSubmittedEventDetails
 
 ### resourceType
 - **Type**: <class 'str'>
@@ -1415,10 +1415,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### outputDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetails]
 
 
-# TaskSucceededEventDetailsTypeDef
+# TaskSucceededEventDetails
 
 ### resourceType
 - **Type**: <class 'str'>
@@ -1432,10 +1432,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### outputDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.HistoryEventExecutionDataDetails]
 
 
-# TaskTimedOutEventDetailsTypeDef
+# TaskTimedOutEventDetails
 
 ### resourceType
 - **Type**: <class 'str'>
@@ -1452,7 +1452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestStateOutputTypeDef
+# TestStateOutput
 
 ### output
 - **Type**: <class 'str'>
@@ -1467,7 +1467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inspectionData
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.InspectionDataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.InspectionData'>
 - **Required**: Yes
 
 ### nextState
@@ -1479,17 +1479,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TracingConfigurationTypeDef
+# TracingConfiguration
 
 ### enabled
 - **Type**: typing.Optional[bool]
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1500,7 +1500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMapRunInputTypeDef
+# UpdateMapRunInput
 
 ### mapRunArn
 - **Type**: <class 'str'>
@@ -1516,7 +1516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateStateMachineAliasInputTypeDef
+# UpdateStateMachineAliasInput
 
 ### stateMachineAliasArn
 - **Type**: <class 'str'>
@@ -1526,21 +1526,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### routingConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.RoutingConfigurationListItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.stepfunctions_classes.RoutingConfigurationListItem]]
 
 
-# UpdateStateMachineAliasOutputTypeDef
+# UpdateStateMachineAliasOutput
 
 ### updateDate
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateStateMachineInputTypeDef
+# UpdateStateMachineInput
 
 ### stateMachineArn
 - **Type**: <class 'str'>
@@ -1553,10 +1553,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### loggingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.LoggingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.LoggingConfigurationUnion]
 
 ### tracingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.TracingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.TracingConfiguration]
 
 ### publish
 - **Type**: typing.Optional[bool]
@@ -1565,10 +1565,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### encryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.EncryptionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.stepfunctions_classes.EncryptionConfiguration]
 
 
-# UpdateStateMachineOutputTypeDef
+# UpdateStateMachineOutput
 
 ### updateDate
 - **Type**: <class 'datetime.datetime'>
@@ -1583,11 +1583,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ValidateStateMachineDefinitionDiagnosticTypeDef
+# ValidateStateMachineDefinitionDiagnostic
 
 ### severity
 - **Type**: typing.Literal['ERROR', 'WARNING']
@@ -1605,14 +1605,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ValidateStateMachineDefinitionOutputTypeDef
+# ValidateStateMachineDefinitionOutput
 
 ### result
 - **Type**: typing.Literal['FAIL', 'OK']
 - **Required**: Yes
 
 ### diagnostics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.ValidateStateMachineDefinitionDiagnosticTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.stepfunctions_classes.ValidateStateMachineDefinitionDiagnostic]
 - **Required**: Yes
 
 ### truncated
@@ -1620,7 +1620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.stepfunctions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

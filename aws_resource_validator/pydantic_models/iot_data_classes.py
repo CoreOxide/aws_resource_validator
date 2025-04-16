@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iot_data_constants import *
 
-class DeleteThingShadowRequestTypeDef(BaseValidatorModel):
+class DeleteThingShadowRequest(BaseValidatorModel):
     thingName: str
     shadowName: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,48 +25,48 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetRetainedMessageRequestTypeDef(BaseValidatorModel):
+class GetRetainedMessageRequest(BaseValidatorModel):
     topic: str
 
 
-class GetThingShadowRequestTypeDef(BaseValidatorModel):
+class GetThingShadowRequest(BaseValidatorModel):
     thingName: str
     shadowName: Optional[str] = None
 
 
-class ListNamedShadowsForThingRequestTypeDef(BaseValidatorModel):
+class ListNamedShadowsForThingRequest(BaseValidatorModel):
     thingName: str
     nextToken: Optional[str] = None
     pageSize: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListRetainedMessagesRequestTypeDef(BaseValidatorModel):
+class ListRetainedMessagesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class RetainedMessageSummaryTypeDef(BaseValidatorModel):
+class RetainedMessageSummary(BaseValidatorModel):
     topic: Optional[str] = None
     payloadSize: Optional[int] = None
     qos: Optional[int] = None
     lastModifiedTime: Optional[int] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class PublishRequestTypeDef(BaseValidatorModel):
+class PublishRequest(BaseValidatorModel):
     topic: str
     qos: Optional[int] = None
     retain: Optional[bool] = None
-    payload: Optional[BlobTypeDef] = None
+    payload: Optional[Blob] = None
     userProperties: Optional[str] = None
     payloadFormatIndicator: Optional[PayloadFormatIndicatorType] = None
     contentType: Optional[str] = None
@@ -75,54 +75,54 @@ class PublishRequestTypeDef(BaseValidatorModel):
     messageExpiry: Optional[int] = None
 
 
-class UpdateThingShadowRequestTypeDef(BaseValidatorModel):
+class UpdateThingShadowRequest(BaseValidatorModel):
     thingName: str
-    payload: BlobTypeDef
+    payload: Blob
     shadowName: Optional[str] = None
 
 
-class DeleteThingShadowResponseTypeDef(BaseValidatorModel):
+class DeleteThingShadowResponse(BaseValidatorModel):
     payload: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRetainedMessageResponseTypeDef(BaseValidatorModel):
+class GetRetainedMessageResponse(BaseValidatorModel):
     topic: str
     payload: bytes
     qos: int
     lastModifiedTime: int
     userProperties: bytes
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetThingShadowResponseTypeDef(BaseValidatorModel):
+class GetThingShadowResponse(BaseValidatorModel):
     payload: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListNamedShadowsForThingResponseTypeDef(BaseValidatorModel):
+class ListNamedShadowsForThingResponse(BaseValidatorModel):
     results: List[str]
     timestamp: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateThingShadowResponseTypeDef(BaseValidatorModel):
+class UpdateThingShadowResponse(BaseValidatorModel):
     payload: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRetainedMessagesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListRetainedMessagesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRetainedMessagesResponseTypeDef(BaseValidatorModel):
-    retainedTopics: List[RetainedMessageSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRetainedMessagesResponse(BaseValidatorModel):
+    retainedTopics: List[RetainedMessageSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

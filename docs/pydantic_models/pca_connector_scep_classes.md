@@ -6,37 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChallengeMetadataSummaryTypeDef
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### ConnectorArn
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# ChallengeMetadataTypeDef
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### ConnectorArn
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# ChallengeTypeDef
+# Challenge
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -54,19 +24,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConnectorSummaryTypeDef
+# ChallengeMetadata
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### ConnectorArn
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ChallengeMetadataSummary
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### ConnectorArn
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# Connector
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConnectorTypeDef
+# ConnectorSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateChallengeRequestTypeDef
+# CreateChallengeRequest
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -79,25 +79,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateChallengeResponseTypeDef
+# CreateChallengeResponse
 
 ### Challenge
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ChallengeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.Challenge'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateConnectorRequestTypeDef
+# CreateConnectorRequest
 
 ### CertificateAuthorityArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MobileDeviceManagement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.MobileDeviceManagementTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -106,93 +106,93 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateConnectorResponseTypeDef
+# CreateConnectorResponse
 
 ### ConnectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteChallengeRequestTypeDef
+# DeleteChallengeRequest
 
 ### ChallengeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConnectorRequestTypeDef
+# DeleteConnectorRequest
 
 ### ConnectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChallengeMetadataRequestTypeDef
+# GetChallengeMetadataRequest
 
 ### ChallengeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetChallengeMetadataResponseTypeDef
+# GetChallengeMetadataResponse
 
 ### ChallengeMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ChallengeMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ChallengeMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChallengePasswordRequestTypeDef
+# GetChallengePasswordRequest
 
 ### ChallengeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetChallengePasswordResponseTypeDef
+# GetChallengePasswordResponse
 
 ### Password
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetConnectorRequestTypeDef
+# GetConnectorRequest
 
 ### ConnectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetConnectorResponseTypeDef
+# GetConnectorResponse
 
 ### Connector
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ConnectorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.Connector'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IntuneConfigurationTypeDef
+# IntuneConfiguration
 
 ### AzureApplicationId
 - **Type**: <class 'str'>
@@ -203,17 +203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListChallengeMetadataRequestPaginateTypeDef
-
-### ConnectorArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.PaginatorConfigTypeDef]
-
-
-# ListChallengeMetadataRequestTypeDef
+# ListChallengeMetadataRequest
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -226,27 +216,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChallengeMetadataResponseTypeDef
+# ListChallengeMetadataRequestPaginate
+
+### ConnectorArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.PaginatorConfig]
+
+
+# ListChallengeMetadataResponse
 
 ### Challenges
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_scep_classes.ChallengeMetadataSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_scep_classes.ChallengeMetadataSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListConnectorsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.PaginatorConfigTypeDef]
-
-
-# ListConnectorsRequestTypeDef
+# ListConnectorsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -255,45 +249,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConnectorsResponseTypeDef
+# ListConnectorsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.PaginatorConfig]
+
+
+# ListConnectorsResponse
 
 ### Connectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_scep_classes.ConnectorSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_scep_classes.ConnectorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MobileDeviceManagementTypeDef
+# MobileDeviceManagement
 
 ### Intune
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.IntuneConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.IntuneConfiguration]
 
 
-# OpenIdConfigurationTypeDef
+# OpenIdConfiguration
 
 ### Issuer
 - **Type**: typing.Optional[str]
@@ -305,7 +305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -317,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -339,7 +339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -350,7 +350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>

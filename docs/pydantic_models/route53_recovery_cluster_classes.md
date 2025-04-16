@@ -6,14 +6,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetRoutingControlStateRequestTypeDef
+# GetRoutingControlStateRequest
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRoutingControlStateResponseTypeDef
+# GetRoutingControlStateResponse
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
@@ -28,20 +28,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListRoutingControlsRequestPaginateTypeDef
-
-### ControlPanelArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.PaginatorConfigTypeDef]
-
-
-# ListRoutingControlsRequestTypeDef
+# ListRoutingControlsRequest
 
 ### ControlPanelArn
 - **Type**: typing.Optional[str]
@@ -53,21 +44,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRoutingControlsResponseTypeDef
+# ListRoutingControlsRequestPaginate
+
+### ControlPanelArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.PaginatorConfig]
+
+
+# ListRoutingControlsResponse
 
 ### RoutingControls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.RoutingControlTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.RoutingControl]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -79,7 +79,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -101,7 +101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RoutingControlTypeDef
+# RoutingControl
 
 ### ControlPanelArn
 - **Type**: typing.Optional[str]
@@ -122,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRoutingControlStateEntryTypeDef
+# UpdateRoutingControlStateEntry
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
@@ -133,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRoutingControlStateRequestTypeDef
+# UpdateRoutingControlStateRequest
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
@@ -147,10 +147,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateRoutingControlStatesRequestTypeDef
+# UpdateRoutingControlStatesRequest
 
 ### UpdateRoutingControlStateEntries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.UpdateRoutingControlStateEntryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.UpdateRoutingControlStateEntry]
 - **Required**: Yes
 
 ### SafetyRulesToOverride

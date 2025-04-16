@@ -1,9 +1,9 @@
 # Codeguruprofiler Classes
 
-# AddNotificationChannelsRequestTypeDef
+# AddNotificationChannelsRequest
 
 ### channels
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ChannelUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ChannelUnion]
 - **Required**: Yes
 
 ### profilingGroupName
@@ -11,18 +11,18 @@
 - **Required**: Yes
 
 
-# AddNotificationChannelsResponseTypeDef
+# AddNotificationChannelsResponse
 
 ### notificationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.NotificationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.NotificationConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AgentConfigurationTypeDef
+# AgentConfiguration
 
 ### periodInSeconds
 - **Type**: <class 'int'>
@@ -36,14 +36,14 @@
 - **Type**: typing.Optional[typing.Dict[typing.Literal['MaxStackDepth', 'MemoryUsageLimitPercent', 'MinimumTimeForReportingInMilliseconds', 'ReportingIntervalInMilliseconds', 'SamplingIntervalInMilliseconds'], str]]
 
 
-# AgentOrchestrationConfigTypeDef
+# AgentOrchestrationConfig
 
 ### profilingEnabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# AggregatedProfileTimeTypeDef
+# AggregatedProfileTime
 
 ### period
 - **Type**: typing.Optional[typing.Literal['P1D', 'PT1H', 'PT5M']]
@@ -52,20 +52,14 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AnomalyInstanceTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AnomalyTypeDef
+# Anomaly
 
 ### instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AnomalyInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AnomalyInstance]
 - **Required**: Yes
 
 ### metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.MetricTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Metric'>
 - **Required**: Yes
 
 ### reason
@@ -73,46 +67,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# AnomalyInstance
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetFrameMetricDataRequestTypeDef
+# BatchGetFrameMetricDataRequest
 
 ### profilingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp]
 
 ### frameMetrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricUnion]]
 
 ### period
 - **Type**: typing.Optional[str]
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp]
 
 ### targetResolution
 - **Type**: typing.Optional[typing.Literal['P1D', 'PT1H', 'PT5M']]
 
 
-# BatchGetFrameMetricDataResponseTypeDef
+# BatchGetFrameMetricDataResponse
 
 ### endTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### endTimes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampStructureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampStructure]
 - **Required**: Yes
 
 ### frameMetricData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricDatumTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricDatum]
 - **Required**: Yes
 
 ### resolution
@@ -124,33 +124,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### unprocessedEndTimes
-- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampStructureTypeDef]]
+- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampStructure]]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChannelOutputTypeDef
+# ChannelOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChannelUnionTypeDef
+# ChannelUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConfigureAgentRequestTypeDef
+# ConfigureAgentRequest
 
 ### profilingGroupName
 - **Type**: <class 'str'>
@@ -163,18 +163,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['AgentId', 'AwsRequestId', 'ComputePlatform', 'ExecutionEnvironment', 'LambdaFunctionArn', 'LambdaMemoryLimitInMB', 'LambdaPreviousExecutionTimeInMilliseconds', 'LambdaRemainingTimeInMilliseconds', 'LambdaTimeGapBetweenInvokesInMilliseconds'], str]]
 
 
-# ConfigureAgentResponseTypeDef
+# ConfigureAgentResponse
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.AgentConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.AgentConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateProfilingGroupRequestTypeDef
+# CreateProfilingGroupRequest
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -185,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### agentOrchestrationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AgentOrchestrationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AgentOrchestrationConfig]
 
 ### computePlatform
 - **Type**: typing.Optional[typing.Literal['AWSLambda', 'Default']]
@@ -194,52 +194,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateProfilingGroupResponseTypeDef
+# CreateProfilingGroupResponse
 
 ### profilingGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingGroupDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingGroupDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteProfilingGroupRequestTypeDef
+# DeleteProfilingGroupRequest
 
 ### profilingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeProfilingGroupRequestTypeDef
+# DescribeProfilingGroupRequest
 
 ### profilingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeProfilingGroupResponseTypeDef
+# DescribeProfilingGroupResponse
 
 ### profilingGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingGroupDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingGroupDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FindingsReportSummaryTypeDef
+# FindingsReportSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FrameMetricDatumTypeDef
+# FrameMetricDatum
 
 ### frameMetric
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricOutput'>
 - **Required**: Yes
 
 ### values
@@ -247,19 +247,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FrameMetricOutputTypeDef
+# FrameMetricOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FrameMetricUnionTypeDef
+# FrameMetricUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetFindingsReportAccountSummaryRequestTypeDef
+# GetFindingsReportAccountSummaryRequest
 
 ### dailyReportsOnly
 - **Type**: typing.Optional[bool]
@@ -271,46 +271,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFindingsReportAccountSummaryResponseTypeDef
+# GetFindingsReportAccountSummaryResponse
 
 ### reportSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FindingsReportSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FindingsReportSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetNotificationConfigurationRequestTypeDef
+# GetNotificationConfigurationRequest
 
 ### profilingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetNotificationConfigurationResponseTypeDef
+# GetNotificationConfigurationResponse
 
 ### notificationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.NotificationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.NotificationConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPolicyRequestTypeDef
+# GetPolicyRequest
 
 ### profilingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPolicyResponseTypeDef
+# GetPolicyResponse
 
 ### policy
 - **Type**: <class 'str'>
@@ -321,11 +321,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProfileRequestTypeDef
+# GetProfileRequest
 
 ### profilingGroupName
 - **Type**: <class 'str'>
@@ -335,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp]
 
 ### maxDepth
 - **Type**: typing.Optional[int]
@@ -344,10 +344,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp]
 
 
-# GetProfileResponseTypeDef
+# GetProfileResponse
 
 ### contentEncoding
 - **Type**: <class 'str'>
@@ -362,14 +362,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRecommendationsRequestTypeDef
+# GetRecommendationsRequest
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp'>
 - **Required**: Yes
 
 ### profilingGroupName
@@ -377,17 +377,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp'>
 - **Required**: Yes
 
 ### locale
 - **Type**: typing.Optional[str]
 
 
-# GetRecommendationsResponseTypeDef
+# GetRecommendationsResponse
 
 ### anomalies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AnomalyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.Anomaly]
 - **Required**: Yes
 
 ### profileEndTime
@@ -403,18 +403,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### recommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.RecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.Recommendation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListFindingsReportsRequestTypeDef
+# ListFindingsReportsRequest
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp'>
 - **Required**: Yes
 
 ### profilingGroupName
@@ -422,7 +422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp'>
 - **Required**: Yes
 
 ### dailyReportsOnly
@@ -435,24 +435,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFindingsReportsResponseTypeDef
+# ListFindingsReportsResponse
 
 ### findingsReportSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FindingsReportSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FindingsReportSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProfileTimesRequestPaginateTypeDef
+# ListProfileTimesRequest
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp'>
 - **Required**: Yes
 
 ### period
@@ -464,32 +464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### orderBy
-- **Type**: typing.Optional[typing.Literal['TimestampAscending', 'TimestampDescending']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.PaginatorConfigTypeDef]
-
-
-# ListProfileTimesRequestTypeDef
-
-### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### period
-- **Type**: typing.Literal['P1D', 'PT1H', 'PT5M']
-- **Required**: Yes
-
-### profilingGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp'>
 - **Required**: Yes
 
 ### maxResults
@@ -502,21 +477,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['TimestampAscending', 'TimestampDescending']]
 
 
-# ListProfileTimesResponseTypeDef
+# ListProfileTimesRequestPaginate
+
+### endTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp'>
+- **Required**: Yes
+
+### period
+- **Type**: typing.Literal['P1D', 'PT1H', 'PT5M']
+- **Required**: Yes
+
+### profilingGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### startTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Timestamp'>
+- **Required**: Yes
+
+### orderBy
+- **Type**: typing.Optional[typing.Literal['TimestampAscending', 'TimestampDescending']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.PaginatorConfig]
+
+
+# ListProfileTimesResponse
 
 ### profileTimes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfileTimeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfileTime]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProfilingGroupsRequestTypeDef
+# ListProfilingGroupsRequest
 
 ### includeDescription
 - **Type**: typing.Optional[bool]
@@ -528,43 +528,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProfilingGroupsResponseTypeDef
+# ListProfilingGroupsResponse
 
 ### profilingGroupNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### profilingGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingGroupDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingGroupDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MatchTypeDef
+# Match
 
 ### frameAddress
 - **Type**: typing.Optional[str]
@@ -576,19 +576,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# MetricTypeDef
+# Metric
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NotificationConfigurationTypeDef
+# NotificationConfiguration
 
 ### channels
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ChannelOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ChannelOutput]]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -600,16 +600,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PatternTypeDef
+# Pattern
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PostAgentProfileRequestTypeDef
+# PostAgentProfileRequest
 
 ### agentProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Blob'>
 - **Required**: Yes
 
 ### contentType
@@ -624,16 +624,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProfileTimeTypeDef
+# ProfileTime
 
 ### start
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ProfilingGroupDescriptionTypeDef
+# ProfilingGroupDescription
 
 ### agentOrchestrationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AgentOrchestrationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AgentOrchestrationConfig]
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -648,7 +648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### profilingStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingStatus]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -657,7 +657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ProfilingStatusTypeDef
+# ProfilingStatus
 
 ### latestAgentOrchestratedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -666,10 +666,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### latestAggregatedProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AggregatedProfileTimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AggregatedProfileTime]
 
 
-# PutPermissionRequestTypeDef
+# PutPermissionRequest
 
 ### actionGroup
 - **Type**: typing.Literal['agentPermissions']
@@ -687,7 +687,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutPermissionResponseTypeDef
+# PutPermissionResponse
 
 ### policy
 - **Type**: <class 'str'>
@@ -698,11 +698,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RecommendationTypeDef
+# Recommendation
 
 ### allMatchesCount
 - **Type**: <class 'int'>
@@ -717,7 +717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### pattern
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.PatternTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.Pattern'>
 - **Required**: Yes
 
 ### startTime
@@ -725,11 +725,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### topMatches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.MatchTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.Match]
 - **Required**: Yes
 
 
-# RemoveNotificationChannelRequestTypeDef
+# RemoveNotificationChannelRequest
 
 ### channelId
 - **Type**: <class 'str'>
@@ -740,18 +740,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveNotificationChannelResponseTypeDef
+# RemoveNotificationChannelResponse
 
 ### notificationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.NotificationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.NotificationConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RemovePermissionRequestTypeDef
+# RemovePermissionRequest
 
 ### actionGroup
 - **Type**: typing.Literal['agentPermissions']
@@ -766,7 +766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemovePermissionResponseTypeDef
+# RemovePermissionResponse
 
 ### policy
 - **Type**: <class 'str'>
@@ -777,11 +777,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -803,7 +803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -814,20 +814,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampStructureTypeDef
+# Timestamp
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TimestampStructure
 
 ### value
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 
-# TimestampTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -838,10 +838,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProfilingGroupRequestTypeDef
+# UpdateProfilingGroupRequest
 
 ### agentOrchestrationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.AgentOrchestrationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.AgentOrchestrationConfig'>
 - **Required**: Yes
 
 ### profilingGroupName
@@ -849,14 +849,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProfilingGroupResponseTypeDef
+# UpdateProfilingGroupResponse
 
 ### profilingGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingGroupDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfilingGroupDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

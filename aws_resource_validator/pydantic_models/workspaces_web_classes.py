@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.workspaces_web_constants import *
 
-class AssociateBrowserSettingsRequestTypeDef(BaseValidatorModel):
+class AssociateBrowserSettingsRequest(BaseValidatorModel):
     browserSettingsArn: str
     portalArn: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,41 +25,41 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociateDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
+class AssociateDataProtectionSettingsRequest(BaseValidatorModel):
     dataProtectionSettingsArn: str
     portalArn: str
 
 
-class AssociateIpAccessSettingsRequestTypeDef(BaseValidatorModel):
+class AssociateIpAccessSettingsRequest(BaseValidatorModel):
     ipAccessSettingsArn: str
     portalArn: str
 
 
-class AssociateNetworkSettingsRequestTypeDef(BaseValidatorModel):
+class AssociateNetworkSettingsRequest(BaseValidatorModel):
     networkSettingsArn: str
     portalArn: str
 
 
-class AssociateTrustStoreRequestTypeDef(BaseValidatorModel):
+class AssociateTrustStoreRequest(BaseValidatorModel):
     portalArn: str
     trustStoreArn: str
 
 
-class AssociateUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
+class AssociateUserAccessLoggingSettingsRequest(BaseValidatorModel):
     portalArn: str
     userAccessLoggingSettingsArn: str
 
 
-class AssociateUserSettingsRequestTypeDef(BaseValidatorModel):
+class AssociateUserSettingsRequest(BaseValidatorModel):
     portalArn: str
     userSettingsArn: str
 
 
-class BrowserSettingsSummaryTypeDef(BaseValidatorModel):
+class BrowserSettingsSummary(BaseValidatorModel):
     browserSettingsArn: str
 
 
-class BrowserSettingsTypeDef(BaseValidatorModel):
+class BrowserSettings(BaseValidatorModel):
     browserSettingsArn: str
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     associatedPortalArns: Optional[List[str]] = None
@@ -67,7 +67,7 @@ class BrowserSettingsTypeDef(BaseValidatorModel):
     customerManagedKey: Optional[str] = None
 
 
-class CertificateSummaryTypeDef(BaseValidatorModel):
+class CertificateSummary(BaseValidatorModel):
     issuer: Optional[str] = None
     notValidAfter: Optional[datetime] = None
     notValidBefore: Optional[datetime] = None
@@ -75,7 +75,7 @@ class CertificateSummaryTypeDef(BaseValidatorModel):
     thumbprint: Optional[str] = None
 
 
-class CertificateTypeDef(BaseValidatorModel):
+class Certificate(BaseValidatorModel):
     body: Optional[bytes] = None
     issuer: Optional[str] = None
     notValidAfter: Optional[datetime] = None
@@ -84,133 +84,133 @@ class CertificateTypeDef(BaseValidatorModel):
     thumbprint: Optional[str] = None
 
 
-class CookieSpecificationTypeDef(BaseValidatorModel):
+class CookieSpecification(BaseValidatorModel):
     domain: str
     name: Optional[str] = None
     path: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class IpRuleTypeDef(BaseValidatorModel):
+class IpRule(BaseValidatorModel):
     ipRange: str
     description: Optional[str] = None
 
 
-class CustomPatternTypeDef(BaseValidatorModel):
+class CustomPattern(BaseValidatorModel):
     patternName: str
     patternRegex: str
     keywordRegex: Optional[str] = None
     patternDescription: Optional[str] = None
 
 
-class DataProtectionSettingsSummaryTypeDef(BaseValidatorModel):
+class DataProtectionSettingsSummary(BaseValidatorModel):
     dataProtectionSettingsArn: str
     creationDate: Optional[datetime] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
 
 
-class DeleteBrowserSettingsRequestTypeDef(BaseValidatorModel):
+class DeleteBrowserSettingsRequest(BaseValidatorModel):
     browserSettingsArn: str
 
 
-class DeleteDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
+class DeleteDataProtectionSettingsRequest(BaseValidatorModel):
     dataProtectionSettingsArn: str
 
 
-class DeleteIdentityProviderRequestTypeDef(BaseValidatorModel):
+class DeleteIdentityProviderRequest(BaseValidatorModel):
     identityProviderArn: str
 
 
-class DeleteIpAccessSettingsRequestTypeDef(BaseValidatorModel):
+class DeleteIpAccessSettingsRequest(BaseValidatorModel):
     ipAccessSettingsArn: str
 
 
-class DeleteNetworkSettingsRequestTypeDef(BaseValidatorModel):
+class DeleteNetworkSettingsRequest(BaseValidatorModel):
     networkSettingsArn: str
 
 
-class DeletePortalRequestTypeDef(BaseValidatorModel):
+class DeletePortalRequest(BaseValidatorModel):
     portalArn: str
 
 
-class DeleteTrustStoreRequestTypeDef(BaseValidatorModel):
+class DeleteTrustStoreRequest(BaseValidatorModel):
     trustStoreArn: str
 
 
-class DeleteUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
+class DeleteUserAccessLoggingSettingsRequest(BaseValidatorModel):
     userAccessLoggingSettingsArn: str
 
 
-class DeleteUserSettingsRequestTypeDef(BaseValidatorModel):
+class DeleteUserSettingsRequest(BaseValidatorModel):
     userSettingsArn: str
 
 
-class DisassociateBrowserSettingsRequestTypeDef(BaseValidatorModel):
+class DisassociateBrowserSettingsRequest(BaseValidatorModel):
     portalArn: str
 
 
-class DisassociateDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
+class DisassociateDataProtectionSettingsRequest(BaseValidatorModel):
     portalArn: str
 
 
-class DisassociateIpAccessSettingsRequestTypeDef(BaseValidatorModel):
+class DisassociateIpAccessSettingsRequest(BaseValidatorModel):
     portalArn: str
 
 
-class DisassociateNetworkSettingsRequestTypeDef(BaseValidatorModel):
+class DisassociateNetworkSettingsRequest(BaseValidatorModel):
     portalArn: str
 
 
-class DisassociateTrustStoreRequestTypeDef(BaseValidatorModel):
+class DisassociateTrustStoreRequest(BaseValidatorModel):
     portalArn: str
 
 
-class DisassociateUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
+class DisassociateUserAccessLoggingSettingsRequest(BaseValidatorModel):
     portalArn: str
 
 
-class DisassociateUserSettingsRequestTypeDef(BaseValidatorModel):
+class DisassociateUserSettingsRequest(BaseValidatorModel):
     portalArn: str
 
 
-class ExpireSessionRequestTypeDef(BaseValidatorModel):
+class ExpireSessionRequest(BaseValidatorModel):
     portalId: str
     sessionId: str
 
 
-class GetBrowserSettingsRequestTypeDef(BaseValidatorModel):
+class GetBrowserSettingsRequest(BaseValidatorModel):
     browserSettingsArn: str
 
 
-class GetDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
+class GetDataProtectionSettingsRequest(BaseValidatorModel):
     dataProtectionSettingsArn: str
 
 
-class GetIdentityProviderRequestTypeDef(BaseValidatorModel):
+class GetIdentityProviderRequest(BaseValidatorModel):
     identityProviderArn: str
 
 
-class IdentityProviderTypeDef(BaseValidatorModel):
+class IdentityProvider(BaseValidatorModel):
     identityProviderArn: str
     identityProviderDetails: Optional[Dict[str, str]] = None
     identityProviderName: Optional[str] = None
     identityProviderType: Optional[IdentityProviderTypeType] = None
 
 
-class GetIpAccessSettingsRequestTypeDef(BaseValidatorModel):
+class GetIpAccessSettingsRequest(BaseValidatorModel):
     ipAccessSettingsArn: str
 
 
-class GetNetworkSettingsRequestTypeDef(BaseValidatorModel):
+class GetNetworkSettingsRequest(BaseValidatorModel):
     networkSettingsArn: str
 
 
-class NetworkSettingsTypeDef(BaseValidatorModel):
+class NetworkSettings(BaseValidatorModel):
     networkSettingsArn: str
     associatedPortalArns: Optional[List[str]] = None
     securityGroupIds: Optional[List[str]] = None
@@ -218,11 +218,11 @@ class NetworkSettingsTypeDef(BaseValidatorModel):
     vpcId: Optional[str] = None
 
 
-class GetPortalRequestTypeDef(BaseValidatorModel):
+class GetPortalRequest(BaseValidatorModel):
     portalArn: str
 
 
-class PortalTypeDef(BaseValidatorModel):
+class Portal(BaseValidatorModel):
     portalArn: str
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     authenticationType: Optional[AuthenticationTypeType] = None
@@ -245,16 +245,16 @@ class PortalTypeDef(BaseValidatorModel):
     userSettingsArn: Optional[str] = None
 
 
-class GetPortalServiceProviderMetadataRequestTypeDef(BaseValidatorModel):
+class GetPortalServiceProviderMetadataRequest(BaseValidatorModel):
     portalArn: str
 
 
-class GetSessionRequestTypeDef(BaseValidatorModel):
+class GetSessionRequest(BaseValidatorModel):
     portalId: str
     sessionId: str
 
 
-class SessionTypeDef(BaseValidatorModel):
+class Session(BaseValidatorModel):
     clientIpAddresses: Optional[List[str]] = None
     endTime: Optional[datetime] = None
     portalArn: Optional[str] = None
@@ -264,95 +264,95 @@ class SessionTypeDef(BaseValidatorModel):
     username: Optional[str] = None
 
 
-class GetTrustStoreCertificateRequestTypeDef(BaseValidatorModel):
+class GetTrustStoreCertificateRequest(BaseValidatorModel):
     thumbprint: str
     trustStoreArn: str
 
 
-class GetTrustStoreRequestTypeDef(BaseValidatorModel):
+class GetTrustStoreRequest(BaseValidatorModel):
     trustStoreArn: str
 
 
-class TrustStoreTypeDef(BaseValidatorModel):
+class TrustStore(BaseValidatorModel):
     trustStoreArn: str
     associatedPortalArns: Optional[List[str]] = None
 
 
-class GetUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
+class GetUserAccessLoggingSettingsRequest(BaseValidatorModel):
     userAccessLoggingSettingsArn: str
 
 
-class UserAccessLoggingSettingsTypeDef(BaseValidatorModel):
+class UserAccessLoggingSettings(BaseValidatorModel):
     userAccessLoggingSettingsArn: str
     associatedPortalArns: Optional[List[str]] = None
     kinesisStreamArn: Optional[str] = None
 
 
-class GetUserSettingsRequestTypeDef(BaseValidatorModel):
+class GetUserSettingsRequest(BaseValidatorModel):
     userSettingsArn: str
 
 
-class IdentityProviderSummaryTypeDef(BaseValidatorModel):
+class IdentityProviderSummary(BaseValidatorModel):
     identityProviderArn: str
     identityProviderName: Optional[str] = None
     identityProviderType: Optional[IdentityProviderTypeType] = None
 
 
-class RedactionPlaceHolderTypeDef(BaseValidatorModel):
+class RedactionPlaceHolder(BaseValidatorModel):
     redactionPlaceHolderType: Literal["CustomText"]
     redactionPlaceHolderText: Optional[str] = None
 
 
-class IpAccessSettingsSummaryTypeDef(BaseValidatorModel):
+class IpAccessSettingsSummary(BaseValidatorModel):
     ipAccessSettingsArn: str
     creationDate: Optional[datetime] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
 
 
-class ListBrowserSettingsRequestTypeDef(BaseValidatorModel):
+class ListBrowserSettingsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
+class ListDataProtectionSettingsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListIdentityProvidersRequestTypeDef(BaseValidatorModel):
+class ListIdentityProvidersRequest(BaseValidatorModel):
     portalArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListIpAccessSettingsRequestTypeDef(BaseValidatorModel):
+class ListIpAccessSettingsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListNetworkSettingsRequestTypeDef(BaseValidatorModel):
+class ListNetworkSettingsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class NetworkSettingsSummaryTypeDef(BaseValidatorModel):
+class NetworkSettingsSummary(BaseValidatorModel):
     networkSettingsArn: str
     vpcId: Optional[str] = None
 
 
-class ListPortalsRequestTypeDef(BaseValidatorModel):
+class ListPortalsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class PortalSummaryTypeDef(BaseValidatorModel):
+class PortalSummary(BaseValidatorModel):
     portalArn: str
     authenticationType: Optional[AuthenticationTypeType] = None
     browserSettingsArn: Optional[str] = None
@@ -372,7 +372,7 @@ class PortalSummaryTypeDef(BaseValidatorModel):
     userSettingsArn: Optional[str] = None
 
 
-class ListSessionsRequestTypeDef(BaseValidatorModel):
+class ListSessionsRequest(BaseValidatorModel):
     portalId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -382,7 +382,7 @@ class ListSessionsRequestTypeDef(BaseValidatorModel):
     username: Optional[str] = None
 
 
-class SessionSummaryTypeDef(BaseValidatorModel):
+class SessionSummary(BaseValidatorModel):
     endTime: Optional[datetime] = None
     portalArn: Optional[str] = None
     sessionId: Optional[str] = None
@@ -391,66 +391,66 @@ class SessionSummaryTypeDef(BaseValidatorModel):
     username: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListTrustStoreCertificatesRequestTypeDef(BaseValidatorModel):
+class ListTrustStoreCertificatesRequest(BaseValidatorModel):
     trustStoreArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTrustStoresRequestTypeDef(BaseValidatorModel):
+class ListTrustStoresRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class TrustStoreSummaryTypeDef(BaseValidatorModel):
+class TrustStoreSummary(BaseValidatorModel):
     trustStoreArn: Optional[str] = None
 
 
-class ListUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
+class ListUserAccessLoggingSettingsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class UserAccessLoggingSettingsSummaryTypeDef(BaseValidatorModel):
+class UserAccessLoggingSettingsSummary(BaseValidatorModel):
     userAccessLoggingSettingsArn: str
     kinesisStreamArn: Optional[str] = None
 
 
-class ListUserSettingsRequestTypeDef(BaseValidatorModel):
+class ListUserSettingsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ToolbarConfigurationOutputTypeDef(BaseValidatorModel):
+class ToolbarConfigurationOutput(BaseValidatorModel):
     hiddenToolbarItems: Optional[List[ToolbarItemType]] = None
     maxDisplayResolution: Optional[MaxDisplayResolutionType] = None
     toolbarType: Optional[ToolbarTypeType] = None
     visualMode: Optional[VisualModeType] = None
 
 
-class ToolbarConfigurationTypeDef(BaseValidatorModel):
+class ToolbarConfiguration(BaseValidatorModel):
     hiddenToolbarItems: Optional[Sequence[ToolbarItemType]] = None
     maxDisplayResolution: Optional[MaxDisplayResolutionType] = None
     toolbarType: Optional[ToolbarTypeType] = None
     visualMode: Optional[VisualModeType] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateBrowserSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateBrowserSettingsRequest(BaseValidatorModel):
     browserSettingsArn: str
     browserPolicy: Optional[str] = None
     clientToken: Optional[str] = None
 
 
-class UpdateIdentityProviderRequestTypeDef(BaseValidatorModel):
+class UpdateIdentityProviderRequest(BaseValidatorModel):
     identityProviderArn: str
     clientToken: Optional[str] = None
     identityProviderDetails: Optional[Mapping[str, str]] = None
@@ -458,7 +458,7 @@ class UpdateIdentityProviderRequestTypeDef(BaseValidatorModel):
     identityProviderType: Optional[IdentityProviderTypeType] = None
 
 
-class UpdateNetworkSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateNetworkSettingsRequest(BaseValidatorModel):
     networkSettingsArn: str
     clientToken: Optional[str] = None
     securityGroupIds: Optional[Sequence[str]] = None
@@ -466,7 +466,7 @@ class UpdateNetworkSettingsRequestTypeDef(BaseValidatorModel):
     vpcId: Optional[str] = None
 
 
-class UpdatePortalRequestTypeDef(BaseValidatorModel):
+class UpdatePortalRequest(BaseValidatorModel):
     portalArn: str
     authenticationType: Optional[AuthenticationTypeType] = None
     displayName: Optional[str] = None
@@ -474,187 +474,187 @@ class UpdatePortalRequestTypeDef(BaseValidatorModel):
     maxConcurrentSessions: Optional[int] = None
 
 
-class UpdateUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateUserAccessLoggingSettingsRequest(BaseValidatorModel):
     userAccessLoggingSettingsArn: str
     clientToken: Optional[str] = None
     kinesisStreamArn: Optional[str] = None
 
 
-class AssociateBrowserSettingsResponseTypeDef(BaseValidatorModel):
+class AssociateBrowserSettingsResponse(BaseValidatorModel):
     browserSettingsArn: str
     portalArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateDataProtectionSettingsResponseTypeDef(BaseValidatorModel):
+class AssociateDataProtectionSettingsResponse(BaseValidatorModel):
     dataProtectionSettingsArn: str
     portalArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateIpAccessSettingsResponseTypeDef(BaseValidatorModel):
+class AssociateIpAccessSettingsResponse(BaseValidatorModel):
     ipAccessSettingsArn: str
     portalArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateNetworkSettingsResponseTypeDef(BaseValidatorModel):
+class AssociateNetworkSettingsResponse(BaseValidatorModel):
     networkSettingsArn: str
     portalArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateTrustStoreResponseTypeDef(BaseValidatorModel):
+class AssociateTrustStoreResponse(BaseValidatorModel):
     portalArn: str
     trustStoreArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateUserAccessLoggingSettingsResponseTypeDef(BaseValidatorModel):
+class AssociateUserAccessLoggingSettingsResponse(BaseValidatorModel):
     portalArn: str
     userAccessLoggingSettingsArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateUserSettingsResponseTypeDef(BaseValidatorModel):
+class AssociateUserSettingsResponse(BaseValidatorModel):
     portalArn: str
     userSettingsArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBrowserSettingsResponseTypeDef(BaseValidatorModel):
+class CreateBrowserSettingsResponse(BaseValidatorModel):
     browserSettingsArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataProtectionSettingsResponseTypeDef(BaseValidatorModel):
+class CreateDataProtectionSettingsResponse(BaseValidatorModel):
     dataProtectionSettingsArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIdentityProviderResponseTypeDef(BaseValidatorModel):
+class CreateIdentityProviderResponse(BaseValidatorModel):
     identityProviderArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIpAccessSettingsResponseTypeDef(BaseValidatorModel):
+class CreateIpAccessSettingsResponse(BaseValidatorModel):
     ipAccessSettingsArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNetworkSettingsResponseTypeDef(BaseValidatorModel):
+class CreateNetworkSettingsResponse(BaseValidatorModel):
     networkSettingsArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePortalResponseTypeDef(BaseValidatorModel):
+class CreatePortalResponse(BaseValidatorModel):
     portalArn: str
     portalEndpoint: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrustStoreResponseTypeDef(BaseValidatorModel):
+class CreateTrustStoreResponse(BaseValidatorModel):
     trustStoreArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateUserAccessLoggingSettingsResponseTypeDef(BaseValidatorModel):
+class CreateUserAccessLoggingSettingsResponse(BaseValidatorModel):
     userAccessLoggingSettingsArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateUserSettingsResponseTypeDef(BaseValidatorModel):
+class CreateUserSettingsResponse(BaseValidatorModel):
     userSettingsArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPortalServiceProviderMetadataResponseTypeDef(BaseValidatorModel):
+class GetPortalServiceProviderMetadataResponse(BaseValidatorModel):
     portalArn: str
     serviceProviderSamlMetadata: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTrustStoreResponseTypeDef(BaseValidatorModel):
+class UpdateTrustStoreResponse(BaseValidatorModel):
     trustStoreArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class UpdateTrustStoreRequestTypeDef(BaseValidatorModel):
+class UpdateTrustStoreRequest(BaseValidatorModel):
     trustStoreArn: str
-    certificatesToAdd: Optional[Sequence[BlobTypeDef]] = None
+    certificatesToAdd: Optional[Sequence[Blob]] = None
     certificatesToDelete: Optional[Sequence[str]] = None
     clientToken: Optional[str] = None
 
 
-class ListBrowserSettingsResponseTypeDef(BaseValidatorModel):
-    browserSettings: List[BrowserSettingsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBrowserSettingsResponse(BaseValidatorModel):
+    browserSettings: List[BrowserSettingsSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetBrowserSettingsResponseTypeDef(BaseValidatorModel):
-    browserSettings: BrowserSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetBrowserSettingsResponse(BaseValidatorModel):
+    browserSettings: BrowserSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBrowserSettingsResponseTypeDef(BaseValidatorModel):
-    browserSettings: BrowserSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateBrowserSettingsResponse(BaseValidatorModel):
+    browserSettings: BrowserSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTrustStoreCertificatesResponseTypeDef(BaseValidatorModel):
-    certificateList: List[CertificateSummaryTypeDef]
+class ListTrustStoreCertificatesResponse(BaseValidatorModel):
+    certificateList: List[CertificateSummary]
     trustStoreArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetTrustStoreCertificateResponseTypeDef(BaseValidatorModel):
-    certificate: CertificateTypeDef
+class GetTrustStoreCertificateResponse(BaseValidatorModel):
+    certificate: Certificate
     trustStoreArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CookieSynchronizationConfigurationOutputTypeDef(BaseValidatorModel):
-    allowlist: List[CookieSpecificationTypeDef]
-    blocklist: Optional[List[CookieSpecificationTypeDef]] = None
+class CookieSynchronizationConfigurationOutput(BaseValidatorModel):
+    allowlist: List[CookieSpecification]
+    blocklist: Optional[List[CookieSpecification]] = None
 
 
-class CookieSynchronizationConfigurationTypeDef(BaseValidatorModel):
-    allowlist: Sequence[CookieSpecificationTypeDef]
-    blocklist: Optional[Sequence[CookieSpecificationTypeDef]] = None
+class CookieSynchronizationConfiguration(BaseValidatorModel):
+    allowlist: Sequence[CookieSpecification]
+    blocklist: Optional[Sequence[CookieSpecification]] = None
 
 
-class CreateBrowserSettingsRequestTypeDef(BaseValidatorModel):
+class CreateBrowserSettingsRequest(BaseValidatorModel):
     browserPolicy: str
     additionalEncryptionContext: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
     customerManagedKey: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateIdentityProviderRequestTypeDef(BaseValidatorModel):
+class CreateIdentityProviderRequest(BaseValidatorModel):
     identityProviderDetails: Mapping[str, str]
     identityProviderName: str
     identityProviderType: IdentityProviderTypeType
     portalArn: str
     clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateNetworkSettingsRequestTypeDef(BaseValidatorModel):
+class CreateNetworkSettingsRequest(BaseValidatorModel):
     securityGroupIds: Sequence[str]
     subnetIds: Sequence[str]
     vpcId: str
     clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreatePortalRequestTypeDef(BaseValidatorModel):
+class CreatePortalRequest(BaseValidatorModel):
     additionalEncryptionContext: Optional[Mapping[str, str]] = None
     authenticationType: Optional[AuthenticationTypeType] = None
     clientToken: Optional[str] = None
@@ -662,43 +662,43 @@ class CreatePortalRequestTypeDef(BaseValidatorModel):
     displayName: Optional[str] = None
     instanceType: Optional[InstanceTypeType] = None
     maxConcurrentSessions: Optional[int] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateTrustStoreRequestTypeDef(BaseValidatorModel):
-    certificateList: Sequence[BlobTypeDef]
+class CreateTrustStoreRequest(BaseValidatorModel):
+    certificateList: Sequence[Blob]
     clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
+class CreateUserAccessLoggingSettingsRequest(BaseValidatorModel):
     kinesisStreamArn: str
     clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
     clientToken: Optional[str] = None
 
 
-class CreateIpAccessSettingsRequestTypeDef(BaseValidatorModel):
-    ipRules: Sequence[IpRuleTypeDef]
+class CreateIpAccessSettingsRequest(BaseValidatorModel):
+    ipRules: Sequence[IpRule]
     additionalEncryptionContext: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
     customerManagedKey: Optional[str] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class IpAccessSettingsTypeDef(BaseValidatorModel):
+class IpAccessSettings(BaseValidatorModel):
     ipAccessSettingsArn: str
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     associatedPortalArns: Optional[List[str]] = None
@@ -706,149 +706,149 @@ class IpAccessSettingsTypeDef(BaseValidatorModel):
     customerManagedKey: Optional[str] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
-    ipRules: Optional[List[IpRuleTypeDef]] = None
+    ipRules: Optional[List[IpRule]] = None
 
 
-class UpdateIpAccessSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateIpAccessSettingsRequest(BaseValidatorModel):
     ipAccessSettingsArn: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
-    ipRules: Optional[Sequence[IpRuleTypeDef]] = None
+    ipRules: Optional[Sequence[IpRule]] = None
 
 
-class ListDataProtectionSettingsResponseTypeDef(BaseValidatorModel):
-    dataProtectionSettings: List[DataProtectionSettingsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataProtectionSettingsResponse(BaseValidatorModel):
+    dataProtectionSettings: List[DataProtectionSettingsSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetIdentityProviderResponseTypeDef(BaseValidatorModel):
-    identityProvider: IdentityProviderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIdentityProviderResponse(BaseValidatorModel):
+    identityProvider: IdentityProvider
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIdentityProviderResponseTypeDef(BaseValidatorModel):
-    identityProvider: IdentityProviderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateIdentityProviderResponse(BaseValidatorModel):
+    identityProvider: IdentityProvider
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNetworkSettingsResponseTypeDef(BaseValidatorModel):
-    networkSettings: NetworkSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetNetworkSettingsResponse(BaseValidatorModel):
+    networkSettings: NetworkSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateNetworkSettingsResponseTypeDef(BaseValidatorModel):
-    networkSettings: NetworkSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateNetworkSettingsResponse(BaseValidatorModel):
+    networkSettings: NetworkSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPortalResponseTypeDef(BaseValidatorModel):
-    portal: PortalTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPortalResponse(BaseValidatorModel):
+    portal: Portal
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePortalResponseTypeDef(BaseValidatorModel):
-    portal: PortalTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePortalResponse(BaseValidatorModel):
+    portal: Portal
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSessionResponseTypeDef(BaseValidatorModel):
-    session: SessionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSessionResponse(BaseValidatorModel):
+    session: Session
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTrustStoreResponseTypeDef(BaseValidatorModel):
-    trustStore: TrustStoreTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTrustStoreResponse(BaseValidatorModel):
+    trustStore: TrustStore
+    ResponseMetadata: ResponseMetadata
 
 
-class GetUserAccessLoggingSettingsResponseTypeDef(BaseValidatorModel):
-    userAccessLoggingSettings: UserAccessLoggingSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetUserAccessLoggingSettingsResponse(BaseValidatorModel):
+    userAccessLoggingSettings: UserAccessLoggingSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateUserAccessLoggingSettingsResponseTypeDef(BaseValidatorModel):
-    userAccessLoggingSettings: UserAccessLoggingSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateUserAccessLoggingSettingsResponse(BaseValidatorModel):
+    userAccessLoggingSettings: UserAccessLoggingSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class ListIdentityProvidersResponseTypeDef(BaseValidatorModel):
-    identityProviders: List[IdentityProviderSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdentityProvidersResponse(BaseValidatorModel):
+    identityProviders: List[IdentityProviderSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class InlineRedactionPatternOutputTypeDef(BaseValidatorModel):
-    redactionPlaceHolder: RedactionPlaceHolderTypeDef
+class InlineRedactionPatternOutput(BaseValidatorModel):
+    redactionPlaceHolder: RedactionPlaceHolder
     builtInPatternId: Optional[str] = None
     confidenceLevel: Optional[int] = None
-    customPattern: Optional[CustomPatternTypeDef] = None
+    customPattern: Optional[CustomPattern] = None
     enforcedUrls: Optional[List[str]] = None
     exemptUrls: Optional[List[str]] = None
 
 
-class InlineRedactionPatternTypeDef(BaseValidatorModel):
-    redactionPlaceHolder: RedactionPlaceHolderTypeDef
+class InlineRedactionPattern(BaseValidatorModel):
+    redactionPlaceHolder: RedactionPlaceHolder
     builtInPatternId: Optional[str] = None
     confidenceLevel: Optional[int] = None
-    customPattern: Optional[CustomPatternTypeDef] = None
+    customPattern: Optional[CustomPattern] = None
     enforcedUrls: Optional[Sequence[str]] = None
     exemptUrls: Optional[Sequence[str]] = None
 
 
-class ListIpAccessSettingsResponseTypeDef(BaseValidatorModel):
-    ipAccessSettings: List[IpAccessSettingsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIpAccessSettingsResponse(BaseValidatorModel):
+    ipAccessSettings: List[IpAccessSettingsSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDataProtectionSettingsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDataProtectionSettingsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSessionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSessionsRequestPaginate(BaseValidatorModel):
     portalId: str
     sessionId: Optional[str] = None
     sortBy: Optional[SessionSortByType] = None
     status: Optional[SessionStatusType] = None
     username: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNetworkSettingsResponseTypeDef(BaseValidatorModel):
-    networkSettings: List[NetworkSettingsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNetworkSettingsResponse(BaseValidatorModel):
+    networkSettings: List[NetworkSettingsSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListPortalsResponseTypeDef(BaseValidatorModel):
-    portals: List[PortalSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPortalsResponse(BaseValidatorModel):
+    portals: List[PortalSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSessionsResponseTypeDef(BaseValidatorModel):
-    sessions: List[SessionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSessionsResponse(BaseValidatorModel):
+    sessions: List[SessionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTrustStoresResponseTypeDef(BaseValidatorModel):
-    trustStores: List[TrustStoreSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrustStoresResponse(BaseValidatorModel):
+    trustStores: List[TrustStoreSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListUserAccessLoggingSettingsResponseTypeDef(BaseValidatorModel):
-    userAccessLoggingSettings: List[UserAccessLoggingSettingsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListUserAccessLoggingSettingsResponse(BaseValidatorModel):
+    userAccessLoggingSettings: List[UserAccessLoggingSettingsSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UserSettingsSummaryTypeDef(BaseValidatorModel):
+class UserSettingsSummary(BaseValidatorModel):
     userSettingsArn: str
-    cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationOutputTypeDef] = None
+    cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationOutput] = None
     copyAllowed: Optional[EnabledTypeType] = None
     deepLinkAllowed: Optional[EnabledTypeType] = None
     disconnectTimeoutInMinutes: Optional[int] = None
@@ -856,15 +856,15 @@ class UserSettingsSummaryTypeDef(BaseValidatorModel):
     idleDisconnectTimeoutInMinutes: Optional[int] = None
     pasteAllowed: Optional[EnabledTypeType] = None
     printAllowed: Optional[EnabledTypeType] = None
-    toolbarConfiguration: Optional[ToolbarConfigurationOutputTypeDef] = None
+    toolbarConfiguration: Optional[ToolbarConfigurationOutput] = None
     uploadAllowed: Optional[EnabledTypeType] = None
 
 
-class UserSettingsTypeDef(BaseValidatorModel):
+class UserSettings(BaseValidatorModel):
     userSettingsArn: str
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     associatedPortalArns: Optional[List[str]] = None
-    cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationOutputTypeDef] = None
+    cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationOutput] = None
     copyAllowed: Optional[EnabledTypeType] = None
     customerManagedKey: Optional[str] = None
     deepLinkAllowed: Optional[EnabledTypeType] = None
@@ -873,59 +873,59 @@ class UserSettingsTypeDef(BaseValidatorModel):
     idleDisconnectTimeoutInMinutes: Optional[int] = None
     pasteAllowed: Optional[EnabledTypeType] = None
     printAllowed: Optional[EnabledTypeType] = None
-    toolbarConfiguration: Optional[ToolbarConfigurationOutputTypeDef] = None
+    toolbarConfiguration: Optional[ToolbarConfigurationOutput] = None
     uploadAllowed: Optional[EnabledTypeType] = None
 
 
-class GetIpAccessSettingsResponseTypeDef(BaseValidatorModel):
-    ipAccessSettings: IpAccessSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIpAccessSettingsResponse(BaseValidatorModel):
+    ipAccessSettings: IpAccessSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIpAccessSettingsResponseTypeDef(BaseValidatorModel):
-    ipAccessSettings: IpAccessSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateIpAccessSettingsResponse(BaseValidatorModel):
+    ipAccessSettings: IpAccessSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class InlineRedactionConfigurationOutputTypeDef(BaseValidatorModel):
-    inlineRedactionPatterns: List[InlineRedactionPatternOutputTypeDef]
+class InlineRedactionConfigurationOutput(BaseValidatorModel):
+    inlineRedactionPatterns: List[InlineRedactionPatternOutput]
     globalConfidenceLevel: Optional[int] = None
     globalEnforcedUrls: Optional[List[str]] = None
     globalExemptUrls: Optional[List[str]] = None
 
 
-class InlineRedactionConfigurationTypeDef(BaseValidatorModel):
-    inlineRedactionPatterns: Sequence[InlineRedactionPatternTypeDef]
+class InlineRedactionConfiguration(BaseValidatorModel):
+    inlineRedactionPatterns: Sequence[InlineRedactionPattern]
     globalConfidenceLevel: Optional[int] = None
     globalEnforcedUrls: Optional[Sequence[str]] = None
     globalExemptUrls: Optional[Sequence[str]] = None
 
 
-class ListUserSettingsResponseTypeDef(BaseValidatorModel):
-    userSettings: List[UserSettingsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListUserSettingsResponse(BaseValidatorModel):
+    userSettings: List[UserSettingsSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetUserSettingsResponseTypeDef(BaseValidatorModel):
-    userSettings: UserSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetUserSettingsResponse(BaseValidatorModel):
+    userSettings: UserSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateUserSettingsResponseTypeDef(BaseValidatorModel):
-    userSettings: UserSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateUserSettingsResponse(BaseValidatorModel):
+    userSettings: UserSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class ToolbarConfigurationUnionTypeDef(BaseValidatorModel):
+class ToolbarConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CookieSynchronizationConfigurationUnionTypeDef(BaseValidatorModel):
+class CookieSynchronizationConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateUserSettingsRequestTypeDef(BaseValidatorModel):
+class CreateUserSettingsRequest(BaseValidatorModel):
     copyAllowed: EnabledTypeType
     downloadAllowed: EnabledTypeType
     pasteAllowed: EnabledTypeType
@@ -933,19 +933,19 @@ class CreateUserSettingsRequestTypeDef(BaseValidatorModel):
     uploadAllowed: EnabledTypeType
     additionalEncryptionContext: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
-    cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationUnionTypeDef] = None
+    cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationUnion] = None
     customerManagedKey: Optional[str] = None
     deepLinkAllowed: Optional[EnabledTypeType] = None
     disconnectTimeoutInMinutes: Optional[int] = None
     idleDisconnectTimeoutInMinutes: Optional[int] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
-    toolbarConfiguration: Optional[ToolbarConfigurationUnionTypeDef] = None
+    tags: Optional[Sequence[Tag]] = None
+    toolbarConfiguration: Optional[ToolbarConfigurationUnion] = None
 
 
-class UpdateUserSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateUserSettingsRequest(BaseValidatorModel):
     userSettingsArn: str
     clientToken: Optional[str] = None
-    cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationUnionTypeDef] = None
+    cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationUnion] = None
     copyAllowed: Optional[EnabledTypeType] = None
     deepLinkAllowed: Optional[EnabledTypeType] = None
     disconnectTimeoutInMinutes: Optional[int] = None
@@ -953,11 +953,11 @@ class UpdateUserSettingsRequestTypeDef(BaseValidatorModel):
     idleDisconnectTimeoutInMinutes: Optional[int] = None
     pasteAllowed: Optional[EnabledTypeType] = None
     printAllowed: Optional[EnabledTypeType] = None
-    toolbarConfiguration: Optional[ToolbarConfigurationUnionTypeDef] = None
+    toolbarConfiguration: Optional[ToolbarConfigurationUnion] = None
     uploadAllowed: Optional[EnabledTypeType] = None
 
 
-class DataProtectionSettingsTypeDef(BaseValidatorModel):
+class DataProtectionSettings(BaseValidatorModel):
     dataProtectionSettingsArn: str
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     associatedPortalArns: Optional[List[str]] = None
@@ -965,38 +965,38 @@ class DataProtectionSettingsTypeDef(BaseValidatorModel):
     customerManagedKey: Optional[str] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
-    inlineRedactionConfiguration: Optional[InlineRedactionConfigurationOutputTypeDef] = None
+    inlineRedactionConfiguration: Optional[InlineRedactionConfigurationOutput] = None
 
 
-class GetDataProtectionSettingsResponseTypeDef(BaseValidatorModel):
-    dataProtectionSettings: DataProtectionSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDataProtectionSettingsResponse(BaseValidatorModel):
+    dataProtectionSettings: DataProtectionSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataProtectionSettingsResponseTypeDef(BaseValidatorModel):
-    dataProtectionSettings: DataProtectionSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDataProtectionSettingsResponse(BaseValidatorModel):
+    dataProtectionSettings: DataProtectionSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class InlineRedactionConfigurationUnionTypeDef(BaseValidatorModel):
+class InlineRedactionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
+class CreateDataProtectionSettingsRequest(BaseValidatorModel):
     additionalEncryptionContext: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
     customerManagedKey: Optional[str] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
-    inlineRedactionConfiguration: Optional[InlineRedactionConfigurationUnionTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    inlineRedactionConfiguration: Optional[InlineRedactionConfigurationUnion] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateDataProtectionSettingsRequest(BaseValidatorModel):
     dataProtectionSettingsArn: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
-    inlineRedactionConfiguration: Optional[InlineRedactionConfigurationUnionTypeDef] = None
+    inlineRedactionConfiguration: Optional[InlineRedactionConfigurationUnion] = None
 
 

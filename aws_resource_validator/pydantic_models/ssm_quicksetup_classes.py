@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ssm_quicksetup_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,53 +20,53 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteConfigurationManagerInputTypeDef(BaseValidatorModel):
+class DeleteConfigurationManagerInput(BaseValidatorModel):
     ManagerArn: str
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Key: str
     Values: Sequence[str]
 
 
-class GetConfigurationInputTypeDef(BaseValidatorModel):
+class GetConfigurationInput(BaseValidatorModel):
     ConfigurationId: str
 
 
-class GetConfigurationManagerInputTypeDef(BaseValidatorModel):
+class GetConfigurationManagerInput(BaseValidatorModel):
     ManagerArn: str
 
 
-class ServiceSettingsTypeDef(BaseValidatorModel):
+class ServiceSettings(BaseValidatorModel):
     ExplorerEnablingRoleArn: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class TagEntryTypeDef(BaseValidatorModel):
+class TagEntry(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateConfigurationDefinitionInputTypeDef(BaseValidatorModel):
+class UpdateConfigurationDefinitionInput(BaseValidatorModel):
     Id: str
     ManagerArn: str
     LocalDeploymentAdministrationRoleArn: Optional[str] = None
@@ -75,126 +75,126 @@ class UpdateConfigurationDefinitionInputTypeDef(BaseValidatorModel):
     TypeVersion: Optional[str] = None
 
 
-class UpdateConfigurationManagerInputTypeDef(BaseValidatorModel):
+class UpdateConfigurationManagerInput(BaseValidatorModel):
     ManagerArn: str
     Description: Optional[str] = None
     Name: Optional[str] = None
 
 
-class UpdateServiceSettingsInputTypeDef(BaseValidatorModel):
+class UpdateServiceSettingsInput(BaseValidatorModel):
     ExplorerEnablingRoleArn: Optional[str] = None
 
 
-class ConfigurationDefinitionInputTypeDef(BaseValidatorModel):
+class ConfigurationDefinitionInput(BaseValidatorModel):
     pass
 
 
-class CreateConfigurationManagerInputTypeDef(BaseValidatorModel):
-    ConfigurationDefinitions: Sequence[ConfigurationDefinitionInputTypeDef]
+class CreateConfigurationManagerInput(BaseValidatorModel):
+    ConfigurationDefinitions: Sequence[ConfigurationDefinitionInput]
     Description: Optional[str] = None
     Name: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class ConfigurationDefinitionSummaryTypeDef(BaseValidatorModel):
+class ConfigurationDefinitionSummary(BaseValidatorModel):
     pass
 
 
-class StatusSummaryTypeDef(BaseValidatorModel):
+class StatusSummary(BaseValidatorModel):
     pass
 
 
-class ConfigurationManagerSummaryTypeDef(BaseValidatorModel):
+class ConfigurationManagerSummary(BaseValidatorModel):
     ManagerArn: str
-    ConfigurationDefinitionSummaries: Optional[List[ConfigurationDefinitionSummaryTypeDef]] = None
+    ConfigurationDefinitionSummaries: Optional[List[ConfigurationDefinitionSummary]] = None
     Description: Optional[str] = None
     Name: Optional[str] = None
-    StatusSummaries: Optional[List[StatusSummaryTypeDef]] = None
+    StatusSummaries: Optional[List[StatusSummary]] = None
 
 
-class CreateConfigurationManagerOutputTypeDef(BaseValidatorModel):
+class CreateConfigurationManagerOutput(BaseValidatorModel):
     ManagerArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ConfigurationDefinitionTypeDef(BaseValidatorModel):
+class ConfigurationDefinition(BaseValidatorModel):
     pass
 
 
-class GetConfigurationManagerOutputTypeDef(BaseValidatorModel):
-    ConfigurationDefinitions: List[ConfigurationDefinitionTypeDef]
+class GetConfigurationManagerOutput(BaseValidatorModel):
+    ConfigurationDefinitions: List[ConfigurationDefinition]
     CreatedAt: datetime
     Description: str
     LastModifiedAt: datetime
     ManagerArn: str
     Name: str
-    StatusSummaries: List[StatusSummaryTypeDef]
+    StatusSummaries: List[StatusSummary]
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConfigurationManagersInputTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListConfigurationManagersInput(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     MaxItems: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListConfigurationsInputTypeDef(BaseValidatorModel):
+class ListConfigurationsInput(BaseValidatorModel):
     ConfigurationDefinitionId: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     ManagerArn: Optional[str] = None
     MaxItems: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class GetServiceSettingsOutputTypeDef(BaseValidatorModel):
-    ServiceSettings: ServiceSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetServiceSettingsOutput(BaseValidatorModel):
+    ServiceSettings: ServiceSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConfigurationManagersInputPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConfigurationManagersInputPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfigurationsInputPaginateTypeDef(BaseValidatorModel):
+class ListConfigurationsInputPaginate(BaseValidatorModel):
     ConfigurationDefinitionId: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     ManagerArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class QuickSetupTypeOutputTypeDef(BaseValidatorModel):
+class QuickSetupTypeOutput(BaseValidatorModel):
     pass
 
 
-class ListQuickSetupTypesOutputTypeDef(BaseValidatorModel):
-    QuickSetupTypeList: List[QuickSetupTypeOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListQuickSetupTypesOutput(BaseValidatorModel):
+    QuickSetupTypeList: List[QuickSetupTypeOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[TagEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConfigurationManagersOutputTypeDef(BaseValidatorModel):
-    ConfigurationManagersList: List[ConfigurationManagerSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfigurationManagersOutput(BaseValidatorModel):
+    ConfigurationManagersList: List[ConfigurationManagerSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ConfigurationSummaryTypeDef(BaseValidatorModel):
+class ConfigurationSummary(BaseValidatorModel):
     pass
 
 
-class ListConfigurationsOutputTypeDef(BaseValidatorModel):
-    ConfigurationsList: List[ConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfigurationsOutput(BaseValidatorModel):
+    ConfigurationsList: List[ConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

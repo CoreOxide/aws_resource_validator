@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_edge_constants import *
 
-class DeploymentModelTypeDef(BaseValidatorModel):
+class DeploymentModel(BaseValidatorModel):
     ModelHandle: Optional[str] = None
     ModelName: Optional[str] = None
     ModelVersion: Optional[str] = None
@@ -23,7 +23,7 @@ class DeploymentModelTypeDef(BaseValidatorModel):
     RollbackFailureReason: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -31,80 +31,80 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetDeploymentsRequestTypeDef(BaseValidatorModel):
+class GetDeploymentsRequest(BaseValidatorModel):
     DeviceName: str
     DeviceFleetName: str
 
 
-class GetDeviceRegistrationRequestTypeDef(BaseValidatorModel):
+class GetDeviceRegistrationRequest(BaseValidatorModel):
     DeviceName: str
     DeviceFleetName: str
 
 
-class ChecksumTypeDef(BaseValidatorModel):
+class Checksum(BaseValidatorModel):
     pass
 
 
-class DefinitionTypeDef(BaseValidatorModel):
+class Definition(BaseValidatorModel):
     ModelHandle: Optional[str] = None
     S3Url: Optional[str] = None
-    Checksum: Optional[ChecksumTypeDef] = None
+    Checksum: Optional[Checksum] = None
     State: Optional[ModelStateType] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DeploymentResultTypeDef(BaseValidatorModel):
+class DeploymentResult(BaseValidatorModel):
     DeploymentName: Optional[str] = None
     DeploymentStatus: Optional[str] = None
     DeploymentStatusMessage: Optional[str] = None
-    DeploymentStartTime: Optional[TimestampTypeDef] = None
-    DeploymentEndTime: Optional[TimestampTypeDef] = None
-    DeploymentModels: Optional[Sequence[DeploymentModelTypeDef]] = None
+    DeploymentStartTime: Optional[Timestamp] = None
+    DeploymentEndTime: Optional[Timestamp] = None
+    DeploymentModels: Optional[Sequence[DeploymentModel]] = None
 
 
-class EdgeMetricTypeDef(BaseValidatorModel):
+class EdgeMetric(BaseValidatorModel):
     Dimension: Optional[str] = None
     MetricName: Optional[str] = None
     Value: Optional[float] = None
-    Timestamp: Optional[TimestampTypeDef] = None
+    Timestamp: Optional[Timestamp] = None
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDeviceRegistrationResultTypeDef(BaseValidatorModel):
+class GetDeviceRegistrationResult(BaseValidatorModel):
     DeviceRegistration: str
     CacheTTL: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ModelTypeDef(BaseValidatorModel):
+class Model(BaseValidatorModel):
     ModelName: Optional[str] = None
     ModelVersion: Optional[str] = None
-    LatestSampleTime: Optional[TimestampTypeDef] = None
-    LatestInference: Optional[TimestampTypeDef] = None
-    ModelMetrics: Optional[Sequence[EdgeMetricTypeDef]] = None
+    LatestSampleTime: Optional[Timestamp] = None
+    LatestInference: Optional[Timestamp] = None
+    ModelMetrics: Optional[Sequence[EdgeMetric]] = None
 
 
-class EdgeDeploymentTypeDef(BaseValidatorModel):
+class EdgeDeployment(BaseValidatorModel):
     pass
 
 
-class GetDeploymentsResultTypeDef(BaseValidatorModel):
-    Deployments: List[EdgeDeploymentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDeploymentsResult(BaseValidatorModel):
+    Deployments: List[EdgeDeployment]
+    ResponseMetadata: ResponseMetadata
 
 
-class SendHeartbeatRequestTypeDef(BaseValidatorModel):
+class SendHeartbeatRequest(BaseValidatorModel):
     AgentVersion: str
     DeviceName: str
     DeviceFleetName: str
-    AgentMetrics: Optional[Sequence[EdgeMetricTypeDef]] = None
-    Models: Optional[Sequence[ModelTypeDef]] = None
-    DeploymentResult: Optional[DeploymentResultTypeDef] = None
+    AgentMetrics: Optional[Sequence[EdgeMetric]] = None
+    Models: Optional[Sequence[Model]] = None
+    DeploymentResult: Optional[DeploymentResult] = None
 
 

@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.billing_constants import *
 
-class BillingViewListElementTypeDef(BaseValidatorModel):
+class BillingViewListElement(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -20,12 +20,12 @@ class BillingViewListElementTypeDef(BaseValidatorModel):
     billingViewType: Optional[BillingViewTypeType] = None
 
 
-class ResourceTagTypeDef(BaseValidatorModel):
+class ResourceTag(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -33,138 +33,138 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteBillingViewRequestTypeDef(BaseValidatorModel):
+class DeleteBillingViewRequest(BaseValidatorModel):
     arn: str
 
 
-class DimensionValuesOutputTypeDef(BaseValidatorModel):
+class DimensionValuesOutput(BaseValidatorModel):
     key: Literal["LINKED_ACCOUNT"]
     values: List[str]
 
 
-class DimensionValuesTypeDef(BaseValidatorModel):
+class DimensionValues(BaseValidatorModel):
     key: Literal["LINKED_ACCOUNT"]
     values: Sequence[str]
 
 
-class TagValuesOutputTypeDef(BaseValidatorModel):
+class TagValuesOutput(BaseValidatorModel):
     key: str
     values: List[str]
 
 
-class TagValuesTypeDef(BaseValidatorModel):
+class TagValues(BaseValidatorModel):
     key: str
     values: Sequence[str]
 
 
-class GetBillingViewRequestTypeDef(BaseValidatorModel):
+class GetBillingViewRequest(BaseValidatorModel):
     arn: str
 
 
-class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
+class GetResourcePolicyRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListSourceViewsForBillingViewRequestTypeDef(BaseValidatorModel):
+class ListSourceViewsForBillingViewRequest(BaseValidatorModel):
     arn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     resourceTagKeys: Sequence[str]
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ActiveTimeRangeTypeDef(BaseValidatorModel):
-    activeAfterInclusive: TimestampTypeDef
-    activeBeforeInclusive: TimestampTypeDef
+class ActiveTimeRange(BaseValidatorModel):
+    activeAfterInclusive: Timestamp
+    activeBeforeInclusive: Timestamp
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
-    resourceTags: Sequence[ResourceTagTypeDef]
+    resourceTags: Sequence[ResourceTag]
 
 
-class CreateBillingViewResponseTypeDef(BaseValidatorModel):
+class CreateBillingViewResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBillingViewResponseTypeDef(BaseValidatorModel):
+class DeleteBillingViewResponse(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
+class GetResourcePolicyResponse(BaseValidatorModel):
     resourceArn: str
     policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBillingViewsResponseTypeDef(BaseValidatorModel):
-    billingViews: List[BillingViewListElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBillingViewsResponse(BaseValidatorModel):
+    billingViews: List[BillingViewListElement]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSourceViewsForBillingViewResponseTypeDef(BaseValidatorModel):
+class ListSourceViewsForBillingViewResponse(BaseValidatorModel):
     sourceViews: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    resourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    resourceTags: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBillingViewResponseTypeDef(BaseValidatorModel):
+class UpdateBillingViewResponse(BaseValidatorModel):
     arn: str
     updatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ExpressionOutputTypeDef(BaseValidatorModel):
-    dimensions: Optional[DimensionValuesOutputTypeDef] = None
-    tags: Optional[TagValuesOutputTypeDef] = None
+class ExpressionOutput(BaseValidatorModel):
+    dimensions: Optional[DimensionValuesOutput] = None
+    tags: Optional[TagValuesOutput] = None
 
 
-class ExpressionTypeDef(BaseValidatorModel):
-    dimensions: Optional[DimensionValuesTypeDef] = None
-    tags: Optional[TagValuesTypeDef] = None
+class Expression(BaseValidatorModel):
+    dimensions: Optional[DimensionValues] = None
+    tags: Optional[TagValues] = None
 
 
-class ListSourceViewsForBillingViewRequestPaginateTypeDef(BaseValidatorModel):
+class ListSourceViewsForBillingViewRequestPaginate(BaseValidatorModel):
     arn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBillingViewsRequestPaginateTypeDef(BaseValidatorModel):
-    activeTimeRange: Optional[ActiveTimeRangeTypeDef] = None
+class ListBillingViewsRequestPaginate(BaseValidatorModel):
+    activeTimeRange: Optional[ActiveTimeRange] = None
     arns: Optional[Sequence[str]] = None
     billingViewTypes: Optional[Sequence[BillingViewTypeType]] = None
     ownerAccountId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBillingViewsRequestTypeDef(BaseValidatorModel):
-    activeTimeRange: Optional[ActiveTimeRangeTypeDef] = None
+class ListBillingViewsRequest(BaseValidatorModel):
+    activeTimeRange: Optional[ActiveTimeRange] = None
     arns: Optional[Sequence[str]] = None
     billingViewTypes: Optional[Sequence[BillingViewTypeType]] = None
     ownerAccountId: Optional[str] = None
@@ -172,39 +172,39 @@ class ListBillingViewsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class BillingViewElementTypeDef(BaseValidatorModel):
+class BillingViewElement(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
     billingViewType: Optional[BillingViewTypeType] = None
     ownerAccountId: Optional[str] = None
-    dataFilterExpression: Optional[ExpressionOutputTypeDef] = None
+    dataFilterExpression: Optional[ExpressionOutput] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
 
-class GetBillingViewResponseTypeDef(BaseValidatorModel):
-    billingView: BillingViewElementTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetBillingViewResponse(BaseValidatorModel):
+    billingView: BillingViewElement
+    ResponseMetadata: ResponseMetadata
 
 
-class ExpressionUnionTypeDef(BaseValidatorModel):
+class ExpressionUnion(BaseValidatorModel):
     pass
 
 
-class CreateBillingViewRequestTypeDef(BaseValidatorModel):
+class CreateBillingViewRequest(BaseValidatorModel):
     name: str
     sourceViews: Sequence[str]
     description: Optional[str] = None
-    dataFilterExpression: Optional[ExpressionUnionTypeDef] = None
+    dataFilterExpression: Optional[ExpressionUnion] = None
     clientToken: Optional[str] = None
-    resourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    resourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class UpdateBillingViewRequestTypeDef(BaseValidatorModel):
+class UpdateBillingViewRequest(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     description: Optional[str] = None
-    dataFilterExpression: Optional[ExpressionUnionTypeDef] = None
+    dataFilterExpression: Optional[ExpressionUnion] = None
 
 

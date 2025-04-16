@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.pricing_constants import *
 
-class AttributeValueTypeDef(BaseValidatorModel):
+class AttributeValue(BaseValidatorModel):
     Value: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeServicesRequestTypeDef(BaseValidatorModel):
+class DescribeServicesRequest(BaseValidatorModel):
     ServiceCode: Optional[str] = None
     FormatVersion: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,110 +37,110 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ServiceTypeDef(BaseValidatorModel):
+class Service(BaseValidatorModel):
     ServiceCode: str
     AttributeNames: Optional[List[str]] = None
 
 
-class GetAttributeValuesRequestTypeDef(BaseValidatorModel):
+class GetAttributeValuesRequest(BaseValidatorModel):
     ServiceCode: str
     AttributeName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetPriceListFileUrlRequestTypeDef(BaseValidatorModel):
+class GetPriceListFileUrlRequest(BaseValidatorModel):
     PriceListArn: str
     FileFormat: str
 
 
-class PriceListTypeDef(BaseValidatorModel):
+class PriceList(BaseValidatorModel):
     PriceListArn: Optional[str] = None
     RegionCode: Optional[str] = None
     CurrencyCode: Optional[str] = None
     FileFormats: Optional[List[str]] = None
 
 
-class DescribeServicesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeServicesRequestPaginate(BaseValidatorModel):
     ServiceCode: Optional[str] = None
     FormatVersion: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetAttributeValuesRequestPaginateTypeDef(BaseValidatorModel):
+class GetAttributeValuesRequestPaginate(BaseValidatorModel):
     ServiceCode: str
     AttributeName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetAttributeValuesResponseTypeDef(BaseValidatorModel):
-    AttributeValues: List[AttributeValueTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAttributeValuesResponse(BaseValidatorModel):
+    AttributeValues: List[AttributeValue]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetPriceListFileUrlResponseTypeDef(BaseValidatorModel):
+class GetPriceListFileUrlResponse(BaseValidatorModel):
     Url: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProductsResponseTypeDef(BaseValidatorModel):
+class GetProductsResponse(BaseValidatorModel):
     FormatVersion: str
     PriceList: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeServicesResponseTypeDef(BaseValidatorModel):
-    Services: List[ServiceTypeDef]
+class DescribeServicesResponse(BaseValidatorModel):
+    Services: List[Service]
     FormatVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     pass
 
 
-class GetProductsRequestPaginateTypeDef(BaseValidatorModel):
+class GetProductsRequestPaginate(BaseValidatorModel):
     ServiceCode: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     FormatVersion: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetProductsRequestTypeDef(BaseValidatorModel):
+class GetProductsRequest(BaseValidatorModel):
     ServiceCode: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     FormatVersion: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListPriceListsRequestPaginateTypeDef(BaseValidatorModel):
+class ListPriceListsRequestPaginate(BaseValidatorModel):
     ServiceCode: str
-    EffectiveDate: TimestampTypeDef
+    EffectiveDate: Timestamp
     CurrencyCode: str
     RegionCode: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPriceListsRequestTypeDef(BaseValidatorModel):
+class ListPriceListsRequest(BaseValidatorModel):
     ServiceCode: str
-    EffectiveDate: TimestampTypeDef
+    EffectiveDate: Timestamp
     CurrencyCode: str
     RegionCode: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListPriceListsResponseTypeDef(BaseValidatorModel):
-    PriceLists: List[PriceListTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPriceListsResponse(BaseValidatorModel):
+    PriceLists: List[PriceList]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

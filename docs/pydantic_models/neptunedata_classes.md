@@ -6,76 +6,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelGremlinQueryInputTypeDef
+# CancelGremlinQueryInput
 
 ### queryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelGremlinQueryOutputTypeDef
+# CancelGremlinQueryOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelLoaderJobInputTypeDef
+# CancelLoaderJobInput
 
 ### loadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelLoaderJobOutputTypeDef
+# CancelLoaderJobOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelMLDataProcessingJobOutputTypeDef
+# CancelMLDataProcessingJobOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelMLModelTrainingJobOutputTypeDef
+# CancelMLModelTrainingJobOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelMLModelTransformJobOutputTypeDef
+# CancelMLModelTransformJobOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelOpenCypherQueryInputTypeDef
+# CancelOpenCypherQueryInput
 
 ### queryId
 - **Type**: <class 'str'>
@@ -85,7 +85,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CancelOpenCypherQueryOutputTypeDef
+# CancelOpenCypherQueryOutput
 
 ### status
 - **Type**: <class 'str'>
@@ -96,11 +96,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomModelTrainingParametersTypeDef
+# CustomModelTrainingParameters
 
 ### sourceS3DirectoryPath
 - **Type**: <class 'str'>
@@ -113,7 +113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CustomModelTransformParametersTypeDef
+# CustomModelTransformParameters
 
 ### sourceS3DirectoryPath
 - **Type**: <class 'str'>
@@ -123,18 +123,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteMLEndpointOutputTypeDef
+# DeleteMLEndpointOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeletePropertygraphStatisticsOutputTypeDef
+# DeletePropertygraphStatisticsOutput
 
 ### statusCode
 - **Type**: <class 'int'>
@@ -145,15 +145,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.DeleteStatisticsValueMapTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.DeleteStatisticsValueMap'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteSparqlStatisticsOutputTypeDef
+# DeleteSparqlStatisticsOutput
 
 ### statusCode
 - **Type**: <class 'int'>
@@ -164,15 +164,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.DeleteStatisticsValueMapTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.DeleteStatisticsValueMap'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteStatisticsValueMapTypeDef
+# DeleteStatisticsValueMap
 
 ### active
 - **Type**: typing.Optional[bool]
@@ -181,7 +181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EdgeStructureTypeDef
+# EdgeStructure
 
 ### count
 - **Type**: typing.Optional[int]
@@ -190,7 +190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ExecuteFastResetInputTypeDef
+# ExecuteFastResetInput
 
 ### action
 - **Type**: typing.Literal['initiateDatabaseReset', 'performDatabaseReset']
@@ -200,40 +200,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecuteFastResetOutputTypeDef
+# ExecuteFastResetOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.FastResetTokenTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.FastResetToken'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExecuteGremlinExplainQueryInputTypeDef
+# ExecuteGremlinExplainQueryInput
 
 ### gremlinQuery
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ExecuteGremlinExplainQueryOutputTypeDef
+# ExecuteGremlinExplainQueryOutput
 
 ### output
 - **Type**: <class 'botocore.response.StreamingBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExecuteGremlinProfileQueryInputTypeDef
+# ExecuteGremlinProfileQueryInput
 
 ### gremlinQuery
 - **Type**: <class 'str'>
@@ -252,18 +252,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExecuteGremlinProfileQueryOutputTypeDef
+# ExecuteGremlinProfileQueryOutput
 
 ### output
 - **Type**: <class 'botocore.response.StreamingBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExecuteGremlinQueryInputTypeDef
+# ExecuteGremlinQueryInput
 
 ### gremlinQuery
 - **Type**: <class 'str'>
@@ -273,14 +273,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecuteGremlinQueryOutputTypeDef
+# ExecuteGremlinQueryOutput
 
 ### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.GremlinQueryStatusAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.GremlinQueryStatusAttributes'>
 - **Required**: Yes
 
 ### result
@@ -292,11 +292,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExecuteOpenCypherExplainQueryInputTypeDef
+# ExecuteOpenCypherExplainQueryInput
 
 ### openCypherQuery
 - **Type**: <class 'str'>
@@ -310,18 +310,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecuteOpenCypherExplainQueryOutputTypeDef
+# ExecuteOpenCypherExplainQueryOutput
 
 ### results
 - **Type**: <class 'botocore.response.StreamingBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExecuteOpenCypherQueryInputTypeDef
+# ExecuteOpenCypherQueryInput
 
 ### openCypherQuery
 - **Type**: <class 'str'>
@@ -331,24 +331,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecuteOpenCypherQueryOutputTypeDef
+# ExecuteOpenCypherQueryOutput
 
 ### results
 - **Type**: typing.Dict[str, typing.Any]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FastResetTokenTypeDef
+# FastResetToken
 
 ### token
 - **Type**: typing.Optional[str]
 
 
-# GetEngineStatusOutputTypeDef
+# GetEngineStatusOutput
 
 ### status
 - **Type**: <class 'str'>
@@ -371,15 +371,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### gremlin
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryLanguageVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryLanguageVersion'>
 - **Required**: Yes
 
 ### sparql
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryLanguageVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryLanguageVersion'>
 - **Required**: Yes
 
 ### opencypher
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryLanguageVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryLanguageVersion'>
 - **Required**: Yes
 
 ### labMode
@@ -403,18 +403,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGremlinQueryStatusInputTypeDef
+# GetGremlinQueryStatusInput
 
 ### queryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetGremlinQueryStatusOutputTypeDef
+# GetGremlinQueryStatusOutput
 
 ### queryId
 - **Type**: <class 'str'>
@@ -425,15 +425,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### queryEvalStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryEvalStatsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryEvalStats'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLoaderJobStatusInputTypeDef
+# GetLoaderJobStatusInput
 
 ### loadId
 - **Type**: <class 'str'>
@@ -452,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetLoaderJobStatusOutputTypeDef
+# GetLoaderJobStatusOutput
 
 ### status
 - **Type**: <class 'str'>
@@ -463,18 +463,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOpenCypherQueryStatusInputTypeDef
+# GetOpenCypherQueryStatusInput
 
 ### queryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOpenCypherQueryStatusOutputTypeDef
+# GetOpenCypherQueryStatusOutput
 
 ### queryId
 - **Type**: <class 'str'>
@@ -485,30 +485,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### queryEvalStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryEvalStatsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.QueryEvalStats'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPropertygraphStatisticsOutputTypeDef
+# GetPropertygraphStatisticsOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.StatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.Statistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPropertygraphStreamInputTypeDef
+# GetPropertygraphStreamInput
 
 ### limit
 - **Type**: typing.Optional[int]
@@ -526,64 +526,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['gzip']]
 
 
-# GetPropertygraphSummaryInputTypeDef
+# GetPropertygraphSummaryInput
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['basic', 'detailed']]
 
 
-# GetPropertygraphSummaryOutputTypeDef
+# GetPropertygraphSummaryOutput
 
 ### statusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.PropertygraphSummaryValueMapTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.PropertygraphSummaryValueMap'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRDFGraphSummaryInputTypeDef
+# GetRDFGraphSummaryInput
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['basic', 'detailed']]
 
 
-# GetRDFGraphSummaryOutputTypeDef
+# GetRDFGraphSummaryOutput
 
 ### statusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.RDFGraphSummaryValueMapTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.RDFGraphSummaryValueMap'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSparqlStatisticsOutputTypeDef
+# GetSparqlStatisticsOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.StatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.Statistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSparqlStreamInputTypeDef
+# GetSparqlStreamInput
 
 ### limit
 - **Type**: typing.Optional[int]
@@ -601,7 +601,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['gzip']]
 
 
-# GremlinQueryStatusAttributesTypeDef
+# GremlinQueryStatus
+
+### queryId
+- **Type**: typing.Optional[str]
+
+### queryString
+- **Type**: typing.Optional[str]
+
+### queryEvalStats
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.QueryEvalStats]
+
+
+# GremlinQueryStatusAttributes
 
 ### message
 - **Type**: typing.Optional[str]
@@ -613,25 +625,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
-# GremlinQueryStatusTypeDef
-
-### queryId
-- **Type**: typing.Optional[str]
-
-### queryString
-- **Type**: typing.Optional[str]
-
-### queryEvalStats
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.QueryEvalStatsTypeDef]
-
-
-# ListGremlinQueriesInputTypeDef
+# ListGremlinQueriesInput
 
 ### includeWaiting
 - **Type**: typing.Optional[bool]
 
 
-# ListGremlinQueriesOutputTypeDef
+# ListGremlinQueriesOutput
 
 ### acceptedQueryCount
 - **Type**: <class 'int'>
@@ -642,15 +642,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### queries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.GremlinQueryStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.GremlinQueryStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListLoaderJobsInputTypeDef
+# ListLoaderJobsInput
 
 ### limit
 - **Type**: typing.Optional[int]
@@ -659,22 +659,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListLoaderJobsOutputTypeDef
+# ListLoaderJobsOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.LoaderIdResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.LoaderIdResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListMLDataProcessingJobsInputTypeDef
+# ListMLDataProcessingJobsInput
 
 ### maxItems
 - **Type**: typing.Optional[int]
@@ -683,18 +683,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMLDataProcessingJobsOutputTypeDef
+# ListMLDataProcessingJobsOutput
 
 ### ids
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListMLEndpointsInputTypeDef
+# ListMLEndpointsInput
 
 ### maxItems
 - **Type**: typing.Optional[int]
@@ -703,18 +703,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMLEndpointsOutputTypeDef
+# ListMLEndpointsOutput
 
 ### ids
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListMLModelTrainingJobsInputTypeDef
+# ListMLModelTrainingJobsInput
 
 ### maxItems
 - **Type**: typing.Optional[int]
@@ -723,18 +723,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMLModelTrainingJobsOutputTypeDef
+# ListMLModelTrainingJobsOutput
 
 ### ids
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListMLModelTransformJobsInputTypeDef
+# ListMLModelTransformJobsInput
 
 ### maxItems
 - **Type**: typing.Optional[int]
@@ -743,24 +743,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMLModelTransformJobsOutputTypeDef
+# ListMLModelTransformJobsOutput
 
 ### ids
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListOpenCypherQueriesInputTypeDef
+# ListOpenCypherQueriesInput
 
 ### includeWaiting
 - **Type**: typing.Optional[bool]
 
 
-# ListOpenCypherQueriesOutputTypeDef
+# ListOpenCypherQueriesOutput
 
 ### acceptedQueryCount
 - **Type**: <class 'int'>
@@ -771,63 +771,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### queries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.GremlinQueryStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.GremlinQueryStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LoaderIdResultTypeDef
+# LoaderIdResult
 
 ### loadIds
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ManagePropertygraphStatisticsInputTypeDef
+# ManagePropertygraphStatisticsInput
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['disableAutoCompute', 'enableAutoCompute', 'refresh']]
 
 
-# ManagePropertygraphStatisticsOutputTypeDef
+# ManagePropertygraphStatisticsOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.RefreshStatisticsIdMapTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.RefreshStatisticsIdMap'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ManageSparqlStatisticsInputTypeDef
+# ManageSparqlStatisticsInput
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['disableAutoCompute', 'enableAutoCompute', 'refresh']]
 
 
-# ManageSparqlStatisticsOutputTypeDef
+# ManageSparqlStatisticsOutput
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.RefreshStatisticsIdMapTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.RefreshStatisticsIdMap'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MlConfigDefinitionTypeDef
+# MlConfigDefinition
 
 ### name
 - **Type**: typing.Optional[str]
@@ -836,7 +836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MlResourceDefinitionTypeDef
+# MlResourceDefinition
 
 ### name
 - **Type**: typing.Optional[str]
@@ -857,7 +857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NodeStructureTypeDef
+# NodeStructure
 
 ### count
 - **Type**: typing.Optional[int]
@@ -869,13 +869,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PropertygraphDataTypeDef
+# PropertygraphData
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PropertygraphRecordTypeDef
+# PropertygraphRecord
 
 ### commitTimestampInMillis
 - **Type**: <class 'int'>
@@ -886,7 +886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### data
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.PropertygraphDataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.PropertygraphData'>
 - **Required**: Yes
 
 ### op
@@ -897,7 +897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PropertygraphSummaryTypeDef
+# PropertygraphSummary
 
 ### numNodes
 - **Type**: typing.Optional[int]
@@ -936,13 +936,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### nodeStructures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.NodeStructureTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.NodeStructure]]
 
 ### edgeStructures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.EdgeStructureTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.EdgeStructure]]
 
 
-# PropertygraphSummaryValueMapTypeDef
+# PropertygraphSummaryValueMap
 
 ### version
 - **Type**: typing.Optional[str]
@@ -951,10 +951,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### graphSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.PropertygraphSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.PropertygraphSummary]
 
 
-# QueryEvalStatsTypeDef
+# QueryEvalStats
 
 ### waited
 - **Type**: typing.Optional[int]
@@ -969,14 +969,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
-# QueryLanguageVersionTypeDef
+# QueryLanguageVersion
 
 ### version
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RDFGraphSummaryTypeDef
+# RDFGraphSummary
 
 ### numDistinctSubjects
 - **Type**: typing.Optional[int]
@@ -997,10 +997,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Dict[str, int]]]
 
 ### subjectStructures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.SubjectStructureTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.SubjectStructure]]
 
 
-# RDFGraphSummaryValueMapTypeDef
+# RDFGraphSummaryValueMap
 
 ### version
 - **Type**: typing.Optional[str]
@@ -1009,16 +1009,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### graphSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.RDFGraphSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.RDFGraphSummary]
 
 
-# RefreshStatisticsIdMapTypeDef
+# RefreshStatisticsIdMap
 
 ### statisticsId
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1040,14 +1040,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SparqlDataTypeDef
+# SparqlData
 
 ### stmt
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# SparqlRecordTypeDef
+# SparqlRecord
 
 ### commitTimestampInMillis
 - **Type**: <class 'int'>
@@ -1058,7 +1058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### data
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.SparqlDataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.SparqlData'>
 - **Required**: Yes
 
 ### op
@@ -1069,7 +1069,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# StartLoaderJobOutputTypeDef
+# StartLoaderJobOutput
 
 ### status
 - **Type**: <class 'str'>
@@ -1080,23 +1080,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StatisticsSummaryTypeDef
-
-### signatureCount
-- **Type**: typing.Optional[int]
-
-### instanceCount
-- **Type**: typing.Optional[int]
-
-### predicateCount
-- **Type**: typing.Optional[int]
-
-
-# StatisticsTypeDef
+# Statistics
 
 ### autoCompute
 - **Type**: typing.Optional[bool]
@@ -1114,10 +1102,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### signatureInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.StatisticsSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.StatisticsSummary]
 
 
-# SubjectStructureTypeDef
+# StatisticsSummary
+
+### signatureCount
+- **Type**: typing.Optional[int]
+
+### instanceCount
+- **Type**: typing.Optional[int]
+
+### predicateCount
+- **Type**: typing.Optional[int]
+
+
+# SubjectStructure
 
 ### count
 - **Type**: typing.Optional[int]

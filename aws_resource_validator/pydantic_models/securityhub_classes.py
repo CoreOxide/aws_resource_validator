@@ -12,121 +12,121 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.securityhub_constants import *
 
-class AcceptAdministratorInvitationRequestTypeDef(BaseValidatorModel):
+class AcceptAdministratorInvitationRequest(BaseValidatorModel):
     AdministratorId: str
     InvitationId: str
 
 
-class AcceptInvitationRequestTypeDef(BaseValidatorModel):
+class AcceptInvitationRequest(BaseValidatorModel):
     MasterId: str
     InvitationId: str
 
 
-class AccountDetailsTypeDef(BaseValidatorModel):
+class AccountDetails(BaseValidatorModel):
     AccountId: str
     Email: Optional[str] = None
 
 
-class ActionLocalIpDetailsTypeDef(BaseValidatorModel):
+class ActionLocalIpDetails(BaseValidatorModel):
     IpAddressV4: Optional[str] = None
 
 
-class ActionLocalPortDetailsTypeDef(BaseValidatorModel):
+class ActionLocalPortDetails(BaseValidatorModel):
     Port: Optional[int] = None
     PortName: Optional[str] = None
 
 
-class CityTypeDef(BaseValidatorModel):
+class City(BaseValidatorModel):
     CityName: Optional[str] = None
 
 
-class CountryTypeDef(BaseValidatorModel):
+class Country(BaseValidatorModel):
     CountryCode: Optional[str] = None
     CountryName: Optional[str] = None
 
 
-class GeoLocationTypeDef(BaseValidatorModel):
+class GeoLocation(BaseValidatorModel):
     Lon: Optional[float] = None
     Lat: Optional[float] = None
 
 
-class IpOrganizationDetailsTypeDef(BaseValidatorModel):
+class IpOrganizationDetails(BaseValidatorModel):
     Asn: Optional[int] = None
     AsnOrg: Optional[str] = None
     Isp: Optional[str] = None
     Org: Optional[str] = None
 
 
-class ActionRemotePortDetailsTypeDef(BaseValidatorModel):
+class ActionRemotePortDetails(BaseValidatorModel):
     Port: Optional[int] = None
     PortName: Optional[str] = None
 
 
-class ActionTargetTypeDef(BaseValidatorModel):
+class ActionTarget(BaseValidatorModel):
     ActionTargetArn: str
     Name: str
     Description: str
 
 
-class ActorSessionTypeDef(BaseValidatorModel):
+class ActorSession(BaseValidatorModel):
     Uid: Optional[str] = None
     MfaStatus: Optional[ActorSessionMfaStatusType] = None
     CreatedTime: Optional[int] = None
     Issuer: Optional[str] = None
 
 
-class UserAccountTypeDef(BaseValidatorModel):
+class UserAccount(BaseValidatorModel):
     Uid: Optional[str] = None
     Name: Optional[str] = None
 
 
-class AdjustmentTypeDef(BaseValidatorModel):
+class Adjustment(BaseValidatorModel):
     Metric: Optional[str] = None
     Reason: Optional[str] = None
 
 
-class AdminAccountTypeDef(BaseValidatorModel):
+class AdminAccount(BaseValidatorModel):
     AccountId: Optional[str] = None
     Status: Optional[AdminStatusType] = None
 
 
-class AssociatedStandardTypeDef(BaseValidatorModel):
+class AssociatedStandard(BaseValidatorModel):
     StandardsId: Optional[str] = None
 
 
-class AssociationFiltersTypeDef(BaseValidatorModel):
+class AssociationFilters(BaseValidatorModel):
     ConfigurationPolicyId: Optional[str] = None
     AssociationType: Optional[AssociationTypeType] = None
     AssociationStatus: Optional[ConfigurationPolicyAssociationStatusType] = None
 
 
-class AssociationStateDetailsTypeDef(BaseValidatorModel):
+class AssociationStateDetails(BaseValidatorModel):
     State: Optional[str] = None
     StatusMessage: Optional[str] = None
 
 
-class RelatedFindingTypeDef(BaseValidatorModel):
+class RelatedFinding(BaseValidatorModel):
     ProductArn: str
     Id: str
 
 
-class SeverityUpdateTypeDef(BaseValidatorModel):
+class SeverityUpdate(BaseValidatorModel):
     Normalized: Optional[int] = None
     Product: Optional[float] = None
     Label: Optional[SeverityLabelType] = None
 
 
-class WorkflowUpdateTypeDef(BaseValidatorModel):
+class WorkflowUpdate(BaseValidatorModel):
     Status: Optional[WorkflowStatusType] = None
 
 
-class MapFilterTypeDef(BaseValidatorModel):
+class MapFilter(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
     Comparison: Optional[MapFilterComparisonType] = None
 
 
-class NumberFilterTypeDef(BaseValidatorModel):
+class NumberFilter(BaseValidatorModel):
     Gte: Optional[float] = None
     Lte: Optional[float] = None
     Eq: Optional[float] = None
@@ -134,12 +134,12 @@ class NumberFilterTypeDef(BaseValidatorModel):
     Lt: Optional[float] = None
 
 
-class StringFilterTypeDef(BaseValidatorModel):
+class StringFilter(BaseValidatorModel):
     Value: Optional[str] = None
     Comparison: Optional[StringFilterComparisonType] = None
 
 
-class AutomationRulesMetadataTypeDef(BaseValidatorModel):
+class AutomationRulesMetadata(BaseValidatorModel):
     RuleArn: Optional[str] = None
     RuleStatus: Optional[RuleStatusType] = None
     RuleOrder: Optional[int] = None
@@ -151,17 +151,17 @@ class AutomationRulesMetadataTypeDef(BaseValidatorModel):
     CreatedBy: Optional[str] = None
 
 
-class AvailabilityZoneTypeDef(BaseValidatorModel):
+class AvailabilityZone(BaseValidatorModel):
     ZoneName: Optional[str] = None
     SubnetId: Optional[str] = None
 
 
-class AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerEncryptionOptionsDetails(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
     UseAwsOwnedKey: Optional[bool] = None
 
 
-class AwsAmazonMqBrokerLdapServerMetadataDetailsOutputTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerLdapServerMetadataDetailsOutput(BaseValidatorModel):
     Hosts: Optional[List[str]] = None
     RoleBase: Optional[str] = None
     RoleName: Optional[str] = None
@@ -174,18 +174,18 @@ class AwsAmazonMqBrokerLdapServerMetadataDetailsOutputTypeDef(BaseValidatorModel
     UserSearchSubtree: Optional[bool] = None
 
 
-class AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails(BaseValidatorModel):
     DayOfWeek: Optional[str] = None
     TimeOfDay: Optional[str] = None
     TimeZone: Optional[str] = None
 
 
-class AwsAmazonMqBrokerUsersDetailsTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerUsersDetails(BaseValidatorModel):
     PendingChange: Optional[str] = None
     Username: Optional[str] = None
 
 
-class AwsAmazonMqBrokerLdapServerMetadataDetailsTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerLdapServerMetadataDetails(BaseValidatorModel):
     Hosts: Optional[Sequence[str]] = None
     RoleBase: Optional[str] = None
     RoleName: Optional[str] = None
@@ -198,43 +198,43 @@ class AwsAmazonMqBrokerLdapServerMetadataDetailsTypeDef(BaseValidatorModel):
     UserSearchSubtree: Optional[bool] = None
 
 
-class AwsAmazonMqBrokerLogsPendingDetailsTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerLogsPendingDetails(BaseValidatorModel):
     Audit: Optional[bool] = None
     General: Optional[bool] = None
 
 
-class AwsApiCallActionDomainDetailsTypeDef(BaseValidatorModel):
+class AwsApiCallActionDomainDetails(BaseValidatorModel):
     Domain: Optional[str] = None
 
 
-class AwsApiGatewayAccessLogSettingsTypeDef(BaseValidatorModel):
+class AwsApiGatewayAccessLogSettings(BaseValidatorModel):
     Format: Optional[str] = None
     DestinationArn: Optional[str] = None
 
 
-class AwsApiGatewayCanarySettingsOutputTypeDef(BaseValidatorModel):
+class AwsApiGatewayCanarySettingsOutput(BaseValidatorModel):
     PercentTraffic: Optional[float] = None
     DeploymentId: Optional[str] = None
     StageVariableOverrides: Optional[Dict[str, str]] = None
     UseStageCache: Optional[bool] = None
 
 
-class AwsApiGatewayCanarySettingsTypeDef(BaseValidatorModel):
+class AwsApiGatewayCanarySettings(BaseValidatorModel):
     PercentTraffic: Optional[float] = None
     DeploymentId: Optional[str] = None
     StageVariableOverrides: Optional[Mapping[str, str]] = None
     UseStageCache: Optional[bool] = None
 
 
-class AwsApiGatewayEndpointConfigurationOutputTypeDef(BaseValidatorModel):
+class AwsApiGatewayEndpointConfigurationOutput(BaseValidatorModel):
     Types: Optional[List[str]] = None
 
 
-class AwsApiGatewayEndpointConfigurationTypeDef(BaseValidatorModel):
+class AwsApiGatewayEndpointConfiguration(BaseValidatorModel):
     Types: Optional[Sequence[str]] = None
 
 
-class AwsApiGatewayMethodSettingsTypeDef(BaseValidatorModel):
+class AwsApiGatewayMethodSettings(BaseValidatorModel):
     MetricsEnabled: Optional[bool] = None
     LoggingLevel: Optional[str] = None
     DataTraceEnabled: Optional[bool] = None
@@ -249,7 +249,7 @@ class AwsApiGatewayMethodSettingsTypeDef(BaseValidatorModel):
     ResourcePath: Optional[str] = None
 
 
-class AwsCorsConfigurationOutputTypeDef(BaseValidatorModel):
+class AwsCorsConfigurationOutput(BaseValidatorModel):
     AllowOrigins: Optional[List[str]] = None
     AllowCredentials: Optional[bool] = None
     ExposeHeaders: Optional[List[str]] = None
@@ -258,7 +258,7 @@ class AwsCorsConfigurationOutputTypeDef(BaseValidatorModel):
     AllowHeaders: Optional[List[str]] = None
 
 
-class AwsApiGatewayV2RouteSettingsTypeDef(BaseValidatorModel):
+class AwsApiGatewayV2RouteSettings(BaseValidatorModel):
     DetailedMetricsEnabled: Optional[bool] = None
     LoggingLevel: Optional[str] = None
     DataTraceEnabled: Optional[bool] = None
@@ -266,43 +266,43 @@ class AwsApiGatewayV2RouteSettingsTypeDef(BaseValidatorModel):
     ThrottlingRateLimit: Optional[float] = None
 
 
-class AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef(BaseValidatorModel):
+class AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails(BaseValidatorModel):
     AuthorizerResultTtlInSeconds: Optional[int] = None
     AuthorizerUri: Optional[str] = None
     IdentityValidationExpression: Optional[str] = None
 
 
-class AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef(BaseValidatorModel):
+class AwsAppSyncGraphQlApiOpenIdConnectConfigDetails(BaseValidatorModel):
     AuthTtL: Optional[int] = None
     ClientId: Optional[str] = None
     IatTtL: Optional[int] = None
     Issuer: Optional[str] = None
 
 
-class AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef(BaseValidatorModel):
+class AwsAppSyncGraphQlApiUserPoolConfigDetails(BaseValidatorModel):
     AppIdClientRegex: Optional[str] = None
     AwsRegion: Optional[str] = None
     DefaultAction: Optional[str] = None
     UserPoolId: Optional[str] = None
 
 
-class AwsAppSyncGraphQlApiLogConfigDetailsTypeDef(BaseValidatorModel):
+class AwsAppSyncGraphQlApiLogConfigDetails(BaseValidatorModel):
     CloudWatchLogsRoleArn: Optional[str] = None
     ExcludeVerboseContent: Optional[bool] = None
     FieldLogLevel: Optional[str] = None
 
 
-class AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails(BaseValidatorModel):
     Value: Optional[str] = None
 
 
-class AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     Version: Optional[str] = None
 
 
-class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef(BaseValidatorModel):
+class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails(BaseValidatorModel):
     DeleteOnTermination: Optional[bool] = None
     Encrypted: Optional[bool] = None
     Iops: Optional[int] = None
@@ -311,97 +311,97 @@ class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef(Base
     VolumeType: Optional[str] = None
 
 
-class AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef(BaseValidatorModel):
+class AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef(BaseValidatorModel):
+class AwsAutoScalingLaunchConfigurationMetadataOptions(BaseValidatorModel):
     HttpEndpoint: Optional[str] = None
     HttpPutResponseHopLimit: Optional[int] = None
     HttpTokens: Optional[str] = None
 
 
-class AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutputTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutput(BaseValidatorModel):
     BackupOptions: Optional[Dict[str, str]] = None
     ResourceType: Optional[str] = None
 
 
-class AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanAdvancedBackupSettingsDetails(BaseValidatorModel):
     BackupOptions: Optional[Mapping[str, str]] = None
     ResourceType: Optional[str] = None
 
 
-class AwsBackupBackupPlanLifecycleDetailsTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanLifecycleDetails(BaseValidatorModel):
     DeleteAfterDays: Optional[int] = None
     MoveToColdStorageAfterDays: Optional[int] = None
 
 
-class AwsBackupBackupVaultNotificationsDetailsOutputTypeDef(BaseValidatorModel):
+class AwsBackupBackupVaultNotificationsDetailsOutput(BaseValidatorModel):
     BackupVaultEvents: Optional[List[str]] = None
     SnsTopicArn: Optional[str] = None
 
 
-class AwsBackupBackupVaultNotificationsDetailsTypeDef(BaseValidatorModel):
+class AwsBackupBackupVaultNotificationsDetails(BaseValidatorModel):
     BackupVaultEvents: Optional[Sequence[str]] = None
     SnsTopicArn: Optional[str] = None
 
 
-class AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef(BaseValidatorModel):
+class AwsBackupRecoveryPointCalculatedLifecycleDetails(BaseValidatorModel):
     DeleteAt: Optional[str] = None
     MoveToColdStorageAt: Optional[str] = None
 
 
-class AwsBackupRecoveryPointCreatedByDetailsTypeDef(BaseValidatorModel):
+class AwsBackupRecoveryPointCreatedByDetails(BaseValidatorModel):
     BackupPlanArn: Optional[str] = None
     BackupPlanId: Optional[str] = None
     BackupPlanVersion: Optional[str] = None
     BackupRuleId: Optional[str] = None
 
 
-class AwsBackupRecoveryPointLifecycleDetailsTypeDef(BaseValidatorModel):
+class AwsBackupRecoveryPointLifecycleDetails(BaseValidatorModel):
     DeleteAfterDays: Optional[int] = None
     MoveToColdStorageAfterDays: Optional[int] = None
 
 
-class AwsCertificateManagerCertificateExtendedKeyUsageTypeDef(BaseValidatorModel):
+class AwsCertificateManagerCertificateExtendedKeyUsage(BaseValidatorModel):
     Name: Optional[str] = None
     OId: Optional[str] = None
 
 
-class AwsCertificateManagerCertificateKeyUsageTypeDef(BaseValidatorModel):
+class AwsCertificateManagerCertificateKeyUsage(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class AwsCertificateManagerCertificateOptionsTypeDef(BaseValidatorModel):
+class AwsCertificateManagerCertificateOptions(BaseValidatorModel):
     CertificateTransparencyLoggingPreference: Optional[str] = None
 
 
-class AwsCloudFormationStackDriftInformationDetailsTypeDef(BaseValidatorModel):
+class AwsCloudFormationStackDriftInformationDetails(BaseValidatorModel):
     StackDriftStatus: Optional[str] = None
 
 
-class AwsCloudFormationStackOutputsDetailsTypeDef(BaseValidatorModel):
+class AwsCloudFormationStackOutputsDetails(BaseValidatorModel):
     Description: Optional[str] = None
     OutputKey: Optional[str] = None
     OutputValue: Optional[str] = None
 
 
-class AwsCloudFrontDistributionCacheBehaviorTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionCacheBehavior(BaseValidatorModel):
     ViewerProtocolPolicy: Optional[str] = None
 
 
-class AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionDefaultCacheBehavior(BaseValidatorModel):
     ViewerProtocolPolicy: Optional[str] = None
 
 
-class AwsCloudFrontDistributionLoggingTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionLogging(BaseValidatorModel):
     Bucket: Optional[str] = None
     Enabled: Optional[bool] = None
     IncludeCookies: Optional[bool] = None
     Prefix: Optional[str] = None
 
 
-class AwsCloudFrontDistributionViewerCertificateTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionViewerCertificate(BaseValidatorModel):
     AcmCertificateArn: Optional[str] = None
     Certificate: Optional[str] = None
     CertificateSource: Optional[str] = None
@@ -411,31 +411,31 @@ class AwsCloudFrontDistributionViewerCertificateTypeDef(BaseValidatorModel):
     SslSupportMethod: Optional[str] = None
 
 
-class AwsCloudFrontDistributionOriginSslProtocolsOutputTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginSslProtocolsOutput(BaseValidatorModel):
     Items: Optional[List[str]] = None
     Quantity: Optional[int] = None
 
 
-class AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutputTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutput(BaseValidatorModel):
     Items: Optional[List[int]] = None
     Quantity: Optional[int] = None
 
 
-class AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginGroupFailoverStatusCodes(BaseValidatorModel):
     Items: Optional[Sequence[int]] = None
     Quantity: Optional[int] = None
 
 
-class AwsCloudFrontDistributionOriginS3OriginConfigTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginS3OriginConfig(BaseValidatorModel):
     OriginAccessIdentity: Optional[str] = None
 
 
-class AwsCloudFrontDistributionOriginSslProtocolsTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginSslProtocols(BaseValidatorModel):
     Items: Optional[Sequence[str]] = None
     Quantity: Optional[int] = None
 
 
-class AwsCloudTrailTrailDetailsTypeDef(BaseValidatorModel):
+class AwsCloudTrailTrailDetails(BaseValidatorModel):
     CloudWatchLogsLogGroupArn: Optional[str] = None
     CloudWatchLogsRoleArn: Optional[str] = None
     HasCustomEventSelectors: Optional[bool] = None
@@ -453,41 +453,41 @@ class AwsCloudTrailTrailDetailsTypeDef(BaseValidatorModel):
     TrailArn: Optional[str] = None
 
 
-class AwsCloudWatchAlarmDimensionsDetailsTypeDef(BaseValidatorModel):
+class AwsCloudWatchAlarmDimensionsDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsCodeBuildProjectVpcConfigOutputTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectVpcConfigOutput(BaseValidatorModel):
     VpcId: Optional[str] = None
     Subnets: Optional[List[str]] = None
     SecurityGroupIds: Optional[List[str]] = None
 
 
-class AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectEnvironmentRegistryCredential(BaseValidatorModel):
     Credential: Optional[str] = None
     CredentialProvider: Optional[str] = None
 
 
-class AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails(BaseValidatorModel):
     GroupName: Optional[str] = None
     Status: Optional[str] = None
     StreamName: Optional[str] = None
 
 
-class AwsCodeBuildProjectLogsConfigS3LogsDetailsTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectLogsConfigS3LogsDetails(BaseValidatorModel):
     EncryptionDisabled: Optional[bool] = None
     Location: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsCodeBuildProjectVpcConfigTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectVpcConfig(BaseValidatorModel):
     VpcId: Optional[str] = None
     Subnets: Optional[Sequence[str]] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class AwsCorsConfigurationTypeDef(BaseValidatorModel):
+class AwsCorsConfiguration(BaseValidatorModel):
     AllowOrigins: Optional[Sequence[str]] = None
     AllowCredentials: Optional[bool] = None
     ExposeHeaders: Optional[Sequence[str]] = None
@@ -496,7 +496,7 @@ class AwsCorsConfigurationTypeDef(BaseValidatorModel):
     AllowHeaders: Optional[Sequence[str]] = None
 
 
-class AwsDmsEndpointDetailsTypeDef(BaseValidatorModel):
+class AwsDmsEndpointDetails(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     DatabaseName: Optional[str] = None
     EndpointArn: Optional[str] = None
@@ -512,15 +512,15 @@ class AwsDmsEndpointDetailsTypeDef(BaseValidatorModel):
     Username: Optional[str] = None
 
 
-class AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef(BaseValidatorModel):
+class AwsDmsReplicationInstanceReplicationSubnetGroupDetails(BaseValidatorModel):
     ReplicationSubnetGroupIdentifier: Optional[str] = None
 
 
-class AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef(BaseValidatorModel):
+class AwsDmsReplicationInstanceVpcSecurityGroupsDetails(BaseValidatorModel):
     VpcSecurityGroupId: Optional[str] = None
 
 
-class AwsDmsReplicationTaskDetailsTypeDef(BaseValidatorModel):
+class AwsDmsReplicationTaskDetails(BaseValidatorModel):
     CdcStartPosition: Optional[str] = None
     CdcStartTime: Optional[str] = None
     CdcStopPosition: Optional[str] = None
@@ -536,22 +536,22 @@ class AwsDmsReplicationTaskDetailsTypeDef(BaseValidatorModel):
     TaskData: Optional[str] = None
 
 
-class AwsDynamoDbTableAttributeDefinitionTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableAttributeDefinition(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeType: Optional[str] = None
 
 
-class AwsDynamoDbTableBillingModeSummaryTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableBillingModeSummary(BaseValidatorModel):
     BillingMode: Optional[str] = None
     LastUpdateToPayPerRequestDateTime: Optional[str] = None
 
 
-class AwsDynamoDbTableKeySchemaTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableKeySchema(BaseValidatorModel):
     AttributeName: Optional[str] = None
     KeyType: Optional[str] = None
 
 
-class AwsDynamoDbTableProvisionedThroughputTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableProvisionedThroughput(BaseValidatorModel):
     LastDecreaseDateTime: Optional[str] = None
     LastIncreaseDateTime: Optional[str] = None
     NumberOfDecreasesToday: Optional[int] = None
@@ -559,69 +559,69 @@ class AwsDynamoDbTableProvisionedThroughputTypeDef(BaseValidatorModel):
     WriteCapacityUnits: Optional[int] = None
 
 
-class AwsDynamoDbTableRestoreSummaryTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableRestoreSummary(BaseValidatorModel):
     SourceBackupArn: Optional[str] = None
     SourceTableArn: Optional[str] = None
     RestoreDateTime: Optional[str] = None
     RestoreInProgress: Optional[bool] = None
 
 
-class AwsDynamoDbTableSseDescriptionTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableSseDescription(BaseValidatorModel):
     InaccessibleEncryptionDateTime: Optional[str] = None
     Status: Optional[str] = None
     SseType: Optional[str] = None
     KmsMasterKeyArn: Optional[str] = None
 
 
-class AwsDynamoDbTableStreamSpecificationTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableStreamSpecification(BaseValidatorModel):
     StreamEnabled: Optional[bool] = None
     StreamViewType: Optional[str] = None
 
 
-class AwsDynamoDbTableProjectionOutputTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableProjectionOutput(BaseValidatorModel):
     NonKeyAttributes: Optional[List[str]] = None
     ProjectionType: Optional[str] = None
 
 
-class AwsDynamoDbTableProjectionTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableProjection(BaseValidatorModel):
     NonKeyAttributes: Optional[Sequence[str]] = None
     ProjectionType: Optional[str] = None
 
 
-class AwsDynamoDbTableProvisionedThroughputOverrideTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableProvisionedThroughputOverride(BaseValidatorModel):
     ReadCapacityUnits: Optional[int] = None
 
 
-class AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails(BaseValidatorModel):
     DirectoryId: Optional[str] = None
 
 
-class AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails(BaseValidatorModel):
     SamlProviderArn: Optional[str] = None
     SelfServiceSamlProviderArn: Optional[str] = None
 
 
-class AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails(BaseValidatorModel):
     ClientRootCertificateChain: Optional[str] = None
 
 
-class AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
 
-class AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
     BannerText: Optional[str] = None
 
 
-class AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointConnectionLogOptionsDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
     CloudwatchLogGroup: Optional[str] = None
     CloudwatchLogStream: Optional[str] = None
 
 
-class AwsEc2EipDetailsTypeDef(BaseValidatorModel):
+class AwsEc2EipDetails(BaseValidatorModel):
     InstanceId: Optional[str] = None
     PublicIp: Optional[str] = None
     AllocationId: Optional[str] = None
@@ -634,7 +634,7 @@ class AwsEc2EipDetailsTypeDef(BaseValidatorModel):
     PrivateIpAddress: Optional[str] = None
 
 
-class AwsEc2InstanceMetadataOptionsTypeDef(BaseValidatorModel):
+class AwsEc2InstanceMetadataOptions(BaseValidatorModel):
     HttpEndpoint: Optional[str] = None
     HttpProtocolIpv6: Optional[str] = None
     HttpPutResponseHopLimit: Optional[int] = None
@@ -642,15 +642,15 @@ class AwsEc2InstanceMetadataOptionsTypeDef(BaseValidatorModel):
     InstanceMetadataTags: Optional[str] = None
 
 
-class AwsEc2InstanceMonitoringDetailsTypeDef(BaseValidatorModel):
+class AwsEc2InstanceMonitoringDetails(BaseValidatorModel):
     State: Optional[str] = None
 
 
-class AwsEc2InstanceNetworkInterfacesDetailsTypeDef(BaseValidatorModel):
+class AwsEc2InstanceNetworkInterfacesDetails(BaseValidatorModel):
     NetworkInterfaceId: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails(BaseValidatorModel):
     DeleteOnTermination: Optional[bool] = None
     Encrypted: Optional[bool] = None
     Iops: Optional[int] = None
@@ -661,37 +661,37 @@ class AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef(BaseValidat
     VolumeType: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataCpuOptionsDetails(BaseValidatorModel):
     CoreCount: Optional[int] = None
     ThreadsPerCore: Optional[int] = None
 
 
-class AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataCreditSpecificationDetails(BaseValidatorModel):
     CpuCredits: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataEnclaveOptionsDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataHibernationOptionsDetails(BaseValidatorModel):
     Configured: Optional[bool] = None
 
 
-class AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataIamInstanceProfileDetails(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataLicenseSetDetails(BaseValidatorModel):
     LicenseConfigurationArn: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataMaintenanceOptionsDetails(BaseValidatorModel):
     AutoRecovery: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataMetadataOptionsDetails(BaseValidatorModel):
     HttpEndpoint: Optional[str] = None
     HttpProtocolIpv6: Optional[str] = None
     HttpTokens: Optional[str] = None
@@ -699,11 +699,11 @@ class AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef(BaseValidatorModel):
     InstanceMetadataTags: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataMonitoringDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class AwsEc2LaunchTemplateDataPlacementDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataPlacementDetails(BaseValidatorModel):
     Affinity: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     GroupName: Optional[str] = None
@@ -714,13 +714,13 @@ class AwsEc2LaunchTemplateDataPlacementDetailsTypeDef(BaseValidatorModel):
     Tenancy: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails(BaseValidatorModel):
     EnableResourceNameDnsAAAARecord: Optional[bool] = None
     EnableResourceNameDnsARecord: Optional[bool] = None
     HostnameType: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails(BaseValidatorModel):
     BlockDurationMinutes: Optional[int] = None
     InstanceInterruptionBehavior: Optional[str] = None
     MaxPrice: Optional[str] = None
@@ -728,70 +728,70 @@ class AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef(Bas
     ValidUntil: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails(BaseValidatorModel):
     Max: Optional[int] = None
     Min: Optional[int] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails(BaseValidatorModel):
     Max: Optional[int] = None
     Min: Optional[int] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails(BaseValidatorModel):
     Max: Optional[float] = None
     Min: Optional[float] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails(BaseValidatorModel):
     Max: Optional[int] = None
     Min: Optional[int] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails(BaseValidatorModel):
     Max: Optional[int] = None
     Min: Optional[int] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails(BaseValidatorModel):
     Max: Optional[float] = None
     Min: Optional[float] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails(BaseValidatorModel):
     Max: Optional[int] = None
     Min: Optional[int] = None
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails(BaseValidatorModel):
     Ipv4Prefix: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails(BaseValidatorModel):
     Ipv6Address: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails(BaseValidatorModel):
     Ipv6Prefix: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails(BaseValidatorModel):
     Primary: Optional[bool] = None
     PrivateIpAddress: Optional[str] = None
 
 
-class AwsEc2NetworkAclAssociationTypeDef(BaseValidatorModel):
+class AwsEc2NetworkAclAssociation(BaseValidatorModel):
     NetworkAclAssociationId: Optional[str] = None
     NetworkAclId: Optional[str] = None
     SubnetId: Optional[str] = None
 
 
-class PortRangeFromToTypeDef(BaseValidatorModel):
+class PortRangeFromTo(BaseValidatorModel):
     From: Optional[int] = None
     To: Optional[int] = None
 
 
-class AwsEc2NetworkInterfaceAttachmentTypeDef(BaseValidatorModel):
+class AwsEc2NetworkInterfaceAttachment(BaseValidatorModel):
     AttachTime: Optional[str] = None
     AttachmentId: Optional[str] = None
     DeleteOnTermination: Optional[bool] = None
@@ -801,25 +801,25 @@ class AwsEc2NetworkInterfaceAttachmentTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef(BaseValidatorModel):
+class AwsEc2NetworkInterfaceIpV6AddressDetail(BaseValidatorModel):
     IpV6Address: Optional[str] = None
 
 
-class AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef(BaseValidatorModel):
+class AwsEc2NetworkInterfacePrivateIpAddressDetail(BaseValidatorModel):
     PrivateIpAddress: Optional[str] = None
     PrivateDnsName: Optional[str] = None
 
 
-class AwsEc2NetworkInterfaceSecurityGroupTypeDef(BaseValidatorModel):
+class AwsEc2NetworkInterfaceSecurityGroup(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupId: Optional[str] = None
 
 
-class PropagatingVgwSetDetailsTypeDef(BaseValidatorModel):
+class PropagatingVgwSetDetails(BaseValidatorModel):
     GatewayId: Optional[str] = None
 
 
-class RouteSetDetailsTypeDef(BaseValidatorModel):
+class RouteSetDetails(BaseValidatorModel):
     CarrierGatewayId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
     DestinationCidrBlock: Optional[str] = None
@@ -838,19 +838,19 @@ class RouteSetDetailsTypeDef(BaseValidatorModel):
     VpcPeeringConnectionId: Optional[str] = None
 
 
-class AwsEc2SecurityGroupIpRangeTypeDef(BaseValidatorModel):
+class AwsEc2SecurityGroupIpRange(BaseValidatorModel):
     CidrIp: Optional[str] = None
 
 
-class AwsEc2SecurityGroupIpv6RangeTypeDef(BaseValidatorModel):
+class AwsEc2SecurityGroupIpv6Range(BaseValidatorModel):
     CidrIpv6: Optional[str] = None
 
 
-class AwsEc2SecurityGroupPrefixListIdTypeDef(BaseValidatorModel):
+class AwsEc2SecurityGroupPrefixListId(BaseValidatorModel):
     PrefixListId: Optional[str] = None
 
 
-class AwsEc2SecurityGroupUserIdGroupPairTypeDef(BaseValidatorModel):
+class AwsEc2SecurityGroupUserIdGroupPair(BaseValidatorModel):
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
     PeeringStatus: Optional[str] = None
@@ -859,13 +859,13 @@ class AwsEc2SecurityGroupUserIdGroupPairTypeDef(BaseValidatorModel):
     VpcPeeringConnectionId: Optional[str] = None
 
 
-class Ipv6CidrBlockAssociationTypeDef(BaseValidatorModel):
+class Ipv6CidrBlockAssociation(BaseValidatorModel):
     AssociationId: Optional[str] = None
     Ipv6CidrBlock: Optional[str] = None
     CidrBlockState: Optional[str] = None
 
 
-class AwsEc2TransitGatewayDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2TransitGatewayDetailsOutput(BaseValidatorModel):
     Id: Optional[str] = None
     Description: Optional[str] = None
     DefaultRouteTablePropagation: Optional[str] = None
@@ -880,7 +880,7 @@ class AwsEc2TransitGatewayDetailsOutputTypeDef(BaseValidatorModel):
     AmazonSideAsn: Optional[int] = None
 
 
-class AwsEc2TransitGatewayDetailsTypeDef(BaseValidatorModel):
+class AwsEc2TransitGatewayDetails(BaseValidatorModel):
     Id: Optional[str] = None
     Description: Optional[str] = None
     DefaultRouteTablePropagation: Optional[str] = None
@@ -895,48 +895,48 @@ class AwsEc2TransitGatewayDetailsTypeDef(BaseValidatorModel):
     AmazonSideAsn: Optional[int] = None
 
 
-class AwsEc2VolumeAttachmentTypeDef(BaseValidatorModel):
+class AwsEc2VolumeAttachment(BaseValidatorModel):
     AttachTime: Optional[str] = None
     DeleteOnTermination: Optional[bool] = None
     InstanceId: Optional[str] = None
     Status: Optional[str] = None
 
 
-class CidrBlockAssociationTypeDef(BaseValidatorModel):
+class CidrBlockAssociation(BaseValidatorModel):
     AssociationId: Optional[str] = None
     CidrBlock: Optional[str] = None
     CidrBlockState: Optional[str] = None
 
 
-class AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef(BaseValidatorModel):
+class AwsEc2VpcEndpointServiceServiceTypeDetails(BaseValidatorModel):
     ServiceType: Optional[str] = None
 
 
-class AwsEc2VpcPeeringConnectionStatusDetailsTypeDef(BaseValidatorModel):
+class AwsEc2VpcPeeringConnectionStatusDetails(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
 
-class VpcInfoCidrBlockSetDetailsTypeDef(BaseValidatorModel):
+class VpcInfoCidrBlockSetDetails(BaseValidatorModel):
     CidrBlock: Optional[str] = None
 
 
-class VpcInfoIpv6CidrBlockSetDetailsTypeDef(BaseValidatorModel):
+class VpcInfoIpv6CidrBlockSetDetails(BaseValidatorModel):
     Ipv6CidrBlock: Optional[str] = None
 
 
-class VpcInfoPeeringOptionsDetailsTypeDef(BaseValidatorModel):
+class VpcInfoPeeringOptionsDetails(BaseValidatorModel):
     AllowDnsResolutionFromRemoteVpc: Optional[bool] = None
     AllowEgressFromLocalClassicLinkToRemoteVpc: Optional[bool] = None
     AllowEgressFromLocalVpcToRemoteClassicLink: Optional[bool] = None
 
 
-class AwsEc2VpnConnectionRoutesDetailsTypeDef(BaseValidatorModel):
+class AwsEc2VpnConnectionRoutesDetails(BaseValidatorModel):
     DestinationCidrBlock: Optional[str] = None
     State: Optional[str] = None
 
 
-class AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef(BaseValidatorModel):
+class AwsEc2VpnConnectionVgwTelemetryDetails(BaseValidatorModel):
     AcceptedRouteCount: Optional[int] = None
     CertificateArn: Optional[str] = None
     LastStatusChange: Optional[str] = None
@@ -945,7 +945,7 @@ class AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
-class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutput(BaseValidatorModel):
     DpdTimeoutSeconds: Optional[int] = None
     IkeVersions: Optional[List[str]] = None
     OutsideIpAddress: Optional[str] = None
@@ -964,7 +964,7 @@ class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutputTypeDef(BaseValidatorM
     TunnelInsideCidr: Optional[str] = None
 
 
-class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2VpnConnectionOptionsTunnelOptionsDetails(BaseValidatorModel):
     DpdTimeoutSeconds: Optional[int] = None
     IkeVersions: Optional[Sequence[str]] = None
     OutsideIpAddress: Optional[str] = None
@@ -983,7 +983,7 @@ class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef(BaseValidatorModel):
     TunnelInsideCidr: Optional[str] = None
 
 
-class AwsEcrContainerImageDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcrContainerImageDetailsOutput(BaseValidatorModel):
     RegistryId: Optional[str] = None
     RepositoryName: Optional[str] = None
     Architecture: Optional[str] = None
@@ -992,7 +992,7 @@ class AwsEcrContainerImageDetailsOutputTypeDef(BaseValidatorModel):
     ImagePublishedAt: Optional[str] = None
 
 
-class AwsEcrContainerImageDetailsTypeDef(BaseValidatorModel):
+class AwsEcrContainerImageDetails(BaseValidatorModel):
     RegistryId: Optional[str] = None
     RepositoryName: Optional[str] = None
     Architecture: Optional[str] = None
@@ -1001,84 +1001,84 @@ class AwsEcrContainerImageDetailsTypeDef(BaseValidatorModel):
     ImagePublishedAt: Optional[str] = None
 
 
-class AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsEcrRepositoryImageScanningConfigurationDetails(BaseValidatorModel):
     ScanOnPush: Optional[bool] = None
 
 
-class AwsEcrRepositoryLifecyclePolicyDetailsTypeDef(BaseValidatorModel):
+class AwsEcrRepositoryLifecyclePolicyDetails(BaseValidatorModel):
     LifecyclePolicyText: Optional[str] = None
     RegistryId: Optional[str] = None
 
 
-class AwsEcsClusterClusterSettingsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsClusterClusterSettingsDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef(BaseValidatorModel):
+class AwsEcsClusterDefaultCapacityProviderStrategyDetails(BaseValidatorModel):
     Base: Optional[int] = None
     CapacityProvider: Optional[str] = None
     Weight: Optional[int] = None
 
 
-class AwsMountPointTypeDef(BaseValidatorModel):
+class AwsMountPoint(BaseValidatorModel):
     SourceVolume: Optional[str] = None
     ContainerPath: Optional[str] = None
 
 
-class AwsEcsServiceCapacityProviderStrategyDetailsTypeDef(BaseValidatorModel):
+class AwsEcsServiceCapacityProviderStrategyDetails(BaseValidatorModel):
     Base: Optional[int] = None
     CapacityProvider: Optional[str] = None
     Weight: Optional[int] = None
 
 
-class AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef(BaseValidatorModel):
+class AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails(BaseValidatorModel):
     Enable: Optional[bool] = None
     Rollback: Optional[bool] = None
 
 
-class AwsEcsServiceLoadBalancersDetailsTypeDef(BaseValidatorModel):
+class AwsEcsServiceLoadBalancersDetails(BaseValidatorModel):
     ContainerName: Optional[str] = None
     ContainerPort: Optional[int] = None
     LoadBalancerName: Optional[str] = None
     TargetGroupArn: Optional[str] = None
 
 
-class AwsEcsServiceServiceRegistriesDetailsTypeDef(BaseValidatorModel):
+class AwsEcsServiceServiceRegistriesDetails(BaseValidatorModel):
     ContainerName: Optional[str] = None
     ContainerPort: Optional[int] = None
     Port: Optional[int] = None
     RegistryArn: Optional[str] = None
 
 
-class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutput(BaseValidatorModel):
     AssignPublicIp: Optional[str] = None
     SecurityGroups: Optional[List[str]] = None
     Subnets: Optional[List[str]] = None
 
 
-class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails(BaseValidatorModel):
     AssignPublicIp: Optional[str] = None
     SecurityGroups: Optional[Sequence[str]] = None
     Subnets: Optional[Sequence[str]] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails(BaseValidatorModel):
     Condition: Optional[str] = None
     ContainerName: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails(BaseValidatorModel):
     Hostname: Optional[str] = None
     IpAddress: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutput(BaseValidatorModel):
     Command: Optional[List[str]] = None
     Interval: Optional[int] = None
     Retries: Optional[int] = None
@@ -1086,27 +1086,27 @@ class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutputTypeDef(Ba
     Timeout: Optional[int] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails(BaseValidatorModel):
     CredentialsParameter: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails(BaseValidatorModel):
     Name: Optional[str] = None
     ValueFrom: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails(BaseValidatorModel):
     Namespace: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails(BaseValidatorModel):
     HardLimit: Optional[int] = None
     Name: Optional[str] = None
     SoftLimit: Optional[int] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails(BaseValidatorModel):
     Command: Optional[Sequence[str]] = None
     Interval: Optional[int] = None
     Retries: Optional[int] = None
@@ -1114,46 +1114,46 @@ class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsTypeDef(BaseVali
     Timeout: Optional[int] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails(BaseValidatorModel):
     Add: Optional[Sequence[str]] = None
     Drop: Optional[Sequence[str]] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutput(BaseValidatorModel):
     ContainerPath: Optional[str] = None
     HostPath: Optional[str] = None
     Permissions: Optional[List[str]] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutput(BaseValidatorModel):
     ContainerPath: Optional[str] = None
     MountOptions: Optional[List[str]] = None
     Size: Optional[int] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails(BaseValidatorModel):
     ContainerPath: Optional[str] = None
     HostPath: Optional[str] = None
     Permissions: Optional[Sequence[str]] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails(BaseValidatorModel):
     ContainerPath: Optional[str] = None
     MountOptions: Optional[Sequence[str]] = None
     Size: Optional[int] = None
 
 
-class AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionInferenceAcceleratorsDetails(BaseValidatorModel):
     DeviceName: Optional[str] = None
     DeviceType: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutput(BaseValidatorModel):
     Autoprovision: Optional[bool] = None
     Driver: Optional[str] = None
     DriverOpts: Optional[Dict[str, str]] = None
@@ -1161,11 +1161,11 @@ class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutputTypeDef(B
     Scope: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionVolumesHostDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionVolumesHostDetails(BaseValidatorModel):
     SourcePath: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails(BaseValidatorModel):
     Autoprovision: Optional[bool] = None
     Driver: Optional[str] = None
     DriverOpts: Optional[Mapping[str, str]] = None
@@ -1173,82 +1173,82 @@ class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsTypeDef(BaseVal
     Scope: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails(BaseValidatorModel):
     AccessPointId: Optional[str] = None
     Iam: Optional[str] = None
 
 
-class AwsEcsTaskVolumeHostDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskVolumeHostDetails(BaseValidatorModel):
     SourcePath: Optional[str] = None
 
 
-class AwsEfsAccessPointPosixUserDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEfsAccessPointPosixUserDetailsOutput(BaseValidatorModel):
     Gid: Optional[str] = None
     SecondaryGids: Optional[List[str]] = None
     Uid: Optional[str] = None
 
 
-class AwsEfsAccessPointPosixUserDetailsTypeDef(BaseValidatorModel):
+class AwsEfsAccessPointPosixUserDetails(BaseValidatorModel):
     Gid: Optional[str] = None
     SecondaryGids: Optional[Sequence[str]] = None
     Uid: Optional[str] = None
 
 
-class AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef(BaseValidatorModel):
+class AwsEfsAccessPointRootDirectoryCreationInfoDetails(BaseValidatorModel):
     OwnerGid: Optional[str] = None
     OwnerUid: Optional[str] = None
     Permissions: Optional[str] = None
 
 
-class AwsEksClusterResourcesVpcConfigDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEksClusterResourcesVpcConfigDetailsOutput(BaseValidatorModel):
     SecurityGroupIds: Optional[List[str]] = None
     SubnetIds: Optional[List[str]] = None
     EndpointPublicAccess: Optional[bool] = None
 
 
-class AwsEksClusterLoggingClusterLoggingDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEksClusterLoggingClusterLoggingDetailsOutput(BaseValidatorModel):
     Enabled: Optional[bool] = None
     Types: Optional[List[str]] = None
 
 
-class AwsEksClusterLoggingClusterLoggingDetailsTypeDef(BaseValidatorModel):
+class AwsEksClusterLoggingClusterLoggingDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
     Types: Optional[Sequence[str]] = None
 
 
-class AwsEksClusterResourcesVpcConfigDetailsTypeDef(BaseValidatorModel):
+class AwsEksClusterResourcesVpcConfigDetails(BaseValidatorModel):
     SecurityGroupIds: Optional[Sequence[str]] = None
     SubnetIds: Optional[Sequence[str]] = None
     EndpointPublicAccess: Optional[bool] = None
 
 
-class AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef(BaseValidatorModel):
+class AwsElasticBeanstalkEnvironmentEnvironmentLink(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
     LinkName: Optional[str] = None
 
 
-class AwsElasticBeanstalkEnvironmentOptionSettingTypeDef(BaseValidatorModel):
+class AwsElasticBeanstalkEnvironmentOptionSetting(BaseValidatorModel):
     Namespace: Optional[str] = None
     OptionName: Optional[str] = None
     ResourceName: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsElasticsearchDomainDomainEndpointOptionsTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainDomainEndpointOptions(BaseValidatorModel):
     EnforceHTTPS: Optional[bool] = None
     TLSSecurityPolicy: Optional[str] = None
 
 
-class AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainEncryptionAtRestOptions(BaseValidatorModel):
     Enabled: Optional[bool] = None
     KmsKeyId: Optional[str] = None
 
 
-class AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainNodeToNodeEncryptionOptions(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class AwsElasticsearchDomainServiceSoftwareOptionsTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainServiceSoftwareOptions(BaseValidatorModel):
     AutomatedUpdateDate: Optional[str] = None
     Cancellable: Optional[bool] = None
     CurrentVersion: Optional[str] = None
@@ -1258,75 +1258,75 @@ class AwsElasticsearchDomainServiceSoftwareOptionsTypeDef(BaseValidatorModel):
     UpdateStatus: Optional[str] = None
 
 
-class AwsElasticsearchDomainVPCOptionsOutputTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainVPCOptionsOutput(BaseValidatorModel):
     AvailabilityZones: Optional[List[str]] = None
     SecurityGroupIds: Optional[List[str]] = None
     SubnetIds: Optional[List[str]] = None
     VPCId: Optional[str] = None
 
 
-class AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails(BaseValidatorModel):
     AvailabilityZoneCount: Optional[int] = None
 
 
-class AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainLogPublishingOptionsLogConfig(BaseValidatorModel):
     CloudWatchLogsLogGroupArn: Optional[str] = None
     Enabled: Optional[bool] = None
 
 
-class AwsElasticsearchDomainVPCOptionsTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainVPCOptions(BaseValidatorModel):
     AvailabilityZones: Optional[Sequence[str]] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
     SubnetIds: Optional[Sequence[str]] = None
     VPCId: Optional[str] = None
 
 
-class AwsElbAppCookieStickinessPolicyTypeDef(BaseValidatorModel):
+class AwsElbAppCookieStickinessPolicy(BaseValidatorModel):
     CookieName: Optional[str] = None
     PolicyName: Optional[str] = None
 
 
-class AwsElbLbCookieStickinessPolicyTypeDef(BaseValidatorModel):
+class AwsElbLbCookieStickinessPolicy(BaseValidatorModel):
     CookieExpirationPeriod: Optional[int] = None
     PolicyName: Optional[str] = None
 
 
-class AwsElbLoadBalancerAccessLogTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerAccessLog(BaseValidatorModel):
     EmitInterval: Optional[int] = None
     Enabled: Optional[bool] = None
     S3BucketName: Optional[str] = None
     S3BucketPrefix: Optional[str] = None
 
 
-class AwsElbLoadBalancerAdditionalAttributeTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerAdditionalAttribute(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsElbLoadBalancerConnectionDrainingTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerConnectionDraining(BaseValidatorModel):
     Enabled: Optional[bool] = None
     Timeout: Optional[int] = None
 
 
-class AwsElbLoadBalancerConnectionSettingsTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerConnectionSettings(BaseValidatorModel):
     IdleTimeout: Optional[int] = None
 
 
-class AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerCrossZoneLoadBalancing(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class AwsElbLoadBalancerBackendServerDescriptionOutputTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerBackendServerDescriptionOutput(BaseValidatorModel):
     InstancePort: Optional[int] = None
     PolicyNames: Optional[List[str]] = None
 
 
-class AwsElbLoadBalancerBackendServerDescriptionTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerBackendServerDescription(BaseValidatorModel):
     InstancePort: Optional[int] = None
     PolicyNames: Optional[Sequence[str]] = None
 
 
-class AwsElbLoadBalancerHealthCheckTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerHealthCheck(BaseValidatorModel):
     HealthyThreshold: Optional[int] = None
     Interval: Optional[int] = None
     Target: Optional[str] = None
@@ -1334,93 +1334,93 @@ class AwsElbLoadBalancerHealthCheckTypeDef(BaseValidatorModel):
     UnhealthyThreshold: Optional[int] = None
 
 
-class AwsElbLoadBalancerInstanceTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerInstance(BaseValidatorModel):
     InstanceId: Optional[str] = None
 
 
-class AwsElbLoadBalancerSourceSecurityGroupTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerSourceSecurityGroup(BaseValidatorModel):
     GroupName: Optional[str] = None
     OwnerAlias: Optional[str] = None
 
 
-class AwsElbv2LoadBalancerAttributeTypeDef(BaseValidatorModel):
+class AwsElbv2LoadBalancerAttribute(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class LoadBalancerStateTypeDef(BaseValidatorModel):
+class LoadBalancerState(BaseValidatorModel):
     Code: Optional[str] = None
     Reason: Optional[str] = None
 
 
-class AwsEventSchemasRegistryDetailsTypeDef(BaseValidatorModel):
+class AwsEventSchemasRegistryDetails(BaseValidatorModel):
     Description: Optional[str] = None
     RegistryArn: Optional[str] = None
     RegistryName: Optional[str] = None
 
 
-class AwsEventsEndpointEventBusesDetailsTypeDef(BaseValidatorModel):
+class AwsEventsEndpointEventBusesDetails(BaseValidatorModel):
     EventBusArn: Optional[str] = None
 
 
-class AwsEventsEndpointReplicationConfigDetailsTypeDef(BaseValidatorModel):
+class AwsEventsEndpointReplicationConfigDetails(BaseValidatorModel):
     State: Optional[str] = None
 
 
-class AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetailsTypeDef(BaseValidatorModel):
+class AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails(BaseValidatorModel):
     HealthCheck: Optional[str] = None
 
 
-class AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetailsTypeDef(BaseValidatorModel):
+class AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails(BaseValidatorModel):
     Route: Optional[str] = None
 
 
-class AwsEventsEventbusDetailsTypeDef(BaseValidatorModel):
+class AwsEventsEventbusDetails(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Policy: Optional[str] = None
 
 
-class AwsGuardDutyDetectorDataSourcesCloudTrailDetailsTypeDef(BaseValidatorModel):
+class AwsGuardDutyDetectorDataSourcesCloudTrailDetails(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class AwsGuardDutyDetectorDataSourcesDnsLogsDetailsTypeDef(BaseValidatorModel):
+class AwsGuardDutyDetectorDataSourcesDnsLogsDetails(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class AwsGuardDutyDetectorDataSourcesFlowLogsDetailsTypeDef(BaseValidatorModel):
+class AwsGuardDutyDetectorDataSourcesFlowLogsDetails(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class AwsGuardDutyDetectorDataSourcesS3LogsDetailsTypeDef(BaseValidatorModel):
+class AwsGuardDutyDetectorDataSourcesS3LogsDetails(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetailsTypeDef(BaseValidatorModel):
+class AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class AwsGuardDutyDetectorFeaturesDetailsTypeDef(BaseValidatorModel):
+class AwsGuardDutyDetectorFeaturesDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsIamAccessKeySessionContextAttributesTypeDef(BaseValidatorModel):
+class AwsIamAccessKeySessionContextAttributes(BaseValidatorModel):
     MfaAuthenticated: Optional[bool] = None
     CreationDate: Optional[str] = None
 
 
-class AwsIamAttachedManagedPolicyTypeDef(BaseValidatorModel):
+class AwsIamAttachedManagedPolicy(BaseValidatorModel):
     PolicyName: Optional[str] = None
     PolicyArn: Optional[str] = None
 
 
-class AwsIamGroupPolicyTypeDef(BaseValidatorModel):
+class AwsIamGroupPolicy(BaseValidatorModel):
     PolicyName: Optional[str] = None
 
 
-class AwsIamInstanceProfileRoleTypeDef(BaseValidatorModel):
+class AwsIamInstanceProfileRole(BaseValidatorModel):
     Arn: Optional[str] = None
     AssumeRolePolicyDocument: Optional[str] = None
     CreateDate: Optional[str] = None
@@ -1429,31 +1429,31 @@ class AwsIamInstanceProfileRoleTypeDef(BaseValidatorModel):
     RoleName: Optional[str] = None
 
 
-class AwsIamPermissionsBoundaryTypeDef(BaseValidatorModel):
+class AwsIamPermissionsBoundary(BaseValidatorModel):
     PermissionsBoundaryArn: Optional[str] = None
     PermissionsBoundaryType: Optional[str] = None
 
 
-class AwsIamPolicyVersionTypeDef(BaseValidatorModel):
+class AwsIamPolicyVersion(BaseValidatorModel):
     VersionId: Optional[str] = None
     IsDefaultVersion: Optional[bool] = None
     CreateDate: Optional[str] = None
 
 
-class AwsIamRolePolicyTypeDef(BaseValidatorModel):
+class AwsIamRolePolicy(BaseValidatorModel):
     PolicyName: Optional[str] = None
 
 
-class AwsIamUserPolicyTypeDef(BaseValidatorModel):
+class AwsIamUserPolicy(BaseValidatorModel):
     PolicyName: Optional[str] = None
 
 
-class AwsKinesisStreamStreamEncryptionDetailsTypeDef(BaseValidatorModel):
+class AwsKinesisStreamStreamEncryptionDetails(BaseValidatorModel):
     EncryptionType: Optional[str] = None
     KeyId: Optional[str] = None
 
 
-class AwsKmsKeyDetailsTypeDef(BaseValidatorModel):
+class AwsKmsKeyDetails(BaseValidatorModel):
     AWSAccountId: Optional[str] = None
     CreationDate: Optional[float] = None
     KeyId: Optional[str] = None
@@ -1464,101 +1464,101 @@ class AwsKmsKeyDetailsTypeDef(BaseValidatorModel):
     KeyRotationStatus: Optional[bool] = None
 
 
-class AwsLambdaFunctionCodeTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionCode(BaseValidatorModel):
     S3Bucket: Optional[str] = None
     S3Key: Optional[str] = None
     S3ObjectVersion: Optional[str] = None
     ZipFile: Optional[str] = None
 
 
-class AwsLambdaFunctionDeadLetterConfigTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionDeadLetterConfig(BaseValidatorModel):
     TargetArn: Optional[str] = None
 
 
-class AwsLambdaFunctionLayerTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionLayer(BaseValidatorModel):
     Arn: Optional[str] = None
     CodeSize: Optional[int] = None
 
 
-class AwsLambdaFunctionTracingConfigTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionTracingConfig(BaseValidatorModel):
     Mode: Optional[str] = None
 
 
-class AwsLambdaFunctionVpcConfigOutputTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionVpcConfigOutput(BaseValidatorModel):
     SecurityGroupIds: Optional[List[str]] = None
     SubnetIds: Optional[List[str]] = None
     VpcId: Optional[str] = None
 
 
-class AwsLambdaFunctionEnvironmentErrorTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionEnvironmentError(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     Message: Optional[str] = None
 
 
-class AwsLambdaFunctionVpcConfigTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionVpcConfig(BaseValidatorModel):
     SecurityGroupIds: Optional[Sequence[str]] = None
     SubnetIds: Optional[Sequence[str]] = None
     VpcId: Optional[str] = None
 
 
-class AwsLambdaLayerVersionDetailsOutputTypeDef(BaseValidatorModel):
+class AwsLambdaLayerVersionDetailsOutput(BaseValidatorModel):
     Version: Optional[int] = None
     CompatibleRuntimes: Optional[List[str]] = None
     CreatedDate: Optional[str] = None
 
 
-class AwsLambdaLayerVersionDetailsTypeDef(BaseValidatorModel):
+class AwsLambdaLayerVersionDetails(BaseValidatorModel):
     Version: Optional[int] = None
     CompatibleRuntimes: Optional[Sequence[str]] = None
     CreatedDate: Optional[str] = None
 
 
-class AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutputTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutput(BaseValidatorModel):
     CertificateAuthorityArnList: Optional[List[str]] = None
     Enabled: Optional[bool] = None
 
 
-class AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class AwsMskClusterClusterInfoClientAuthenticationSaslIamDetailsTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class AwsMskClusterClusterInfoClientAuthenticationSaslScramDetailsTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class AwsMskClusterClusterInfoClientAuthenticationTlsDetailsTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoClientAuthenticationTlsDetails(BaseValidatorModel):
     CertificateAuthorityArnList: Optional[Sequence[str]] = None
     Enabled: Optional[bool] = None
 
 
-class AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetailsTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails(BaseValidatorModel):
     DataVolumeKMSKeyId: Optional[str] = None
 
 
-class AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetailsTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails(BaseValidatorModel):
     InCluster: Optional[bool] = None
     ClientBroker: Optional[str] = None
 
 
-class AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef(BaseValidatorModel):
+class AwsNetworkFirewallFirewallSubnetMappingsDetails(BaseValidatorModel):
     SubnetId: Optional[str] = None
 
 
-class AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainMasterUserOptionsDetails(BaseValidatorModel):
     MasterUserArn: Optional[str] = None
     MasterUserName: Optional[str] = None
     MasterUserPassword: Optional[str] = None
 
 
-class AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails(BaseValidatorModel):
     AvailabilityZoneCount: Optional[int] = None
 
 
-class AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainDomainEndpointOptionsDetails(BaseValidatorModel):
     CustomEndpointCertificateArn: Optional[str] = None
     CustomEndpointEnabled: Optional[bool] = None
     EnforceHTTPS: Optional[bool] = None
@@ -1566,16 +1566,16 @@ class AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef(BaseValidato
     TLSSecurityPolicy: Optional[str] = None
 
 
-class AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
     KmsKeyId: Optional[str] = None
 
 
-class AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails(BaseValidatorModel):
     AutomatedUpdateDate: Optional[str] = None
     Cancellable: Optional[bool] = None
     CurrentVersion: Optional[str] = None
@@ -1586,116 +1586,116 @@ class AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef(BaseValidat
     OptionalDeployment: Optional[bool] = None
 
 
-class AwsOpenSearchServiceDomainVpcOptionsDetailsOutputTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainVpcOptionsDetailsOutput(BaseValidatorModel):
     SecurityGroupIds: Optional[List[str]] = None
     SubnetIds: Optional[List[str]] = None
 
 
-class AwsOpenSearchServiceDomainLogPublishingOptionTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainLogPublishingOption(BaseValidatorModel):
     CloudWatchLogsLogGroupArn: Optional[str] = None
     Enabled: Optional[bool] = None
 
 
-class AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainVpcOptionsDetails(BaseValidatorModel):
     SecurityGroupIds: Optional[Sequence[str]] = None
     SubnetIds: Optional[Sequence[str]] = None
 
 
-class AwsRdsDbClusterAssociatedRoleTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterAssociatedRole(BaseValidatorModel):
     RoleArn: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRdsDbClusterMemberTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterMember(BaseValidatorModel):
     IsClusterWriter: Optional[bool] = None
     PromotionTier: Optional[int] = None
     DbInstanceIdentifier: Optional[str] = None
     DbClusterParameterGroupStatus: Optional[str] = None
 
 
-class AwsRdsDbClusterOptionGroupMembershipTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterOptionGroupMembership(BaseValidatorModel):
     DbClusterOptionGroupName: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRdsDbDomainMembershipTypeDef(BaseValidatorModel):
+class AwsRdsDbDomainMembership(BaseValidatorModel):
     Domain: Optional[str] = None
     Status: Optional[str] = None
     Fqdn: Optional[str] = None
     IamRoleName: Optional[str] = None
 
 
-class AwsRdsDbInstanceVpcSecurityGroupTypeDef(BaseValidatorModel):
+class AwsRdsDbInstanceVpcSecurityGroup(BaseValidatorModel):
     VpcSecurityGroupId: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutputTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutput(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeValues: Optional[List[str]] = None
 
 
-class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeValues: Optional[Sequence[str]] = None
 
 
-class AwsRdsDbInstanceAssociatedRoleTypeDef(BaseValidatorModel):
+class AwsRdsDbInstanceAssociatedRole(BaseValidatorModel):
     RoleArn: Optional[str] = None
     FeatureName: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRdsDbInstanceEndpointTypeDef(BaseValidatorModel):
+class AwsRdsDbInstanceEndpoint(BaseValidatorModel):
     Address: Optional[str] = None
     Port: Optional[int] = None
     HostedZoneId: Optional[str] = None
 
 
-class AwsRdsDbOptionGroupMembershipTypeDef(BaseValidatorModel):
+class AwsRdsDbOptionGroupMembership(BaseValidatorModel):
     OptionGroupName: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRdsDbParameterGroupTypeDef(BaseValidatorModel):
+class AwsRdsDbParameterGroup(BaseValidatorModel):
     DbParameterGroupName: Optional[str] = None
     ParameterApplyStatus: Optional[str] = None
 
 
-class AwsRdsDbProcessorFeatureTypeDef(BaseValidatorModel):
+class AwsRdsDbProcessorFeature(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsRdsDbStatusInfoTypeDef(BaseValidatorModel):
+class AwsRdsDbStatusInfo(BaseValidatorModel):
     StatusType: Optional[str] = None
     Normal: Optional[bool] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
 
 
-class AwsRdsPendingCloudWatchLogsExportsOutputTypeDef(BaseValidatorModel):
+class AwsRdsPendingCloudWatchLogsExportsOutput(BaseValidatorModel):
     LogTypesToEnable: Optional[List[str]] = None
     LogTypesToDisable: Optional[List[str]] = None
 
 
-class AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef(BaseValidatorModel):
+class AwsRdsDbSecurityGroupEc2SecurityGroup(BaseValidatorModel):
     Ec2SecurityGroupId: Optional[str] = None
     Ec2SecurityGroupName: Optional[str] = None
     Ec2SecurityGroupOwnerId: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRdsDbSecurityGroupIpRangeTypeDef(BaseValidatorModel):
+class AwsRdsDbSecurityGroupIpRange(BaseValidatorModel):
     CidrIp: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef(BaseValidatorModel):
+class AwsRdsDbSubnetGroupSubnetAvailabilityZone(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class AwsRdsEventSubscriptionDetailsOutputTypeDef(BaseValidatorModel):
+class AwsRdsEventSubscriptionDetailsOutput(BaseValidatorModel):
     CustSubscriptionId: Optional[str] = None
     CustomerAwsId: Optional[str] = None
     Enabled: Optional[bool] = None
@@ -1708,7 +1708,7 @@ class AwsRdsEventSubscriptionDetailsOutputTypeDef(BaseValidatorModel):
     SubscriptionCreationTime: Optional[str] = None
 
 
-class AwsRdsEventSubscriptionDetailsTypeDef(BaseValidatorModel):
+class AwsRdsEventSubscriptionDetails(BaseValidatorModel):
     CustSubscriptionId: Optional[str] = None
     CustomerAwsId: Optional[str] = None
     Enabled: Optional[bool] = None
@@ -1721,63 +1721,63 @@ class AwsRdsEventSubscriptionDetailsTypeDef(BaseValidatorModel):
     SubscriptionCreationTime: Optional[str] = None
 
 
-class AwsRdsPendingCloudWatchLogsExportsTypeDef(BaseValidatorModel):
+class AwsRdsPendingCloudWatchLogsExports(BaseValidatorModel):
     LogTypesToEnable: Optional[Sequence[str]] = None
     LogTypesToDisable: Optional[Sequence[str]] = None
 
 
-class AwsRedshiftClusterClusterNodeTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterClusterNode(BaseValidatorModel):
     NodeRole: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
     PublicIpAddress: Optional[str] = None
 
 
-class AwsRedshiftClusterClusterParameterStatusTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterClusterParameterStatus(BaseValidatorModel):
     ParameterName: Optional[str] = None
     ParameterApplyStatus: Optional[str] = None
     ParameterApplyErrorDescription: Optional[str] = None
 
 
-class AwsRedshiftClusterClusterSecurityGroupTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterClusterSecurityGroup(BaseValidatorModel):
     ClusterSecurityGroupName: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterClusterSnapshotCopyStatus(BaseValidatorModel):
     DestinationRegion: Optional[str] = None
     ManualSnapshotRetentionPeriod: Optional[int] = None
     RetentionPeriod: Optional[int] = None
     SnapshotCopyGrantName: Optional[str] = None
 
 
-class AwsRedshiftClusterDeferredMaintenanceWindowTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterDeferredMaintenanceWindow(BaseValidatorModel):
     DeferMaintenanceEndTime: Optional[str] = None
     DeferMaintenanceIdentifier: Optional[str] = None
     DeferMaintenanceStartTime: Optional[str] = None
 
 
-class AwsRedshiftClusterElasticIpStatusTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterElasticIpStatus(BaseValidatorModel):
     ElasticIp: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRedshiftClusterEndpointTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterEndpoint(BaseValidatorModel):
     Address: Optional[str] = None
     Port: Optional[int] = None
 
 
-class AwsRedshiftClusterHsmStatusTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterHsmStatus(BaseValidatorModel):
     HsmClientCertificateIdentifier: Optional[str] = None
     HsmConfigurationIdentifier: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsRedshiftClusterIamRoleTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterIamRole(BaseValidatorModel):
     ApplyStatus: Optional[str] = None
     IamRoleArn: Optional[str] = None
 
 
-class AwsRedshiftClusterLoggingStatusTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterLoggingStatus(BaseValidatorModel):
     BucketName: Optional[str] = None
     LastFailureMessage: Optional[str] = None
     LastFailureTime: Optional[str] = None
@@ -1786,7 +1786,7 @@ class AwsRedshiftClusterLoggingStatusTypeDef(BaseValidatorModel):
     S3KeyPrefix: Optional[str] = None
 
 
-class AwsRedshiftClusterPendingModifiedValuesTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterPendingModifiedValues(BaseValidatorModel):
     AutomatedSnapshotRetentionPeriod: Optional[int] = None
     ClusterIdentifier: Optional[str] = None
     ClusterType: Optional[str] = None
@@ -1800,12 +1800,12 @@ class AwsRedshiftClusterPendingModifiedValuesTypeDef(BaseValidatorModel):
     PubliclyAccessible: Optional[bool] = None
 
 
-class AwsRedshiftClusterResizeInfoTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterResizeInfo(BaseValidatorModel):
     AllowCancelResize: Optional[bool] = None
     ResizeType: Optional[str] = None
 
 
-class AwsRedshiftClusterRestoreStatusTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterRestoreStatus(BaseValidatorModel):
     CurrentRestoreRateInMegaBytesPerSecond: Optional[float] = None
     ElapsedTimeInSeconds: Optional[int] = None
     EstimatedTimeToCompletionInSeconds: Optional[int] = None
@@ -1814,80 +1814,80 @@ class AwsRedshiftClusterRestoreStatusTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class AwsRedshiftClusterVpcSecurityGroupTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterVpcSecurityGroup(BaseValidatorModel):
     Status: Optional[str] = None
     VpcSecurityGroupId: Optional[str] = None
 
 
-class AwsRoute53HostedZoneConfigDetailsTypeDef(BaseValidatorModel):
+class AwsRoute53HostedZoneConfigDetails(BaseValidatorModel):
     Comment: Optional[str] = None
 
 
-class AwsRoute53HostedZoneVpcDetailsTypeDef(BaseValidatorModel):
+class AwsRoute53HostedZoneVpcDetails(BaseValidatorModel):
     Id: Optional[str] = None
     Region: Optional[str] = None
 
 
-class CloudWatchLogsLogGroupArnConfigDetailsTypeDef(BaseValidatorModel):
+class CloudWatchLogsLogGroupArnConfigDetails(BaseValidatorModel):
     CloudWatchLogsLogGroupArn: Optional[str] = None
     HostedZoneId: Optional[str] = None
     Id: Optional[str] = None
 
 
-class AwsS3AccessPointVpcConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsS3AccessPointVpcConfigurationDetails(BaseValidatorModel):
     VpcId: Optional[str] = None
 
 
-class AwsS3AccountPublicAccessBlockDetailsTypeDef(BaseValidatorModel):
+class AwsS3AccountPublicAccessBlockDetails(BaseValidatorModel):
     BlockPublicAcls: Optional[bool] = None
     BlockPublicPolicy: Optional[bool] = None
     IgnorePublicAcls: Optional[bool] = None
     RestrictPublicBuckets: Optional[bool] = None
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails(BaseValidatorModel):
     Date: Optional[str] = None
     Days: Optional[int] = None
     StorageClass: Optional[str] = None
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsS3BucketBucketVersioningConfigurationTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketVersioningConfiguration(BaseValidatorModel):
     IsMfaDeleteEnabled: Optional[bool] = None
     Status: Optional[str] = None
 
 
-class AwsS3BucketLoggingConfigurationTypeDef(BaseValidatorModel):
+class AwsS3BucketLoggingConfiguration(BaseValidatorModel):
     DestinationBucketName: Optional[str] = None
     LogFilePrefix: Optional[str] = None
 
 
-class AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef(BaseValidatorModel):
+class AwsS3BucketNotificationConfigurationS3KeyFilterRule(BaseValidatorModel):
     Name: Optional[AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType] = None
     Value: Optional[str] = None
 
 
-class AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef(BaseValidatorModel):
+class AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails(BaseValidatorModel):
     Days: Optional[int] = None
     Mode: Optional[str] = None
     Years: Optional[int] = None
 
 
-class AwsS3BucketServerSideEncryptionByDefaultTypeDef(BaseValidatorModel):
+class AwsS3BucketServerSideEncryptionByDefault(BaseValidatorModel):
     SSEAlgorithm: Optional[str] = None
     KMSMasterKeyID: Optional[str] = None
 
 
-class AwsS3BucketWebsiteConfigurationRoutingRuleConditionTypeDef(BaseValidatorModel):
+class AwsS3BucketWebsiteConfigurationRoutingRuleCondition(BaseValidatorModel):
     HttpErrorCodeReturnedEquals: Optional[str] = None
     KeyPrefixEquals: Optional[str] = None
 
 
-class AwsS3ObjectDetailsTypeDef(BaseValidatorModel):
+class AwsS3ObjectDetails(BaseValidatorModel):
     LastModified: Optional[str] = None
     ETag: Optional[str] = None
     VersionId: Optional[str] = None
@@ -1896,38 +1896,38 @@ class AwsS3ObjectDetailsTypeDef(BaseValidatorModel):
     SSEKMSKeyId: Optional[str] = None
 
 
-class AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails(BaseValidatorModel):
     MinimumInstanceMetadataServiceVersion: Optional[str] = None
 
 
-class AwsSecretsManagerSecretRotationRulesTypeDef(BaseValidatorModel):
+class AwsSecretsManagerSecretRotationRules(BaseValidatorModel):
     AutomaticallyAfterDays: Optional[int] = None
 
 
-class BooleanFilterTypeDef(BaseValidatorModel):
+class BooleanFilter(BaseValidatorModel):
     Value: Optional[bool] = None
 
 
-class IpFilterTypeDef(BaseValidatorModel):
+class IpFilter(BaseValidatorModel):
     Cidr: Optional[str] = None
 
 
-class KeywordFilterTypeDef(BaseValidatorModel):
+class KeywordFilter(BaseValidatorModel):
     Value: Optional[str] = None
 
 
-class AwsSecurityFindingIdentifierTypeDef(BaseValidatorModel):
+class AwsSecurityFindingIdentifier(BaseValidatorModel):
     Id: str
     ProductArn: str
 
 
-class GeneratorDetailsOutputTypeDef(BaseValidatorModel):
+class GeneratorDetailsOutput(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Labels: Optional[List[str]] = None
 
 
-class PatchSummaryTypeDef(BaseValidatorModel):
+class PatchSummary(BaseValidatorModel):
     Id: str
     InstalledCount: Optional[int] = None
     MissingCount: Optional[int] = None
@@ -1941,7 +1941,7 @@ class PatchSummaryTypeDef(BaseValidatorModel):
     Operation: Optional[str] = None
 
 
-class ProcessDetailsTypeDef(BaseValidatorModel):
+class ProcessDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Path: Optional[str] = None
     Pid: Optional[int] = None
@@ -1950,25 +1950,25 @@ class ProcessDetailsTypeDef(BaseValidatorModel):
     TerminatedAt: Optional[str] = None
 
 
-class SeverityTypeDef(BaseValidatorModel):
+class Severity(BaseValidatorModel):
     Product: Optional[float] = None
     Label: Optional[SeverityLabelType] = None
     Normalized: Optional[int] = None
     Original: Optional[str] = None
 
 
-class WorkflowTypeDef(BaseValidatorModel):
+class Workflow(BaseValidatorModel):
     Status: Optional[WorkflowStatusType] = None
 
 
-class AwsSqsQueueDetailsTypeDef(BaseValidatorModel):
+class AwsSqsQueueDetails(BaseValidatorModel):
     KmsDataKeyReusePeriodSeconds: Optional[int] = None
     KmsMasterKeyId: Optional[str] = None
     QueueName: Optional[str] = None
     DeadLetterTargetArn: Optional[str] = None
 
 
-class AwsSsmComplianceSummaryTypeDef(BaseValidatorModel):
+class AwsSsmComplianceSummary(BaseValidatorModel):
     Status: Optional[str] = None
     CompliantCriticalCount: Optional[int] = None
     CompliantHighCount: Optional[int] = None
@@ -1989,34 +1989,34 @@ class AwsSsmComplianceSummaryTypeDef(BaseValidatorModel):
     PatchGroup: Optional[str] = None
 
 
-class AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsStepFunctionStateMachineTracingConfigurationDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class WafExcludedRuleTypeDef(BaseValidatorModel):
+class WafExcludedRule(BaseValidatorModel):
     RuleId: Optional[str] = None
 
 
-class AwsWafv2CustomHttpHeaderTypeDef(BaseValidatorModel):
+class AwsWafv2CustomHttpHeader(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AwsWafv2VisibilityConfigDetailsTypeDef(BaseValidatorModel):
+class AwsWafv2VisibilityConfigDetails(BaseValidatorModel):
     CloudWatchMetricsEnabled: Optional[bool] = None
     MetricName: Optional[str] = None
     SampledRequestsEnabled: Optional[bool] = None
 
 
-class AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef(BaseValidatorModel):
+class AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails(BaseValidatorModel):
     ImmunityTime: Optional[int] = None
 
 
-class BatchDeleteAutomationRulesRequestTypeDef(BaseValidatorModel):
+class BatchDeleteAutomationRulesRequest(BaseValidatorModel):
     AutomationRulesArns: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -2024,26 +2024,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class UnprocessedAutomationRuleTypeDef(BaseValidatorModel):
+class UnprocessedAutomationRule(BaseValidatorModel):
     RuleArn: Optional[str] = None
     ErrorCode: Optional[int] = None
     ErrorMessage: Optional[str] = None
 
 
-class BatchDisableStandardsRequestTypeDef(BaseValidatorModel):
+class BatchDisableStandardsRequest(BaseValidatorModel):
     StandardsSubscriptionArns: Sequence[str]
 
 
-class StandardsSubscriptionRequestTypeDef(BaseValidatorModel):
+class StandardsSubscriptionRequest(BaseValidatorModel):
     StandardsArn: str
     StandardsInput: Optional[Mapping[str, str]] = None
 
 
-class BatchGetAutomationRulesRequestTypeDef(BaseValidatorModel):
+class BatchGetAutomationRulesRequest(BaseValidatorModel):
     AutomationRulesArns: Sequence[str]
 
 
-class ConfigurationPolicyAssociationSummaryTypeDef(BaseValidatorModel):
+class ConfigurationPolicyAssociationSummary(BaseValidatorModel):
     ConfigurationPolicyId: Optional[str] = None
     TargetId: Optional[str] = None
     TargetType: Optional[TargetTypeType] = None
@@ -2053,22 +2053,22 @@ class ConfigurationPolicyAssociationSummaryTypeDef(BaseValidatorModel):
     AssociationStatusMessage: Optional[str] = None
 
 
-class BatchGetSecurityControlsRequestTypeDef(BaseValidatorModel):
+class BatchGetSecurityControlsRequest(BaseValidatorModel):
     SecurityControlIds: Sequence[str]
 
 
-class UnprocessedSecurityControlTypeDef(BaseValidatorModel):
+class UnprocessedSecurityControl(BaseValidatorModel):
     SecurityControlId: str
     ErrorCode: UnprocessedErrorCodeType
     ErrorReason: Optional[str] = None
 
 
-class StandardsControlAssociationIdTypeDef(BaseValidatorModel):
+class StandardsControlAssociationId(BaseValidatorModel):
     SecurityControlId: str
     StandardsArn: str
 
 
-class StandardsControlAssociationDetailTypeDef(BaseValidatorModel):
+class StandardsControlAssociationDetail(BaseValidatorModel):
     StandardsArn: str
     SecurityControlId: str
     SecurityControlArn: str
@@ -2081,102 +2081,102 @@ class StandardsControlAssociationDetailTypeDef(BaseValidatorModel):
     StandardsControlArns: Optional[List[str]] = None
 
 
-class ImportFindingsErrorTypeDef(BaseValidatorModel):
+class ImportFindingsError(BaseValidatorModel):
     Id: str
     ErrorCode: str
     ErrorMessage: str
 
 
-class StandardsControlAssociationUpdateTypeDef(BaseValidatorModel):
+class StandardsControlAssociationUpdate(BaseValidatorModel):
     StandardsArn: str
     SecurityControlId: str
     AssociationStatus: AssociationStatusType
     UpdatedReason: Optional[str] = None
 
 
-class BooleanConfigurationOptionsTypeDef(BaseValidatorModel):
+class BooleanConfigurationOptions(BaseValidatorModel):
     DefaultValue: Optional[bool] = None
 
 
-class CellTypeDef(BaseValidatorModel):
+class Cell(BaseValidatorModel):
     Column: Optional[int] = None
     Row: Optional[int] = None
     ColumnName: Optional[str] = None
     CellReference: Optional[str] = None
 
 
-class ClassificationStatusTypeDef(BaseValidatorModel):
+class ClassificationStatus(BaseValidatorModel):
     Code: Optional[str] = None
     Reason: Optional[str] = None
 
 
-class CodeVulnerabilitiesFilePathTypeDef(BaseValidatorModel):
+class CodeVulnerabilitiesFilePath(BaseValidatorModel):
     EndLine: Optional[int] = None
     FileName: Optional[str] = None
     FilePath: Optional[str] = None
     StartLine: Optional[int] = None
 
 
-class SecurityControlParameterOutputTypeDef(BaseValidatorModel):
+class SecurityControlParameterOutput(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[List[str]] = None
 
 
-class StatusReasonTypeDef(BaseValidatorModel):
+class StatusReason(BaseValidatorModel):
     ReasonCode: str
     Description: Optional[str] = None
 
 
-class DoubleConfigurationOptionsTypeDef(BaseValidatorModel):
+class DoubleConfigurationOptions(BaseValidatorModel):
     DefaultValue: Optional[float] = None
     Min: Optional[float] = None
     Max: Optional[float] = None
 
 
-class EnumConfigurationOptionsTypeDef(BaseValidatorModel):
+class EnumConfigurationOptions(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     AllowedValues: Optional[List[str]] = None
 
 
-class EnumListConfigurationOptionsTypeDef(BaseValidatorModel):
+class EnumListConfigurationOptions(BaseValidatorModel):
     DefaultValue: Optional[List[str]] = None
     MaxItems: Optional[int] = None
     AllowedValues: Optional[List[str]] = None
 
 
-class IntegerConfigurationOptionsTypeDef(BaseValidatorModel):
+class IntegerConfigurationOptions(BaseValidatorModel):
     DefaultValue: Optional[int] = None
     Min: Optional[int] = None
     Max: Optional[int] = None
 
 
-class IntegerListConfigurationOptionsTypeDef(BaseValidatorModel):
+class IntegerListConfigurationOptions(BaseValidatorModel):
     DefaultValue: Optional[List[int]] = None
     Min: Optional[int] = None
     Max: Optional[int] = None
     MaxItems: Optional[int] = None
 
 
-class StringConfigurationOptionsTypeDef(BaseValidatorModel):
+class StringConfigurationOptions(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     Re2Expression: Optional[str] = None
     ExpressionDescription: Optional[str] = None
 
 
-class StringListConfigurationOptionsTypeDef(BaseValidatorModel):
+class StringListConfigurationOptions(BaseValidatorModel):
     DefaultValue: Optional[List[str]] = None
     Re2Expression: Optional[str] = None
     MaxItems: Optional[int] = None
     ExpressionDescription: Optional[str] = None
 
 
-class TargetTypeDef(BaseValidatorModel):
+class Target(BaseValidatorModel):
     AccountId: Optional[str] = None
     OrganizationalUnitId: Optional[str] = None
     RootId: Optional[str] = None
 
 
-class ConfigurationPolicySummaryTypeDef(BaseValidatorModel):
+class ConfigurationPolicySummary(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -2185,89 +2185,89 @@ class ConfigurationPolicySummaryTypeDef(BaseValidatorModel):
     ServiceEnabled: Optional[bool] = None
 
 
-class VolumeMountTypeDef(BaseValidatorModel):
+class VolumeMount(BaseValidatorModel):
     Name: Optional[str] = None
     MountPath: Optional[str] = None
 
 
-class CreateActionTargetRequestTypeDef(BaseValidatorModel):
+class CreateActionTargetRequest(BaseValidatorModel):
     Name: str
     Description: str
     Id: str
 
 
-class CreateFindingAggregatorRequestTypeDef(BaseValidatorModel):
+class CreateFindingAggregatorRequest(BaseValidatorModel):
     RegionLinkingMode: str
     Regions: Optional[Sequence[str]] = None
 
 
-class ResultTypeDef(BaseValidatorModel):
+class Result(BaseValidatorModel):
     AccountId: Optional[str] = None
     ProcessingResult: Optional[str] = None
 
 
-class DateRangeTypeDef(BaseValidatorModel):
+class DateRange(BaseValidatorModel):
     Value: Optional[int] = None
     Unit: Optional[Literal["DAYS"]] = None
 
 
-class DeclineInvitationsRequestTypeDef(BaseValidatorModel):
+class DeclineInvitationsRequest(BaseValidatorModel):
     AccountIds: Sequence[str]
 
 
-class DeleteActionTargetRequestTypeDef(BaseValidatorModel):
+class DeleteActionTargetRequest(BaseValidatorModel):
     ActionTargetArn: str
 
 
-class DeleteConfigurationPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteConfigurationPolicyRequest(BaseValidatorModel):
     Identifier: str
 
 
-class DeleteFindingAggregatorRequestTypeDef(BaseValidatorModel):
+class DeleteFindingAggregatorRequest(BaseValidatorModel):
     FindingAggregatorArn: str
 
 
-class DeleteInsightRequestTypeDef(BaseValidatorModel):
+class DeleteInsightRequest(BaseValidatorModel):
     InsightArn: str
 
 
-class DeleteInvitationsRequestTypeDef(BaseValidatorModel):
+class DeleteInvitationsRequest(BaseValidatorModel):
     AccountIds: Sequence[str]
 
 
-class DeleteMembersRequestTypeDef(BaseValidatorModel):
+class DeleteMembersRequest(BaseValidatorModel):
     AccountIds: Sequence[str]
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeActionTargetsRequestTypeDef(BaseValidatorModel):
+class DescribeActionTargetsRequest(BaseValidatorModel):
     ActionTargetArns: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeHubRequestTypeDef(BaseValidatorModel):
+class DescribeHubRequest(BaseValidatorModel):
     HubArn: Optional[str] = None
 
 
-class OrganizationConfigurationTypeDef(BaseValidatorModel):
+class OrganizationConfiguration(BaseValidatorModel):
     ConfigurationType: Optional[OrganizationConfigurationConfigurationTypeType] = None
     Status: Optional[OrganizationConfigurationStatusType] = None
     StatusMessage: Optional[str] = None
 
 
-class DescribeProductsRequestTypeDef(BaseValidatorModel):
+class DescribeProductsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ProductArn: Optional[str] = None
 
 
-class ProductTypeDef(BaseValidatorModel):
+class Product(BaseValidatorModel):
     ProductArn: str
     ProductName: Optional[str] = None
     CompanyName: Optional[str] = None
@@ -2279,13 +2279,13 @@ class ProductTypeDef(BaseValidatorModel):
     ProductSubscriptionResourcePolicy: Optional[str] = None
 
 
-class DescribeStandardsControlsRequestTypeDef(BaseValidatorModel):
+class DescribeStandardsControlsRequest(BaseValidatorModel):
     StandardsSubscriptionArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class StandardsControlTypeDef(BaseValidatorModel):
+class StandardsControl(BaseValidatorModel):
     StandardsControlArn: Optional[str] = None
     ControlStatus: Optional[ControlStatusType] = None
     DisabledReason: Optional[str] = None
@@ -2298,115 +2298,115 @@ class StandardsControlTypeDef(BaseValidatorModel):
     RelatedRequirements: Optional[List[str]] = None
 
 
-class DescribeStandardsRequestTypeDef(BaseValidatorModel):
+class DescribeStandardsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DisableImportFindingsForProductRequestTypeDef(BaseValidatorModel):
+class DisableImportFindingsForProductRequest(BaseValidatorModel):
     ProductSubscriptionArn: str
 
 
-class DisableOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
+class DisableOrganizationAdminAccountRequest(BaseValidatorModel):
     AdminAccountId: str
 
 
-class DisassociateMembersRequestTypeDef(BaseValidatorModel):
+class DisassociateMembersRequest(BaseValidatorModel):
     AccountIds: Sequence[str]
 
 
-class EnableImportFindingsForProductRequestTypeDef(BaseValidatorModel):
+class EnableImportFindingsForProductRequest(BaseValidatorModel):
     ProductArn: str
 
 
-class EnableOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
+class EnableOrganizationAdminAccountRequest(BaseValidatorModel):
     AdminAccountId: str
 
 
-class EnableSecurityHubRequestTypeDef(BaseValidatorModel):
+class EnableSecurityHubRequest(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
     EnableDefaultStandards: Optional[bool] = None
     ControlFindingGenerator: Optional[ControlFindingGeneratorType] = None
 
 
-class FilePathsTypeDef(BaseValidatorModel):
+class FilePaths(BaseValidatorModel):
     FilePath: Optional[str] = None
     FileName: Optional[str] = None
     ResourceId: Optional[str] = None
     Hash: Optional[str] = None
 
 
-class FindingAggregatorTypeDef(BaseValidatorModel):
+class FindingAggregator(BaseValidatorModel):
     FindingAggregatorArn: Optional[str] = None
 
 
-class FindingHistoryUpdateTypeDef(BaseValidatorModel):
+class FindingHistoryUpdate(BaseValidatorModel):
     UpdatedField: Optional[str] = None
     OldValue: Optional[str] = None
     NewValue: Optional[str] = None
 
 
-class FindingProviderSeverityTypeDef(BaseValidatorModel):
+class FindingProviderSeverity(BaseValidatorModel):
     Label: Optional[SeverityLabelType] = None
     Original: Optional[str] = None
 
 
-class FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef(BaseValidatorModel):
+class FirewallPolicyStatefulRuleGroupReferencesDetails(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
-class FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef(BaseValidatorModel):
+class FirewallPolicyStatelessRuleGroupReferencesDetails(BaseValidatorModel):
     Priority: Optional[int] = None
     ResourceArn: Optional[str] = None
 
 
-class GeneratorDetailsTypeDef(BaseValidatorModel):
+class GeneratorDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Labels: Optional[Sequence[str]] = None
 
 
-class InvitationTypeDef(BaseValidatorModel):
+class Invitation(BaseValidatorModel):
     AccountId: Optional[str] = None
     InvitationId: Optional[str] = None
     InvitedAt: Optional[datetime] = None
     MemberStatus: Optional[str] = None
 
 
-class GetConfigurationPolicyRequestTypeDef(BaseValidatorModel):
+class GetConfigurationPolicyRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetEnabledStandardsRequestTypeDef(BaseValidatorModel):
+class GetEnabledStandardsRequest(BaseValidatorModel):
     StandardsSubscriptionArns: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetFindingAggregatorRequestTypeDef(BaseValidatorModel):
+class GetFindingAggregatorRequest(BaseValidatorModel):
     FindingAggregatorArn: str
 
 
-class SortCriterionTypeDef(BaseValidatorModel):
+class SortCriterion(BaseValidatorModel):
     Field: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class GetInsightResultsRequestTypeDef(BaseValidatorModel):
+class GetInsightResultsRequest(BaseValidatorModel):
     InsightArn: str
 
 
-class GetInsightsRequestTypeDef(BaseValidatorModel):
+class GetInsightsRequest(BaseValidatorModel):
     InsightArns: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetMembersRequestTypeDef(BaseValidatorModel):
+class GetMembersRequest(BaseValidatorModel):
     AccountIds: Sequence[str]
 
 
-class MemberTypeDef(BaseValidatorModel):
+class Member(BaseValidatorModel):
     AccountId: Optional[str] = None
     Email: Optional[str] = None
     MasterId: Optional[str] = None
@@ -2416,68 +2416,68 @@ class MemberTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class GetSecurityControlDefinitionRequestTypeDef(BaseValidatorModel):
+class GetSecurityControlDefinitionRequest(BaseValidatorModel):
     SecurityControlId: str
 
 
-class InsightResultValueTypeDef(BaseValidatorModel):
+class InsightResultValue(BaseValidatorModel):
     GroupByAttributeValue: str
     Count: int
 
 
-class InviteMembersRequestTypeDef(BaseValidatorModel):
+class InviteMembersRequest(BaseValidatorModel):
     AccountIds: Sequence[str]
 
 
-class ListAutomationRulesRequestTypeDef(BaseValidatorModel):
+class ListAutomationRulesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListConfigurationPoliciesRequestTypeDef(BaseValidatorModel):
+class ListConfigurationPoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEnabledProductsForImportRequestTypeDef(BaseValidatorModel):
+class ListEnabledProductsForImportRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListFindingAggregatorsRequestTypeDef(BaseValidatorModel):
+class ListFindingAggregatorsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListInvitationsRequestTypeDef(BaseValidatorModel):
+class ListInvitationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListMembersRequestTypeDef(BaseValidatorModel):
+class ListMembersRequest(BaseValidatorModel):
     OnlyAssociated: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListOrganizationAdminAccountsRequestTypeDef(BaseValidatorModel):
+class ListOrganizationAdminAccountsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListSecurityControlDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListSecurityControlDefinitionsRequest(BaseValidatorModel):
     StandardsArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListStandardsControlAssociationsRequestTypeDef(BaseValidatorModel):
+class ListStandardsControlAssociationsRequest(BaseValidatorModel):
     SecurityControlId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class StandardsControlAssociationSummaryTypeDef(BaseValidatorModel):
+class StandardsControlAssociationSummary(BaseValidatorModel):
     StandardsArn: str
     SecurityControlId: str
     SecurityControlArn: str
@@ -2489,43 +2489,43 @@ class StandardsControlAssociationSummaryTypeDef(BaseValidatorModel):
     StandardsControlDescription: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class NetworkAutonomousSystemTypeDef(BaseValidatorModel):
+class NetworkAutonomousSystem(BaseValidatorModel):
     Name: Optional[str] = None
     Number: Optional[int] = None
 
 
-class NetworkConnectionTypeDef(BaseValidatorModel):
+class NetworkConnection(BaseValidatorModel):
     Direction: Optional[ConnectionDirectionType] = None
 
 
-class NetworkGeoLocationTypeDef(BaseValidatorModel):
+class NetworkGeoLocation(BaseValidatorModel):
     City: Optional[str] = None
     Country: Optional[str] = None
     Lat: Optional[float] = None
     Lon: Optional[float] = None
 
 
-class PortRangeTypeDef(BaseValidatorModel):
+class PortRange(BaseValidatorModel):
     Begin: Optional[int] = None
     End: Optional[int] = None
 
 
-class RangeTypeDef(BaseValidatorModel):
+class Range(BaseValidatorModel):
     Start: Optional[int] = None
     End: Optional[int] = None
     StartColumn: Optional[int] = None
 
 
-class RecordTypeDef(BaseValidatorModel):
+class Record(BaseValidatorModel):
     JsonPath: Optional[str] = None
     RecordIndex: Optional[int] = None
 
 
-class ParameterValueOutputTypeDef(BaseValidatorModel):
+class ParameterValueOutput(BaseValidatorModel):
     Integer: Optional[int] = None
     IntegerList: Optional[List[int]] = None
     Double: Optional[float] = None
@@ -2536,7 +2536,7 @@ class ParameterValueOutputTypeDef(BaseValidatorModel):
     EnumList: Optional[List[str]] = None
 
 
-class ParameterValueTypeDef(BaseValidatorModel):
+class ParameterValue(BaseValidatorModel):
     Integer: Optional[int] = None
     IntegerList: Optional[Sequence[int]] = None
     Double: Optional[float] = None
@@ -2547,78 +2547,78 @@ class ParameterValueTypeDef(BaseValidatorModel):
     EnumList: Optional[Sequence[str]] = None
 
 
-class RuleGroupSourceListDetailsOutputTypeDef(BaseValidatorModel):
+class RuleGroupSourceListDetailsOutput(BaseValidatorModel):
     GeneratedRulesType: Optional[str] = None
     TargetTypes: Optional[List[str]] = None
     Targets: Optional[List[str]] = None
 
 
-class RuleGroupSourceListDetailsTypeDef(BaseValidatorModel):
+class RuleGroupSourceListDetails(BaseValidatorModel):
     GeneratedRulesType: Optional[str] = None
     TargetTypes: Optional[Sequence[str]] = None
     Targets: Optional[Sequence[str]] = None
 
 
-class RuleGroupSourceStatefulRulesOptionsDetailsOutputTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatefulRulesOptionsDetailsOutput(BaseValidatorModel):
     Keyword: Optional[str] = None
     Settings: Optional[List[str]] = None
 
 
-class RuleGroupSourceStatefulRulesOptionsDetailsTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatefulRulesOptionsDetails(BaseValidatorModel):
     Keyword: Optional[str] = None
     Settings: Optional[Sequence[str]] = None
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts(BaseValidatorModel):
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleMatchAttributesDestinations(BaseValidatorModel):
     AddressDefinition: Optional[str] = None
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleMatchAttributesSourcePorts(BaseValidatorModel):
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleMatchAttributesSources(BaseValidatorModel):
     AddressDefinition: Optional[str] = None
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutputTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutput(BaseValidatorModel):
     Flags: Optional[List[str]] = None
     Masks: Optional[List[str]] = None
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleMatchAttributesTcpFlags(BaseValidatorModel):
     Flags: Optional[Sequence[str]] = None
     Masks: Optional[Sequence[str]] = None
 
 
-class RuleGroupVariablesIpSetsDetailsOutputTypeDef(BaseValidatorModel):
+class RuleGroupVariablesIpSetsDetailsOutput(BaseValidatorModel):
     Definition: Optional[List[str]] = None
 
 
-class RuleGroupVariablesIpSetsDetailsTypeDef(BaseValidatorModel):
+class RuleGroupVariablesIpSetsDetails(BaseValidatorModel):
     Definition: Optional[Sequence[str]] = None
 
 
-class RuleGroupVariablesPortSetsDetailsOutputTypeDef(BaseValidatorModel):
+class RuleGroupVariablesPortSetsDetailsOutput(BaseValidatorModel):
     Definition: Optional[List[str]] = None
 
 
-class RuleGroupVariablesPortSetsDetailsTypeDef(BaseValidatorModel):
+class RuleGroupVariablesPortSetsDetails(BaseValidatorModel):
     Definition: Optional[Sequence[str]] = None
 
 
-class SecurityControlParameterTypeDef(BaseValidatorModel):
+class SecurityControlParameter(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[Sequence[str]] = None
 
 
-class SoftwarePackageTypeDef(BaseValidatorModel):
+class SoftwarePackage(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
     Epoch: Optional[str] = None
@@ -2632,53 +2632,53 @@ class SoftwarePackageTypeDef(BaseValidatorModel):
     SourceLayerArn: Optional[str] = None
 
 
-class StandardsManagedByTypeDef(BaseValidatorModel):
+class StandardsManagedBy(BaseValidatorModel):
     Company: Optional[str] = None
     Product: Optional[str] = None
 
 
-class StandardsStatusReasonTypeDef(BaseValidatorModel):
+class StandardsStatusReason(BaseValidatorModel):
     StatusReasonCode: StatusReasonCodeType
 
 
-class StatelessCustomPublishMetricActionDimensionTypeDef(BaseValidatorModel):
+class StatelessCustomPublishMetricActionDimension(BaseValidatorModel):
     Value: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateActionTargetRequestTypeDef(BaseValidatorModel):
+class UpdateActionTargetRequest(BaseValidatorModel):
     ActionTargetArn: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
 
-class UpdateFindingAggregatorRequestTypeDef(BaseValidatorModel):
+class UpdateFindingAggregatorRequest(BaseValidatorModel):
     FindingAggregatorArn: str
     RegionLinkingMode: str
     Regions: Optional[Sequence[str]] = None
 
 
-class UpdateSecurityHubConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateSecurityHubConfigurationRequest(BaseValidatorModel):
     AutoEnableControls: Optional[bool] = None
     ControlFindingGenerator: Optional[ControlFindingGeneratorType] = None
 
 
-class UpdateStandardsControlRequestTypeDef(BaseValidatorModel):
+class UpdateStandardsControlRequest(BaseValidatorModel):
     StandardsControlArn: str
     ControlStatus: Optional[ControlStatusType] = None
     DisabledReason: Optional[str] = None
 
 
-class VulnerabilityVendorTypeDef(BaseValidatorModel):
+class VulnerabilityVendor(BaseValidatorModel):
     Name: str
     Url: Optional[str] = None
     VendorSeverity: Optional[str] = None
@@ -2686,42 +2686,42 @@ class VulnerabilityVendorTypeDef(BaseValidatorModel):
     VendorUpdatedAt: Optional[str] = None
 
 
-class CreateMembersRequestTypeDef(BaseValidatorModel):
-    AccountDetails: Sequence[AccountDetailsTypeDef]
+class CreateMembersRequest(BaseValidatorModel):
+    AccountDetails: Sequence[AccountDetails]
 
 
-class ActionRemoteIpDetailsTypeDef(BaseValidatorModel):
+class ActionRemoteIpDetails(BaseValidatorModel):
     IpAddressV4: Optional[str] = None
-    Organization: Optional[IpOrganizationDetailsTypeDef] = None
-    Country: Optional[CountryTypeDef] = None
-    City: Optional[CityTypeDef] = None
-    GeoLocation: Optional[GeoLocationTypeDef] = None
+    Organization: Optional[IpOrganizationDetails] = None
+    Country: Optional[Country] = None
+    City: Optional[City] = None
+    GeoLocation: Optional[GeoLocation] = None
 
 
-class CvssOutputTypeDef(BaseValidatorModel):
+class CvssOutput(BaseValidatorModel):
     Version: Optional[str] = None
     BaseScore: Optional[float] = None
     BaseVector: Optional[str] = None
     Source: Optional[str] = None
-    Adjustments: Optional[List[AdjustmentTypeDef]] = None
+    Adjustments: Optional[List[Adjustment]] = None
 
 
-class CvssTypeDef(BaseValidatorModel):
+class Cvss(BaseValidatorModel):
     Version: Optional[str] = None
     BaseScore: Optional[float] = None
     BaseVector: Optional[str] = None
     Source: Optional[str] = None
-    Adjustments: Optional[Sequence[AdjustmentTypeDef]] = None
+    Adjustments: Optional[Sequence[Adjustment]] = None
 
 
-class ListConfigurationPolicyAssociationsRequestTypeDef(BaseValidatorModel):
+class ListConfigurationPolicyAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    Filters: Optional[AssociationFiltersTypeDef] = None
+    Filters: Optional[AssociationFilters] = None
 
 
-class AssociationSetDetailsTypeDef(BaseValidatorModel):
-    AssociationState: Optional[AssociationStateDetailsTypeDef] = None
+class AssociationSetDetails(BaseValidatorModel):
+    AssociationState: Optional[AssociationStateDetails] = None
     GatewayId: Optional[str] = None
     Main: Optional[bool] = None
     RouteTableAssociationId: Optional[str] = None
@@ -2729,43 +2729,43 @@ class AssociationSetDetailsTypeDef(BaseValidatorModel):
     SubnetId: Optional[str] = None
 
 
-class NoteUpdateTypeDef(BaseValidatorModel):
+class NoteUpdate(BaseValidatorModel):
     pass
 
 
-class AutomationRulesFindingFieldsUpdateOutputTypeDef(BaseValidatorModel):
-    Note: Optional[NoteUpdateTypeDef] = None
-    Severity: Optional[SeverityUpdateTypeDef] = None
+class AutomationRulesFindingFieldsUpdateOutput(BaseValidatorModel):
+    Note: Optional[NoteUpdate] = None
+    Severity: Optional[SeverityUpdate] = None
     VerificationState: Optional[VerificationStateType] = None
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
     Types: Optional[List[str]] = None
     UserDefinedFields: Optional[Dict[str, str]] = None
-    Workflow: Optional[WorkflowUpdateTypeDef] = None
-    RelatedFindings: Optional[List[RelatedFindingTypeDef]] = None
+    Workflow: Optional[WorkflowUpdate] = None
+    RelatedFindings: Optional[List[RelatedFinding]] = None
 
 
-class AutomationRulesFindingFieldsUpdateTypeDef(BaseValidatorModel):
-    Note: Optional[NoteUpdateTypeDef] = None
-    Severity: Optional[SeverityUpdateTypeDef] = None
+class AutomationRulesFindingFieldsUpdate(BaseValidatorModel):
+    Note: Optional[NoteUpdate] = None
+    Severity: Optional[SeverityUpdate] = None
     VerificationState: Optional[VerificationStateType] = None
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
     Types: Optional[Sequence[str]] = None
     UserDefinedFields: Optional[Mapping[str, str]] = None
-    Workflow: Optional[WorkflowUpdateTypeDef] = None
-    RelatedFindings: Optional[Sequence[RelatedFindingTypeDef]] = None
+    Workflow: Optional[WorkflowUpdate] = None
+    RelatedFindings: Optional[Sequence[RelatedFinding]] = None
 
 
-class AwsAmazonMqBrokerLogsDetailsTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerLogsDetails(BaseValidatorModel):
     Audit: Optional[bool] = None
     General: Optional[bool] = None
     AuditLogGroup: Optional[str] = None
     GeneralLogGroup: Optional[str] = None
-    Pending: Optional[AwsAmazonMqBrokerLogsPendingDetailsTypeDef] = None
+    Pending: Optional[AwsAmazonMqBrokerLogsPendingDetails] = None
 
 
-class AwsApiGatewayRestApiDetailsOutputTypeDef(BaseValidatorModel):
+class AwsApiGatewayRestApiDetailsOutput(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -2774,10 +2774,10 @@ class AwsApiGatewayRestApiDetailsOutputTypeDef(BaseValidatorModel):
     BinaryMediaTypes: Optional[List[str]] = None
     MinimumCompressionSize: Optional[int] = None
     ApiKeySource: Optional[str] = None
-    EndpointConfiguration: Optional[AwsApiGatewayEndpointConfigurationOutputTypeDef] = None
+    EndpointConfiguration: Optional[AwsApiGatewayEndpointConfigurationOutput] = None
 
 
-class AwsApiGatewayStageDetailsOutputTypeDef(BaseValidatorModel):
+class AwsApiGatewayStageDetailsOutput(BaseValidatorModel):
     DeploymentId: Optional[str] = None
     ClientCertificateId: Optional[str] = None
     StageName: Optional[str] = None
@@ -2785,18 +2785,18 @@ class AwsApiGatewayStageDetailsOutputTypeDef(BaseValidatorModel):
     CacheClusterEnabled: Optional[bool] = None
     CacheClusterSize: Optional[str] = None
     CacheClusterStatus: Optional[str] = None
-    MethodSettings: Optional[List[AwsApiGatewayMethodSettingsTypeDef]] = None
+    MethodSettings: Optional[List[AwsApiGatewayMethodSettings]] = None
     Variables: Optional[Dict[str, str]] = None
     DocumentationVersion: Optional[str] = None
-    AccessLogSettings: Optional[AwsApiGatewayAccessLogSettingsTypeDef] = None
-    CanarySettings: Optional[AwsApiGatewayCanarySettingsOutputTypeDef] = None
+    AccessLogSettings: Optional[AwsApiGatewayAccessLogSettings] = None
+    CanarySettings: Optional[AwsApiGatewayCanarySettingsOutput] = None
     TracingEnabled: Optional[bool] = None
     CreatedDate: Optional[str] = None
     LastUpdatedDate: Optional[str] = None
     WebAclArn: Optional[str] = None
 
 
-class AwsApiGatewayV2ApiDetailsOutputTypeDef(BaseValidatorModel):
+class AwsApiGatewayV2ApiDetailsOutput(BaseValidatorModel):
     ApiEndpoint: Optional[str] = None
     ApiId: Optional[str] = None
     ApiKeySelectionExpression: Optional[str] = None
@@ -2806,102 +2806,102 @@ class AwsApiGatewayV2ApiDetailsOutputTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     ProtocolType: Optional[str] = None
     RouteSelectionExpression: Optional[str] = None
-    CorsConfiguration: Optional[AwsCorsConfigurationOutputTypeDef] = None
+    CorsConfiguration: Optional[AwsCorsConfigurationOutput] = None
 
 
-class AwsApiGatewayV2StageDetailsOutputTypeDef(BaseValidatorModel):
+class AwsApiGatewayV2StageDetailsOutput(BaseValidatorModel):
     ClientCertificateId: Optional[str] = None
     CreatedDate: Optional[str] = None
     Description: Optional[str] = None
-    DefaultRouteSettings: Optional[AwsApiGatewayV2RouteSettingsTypeDef] = None
+    DefaultRouteSettings: Optional[AwsApiGatewayV2RouteSettings] = None
     DeploymentId: Optional[str] = None
     LastUpdatedDate: Optional[str] = None
-    RouteSettings: Optional[AwsApiGatewayV2RouteSettingsTypeDef] = None
+    RouteSettings: Optional[AwsApiGatewayV2RouteSettings] = None
     StageName: Optional[str] = None
     StageVariables: Optional[Dict[str, str]] = None
-    AccessLogSettings: Optional[AwsApiGatewayAccessLogSettingsTypeDef] = None
+    AccessLogSettings: Optional[AwsApiGatewayAccessLogSettings] = None
     AutoDeploy: Optional[bool] = None
     LastDeploymentStatusMessage: Optional[str] = None
     ApiGatewayManaged: Optional[bool] = None
 
 
-class AwsApiGatewayV2StageDetailsTypeDef(BaseValidatorModel):
+class AwsApiGatewayV2StageDetails(BaseValidatorModel):
     ClientCertificateId: Optional[str] = None
     CreatedDate: Optional[str] = None
     Description: Optional[str] = None
-    DefaultRouteSettings: Optional[AwsApiGatewayV2RouteSettingsTypeDef] = None
+    DefaultRouteSettings: Optional[AwsApiGatewayV2RouteSettings] = None
     DeploymentId: Optional[str] = None
     LastUpdatedDate: Optional[str] = None
-    RouteSettings: Optional[AwsApiGatewayV2RouteSettingsTypeDef] = None
+    RouteSettings: Optional[AwsApiGatewayV2RouteSettings] = None
     StageName: Optional[str] = None
     StageVariables: Optional[Mapping[str, str]] = None
-    AccessLogSettings: Optional[AwsApiGatewayAccessLogSettingsTypeDef] = None
+    AccessLogSettings: Optional[AwsApiGatewayAccessLogSettings] = None
     AutoDeploy: Optional[bool] = None
     LastDeploymentStatusMessage: Optional[str] = None
     ApiGatewayManaged: Optional[bool] = None
 
 
-class AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef(BaseValidatorModel):
+class AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails(BaseValidatorModel):
     AuthenticationType: Optional[str] = None
-    LambdaAuthorizerConfig: Optional[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef] = None
-    OpenIdConnectConfig: Optional[AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef] = None
-    UserPoolConfig: Optional[AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef] = None
+    LambdaAuthorizerConfig: Optional[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails] = None
+    OpenIdConnectConfig: Optional[AwsAppSyncGraphQlApiOpenIdConnectConfigDetails] = None
+    UserPoolConfig: Optional[AwsAppSyncGraphQlApiUserPoolConfigDetails] = None
 
 
-class AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails(BaseValidatorModel):
     pass
 
 
-class AwsAthenaWorkGroupConfigurationResultConfigurationDetailsTypeDef(BaseValidatorModel):
-    EncryptionConfiguration: Optional[ AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetailsTypeDef ] = None
+class AwsAthenaWorkGroupConfigurationResultConfigurationDetails(BaseValidatorModel):
+    EncryptionConfiguration: Optional[ AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails ] = None
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(BaseValidatorModel):
     pass
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails(BaseValidatorModel):
     pass
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef(BaseValidatorModel):
-    LaunchTemplateSpecification: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef ] = None
-    Overrides: Optional[ Sequence[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef ] ] = None
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails(BaseValidatorModel):
+    LaunchTemplateSpecification: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification ] = None
+    Overrides: Optional[ Sequence[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails ] ] = None
 
 
-class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef(BaseValidatorModel):
+class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails(BaseValidatorModel):
     DeviceName: Optional[str] = None
-    Ebs: Optional[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef] = None
+    Ebs: Optional[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails] = None
     NoDevice: Optional[bool] = None
     VirtualName: Optional[str] = None
 
 
-class AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanRuleCopyActionsDetails(BaseValidatorModel):
     DestinationBackupVaultArn: Optional[str] = None
-    Lifecycle: Optional[AwsBackupBackupPlanLifecycleDetailsTypeDef] = None
+    Lifecycle: Optional[AwsBackupBackupPlanLifecycleDetails] = None
 
 
-class AwsBackupBackupVaultDetailsOutputTypeDef(BaseValidatorModel):
+class AwsBackupBackupVaultDetailsOutput(BaseValidatorModel):
     BackupVaultArn: Optional[str] = None
     BackupVaultName: Optional[str] = None
     EncryptionKeyArn: Optional[str] = None
-    Notifications: Optional[AwsBackupBackupVaultNotificationsDetailsOutputTypeDef] = None
+    Notifications: Optional[AwsBackupBackupVaultNotificationsDetailsOutput] = None
     AccessPolicy: Optional[str] = None
 
 
-class AwsBackupRecoveryPointDetailsTypeDef(BaseValidatorModel):
+class AwsBackupRecoveryPointDetails(BaseValidatorModel):
     BackupSizeInBytes: Optional[int] = None
     BackupVaultArn: Optional[str] = None
     BackupVaultName: Optional[str] = None
-    CalculatedLifecycle: Optional[AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef] = None
+    CalculatedLifecycle: Optional[AwsBackupRecoveryPointCalculatedLifecycleDetails] = None
     CompletionDate: Optional[str] = None
-    CreatedBy: Optional[AwsBackupRecoveryPointCreatedByDetailsTypeDef] = None
+    CreatedBy: Optional[AwsBackupRecoveryPointCreatedByDetails] = None
     CreationDate: Optional[str] = None
     EncryptionKeyArn: Optional[str] = None
     IamRoleArn: Optional[str] = None
     IsEncrypted: Optional[bool] = None
     LastRestoreTime: Optional[str] = None
-    Lifecycle: Optional[AwsBackupRecoveryPointLifecycleDetailsTypeDef] = None
+    Lifecycle: Optional[AwsBackupRecoveryPointLifecycleDetails] = None
     RecoveryPointArn: Optional[str] = None
     ResourceArn: Optional[str] = None
     ResourceType: Optional[str] = None
@@ -2911,38 +2911,38 @@ class AwsBackupRecoveryPointDetailsTypeDef(BaseValidatorModel):
     StorageClass: Optional[str] = None
 
 
-class AwsCertificateManagerCertificateResourceRecordTypeDef(BaseValidatorModel):
+class AwsCertificateManagerCertificateResourceRecord(BaseValidatorModel):
     pass
 
 
-class AwsCertificateManagerCertificateDomainValidationOptionOutputTypeDef(BaseValidatorModel):
+class AwsCertificateManagerCertificateDomainValidationOptionOutput(BaseValidatorModel):
     DomainName: Optional[str] = None
-    ResourceRecord: Optional[AwsCertificateManagerCertificateResourceRecordTypeDef] = None
+    ResourceRecord: Optional[AwsCertificateManagerCertificateResourceRecord] = None
     ValidationDomain: Optional[str] = None
     ValidationEmails: Optional[List[str]] = None
     ValidationMethod: Optional[str] = None
     ValidationStatus: Optional[str] = None
 
 
-class AwsCertificateManagerCertificateDomainValidationOptionTypeDef(BaseValidatorModel):
+class AwsCertificateManagerCertificateDomainValidationOption(BaseValidatorModel):
     DomainName: Optional[str] = None
-    ResourceRecord: Optional[AwsCertificateManagerCertificateResourceRecordTypeDef] = None
+    ResourceRecord: Optional[AwsCertificateManagerCertificateResourceRecord] = None
     ValidationDomain: Optional[str] = None
     ValidationEmails: Optional[Sequence[str]] = None
     ValidationMethod: Optional[str] = None
     ValidationStatus: Optional[str] = None
 
 
-class AwsCloudFormationStackDetailsOutputTypeDef(BaseValidatorModel):
+class AwsCloudFormationStackDetailsOutput(BaseValidatorModel):
     Capabilities: Optional[List[str]] = None
     CreationTime: Optional[str] = None
     Description: Optional[str] = None
     DisableRollback: Optional[bool] = None
-    DriftInformation: Optional[AwsCloudFormationStackDriftInformationDetailsTypeDef] = None
+    DriftInformation: Optional[AwsCloudFormationStackDriftInformationDetails] = None
     EnableTerminationProtection: Optional[bool] = None
     LastUpdatedTime: Optional[str] = None
     NotificationArns: Optional[List[str]] = None
-    Outputs: Optional[List[AwsCloudFormationStackOutputsDetailsTypeDef]] = None
+    Outputs: Optional[List[AwsCloudFormationStackOutputsDetails]] = None
     RoleArn: Optional[str] = None
     StackId: Optional[str] = None
     StackName: Optional[str] = None
@@ -2951,16 +2951,16 @@ class AwsCloudFormationStackDetailsOutputTypeDef(BaseValidatorModel):
     TimeoutInMinutes: Optional[int] = None
 
 
-class AwsCloudFormationStackDetailsTypeDef(BaseValidatorModel):
+class AwsCloudFormationStackDetails(BaseValidatorModel):
     Capabilities: Optional[Sequence[str]] = None
     CreationTime: Optional[str] = None
     Description: Optional[str] = None
     DisableRollback: Optional[bool] = None
-    DriftInformation: Optional[AwsCloudFormationStackDriftInformationDetailsTypeDef] = None
+    DriftInformation: Optional[AwsCloudFormationStackDriftInformationDetails] = None
     EnableTerminationProtection: Optional[bool] = None
     LastUpdatedTime: Optional[str] = None
     NotificationArns: Optional[Sequence[str]] = None
-    Outputs: Optional[Sequence[AwsCloudFormationStackOutputsDetailsTypeDef]] = None
+    Outputs: Optional[Sequence[AwsCloudFormationStackOutputsDetails]] = None
     RoleArn: Optional[str] = None
     StackId: Optional[str] = None
     StackName: Optional[str] = None
@@ -2969,28 +2969,28 @@ class AwsCloudFormationStackDetailsTypeDef(BaseValidatorModel):
     TimeoutInMinutes: Optional[int] = None
 
 
-class AwsCloudFrontDistributionCacheBehaviorsOutputTypeDef(BaseValidatorModel):
-    Items: Optional[List[AwsCloudFrontDistributionCacheBehaviorTypeDef]] = None
+class AwsCloudFrontDistributionCacheBehaviorsOutput(BaseValidatorModel):
+    Items: Optional[List[AwsCloudFrontDistributionCacheBehavior]] = None
 
 
-class AwsCloudFrontDistributionCacheBehaviorsTypeDef(BaseValidatorModel):
-    Items: Optional[Sequence[AwsCloudFrontDistributionCacheBehaviorTypeDef]] = None
+class AwsCloudFrontDistributionCacheBehaviors(BaseValidatorModel):
+    Items: Optional[Sequence[AwsCloudFrontDistributionCacheBehavior]] = None
 
 
-class AwsCloudFrontDistributionOriginCustomOriginConfigOutputTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginCustomOriginConfigOutput(BaseValidatorModel):
     HttpPort: Optional[int] = None
     HttpsPort: Optional[int] = None
     OriginKeepaliveTimeout: Optional[int] = None
     OriginProtocolPolicy: Optional[str] = None
     OriginReadTimeout: Optional[int] = None
-    OriginSslProtocols: Optional[AwsCloudFrontDistributionOriginSslProtocolsOutputTypeDef] = None
+    OriginSslProtocols: Optional[AwsCloudFrontDistributionOriginSslProtocolsOutput] = None
 
 
-class AwsCloudFrontDistributionOriginGroupFailoverOutputTypeDef(BaseValidatorModel):
-    StatusCodes: Optional[AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutputTypeDef] = None
+class AwsCloudFrontDistributionOriginGroupFailoverOutput(BaseValidatorModel):
+    StatusCodes: Optional[AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutput] = None
 
 
-class AwsCloudWatchAlarmDetailsOutputTypeDef(BaseValidatorModel):
+class AwsCloudWatchAlarmDetailsOutput(BaseValidatorModel):
     ActionsEnabled: Optional[bool] = None
     AlarmActions: Optional[List[str]] = None
     AlarmArn: Optional[str] = None
@@ -2999,7 +2999,7 @@ class AwsCloudWatchAlarmDetailsOutputTypeDef(BaseValidatorModel):
     AlarmName: Optional[str] = None
     ComparisonOperator: Optional[str] = None
     DatapointsToAlarm: Optional[int] = None
-    Dimensions: Optional[List[AwsCloudWatchAlarmDimensionsDetailsTypeDef]] = None
+    Dimensions: Optional[List[AwsCloudWatchAlarmDimensionsDetails]] = None
     EvaluateLowSampleCountPercentile: Optional[str] = None
     EvaluationPeriods: Optional[int] = None
     ExtendedStatistic: Optional[str] = None
@@ -3015,7 +3015,7 @@ class AwsCloudWatchAlarmDetailsOutputTypeDef(BaseValidatorModel):
     Unit: Optional[str] = None
 
 
-class AwsCloudWatchAlarmDetailsTypeDef(BaseValidatorModel):
+class AwsCloudWatchAlarmDetails(BaseValidatorModel):
     ActionsEnabled: Optional[bool] = None
     AlarmActions: Optional[Sequence[str]] = None
     AlarmArn: Optional[str] = None
@@ -3024,7 +3024,7 @@ class AwsCloudWatchAlarmDetailsTypeDef(BaseValidatorModel):
     AlarmName: Optional[str] = None
     ComparisonOperator: Optional[str] = None
     DatapointsToAlarm: Optional[int] = None
-    Dimensions: Optional[Sequence[AwsCloudWatchAlarmDimensionsDetailsTypeDef]] = None
+    Dimensions: Optional[Sequence[AwsCloudWatchAlarmDimensionsDetails]] = None
     EvaluateLowSampleCountPercentile: Optional[str] = None
     EvaluationPeriods: Optional[int] = None
     ExtendedStatistic: Optional[str] = None
@@ -3040,12 +3040,12 @@ class AwsCloudWatchAlarmDetailsTypeDef(BaseValidatorModel):
     Unit: Optional[str] = None
 
 
-class AwsCodeBuildProjectLogsConfigDetailsTypeDef(BaseValidatorModel):
-    CloudWatchLogs: Optional[AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsTypeDef] = None
-    S3Logs: Optional[AwsCodeBuildProjectLogsConfigS3LogsDetailsTypeDef] = None
+class AwsCodeBuildProjectLogsConfigDetails(BaseValidatorModel):
+    CloudWatchLogs: Optional[AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails] = None
+    S3Logs: Optional[AwsCodeBuildProjectLogsConfigS3LogsDetails] = None
 
 
-class AwsDmsReplicationInstanceDetailsOutputTypeDef(BaseValidatorModel):
+class AwsDmsReplicationInstanceDetailsOutput(BaseValidatorModel):
     AllocatedStorage: Optional[int] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     AvailabilityZone: Optional[str] = None
@@ -3056,11 +3056,11 @@ class AwsDmsReplicationInstanceDetailsOutputTypeDef(BaseValidatorModel):
     PubliclyAccessible: Optional[bool] = None
     ReplicationInstanceClass: Optional[str] = None
     ReplicationInstanceIdentifier: Optional[str] = None
-    ReplicationSubnetGroup: Optional[ AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef ] = None
-    VpcSecurityGroups: Optional[List[AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef]] = None
+    ReplicationSubnetGroup: Optional[ AwsDmsReplicationInstanceReplicationSubnetGroupDetails ] = None
+    VpcSecurityGroups: Optional[List[AwsDmsReplicationInstanceVpcSecurityGroupsDetails]] = None
 
 
-class AwsDmsReplicationInstanceDetailsTypeDef(BaseValidatorModel):
+class AwsDmsReplicationInstanceDetails(BaseValidatorModel):
     AllocatedStorage: Optional[int] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     AvailabilityZone: Optional[str] = None
@@ -3071,114 +3071,114 @@ class AwsDmsReplicationInstanceDetailsTypeDef(BaseValidatorModel):
     PubliclyAccessible: Optional[bool] = None
     ReplicationInstanceClass: Optional[str] = None
     ReplicationInstanceIdentifier: Optional[str] = None
-    ReplicationSubnetGroup: Optional[ AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef ] = None
-    VpcSecurityGroups: Optional[ Sequence[AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef] ] = None
+    ReplicationSubnetGroup: Optional[ AwsDmsReplicationInstanceReplicationSubnetGroupDetails ] = None
+    VpcSecurityGroups: Optional[ Sequence[AwsDmsReplicationInstanceVpcSecurityGroupsDetails] ] = None
 
 
-class AwsDynamoDbTableGlobalSecondaryIndexOutputTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableGlobalSecondaryIndexOutput(BaseValidatorModel):
     Backfilling: Optional[bool] = None
     IndexArn: Optional[str] = None
     IndexName: Optional[str] = None
     IndexSizeBytes: Optional[int] = None
     IndexStatus: Optional[str] = None
     ItemCount: Optional[int] = None
-    KeySchema: Optional[List[AwsDynamoDbTableKeySchemaTypeDef]] = None
-    Projection: Optional[AwsDynamoDbTableProjectionOutputTypeDef] = None
-    ProvisionedThroughput: Optional[AwsDynamoDbTableProvisionedThroughputTypeDef] = None
+    KeySchema: Optional[List[AwsDynamoDbTableKeySchema]] = None
+    Projection: Optional[AwsDynamoDbTableProjectionOutput] = None
+    ProvisionedThroughput: Optional[AwsDynamoDbTableProvisionedThroughput] = None
 
 
-class AwsDynamoDbTableLocalSecondaryIndexOutputTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableLocalSecondaryIndexOutput(BaseValidatorModel):
     IndexArn: Optional[str] = None
     IndexName: Optional[str] = None
-    KeySchema: Optional[List[AwsDynamoDbTableKeySchemaTypeDef]] = None
-    Projection: Optional[AwsDynamoDbTableProjectionOutputTypeDef] = None
+    KeySchema: Optional[List[AwsDynamoDbTableKeySchema]] = None
+    Projection: Optional[AwsDynamoDbTableProjectionOutput] = None
 
 
-class AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableReplicaGlobalSecondaryIndex(BaseValidatorModel):
     IndexName: Optional[str] = None
-    ProvisionedThroughputOverride: Optional[AwsDynamoDbTableProvisionedThroughputOverrideTypeDef] = None
+    ProvisionedThroughputOverride: Optional[AwsDynamoDbTableProvisionedThroughputOverride] = None
 
 
-class AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointClientConnectOptionsDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
     LambdaFunctionArn: Optional[str] = None
-    Status: Optional[AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef] = None
+    Status: Optional[AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails] = None
 
 
-class AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails(BaseValidatorModel):
     DeviceName: Optional[str] = None
-    Ebs: Optional[AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef] = None
+    Ebs: Optional[AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails] = None
     NoDevice: Optional[str] = None
     VirtualName: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails(BaseValidatorModel):
     pass
 
 
-class AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails(BaseValidatorModel):
     CapacityReservationPreference: Optional[str] = None
-    CapacityReservationTarget: Optional[ AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef ] = None
+    CapacityReservationTarget: Optional[ AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails ] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails(BaseValidatorModel):
     MarketType: Optional[str] = None
-    SpotOptions: Optional[AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef] = None
+    SpotOptions: Optional[AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails(BaseValidatorModel):
     pass
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutputTypeDef(BaseValidatorModel):
-    AcceleratorCount: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef ] = None
+class AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutput(BaseValidatorModel):
+    AcceleratorCount: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails ] = None
     AcceleratorManufacturers: Optional[List[str]] = None
     AcceleratorNames: Optional[List[str]] = None
-    AcceleratorTotalMemoryMiB: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef ] = None
+    AcceleratorTotalMemoryMiB: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails ] = None
     AcceleratorTypes: Optional[List[str]] = None
     BareMetal: Optional[str] = None
-    BaselineEbsBandwidthMbps: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef ] = None
+    BaselineEbsBandwidthMbps: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails ] = None
     BurstablePerformance: Optional[str] = None
     CpuManufacturers: Optional[List[str]] = None
     ExcludedInstanceTypes: Optional[List[str]] = None
     InstanceGenerations: Optional[List[str]] = None
     LocalStorage: Optional[str] = None
     LocalStorageTypes: Optional[List[str]] = None
-    MemoryGiBPerVCpu: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef ] = None
-    MemoryMiB: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef] = None
-    NetworkInterfaceCount: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef ] = None
+    MemoryGiBPerVCpu: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails ] = None
+    MemoryMiB: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails] = None
+    NetworkInterfaceCount: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails ] = None
     OnDemandMaxPricePercentageOverLowestPrice: Optional[int] = None
     RequireHibernateSupport: Optional[bool] = None
     SpotMaxPricePercentageOverLowestPrice: Optional[int] = None
-    TotalLocalStorageGB: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef ] = None
-    VCpuCount: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef] = None
+    TotalLocalStorageGB: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails ] = None
+    VCpuCount: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails] = None
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef(BaseValidatorModel):
-    AcceleratorCount: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef ] = None
+class AwsEc2LaunchTemplateDataInstanceRequirementsDetails(BaseValidatorModel):
+    AcceleratorCount: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails ] = None
     AcceleratorManufacturers: Optional[Sequence[str]] = None
     AcceleratorNames: Optional[Sequence[str]] = None
-    AcceleratorTotalMemoryMiB: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef ] = None
+    AcceleratorTotalMemoryMiB: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails ] = None
     AcceleratorTypes: Optional[Sequence[str]] = None
     BareMetal: Optional[str] = None
-    BaselineEbsBandwidthMbps: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef ] = None
+    BaselineEbsBandwidthMbps: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails ] = None
     BurstablePerformance: Optional[str] = None
     CpuManufacturers: Optional[Sequence[str]] = None
     ExcludedInstanceTypes: Optional[Sequence[str]] = None
     InstanceGenerations: Optional[Sequence[str]] = None
     LocalStorage: Optional[str] = None
     LocalStorageTypes: Optional[Sequence[str]] = None
-    MemoryGiBPerVCpu: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef ] = None
-    MemoryMiB: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef] = None
-    NetworkInterfaceCount: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef ] = None
+    MemoryGiBPerVCpu: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails ] = None
+    MemoryMiB: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails] = None
+    NetworkInterfaceCount: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails ] = None
     OnDemandMaxPricePercentageOverLowestPrice: Optional[int] = None
     RequireHibernateSupport: Optional[bool] = None
     SpotMaxPricePercentageOverLowestPrice: Optional[int] = None
-    TotalLocalStorageGB: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef ] = None
-    VCpuCount: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef] = None
+    TotalLocalStorageGB: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails ] = None
+    VCpuCount: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails] = None
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutput(BaseValidatorModel):
     AssociateCarrierIpAddress: Optional[bool] = None
     AssociatePublicIpAddress: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
@@ -3187,20 +3187,20 @@ class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutputTypeDef(BaseValida
     Groups: Optional[List[str]] = None
     InterfaceType: Optional[str] = None
     Ipv4PrefixCount: Optional[int] = None
-    Ipv4Prefixes: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef] ] = None
+    Ipv4Prefixes: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails] ] = None
     Ipv6AddressCount: Optional[int] = None
-    Ipv6Addresses: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef] ] = None
+    Ipv6Addresses: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails] ] = None
     Ipv6PrefixCount: Optional[int] = None
-    Ipv6Prefixes: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef] ] = None
+    Ipv6Prefixes: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails] ] = None
     NetworkCardIndex: Optional[int] = None
     NetworkInterfaceId: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
-    PrivateIpAddresses: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef] ] = None
+    PrivateIpAddresses: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails] ] = None
     SecondaryPrivateIpAddressCount: Optional[int] = None
     SubnetId: Optional[str] = None
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails(BaseValidatorModel):
     AssociateCarrierIpAddress: Optional[bool] = None
     AssociatePublicIpAddress: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
@@ -3209,62 +3209,62 @@ class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef(BaseValidatorMod
     Groups: Optional[Sequence[str]] = None
     InterfaceType: Optional[str] = None
     Ipv4PrefixCount: Optional[int] = None
-    Ipv4Prefixes: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef] ] = None
+    Ipv4Prefixes: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails] ] = None
     Ipv6AddressCount: Optional[int] = None
-    Ipv6Addresses: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef] ] = None
+    Ipv6Addresses: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails] ] = None
     Ipv6PrefixCount: Optional[int] = None
-    Ipv6Prefixes: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef] ] = None
+    Ipv6Prefixes: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails] ] = None
     NetworkCardIndex: Optional[int] = None
     NetworkInterfaceId: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
-    PrivateIpAddresses: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef] ] = None
+    PrivateIpAddresses: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails] ] = None
     SecondaryPrivateIpAddressCount: Optional[int] = None
     SubnetId: Optional[str] = None
 
 
-class AwsEc2NetworkInterfaceDetailsOutputTypeDef(BaseValidatorModel):
-    Attachment: Optional[AwsEc2NetworkInterfaceAttachmentTypeDef] = None
+class AwsEc2NetworkInterfaceDetailsOutput(BaseValidatorModel):
+    Attachment: Optional[AwsEc2NetworkInterfaceAttachment] = None
     NetworkInterfaceId: Optional[str] = None
-    SecurityGroups: Optional[List[AwsEc2NetworkInterfaceSecurityGroupTypeDef]] = None
+    SecurityGroups: Optional[List[AwsEc2NetworkInterfaceSecurityGroup]] = None
     SourceDestCheck: Optional[bool] = None
-    IpV6Addresses: Optional[List[AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef]] = None
-    PrivateIpAddresses: Optional[List[AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef]] = None
+    IpV6Addresses: Optional[List[AwsEc2NetworkInterfaceIpV6AddressDetail]] = None
+    PrivateIpAddresses: Optional[List[AwsEc2NetworkInterfacePrivateIpAddressDetail]] = None
     PublicDnsName: Optional[str] = None
     PublicIp: Optional[str] = None
 
 
-class AwsEc2NetworkInterfaceDetailsTypeDef(BaseValidatorModel):
-    Attachment: Optional[AwsEc2NetworkInterfaceAttachmentTypeDef] = None
+class AwsEc2NetworkInterfaceDetails(BaseValidatorModel):
+    Attachment: Optional[AwsEc2NetworkInterfaceAttachment] = None
     NetworkInterfaceId: Optional[str] = None
-    SecurityGroups: Optional[Sequence[AwsEc2NetworkInterfaceSecurityGroupTypeDef]] = None
+    SecurityGroups: Optional[Sequence[AwsEc2NetworkInterfaceSecurityGroup]] = None
     SourceDestCheck: Optional[bool] = None
-    IpV6Addresses: Optional[Sequence[AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef]] = None
-    PrivateIpAddresses: Optional[Sequence[AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef]] = None
+    IpV6Addresses: Optional[Sequence[AwsEc2NetworkInterfaceIpV6AddressDetail]] = None
+    PrivateIpAddresses: Optional[Sequence[AwsEc2NetworkInterfacePrivateIpAddressDetail]] = None
     PublicDnsName: Optional[str] = None
     PublicIp: Optional[str] = None
 
 
-class AwsEc2SecurityGroupIpPermissionOutputTypeDef(BaseValidatorModel):
+class AwsEc2SecurityGroupIpPermissionOutput(BaseValidatorModel):
     IpProtocol: Optional[str] = None
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
-    UserIdGroupPairs: Optional[List[AwsEc2SecurityGroupUserIdGroupPairTypeDef]] = None
-    IpRanges: Optional[List[AwsEc2SecurityGroupIpRangeTypeDef]] = None
-    Ipv6Ranges: Optional[List[AwsEc2SecurityGroupIpv6RangeTypeDef]] = None
-    PrefixListIds: Optional[List[AwsEc2SecurityGroupPrefixListIdTypeDef]] = None
+    UserIdGroupPairs: Optional[List[AwsEc2SecurityGroupUserIdGroupPair]] = None
+    IpRanges: Optional[List[AwsEc2SecurityGroupIpRange]] = None
+    Ipv6Ranges: Optional[List[AwsEc2SecurityGroupIpv6Range]] = None
+    PrefixListIds: Optional[List[AwsEc2SecurityGroupPrefixListId]] = None
 
 
-class AwsEc2SecurityGroupIpPermissionTypeDef(BaseValidatorModel):
+class AwsEc2SecurityGroupIpPermission(BaseValidatorModel):
     IpProtocol: Optional[str] = None
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
-    UserIdGroupPairs: Optional[Sequence[AwsEc2SecurityGroupUserIdGroupPairTypeDef]] = None
-    IpRanges: Optional[Sequence[AwsEc2SecurityGroupIpRangeTypeDef]] = None
-    Ipv6Ranges: Optional[Sequence[AwsEc2SecurityGroupIpv6RangeTypeDef]] = None
-    PrefixListIds: Optional[Sequence[AwsEc2SecurityGroupPrefixListIdTypeDef]] = None
+    UserIdGroupPairs: Optional[Sequence[AwsEc2SecurityGroupUserIdGroupPair]] = None
+    IpRanges: Optional[Sequence[AwsEc2SecurityGroupIpRange]] = None
+    Ipv6Ranges: Optional[Sequence[AwsEc2SecurityGroupIpv6Range]] = None
+    PrefixListIds: Optional[Sequence[AwsEc2SecurityGroupPrefixListId]] = None
 
 
-class AwsEc2SubnetDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2SubnetDetailsOutput(BaseValidatorModel):
     AssignIpv6AddressOnCreation: Optional[bool] = None
     AvailabilityZone: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
@@ -3277,10 +3277,10 @@ class AwsEc2SubnetDetailsOutputTypeDef(BaseValidatorModel):
     SubnetArn: Optional[str] = None
     SubnetId: Optional[str] = None
     VpcId: Optional[str] = None
-    Ipv6CidrBlockAssociationSet: Optional[List[Ipv6CidrBlockAssociationTypeDef]] = None
+    Ipv6CidrBlockAssociationSet: Optional[List[Ipv6CidrBlockAssociation]] = None
 
 
-class AwsEc2SubnetDetailsTypeDef(BaseValidatorModel):
+class AwsEc2SubnetDetails(BaseValidatorModel):
     AssignIpv6AddressOnCreation: Optional[bool] = None
     AvailabilityZone: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
@@ -3293,10 +3293,10 @@ class AwsEc2SubnetDetailsTypeDef(BaseValidatorModel):
     SubnetArn: Optional[str] = None
     SubnetId: Optional[str] = None
     VpcId: Optional[str] = None
-    Ipv6CidrBlockAssociationSet: Optional[Sequence[Ipv6CidrBlockAssociationTypeDef]] = None
+    Ipv6CidrBlockAssociationSet: Optional[Sequence[Ipv6CidrBlockAssociation]] = None
 
 
-class AwsEc2VolumeDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2VolumeDetailsOutput(BaseValidatorModel):
     CreateTime: Optional[str] = None
     DeviceName: Optional[str] = None
     Encrypted: Optional[bool] = None
@@ -3304,13 +3304,13 @@ class AwsEc2VolumeDetailsOutputTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     Status: Optional[str] = None
     KmsKeyId: Optional[str] = None
-    Attachments: Optional[List[AwsEc2VolumeAttachmentTypeDef]] = None
+    Attachments: Optional[List[AwsEc2VolumeAttachment]] = None
     VolumeId: Optional[str] = None
     VolumeType: Optional[str] = None
     VolumeScanStatus: Optional[str] = None
 
 
-class AwsEc2VolumeDetailsTypeDef(BaseValidatorModel):
+class AwsEc2VolumeDetails(BaseValidatorModel):
     CreateTime: Optional[str] = None
     DeviceName: Optional[str] = None
     Encrypted: Optional[bool] = None
@@ -3318,151 +3318,151 @@ class AwsEc2VolumeDetailsTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     Status: Optional[str] = None
     KmsKeyId: Optional[str] = None
-    Attachments: Optional[Sequence[AwsEc2VolumeAttachmentTypeDef]] = None
+    Attachments: Optional[Sequence[AwsEc2VolumeAttachment]] = None
     VolumeId: Optional[str] = None
     VolumeType: Optional[str] = None
     VolumeScanStatus: Optional[str] = None
 
 
-class AwsEc2VpcDetailsOutputTypeDef(BaseValidatorModel):
-    CidrBlockAssociationSet: Optional[List[CidrBlockAssociationTypeDef]] = None
-    Ipv6CidrBlockAssociationSet: Optional[List[Ipv6CidrBlockAssociationTypeDef]] = None
+class AwsEc2VpcDetailsOutput(BaseValidatorModel):
+    CidrBlockAssociationSet: Optional[List[CidrBlockAssociation]] = None
+    Ipv6CidrBlockAssociationSet: Optional[List[Ipv6CidrBlockAssociation]] = None
     DhcpOptionsId: Optional[str] = None
     State: Optional[str] = None
 
 
-class AwsEc2VpcDetailsTypeDef(BaseValidatorModel):
-    CidrBlockAssociationSet: Optional[Sequence[CidrBlockAssociationTypeDef]] = None
-    Ipv6CidrBlockAssociationSet: Optional[Sequence[Ipv6CidrBlockAssociationTypeDef]] = None
+class AwsEc2VpcDetails(BaseValidatorModel):
+    CidrBlockAssociationSet: Optional[Sequence[CidrBlockAssociation]] = None
+    Ipv6CidrBlockAssociationSet: Optional[Sequence[Ipv6CidrBlockAssociation]] = None
     DhcpOptionsId: Optional[str] = None
     State: Optional[str] = None
 
 
-class AwsEc2VpcPeeringConnectionVpcInfoDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2VpcPeeringConnectionVpcInfoDetailsOutput(BaseValidatorModel):
     CidrBlock: Optional[str] = None
-    CidrBlockSet: Optional[List[VpcInfoCidrBlockSetDetailsTypeDef]] = None
-    Ipv6CidrBlockSet: Optional[List[VpcInfoIpv6CidrBlockSetDetailsTypeDef]] = None
+    CidrBlockSet: Optional[List[VpcInfoCidrBlockSetDetails]] = None
+    Ipv6CidrBlockSet: Optional[List[VpcInfoIpv6CidrBlockSetDetails]] = None
     OwnerId: Optional[str] = None
-    PeeringOptions: Optional[VpcInfoPeeringOptionsDetailsTypeDef] = None
+    PeeringOptions: Optional[VpcInfoPeeringOptionsDetails] = None
     Region: Optional[str] = None
     VpcId: Optional[str] = None
 
 
-class AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef(BaseValidatorModel):
+class AwsEc2VpcPeeringConnectionVpcInfoDetails(BaseValidatorModel):
     CidrBlock: Optional[str] = None
-    CidrBlockSet: Optional[Sequence[VpcInfoCidrBlockSetDetailsTypeDef]] = None
-    Ipv6CidrBlockSet: Optional[Sequence[VpcInfoIpv6CidrBlockSetDetailsTypeDef]] = None
+    CidrBlockSet: Optional[Sequence[VpcInfoCidrBlockSetDetails]] = None
+    Ipv6CidrBlockSet: Optional[Sequence[VpcInfoIpv6CidrBlockSetDetails]] = None
     OwnerId: Optional[str] = None
-    PeeringOptions: Optional[VpcInfoPeeringOptionsDetailsTypeDef] = None
+    PeeringOptions: Optional[VpcInfoPeeringOptionsDetails] = None
     Region: Optional[str] = None
     VpcId: Optional[str] = None
 
 
-class AwsEc2VpnConnectionOptionsDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2VpnConnectionOptionsDetailsOutput(BaseValidatorModel):
     StaticRoutesOnly: Optional[bool] = None
-    TunnelOptions: Optional[List[AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutputTypeDef]] = None
+    TunnelOptions: Optional[List[AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutput]] = None
 
 
-class AwsEcrRepositoryDetailsTypeDef(BaseValidatorModel):
+class AwsEcrRepositoryDetails(BaseValidatorModel):
     Arn: Optional[str] = None
-    ImageScanningConfiguration: Optional[ AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef ] = None
+    ImageScanningConfiguration: Optional[ AwsEcrRepositoryImageScanningConfigurationDetails ] = None
     ImageTagMutability: Optional[str] = None
-    LifecyclePolicy: Optional[AwsEcrRepositoryLifecyclePolicyDetailsTypeDef] = None
+    LifecyclePolicy: Optional[AwsEcrRepositoryLifecyclePolicyDetails] = None
     RepositoryName: Optional[str] = None
     RepositoryPolicyText: Optional[str] = None
 
 
-class AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails(BaseValidatorModel):
     pass
 
 
-class AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsEcsClusterConfigurationExecuteCommandConfigurationDetails(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
-    LogConfiguration: Optional[ AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef ] = None
+    LogConfiguration: Optional[ AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails ] = None
     Logging: Optional[str] = None
 
 
-class AwsEcsContainerDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsContainerDetailsOutput(BaseValidatorModel):
     Name: Optional[str] = None
     Image: Optional[str] = None
-    MountPoints: Optional[List[AwsMountPointTypeDef]] = None
+    MountPoints: Optional[List[AwsMountPoint]] = None
     Privileged: Optional[bool] = None
 
 
-class AwsEcsContainerDetailsTypeDef(BaseValidatorModel):
+class AwsEcsContainerDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Image: Optional[str] = None
-    MountPoints: Optional[Sequence[AwsMountPointTypeDef]] = None
+    MountPoints: Optional[Sequence[AwsMountPoint]] = None
     Privileged: Optional[bool] = None
 
 
-class AwsEcsServiceDeploymentConfigurationDetailsTypeDef(BaseValidatorModel):
-    DeploymentCircuitBreaker: Optional[ AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef ] = None
+class AwsEcsServiceDeploymentConfigurationDetails(BaseValidatorModel):
+    DeploymentCircuitBreaker: Optional[ AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails ] = None
     MaximumPercent: Optional[int] = None
     MinimumHealthyPercent: Optional[int] = None
 
 
-class AwsEcsServiceNetworkConfigurationDetailsOutputTypeDef(BaseValidatorModel):
-    AwsVpcConfiguration: Optional[ AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutputTypeDef ] = None
+class AwsEcsServiceNetworkConfigurationDetailsOutput(BaseValidatorModel):
+    AwsVpcConfiguration: Optional[ AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutput ] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutput(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutputTypeDef(BaseValidatorModel):
-    Capabilities: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutputTypeDef ] = None
-    Devices: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutputTypeDef] ] = None
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutput(BaseValidatorModel):
+    Capabilities: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutput ] = None
+    Devices: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutput] ] = None
     InitProcessEnabled: Optional[bool] = None
     MaxSwap: Optional[int] = None
     SharedMemorySize: Optional[int] = None
     Swappiness: Optional[int] = None
-    Tmpfs: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutputTypeDef] ] = None
+    Tmpfs: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutput] ] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutput(BaseValidatorModel):
     LogDriver: Optional[str] = None
     Options: Optional[Dict[str, str]] = None
-    SecretOptions: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef] ] = None
+    SecretOptions: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails] ] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails(BaseValidatorModel):
     LogDriver: Optional[str] = None
     Options: Optional[Mapping[str, str]] = None
-    SecretOptions: Optional[ Sequence[ AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef ] ] = None
+    SecretOptions: Optional[ Sequence[ AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails ] ] = None
 
 
-class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef(BaseValidatorModel):
-    AuthorizationConfig: Optional[ AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef ] = None
+class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails(BaseValidatorModel):
+    AuthorizationConfig: Optional[ AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails ] = None
     FilesystemId: Optional[str] = None
     RootDirectory: Optional[str] = None
     TransitEncryption: Optional[str] = None
     TransitEncryptionPort: Optional[int] = None
 
 
-class AwsEcsTaskVolumeDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskVolumeDetails(BaseValidatorModel):
     Name: Optional[str] = None
-    Host: Optional[AwsEcsTaskVolumeHostDetailsTypeDef] = None
+    Host: Optional[AwsEcsTaskVolumeHostDetails] = None
 
 
-class AwsEfsAccessPointRootDirectoryDetailsTypeDef(BaseValidatorModel):
-    CreationInfo: Optional[AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef] = None
+class AwsEfsAccessPointRootDirectoryDetails(BaseValidatorModel):
+    CreationInfo: Optional[AwsEfsAccessPointRootDirectoryCreationInfoDetails] = None
     Path: Optional[str] = None
 
 
-class AwsEksClusterLoggingDetailsOutputTypeDef(BaseValidatorModel):
-    ClusterLogging: Optional[List[AwsEksClusterLoggingClusterLoggingDetailsOutputTypeDef]] = None
+class AwsEksClusterLoggingDetailsOutput(BaseValidatorModel):
+    ClusterLogging: Optional[List[AwsEksClusterLoggingClusterLoggingDetailsOutput]] = None
 
 
-class AwsElasticBeanstalkEnvironmentTierTypeDef(BaseValidatorModel):
+class AwsElasticBeanstalkEnvironmentTier(BaseValidatorModel):
     pass
 
 
-class AwsElasticBeanstalkEnvironmentDetailsOutputTypeDef(BaseValidatorModel):
+class AwsElasticBeanstalkEnvironmentDetailsOutput(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     Cname: Optional[str] = None
     DateCreated: Optional[str] = None
@@ -3471,17 +3471,17 @@ class AwsElasticBeanstalkEnvironmentDetailsOutputTypeDef(BaseValidatorModel):
     EndpointUrl: Optional[str] = None
     EnvironmentArn: Optional[str] = None
     EnvironmentId: Optional[str] = None
-    EnvironmentLinks: Optional[List[AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef]] = None
+    EnvironmentLinks: Optional[List[AwsElasticBeanstalkEnvironmentEnvironmentLink]] = None
     EnvironmentName: Optional[str] = None
-    OptionSettings: Optional[List[AwsElasticBeanstalkEnvironmentOptionSettingTypeDef]] = None
+    OptionSettings: Optional[List[AwsElasticBeanstalkEnvironmentOptionSetting]] = None
     PlatformArn: Optional[str] = None
     SolutionStackName: Optional[str] = None
     Status: Optional[str] = None
-    Tier: Optional[AwsElasticBeanstalkEnvironmentTierTypeDef] = None
+    Tier: Optional[AwsElasticBeanstalkEnvironmentTier] = None
     VersionLabel: Optional[str] = None
 
 
-class AwsElasticBeanstalkEnvironmentDetailsTypeDef(BaseValidatorModel):
+class AwsElasticBeanstalkEnvironmentDetails(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     Cname: Optional[str] = None
     DateCreated: Optional[str] = None
@@ -3490,129 +3490,129 @@ class AwsElasticBeanstalkEnvironmentDetailsTypeDef(BaseValidatorModel):
     EndpointUrl: Optional[str] = None
     EnvironmentArn: Optional[str] = None
     EnvironmentId: Optional[str] = None
-    EnvironmentLinks: Optional[Sequence[AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef]] = None
+    EnvironmentLinks: Optional[Sequence[AwsElasticBeanstalkEnvironmentEnvironmentLink]] = None
     EnvironmentName: Optional[str] = None
-    OptionSettings: Optional[Sequence[AwsElasticBeanstalkEnvironmentOptionSettingTypeDef]] = None
+    OptionSettings: Optional[Sequence[AwsElasticBeanstalkEnvironmentOptionSetting]] = None
     PlatformArn: Optional[str] = None
     SolutionStackName: Optional[str] = None
     Status: Optional[str] = None
-    Tier: Optional[AwsElasticBeanstalkEnvironmentTierTypeDef] = None
+    Tier: Optional[AwsElasticBeanstalkEnvironmentTier] = None
     VersionLabel: Optional[str] = None
 
 
-class AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainElasticsearchClusterConfigDetails(BaseValidatorModel):
     DedicatedMasterCount: Optional[int] = None
     DedicatedMasterEnabled: Optional[bool] = None
     DedicatedMasterType: Optional[str] = None
     InstanceCount: Optional[int] = None
     InstanceType: Optional[str] = None
-    ZoneAwarenessConfig: Optional[ AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsTypeDef ] = None
+    ZoneAwarenessConfig: Optional[ AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails ] = None
     ZoneAwarenessEnabled: Optional[bool] = None
 
 
-class AwsElasticsearchDomainLogPublishingOptionsTypeDef(BaseValidatorModel):
-    IndexSlowLogs: Optional[AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef] = None
-    SearchSlowLogs: Optional[AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef] = None
-    AuditLogs: Optional[AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef] = None
+class AwsElasticsearchDomainLogPublishingOptions(BaseValidatorModel):
+    IndexSlowLogs: Optional[AwsElasticsearchDomainLogPublishingOptionsLogConfig] = None
+    SearchSlowLogs: Optional[AwsElasticsearchDomainLogPublishingOptionsLogConfig] = None
+    AuditLogs: Optional[AwsElasticsearchDomainLogPublishingOptionsLogConfig] = None
 
 
-class AwsElbLoadBalancerPoliciesOutputTypeDef(BaseValidatorModel):
-    AppCookieStickinessPolicies: Optional[List[AwsElbAppCookieStickinessPolicyTypeDef]] = None
-    LbCookieStickinessPolicies: Optional[List[AwsElbLbCookieStickinessPolicyTypeDef]] = None
+class AwsElbLoadBalancerPoliciesOutput(BaseValidatorModel):
+    AppCookieStickinessPolicies: Optional[List[AwsElbAppCookieStickinessPolicy]] = None
+    LbCookieStickinessPolicies: Optional[List[AwsElbLbCookieStickinessPolicy]] = None
     OtherPolicies: Optional[List[str]] = None
 
 
-class AwsElbLoadBalancerPoliciesTypeDef(BaseValidatorModel):
-    AppCookieStickinessPolicies: Optional[Sequence[AwsElbAppCookieStickinessPolicyTypeDef]] = None
-    LbCookieStickinessPolicies: Optional[Sequence[AwsElbLbCookieStickinessPolicyTypeDef]] = None
+class AwsElbLoadBalancerPolicies(BaseValidatorModel):
+    AppCookieStickinessPolicies: Optional[Sequence[AwsElbAppCookieStickinessPolicy]] = None
+    LbCookieStickinessPolicies: Optional[Sequence[AwsElbLbCookieStickinessPolicy]] = None
     OtherPolicies: Optional[Sequence[str]] = None
 
 
-class AwsElbLoadBalancerAttributesOutputTypeDef(BaseValidatorModel):
-    AccessLog: Optional[AwsElbLoadBalancerAccessLogTypeDef] = None
-    ConnectionDraining: Optional[AwsElbLoadBalancerConnectionDrainingTypeDef] = None
-    ConnectionSettings: Optional[AwsElbLoadBalancerConnectionSettingsTypeDef] = None
-    CrossZoneLoadBalancing: Optional[AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef] = None
-    AdditionalAttributes: Optional[List[AwsElbLoadBalancerAdditionalAttributeTypeDef]] = None
+class AwsElbLoadBalancerAttributesOutput(BaseValidatorModel):
+    AccessLog: Optional[AwsElbLoadBalancerAccessLog] = None
+    ConnectionDraining: Optional[AwsElbLoadBalancerConnectionDraining] = None
+    ConnectionSettings: Optional[AwsElbLoadBalancerConnectionSettings] = None
+    CrossZoneLoadBalancing: Optional[AwsElbLoadBalancerCrossZoneLoadBalancing] = None
+    AdditionalAttributes: Optional[List[AwsElbLoadBalancerAdditionalAttribute]] = None
 
 
-class AwsElbLoadBalancerAttributesTypeDef(BaseValidatorModel):
-    AccessLog: Optional[AwsElbLoadBalancerAccessLogTypeDef] = None
-    ConnectionDraining: Optional[AwsElbLoadBalancerConnectionDrainingTypeDef] = None
-    ConnectionSettings: Optional[AwsElbLoadBalancerConnectionSettingsTypeDef] = None
-    CrossZoneLoadBalancing: Optional[AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef] = None
-    AdditionalAttributes: Optional[Sequence[AwsElbLoadBalancerAdditionalAttributeTypeDef]] = None
+class AwsElbLoadBalancerAttributes(BaseValidatorModel):
+    AccessLog: Optional[AwsElbLoadBalancerAccessLog] = None
+    ConnectionDraining: Optional[AwsElbLoadBalancerConnectionDraining] = None
+    ConnectionSettings: Optional[AwsElbLoadBalancerConnectionSettings] = None
+    CrossZoneLoadBalancing: Optional[AwsElbLoadBalancerCrossZoneLoadBalancing] = None
+    AdditionalAttributes: Optional[Sequence[AwsElbLoadBalancerAdditionalAttribute]] = None
 
 
-class AwsElbLoadBalancerListenerTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerListener(BaseValidatorModel):
     pass
 
 
-class AwsElbLoadBalancerListenerDescriptionOutputTypeDef(BaseValidatorModel):
-    Listener: Optional[AwsElbLoadBalancerListenerTypeDef] = None
+class AwsElbLoadBalancerListenerDescriptionOutput(BaseValidatorModel):
+    Listener: Optional[AwsElbLoadBalancerListener] = None
     PolicyNames: Optional[List[str]] = None
 
 
-class AwsElbLoadBalancerListenerDescriptionTypeDef(BaseValidatorModel):
-    Listener: Optional[AwsElbLoadBalancerListenerTypeDef] = None
+class AwsElbLoadBalancerListenerDescription(BaseValidatorModel):
+    Listener: Optional[AwsElbLoadBalancerListener] = None
     PolicyNames: Optional[Sequence[str]] = None
 
 
-class AwsEventsEndpointRoutingConfigFailoverConfigDetailsTypeDef(BaseValidatorModel):
-    Primary: Optional[AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetailsTypeDef] = None
-    Secondary: Optional[AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetailsTypeDef] = None
+class AwsEventsEndpointRoutingConfigFailoverConfigDetails(BaseValidatorModel):
+    Primary: Optional[AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails] = None
+    Secondary: Optional[AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails] = None
 
 
-class AwsGuardDutyDetectorDataSourcesKubernetesDetailsTypeDef(BaseValidatorModel):
-    AuditLogs: Optional[AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetailsTypeDef] = None
+class AwsGuardDutyDetectorDataSourcesKubernetesDetails(BaseValidatorModel):
+    AuditLogs: Optional[AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails] = None
 
 
-class AwsIamAccessKeySessionContextSessionIssuerTypeDef(BaseValidatorModel):
+class AwsIamAccessKeySessionContextSessionIssuer(BaseValidatorModel):
     pass
 
 
-class AwsIamAccessKeySessionContextTypeDef(BaseValidatorModel):
-    Attributes: Optional[AwsIamAccessKeySessionContextAttributesTypeDef] = None
-    SessionIssuer: Optional[AwsIamAccessKeySessionContextSessionIssuerTypeDef] = None
+class AwsIamAccessKeySessionContext(BaseValidatorModel):
+    Attributes: Optional[AwsIamAccessKeySessionContextAttributes] = None
+    SessionIssuer: Optional[AwsIamAccessKeySessionContextSessionIssuer] = None
 
 
-class AwsIamGroupDetailsOutputTypeDef(BaseValidatorModel):
-    AttachedManagedPolicies: Optional[List[AwsIamAttachedManagedPolicyTypeDef]] = None
+class AwsIamGroupDetailsOutput(BaseValidatorModel):
+    AttachedManagedPolicies: Optional[List[AwsIamAttachedManagedPolicy]] = None
     CreateDate: Optional[str] = None
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
-    GroupPolicyList: Optional[List[AwsIamGroupPolicyTypeDef]] = None
+    GroupPolicyList: Optional[List[AwsIamGroupPolicy]] = None
     Path: Optional[str] = None
 
 
-class AwsIamGroupDetailsTypeDef(BaseValidatorModel):
-    AttachedManagedPolicies: Optional[Sequence[AwsIamAttachedManagedPolicyTypeDef]] = None
+class AwsIamGroupDetails(BaseValidatorModel):
+    AttachedManagedPolicies: Optional[Sequence[AwsIamAttachedManagedPolicy]] = None
     CreateDate: Optional[str] = None
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
-    GroupPolicyList: Optional[Sequence[AwsIamGroupPolicyTypeDef]] = None
+    GroupPolicyList: Optional[Sequence[AwsIamGroupPolicy]] = None
     Path: Optional[str] = None
 
 
-class AwsIamInstanceProfileOutputTypeDef(BaseValidatorModel):
+class AwsIamInstanceProfileOutput(BaseValidatorModel):
     Arn: Optional[str] = None
     CreateDate: Optional[str] = None
     InstanceProfileId: Optional[str] = None
     InstanceProfileName: Optional[str] = None
     Path: Optional[str] = None
-    Roles: Optional[List[AwsIamInstanceProfileRoleTypeDef]] = None
+    Roles: Optional[List[AwsIamInstanceProfileRole]] = None
 
 
-class AwsIamInstanceProfileTypeDef(BaseValidatorModel):
+class AwsIamInstanceProfile(BaseValidatorModel):
     Arn: Optional[str] = None
     CreateDate: Optional[str] = None
     InstanceProfileId: Optional[str] = None
     InstanceProfileName: Optional[str] = None
     Path: Optional[str] = None
-    Roles: Optional[Sequence[AwsIamInstanceProfileRoleTypeDef]] = None
+    Roles: Optional[Sequence[AwsIamInstanceProfileRole]] = None
 
 
-class AwsIamPolicyDetailsOutputTypeDef(BaseValidatorModel):
+class AwsIamPolicyDetailsOutput(BaseValidatorModel):
     AttachmentCount: Optional[int] = None
     CreateDate: Optional[str] = None
     DefaultVersionId: Optional[str] = None
@@ -3622,11 +3622,11 @@ class AwsIamPolicyDetailsOutputTypeDef(BaseValidatorModel):
     PermissionsBoundaryUsageCount: Optional[int] = None
     PolicyId: Optional[str] = None
     PolicyName: Optional[str] = None
-    PolicyVersionList: Optional[List[AwsIamPolicyVersionTypeDef]] = None
+    PolicyVersionList: Optional[List[AwsIamPolicyVersion]] = None
     UpdateDate: Optional[str] = None
 
 
-class AwsIamPolicyDetailsTypeDef(BaseValidatorModel):
+class AwsIamPolicyDetails(BaseValidatorModel):
     AttachmentCount: Optional[int] = None
     CreateDate: Optional[str] = None
     DefaultVersionId: Optional[str] = None
@@ -3636,61 +3636,61 @@ class AwsIamPolicyDetailsTypeDef(BaseValidatorModel):
     PermissionsBoundaryUsageCount: Optional[int] = None
     PolicyId: Optional[str] = None
     PolicyName: Optional[str] = None
-    PolicyVersionList: Optional[Sequence[AwsIamPolicyVersionTypeDef]] = None
+    PolicyVersionList: Optional[Sequence[AwsIamPolicyVersion]] = None
     UpdateDate: Optional[str] = None
 
 
-class AwsIamUserDetailsOutputTypeDef(BaseValidatorModel):
-    AttachedManagedPolicies: Optional[List[AwsIamAttachedManagedPolicyTypeDef]] = None
+class AwsIamUserDetailsOutput(BaseValidatorModel):
+    AttachedManagedPolicies: Optional[List[AwsIamAttachedManagedPolicy]] = None
     CreateDate: Optional[str] = None
     GroupList: Optional[List[str]] = None
     Path: Optional[str] = None
-    PermissionsBoundary: Optional[AwsIamPermissionsBoundaryTypeDef] = None
+    PermissionsBoundary: Optional[AwsIamPermissionsBoundary] = None
     UserId: Optional[str] = None
     UserName: Optional[str] = None
-    UserPolicyList: Optional[List[AwsIamUserPolicyTypeDef]] = None
+    UserPolicyList: Optional[List[AwsIamUserPolicy]] = None
 
 
-class AwsIamUserDetailsTypeDef(BaseValidatorModel):
-    AttachedManagedPolicies: Optional[Sequence[AwsIamAttachedManagedPolicyTypeDef]] = None
+class AwsIamUserDetails(BaseValidatorModel):
+    AttachedManagedPolicies: Optional[Sequence[AwsIamAttachedManagedPolicy]] = None
     CreateDate: Optional[str] = None
     GroupList: Optional[Sequence[str]] = None
     Path: Optional[str] = None
-    PermissionsBoundary: Optional[AwsIamPermissionsBoundaryTypeDef] = None
+    PermissionsBoundary: Optional[AwsIamPermissionsBoundary] = None
     UserId: Optional[str] = None
     UserName: Optional[str] = None
-    UserPolicyList: Optional[Sequence[AwsIamUserPolicyTypeDef]] = None
+    UserPolicyList: Optional[Sequence[AwsIamUserPolicy]] = None
 
 
-class AwsKinesisStreamDetailsTypeDef(BaseValidatorModel):
+class AwsKinesisStreamDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
-    StreamEncryption: Optional[AwsKinesisStreamStreamEncryptionDetailsTypeDef] = None
+    StreamEncryption: Optional[AwsKinesisStreamStreamEncryptionDetails] = None
     ShardCount: Optional[int] = None
     RetentionPeriodHours: Optional[int] = None
 
 
-class AwsLambdaFunctionEnvironmentOutputTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionEnvironmentOutput(BaseValidatorModel):
     Variables: Optional[Dict[str, str]] = None
-    Error: Optional[AwsLambdaFunctionEnvironmentErrorTypeDef] = None
+    Error: Optional[AwsLambdaFunctionEnvironmentError] = None
 
 
-class AwsLambdaFunctionEnvironmentTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionEnvironment(BaseValidatorModel):
     Variables: Optional[Mapping[str, str]] = None
-    Error: Optional[AwsLambdaFunctionEnvironmentErrorTypeDef] = None
+    Error: Optional[AwsLambdaFunctionEnvironmentError] = None
 
 
-class AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef(BaseValidatorModel):
-    Iam: Optional[AwsMskClusterClusterInfoClientAuthenticationSaslIamDetailsTypeDef] = None
-    Scram: Optional[AwsMskClusterClusterInfoClientAuthenticationSaslScramDetailsTypeDef] = None
+class AwsMskClusterClusterInfoClientAuthenticationSaslDetails(BaseValidatorModel):
+    Iam: Optional[AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails] = None
+    Scram: Optional[AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails] = None
 
 
-class AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef(BaseValidatorModel):
-    EncryptionInTransit: Optional[ AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetailsTypeDef ] = None
-    EncryptionAtRest: Optional[ AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetailsTypeDef ] = None
+class AwsMskClusterClusterInfoEncryptionInfoDetails(BaseValidatorModel):
+    EncryptionInTransit: Optional[ AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails ] = None
+    EncryptionAtRest: Optional[ AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails ] = None
 
 
-class AwsNetworkFirewallFirewallDetailsOutputTypeDef(BaseValidatorModel):
+class AwsNetworkFirewallFirewallDetailsOutput(BaseValidatorModel):
     DeleteProtection: Optional[bool] = None
     Description: Optional[str] = None
     FirewallArn: Optional[str] = None
@@ -3699,11 +3699,11 @@ class AwsNetworkFirewallFirewallDetailsOutputTypeDef(BaseValidatorModel):
     FirewallPolicyArn: Optional[str] = None
     FirewallPolicyChangeProtection: Optional[bool] = None
     SubnetChangeProtection: Optional[bool] = None
-    SubnetMappings: Optional[List[AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef]] = None
+    SubnetMappings: Optional[List[AwsNetworkFirewallFirewallSubnetMappingsDetails]] = None
     VpcId: Optional[str] = None
 
 
-class AwsNetworkFirewallFirewallDetailsTypeDef(BaseValidatorModel):
+class AwsNetworkFirewallFirewallDetails(BaseValidatorModel):
     DeleteProtection: Optional[bool] = None
     Description: Optional[str] = None
     FirewallArn: Optional[str] = None
@@ -3712,22 +3712,22 @@ class AwsNetworkFirewallFirewallDetailsTypeDef(BaseValidatorModel):
     FirewallPolicyArn: Optional[str] = None
     FirewallPolicyChangeProtection: Optional[bool] = None
     SubnetChangeProtection: Optional[bool] = None
-    SubnetMappings: Optional[Sequence[AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef]] = None
+    SubnetMappings: Optional[Sequence[AwsNetworkFirewallFirewallSubnetMappingsDetails]] = None
     VpcId: Optional[str] = None
 
 
-class AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails(BaseValidatorModel):
     Enabled: Optional[bool] = None
     InternalUserDatabaseEnabled: Optional[bool] = None
-    MasterUserOptions: Optional[AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef] = None
+    MasterUserOptions: Optional[AwsOpenSearchServiceDomainMasterUserOptionsDetails] = None
 
 
-class AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainClusterConfigDetails(BaseValidatorModel):
     InstanceCount: Optional[int] = None
     WarmEnabled: Optional[bool] = None
     WarmCount: Optional[int] = None
     DedicatedMasterEnabled: Optional[bool] = None
-    ZoneAwarenessConfig: Optional[ AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef ] = None
+    ZoneAwarenessConfig: Optional[ AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails ] = None
     DedicatedMasterCount: Optional[int] = None
     InstanceType: Optional[str] = None
     WarmType: Optional[str] = None
@@ -3735,13 +3735,13 @@ class AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef(BaseValidatorModel):
     DedicatedMasterType: Optional[str] = None
 
 
-class AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef(BaseValidatorModel):
-    IndexSlowLogs: Optional[AwsOpenSearchServiceDomainLogPublishingOptionTypeDef] = None
-    SearchSlowLogs: Optional[AwsOpenSearchServiceDomainLogPublishingOptionTypeDef] = None
-    AuditLogs: Optional[AwsOpenSearchServiceDomainLogPublishingOptionTypeDef] = None
+class AwsOpenSearchServiceDomainLogPublishingOptionsDetails(BaseValidatorModel):
+    IndexSlowLogs: Optional[AwsOpenSearchServiceDomainLogPublishingOption] = None
+    SearchSlowLogs: Optional[AwsOpenSearchServiceDomainLogPublishingOption] = None
+    AuditLogs: Optional[AwsOpenSearchServiceDomainLogPublishingOption] = None
 
 
-class AwsRdsDbClusterDetailsOutputTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterDetailsOutput(BaseValidatorModel):
     AllocatedStorage: Optional[int] = None
     AvailabilityZones: Optional[List[str]] = None
     BackupRetentionPeriod: Optional[int] = None
@@ -3758,12 +3758,12 @@ class AwsRdsDbClusterDetailsOutputTypeDef(BaseValidatorModel):
     PreferredBackupWindow: Optional[str] = None
     PreferredMaintenanceWindow: Optional[str] = None
     ReadReplicaIdentifiers: Optional[List[str]] = None
-    VpcSecurityGroups: Optional[List[AwsRdsDbInstanceVpcSecurityGroupTypeDef]] = None
+    VpcSecurityGroups: Optional[List[AwsRdsDbInstanceVpcSecurityGroup]] = None
     HostedZoneId: Optional[str] = None
     StorageEncrypted: Optional[bool] = None
     KmsKeyId: Optional[str] = None
     DbClusterResourceId: Optional[str] = None
-    AssociatedRoles: Optional[List[AwsRdsDbClusterAssociatedRoleTypeDef]] = None
+    AssociatedRoles: Optional[List[AwsRdsDbClusterAssociatedRole]] = None
     ClusterCreateTime: Optional[str] = None
     EnabledCloudWatchLogsExports: Optional[List[str]] = None
     EngineMode: Optional[str] = None
@@ -3772,17 +3772,17 @@ class AwsRdsDbClusterDetailsOutputTypeDef(BaseValidatorModel):
     ActivityStreamStatus: Optional[str] = None
     CopyTagsToSnapshot: Optional[bool] = None
     CrossAccountClone: Optional[bool] = None
-    DomainMemberships: Optional[List[AwsRdsDbDomainMembershipTypeDef]] = None
+    DomainMemberships: Optional[List[AwsRdsDbDomainMembership]] = None
     DbClusterParameterGroup: Optional[str] = None
     DbSubnetGroup: Optional[str] = None
-    DbClusterOptionGroupMemberships: Optional[List[AwsRdsDbClusterOptionGroupMembershipTypeDef]] = None
+    DbClusterOptionGroupMemberships: Optional[List[AwsRdsDbClusterOptionGroupMembership]] = None
     DbClusterIdentifier: Optional[str] = None
-    DbClusterMembers: Optional[List[AwsRdsDbClusterMemberTypeDef]] = None
+    DbClusterMembers: Optional[List[AwsRdsDbClusterMember]] = None
     IamDatabaseAuthenticationEnabled: Optional[bool] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
 
 
-class AwsRdsDbClusterDetailsTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterDetails(BaseValidatorModel):
     AllocatedStorage: Optional[int] = None
     AvailabilityZones: Optional[Sequence[str]] = None
     BackupRetentionPeriod: Optional[int] = None
@@ -3799,12 +3799,12 @@ class AwsRdsDbClusterDetailsTypeDef(BaseValidatorModel):
     PreferredBackupWindow: Optional[str] = None
     PreferredMaintenanceWindow: Optional[str] = None
     ReadReplicaIdentifiers: Optional[Sequence[str]] = None
-    VpcSecurityGroups: Optional[Sequence[AwsRdsDbInstanceVpcSecurityGroupTypeDef]] = None
+    VpcSecurityGroups: Optional[Sequence[AwsRdsDbInstanceVpcSecurityGroup]] = None
     HostedZoneId: Optional[str] = None
     StorageEncrypted: Optional[bool] = None
     KmsKeyId: Optional[str] = None
     DbClusterResourceId: Optional[str] = None
-    AssociatedRoles: Optional[Sequence[AwsRdsDbClusterAssociatedRoleTypeDef]] = None
+    AssociatedRoles: Optional[Sequence[AwsRdsDbClusterAssociatedRole]] = None
     ClusterCreateTime: Optional[str] = None
     EnabledCloudWatchLogsExports: Optional[Sequence[str]] = None
     EngineMode: Optional[str] = None
@@ -3813,17 +3813,17 @@ class AwsRdsDbClusterDetailsTypeDef(BaseValidatorModel):
     ActivityStreamStatus: Optional[str] = None
     CopyTagsToSnapshot: Optional[bool] = None
     CrossAccountClone: Optional[bool] = None
-    DomainMemberships: Optional[Sequence[AwsRdsDbDomainMembershipTypeDef]] = None
+    DomainMemberships: Optional[Sequence[AwsRdsDbDomainMembership]] = None
     DbClusterParameterGroup: Optional[str] = None
     DbSubnetGroup: Optional[str] = None
-    DbClusterOptionGroupMemberships: Optional[ Sequence[AwsRdsDbClusterOptionGroupMembershipTypeDef] ] = None
+    DbClusterOptionGroupMemberships: Optional[ Sequence[AwsRdsDbClusterOptionGroupMembership] ] = None
     DbClusterIdentifier: Optional[str] = None
-    DbClusterMembers: Optional[Sequence[AwsRdsDbClusterMemberTypeDef]] = None
+    DbClusterMembers: Optional[Sequence[AwsRdsDbClusterMember]] = None
     IamDatabaseAuthenticationEnabled: Optional[bool] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
 
 
-class AwsRdsDbClusterSnapshotDetailsOutputTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterSnapshotDetailsOutput(BaseValidatorModel):
     AvailabilityZones: Optional[List[str]] = None
     SnapshotCreateTime: Optional[str] = None
     Engine: Optional[str] = None
@@ -3842,10 +3842,10 @@ class AwsRdsDbClusterSnapshotDetailsOutputTypeDef(BaseValidatorModel):
     DbClusterIdentifier: Optional[str] = None
     DbClusterSnapshotIdentifier: Optional[str] = None
     IamDatabaseAuthenticationEnabled: Optional[bool] = None
-    DbClusterSnapshotAttributes: Optional[ List[AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutputTypeDef] ] = None
+    DbClusterSnapshotAttributes: Optional[ List[AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutput] ] = None
 
 
-class AwsRdsDbSnapshotDetailsOutputTypeDef(BaseValidatorModel):
+class AwsRdsDbSnapshotDetailsOutput(BaseValidatorModel):
     DbSnapshotIdentifier: Optional[str] = None
     DbInstanceIdentifier: Optional[str] = None
     SnapshotCreateTime: Optional[str] = None
@@ -3871,11 +3871,11 @@ class AwsRdsDbSnapshotDetailsOutputTypeDef(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
     Timezone: Optional[str] = None
     IamDatabaseAuthenticationEnabled: Optional[bool] = None
-    ProcessorFeatures: Optional[List[AwsRdsDbProcessorFeatureTypeDef]] = None
+    ProcessorFeatures: Optional[List[AwsRdsDbProcessorFeature]] = None
     DbiResourceId: Optional[str] = None
 
 
-class AwsRdsDbSnapshotDetailsTypeDef(BaseValidatorModel):
+class AwsRdsDbSnapshotDetails(BaseValidatorModel):
     DbSnapshotIdentifier: Optional[str] = None
     DbInstanceIdentifier: Optional[str] = None
     SnapshotCreateTime: Optional[str] = None
@@ -3901,11 +3901,11 @@ class AwsRdsDbSnapshotDetailsTypeDef(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
     Timezone: Optional[str] = None
     IamDatabaseAuthenticationEnabled: Optional[bool] = None
-    ProcessorFeatures: Optional[Sequence[AwsRdsDbProcessorFeatureTypeDef]] = None
+    ProcessorFeatures: Optional[Sequence[AwsRdsDbProcessorFeature]] = None
     DbiResourceId: Optional[str] = None
 
 
-class AwsRdsDbPendingModifiedValuesOutputTypeDef(BaseValidatorModel):
+class AwsRdsDbPendingModifiedValuesOutput(BaseValidatorModel):
     DbInstanceClass: Optional[str] = None
     AllocatedStorage: Optional[int] = None
     MasterUserPassword: Optional[str] = None
@@ -3919,101 +3919,101 @@ class AwsRdsDbPendingModifiedValuesOutputTypeDef(BaseValidatorModel):
     StorageType: Optional[str] = None
     CaCertificateIdentifier: Optional[str] = None
     DbSubnetGroupName: Optional[str] = None
-    PendingCloudWatchLogsExports: Optional[AwsRdsPendingCloudWatchLogsExportsOutputTypeDef] = None
-    ProcessorFeatures: Optional[List[AwsRdsDbProcessorFeatureTypeDef]] = None
+    PendingCloudWatchLogsExports: Optional[AwsRdsPendingCloudWatchLogsExportsOutput] = None
+    ProcessorFeatures: Optional[List[AwsRdsDbProcessorFeature]] = None
 
 
-class AwsRdsDbSecurityGroupDetailsOutputTypeDef(BaseValidatorModel):
+class AwsRdsDbSecurityGroupDetailsOutput(BaseValidatorModel):
     DbSecurityGroupArn: Optional[str] = None
     DbSecurityGroupDescription: Optional[str] = None
     DbSecurityGroupName: Optional[str] = None
-    Ec2SecurityGroups: Optional[List[AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef]] = None
-    IpRanges: Optional[List[AwsRdsDbSecurityGroupIpRangeTypeDef]] = None
+    Ec2SecurityGroups: Optional[List[AwsRdsDbSecurityGroupEc2SecurityGroup]] = None
+    IpRanges: Optional[List[AwsRdsDbSecurityGroupIpRange]] = None
     OwnerId: Optional[str] = None
     VpcId: Optional[str] = None
 
 
-class AwsRdsDbSecurityGroupDetailsTypeDef(BaseValidatorModel):
+class AwsRdsDbSecurityGroupDetails(BaseValidatorModel):
     DbSecurityGroupArn: Optional[str] = None
     DbSecurityGroupDescription: Optional[str] = None
     DbSecurityGroupName: Optional[str] = None
-    Ec2SecurityGroups: Optional[Sequence[AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef]] = None
-    IpRanges: Optional[Sequence[AwsRdsDbSecurityGroupIpRangeTypeDef]] = None
+    Ec2SecurityGroups: Optional[Sequence[AwsRdsDbSecurityGroupEc2SecurityGroup]] = None
+    IpRanges: Optional[Sequence[AwsRdsDbSecurityGroupIpRange]] = None
     OwnerId: Optional[str] = None
     VpcId: Optional[str] = None
 
 
-class AwsRdsDbSubnetGroupSubnetTypeDef(BaseValidatorModel):
+class AwsRdsDbSubnetGroupSubnet(BaseValidatorModel):
     SubnetIdentifier: Optional[str] = None
-    SubnetAvailabilityZone: Optional[AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef] = None
+    SubnetAvailabilityZone: Optional[AwsRdsDbSubnetGroupSubnetAvailabilityZone] = None
     SubnetStatus: Optional[str] = None
 
 
-class AwsRedshiftClusterClusterParameterGroupOutputTypeDef(BaseValidatorModel):
-    ClusterParameterStatusList: Optional[List[AwsRedshiftClusterClusterParameterStatusTypeDef]] = None
+class AwsRedshiftClusterClusterParameterGroupOutput(BaseValidatorModel):
+    ClusterParameterStatusList: Optional[List[AwsRedshiftClusterClusterParameterStatus]] = None
     ParameterApplyStatus: Optional[str] = None
     ParameterGroupName: Optional[str] = None
 
 
-class AwsRedshiftClusterClusterParameterGroupTypeDef(BaseValidatorModel):
-    ClusterParameterStatusList: Optional[ Sequence[AwsRedshiftClusterClusterParameterStatusTypeDef] ] = None
+class AwsRedshiftClusterClusterParameterGroup(BaseValidatorModel):
+    ClusterParameterStatusList: Optional[ Sequence[AwsRedshiftClusterClusterParameterStatus] ] = None
     ParameterApplyStatus: Optional[str] = None
     ParameterGroupName: Optional[str] = None
 
 
-class AwsRoute53HostedZoneObjectDetailsTypeDef(BaseValidatorModel):
+class AwsRoute53HostedZoneObjectDetails(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
-    Config: Optional[AwsRoute53HostedZoneConfigDetailsTypeDef] = None
+    Config: Optional[AwsRoute53HostedZoneConfigDetails] = None
 
 
-class AwsRoute53QueryLoggingConfigDetailsTypeDef(BaseValidatorModel):
-    CloudWatchLogsLogGroupArn: Optional[CloudWatchLogsLogGroupArnConfigDetailsTypeDef] = None
+class AwsRoute53QueryLoggingConfigDetails(BaseValidatorModel):
+    CloudWatchLogsLogGroupArn: Optional[CloudWatchLogsLogGroupArnConfigDetails] = None
 
 
-class AwsS3AccessPointDetailsTypeDef(BaseValidatorModel):
+class AwsS3AccessPointDetails(BaseValidatorModel):
     AccessPointArn: Optional[str] = None
     Alias: Optional[str] = None
     Bucket: Optional[str] = None
     BucketAccountId: Optional[str] = None
     Name: Optional[str] = None
     NetworkOrigin: Optional[str] = None
-    PublicAccessBlockConfiguration: Optional[AwsS3AccountPublicAccessBlockDetailsTypeDef] = None
-    VpcConfiguration: Optional[AwsS3AccessPointVpcConfigurationDetailsTypeDef] = None
+    PublicAccessBlockConfiguration: Optional[AwsS3AccountPublicAccessBlockDetails] = None
+    VpcConfiguration: Optional[AwsS3AccessPointVpcConfigurationDetails] = None
 
 
-class AwsS3BucketNotificationConfigurationS3KeyFilterOutputTypeDef(BaseValidatorModel):
-    FilterRules: Optional[List[AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef]] = None
+class AwsS3BucketNotificationConfigurationS3KeyFilterOutput(BaseValidatorModel):
+    FilterRules: Optional[List[AwsS3BucketNotificationConfigurationS3KeyFilterRule]] = None
 
 
-class AwsS3BucketNotificationConfigurationS3KeyFilterTypeDef(BaseValidatorModel):
-    FilterRules: Optional[Sequence[AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef]] = None
+class AwsS3BucketNotificationConfigurationS3KeyFilter(BaseValidatorModel):
+    FilterRules: Optional[Sequence[AwsS3BucketNotificationConfigurationS3KeyFilterRule]] = None
 
 
-class AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef(BaseValidatorModel):
-    DefaultRetention: Optional[ AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef ] = None
+class AwsS3BucketObjectLockConfigurationRuleDetails(BaseValidatorModel):
+    DefaultRetention: Optional[ AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails ] = None
 
 
-class AwsS3BucketServerSideEncryptionRuleTypeDef(BaseValidatorModel):
-    ApplyServerSideEncryptionByDefault: Optional[AwsS3BucketServerSideEncryptionByDefaultTypeDef] = None
+class AwsS3BucketServerSideEncryptionRule(BaseValidatorModel):
+    ApplyServerSideEncryptionByDefault: Optional[AwsS3BucketServerSideEncryptionByDefault] = None
 
 
-class AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef(BaseValidatorModel):
+class AwsS3BucketWebsiteConfigurationRoutingRuleRedirect(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef(BaseValidatorModel):
-    Condition: Optional[AwsS3BucketWebsiteConfigurationRoutingRuleConditionTypeDef] = None
-    Redirect: Optional[AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef] = None
+class AwsS3BucketWebsiteConfigurationRoutingRule(BaseValidatorModel):
+    Condition: Optional[AwsS3BucketWebsiteConfigurationRoutingRuleCondition] = None
+    Redirect: Optional[AwsS3BucketWebsiteConfigurationRoutingRuleRedirect] = None
 
 
-class AwsSageMakerNotebookInstanceDetailsOutputTypeDef(BaseValidatorModel):
+class AwsSageMakerNotebookInstanceDetailsOutput(BaseValidatorModel):
     AcceleratorTypes: Optional[List[str]] = None
     AdditionalCodeRepositories: Optional[List[str]] = None
     DefaultCodeRepository: Optional[str] = None
     DirectInternetAccess: Optional[str] = None
     FailureReason: Optional[str] = None
-    InstanceMetadataServiceConfiguration: Optional[ AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef ] = None
+    InstanceMetadataServiceConfiguration: Optional[ AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails ] = None
     InstanceType: Optional[str] = None
     KmsKeyId: Optional[str] = None
     NetworkInterfaceId: Optional[str] = None
@@ -4030,13 +4030,13 @@ class AwsSageMakerNotebookInstanceDetailsOutputTypeDef(BaseValidatorModel):
     VolumeSizeInGB: Optional[int] = None
 
 
-class AwsSageMakerNotebookInstanceDetailsTypeDef(BaseValidatorModel):
+class AwsSageMakerNotebookInstanceDetails(BaseValidatorModel):
     AcceleratorTypes: Optional[Sequence[str]] = None
     AdditionalCodeRepositories: Optional[Sequence[str]] = None
     DefaultCodeRepository: Optional[str] = None
     DirectInternetAccess: Optional[str] = None
     FailureReason: Optional[str] = None
-    InstanceMetadataServiceConfiguration: Optional[ AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef ] = None
+    InstanceMetadataServiceConfiguration: Optional[ AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails ] = None
     InstanceType: Optional[str] = None
     KmsKeyId: Optional[str] = None
     NetworkInterfaceId: Optional[str] = None
@@ -4053,8 +4053,8 @@ class AwsSageMakerNotebookInstanceDetailsTypeDef(BaseValidatorModel):
     VolumeSizeInGB: Optional[int] = None
 
 
-class AwsSecretsManagerSecretDetailsTypeDef(BaseValidatorModel):
-    RotationRules: Optional[AwsSecretsManagerSecretRotationRulesTypeDef] = None
+class AwsSecretsManagerSecretDetails(BaseValidatorModel):
+    RotationRules: Optional[AwsSecretsManagerSecretRotationRules] = None
     RotationOccurredWithinFrequency: Optional[bool] = None
     KmsKeyId: Optional[str] = None
     RotationEnabled: Optional[bool] = None
@@ -4064,32 +4064,32 @@ class AwsSecretsManagerSecretDetailsTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class BatchUpdateFindingsRequestTypeDef(BaseValidatorModel):
-    FindingIdentifiers: Sequence[AwsSecurityFindingIdentifierTypeDef]
-    Note: Optional[NoteUpdateTypeDef] = None
-    Severity: Optional[SeverityUpdateTypeDef] = None
+class BatchUpdateFindingsRequest(BaseValidatorModel):
+    FindingIdentifiers: Sequence[AwsSecurityFindingIdentifier]
+    Note: Optional[NoteUpdate] = None
+    Severity: Optional[SeverityUpdate] = None
     VerificationState: Optional[VerificationStateType] = None
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
     Types: Optional[Sequence[str]] = None
     UserDefinedFields: Optional[Mapping[str, str]] = None
-    Workflow: Optional[WorkflowUpdateTypeDef] = None
-    RelatedFindings: Optional[Sequence[RelatedFindingTypeDef]] = None
+    Workflow: Optional[WorkflowUpdate] = None
+    RelatedFindings: Optional[Sequence[RelatedFinding]] = None
 
 
-class BatchUpdateFindingsUnprocessedFindingTypeDef(BaseValidatorModel):
-    FindingIdentifier: AwsSecurityFindingIdentifierTypeDef
+class BatchUpdateFindingsUnprocessedFinding(BaseValidatorModel):
+    FindingIdentifier: AwsSecurityFindingIdentifier
     ErrorCode: str
     ErrorMessage: str
 
 
-class AwsSnsTopicSubscriptionTypeDef(BaseValidatorModel):
+class AwsSnsTopicSubscription(BaseValidatorModel):
     pass
 
 
-class AwsSnsTopicDetailsOutputTypeDef(BaseValidatorModel):
+class AwsSnsTopicDetailsOutput(BaseValidatorModel):
     KmsMasterKeyId: Optional[str] = None
-    Subscription: Optional[List[AwsSnsTopicSubscriptionTypeDef]] = None
+    Subscription: Optional[List[AwsSnsTopicSubscription]] = None
     TopicName: Optional[str] = None
     Owner: Optional[str] = None
     SqsSuccessFeedbackRoleArn: Optional[str] = None
@@ -4101,9 +4101,9 @@ class AwsSnsTopicDetailsOutputTypeDef(BaseValidatorModel):
     HttpFailureFeedbackRoleArn: Optional[str] = None
 
 
-class AwsSnsTopicDetailsTypeDef(BaseValidatorModel):
+class AwsSnsTopicDetails(BaseValidatorModel):
     KmsMasterKeyId: Optional[str] = None
-    Subscription: Optional[Sequence[AwsSnsTopicSubscriptionTypeDef]] = None
+    Subscription: Optional[Sequence[AwsSnsTopicSubscription]] = None
     TopicName: Optional[str] = None
     Owner: Optional[str] = None
     SqsSuccessFeedbackRoleArn: Optional[str] = None
@@ -4115,175 +4115,175 @@ class AwsSnsTopicDetailsTypeDef(BaseValidatorModel):
     HttpFailureFeedbackRoleArn: Optional[str] = None
 
 
-class AwsSsmPatchTypeDef(BaseValidatorModel):
-    ComplianceSummary: Optional[AwsSsmComplianceSummaryTypeDef] = None
+class AwsSsmPatch(BaseValidatorModel):
+    ComplianceSummary: Optional[AwsSsmComplianceSummary] = None
 
 
-class AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetailsTypeDef(BaseValidatorModel):
+class AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails(BaseValidatorModel):
     pass
 
 
-class AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef(BaseValidatorModel):
-    CloudWatchLogsLogGroup: Optional[ AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetailsTypeDef ] = None
+class AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails(BaseValidatorModel):
+    CloudWatchLogsLogGroup: Optional[ AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails ] = None
 
 
-class AwsWafRateBasedRuleMatchPredicateTypeDef(BaseValidatorModel):
+class AwsWafRateBasedRuleMatchPredicate(BaseValidatorModel):
     pass
 
 
-class AwsWafRateBasedRuleDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafRateBasedRuleDetailsOutput(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
     RateKey: Optional[str] = None
     RateLimit: Optional[int] = None
     RuleId: Optional[str] = None
-    MatchPredicates: Optional[List[AwsWafRateBasedRuleMatchPredicateTypeDef]] = None
+    MatchPredicates: Optional[List[AwsWafRateBasedRuleMatchPredicate]] = None
 
 
-class AwsWafRateBasedRuleDetailsTypeDef(BaseValidatorModel):
+class AwsWafRateBasedRuleDetails(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
     RateKey: Optional[str] = None
     RateLimit: Optional[int] = None
     RuleId: Optional[str] = None
-    MatchPredicates: Optional[Sequence[AwsWafRateBasedRuleMatchPredicateTypeDef]] = None
+    MatchPredicates: Optional[Sequence[AwsWafRateBasedRuleMatchPredicate]] = None
 
 
-class AwsWafRegionalRateBasedRuleMatchPredicateTypeDef(BaseValidatorModel):
+class AwsWafRegionalRateBasedRuleMatchPredicate(BaseValidatorModel):
     pass
 
 
-class AwsWafRegionalRateBasedRuleDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafRegionalRateBasedRuleDetailsOutput(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
     RateKey: Optional[str] = None
     RateLimit: Optional[int] = None
     RuleId: Optional[str] = None
-    MatchPredicates: Optional[List[AwsWafRegionalRateBasedRuleMatchPredicateTypeDef]] = None
+    MatchPredicates: Optional[List[AwsWafRegionalRateBasedRuleMatchPredicate]] = None
 
 
-class AwsWafRegionalRateBasedRuleDetailsTypeDef(BaseValidatorModel):
+class AwsWafRegionalRateBasedRuleDetails(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
     RateKey: Optional[str] = None
     RateLimit: Optional[int] = None
     RuleId: Optional[str] = None
-    MatchPredicates: Optional[Sequence[AwsWafRegionalRateBasedRuleMatchPredicateTypeDef]] = None
+    MatchPredicates: Optional[Sequence[AwsWafRegionalRateBasedRuleMatchPredicate]] = None
 
 
-class AwsWafRegionalRulePredicateListDetailsTypeDef(BaseValidatorModel):
+class AwsWafRegionalRulePredicateListDetails(BaseValidatorModel):
     pass
 
 
-class AwsWafRegionalRuleDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafRegionalRuleDetailsOutput(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
-    PredicateList: Optional[List[AwsWafRegionalRulePredicateListDetailsTypeDef]] = None
+    PredicateList: Optional[List[AwsWafRegionalRulePredicateListDetails]] = None
     RuleId: Optional[str] = None
 
 
-class AwsWafRegionalRuleDetailsTypeDef(BaseValidatorModel):
+class AwsWafRegionalRuleDetails(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
-    PredicateList: Optional[Sequence[AwsWafRegionalRulePredicateListDetailsTypeDef]] = None
+    PredicateList: Optional[Sequence[AwsWafRegionalRulePredicateListDetails]] = None
     RuleId: Optional[str] = None
 
 
-class AwsWafRulePredicateListDetailsTypeDef(BaseValidatorModel):
+class AwsWafRulePredicateListDetails(BaseValidatorModel):
     pass
 
 
-class AwsWafRuleDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafRuleDetailsOutput(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
-    PredicateList: Optional[List[AwsWafRulePredicateListDetailsTypeDef]] = None
+    PredicateList: Optional[List[AwsWafRulePredicateListDetails]] = None
     RuleId: Optional[str] = None
 
 
-class AwsWafRuleDetailsTypeDef(BaseValidatorModel):
+class AwsWafRuleDetails(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
-    PredicateList: Optional[Sequence[AwsWafRulePredicateListDetailsTypeDef]] = None
+    PredicateList: Optional[Sequence[AwsWafRulePredicateListDetails]] = None
     RuleId: Optional[str] = None
 
 
-class AwsWafv2CustomRequestHandlingDetailsOutputTypeDef(BaseValidatorModel):
-    InsertHeaders: Optional[List[AwsWafv2CustomHttpHeaderTypeDef]] = None
+class AwsWafv2CustomRequestHandlingDetailsOutput(BaseValidatorModel):
+    InsertHeaders: Optional[List[AwsWafv2CustomHttpHeader]] = None
 
 
-class AwsWafv2CustomRequestHandlingDetailsTypeDef(BaseValidatorModel):
-    InsertHeaders: Optional[Sequence[AwsWafv2CustomHttpHeaderTypeDef]] = None
+class AwsWafv2CustomRequestHandlingDetails(BaseValidatorModel):
+    InsertHeaders: Optional[Sequence[AwsWafv2CustomHttpHeader]] = None
 
 
-class AwsWafv2CustomResponseDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafv2CustomResponseDetailsOutput(BaseValidatorModel):
     CustomResponseBodyKey: Optional[str] = None
     ResponseCode: Optional[int] = None
-    ResponseHeaders: Optional[List[AwsWafv2CustomHttpHeaderTypeDef]] = None
+    ResponseHeaders: Optional[List[AwsWafv2CustomHttpHeader]] = None
 
 
-class AwsWafv2CustomResponseDetailsTypeDef(BaseValidatorModel):
+class AwsWafv2CustomResponseDetails(BaseValidatorModel):
     CustomResponseBodyKey: Optional[str] = None
     ResponseCode: Optional[int] = None
-    ResponseHeaders: Optional[Sequence[AwsWafv2CustomHttpHeaderTypeDef]] = None
+    ResponseHeaders: Optional[Sequence[AwsWafv2CustomHttpHeader]] = None
 
 
-class AwsWafv2WebAclCaptchaConfigDetailsTypeDef(BaseValidatorModel):
-    ImmunityTimeProperty: Optional[AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef] = None
+class AwsWafv2WebAclCaptchaConfigDetails(BaseValidatorModel):
+    ImmunityTimeProperty: Optional[AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails] = None
 
 
-class CreateActionTargetResponseTypeDef(BaseValidatorModel):
+class CreateActionTargetResponse(BaseValidatorModel):
     ActionTargetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAutomationRuleResponseTypeDef(BaseValidatorModel):
+class CreateAutomationRuleResponse(BaseValidatorModel):
     RuleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFindingAggregatorResponseTypeDef(BaseValidatorModel):
+class CreateFindingAggregatorResponse(BaseValidatorModel):
     FindingAggregatorArn: str
     FindingAggregationRegion: str
     RegionLinkingMode: str
     Regions: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateInsightResponseTypeDef(BaseValidatorModel):
+class CreateInsightResponse(BaseValidatorModel):
     InsightArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteActionTargetResponseTypeDef(BaseValidatorModel):
+class DeleteActionTargetResponse(BaseValidatorModel):
     ActionTargetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteInsightResponseTypeDef(BaseValidatorModel):
+class DeleteInsightResponse(BaseValidatorModel):
     InsightArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeActionTargetsResponseTypeDef(BaseValidatorModel):
-    ActionTargets: List[ActionTargetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeActionTargetsResponse(BaseValidatorModel):
+    ActionTargets: List[ActionTarget]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeHubResponseTypeDef(BaseValidatorModel):
+class DescribeHubResponse(BaseValidatorModel):
     HubArn: str
     SubscribedAt: str
     AutoEnableControls: bool
     ControlFindingGenerator: ControlFindingGeneratorType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EnableImportFindingsForProductResponseTypeDef(BaseValidatorModel):
+class EnableImportFindingsForProductResponse(BaseValidatorModel):
     ProductSubscriptionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConfigurationPolicyAssociationResponseTypeDef(BaseValidatorModel):
+class GetConfigurationPolicyAssociationResponse(BaseValidatorModel):
     ConfigurationPolicyId: str
     TargetId: str
     TargetType: TargetTypeType
@@ -4291,46 +4291,46 @@ class GetConfigurationPolicyAssociationResponseTypeDef(BaseValidatorModel):
     UpdatedAt: datetime
     AssociationStatus: ConfigurationPolicyAssociationStatusType
     AssociationStatusMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFindingAggregatorResponseTypeDef(BaseValidatorModel):
+class GetFindingAggregatorResponse(BaseValidatorModel):
     FindingAggregatorArn: str
     FindingAggregationRegion: str
     RegionLinkingMode: str
     Regions: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInvitationsCountResponseTypeDef(BaseValidatorModel):
+class GetInvitationsCountResponse(BaseValidatorModel):
     InvitationsCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAutomationRulesResponseTypeDef(BaseValidatorModel):
-    AutomationRulesMetadata: List[AutomationRulesMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAutomationRulesResponse(BaseValidatorModel):
+    AutomationRulesMetadata: List[AutomationRulesMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEnabledProductsForImportResponseTypeDef(BaseValidatorModel):
+class ListEnabledProductsForImportResponse(BaseValidatorModel):
     ProductSubscriptions: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListOrganizationAdminAccountsResponseTypeDef(BaseValidatorModel):
-    AdminAccounts: List[AdminAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrganizationAdminAccountsResponse(BaseValidatorModel):
+    AdminAccounts: List[AdminAccount]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartConfigurationPolicyAssociationResponseTypeDef(BaseValidatorModel):
+class StartConfigurationPolicyAssociationResponse(BaseValidatorModel):
     ConfigurationPolicyId: str
     TargetId: str
     TargetType: TargetTypeType
@@ -4338,549 +4338,549 @@ class StartConfigurationPolicyAssociationResponseTypeDef(BaseValidatorModel):
     UpdatedAt: datetime
     AssociationStatus: ConfigurationPolicyAssociationStatusType
     AssociationStatusMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFindingAggregatorResponseTypeDef(BaseValidatorModel):
+class UpdateFindingAggregatorResponse(BaseValidatorModel):
     FindingAggregatorArn: str
     FindingAggregationRegion: str
     RegionLinkingMode: str
     Regions: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDeleteAutomationRulesResponseTypeDef(BaseValidatorModel):
+class BatchDeleteAutomationRulesResponse(BaseValidatorModel):
     ProcessedAutomationRules: List[str]
-    UnprocessedAutomationRules: List[UnprocessedAutomationRuleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    UnprocessedAutomationRules: List[UnprocessedAutomationRule]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdateAutomationRulesResponseTypeDef(BaseValidatorModel):
+class BatchUpdateAutomationRulesResponse(BaseValidatorModel):
     ProcessedAutomationRules: List[str]
-    UnprocessedAutomationRules: List[UnprocessedAutomationRuleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    UnprocessedAutomationRules: List[UnprocessedAutomationRule]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchEnableStandardsRequestTypeDef(BaseValidatorModel):
-    StandardsSubscriptionRequests: Sequence[StandardsSubscriptionRequestTypeDef]
+class BatchEnableStandardsRequest(BaseValidatorModel):
+    StandardsSubscriptionRequests: Sequence[StandardsSubscriptionRequest]
 
 
-class ListConfigurationPolicyAssociationsResponseTypeDef(BaseValidatorModel):
-    ConfigurationPolicyAssociationSummaries: List[ConfigurationPolicyAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfigurationPolicyAssociationsResponse(BaseValidatorModel):
+    ConfigurationPolicyAssociationSummaries: List[ConfigurationPolicyAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BatchGetStandardsControlAssociationsRequestTypeDef(BaseValidatorModel):
-    StandardsControlAssociationIds: Sequence[StandardsControlAssociationIdTypeDef]
+class BatchGetStandardsControlAssociationsRequest(BaseValidatorModel):
+    StandardsControlAssociationIds: Sequence[StandardsControlAssociationId]
 
 
-class UnprocessedStandardsControlAssociationTypeDef(BaseValidatorModel):
-    StandardsControlAssociationId: StandardsControlAssociationIdTypeDef
+class UnprocessedStandardsControlAssociation(BaseValidatorModel):
+    StandardsControlAssociationId: StandardsControlAssociationId
     ErrorCode: UnprocessedErrorCodeType
     ErrorReason: Optional[str] = None
 
 
-class BatchImportFindingsResponseTypeDef(BaseValidatorModel):
+class BatchImportFindingsResponse(BaseValidatorModel):
     FailedCount: int
     SuccessCount: int
-    FailedFindings: List[ImportFindingsErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    FailedFindings: List[ImportFindingsError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdateStandardsControlAssociationsRequestTypeDef(BaseValidatorModel):
-    StandardsControlAssociationUpdates: Sequence[StandardsControlAssociationUpdateTypeDef]
+class BatchUpdateStandardsControlAssociationsRequest(BaseValidatorModel):
+    StandardsControlAssociationUpdates: Sequence[StandardsControlAssociationUpdate]
 
 
-class UnprocessedStandardsControlAssociationUpdateTypeDef(BaseValidatorModel):
-    StandardsControlAssociationUpdate: StandardsControlAssociationUpdateTypeDef
+class UnprocessedStandardsControlAssociationUpdate(BaseValidatorModel):
+    StandardsControlAssociationUpdate: StandardsControlAssociationUpdate
     ErrorCode: UnprocessedErrorCodeType
     ErrorReason: Optional[str] = None
 
 
-class VulnerabilityCodeVulnerabilitiesOutputTypeDef(BaseValidatorModel):
+class VulnerabilityCodeVulnerabilitiesOutput(BaseValidatorModel):
     Cwes: Optional[List[str]] = None
-    FilePath: Optional[CodeVulnerabilitiesFilePathTypeDef] = None
+    FilePath: Optional[CodeVulnerabilitiesFilePath] = None
     SourceArn: Optional[str] = None
 
 
-class VulnerabilityCodeVulnerabilitiesTypeDef(BaseValidatorModel):
+class VulnerabilityCodeVulnerabilities(BaseValidatorModel):
     Cwes: Optional[Sequence[str]] = None
-    FilePath: Optional[CodeVulnerabilitiesFilePathTypeDef] = None
+    FilePath: Optional[CodeVulnerabilitiesFilePath] = None
     SourceArn: Optional[str] = None
 
 
-class ComplianceOutputTypeDef(BaseValidatorModel):
+class ComplianceOutput(BaseValidatorModel):
     Status: Optional[ComplianceStatusType] = None
     RelatedRequirements: Optional[List[str]] = None
-    StatusReasons: Optional[List[StatusReasonTypeDef]] = None
+    StatusReasons: Optional[List[StatusReason]] = None
     SecurityControlId: Optional[str] = None
-    AssociatedStandards: Optional[List[AssociatedStandardTypeDef]] = None
-    SecurityControlParameters: Optional[List[SecurityControlParameterOutputTypeDef]] = None
+    AssociatedStandards: Optional[List[AssociatedStandard]] = None
+    SecurityControlParameters: Optional[List[SecurityControlParameterOutput]] = None
 
 
-class ConfigurationOptionsTypeDef(BaseValidatorModel):
-    Integer: Optional[IntegerConfigurationOptionsTypeDef] = None
-    IntegerList: Optional[IntegerListConfigurationOptionsTypeDef] = None
-    Double: Optional[DoubleConfigurationOptionsTypeDef] = None
-    String: Optional[StringConfigurationOptionsTypeDef] = None
-    StringList: Optional[StringListConfigurationOptionsTypeDef] = None
-    Boolean: Optional[BooleanConfigurationOptionsTypeDef] = None
-    Enum: Optional[EnumConfigurationOptionsTypeDef] = None
-    EnumList: Optional[EnumListConfigurationOptionsTypeDef] = None
+class ConfigurationOptions(BaseValidatorModel):
+    Integer: Optional[IntegerConfigurationOptions] = None
+    IntegerList: Optional[IntegerListConfigurationOptions] = None
+    Double: Optional[DoubleConfigurationOptions] = None
+    String: Optional[StringConfigurationOptions] = None
+    StringList: Optional[StringListConfigurationOptions] = None
+    Boolean: Optional[BooleanConfigurationOptions] = None
+    Enum: Optional[EnumConfigurationOptions] = None
+    EnumList: Optional[EnumListConfigurationOptions] = None
 
 
-class ConfigurationPolicyAssociationTypeDef(BaseValidatorModel):
-    Target: Optional[TargetTypeDef] = None
+class ConfigurationPolicyAssociation(BaseValidatorModel):
+    Target: Optional[Target] = None
 
 
-class GetConfigurationPolicyAssociationRequestTypeDef(BaseValidatorModel):
-    Target: TargetTypeDef
+class GetConfigurationPolicyAssociationRequest(BaseValidatorModel):
+    Target: Target
 
 
-class StartConfigurationPolicyAssociationRequestTypeDef(BaseValidatorModel):
+class StartConfigurationPolicyAssociationRequest(BaseValidatorModel):
     ConfigurationPolicyIdentifier: str
-    Target: TargetTypeDef
+    Target: Target
 
 
-class StartConfigurationPolicyDisassociationRequestTypeDef(BaseValidatorModel):
+class StartConfigurationPolicyDisassociationRequest(BaseValidatorModel):
     ConfigurationPolicyIdentifier: str
-    Target: Optional[TargetTypeDef] = None
+    Target: Optional[Target] = None
 
 
-class ListConfigurationPoliciesResponseTypeDef(BaseValidatorModel):
-    ConfigurationPolicySummaries: List[ConfigurationPolicySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfigurationPoliciesResponse(BaseValidatorModel):
+    ConfigurationPolicySummaries: List[ConfigurationPolicySummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ContainerDetailsOutputTypeDef(BaseValidatorModel):
+class ContainerDetailsOutput(BaseValidatorModel):
     ContainerRuntime: Optional[str] = None
     Name: Optional[str] = None
     ImageId: Optional[str] = None
     ImageName: Optional[str] = None
     LaunchedAt: Optional[str] = None
-    VolumeMounts: Optional[List[VolumeMountTypeDef]] = None
+    VolumeMounts: Optional[List[VolumeMount]] = None
     Privileged: Optional[bool] = None
 
 
-class ContainerDetailsTypeDef(BaseValidatorModel):
+class ContainerDetails(BaseValidatorModel):
     ContainerRuntime: Optional[str] = None
     Name: Optional[str] = None
     ImageId: Optional[str] = None
     ImageName: Optional[str] = None
     LaunchedAt: Optional[str] = None
-    VolumeMounts: Optional[Sequence[VolumeMountTypeDef]] = None
+    VolumeMounts: Optional[Sequence[VolumeMount]] = None
     Privileged: Optional[bool] = None
 
 
-class CreateMembersResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[ResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMembersResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[Result]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeclineInvitationsResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[ResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeclineInvitationsResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[Result]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteInvitationsResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[ResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteInvitationsResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[Result]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteMembersResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[ResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteMembersResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[Result]
+    ResponseMetadata: ResponseMetadata
 
 
-class InviteMembersResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[ResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class InviteMembersResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[Result]
+    ResponseMetadata: ResponseMetadata
 
 
-class DateFilterTypeDef(BaseValidatorModel):
+class DateFilter(BaseValidatorModel):
     Start: Optional[str] = None
     End: Optional[str] = None
-    DateRange: Optional[DateRangeTypeDef] = None
+    DateRange: Optional[DateRange] = None
 
 
-class DescribeActionTargetsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeActionTargetsRequestPaginate(BaseValidatorModel):
     ActionTargetArns: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeProductsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeProductsRequestPaginate(BaseValidatorModel):
     ProductArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeStandardsControlsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeStandardsControlsRequestPaginate(BaseValidatorModel):
     StandardsSubscriptionArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeStandardsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeStandardsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetEnabledStandardsRequestPaginateTypeDef(BaseValidatorModel):
+class GetEnabledStandardsRequestPaginate(BaseValidatorModel):
     StandardsSubscriptionArns: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetInsightsRequestPaginateTypeDef(BaseValidatorModel):
+class GetInsightsRequestPaginate(BaseValidatorModel):
     InsightArns: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfigurationPoliciesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConfigurationPoliciesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfigurationPolicyAssociationsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[AssociationFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConfigurationPolicyAssociationsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[AssociationFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEnabledProductsForImportRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEnabledProductsForImportRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFindingAggregatorsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFindingAggregatorsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInvitationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListInvitationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembersRequestPaginateTypeDef(BaseValidatorModel):
+class ListMembersRequestPaginate(BaseValidatorModel):
     OnlyAssociated: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOrganizationAdminAccountsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOrganizationAdminAccountsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSecurityControlDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSecurityControlDefinitionsRequestPaginate(BaseValidatorModel):
     StandardsArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStandardsControlAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListStandardsControlAssociationsRequestPaginate(BaseValidatorModel):
     SecurityControlId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeOrganizationConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeOrganizationConfigurationResponse(BaseValidatorModel):
     AutoEnable: bool
     MemberAccountLimitReached: bool
     AutoEnableStandards: AutoEnableStandardsType
-    OrganizationConfiguration: OrganizationConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    OrganizationConfiguration: OrganizationConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateOrganizationConfigurationRequest(BaseValidatorModel):
     AutoEnable: bool
     AutoEnableStandards: Optional[AutoEnableStandardsType] = None
-    OrganizationConfiguration: Optional[OrganizationConfigurationTypeDef] = None
+    OrganizationConfiguration: Optional[OrganizationConfiguration] = None
 
 
-class DescribeProductsResponseTypeDef(BaseValidatorModel):
-    Products: List[ProductTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeProductsResponse(BaseValidatorModel):
+    Products: List[Product]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeStandardsControlsResponseTypeDef(BaseValidatorModel):
-    Controls: List[StandardsControlTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStandardsControlsResponse(BaseValidatorModel):
+    Controls: List[StandardsControl]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ThreatOutputTypeDef(BaseValidatorModel):
+class ThreatOutput(BaseValidatorModel):
     Name: Optional[str] = None
     Severity: Optional[str] = None
     ItemCount: Optional[int] = None
-    FilePaths: Optional[List[FilePathsTypeDef]] = None
+    FilePaths: Optional[List[FilePaths]] = None
 
 
-class ThreatTypeDef(BaseValidatorModel):
+class Threat(BaseValidatorModel):
     Name: Optional[str] = None
     Severity: Optional[str] = None
     ItemCount: Optional[int] = None
-    FilePaths: Optional[Sequence[FilePathsTypeDef]] = None
+    FilePaths: Optional[Sequence[FilePaths]] = None
 
 
-class ListFindingAggregatorsResponseTypeDef(BaseValidatorModel):
-    FindingAggregators: List[FindingAggregatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFindingAggregatorsResponse(BaseValidatorModel):
+    FindingAggregators: List[FindingAggregator]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FindingHistoryUpdateSourceTypeDef(BaseValidatorModel):
+class FindingHistoryUpdateSource(BaseValidatorModel):
     pass
 
 
-class FindingHistoryRecordTypeDef(BaseValidatorModel):
-    FindingIdentifier: Optional[AwsSecurityFindingIdentifierTypeDef] = None
+class FindingHistoryRecord(BaseValidatorModel):
+    FindingIdentifier: Optional[AwsSecurityFindingIdentifier] = None
     UpdateTime: Optional[datetime] = None
     FindingCreated: Optional[bool] = None
-    UpdateSource: Optional[FindingHistoryUpdateSourceTypeDef] = None
-    Updates: Optional[List[FindingHistoryUpdateTypeDef]] = None
+    UpdateSource: Optional[FindingHistoryUpdateSource] = None
+    Updates: Optional[List[FindingHistoryUpdate]] = None
     NextToken: Optional[str] = None
 
 
-class FindingProviderFieldsOutputTypeDef(BaseValidatorModel):
+class FindingProviderFieldsOutput(BaseValidatorModel):
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
-    RelatedFindings: Optional[List[RelatedFindingTypeDef]] = None
-    Severity: Optional[FindingProviderSeverityTypeDef] = None
+    RelatedFindings: Optional[List[RelatedFinding]] = None
+    Severity: Optional[FindingProviderSeverity] = None
     Types: Optional[List[str]] = None
 
 
-class FindingProviderFieldsTypeDef(BaseValidatorModel):
+class FindingProviderFields(BaseValidatorModel):
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
-    RelatedFindings: Optional[Sequence[RelatedFindingTypeDef]] = None
-    Severity: Optional[FindingProviderSeverityTypeDef] = None
+    RelatedFindings: Optional[Sequence[RelatedFinding]] = None
+    Severity: Optional[FindingProviderSeverity] = None
     Types: Optional[Sequence[str]] = None
 
 
-class GetAdministratorAccountResponseTypeDef(BaseValidatorModel):
-    Administrator: InvitationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAdministratorAccountResponse(BaseValidatorModel):
+    Administrator: Invitation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMasterAccountResponseTypeDef(BaseValidatorModel):
-    Master: InvitationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMasterAccountResponse(BaseValidatorModel):
+    Master: Invitation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListInvitationsResponseTypeDef(BaseValidatorModel):
-    Invitations: List[InvitationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInvitationsResponse(BaseValidatorModel):
+    Invitations: List[Invitation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class GetFindingHistoryRequestPaginateTypeDef(BaseValidatorModel):
-    FindingIdentifier: AwsSecurityFindingIdentifierTypeDef
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class GetFindingHistoryRequestPaginate(BaseValidatorModel):
+    FindingIdentifier: AwsSecurityFindingIdentifier
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetFindingHistoryRequestTypeDef(BaseValidatorModel):
-    FindingIdentifier: AwsSecurityFindingIdentifierTypeDef
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+class GetFindingHistoryRequest(BaseValidatorModel):
+    FindingIdentifier: AwsSecurityFindingIdentifier
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetMembersResponseTypeDef(BaseValidatorModel):
-    Members: List[MemberTypeDef]
-    UnprocessedAccounts: List[ResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMembersResponse(BaseValidatorModel):
+    Members: List[Member]
+    UnprocessedAccounts: List[Result]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListMembersResponseTypeDef(BaseValidatorModel):
-    Members: List[MemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMembersResponse(BaseValidatorModel):
+    Members: List[Member]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class InsightResultsTypeDef(BaseValidatorModel):
+class InsightResults(BaseValidatorModel):
     InsightArn: str
     GroupByAttribute: str
-    ResultValues: List[InsightResultValueTypeDef]
+    ResultValues: List[InsightResultValue]
 
 
-class ListStandardsControlAssociationsResponseTypeDef(BaseValidatorModel):
-    StandardsControlAssociationSummaries: List[StandardsControlAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStandardsControlAssociationsResponse(BaseValidatorModel):
+    StandardsControlAssociationSummaries: List[StandardsControlAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class NetworkEndpointTypeDef(BaseValidatorModel):
+class NetworkEndpoint(BaseValidatorModel):
     Id: Optional[str] = None
     Ip: Optional[str] = None
     Domain: Optional[str] = None
     Port: Optional[int] = None
-    Location: Optional[NetworkGeoLocationTypeDef] = None
-    AutonomousSystem: Optional[NetworkAutonomousSystemTypeDef] = None
-    Connection: Optional[NetworkConnectionTypeDef] = None
+    Location: Optional[NetworkGeoLocation] = None
+    AutonomousSystem: Optional[NetworkAutonomousSystem] = None
+    Connection: Optional[NetworkConnection] = None
 
 
-class NetworkPathComponentDetailsOutputTypeDef(BaseValidatorModel):
+class NetworkPathComponentDetailsOutput(BaseValidatorModel):
     Address: Optional[List[str]] = None
-    PortRanges: Optional[List[PortRangeTypeDef]] = None
+    PortRanges: Optional[List[PortRange]] = None
 
 
-class NetworkPathComponentDetailsTypeDef(BaseValidatorModel):
+class NetworkPathComponentDetails(BaseValidatorModel):
     Address: Optional[Sequence[str]] = None
-    PortRanges: Optional[Sequence[PortRangeTypeDef]] = None
+    PortRanges: Optional[Sequence[PortRange]] = None
 
 
-class PageTypeDef(BaseValidatorModel):
+class Page(BaseValidatorModel):
     PageNumber: Optional[int] = None
-    LineRange: Optional[RangeTypeDef] = None
-    OffsetRange: Optional[RangeTypeDef] = None
+    LineRange: Optional[Range] = None
+    OffsetRange: Optional[Range] = None
 
 
-class ParameterConfigurationOutputTypeDef(BaseValidatorModel):
+class ParameterConfigurationOutput(BaseValidatorModel):
     ValueType: ParameterValueTypeType
-    Value: Optional[ParameterValueOutputTypeDef] = None
+    Value: Optional[ParameterValueOutput] = None
 
 
-class RecommendationTypeDef(BaseValidatorModel):
+class Recommendation(BaseValidatorModel):
     pass
 
 
-class RemediationTypeDef(BaseValidatorModel):
-    Recommendation: Optional[RecommendationTypeDef] = None
+class Remediation(BaseValidatorModel):
+    Recommendation: Optional[Recommendation] = None
 
 
-class RuleGroupSourceStatefulRulesHeaderDetailsTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatefulRulesHeaderDetails(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceStatefulRulesDetailsOutputTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatefulRulesDetailsOutput(BaseValidatorModel):
     Action: Optional[str] = None
-    Header: Optional[RuleGroupSourceStatefulRulesHeaderDetailsTypeDef] = None
-    RuleOptions: Optional[List[RuleGroupSourceStatefulRulesOptionsDetailsOutputTypeDef]] = None
+    Header: Optional[RuleGroupSourceStatefulRulesHeaderDetails] = None
+    RuleOptions: Optional[List[RuleGroupSourceStatefulRulesOptionsDetailsOutput]] = None
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesOutputTypeDef(BaseValidatorModel):
-    DestinationPorts: Optional[ List[RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef] ] = None
-    Destinations: Optional[List[RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef]] = None
+class RuleGroupSourceStatelessRuleMatchAttributesOutput(BaseValidatorModel):
+    DestinationPorts: Optional[ List[RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts] ] = None
+    Destinations: Optional[List[RuleGroupSourceStatelessRuleMatchAttributesDestinations]] = None
     Protocols: Optional[List[int]] = None
-    SourcePorts: Optional[List[RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef]] = None
-    Sources: Optional[List[RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef]] = None
-    TcpFlags: Optional[List[RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutputTypeDef]] = None
+    SourcePorts: Optional[List[RuleGroupSourceStatelessRuleMatchAttributesSourcePorts]] = None
+    Sources: Optional[List[RuleGroupSourceStatelessRuleMatchAttributesSources]] = None
+    TcpFlags: Optional[List[RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutput]] = None
 
 
-class RuleGroupVariablesOutputTypeDef(BaseValidatorModel):
-    IpSets: Optional[RuleGroupVariablesIpSetsDetailsOutputTypeDef] = None
-    PortSets: Optional[RuleGroupVariablesPortSetsDetailsOutputTypeDef] = None
+class RuleGroupVariablesOutput(BaseValidatorModel):
+    IpSets: Optional[RuleGroupVariablesIpSetsDetailsOutput] = None
+    PortSets: Optional[RuleGroupVariablesPortSetsDetailsOutput] = None
 
 
-class StandardTypeDef(BaseValidatorModel):
+class Standard(BaseValidatorModel):
     StandardsArn: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     EnabledByDefault: Optional[bool] = None
-    StandardsManagedBy: Optional[StandardsManagedByTypeDef] = None
+    StandardsManagedBy: Optional[StandardsManagedBy] = None
 
 
-class StandardsSubscriptionTypeDef(BaseValidatorModel):
+class StandardsSubscription(BaseValidatorModel):
     StandardsSubscriptionArn: str
     StandardsArn: str
     StandardsInput: Dict[str, str]
     StandardsStatus: StandardsStatusType
     StandardsControlsUpdatable: Optional[StandardsControlsUpdatableType] = None
-    StandardsStatusReason: Optional[StandardsStatusReasonTypeDef] = None
+    StandardsStatusReason: Optional[StandardsStatusReason] = None
 
 
-class StatelessCustomPublishMetricActionOutputTypeDef(BaseValidatorModel):
-    Dimensions: Optional[List[StatelessCustomPublishMetricActionDimensionTypeDef]] = None
+class StatelessCustomPublishMetricActionOutput(BaseValidatorModel):
+    Dimensions: Optional[List[StatelessCustomPublishMetricActionDimension]] = None
 
 
-class StatelessCustomPublishMetricActionTypeDef(BaseValidatorModel):
-    Dimensions: Optional[Sequence[StatelessCustomPublishMetricActionDimensionTypeDef]] = None
+class StatelessCustomPublishMetricAction(BaseValidatorModel):
+    Dimensions: Optional[Sequence[StatelessCustomPublishMetricActionDimension]] = None
 
 
-class PortProbeDetailTypeDef(BaseValidatorModel):
-    LocalPortDetails: Optional[ActionLocalPortDetailsTypeDef] = None
-    LocalIpDetails: Optional[ActionLocalIpDetailsTypeDef] = None
-    RemoteIpDetails: Optional[ActionRemoteIpDetailsTypeDef] = None
+class PortProbeDetail(BaseValidatorModel):
+    LocalPortDetails: Optional[ActionLocalPortDetails] = None
+    LocalIpDetails: Optional[ActionLocalIpDetails] = None
+    RemoteIpDetails: Optional[ActionRemoteIpDetails] = None
 
 
-class ActorUserTypeDef(BaseValidatorModel):
+class ActorUser(BaseValidatorModel):
     pass
 
 
-class ActorTypeDef(BaseValidatorModel):
+class Actor(BaseValidatorModel):
     Id: Optional[str] = None
-    User: Optional[ActorUserTypeDef] = None
-    Session: Optional[ActorSessionTypeDef] = None
+    User: Optional[ActorUser] = None
+    Session: Optional[ActorSession] = None
 
 
-class AwsEc2RouteTableDetailsOutputTypeDef(BaseValidatorModel):
-    AssociationSet: Optional[List[AssociationSetDetailsTypeDef]] = None
+class AwsEc2RouteTableDetailsOutput(BaseValidatorModel):
+    AssociationSet: Optional[List[AssociationSetDetails]] = None
     OwnerId: Optional[str] = None
-    PropagatingVgwSet: Optional[List[PropagatingVgwSetDetailsTypeDef]] = None
+    PropagatingVgwSet: Optional[List[PropagatingVgwSetDetails]] = None
     RouteTableId: Optional[str] = None
-    RouteSet: Optional[List[RouteSetDetailsTypeDef]] = None
+    RouteSet: Optional[List[RouteSetDetails]] = None
     VpcId: Optional[str] = None
 
 
-class AwsEc2RouteTableDetailsTypeDef(BaseValidatorModel):
-    AssociationSet: Optional[Sequence[AssociationSetDetailsTypeDef]] = None
+class AwsEc2RouteTableDetails(BaseValidatorModel):
+    AssociationSet: Optional[Sequence[AssociationSetDetails]] = None
     OwnerId: Optional[str] = None
-    PropagatingVgwSet: Optional[Sequence[PropagatingVgwSetDetailsTypeDef]] = None
+    PropagatingVgwSet: Optional[Sequence[PropagatingVgwSetDetails]] = None
     RouteTableId: Optional[str] = None
-    RouteSet: Optional[Sequence[RouteSetDetailsTypeDef]] = None
+    RouteSet: Optional[Sequence[RouteSetDetails]] = None
     VpcId: Optional[str] = None
 
 
-class AwsAmazonMqBrokerDetailsOutputTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerDetailsOutput(BaseValidatorModel):
     AuthenticationStrategy: Optional[str] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     BrokerArn: Optional[str] = None
     BrokerName: Optional[str] = None
     DeploymentMode: Optional[str] = None
-    EncryptionOptions: Optional[AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef] = None
+    EncryptionOptions: Optional[AwsAmazonMqBrokerEncryptionOptionsDetails] = None
     EngineType: Optional[str] = None
     EngineVersion: Optional[str] = None
     HostInstanceType: Optional[str] = None
     BrokerId: Optional[str] = None
-    LdapServerMetadata: Optional[AwsAmazonMqBrokerLdapServerMetadataDetailsOutputTypeDef] = None
-    Logs: Optional[AwsAmazonMqBrokerLogsDetailsTypeDef] = None
-    MaintenanceWindowStartTime: Optional[ AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef ] = None
+    LdapServerMetadata: Optional[AwsAmazonMqBrokerLdapServerMetadataDetailsOutput] = None
+    Logs: Optional[AwsAmazonMqBrokerLogsDetails] = None
+    MaintenanceWindowStartTime: Optional[ AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails ] = None
     PubliclyAccessible: Optional[bool] = None
     SecurityGroups: Optional[List[str]] = None
     StorageType: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
-    Users: Optional[List[AwsAmazonMqBrokerUsersDetailsTypeDef]] = None
+    Users: Optional[List[AwsAmazonMqBrokerUsersDetails]] = None
 
 
-class AwsAmazonMqBrokerLdapServerMetadataDetailsUnionTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerLdapServerMetadataDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsAmazonMqBrokerDetailsTypeDef(BaseValidatorModel):
+class AwsAmazonMqBrokerDetails(BaseValidatorModel):
     AuthenticationStrategy: Optional[str] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     BrokerArn: Optional[str] = None
     BrokerName: Optional[str] = None
     DeploymentMode: Optional[str] = None
-    EncryptionOptions: Optional[AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef] = None
+    EncryptionOptions: Optional[AwsAmazonMqBrokerEncryptionOptionsDetails] = None
     EngineType: Optional[str] = None
     EngineVersion: Optional[str] = None
     HostInstanceType: Optional[str] = None
     BrokerId: Optional[str] = None
-    LdapServerMetadata: Optional[AwsAmazonMqBrokerLdapServerMetadataDetailsUnionTypeDef] = None
-    Logs: Optional[AwsAmazonMqBrokerLogsDetailsTypeDef] = None
-    MaintenanceWindowStartTime: Optional[ AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef ] = None
+    LdapServerMetadata: Optional[AwsAmazonMqBrokerLdapServerMetadataDetailsUnion] = None
+    Logs: Optional[AwsAmazonMqBrokerLogsDetails] = None
+    MaintenanceWindowStartTime: Optional[ AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails ] = None
     PubliclyAccessible: Optional[bool] = None
     SecurityGroups: Optional[Sequence[str]] = None
     StorageType: Optional[str] = None
     SubnetIds: Optional[Sequence[str]] = None
-    Users: Optional[Sequence[AwsAmazonMqBrokerUsersDetailsTypeDef]] = None
+    Users: Optional[Sequence[AwsAmazonMqBrokerUsersDetails]] = None
 
 
-class AwsApiGatewayCanarySettingsUnionTypeDef(BaseValidatorModel):
+class AwsApiGatewayCanarySettingsUnion(BaseValidatorModel):
     pass
 
 
-class AwsApiGatewayStageDetailsTypeDef(BaseValidatorModel):
+class AwsApiGatewayStageDetails(BaseValidatorModel):
     DeploymentId: Optional[str] = None
     ClientCertificateId: Optional[str] = None
     StageName: Optional[str] = None
@@ -4888,22 +4888,22 @@ class AwsApiGatewayStageDetailsTypeDef(BaseValidatorModel):
     CacheClusterEnabled: Optional[bool] = None
     CacheClusterSize: Optional[str] = None
     CacheClusterStatus: Optional[str] = None
-    MethodSettings: Optional[Sequence[AwsApiGatewayMethodSettingsTypeDef]] = None
+    MethodSettings: Optional[Sequence[AwsApiGatewayMethodSettings]] = None
     Variables: Optional[Mapping[str, str]] = None
     DocumentationVersion: Optional[str] = None
-    AccessLogSettings: Optional[AwsApiGatewayAccessLogSettingsTypeDef] = None
-    CanarySettings: Optional[AwsApiGatewayCanarySettingsUnionTypeDef] = None
+    AccessLogSettings: Optional[AwsApiGatewayAccessLogSettings] = None
+    CanarySettings: Optional[AwsApiGatewayCanarySettingsUnion] = None
     TracingEnabled: Optional[bool] = None
     CreatedDate: Optional[str] = None
     LastUpdatedDate: Optional[str] = None
     WebAclArn: Optional[str] = None
 
 
-class AwsApiGatewayEndpointConfigurationUnionTypeDef(BaseValidatorModel):
+class AwsApiGatewayEndpointConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class AwsApiGatewayRestApiDetailsTypeDef(BaseValidatorModel):
+class AwsApiGatewayRestApiDetails(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -4912,66 +4912,66 @@ class AwsApiGatewayRestApiDetailsTypeDef(BaseValidatorModel):
     BinaryMediaTypes: Optional[Sequence[str]] = None
     MinimumCompressionSize: Optional[int] = None
     ApiKeySource: Optional[str] = None
-    EndpointConfiguration: Optional[AwsApiGatewayEndpointConfigurationUnionTypeDef] = None
+    EndpointConfiguration: Optional[AwsApiGatewayEndpointConfigurationUnion] = None
 
 
-class AwsAppSyncGraphQlApiDetailsOutputTypeDef(BaseValidatorModel):
+class AwsAppSyncGraphQlApiDetailsOutput(BaseValidatorModel):
     ApiId: Optional[str] = None
     Id: Optional[str] = None
-    OpenIdConnectConfig: Optional[AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef] = None
+    OpenIdConnectConfig: Optional[AwsAppSyncGraphQlApiOpenIdConnectConfigDetails] = None
     Name: Optional[str] = None
-    LambdaAuthorizerConfig: Optional[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef] = None
+    LambdaAuthorizerConfig: Optional[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails] = None
     XrayEnabled: Optional[bool] = None
     Arn: Optional[str] = None
-    UserPoolConfig: Optional[AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef] = None
+    UserPoolConfig: Optional[AwsAppSyncGraphQlApiUserPoolConfigDetails] = None
     AuthenticationType: Optional[str] = None
-    LogConfig: Optional[AwsAppSyncGraphQlApiLogConfigDetailsTypeDef] = None
-    AdditionalAuthenticationProviders: Optional[ List[AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef] ] = None
+    LogConfig: Optional[AwsAppSyncGraphQlApiLogConfigDetails] = None
+    AdditionalAuthenticationProviders: Optional[ List[AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails] ] = None
     WafWebAclArn: Optional[str] = None
 
 
-class AwsAppSyncGraphQlApiDetailsTypeDef(BaseValidatorModel):
+class AwsAppSyncGraphQlApiDetails(BaseValidatorModel):
     ApiId: Optional[str] = None
     Id: Optional[str] = None
-    OpenIdConnectConfig: Optional[AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef] = None
+    OpenIdConnectConfig: Optional[AwsAppSyncGraphQlApiOpenIdConnectConfigDetails] = None
     Name: Optional[str] = None
-    LambdaAuthorizerConfig: Optional[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef] = None
+    LambdaAuthorizerConfig: Optional[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails] = None
     XrayEnabled: Optional[bool] = None
     Arn: Optional[str] = None
-    UserPoolConfig: Optional[AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef] = None
+    UserPoolConfig: Optional[AwsAppSyncGraphQlApiUserPoolConfigDetails] = None
     AuthenticationType: Optional[str] = None
-    LogConfig: Optional[AwsAppSyncGraphQlApiLogConfigDetailsTypeDef] = None
-    AdditionalAuthenticationProviders: Optional[ Sequence[AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef] ] = None
+    LogConfig: Optional[AwsAppSyncGraphQlApiLogConfigDetails] = None
+    AdditionalAuthenticationProviders: Optional[ Sequence[AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails] ] = None
     WafWebAclArn: Optional[str] = None
 
 
-class AwsAthenaWorkGroupConfigurationDetailsTypeDef(BaseValidatorModel):
-    ResultConfiguration: Optional[ AwsAthenaWorkGroupConfigurationResultConfigurationDetailsTypeDef ] = None
+class AwsAthenaWorkGroupConfigurationDetails(BaseValidatorModel):
+    ResultConfiguration: Optional[ AwsAthenaWorkGroupConfigurationResultConfigurationDetails ] = None
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails(BaseValidatorModel):
     pass
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutputTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutput(BaseValidatorModel):
     pass
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutputTypeDef(BaseValidatorModel):
-    InstancesDistribution: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef ] = None
-    LaunchTemplate: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutputTypeDef ] = None
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutput(BaseValidatorModel):
+    InstancesDistribution: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails ] = None
+    LaunchTemplate: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutput ] = None
 
 
-class AwsAutoScalingLaunchConfigurationDetailsOutputTypeDef(BaseValidatorModel):
+class AwsAutoScalingLaunchConfigurationDetailsOutput(BaseValidatorModel):
     AssociatePublicIpAddress: Optional[bool] = None
-    BlockDeviceMappings: Optional[ List[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef] ] = None
+    BlockDeviceMappings: Optional[ List[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails] ] = None
     ClassicLinkVpcId: Optional[str] = None
     ClassicLinkVpcSecurityGroups: Optional[List[str]] = None
     CreatedTime: Optional[str] = None
     EbsOptimized: Optional[bool] = None
     IamInstanceProfile: Optional[str] = None
     ImageId: Optional[str] = None
-    InstanceMonitoring: Optional[ AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef ] = None
+    InstanceMonitoring: Optional[ AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails ] = None
     InstanceType: Optional[str] = None
     KernelId: Optional[str] = None
     KeyName: Optional[str] = None
@@ -4981,19 +4981,19 @@ class AwsAutoScalingLaunchConfigurationDetailsOutputTypeDef(BaseValidatorModel):
     SecurityGroups: Optional[List[str]] = None
     SpotPrice: Optional[str] = None
     UserData: Optional[str] = None
-    MetadataOptions: Optional[AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef] = None
+    MetadataOptions: Optional[AwsAutoScalingLaunchConfigurationMetadataOptions] = None
 
 
-class AwsAutoScalingLaunchConfigurationDetailsTypeDef(BaseValidatorModel):
+class AwsAutoScalingLaunchConfigurationDetails(BaseValidatorModel):
     AssociatePublicIpAddress: Optional[bool] = None
-    BlockDeviceMappings: Optional[ Sequence[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef] ] = None
+    BlockDeviceMappings: Optional[ Sequence[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails] ] = None
     ClassicLinkVpcId: Optional[str] = None
     ClassicLinkVpcSecurityGroups: Optional[Sequence[str]] = None
     CreatedTime: Optional[str] = None
     EbsOptimized: Optional[bool] = None
     IamInstanceProfile: Optional[str] = None
     ImageId: Optional[str] = None
-    InstanceMonitoring: Optional[ AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef ] = None
+    InstanceMonitoring: Optional[ AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails ] = None
     InstanceType: Optional[str] = None
     KernelId: Optional[str] = None
     KeyName: Optional[str] = None
@@ -5003,10 +5003,10 @@ class AwsAutoScalingLaunchConfigurationDetailsTypeDef(BaseValidatorModel):
     SecurityGroups: Optional[Sequence[str]] = None
     SpotPrice: Optional[str] = None
     UserData: Optional[str] = None
-    MetadataOptions: Optional[AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef] = None
+    MetadataOptions: Optional[AwsAutoScalingLaunchConfigurationMetadataOptions] = None
 
 
-class AwsBackupBackupPlanRuleDetailsOutputTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanRuleDetailsOutput(BaseValidatorModel):
     TargetBackupVault: Optional[str] = None
     StartWindowMinutes: Optional[int] = None
     ScheduleExpression: Optional[str] = None
@@ -5014,11 +5014,11 @@ class AwsBackupBackupPlanRuleDetailsOutputTypeDef(BaseValidatorModel):
     RuleId: Optional[str] = None
     EnableContinuousBackup: Optional[bool] = None
     CompletionWindowMinutes: Optional[int] = None
-    CopyActions: Optional[List[AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef]] = None
-    Lifecycle: Optional[AwsBackupBackupPlanLifecycleDetailsTypeDef] = None
+    CopyActions: Optional[List[AwsBackupBackupPlanRuleCopyActionsDetails]] = None
+    Lifecycle: Optional[AwsBackupBackupPlanLifecycleDetails] = None
 
 
-class AwsBackupBackupPlanRuleDetailsTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanRuleDetails(BaseValidatorModel):
     TargetBackupVault: Optional[str] = None
     StartWindowMinutes: Optional[int] = None
     ScheduleExpression: Optional[str] = None
@@ -5026,98 +5026,98 @@ class AwsBackupBackupPlanRuleDetailsTypeDef(BaseValidatorModel):
     RuleId: Optional[str] = None
     EnableContinuousBackup: Optional[bool] = None
     CompletionWindowMinutes: Optional[int] = None
-    CopyActions: Optional[Sequence[AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef]] = None
-    Lifecycle: Optional[AwsBackupBackupPlanLifecycleDetailsTypeDef] = None
+    CopyActions: Optional[Sequence[AwsBackupBackupPlanRuleCopyActionsDetails]] = None
+    Lifecycle: Optional[AwsBackupBackupPlanLifecycleDetails] = None
 
 
-class AwsBackupBackupVaultNotificationsDetailsUnionTypeDef(BaseValidatorModel):
+class AwsBackupBackupVaultNotificationsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsBackupBackupVaultDetailsTypeDef(BaseValidatorModel):
+class AwsBackupBackupVaultDetails(BaseValidatorModel):
     BackupVaultArn: Optional[str] = None
     BackupVaultName: Optional[str] = None
     EncryptionKeyArn: Optional[str] = None
-    Notifications: Optional[AwsBackupBackupVaultNotificationsDetailsUnionTypeDef] = None
+    Notifications: Optional[AwsBackupBackupVaultNotificationsDetailsUnion] = None
     AccessPolicy: Optional[str] = None
 
 
-class AwsCertificateManagerCertificateRenewalSummaryOutputTypeDef(BaseValidatorModel):
-    DomainValidationOptions: Optional[ List[AwsCertificateManagerCertificateDomainValidationOptionOutputTypeDef] ] = None
+class AwsCertificateManagerCertificateRenewalSummaryOutput(BaseValidatorModel):
+    DomainValidationOptions: Optional[ List[AwsCertificateManagerCertificateDomainValidationOptionOutput] ] = None
     RenewalStatus: Optional[str] = None
     RenewalStatusReason: Optional[str] = None
     UpdatedAt: Optional[str] = None
 
 
-class AwsCertificateManagerCertificateRenewalSummaryTypeDef(BaseValidatorModel):
-    DomainValidationOptions: Optional[ Sequence[AwsCertificateManagerCertificateDomainValidationOptionTypeDef] ] = None
+class AwsCertificateManagerCertificateRenewalSummary(BaseValidatorModel):
+    DomainValidationOptions: Optional[ Sequence[AwsCertificateManagerCertificateDomainValidationOption] ] = None
     RenewalStatus: Optional[str] = None
     RenewalStatusReason: Optional[str] = None
     UpdatedAt: Optional[str] = None
 
 
-class AwsCloudFrontDistributionOriginItemOutputTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginItemOutput(BaseValidatorModel):
     DomainName: Optional[str] = None
     Id: Optional[str] = None
     OriginPath: Optional[str] = None
-    S3OriginConfig: Optional[AwsCloudFrontDistributionOriginS3OriginConfigTypeDef] = None
-    CustomOriginConfig: Optional[AwsCloudFrontDistributionOriginCustomOriginConfigOutputTypeDef] = None
+    S3OriginConfig: Optional[AwsCloudFrontDistributionOriginS3OriginConfig] = None
+    CustomOriginConfig: Optional[AwsCloudFrontDistributionOriginCustomOriginConfigOutput] = None
 
 
-class AwsCloudFrontDistributionOriginGroupOutputTypeDef(BaseValidatorModel):
-    FailoverCriteria: Optional[AwsCloudFrontDistributionOriginGroupFailoverOutputTypeDef] = None
+class AwsCloudFrontDistributionOriginGroupOutput(BaseValidatorModel):
+    FailoverCriteria: Optional[AwsCloudFrontDistributionOriginGroupFailoverOutput] = None
 
 
-class AwsCloudFrontDistributionOriginGroupFailoverStatusCodesUnionTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginGroupFailoverStatusCodesUnion(BaseValidatorModel):
     pass
 
 
-class AwsCloudFrontDistributionOriginGroupFailoverTypeDef(BaseValidatorModel):
-    StatusCodes: Optional[AwsCloudFrontDistributionOriginGroupFailoverStatusCodesUnionTypeDef] = None
+class AwsCloudFrontDistributionOriginGroupFailover(BaseValidatorModel):
+    StatusCodes: Optional[AwsCloudFrontDistributionOriginGroupFailoverStatusCodesUnion] = None
 
 
-class AwsCloudFrontDistributionOriginSslProtocolsUnionTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginSslProtocolsUnion(BaseValidatorModel):
     pass
 
 
-class AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginCustomOriginConfig(BaseValidatorModel):
     HttpPort: Optional[int] = None
     HttpsPort: Optional[int] = None
     OriginKeepaliveTimeout: Optional[int] = None
     OriginProtocolPolicy: Optional[str] = None
     OriginReadTimeout: Optional[int] = None
-    OriginSslProtocols: Optional[AwsCloudFrontDistributionOriginSslProtocolsUnionTypeDef] = None
+    OriginSslProtocols: Optional[AwsCloudFrontDistributionOriginSslProtocolsUnion] = None
 
 
-class AwsCodeBuildProjectEnvironmentOutputTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectEnvironmentOutput(BaseValidatorModel):
     pass
 
 
-class AwsCodeBuildProjectSourceTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectSource(BaseValidatorModel):
     pass
 
 
-class AwsCodeBuildProjectArtifactsDetailsTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectArtifactsDetails(BaseValidatorModel):
     pass
 
 
-class AwsCodeBuildProjectDetailsOutputTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectDetailsOutput(BaseValidatorModel):
     EncryptionKey: Optional[str] = None
-    Artifacts: Optional[List[AwsCodeBuildProjectArtifactsDetailsTypeDef]] = None
-    Environment: Optional[AwsCodeBuildProjectEnvironmentOutputTypeDef] = None
+    Artifacts: Optional[List[AwsCodeBuildProjectArtifactsDetails]] = None
+    Environment: Optional[AwsCodeBuildProjectEnvironmentOutput] = None
     Name: Optional[str] = None
-    Source: Optional[AwsCodeBuildProjectSourceTypeDef] = None
+    Source: Optional[AwsCodeBuildProjectSource] = None
     ServiceRole: Optional[str] = None
-    LogsConfig: Optional[AwsCodeBuildProjectLogsConfigDetailsTypeDef] = None
-    VpcConfig: Optional[AwsCodeBuildProjectVpcConfigOutputTypeDef] = None
-    SecondaryArtifacts: Optional[List[AwsCodeBuildProjectArtifactsDetailsTypeDef]] = None
+    LogsConfig: Optional[AwsCodeBuildProjectLogsConfigDetails] = None
+    VpcConfig: Optional[AwsCodeBuildProjectVpcConfigOutput] = None
+    SecondaryArtifacts: Optional[List[AwsCodeBuildProjectArtifactsDetails]] = None
 
 
-class AwsCorsConfigurationUnionTypeDef(BaseValidatorModel):
+class AwsCorsConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class AwsApiGatewayV2ApiDetailsTypeDef(BaseValidatorModel):
+class AwsApiGatewayV2ApiDetails(BaseValidatorModel):
     ApiEndpoint: Optional[str] = None
     ApiId: Optional[str] = None
     ApiKeySelectionExpression: Optional[str] = None
@@ -5127,37 +5127,37 @@ class AwsApiGatewayV2ApiDetailsTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     ProtocolType: Optional[str] = None
     RouteSelectionExpression: Optional[str] = None
-    CorsConfiguration: Optional[AwsCorsConfigurationUnionTypeDef] = None
+    CorsConfiguration: Optional[AwsCorsConfigurationUnion] = None
 
 
-class AwsDynamoDbTableProjectionUnionTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableProjectionUnion(BaseValidatorModel):
     pass
 
 
-class AwsDynamoDbTableGlobalSecondaryIndexTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableGlobalSecondaryIndex(BaseValidatorModel):
     Backfilling: Optional[bool] = None
     IndexArn: Optional[str] = None
     IndexName: Optional[str] = None
     IndexSizeBytes: Optional[int] = None
     IndexStatus: Optional[str] = None
     ItemCount: Optional[int] = None
-    KeySchema: Optional[Sequence[AwsDynamoDbTableKeySchemaTypeDef]] = None
-    Projection: Optional[AwsDynamoDbTableProjectionUnionTypeDef] = None
-    ProvisionedThroughput: Optional[AwsDynamoDbTableProvisionedThroughputTypeDef] = None
+    KeySchema: Optional[Sequence[AwsDynamoDbTableKeySchema]] = None
+    Projection: Optional[AwsDynamoDbTableProjectionUnion] = None
+    ProvisionedThroughput: Optional[AwsDynamoDbTableProvisionedThroughput] = None
 
 
-class AwsDynamoDbTableLocalSecondaryIndexTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableLocalSecondaryIndex(BaseValidatorModel):
     IndexArn: Optional[str] = None
     IndexName: Optional[str] = None
-    KeySchema: Optional[Sequence[AwsDynamoDbTableKeySchemaTypeDef]] = None
-    Projection: Optional[AwsDynamoDbTableProjectionUnionTypeDef] = None
+    KeySchema: Optional[Sequence[AwsDynamoDbTableKeySchema]] = None
+    Projection: Optional[AwsDynamoDbTableProjectionUnion] = None
 
 
-class AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointAuthenticationOptionsDetails(BaseValidatorModel):
     pass
 
 
-class AwsEc2ClientVpnEndpointDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointDetailsOutput(BaseValidatorModel):
     ClientVpnEndpointId: Optional[str] = None
     Description: Optional[str] = None
     ClientCidrBlock: Optional[str] = None
@@ -5166,17 +5166,17 @@ class AwsEc2ClientVpnEndpointDetailsOutputTypeDef(BaseValidatorModel):
     TransportProtocol: Optional[str] = None
     VpnPort: Optional[int] = None
     ServerCertificateArn: Optional[str] = None
-    AuthenticationOptions: Optional[ List[AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef] ] = None
-    ConnectionLogOptions: Optional[AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef] = None
+    AuthenticationOptions: Optional[ List[AwsEc2ClientVpnEndpointAuthenticationOptionsDetails] ] = None
+    ConnectionLogOptions: Optional[AwsEc2ClientVpnEndpointConnectionLogOptionsDetails] = None
     SecurityGroupIdSet: Optional[List[str]] = None
     VpcId: Optional[str] = None
     SelfServicePortalUrl: Optional[str] = None
-    ClientConnectOptions: Optional[AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef] = None
+    ClientConnectOptions: Optional[AwsEc2ClientVpnEndpointClientConnectOptionsDetails] = None
     SessionTimeoutHours: Optional[int] = None
-    ClientLoginBannerOptions: Optional[ AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef ] = None
+    ClientLoginBannerOptions: Optional[ AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails ] = None
 
 
-class AwsEc2ClientVpnEndpointDetailsTypeDef(BaseValidatorModel):
+class AwsEc2ClientVpnEndpointDetails(BaseValidatorModel):
     ClientVpnEndpointId: Optional[str] = None
     Description: Optional[str] = None
     ClientCidrBlock: Optional[str] = None
@@ -5185,224 +5185,224 @@ class AwsEc2ClientVpnEndpointDetailsTypeDef(BaseValidatorModel):
     TransportProtocol: Optional[str] = None
     VpnPort: Optional[int] = None
     ServerCertificateArn: Optional[str] = None
-    AuthenticationOptions: Optional[ Sequence[AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef] ] = None
-    ConnectionLogOptions: Optional[AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef] = None
+    AuthenticationOptions: Optional[ Sequence[AwsEc2ClientVpnEndpointAuthenticationOptionsDetails] ] = None
+    ConnectionLogOptions: Optional[AwsEc2ClientVpnEndpointConnectionLogOptionsDetails] = None
     SecurityGroupIdSet: Optional[Sequence[str]] = None
     VpcId: Optional[str] = None
     SelfServicePortalUrl: Optional[str] = None
-    ClientConnectOptions: Optional[AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef] = None
+    ClientConnectOptions: Optional[AwsEc2ClientVpnEndpointClientConnectOptionsDetails] = None
     SessionTimeoutHours: Optional[int] = None
-    ClientLoginBannerOptions: Optional[ AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef ] = None
+    ClientLoginBannerOptions: Optional[ AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails ] = None
 
 
-class AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails(BaseValidatorModel):
     pass
 
 
-class AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails(BaseValidatorModel):
     pass
 
 
-class AwsEc2LaunchTemplateDataDetailsOutputTypeDef(BaseValidatorModel):
-    BlockDeviceMappingSet: Optional[ List[AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef] ] = None
-    CapacityReservationSpecification: Optional[ AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef ] = None
-    CpuOptions: Optional[AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef] = None
-    CreditSpecification: Optional[AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef] = None
+class AwsEc2LaunchTemplateDataDetailsOutput(BaseValidatorModel):
+    BlockDeviceMappingSet: Optional[ List[AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails] ] = None
+    CapacityReservationSpecification: Optional[ AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails ] = None
+    CpuOptions: Optional[AwsEc2LaunchTemplateDataCpuOptionsDetails] = None
+    CreditSpecification: Optional[AwsEc2LaunchTemplateDataCreditSpecificationDetails] = None
     DisableApiStop: Optional[bool] = None
     DisableApiTermination: Optional[bool] = None
     EbsOptimized: Optional[bool] = None
-    ElasticGpuSpecificationSet: Optional[ List[AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef] ] = None
-    ElasticInferenceAcceleratorSet: Optional[ List[AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef] ] = None
-    EnclaveOptions: Optional[AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef] = None
-    HibernationOptions: Optional[AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef] = None
-    IamInstanceProfile: Optional[AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef] = None
+    ElasticGpuSpecificationSet: Optional[ List[AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails] ] = None
+    ElasticInferenceAcceleratorSet: Optional[ List[AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails] ] = None
+    EnclaveOptions: Optional[AwsEc2LaunchTemplateDataEnclaveOptionsDetails] = None
+    HibernationOptions: Optional[AwsEc2LaunchTemplateDataHibernationOptionsDetails] = None
+    IamInstanceProfile: Optional[AwsEc2LaunchTemplateDataIamInstanceProfileDetails] = None
     ImageId: Optional[str] = None
     InstanceInitiatedShutdownBehavior: Optional[str] = None
-    InstanceMarketOptions: Optional[AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef] = None
-    InstanceRequirements: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutputTypeDef ] = None
+    InstanceMarketOptions: Optional[AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails] = None
+    InstanceRequirements: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutput ] = None
     InstanceType: Optional[str] = None
     KernelId: Optional[str] = None
     KeyName: Optional[str] = None
-    LicenseSet: Optional[List[AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef]] = None
-    MaintenanceOptions: Optional[AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef] = None
-    MetadataOptions: Optional[AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef] = None
-    Monitoring: Optional[AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef] = None
-    NetworkInterfaceSet: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutputTypeDef] ] = None
-    Placement: Optional[AwsEc2LaunchTemplateDataPlacementDetailsTypeDef] = None
-    PrivateDnsNameOptions: Optional[AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef] = None
+    LicenseSet: Optional[List[AwsEc2LaunchTemplateDataLicenseSetDetails]] = None
+    MaintenanceOptions: Optional[AwsEc2LaunchTemplateDataMaintenanceOptionsDetails] = None
+    MetadataOptions: Optional[AwsEc2LaunchTemplateDataMetadataOptionsDetails] = None
+    Monitoring: Optional[AwsEc2LaunchTemplateDataMonitoringDetails] = None
+    NetworkInterfaceSet: Optional[ List[AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutput] ] = None
+    Placement: Optional[AwsEc2LaunchTemplateDataPlacementDetails] = None
+    PrivateDnsNameOptions: Optional[AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails] = None
     RamDiskId: Optional[str] = None
     SecurityGroupIdSet: Optional[List[str]] = None
     SecurityGroupSet: Optional[List[str]] = None
     UserData: Optional[str] = None
 
 
-class AwsEc2NetworkAclEntryTypeDef(BaseValidatorModel):
+class AwsEc2NetworkAclEntry(BaseValidatorModel):
     pass
 
 
-class AwsEc2NetworkAclDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2NetworkAclDetailsOutput(BaseValidatorModel):
     IsDefault: Optional[bool] = None
     NetworkAclId: Optional[str] = None
     OwnerId: Optional[str] = None
     VpcId: Optional[str] = None
-    Associations: Optional[List[AwsEc2NetworkAclAssociationTypeDef]] = None
-    Entries: Optional[List[AwsEc2NetworkAclEntryTypeDef]] = None
+    Associations: Optional[List[AwsEc2NetworkAclAssociation]] = None
+    Entries: Optional[List[AwsEc2NetworkAclEntry]] = None
 
 
-class AwsEc2NetworkAclDetailsTypeDef(BaseValidatorModel):
+class AwsEc2NetworkAclDetails(BaseValidatorModel):
     IsDefault: Optional[bool] = None
     NetworkAclId: Optional[str] = None
     OwnerId: Optional[str] = None
     VpcId: Optional[str] = None
-    Associations: Optional[Sequence[AwsEc2NetworkAclAssociationTypeDef]] = None
-    Entries: Optional[Sequence[AwsEc2NetworkAclEntryTypeDef]] = None
+    Associations: Optional[Sequence[AwsEc2NetworkAclAssociation]] = None
+    Entries: Optional[Sequence[AwsEc2NetworkAclEntry]] = None
 
 
-class AwsEc2SecurityGroupDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2SecurityGroupDetailsOutput(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupId: Optional[str] = None
     OwnerId: Optional[str] = None
     VpcId: Optional[str] = None
-    IpPermissions: Optional[List[AwsEc2SecurityGroupIpPermissionOutputTypeDef]] = None
-    IpPermissionsEgress: Optional[List[AwsEc2SecurityGroupIpPermissionOutputTypeDef]] = None
+    IpPermissions: Optional[List[AwsEc2SecurityGroupIpPermissionOutput]] = None
+    IpPermissionsEgress: Optional[List[AwsEc2SecurityGroupIpPermissionOutput]] = None
 
 
-class AwsEc2VpcPeeringConnectionDetailsOutputTypeDef(BaseValidatorModel):
-    AccepterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsOutputTypeDef] = None
+class AwsEc2VpcPeeringConnectionDetailsOutput(BaseValidatorModel):
+    AccepterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsOutput] = None
     ExpirationTime: Optional[str] = None
-    RequesterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsOutputTypeDef] = None
-    Status: Optional[AwsEc2VpcPeeringConnectionStatusDetailsTypeDef] = None
+    RequesterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsOutput] = None
+    Status: Optional[AwsEc2VpcPeeringConnectionStatusDetails] = None
     VpcPeeringConnectionId: Optional[str] = None
 
 
-class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEc2VpnConnectionOptionsDetailsTypeDef(BaseValidatorModel):
+class AwsEc2VpnConnectionOptionsDetails(BaseValidatorModel):
     StaticRoutesOnly: Optional[bool] = None
-    TunnelOptions: Optional[Sequence[AwsEc2VpnConnectionOptionsTunnelOptionsDetailsUnionTypeDef]] = None
+    TunnelOptions: Optional[Sequence[AwsEc2VpnConnectionOptionsTunnelOptionsDetailsUnion]] = None
 
 
-class AwsEcsClusterConfigurationDetailsTypeDef(BaseValidatorModel):
-    ExecuteCommandConfiguration: Optional[ AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsTypeDef ] = None
+class AwsEcsClusterConfigurationDetails(BaseValidatorModel):
+    ExecuteCommandConfiguration: Optional[ AwsEcsClusterConfigurationExecuteCommandConfigurationDetails ] = None
 
 
-class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsServiceNetworkConfigurationDetailsTypeDef(BaseValidatorModel):
-    AwsVpcConfiguration: Optional[ AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsUnionTypeDef ] = None
+class AwsEcsServiceNetworkConfigurationDetails(BaseValidatorModel):
+    AwsVpcConfiguration: Optional[ AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsUnion ] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsTypeDef(BaseValidatorModel):
-    Capabilities: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsUnionTypeDef ] = None
-    Devices: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsUnionTypeDef] ] = None
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails(BaseValidatorModel):
+    Capabilities: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsUnion ] = None
+    Devices: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsUnion] ] = None
     InitProcessEnabled: Optional[bool] = None
     MaxSwap: Optional[int] = None
     SharedMemorySize: Optional[int] = None
     Swappiness: Optional[int] = None
-    Tmpfs: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsUnionTypeDef] ] = None
+    Tmpfs: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsUnion] ] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutput(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsDetailsOutput(BaseValidatorModel):
     Command: Optional[List[str]] = None
     Cpu: Optional[int] = None
-    DependsOn: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef]] = None
+    DependsOn: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails]] = None
     DisableNetworking: Optional[bool] = None
     DnsSearchDomains: Optional[List[str]] = None
     DnsServers: Optional[List[str]] = None
     DockerLabels: Optional[Dict[str, str]] = None
     DockerSecurityOptions: Optional[List[str]] = None
     EntryPoint: Optional[List[str]] = None
-    Environment: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef] ] = None
-    EnvironmentFiles: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef] ] = None
+    Environment: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails] ] = None
+    EnvironmentFiles: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails] ] = None
     Essential: Optional[bool] = None
-    ExtraHosts: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef]] = None
-    FirelensConfiguration: Optional[ AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutputTypeDef ] = None
-    HealthCheck: Optional[ AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutputTypeDef ] = None
+    ExtraHosts: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]] = None
+    FirelensConfiguration: Optional[ AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutput ] = None
+    HealthCheck: Optional[ AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutput ] = None
     Hostname: Optional[str] = None
     Image: Optional[str] = None
     Interactive: Optional[bool] = None
     Links: Optional[List[str]] = None
-    LinuxParameters: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutputTypeDef ] = None
-    LogConfiguration: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutputTypeDef ] = None
+    LinuxParameters: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutput ] = None
+    LogConfiguration: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutput ] = None
     Memory: Optional[int] = None
     MemoryReservation: Optional[int] = None
-    MountPoints: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef] ] = None
+    MountPoints: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails] ] = None
     Name: Optional[str] = None
-    PortMappings: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef] ] = None
+    PortMappings: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails] ] = None
     Privileged: Optional[bool] = None
     PseudoTerminal: Optional[bool] = None
     ReadonlyRootFilesystem: Optional[bool] = None
-    RepositoryCredentials: Optional[ AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef ] = None
-    ResourceRequirements: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef] ] = None
-    Secrets: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef]] = None
+    RepositoryCredentials: Optional[ AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails ] = None
+    ResourceRequirements: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails] ] = None
+    Secrets: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails]] = None
     StartTimeout: Optional[int] = None
     StopTimeout: Optional[int] = None
-    SystemControls: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef] ] = None
-    Ulimits: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef]] = None
+    SystemControls: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails] ] = None
+    Ulimits: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]] = None
     User: Optional[str] = None
-    VolumesFrom: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef] ] = None
+    VolumesFrom: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails] ] = None
     WorkingDirectory: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionVolumesDetailsOutputTypeDef(BaseValidatorModel):
-    DockerVolumeConfiguration: Optional[ AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutputTypeDef ] = None
-    EfsVolumeConfiguration: Optional[ AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef ] = None
-    Host: Optional[AwsEcsTaskDefinitionVolumesHostDetailsTypeDef] = None
+class AwsEcsTaskDefinitionVolumesDetailsOutput(BaseValidatorModel):
+    DockerVolumeConfiguration: Optional[ AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutput ] = None
+    EfsVolumeConfiguration: Optional[ AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails ] = None
+    Host: Optional[AwsEcsTaskDefinitionVolumesHostDetails] = None
     Name: Optional[str] = None
 
 
-class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionVolumesDetailsTypeDef(BaseValidatorModel):
-    DockerVolumeConfiguration: Optional[ AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnionTypeDef ] = None
-    EfsVolumeConfiguration: Optional[ AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef ] = None
-    Host: Optional[AwsEcsTaskDefinitionVolumesHostDetailsTypeDef] = None
+class AwsEcsTaskDefinitionVolumesDetails(BaseValidatorModel):
+    DockerVolumeConfiguration: Optional[ AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnion ] = None
+    EfsVolumeConfiguration: Optional[ AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails ] = None
+    Host: Optional[AwsEcsTaskDefinitionVolumesHostDetails] = None
     Name: Optional[str] = None
 
 
-class AwsEcsTaskDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDetailsOutput(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     TaskDefinitionArn: Optional[str] = None
     Version: Optional[str] = None
@@ -5410,122 +5410,122 @@ class AwsEcsTaskDetailsOutputTypeDef(BaseValidatorModel):
     StartedAt: Optional[str] = None
     StartedBy: Optional[str] = None
     Group: Optional[str] = None
-    Volumes: Optional[List[AwsEcsTaskVolumeDetailsTypeDef]] = None
-    Containers: Optional[List[AwsEcsContainerDetailsOutputTypeDef]] = None
+    Volumes: Optional[List[AwsEcsTaskVolumeDetails]] = None
+    Containers: Optional[List[AwsEcsContainerDetailsOutput]] = None
 
 
-class AwsEfsAccessPointDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEfsAccessPointDetailsOutput(BaseValidatorModel):
     AccessPointId: Optional[str] = None
     Arn: Optional[str] = None
     ClientToken: Optional[str] = None
     FileSystemId: Optional[str] = None
-    PosixUser: Optional[AwsEfsAccessPointPosixUserDetailsOutputTypeDef] = None
-    RootDirectory: Optional[AwsEfsAccessPointRootDirectoryDetailsTypeDef] = None
+    PosixUser: Optional[AwsEfsAccessPointPosixUserDetailsOutput] = None
+    RootDirectory: Optional[AwsEfsAccessPointRootDirectoryDetails] = None
 
 
-class AwsEfsAccessPointPosixUserDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEfsAccessPointPosixUserDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEfsAccessPointDetailsTypeDef(BaseValidatorModel):
+class AwsEfsAccessPointDetails(BaseValidatorModel):
     AccessPointId: Optional[str] = None
     Arn: Optional[str] = None
     ClientToken: Optional[str] = None
     FileSystemId: Optional[str] = None
-    PosixUser: Optional[AwsEfsAccessPointPosixUserDetailsUnionTypeDef] = None
-    RootDirectory: Optional[AwsEfsAccessPointRootDirectoryDetailsTypeDef] = None
+    PosixUser: Optional[AwsEfsAccessPointPosixUserDetailsUnion] = None
+    RootDirectory: Optional[AwsEfsAccessPointRootDirectoryDetails] = None
 
 
-class AwsEksClusterDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEksClusterDetailsOutput(BaseValidatorModel):
     Arn: Optional[str] = None
     CertificateAuthorityData: Optional[str] = None
     ClusterStatus: Optional[str] = None
     Endpoint: Optional[str] = None
     Name: Optional[str] = None
-    ResourcesVpcConfig: Optional[AwsEksClusterResourcesVpcConfigDetailsOutputTypeDef] = None
+    ResourcesVpcConfig: Optional[AwsEksClusterResourcesVpcConfigDetailsOutput] = None
     RoleArn: Optional[str] = None
     Version: Optional[str] = None
-    Logging: Optional[AwsEksClusterLoggingDetailsOutputTypeDef] = None
+    Logging: Optional[AwsEksClusterLoggingDetailsOutput] = None
 
 
-class AwsEksClusterLoggingClusterLoggingDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEksClusterLoggingClusterLoggingDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEksClusterLoggingDetailsTypeDef(BaseValidatorModel):
-    ClusterLogging: Optional[Sequence[AwsEksClusterLoggingClusterLoggingDetailsUnionTypeDef]] = None
+class AwsEksClusterLoggingDetails(BaseValidatorModel):
+    ClusterLogging: Optional[Sequence[AwsEksClusterLoggingClusterLoggingDetailsUnion]] = None
 
 
-class AwsElasticsearchDomainDetailsOutputTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainDetailsOutput(BaseValidatorModel):
     AccessPolicies: Optional[str] = None
-    DomainEndpointOptions: Optional[AwsElasticsearchDomainDomainEndpointOptionsTypeDef] = None
+    DomainEndpointOptions: Optional[AwsElasticsearchDomainDomainEndpointOptions] = None
     DomainId: Optional[str] = None
     DomainName: Optional[str] = None
     Endpoint: Optional[str] = None
     Endpoints: Optional[Dict[str, str]] = None
     ElasticsearchVersion: Optional[str] = None
-    ElasticsearchClusterConfig: Optional[ AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef ] = None
-    EncryptionAtRestOptions: Optional[AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef] = None
-    LogPublishingOptions: Optional[AwsElasticsearchDomainLogPublishingOptionsTypeDef] = None
-    NodeToNodeEncryptionOptions: Optional[ AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef ] = None
-    ServiceSoftwareOptions: Optional[AwsElasticsearchDomainServiceSoftwareOptionsTypeDef] = None
-    VPCOptions: Optional[AwsElasticsearchDomainVPCOptionsOutputTypeDef] = None
+    ElasticsearchClusterConfig: Optional[ AwsElasticsearchDomainElasticsearchClusterConfigDetails ] = None
+    EncryptionAtRestOptions: Optional[AwsElasticsearchDomainEncryptionAtRestOptions] = None
+    LogPublishingOptions: Optional[AwsElasticsearchDomainLogPublishingOptions] = None
+    NodeToNodeEncryptionOptions: Optional[ AwsElasticsearchDomainNodeToNodeEncryptionOptions ] = None
+    ServiceSoftwareOptions: Optional[AwsElasticsearchDomainServiceSoftwareOptions] = None
+    VPCOptions: Optional[AwsElasticsearchDomainVPCOptionsOutput] = None
 
 
-class AwsElasticsearchDomainVPCOptionsUnionTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainVPCOptionsUnion(BaseValidatorModel):
     pass
 
 
-class AwsElasticsearchDomainDetailsTypeDef(BaseValidatorModel):
+class AwsElasticsearchDomainDetails(BaseValidatorModel):
     AccessPolicies: Optional[str] = None
-    DomainEndpointOptions: Optional[AwsElasticsearchDomainDomainEndpointOptionsTypeDef] = None
+    DomainEndpointOptions: Optional[AwsElasticsearchDomainDomainEndpointOptions] = None
     DomainId: Optional[str] = None
     DomainName: Optional[str] = None
     Endpoint: Optional[str] = None
     Endpoints: Optional[Mapping[str, str]] = None
     ElasticsearchVersion: Optional[str] = None
-    ElasticsearchClusterConfig: Optional[ AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef ] = None
-    EncryptionAtRestOptions: Optional[AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef] = None
-    LogPublishingOptions: Optional[AwsElasticsearchDomainLogPublishingOptionsTypeDef] = None
-    NodeToNodeEncryptionOptions: Optional[ AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef ] = None
-    ServiceSoftwareOptions: Optional[AwsElasticsearchDomainServiceSoftwareOptionsTypeDef] = None
-    VPCOptions: Optional[AwsElasticsearchDomainVPCOptionsUnionTypeDef] = None
+    ElasticsearchClusterConfig: Optional[ AwsElasticsearchDomainElasticsearchClusterConfigDetails ] = None
+    EncryptionAtRestOptions: Optional[AwsElasticsearchDomainEncryptionAtRestOptions] = None
+    LogPublishingOptions: Optional[AwsElasticsearchDomainLogPublishingOptions] = None
+    NodeToNodeEncryptionOptions: Optional[ AwsElasticsearchDomainNodeToNodeEncryptionOptions ] = None
+    ServiceSoftwareOptions: Optional[AwsElasticsearchDomainServiceSoftwareOptions] = None
+    VPCOptions: Optional[AwsElasticsearchDomainVPCOptionsUnion] = None
 
 
-class AwsElbLoadBalancerDetailsOutputTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerDetailsOutput(BaseValidatorModel):
     AvailabilityZones: Optional[List[str]] = None
-    BackendServerDescriptions: Optional[ List[AwsElbLoadBalancerBackendServerDescriptionOutputTypeDef] ] = None
+    BackendServerDescriptions: Optional[ List[AwsElbLoadBalancerBackendServerDescriptionOutput] ] = None
     CanonicalHostedZoneName: Optional[str] = None
     CanonicalHostedZoneNameID: Optional[str] = None
     CreatedTime: Optional[str] = None
     DnsName: Optional[str] = None
-    HealthCheck: Optional[AwsElbLoadBalancerHealthCheckTypeDef] = None
-    Instances: Optional[List[AwsElbLoadBalancerInstanceTypeDef]] = None
-    ListenerDescriptions: Optional[List[AwsElbLoadBalancerListenerDescriptionOutputTypeDef]] = None
-    LoadBalancerAttributes: Optional[AwsElbLoadBalancerAttributesOutputTypeDef] = None
+    HealthCheck: Optional[AwsElbLoadBalancerHealthCheck] = None
+    Instances: Optional[List[AwsElbLoadBalancerInstance]] = None
+    ListenerDescriptions: Optional[List[AwsElbLoadBalancerListenerDescriptionOutput]] = None
+    LoadBalancerAttributes: Optional[AwsElbLoadBalancerAttributesOutput] = None
     LoadBalancerName: Optional[str] = None
-    Policies: Optional[AwsElbLoadBalancerPoliciesOutputTypeDef] = None
+    Policies: Optional[AwsElbLoadBalancerPoliciesOutput] = None
     Scheme: Optional[str] = None
     SecurityGroups: Optional[List[str]] = None
-    SourceSecurityGroup: Optional[AwsElbLoadBalancerSourceSecurityGroupTypeDef] = None
+    SourceSecurityGroup: Optional[AwsElbLoadBalancerSourceSecurityGroup] = None
     Subnets: Optional[List[str]] = None
     VpcId: Optional[str] = None
 
 
-class AwsEventsEndpointRoutingConfigDetailsTypeDef(BaseValidatorModel):
-    FailoverConfig: Optional[AwsEventsEndpointRoutingConfigFailoverConfigDetailsTypeDef] = None
+class AwsEventsEndpointRoutingConfigDetails(BaseValidatorModel):
+    FailoverConfig: Optional[AwsEventsEndpointRoutingConfigFailoverConfigDetails] = None
 
 
-class AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetailsTypeDef(BaseValidatorModel):
+class AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails(BaseValidatorModel):
     pass
 
 
-class AwsGuardDutyDetectorDataSourcesMalwareProtectionDetailsTypeDef(BaseValidatorModel):
-    ScanEc2InstanceWithFindings: Optional[ AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetailsTypeDef ] = None
+class AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails(BaseValidatorModel):
+    ScanEc2InstanceWithFindings: Optional[ AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails ] = None
     ServiceRole: Optional[str] = None
 
 
-class AwsIamAccessKeyDetailsTypeDef(BaseValidatorModel):
+class AwsIamAccessKeyDetails(BaseValidatorModel):
     UserName: Optional[str] = None
     Status: Optional[AwsIamAccessKeyStatusType] = None
     CreatedAt: Optional[str] = None
@@ -5534,106 +5534,106 @@ class AwsIamAccessKeyDetailsTypeDef(BaseValidatorModel):
     PrincipalName: Optional[str] = None
     AccountId: Optional[str] = None
     AccessKeyId: Optional[str] = None
-    SessionContext: Optional[AwsIamAccessKeySessionContextTypeDef] = None
+    SessionContext: Optional[AwsIamAccessKeySessionContext] = None
 
 
-class AwsIamRoleDetailsOutputTypeDef(BaseValidatorModel):
+class AwsIamRoleDetailsOutput(BaseValidatorModel):
     AssumeRolePolicyDocument: Optional[str] = None
-    AttachedManagedPolicies: Optional[List[AwsIamAttachedManagedPolicyTypeDef]] = None
+    AttachedManagedPolicies: Optional[List[AwsIamAttachedManagedPolicy]] = None
     CreateDate: Optional[str] = None
-    InstanceProfileList: Optional[List[AwsIamInstanceProfileOutputTypeDef]] = None
-    PermissionsBoundary: Optional[AwsIamPermissionsBoundaryTypeDef] = None
+    InstanceProfileList: Optional[List[AwsIamInstanceProfileOutput]] = None
+    PermissionsBoundary: Optional[AwsIamPermissionsBoundary] = None
     RoleId: Optional[str] = None
     RoleName: Optional[str] = None
-    RolePolicyList: Optional[List[AwsIamRolePolicyTypeDef]] = None
+    RolePolicyList: Optional[List[AwsIamRolePolicy]] = None
     MaxSessionDuration: Optional[int] = None
     Path: Optional[str] = None
 
 
-class AwsLambdaFunctionDetailsOutputTypeDef(BaseValidatorModel):
-    Code: Optional[AwsLambdaFunctionCodeTypeDef] = None
+class AwsLambdaFunctionDetailsOutput(BaseValidatorModel):
+    Code: Optional[AwsLambdaFunctionCode] = None
     CodeSha256: Optional[str] = None
-    DeadLetterConfig: Optional[AwsLambdaFunctionDeadLetterConfigTypeDef] = None
-    Environment: Optional[AwsLambdaFunctionEnvironmentOutputTypeDef] = None
+    DeadLetterConfig: Optional[AwsLambdaFunctionDeadLetterConfig] = None
+    Environment: Optional[AwsLambdaFunctionEnvironmentOutput] = None
     FunctionName: Optional[str] = None
     Handler: Optional[str] = None
     KmsKeyArn: Optional[str] = None
     LastModified: Optional[str] = None
-    Layers: Optional[List[AwsLambdaFunctionLayerTypeDef]] = None
+    Layers: Optional[List[AwsLambdaFunctionLayer]] = None
     MasterArn: Optional[str] = None
     MemorySize: Optional[int] = None
     RevisionId: Optional[str] = None
     Role: Optional[str] = None
     Runtime: Optional[str] = None
     Timeout: Optional[int] = None
-    TracingConfig: Optional[AwsLambdaFunctionTracingConfigTypeDef] = None
-    VpcConfig: Optional[AwsLambdaFunctionVpcConfigOutputTypeDef] = None
+    TracingConfig: Optional[AwsLambdaFunctionTracingConfig] = None
+    VpcConfig: Optional[AwsLambdaFunctionVpcConfigOutput] = None
     Version: Optional[str] = None
     Architectures: Optional[List[str]] = None
     PackageType: Optional[str] = None
 
 
-class AwsMskClusterClusterInfoClientAuthenticationDetailsOutputTypeDef(BaseValidatorModel):
-    Sasl: Optional[AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef] = None
-    Unauthenticated: Optional[ AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef ] = None
-    Tls: Optional[AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutputTypeDef] = None
+class AwsMskClusterClusterInfoClientAuthenticationDetailsOutput(BaseValidatorModel):
+    Sasl: Optional[AwsMskClusterClusterInfoClientAuthenticationSaslDetails] = None
+    Unauthenticated: Optional[ AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails ] = None
+    Tls: Optional[AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutput] = None
 
 
-class AwsMskClusterClusterInfoClientAuthenticationTlsDetailsUnionTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoClientAuthenticationTlsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsMskClusterClusterInfoClientAuthenticationDetailsTypeDef(BaseValidatorModel):
-    Sasl: Optional[AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef] = None
-    Unauthenticated: Optional[ AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef ] = None
-    Tls: Optional[AwsMskClusterClusterInfoClientAuthenticationTlsDetailsUnionTypeDef] = None
+class AwsMskClusterClusterInfoClientAuthenticationDetails(BaseValidatorModel):
+    Sasl: Optional[AwsMskClusterClusterInfoClientAuthenticationSaslDetails] = None
+    Unauthenticated: Optional[ AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails ] = None
+    Tls: Optional[AwsMskClusterClusterInfoClientAuthenticationTlsDetailsUnion] = None
 
 
-class AwsOpenSearchServiceDomainDetailsOutputTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainDetailsOutput(BaseValidatorModel):
     Arn: Optional[str] = None
     AccessPolicies: Optional[str] = None
     DomainName: Optional[str] = None
     Id: Optional[str] = None
     DomainEndpoint: Optional[str] = None
     EngineVersion: Optional[str] = None
-    EncryptionAtRestOptions: Optional[ AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef ] = None
-    NodeToNodeEncryptionOptions: Optional[ AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef ] = None
-    ServiceSoftwareOptions: Optional[ AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef ] = None
-    ClusterConfig: Optional[AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef] = None
-    DomainEndpointOptions: Optional[ AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef ] = None
-    VpcOptions: Optional[AwsOpenSearchServiceDomainVpcOptionsDetailsOutputTypeDef] = None
-    LogPublishingOptions: Optional[AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef] = None
+    EncryptionAtRestOptions: Optional[ AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails ] = None
+    NodeToNodeEncryptionOptions: Optional[ AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails ] = None
+    ServiceSoftwareOptions: Optional[ AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails ] = None
+    ClusterConfig: Optional[AwsOpenSearchServiceDomainClusterConfigDetails] = None
+    DomainEndpointOptions: Optional[ AwsOpenSearchServiceDomainDomainEndpointOptionsDetails ] = None
+    VpcOptions: Optional[AwsOpenSearchServiceDomainVpcOptionsDetailsOutput] = None
+    LogPublishingOptions: Optional[AwsOpenSearchServiceDomainLogPublishingOptionsDetails] = None
     DomainEndpoints: Optional[Dict[str, str]] = None
-    AdvancedSecurityOptions: Optional[ AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef ] = None
+    AdvancedSecurityOptions: Optional[ AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails ] = None
 
 
-class AwsOpenSearchServiceDomainVpcOptionsDetailsUnionTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainVpcOptionsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsOpenSearchServiceDomainDetailsTypeDef(BaseValidatorModel):
+class AwsOpenSearchServiceDomainDetails(BaseValidatorModel):
     Arn: Optional[str] = None
     AccessPolicies: Optional[str] = None
     DomainName: Optional[str] = None
     Id: Optional[str] = None
     DomainEndpoint: Optional[str] = None
     EngineVersion: Optional[str] = None
-    EncryptionAtRestOptions: Optional[ AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef ] = None
-    NodeToNodeEncryptionOptions: Optional[ AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef ] = None
-    ServiceSoftwareOptions: Optional[ AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef ] = None
-    ClusterConfig: Optional[AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef] = None
-    DomainEndpointOptions: Optional[ AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef ] = None
-    VpcOptions: Optional[AwsOpenSearchServiceDomainVpcOptionsDetailsUnionTypeDef] = None
-    LogPublishingOptions: Optional[AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef] = None
+    EncryptionAtRestOptions: Optional[ AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails ] = None
+    NodeToNodeEncryptionOptions: Optional[ AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails ] = None
+    ServiceSoftwareOptions: Optional[ AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails ] = None
+    ClusterConfig: Optional[AwsOpenSearchServiceDomainClusterConfigDetails] = None
+    DomainEndpointOptions: Optional[ AwsOpenSearchServiceDomainDomainEndpointOptionsDetails ] = None
+    VpcOptions: Optional[AwsOpenSearchServiceDomainVpcOptionsDetailsUnion] = None
+    LogPublishingOptions: Optional[AwsOpenSearchServiceDomainLogPublishingOptionsDetails] = None
     DomainEndpoints: Optional[Mapping[str, str]] = None
-    AdvancedSecurityOptions: Optional[ AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef ] = None
+    AdvancedSecurityOptions: Optional[ AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails ] = None
 
 
-class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnionTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnion(BaseValidatorModel):
     pass
 
 
-class AwsRdsDbClusterSnapshotDetailsTypeDef(BaseValidatorModel):
+class AwsRdsDbClusterSnapshotDetails(BaseValidatorModel):
     AvailabilityZones: Optional[Sequence[str]] = None
     SnapshotCreateTime: Optional[str] = None
     Engine: Optional[str] = None
@@ -5652,32 +5652,32 @@ class AwsRdsDbClusterSnapshotDetailsTypeDef(BaseValidatorModel):
     DbClusterIdentifier: Optional[str] = None
     DbClusterSnapshotIdentifier: Optional[str] = None
     IamDatabaseAuthenticationEnabled: Optional[bool] = None
-    DbClusterSnapshotAttributes: Optional[ Sequence[AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnionTypeDef] ] = None
+    DbClusterSnapshotAttributes: Optional[ Sequence[AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnion] ] = None
 
 
-class AwsRdsDbSubnetGroupOutputTypeDef(BaseValidatorModel):
+class AwsRdsDbSubnetGroupOutput(BaseValidatorModel):
     DbSubnetGroupName: Optional[str] = None
     DbSubnetGroupDescription: Optional[str] = None
     VpcId: Optional[str] = None
     SubnetGroupStatus: Optional[str] = None
-    Subnets: Optional[List[AwsRdsDbSubnetGroupSubnetTypeDef]] = None
+    Subnets: Optional[List[AwsRdsDbSubnetGroupSubnet]] = None
     DbSubnetGroupArn: Optional[str] = None
 
 
-class AwsRdsDbSubnetGroupTypeDef(BaseValidatorModel):
+class AwsRdsDbSubnetGroup(BaseValidatorModel):
     DbSubnetGroupName: Optional[str] = None
     DbSubnetGroupDescription: Optional[str] = None
     VpcId: Optional[str] = None
     SubnetGroupStatus: Optional[str] = None
-    Subnets: Optional[Sequence[AwsRdsDbSubnetGroupSubnetTypeDef]] = None
+    Subnets: Optional[Sequence[AwsRdsDbSubnetGroupSubnet]] = None
     DbSubnetGroupArn: Optional[str] = None
 
 
-class AwsRdsPendingCloudWatchLogsExportsUnionTypeDef(BaseValidatorModel):
+class AwsRdsPendingCloudWatchLogsExportsUnion(BaseValidatorModel):
     pass
 
 
-class AwsRdsDbPendingModifiedValuesTypeDef(BaseValidatorModel):
+class AwsRdsDbPendingModifiedValues(BaseValidatorModel):
     DbInstanceClass: Optional[str] = None
     AllocatedStorage: Optional[int] = None
     MasterUserPassword: Optional[str] = None
@@ -5691,37 +5691,37 @@ class AwsRdsDbPendingModifiedValuesTypeDef(BaseValidatorModel):
     StorageType: Optional[str] = None
     CaCertificateIdentifier: Optional[str] = None
     DbSubnetGroupName: Optional[str] = None
-    PendingCloudWatchLogsExports: Optional[AwsRdsPendingCloudWatchLogsExportsUnionTypeDef] = None
-    ProcessorFeatures: Optional[Sequence[AwsRdsDbProcessorFeatureTypeDef]] = None
+    PendingCloudWatchLogsExports: Optional[AwsRdsPendingCloudWatchLogsExportsUnion] = None
+    ProcessorFeatures: Optional[Sequence[AwsRdsDbProcessorFeature]] = None
 
 
-class AwsRedshiftClusterDetailsOutputTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterDetailsOutput(BaseValidatorModel):
     AllowVersionUpgrade: Optional[bool] = None
     AutomatedSnapshotRetentionPeriod: Optional[int] = None
     AvailabilityZone: Optional[str] = None
     ClusterAvailabilityStatus: Optional[str] = None
     ClusterCreateTime: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
-    ClusterNodes: Optional[List[AwsRedshiftClusterClusterNodeTypeDef]] = None
-    ClusterParameterGroups: Optional[List[AwsRedshiftClusterClusterParameterGroupOutputTypeDef]] = None
+    ClusterNodes: Optional[List[AwsRedshiftClusterClusterNode]] = None
+    ClusterParameterGroups: Optional[List[AwsRedshiftClusterClusterParameterGroupOutput]] = None
     ClusterPublicKey: Optional[str] = None
     ClusterRevisionNumber: Optional[str] = None
-    ClusterSecurityGroups: Optional[List[AwsRedshiftClusterClusterSecurityGroupTypeDef]] = None
-    ClusterSnapshotCopyStatus: Optional[AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef] = None
+    ClusterSecurityGroups: Optional[List[AwsRedshiftClusterClusterSecurityGroup]] = None
+    ClusterSnapshotCopyStatus: Optional[AwsRedshiftClusterClusterSnapshotCopyStatus] = None
     ClusterStatus: Optional[str] = None
     ClusterSubnetGroupName: Optional[str] = None
     ClusterVersion: Optional[str] = None
     DBName: Optional[str] = None
-    DeferredMaintenanceWindows: Optional[ List[AwsRedshiftClusterDeferredMaintenanceWindowTypeDef] ] = None
-    ElasticIpStatus: Optional[AwsRedshiftClusterElasticIpStatusTypeDef] = None
+    DeferredMaintenanceWindows: Optional[ List[AwsRedshiftClusterDeferredMaintenanceWindow] ] = None
+    ElasticIpStatus: Optional[AwsRedshiftClusterElasticIpStatus] = None
     ElasticResizeNumberOfNodeOptions: Optional[str] = None
     Encrypted: Optional[bool] = None
-    Endpoint: Optional[AwsRedshiftClusterEndpointTypeDef] = None
+    Endpoint: Optional[AwsRedshiftClusterEndpoint] = None
     EnhancedVpcRouting: Optional[bool] = None
     ExpectedNextSnapshotScheduleTime: Optional[str] = None
     ExpectedNextSnapshotScheduleTimeStatus: Optional[str] = None
-    HsmStatus: Optional[AwsRedshiftClusterHsmStatusTypeDef] = None
-    IamRoles: Optional[List[AwsRedshiftClusterIamRoleTypeDef]] = None
+    HsmStatus: Optional[AwsRedshiftClusterHsmStatus] = None
+    IamRoles: Optional[List[AwsRedshiftClusterIamRole]] = None
     KmsKeyId: Optional[str] = None
     MaintenanceTrackName: Optional[str] = None
     ManualSnapshotRetentionPeriod: Optional[int] = None
@@ -5730,245 +5730,245 @@ class AwsRedshiftClusterDetailsOutputTypeDef(BaseValidatorModel):
     NodeType: Optional[str] = None
     NumberOfNodes: Optional[int] = None
     PendingActions: Optional[List[str]] = None
-    PendingModifiedValues: Optional[AwsRedshiftClusterPendingModifiedValuesTypeDef] = None
+    PendingModifiedValues: Optional[AwsRedshiftClusterPendingModifiedValues] = None
     PreferredMaintenanceWindow: Optional[str] = None
     PubliclyAccessible: Optional[bool] = None
-    ResizeInfo: Optional[AwsRedshiftClusterResizeInfoTypeDef] = None
-    RestoreStatus: Optional[AwsRedshiftClusterRestoreStatusTypeDef] = None
+    ResizeInfo: Optional[AwsRedshiftClusterResizeInfo] = None
+    RestoreStatus: Optional[AwsRedshiftClusterRestoreStatus] = None
     SnapshotScheduleIdentifier: Optional[str] = None
     SnapshotScheduleState: Optional[str] = None
     VpcId: Optional[str] = None
-    VpcSecurityGroups: Optional[List[AwsRedshiftClusterVpcSecurityGroupTypeDef]] = None
-    LoggingStatus: Optional[AwsRedshiftClusterLoggingStatusTypeDef] = None
+    VpcSecurityGroups: Optional[List[AwsRedshiftClusterVpcSecurityGroup]] = None
+    LoggingStatus: Optional[AwsRedshiftClusterLoggingStatus] = None
 
 
-class AwsRoute53HostedZoneDetailsOutputTypeDef(BaseValidatorModel):
-    HostedZone: Optional[AwsRoute53HostedZoneObjectDetailsTypeDef] = None
-    Vpcs: Optional[List[AwsRoute53HostedZoneVpcDetailsTypeDef]] = None
+class AwsRoute53HostedZoneDetailsOutput(BaseValidatorModel):
+    HostedZone: Optional[AwsRoute53HostedZoneObjectDetails] = None
+    Vpcs: Optional[List[AwsRoute53HostedZoneVpcDetails]] = None
     NameServers: Optional[List[str]] = None
-    QueryLoggingConfig: Optional[AwsRoute53QueryLoggingConfigDetailsTypeDef] = None
+    QueryLoggingConfig: Optional[AwsRoute53QueryLoggingConfigDetails] = None
 
 
-class AwsRoute53HostedZoneDetailsTypeDef(BaseValidatorModel):
-    HostedZone: Optional[AwsRoute53HostedZoneObjectDetailsTypeDef] = None
-    Vpcs: Optional[Sequence[AwsRoute53HostedZoneVpcDetailsTypeDef]] = None
+class AwsRoute53HostedZoneDetails(BaseValidatorModel):
+    HostedZone: Optional[AwsRoute53HostedZoneObjectDetails] = None
+    Vpcs: Optional[Sequence[AwsRoute53HostedZoneVpcDetails]] = None
     NameServers: Optional[Sequence[str]] = None
-    QueryLoggingConfig: Optional[AwsRoute53QueryLoggingConfigDetailsTypeDef] = None
+    QueryLoggingConfig: Optional[AwsRoute53QueryLoggingConfigDetails] = None
 
 
-class AwsS3BucketNotificationConfigurationFilterOutputTypeDef(BaseValidatorModel):
-    S3KeyFilter: Optional[AwsS3BucketNotificationConfigurationS3KeyFilterOutputTypeDef] = None
+class AwsS3BucketNotificationConfigurationFilterOutput(BaseValidatorModel):
+    S3KeyFilter: Optional[AwsS3BucketNotificationConfigurationS3KeyFilterOutput] = None
 
 
-class AwsS3BucketObjectLockConfigurationTypeDef(BaseValidatorModel):
+class AwsS3BucketObjectLockConfiguration(BaseValidatorModel):
     ObjectLockEnabled: Optional[str] = None
-    Rule: Optional[AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef] = None
+    Rule: Optional[AwsS3BucketObjectLockConfigurationRuleDetails] = None
 
 
-class AwsS3BucketServerSideEncryptionConfigurationOutputTypeDef(BaseValidatorModel):
-    Rules: Optional[List[AwsS3BucketServerSideEncryptionRuleTypeDef]] = None
+class AwsS3BucketServerSideEncryptionConfigurationOutput(BaseValidatorModel):
+    Rules: Optional[List[AwsS3BucketServerSideEncryptionRule]] = None
 
 
-class AwsS3BucketServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
-    Rules: Optional[Sequence[AwsS3BucketServerSideEncryptionRuleTypeDef]] = None
+class AwsS3BucketServerSideEncryptionConfiguration(BaseValidatorModel):
+    Rules: Optional[Sequence[AwsS3BucketServerSideEncryptionRule]] = None
 
 
-class AwsS3BucketWebsiteConfigurationRedirectToTypeDef(BaseValidatorModel):
+class AwsS3BucketWebsiteConfigurationRedirectTo(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketWebsiteConfigurationOutputTypeDef(BaseValidatorModel):
+class AwsS3BucketWebsiteConfigurationOutput(BaseValidatorModel):
     ErrorDocument: Optional[str] = None
     IndexDocumentSuffix: Optional[str] = None
-    RedirectAllRequestsTo: Optional[AwsS3BucketWebsiteConfigurationRedirectToTypeDef] = None
-    RoutingRules: Optional[List[AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef]] = None
+    RedirectAllRequestsTo: Optional[AwsS3BucketWebsiteConfigurationRedirectTo] = None
+    RoutingRules: Optional[List[AwsS3BucketWebsiteConfigurationRoutingRule]] = None
 
 
-class AwsS3BucketWebsiteConfigurationTypeDef(BaseValidatorModel):
+class AwsS3BucketWebsiteConfiguration(BaseValidatorModel):
     ErrorDocument: Optional[str] = None
     IndexDocumentSuffix: Optional[str] = None
-    RedirectAllRequestsTo: Optional[AwsS3BucketWebsiteConfigurationRedirectToTypeDef] = None
-    RoutingRules: Optional[Sequence[AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef]] = None
+    RedirectAllRequestsTo: Optional[AwsS3BucketWebsiteConfigurationRedirectTo] = None
+    RoutingRules: Optional[Sequence[AwsS3BucketWebsiteConfigurationRoutingRule]] = None
 
 
-class BatchUpdateFindingsResponseTypeDef(BaseValidatorModel):
-    ProcessedFindings: List[AwsSecurityFindingIdentifierTypeDef]
-    UnprocessedFindings: List[BatchUpdateFindingsUnprocessedFindingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdateFindingsResponse(BaseValidatorModel):
+    ProcessedFindings: List[AwsSecurityFindingIdentifier]
+    UnprocessedFindings: List[BatchUpdateFindingsUnprocessedFinding]
+    ResponseMetadata: ResponseMetadata
 
 
-class AwsSsmPatchComplianceDetailsTypeDef(BaseValidatorModel):
-    Patch: Optional[AwsSsmPatchTypeDef] = None
+class AwsSsmPatchComplianceDetails(BaseValidatorModel):
+    Patch: Optional[AwsSsmPatch] = None
 
 
-class AwsStepFunctionStateMachineLoggingConfigurationDetailsOutputTypeDef(BaseValidatorModel):
-    Destinations: Optional[ List[AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef] ] = None
+class AwsStepFunctionStateMachineLoggingConfigurationDetailsOutput(BaseValidatorModel):
+    Destinations: Optional[ List[AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails] ] = None
     IncludeExecutionData: Optional[bool] = None
     Level: Optional[str] = None
 
 
-class AwsStepFunctionStateMachineLoggingConfigurationDetailsTypeDef(BaseValidatorModel):
-    Destinations: Optional[ Sequence[AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef] ] = None
+class AwsStepFunctionStateMachineLoggingConfigurationDetails(BaseValidatorModel):
+    Destinations: Optional[ Sequence[AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails] ] = None
     IncludeExecutionData: Optional[bool] = None
     Level: Optional[str] = None
 
 
-class AwsWafRegionalRuleGroupRulesDetailsTypeDef(BaseValidatorModel):
+class AwsWafRegionalRuleGroupRulesDetails(BaseValidatorModel):
     pass
 
 
-class AwsWafRegionalRuleGroupDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafRegionalRuleGroupDetailsOutput(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
     RuleGroupId: Optional[str] = None
-    Rules: Optional[List[AwsWafRegionalRuleGroupRulesDetailsTypeDef]] = None
+    Rules: Optional[List[AwsWafRegionalRuleGroupRulesDetails]] = None
 
 
-class AwsWafRegionalRuleGroupDetailsTypeDef(BaseValidatorModel):
+class AwsWafRegionalRuleGroupDetails(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
     RuleGroupId: Optional[str] = None
-    Rules: Optional[Sequence[AwsWafRegionalRuleGroupRulesDetailsTypeDef]] = None
+    Rules: Optional[Sequence[AwsWafRegionalRuleGroupRulesDetails]] = None
 
 
-class AwsWafRegionalWebAclRulesListDetailsTypeDef(BaseValidatorModel):
+class AwsWafRegionalWebAclRulesListDetails(BaseValidatorModel):
     pass
 
 
-class AwsWafRegionalWebAclDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafRegionalWebAclDetailsOutput(BaseValidatorModel):
     DefaultAction: Optional[str] = None
     MetricName: Optional[str] = None
     Name: Optional[str] = None
-    RulesList: Optional[List[AwsWafRegionalWebAclRulesListDetailsTypeDef]] = None
+    RulesList: Optional[List[AwsWafRegionalWebAclRulesListDetails]] = None
     WebAclId: Optional[str] = None
 
 
-class AwsWafRegionalWebAclDetailsTypeDef(BaseValidatorModel):
+class AwsWafRegionalWebAclDetails(BaseValidatorModel):
     DefaultAction: Optional[str] = None
     MetricName: Optional[str] = None
     Name: Optional[str] = None
-    RulesList: Optional[Sequence[AwsWafRegionalWebAclRulesListDetailsTypeDef]] = None
+    RulesList: Optional[Sequence[AwsWafRegionalWebAclRulesListDetails]] = None
     WebAclId: Optional[str] = None
 
 
-class AwsWafRuleGroupRulesDetailsTypeDef(BaseValidatorModel):
+class AwsWafRuleGroupRulesDetails(BaseValidatorModel):
     pass
 
 
-class AwsWafRuleGroupDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafRuleGroupDetailsOutput(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
     RuleGroupId: Optional[str] = None
-    Rules: Optional[List[AwsWafRuleGroupRulesDetailsTypeDef]] = None
+    Rules: Optional[List[AwsWafRuleGroupRulesDetails]] = None
 
 
-class AwsWafRuleGroupDetailsTypeDef(BaseValidatorModel):
+class AwsWafRuleGroupDetails(BaseValidatorModel):
     MetricName: Optional[str] = None
     Name: Optional[str] = None
     RuleGroupId: Optional[str] = None
-    Rules: Optional[Sequence[AwsWafRuleGroupRulesDetailsTypeDef]] = None
+    Rules: Optional[Sequence[AwsWafRuleGroupRulesDetails]] = None
 
 
-class AwsWafWebAclRuleOutputTypeDef(BaseValidatorModel):
+class AwsWafWebAclRuleOutput(BaseValidatorModel):
     pass
 
 
-class AwsWafWebAclDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafWebAclDetailsOutput(BaseValidatorModel):
     Name: Optional[str] = None
     DefaultAction: Optional[str] = None
-    Rules: Optional[List[AwsWafWebAclRuleOutputTypeDef]] = None
+    Rules: Optional[List[AwsWafWebAclRuleOutput]] = None
     WebAclId: Optional[str] = None
 
 
-class AwsWafv2ActionAllowDetailsOutputTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsOutputTypeDef] = None
+class AwsWafv2ActionAllowDetailsOutput(BaseValidatorModel):
+    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsOutput] = None
 
 
-class AwsWafv2RulesActionCaptchaDetailsOutputTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsOutputTypeDef] = None
+class AwsWafv2RulesActionCaptchaDetailsOutput(BaseValidatorModel):
+    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsOutput] = None
 
 
-class AwsWafv2RulesActionCountDetailsOutputTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsOutputTypeDef] = None
+class AwsWafv2RulesActionCountDetailsOutput(BaseValidatorModel):
+    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsOutput] = None
 
 
-class AwsWafv2ActionBlockDetailsOutputTypeDef(BaseValidatorModel):
-    CustomResponse: Optional[AwsWafv2CustomResponseDetailsOutputTypeDef] = None
+class AwsWafv2ActionBlockDetailsOutput(BaseValidatorModel):
+    CustomResponse: Optional[AwsWafv2CustomResponseDetailsOutput] = None
 
 
-class BatchGetStandardsControlAssociationsResponseTypeDef(BaseValidatorModel):
-    StandardsControlAssociationDetails: List[StandardsControlAssociationDetailTypeDef]
-    UnprocessedAssociations: List[UnprocessedStandardsControlAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetStandardsControlAssociationsResponse(BaseValidatorModel):
+    StandardsControlAssociationDetails: List[StandardsControlAssociationDetail]
+    UnprocessedAssociations: List[UnprocessedStandardsControlAssociation]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdateStandardsControlAssociationsResponseTypeDef(BaseValidatorModel):
-    UnprocessedAssociationUpdates: List[UnprocessedStandardsControlAssociationUpdateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdateStandardsControlAssociationsResponse(BaseValidatorModel):
+    UnprocessedAssociationUpdates: List[UnprocessedStandardsControlAssociationUpdate]
+    ResponseMetadata: ResponseMetadata
 
 
-class VulnerabilityOutputTypeDef(BaseValidatorModel):
+class VulnerabilityOutput(BaseValidatorModel):
     Id: str
-    VulnerablePackages: Optional[List[SoftwarePackageTypeDef]] = None
-    Cvss: Optional[List[CvssOutputTypeDef]] = None
+    VulnerablePackages: Optional[List[SoftwarePackage]] = None
+    Cvss: Optional[List[CvssOutput]] = None
     RelatedVulnerabilities: Optional[List[str]] = None
-    Vendor: Optional[VulnerabilityVendorTypeDef] = None
+    Vendor: Optional[VulnerabilityVendor] = None
     ReferenceUrls: Optional[List[str]] = None
     FixAvailable: Optional[VulnerabilityFixAvailableType] = None
     EpssScore: Optional[float] = None
     ExploitAvailable: Optional[VulnerabilityExploitAvailableType] = None
     LastKnownExploitAt: Optional[str] = None
-    CodeVulnerabilities: Optional[List[VulnerabilityCodeVulnerabilitiesOutputTypeDef]] = None
+    CodeVulnerabilities: Optional[List[VulnerabilityCodeVulnerabilitiesOutput]] = None
 
 
-class ParameterDefinitionTypeDef(BaseValidatorModel):
+class ParameterDefinition(BaseValidatorModel):
     Description: str
-    ConfigurationOptions: ConfigurationOptionsTypeDef
+    ConfigurationOptions: ConfigurationOptions
 
 
-class BatchGetConfigurationPolicyAssociationsRequestTypeDef(BaseValidatorModel):
-    ConfigurationPolicyAssociationIdentifiers: Sequence[ConfigurationPolicyAssociationTypeDef]
+class BatchGetConfigurationPolicyAssociationsRequest(BaseValidatorModel):
+    ConfigurationPolicyAssociationIdentifiers: Sequence[ConfigurationPolicyAssociation]
 
 
-class UnprocessedConfigurationPolicyAssociationTypeDef(BaseValidatorModel):
-    ConfigurationPolicyAssociationIdentifiers: Optional[ConfigurationPolicyAssociationTypeDef] = None
+class UnprocessedConfigurationPolicyAssociation(BaseValidatorModel):
+    ConfigurationPolicyAssociationIdentifiers: Optional[ConfigurationPolicyAssociation] = None
     ErrorCode: Optional[str] = None
     ErrorReason: Optional[str] = None
 
 
-class GetFindingHistoryResponseTypeDef(BaseValidatorModel):
-    Records: List[FindingHistoryRecordTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFindingHistoryResponse(BaseValidatorModel):
+    Records: List[FindingHistoryRecord]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetInsightResultsResponseTypeDef(BaseValidatorModel):
-    InsightResults: InsightResultsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInsightResultsResponse(BaseValidatorModel):
+    InsightResults: InsightResults
+    ResponseMetadata: ResponseMetadata
 
 
-class OccurrencesOutputTypeDef(BaseValidatorModel):
-    LineRanges: Optional[List[RangeTypeDef]] = None
-    OffsetRanges: Optional[List[RangeTypeDef]] = None
-    Pages: Optional[List[PageTypeDef]] = None
-    Records: Optional[List[RecordTypeDef]] = None
-    Cells: Optional[List[CellTypeDef]] = None
+class OccurrencesOutput(BaseValidatorModel):
+    LineRanges: Optional[List[Range]] = None
+    OffsetRanges: Optional[List[Range]] = None
+    Pages: Optional[List[Page]] = None
+    Records: Optional[List[Record]] = None
+    Cells: Optional[List[Cell]] = None
 
 
-class OccurrencesTypeDef(BaseValidatorModel):
-    LineRanges: Optional[Sequence[RangeTypeDef]] = None
-    OffsetRanges: Optional[Sequence[RangeTypeDef]] = None
-    Pages: Optional[Sequence[PageTypeDef]] = None
-    Records: Optional[Sequence[RecordTypeDef]] = None
-    Cells: Optional[Sequence[CellTypeDef]] = None
+class Occurrences(BaseValidatorModel):
+    LineRanges: Optional[Sequence[Range]] = None
+    OffsetRanges: Optional[Sequence[Range]] = None
+    Pages: Optional[Sequence[Page]] = None
+    Records: Optional[Sequence[Record]] = None
+    Cells: Optional[Sequence[Cell]] = None
 
 
-class SecurityControlCustomParameterOutputTypeDef(BaseValidatorModel):
+class SecurityControlCustomParameterOutput(BaseValidatorModel):
     SecurityControlId: Optional[str] = None
-    Parameters: Optional[Dict[str, ParameterConfigurationOutputTypeDef]] = None
+    Parameters: Optional[Dict[str, ParameterConfigurationOutput]] = None
 
 
-class SecurityControlTypeDef(BaseValidatorModel):
+class SecurityControl(BaseValidatorModel):
     SecurityControlId: str
     SecurityControlArn: str
     Title: str
@@ -5977,207 +5977,207 @@ class SecurityControlTypeDef(BaseValidatorModel):
     SeverityRating: SeverityRatingType
     SecurityControlStatus: ControlStatusType
     UpdateStatus: Optional[UpdateStatusType] = None
-    Parameters: Optional[Dict[str, ParameterConfigurationOutputTypeDef]] = None
+    Parameters: Optional[Dict[str, ParameterConfigurationOutput]] = None
     LastUpdateReason: Optional[str] = None
 
 
-class ParameterValueUnionTypeDef(BaseValidatorModel):
+class ParameterValueUnion(BaseValidatorModel):
     pass
 
 
-class ParameterConfigurationTypeDef(BaseValidatorModel):
+class ParameterConfiguration(BaseValidatorModel):
     ValueType: ParameterValueTypeType
-    Value: Optional[ParameterValueUnionTypeDef] = None
+    Value: Optional[ParameterValueUnion] = None
 
 
-class RuleGroupSourceStatefulRulesOptionsDetailsUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatefulRulesOptionsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceStatefulRulesDetailsTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatefulRulesDetails(BaseValidatorModel):
     Action: Optional[str] = None
-    Header: Optional[RuleGroupSourceStatefulRulesHeaderDetailsTypeDef] = None
-    RuleOptions: Optional[Sequence[RuleGroupSourceStatefulRulesOptionsDetailsUnionTypeDef]] = None
+    Header: Optional[RuleGroupSourceStatefulRulesHeaderDetails] = None
+    RuleOptions: Optional[Sequence[RuleGroupSourceStatefulRulesOptionsDetailsUnion]] = None
 
 
-class RuleGroupSourceStatelessRuleDefinitionOutputTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleDefinitionOutput(BaseValidatorModel):
     Actions: Optional[List[str]] = None
-    MatchAttributes: Optional[RuleGroupSourceStatelessRuleMatchAttributesOutputTypeDef] = None
+    MatchAttributes: Optional[RuleGroupSourceStatelessRuleMatchAttributesOutput] = None
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesTypeDef(BaseValidatorModel):
-    DestinationPorts: Optional[ Sequence[RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef] ] = None
-    Destinations: Optional[ Sequence[RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef] ] = None
+class RuleGroupSourceStatelessRuleMatchAttributes(BaseValidatorModel):
+    DestinationPorts: Optional[ Sequence[RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts] ] = None
+    Destinations: Optional[ Sequence[RuleGroupSourceStatelessRuleMatchAttributesDestinations] ] = None
     Protocols: Optional[Sequence[int]] = None
-    SourcePorts: Optional[ Sequence[RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef] ] = None
-    Sources: Optional[Sequence[RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef]] = None
-    TcpFlags: Optional[Sequence[RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsUnionTypeDef]] = None
+    SourcePorts: Optional[ Sequence[RuleGroupSourceStatelessRuleMatchAttributesSourcePorts] ] = None
+    Sources: Optional[Sequence[RuleGroupSourceStatelessRuleMatchAttributesSources]] = None
+    TcpFlags: Optional[Sequence[RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsUnion]] = None
 
 
-class RuleGroupVariablesPortSetsDetailsUnionTypeDef(BaseValidatorModel):
+class RuleGroupVariablesPortSetsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupVariablesIpSetsDetailsUnionTypeDef(BaseValidatorModel):
+class RuleGroupVariablesIpSetsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupVariablesTypeDef(BaseValidatorModel):
-    IpSets: Optional[RuleGroupVariablesIpSetsDetailsUnionTypeDef] = None
-    PortSets: Optional[RuleGroupVariablesPortSetsDetailsUnionTypeDef] = None
+class RuleGroupVariables(BaseValidatorModel):
+    IpSets: Optional[RuleGroupVariablesIpSetsDetailsUnion] = None
+    PortSets: Optional[RuleGroupVariablesPortSetsDetailsUnion] = None
 
 
-class SecurityControlParameterUnionTypeDef(BaseValidatorModel):
+class SecurityControlParameterUnion(BaseValidatorModel):
     pass
 
 
-class ComplianceTypeDef(BaseValidatorModel):
+class Compliance(BaseValidatorModel):
     Status: Optional[ComplianceStatusType] = None
     RelatedRequirements: Optional[Sequence[str]] = None
-    StatusReasons: Optional[Sequence[StatusReasonTypeDef]] = None
+    StatusReasons: Optional[Sequence[StatusReason]] = None
     SecurityControlId: Optional[str] = None
-    AssociatedStandards: Optional[Sequence[AssociatedStandardTypeDef]] = None
-    SecurityControlParameters: Optional[Sequence[SecurityControlParameterUnionTypeDef]] = None
+    AssociatedStandards: Optional[Sequence[AssociatedStandard]] = None
+    SecurityControlParameters: Optional[Sequence[SecurityControlParameterUnion]] = None
 
 
-class DescribeStandardsResponseTypeDef(BaseValidatorModel):
-    Standards: List[StandardTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStandardsResponse(BaseValidatorModel):
+    Standards: List[Standard]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BatchDisableStandardsResponseTypeDef(BaseValidatorModel):
-    StandardsSubscriptions: List[StandardsSubscriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDisableStandardsResponse(BaseValidatorModel):
+    StandardsSubscriptions: List[StandardsSubscription]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchEnableStandardsResponseTypeDef(BaseValidatorModel):
-    StandardsSubscriptions: List[StandardsSubscriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchEnableStandardsResponse(BaseValidatorModel):
+    StandardsSubscriptions: List[StandardsSubscription]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEnabledStandardsResponseTypeDef(BaseValidatorModel):
-    StandardsSubscriptions: List[StandardsSubscriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEnabledStandardsResponse(BaseValidatorModel):
+    StandardsSubscriptions: List[StandardsSubscription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StatelessCustomActionDefinitionOutputTypeDef(BaseValidatorModel):
-    PublishMetricAction: Optional[StatelessCustomPublishMetricActionOutputTypeDef] = None
+class StatelessCustomActionDefinitionOutput(BaseValidatorModel):
+    PublishMetricAction: Optional[StatelessCustomPublishMetricActionOutput] = None
 
 
-class PortProbeActionOutputTypeDef(BaseValidatorModel):
-    PortProbeDetails: Optional[List[PortProbeDetailTypeDef]] = None
+class PortProbeActionOutput(BaseValidatorModel):
+    PortProbeDetails: Optional[List[PortProbeDetail]] = None
     Blocked: Optional[bool] = None
 
 
-class PortProbeActionTypeDef(BaseValidatorModel):
-    PortProbeDetails: Optional[Sequence[PortProbeDetailTypeDef]] = None
+class PortProbeAction(BaseValidatorModel):
+    PortProbeDetails: Optional[Sequence[PortProbeDetail]] = None
     Blocked: Optional[bool] = None
 
 
-class IndicatorOutputTypeDef(BaseValidatorModel):
+class IndicatorOutput(BaseValidatorModel):
     pass
 
 
-class SignalOutputTypeDef(BaseValidatorModel):
+class SignalOutput(BaseValidatorModel):
     pass
 
 
-class SequenceOutputTypeDef(BaseValidatorModel):
+class SequenceOutput(BaseValidatorModel):
     Uid: Optional[str] = None
-    Actors: Optional[List[ActorTypeDef]] = None
-    Endpoints: Optional[List[NetworkEndpointTypeDef]] = None
-    Signals: Optional[List[SignalOutputTypeDef]] = None
-    SequenceIndicators: Optional[List[IndicatorOutputTypeDef]] = None
+    Actors: Optional[List[Actor]] = None
+    Endpoints: Optional[List[NetworkEndpoint]] = None
+    Signals: Optional[List[SignalOutput]] = None
+    SequenceIndicators: Optional[List[IndicatorOutput]] = None
 
 
-class AwsAthenaWorkGroupDetailsTypeDef(BaseValidatorModel):
+class AwsAthenaWorkGroupDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     State: Optional[str] = None
-    Configuration: Optional[AwsAthenaWorkGroupConfigurationDetailsTypeDef] = None
+    Configuration: Optional[AwsAthenaWorkGroupConfigurationDetails] = None
 
 
-class AwsAutoScalingAutoScalingGroupDetailsOutputTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupDetailsOutput(BaseValidatorModel):
     LaunchConfigurationName: Optional[str] = None
     LoadBalancerNames: Optional[List[str]] = None
     HealthCheckType: Optional[str] = None
     HealthCheckGracePeriod: Optional[int] = None
     CreatedTime: Optional[str] = None
-    MixedInstancesPolicy: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutputTypeDef ] = None
-    AvailabilityZones: Optional[ List[AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef] ] = None
-    LaunchTemplate: Optional[ AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef ] = None
+    MixedInstancesPolicy: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutput ] = None
+    AvailabilityZones: Optional[ List[AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails] ] = None
+    LaunchTemplate: Optional[ AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification ] = None
     CapacityRebalance: Optional[bool] = None
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsUnionTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef(BaseValidatorModel):
-    InstancesDistribution: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef ] = None
-    LaunchTemplate: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsUnionTypeDef ] = None
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails(BaseValidatorModel):
+    InstancesDistribution: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails ] = None
+    LaunchTemplate: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsUnion ] = None
 
 
-class AwsBackupBackupPlanBackupPlanDetailsOutputTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanBackupPlanDetailsOutput(BaseValidatorModel):
     BackupPlanName: Optional[str] = None
-    AdvancedBackupSettings: Optional[ List[AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutputTypeDef] ] = None
-    BackupPlanRule: Optional[List[AwsBackupBackupPlanRuleDetailsOutputTypeDef]] = None
+    AdvancedBackupSettings: Optional[ List[AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutput] ] = None
+    BackupPlanRule: Optional[List[AwsBackupBackupPlanRuleDetailsOutput]] = None
 
 
-class AwsCloudFrontDistributionOriginsOutputTypeDef(BaseValidatorModel):
-    Items: Optional[List[AwsCloudFrontDistributionOriginItemOutputTypeDef]] = None
+class AwsCloudFrontDistributionOriginsOutput(BaseValidatorModel):
+    Items: Optional[List[AwsCloudFrontDistributionOriginItemOutput]] = None
 
 
-class AwsCloudFrontDistributionOriginGroupsOutputTypeDef(BaseValidatorModel):
-    Items: Optional[List[AwsCloudFrontDistributionOriginGroupOutputTypeDef]] = None
+class AwsCloudFrontDistributionOriginGroupsOutput(BaseValidatorModel):
+    Items: Optional[List[AwsCloudFrontDistributionOriginGroupOutput]] = None
 
 
-class AwsCodeBuildProjectEnvironmentUnionTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectEnvironmentUnion(BaseValidatorModel):
     pass
 
 
-class AwsCodeBuildProjectVpcConfigUnionTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectVpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class AwsCodeBuildProjectDetailsTypeDef(BaseValidatorModel):
+class AwsCodeBuildProjectDetails(BaseValidatorModel):
     EncryptionKey: Optional[str] = None
-    Artifacts: Optional[Sequence[AwsCodeBuildProjectArtifactsDetailsTypeDef]] = None
-    Environment: Optional[AwsCodeBuildProjectEnvironmentUnionTypeDef] = None
+    Artifacts: Optional[Sequence[AwsCodeBuildProjectArtifactsDetails]] = None
+    Environment: Optional[AwsCodeBuildProjectEnvironmentUnion] = None
     Name: Optional[str] = None
-    Source: Optional[AwsCodeBuildProjectSourceTypeDef] = None
+    Source: Optional[AwsCodeBuildProjectSource] = None
     ServiceRole: Optional[str] = None
-    LogsConfig: Optional[AwsCodeBuildProjectLogsConfigDetailsTypeDef] = None
-    VpcConfig: Optional[AwsCodeBuildProjectVpcConfigUnionTypeDef] = None
-    SecondaryArtifacts: Optional[Sequence[AwsCodeBuildProjectArtifactsDetailsTypeDef]] = None
+    LogsConfig: Optional[AwsCodeBuildProjectLogsConfigDetails] = None
+    VpcConfig: Optional[AwsCodeBuildProjectVpcConfigUnion] = None
+    SecondaryArtifacts: Optional[Sequence[AwsCodeBuildProjectArtifactsDetails]] = None
 
 
-class AwsDynamoDbTableReplicaOutputTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableReplicaOutput(BaseValidatorModel):
     pass
 
 
-class AwsDynamoDbTableDetailsOutputTypeDef(BaseValidatorModel):
-    AttributeDefinitions: Optional[List[AwsDynamoDbTableAttributeDefinitionTypeDef]] = None
-    BillingModeSummary: Optional[AwsDynamoDbTableBillingModeSummaryTypeDef] = None
+class AwsDynamoDbTableDetailsOutput(BaseValidatorModel):
+    AttributeDefinitions: Optional[List[AwsDynamoDbTableAttributeDefinition]] = None
+    BillingModeSummary: Optional[AwsDynamoDbTableBillingModeSummary] = None
     CreationDateTime: Optional[str] = None
-    GlobalSecondaryIndexes: Optional[List[AwsDynamoDbTableGlobalSecondaryIndexOutputTypeDef]] = None
+    GlobalSecondaryIndexes: Optional[List[AwsDynamoDbTableGlobalSecondaryIndexOutput]] = None
     GlobalTableVersion: Optional[str] = None
     ItemCount: Optional[int] = None
-    KeySchema: Optional[List[AwsDynamoDbTableKeySchemaTypeDef]] = None
+    KeySchema: Optional[List[AwsDynamoDbTableKeySchema]] = None
     LatestStreamArn: Optional[str] = None
     LatestStreamLabel: Optional[str] = None
-    LocalSecondaryIndexes: Optional[List[AwsDynamoDbTableLocalSecondaryIndexOutputTypeDef]] = None
-    ProvisionedThroughput: Optional[AwsDynamoDbTableProvisionedThroughputTypeDef] = None
-    Replicas: Optional[List[AwsDynamoDbTableReplicaOutputTypeDef]] = None
-    RestoreSummary: Optional[AwsDynamoDbTableRestoreSummaryTypeDef] = None
-    SseDescription: Optional[AwsDynamoDbTableSseDescriptionTypeDef] = None
-    StreamSpecification: Optional[AwsDynamoDbTableStreamSpecificationTypeDef] = None
+    LocalSecondaryIndexes: Optional[List[AwsDynamoDbTableLocalSecondaryIndexOutput]] = None
+    ProvisionedThroughput: Optional[AwsDynamoDbTableProvisionedThroughput] = None
+    Replicas: Optional[List[AwsDynamoDbTableReplicaOutput]] = None
+    RestoreSummary: Optional[AwsDynamoDbTableRestoreSummary] = None
+    SseDescription: Optional[AwsDynamoDbTableSseDescription] = None
+    StreamSpecification: Optional[AwsDynamoDbTableStreamSpecification] = None
     TableId: Optional[str] = None
     TableName: Optional[str] = None
     TableSizeBytes: Optional[int] = None
@@ -6185,111 +6185,111 @@ class AwsDynamoDbTableDetailsOutputTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: Optional[bool] = None
 
 
-class AwsEc2LaunchTemplateDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDetailsOutput(BaseValidatorModel):
     LaunchTemplateName: Optional[str] = None
     Id: Optional[str] = None
-    LaunchTemplateData: Optional[AwsEc2LaunchTemplateDataDetailsOutputTypeDef] = None
+    LaunchTemplateData: Optional[AwsEc2LaunchTemplateDataDetailsOutput] = None
     DefaultVersionNumber: Optional[int] = None
     LatestVersionNumber: Optional[int] = None
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEc2LaunchTemplateDataDetailsTypeDef(BaseValidatorModel):
-    BlockDeviceMappingSet: Optional[ Sequence[AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef] ] = None
-    CapacityReservationSpecification: Optional[ AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef ] = None
-    CpuOptions: Optional[AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef] = None
-    CreditSpecification: Optional[AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef] = None
+class AwsEc2LaunchTemplateDataDetails(BaseValidatorModel):
+    BlockDeviceMappingSet: Optional[ Sequence[AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails] ] = None
+    CapacityReservationSpecification: Optional[ AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails ] = None
+    CpuOptions: Optional[AwsEc2LaunchTemplateDataCpuOptionsDetails] = None
+    CreditSpecification: Optional[AwsEc2LaunchTemplateDataCreditSpecificationDetails] = None
     DisableApiStop: Optional[bool] = None
     DisableApiTermination: Optional[bool] = None
     EbsOptimized: Optional[bool] = None
-    ElasticGpuSpecificationSet: Optional[ Sequence[AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef] ] = None
-    ElasticInferenceAcceleratorSet: Optional[ Sequence[AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef] ] = None
-    EnclaveOptions: Optional[AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef] = None
-    HibernationOptions: Optional[AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef] = None
-    IamInstanceProfile: Optional[AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef] = None
+    ElasticGpuSpecificationSet: Optional[ Sequence[AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails] ] = None
+    ElasticInferenceAcceleratorSet: Optional[ Sequence[AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails] ] = None
+    EnclaveOptions: Optional[AwsEc2LaunchTemplateDataEnclaveOptionsDetails] = None
+    HibernationOptions: Optional[AwsEc2LaunchTemplateDataHibernationOptionsDetails] = None
+    IamInstanceProfile: Optional[AwsEc2LaunchTemplateDataIamInstanceProfileDetails] = None
     ImageId: Optional[str] = None
     InstanceInitiatedShutdownBehavior: Optional[str] = None
-    InstanceMarketOptions: Optional[AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef] = None
-    InstanceRequirements: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnionTypeDef ] = None
+    InstanceMarketOptions: Optional[AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails] = None
+    InstanceRequirements: Optional[ AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnion ] = None
     InstanceType: Optional[str] = None
     KernelId: Optional[str] = None
     KeyName: Optional[str] = None
-    LicenseSet: Optional[Sequence[AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef]] = None
-    MaintenanceOptions: Optional[AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef] = None
-    MetadataOptions: Optional[AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef] = None
-    Monitoring: Optional[AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef] = None
-    NetworkInterfaceSet: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnionTypeDef] ] = None
-    Placement: Optional[AwsEc2LaunchTemplateDataPlacementDetailsTypeDef] = None
-    PrivateDnsNameOptions: Optional[AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef] = None
+    LicenseSet: Optional[Sequence[AwsEc2LaunchTemplateDataLicenseSetDetails]] = None
+    MaintenanceOptions: Optional[AwsEc2LaunchTemplateDataMaintenanceOptionsDetails] = None
+    MetadataOptions: Optional[AwsEc2LaunchTemplateDataMetadataOptionsDetails] = None
+    Monitoring: Optional[AwsEc2LaunchTemplateDataMonitoringDetails] = None
+    NetworkInterfaceSet: Optional[ Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnion] ] = None
+    Placement: Optional[AwsEc2LaunchTemplateDataPlacementDetails] = None
+    PrivateDnsNameOptions: Optional[AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails] = None
     RamDiskId: Optional[str] = None
     SecurityGroupIdSet: Optional[Sequence[str]] = None
     SecurityGroupSet: Optional[Sequence[str]] = None
     UserData: Optional[str] = None
 
 
-class AwsEc2SecurityGroupIpPermissionUnionTypeDef(BaseValidatorModel):
+class AwsEc2SecurityGroupIpPermissionUnion(BaseValidatorModel):
     pass
 
 
-class AwsEc2SecurityGroupDetailsTypeDef(BaseValidatorModel):
+class AwsEc2SecurityGroupDetails(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupId: Optional[str] = None
     OwnerId: Optional[str] = None
     VpcId: Optional[str] = None
-    IpPermissions: Optional[Sequence[AwsEc2SecurityGroupIpPermissionUnionTypeDef]] = None
-    IpPermissionsEgress: Optional[Sequence[AwsEc2SecurityGroupIpPermissionTypeDef]] = None
+    IpPermissions: Optional[Sequence[AwsEc2SecurityGroupIpPermissionUnion]] = None
+    IpPermissionsEgress: Optional[Sequence[AwsEc2SecurityGroupIpPermission]] = None
 
 
-class AwsEc2VpcPeeringConnectionVpcInfoDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEc2VpcPeeringConnectionVpcInfoDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEc2VpcPeeringConnectionDetailsTypeDef(BaseValidatorModel):
-    AccepterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsUnionTypeDef] = None
+class AwsEc2VpcPeeringConnectionDetails(BaseValidatorModel):
+    AccepterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsUnion] = None
     ExpirationTime: Optional[str] = None
-    RequesterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsUnionTypeDef] = None
-    Status: Optional[AwsEc2VpcPeeringConnectionStatusDetailsTypeDef] = None
+    RequesterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsUnion] = None
+    Status: Optional[AwsEc2VpcPeeringConnectionStatusDetails] = None
     VpcPeeringConnectionId: Optional[str] = None
 
 
-class AwsEcsClusterDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsClusterDetailsOutput(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     ActiveServicesCount: Optional[int] = None
     CapacityProviders: Optional[List[str]] = None
-    ClusterSettings: Optional[List[AwsEcsClusterClusterSettingsDetailsTypeDef]] = None
-    Configuration: Optional[AwsEcsClusterConfigurationDetailsTypeDef] = None
-    DefaultCapacityProviderStrategy: Optional[ List[AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef] ] = None
+    ClusterSettings: Optional[List[AwsEcsClusterClusterSettingsDetails]] = None
+    Configuration: Optional[AwsEcsClusterConfigurationDetails] = None
+    DefaultCapacityProviderStrategy: Optional[ List[AwsEcsClusterDefaultCapacityProviderStrategyDetails] ] = None
     ClusterName: Optional[str] = None
     RegisteredContainerInstancesCount: Optional[int] = None
     RunningTasksCount: Optional[int] = None
     Status: Optional[str] = None
 
 
-class AwsEcsClusterDetailsTypeDef(BaseValidatorModel):
+class AwsEcsClusterDetails(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     ActiveServicesCount: Optional[int] = None
     CapacityProviders: Optional[Sequence[str]] = None
-    ClusterSettings: Optional[Sequence[AwsEcsClusterClusterSettingsDetailsTypeDef]] = None
-    Configuration: Optional[AwsEcsClusterConfigurationDetailsTypeDef] = None
-    DefaultCapacityProviderStrategy: Optional[ Sequence[AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef] ] = None
+    ClusterSettings: Optional[Sequence[AwsEcsClusterClusterSettingsDetails]] = None
+    Configuration: Optional[AwsEcsClusterConfigurationDetails] = None
+    DefaultCapacityProviderStrategy: Optional[ Sequence[AwsEcsClusterDefaultCapacityProviderStrategyDetails] ] = None
     ClusterName: Optional[str] = None
     RegisteredContainerInstancesCount: Optional[int] = None
     RunningTasksCount: Optional[int] = None
     Status: Optional[str] = None
 
 
-class AwsEcsContainerDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsContainerDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDetails(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     TaskDefinitionArn: Optional[str] = None
     Version: Optional[str] = None
@@ -6297,168 +6297,168 @@ class AwsEcsTaskDetailsTypeDef(BaseValidatorModel):
     StartedAt: Optional[str] = None
     StartedBy: Optional[str] = None
     Group: Optional[str] = None
-    Volumes: Optional[Sequence[AwsEcsTaskVolumeDetailsTypeDef]] = None
-    Containers: Optional[Sequence[AwsEcsContainerDetailsUnionTypeDef]] = None
+    Volumes: Optional[Sequence[AwsEcsTaskVolumeDetails]] = None
+    Containers: Optional[Sequence[AwsEcsContainerDetailsUnion]] = None
 
 
-class AwsEcsTaskDefinitionProxyConfigurationDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionProxyConfigurationDetailsOutput(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionPlacementConstraintsDetails(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionDetailsOutputTypeDef(BaseValidatorModel):
-    ContainerDefinitions: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsDetailsOutputTypeDef] ] = None
+class AwsEcsTaskDefinitionDetailsOutput(BaseValidatorModel):
+    ContainerDefinitions: Optional[ List[AwsEcsTaskDefinitionContainerDefinitionsDetailsOutput] ] = None
     Cpu: Optional[str] = None
     ExecutionRoleArn: Optional[str] = None
     Family: Optional[str] = None
-    InferenceAccelerators: Optional[ List[AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef] ] = None
+    InferenceAccelerators: Optional[ List[AwsEcsTaskDefinitionInferenceAcceleratorsDetails] ] = None
     IpcMode: Optional[str] = None
     Memory: Optional[str] = None
     NetworkMode: Optional[str] = None
     PidMode: Optional[str] = None
-    PlacementConstraints: Optional[List[AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef]] = None
-    ProxyConfiguration: Optional[AwsEcsTaskDefinitionProxyConfigurationDetailsOutputTypeDef] = None
+    PlacementConstraints: Optional[List[AwsEcsTaskDefinitionPlacementConstraintsDetails]] = None
+    ProxyConfiguration: Optional[AwsEcsTaskDefinitionProxyConfigurationDetailsOutput] = None
     RequiresCompatibilities: Optional[List[str]] = None
     TaskRoleArn: Optional[str] = None
-    Volumes: Optional[List[AwsEcsTaskDefinitionVolumesDetailsOutputTypeDef]] = None
+    Volumes: Optional[List[AwsEcsTaskDefinitionVolumesDetailsOutput]] = None
     Status: Optional[str] = None
 
 
-class AwsElbLoadBalancerListenerDescriptionUnionTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerListenerDescriptionUnion(BaseValidatorModel):
     pass
 
 
-class AwsElbLoadBalancerBackendServerDescriptionUnionTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerBackendServerDescriptionUnion(BaseValidatorModel):
     pass
 
 
-class AwsElbLoadBalancerPoliciesUnionTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerPoliciesUnion(BaseValidatorModel):
     pass
 
 
-class AwsElbLoadBalancerAttributesUnionTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerAttributesUnion(BaseValidatorModel):
     pass
 
 
-class AwsElbLoadBalancerDetailsTypeDef(BaseValidatorModel):
+class AwsElbLoadBalancerDetails(BaseValidatorModel):
     AvailabilityZones: Optional[Sequence[str]] = None
-    BackendServerDescriptions: Optional[ Sequence[AwsElbLoadBalancerBackendServerDescriptionUnionTypeDef] ] = None
+    BackendServerDescriptions: Optional[ Sequence[AwsElbLoadBalancerBackendServerDescriptionUnion] ] = None
     CanonicalHostedZoneName: Optional[str] = None
     CanonicalHostedZoneNameID: Optional[str] = None
     CreatedTime: Optional[str] = None
     DnsName: Optional[str] = None
-    HealthCheck: Optional[AwsElbLoadBalancerHealthCheckTypeDef] = None
-    Instances: Optional[Sequence[AwsElbLoadBalancerInstanceTypeDef]] = None
-    ListenerDescriptions: Optional[Sequence[AwsElbLoadBalancerListenerDescriptionUnionTypeDef]] = None
-    LoadBalancerAttributes: Optional[AwsElbLoadBalancerAttributesUnionTypeDef] = None
+    HealthCheck: Optional[AwsElbLoadBalancerHealthCheck] = None
+    Instances: Optional[Sequence[AwsElbLoadBalancerInstance]] = None
+    ListenerDescriptions: Optional[Sequence[AwsElbLoadBalancerListenerDescriptionUnion]] = None
+    LoadBalancerAttributes: Optional[AwsElbLoadBalancerAttributesUnion] = None
     LoadBalancerName: Optional[str] = None
-    Policies: Optional[AwsElbLoadBalancerPoliciesUnionTypeDef] = None
+    Policies: Optional[AwsElbLoadBalancerPoliciesUnion] = None
     Scheme: Optional[str] = None
     SecurityGroups: Optional[Sequence[str]] = None
-    SourceSecurityGroup: Optional[AwsElbLoadBalancerSourceSecurityGroupTypeDef] = None
+    SourceSecurityGroup: Optional[AwsElbLoadBalancerSourceSecurityGroup] = None
     Subnets: Optional[Sequence[str]] = None
     VpcId: Optional[str] = None
 
 
-class AwsEventsEndpointDetailsOutputTypeDef(BaseValidatorModel):
+class AwsEventsEndpointDetailsOutput(BaseValidatorModel):
     Arn: Optional[str] = None
     Description: Optional[str] = None
     EndpointId: Optional[str] = None
     EndpointUrl: Optional[str] = None
-    EventBuses: Optional[List[AwsEventsEndpointEventBusesDetailsTypeDef]] = None
+    EventBuses: Optional[List[AwsEventsEndpointEventBusesDetails]] = None
     Name: Optional[str] = None
-    ReplicationConfig: Optional[AwsEventsEndpointReplicationConfigDetailsTypeDef] = None
+    ReplicationConfig: Optional[AwsEventsEndpointReplicationConfigDetails] = None
     RoleArn: Optional[str] = None
-    RoutingConfig: Optional[AwsEventsEndpointRoutingConfigDetailsTypeDef] = None
+    RoutingConfig: Optional[AwsEventsEndpointRoutingConfigDetails] = None
     State: Optional[str] = None
     StateReason: Optional[str] = None
 
 
-class AwsEventsEndpointDetailsTypeDef(BaseValidatorModel):
+class AwsEventsEndpointDetails(BaseValidatorModel):
     Arn: Optional[str] = None
     Description: Optional[str] = None
     EndpointId: Optional[str] = None
     EndpointUrl: Optional[str] = None
-    EventBuses: Optional[Sequence[AwsEventsEndpointEventBusesDetailsTypeDef]] = None
+    EventBuses: Optional[Sequence[AwsEventsEndpointEventBusesDetails]] = None
     Name: Optional[str] = None
-    ReplicationConfig: Optional[AwsEventsEndpointReplicationConfigDetailsTypeDef] = None
+    ReplicationConfig: Optional[AwsEventsEndpointReplicationConfigDetails] = None
     RoleArn: Optional[str] = None
-    RoutingConfig: Optional[AwsEventsEndpointRoutingConfigDetailsTypeDef] = None
+    RoutingConfig: Optional[AwsEventsEndpointRoutingConfigDetails] = None
     State: Optional[str] = None
     StateReason: Optional[str] = None
 
 
-class AwsGuardDutyDetectorDataSourcesDetailsTypeDef(BaseValidatorModel):
-    CloudTrail: Optional[AwsGuardDutyDetectorDataSourcesCloudTrailDetailsTypeDef] = None
-    DnsLogs: Optional[AwsGuardDutyDetectorDataSourcesDnsLogsDetailsTypeDef] = None
-    FlowLogs: Optional[AwsGuardDutyDetectorDataSourcesFlowLogsDetailsTypeDef] = None
-    Kubernetes: Optional[AwsGuardDutyDetectorDataSourcesKubernetesDetailsTypeDef] = None
-    MalwareProtection: Optional[AwsGuardDutyDetectorDataSourcesMalwareProtectionDetailsTypeDef] = None
-    S3Logs: Optional[AwsGuardDutyDetectorDataSourcesS3LogsDetailsTypeDef] = None
+class AwsGuardDutyDetectorDataSourcesDetails(BaseValidatorModel):
+    CloudTrail: Optional[AwsGuardDutyDetectorDataSourcesCloudTrailDetails] = None
+    DnsLogs: Optional[AwsGuardDutyDetectorDataSourcesDnsLogsDetails] = None
+    FlowLogs: Optional[AwsGuardDutyDetectorDataSourcesFlowLogsDetails] = None
+    Kubernetes: Optional[AwsGuardDutyDetectorDataSourcesKubernetesDetails] = None
+    MalwareProtection: Optional[AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails] = None
+    S3Logs: Optional[AwsGuardDutyDetectorDataSourcesS3LogsDetails] = None
 
 
-class AwsIamInstanceProfileUnionTypeDef(BaseValidatorModel):
+class AwsIamInstanceProfileUnion(BaseValidatorModel):
     pass
 
 
-class AwsIamRoleDetailsTypeDef(BaseValidatorModel):
+class AwsIamRoleDetails(BaseValidatorModel):
     AssumeRolePolicyDocument: Optional[str] = None
-    AttachedManagedPolicies: Optional[Sequence[AwsIamAttachedManagedPolicyTypeDef]] = None
+    AttachedManagedPolicies: Optional[Sequence[AwsIamAttachedManagedPolicy]] = None
     CreateDate: Optional[str] = None
-    InstanceProfileList: Optional[Sequence[AwsIamInstanceProfileUnionTypeDef]] = None
-    PermissionsBoundary: Optional[AwsIamPermissionsBoundaryTypeDef] = None
+    InstanceProfileList: Optional[Sequence[AwsIamInstanceProfileUnion]] = None
+    PermissionsBoundary: Optional[AwsIamPermissionsBoundary] = None
     RoleId: Optional[str] = None
     RoleName: Optional[str] = None
-    RolePolicyList: Optional[Sequence[AwsIamRolePolicyTypeDef]] = None
+    RolePolicyList: Optional[Sequence[AwsIamRolePolicy]] = None
     MaxSessionDuration: Optional[int] = None
     Path: Optional[str] = None
 
 
-class AwsLambdaFunctionVpcConfigUnionTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionVpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class AwsLambdaFunctionEnvironmentUnionTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionEnvironmentUnion(BaseValidatorModel):
     pass
 
 
-class AwsLambdaFunctionDetailsTypeDef(BaseValidatorModel):
-    Code: Optional[AwsLambdaFunctionCodeTypeDef] = None
+class AwsLambdaFunctionDetails(BaseValidatorModel):
+    Code: Optional[AwsLambdaFunctionCode] = None
     CodeSha256: Optional[str] = None
-    DeadLetterConfig: Optional[AwsLambdaFunctionDeadLetterConfigTypeDef] = None
-    Environment: Optional[AwsLambdaFunctionEnvironmentUnionTypeDef] = None
+    DeadLetterConfig: Optional[AwsLambdaFunctionDeadLetterConfig] = None
+    Environment: Optional[AwsLambdaFunctionEnvironmentUnion] = None
     FunctionName: Optional[str] = None
     Handler: Optional[str] = None
     KmsKeyArn: Optional[str] = None
     LastModified: Optional[str] = None
-    Layers: Optional[Sequence[AwsLambdaFunctionLayerTypeDef]] = None
+    Layers: Optional[Sequence[AwsLambdaFunctionLayer]] = None
     MasterArn: Optional[str] = None
     MemorySize: Optional[int] = None
     RevisionId: Optional[str] = None
     Role: Optional[str] = None
     Runtime: Optional[str] = None
     Timeout: Optional[int] = None
-    TracingConfig: Optional[AwsLambdaFunctionTracingConfigTypeDef] = None
-    VpcConfig: Optional[AwsLambdaFunctionVpcConfigUnionTypeDef] = None
+    TracingConfig: Optional[AwsLambdaFunctionTracingConfig] = None
+    VpcConfig: Optional[AwsLambdaFunctionVpcConfigUnion] = None
     Version: Optional[str] = None
     Architectures: Optional[Sequence[str]] = None
     PackageType: Optional[str] = None
 
 
-class AwsMskClusterClusterInfoDetailsOutputTypeDef(BaseValidatorModel):
-    EncryptionInfo: Optional[AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef] = None
+class AwsMskClusterClusterInfoDetailsOutput(BaseValidatorModel):
+    EncryptionInfo: Optional[AwsMskClusterClusterInfoEncryptionInfoDetails] = None
     CurrentVersion: Optional[str] = None
     NumberOfBrokerNodes: Optional[int] = None
     ClusterName: Optional[str] = None
-    ClientAuthentication: Optional[ AwsMskClusterClusterInfoClientAuthenticationDetailsOutputTypeDef ] = None
+    ClientAuthentication: Optional[ AwsMskClusterClusterInfoClientAuthenticationDetailsOutput ] = None
     EnhancedMonitoring: Optional[str] = None
 
 
-class AwsRdsDbInstanceDetailsOutputTypeDef(BaseValidatorModel):
-    AssociatedRoles: Optional[List[AwsRdsDbInstanceAssociatedRoleTypeDef]] = None
+class AwsRdsDbInstanceDetailsOutput(BaseValidatorModel):
+    AssociatedRoles: Optional[List[AwsRdsDbInstanceAssociatedRole]] = None
     CACertificateIdentifier: Optional[str] = None
     DBClusterIdentifier: Optional[str] = None
     DBInstanceIdentifier: Optional[str] = None
@@ -6467,7 +6467,7 @@ class AwsRdsDbInstanceDetailsOutputTypeDef(BaseValidatorModel):
     DbiResourceId: Optional[str] = None
     DBName: Optional[str] = None
     DeletionProtection: Optional[bool] = None
-    Endpoint: Optional[AwsRdsDbInstanceEndpointTypeDef] = None
+    Endpoint: Optional[AwsRdsDbInstanceEndpoint] = None
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     IAMDatabaseAuthenticationEnabled: Optional[bool] = None
@@ -6476,7 +6476,7 @@ class AwsRdsDbInstanceDetailsOutputTypeDef(BaseValidatorModel):
     PubliclyAccessible: Optional[bool] = None
     StorageEncrypted: Optional[bool] = None
     TdeCredentialArn: Optional[str] = None
-    VpcSecurityGroups: Optional[List[AwsRdsDbInstanceVpcSecurityGroupTypeDef]] = None
+    VpcSecurityGroups: Optional[List[AwsRdsDbInstanceVpcSecurityGroup]] = None
     MultiAz: Optional[bool] = None
     EnhancedMonitoringResourceArn: Optional[str] = None
     DbInstanceStatus: Optional[str] = None
@@ -6485,11 +6485,11 @@ class AwsRdsDbInstanceDetailsOutputTypeDef(BaseValidatorModel):
     PreferredBackupWindow: Optional[str] = None
     BackupRetentionPeriod: Optional[int] = None
     DbSecurityGroups: Optional[List[str]] = None
-    DbParameterGroups: Optional[List[AwsRdsDbParameterGroupTypeDef]] = None
+    DbParameterGroups: Optional[List[AwsRdsDbParameterGroup]] = None
     AvailabilityZone: Optional[str] = None
-    DbSubnetGroup: Optional[AwsRdsDbSubnetGroupOutputTypeDef] = None
+    DbSubnetGroup: Optional[AwsRdsDbSubnetGroupOutput] = None
     PreferredMaintenanceWindow: Optional[str] = None
-    PendingModifiedValues: Optional[AwsRdsDbPendingModifiedValuesOutputTypeDef] = None
+    PendingModifiedValues: Optional[AwsRdsDbPendingModifiedValuesOutput] = None
     LatestRestorableTime: Optional[str] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     ReadReplicaSourceDBInstanceIdentifier: Optional[str] = None
@@ -6497,12 +6497,12 @@ class AwsRdsDbInstanceDetailsOutputTypeDef(BaseValidatorModel):
     ReadReplicaDBClusterIdentifiers: Optional[List[str]] = None
     LicenseModel: Optional[str] = None
     Iops: Optional[int] = None
-    OptionGroupMemberships: Optional[List[AwsRdsDbOptionGroupMembershipTypeDef]] = None
+    OptionGroupMemberships: Optional[List[AwsRdsDbOptionGroupMembership]] = None
     CharacterSetName: Optional[str] = None
     SecondaryAvailabilityZone: Optional[str] = None
-    StatusInfos: Optional[List[AwsRdsDbStatusInfoTypeDef]] = None
+    StatusInfos: Optional[List[AwsRdsDbStatusInfo]] = None
     StorageType: Optional[str] = None
-    DomainMemberships: Optional[List[AwsRdsDbDomainMembershipTypeDef]] = None
+    DomainMemberships: Optional[List[AwsRdsDbDomainMembership]] = None
     CopyTagsToSnapshot: Optional[bool] = None
     MonitoringInterval: Optional[int] = None
     MonitoringRoleArn: Optional[str] = None
@@ -6512,42 +6512,42 @@ class AwsRdsDbInstanceDetailsOutputTypeDef(BaseValidatorModel):
     PerformanceInsightsKmsKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
     EnabledCloudWatchLogsExports: Optional[List[str]] = None
-    ProcessorFeatures: Optional[List[AwsRdsDbProcessorFeatureTypeDef]] = None
-    ListenerEndpoint: Optional[AwsRdsDbInstanceEndpointTypeDef] = None
+    ProcessorFeatures: Optional[List[AwsRdsDbProcessorFeature]] = None
+    ListenerEndpoint: Optional[AwsRdsDbInstanceEndpoint] = None
     MaxAllocatedStorage: Optional[int] = None
 
 
-class AwsRedshiftClusterClusterParameterGroupUnionTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterClusterParameterGroupUnion(BaseValidatorModel):
     pass
 
 
-class AwsRedshiftClusterDetailsTypeDef(BaseValidatorModel):
+class AwsRedshiftClusterDetails(BaseValidatorModel):
     AllowVersionUpgrade: Optional[bool] = None
     AutomatedSnapshotRetentionPeriod: Optional[int] = None
     AvailabilityZone: Optional[str] = None
     ClusterAvailabilityStatus: Optional[str] = None
     ClusterCreateTime: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
-    ClusterNodes: Optional[Sequence[AwsRedshiftClusterClusterNodeTypeDef]] = None
-    ClusterParameterGroups: Optional[ Sequence[AwsRedshiftClusterClusterParameterGroupUnionTypeDef] ] = None
+    ClusterNodes: Optional[Sequence[AwsRedshiftClusterClusterNode]] = None
+    ClusterParameterGroups: Optional[ Sequence[AwsRedshiftClusterClusterParameterGroupUnion] ] = None
     ClusterPublicKey: Optional[str] = None
     ClusterRevisionNumber: Optional[str] = None
-    ClusterSecurityGroups: Optional[Sequence[AwsRedshiftClusterClusterSecurityGroupTypeDef]] = None
-    ClusterSnapshotCopyStatus: Optional[AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef] = None
+    ClusterSecurityGroups: Optional[Sequence[AwsRedshiftClusterClusterSecurityGroup]] = None
+    ClusterSnapshotCopyStatus: Optional[AwsRedshiftClusterClusterSnapshotCopyStatus] = None
     ClusterStatus: Optional[str] = None
     ClusterSubnetGroupName: Optional[str] = None
     ClusterVersion: Optional[str] = None
     DBName: Optional[str] = None
-    DeferredMaintenanceWindows: Optional[ Sequence[AwsRedshiftClusterDeferredMaintenanceWindowTypeDef] ] = None
-    ElasticIpStatus: Optional[AwsRedshiftClusterElasticIpStatusTypeDef] = None
+    DeferredMaintenanceWindows: Optional[ Sequence[AwsRedshiftClusterDeferredMaintenanceWindow] ] = None
+    ElasticIpStatus: Optional[AwsRedshiftClusterElasticIpStatus] = None
     ElasticResizeNumberOfNodeOptions: Optional[str] = None
     Encrypted: Optional[bool] = None
-    Endpoint: Optional[AwsRedshiftClusterEndpointTypeDef] = None
+    Endpoint: Optional[AwsRedshiftClusterEndpoint] = None
     EnhancedVpcRouting: Optional[bool] = None
     ExpectedNextSnapshotScheduleTime: Optional[str] = None
     ExpectedNextSnapshotScheduleTimeStatus: Optional[str] = None
-    HsmStatus: Optional[AwsRedshiftClusterHsmStatusTypeDef] = None
-    IamRoles: Optional[Sequence[AwsRedshiftClusterIamRoleTypeDef]] = None
+    HsmStatus: Optional[AwsRedshiftClusterHsmStatus] = None
+    IamRoles: Optional[Sequence[AwsRedshiftClusterIamRole]] = None
     KmsKeyId: Optional[str] = None
     MaintenanceTrackName: Optional[str] = None
     ManualSnapshotRetentionPeriod: Optional[int] = None
@@ -6556,104 +6556,104 @@ class AwsRedshiftClusterDetailsTypeDef(BaseValidatorModel):
     NodeType: Optional[str] = None
     NumberOfNodes: Optional[int] = None
     PendingActions: Optional[Sequence[str]] = None
-    PendingModifiedValues: Optional[AwsRedshiftClusterPendingModifiedValuesTypeDef] = None
+    PendingModifiedValues: Optional[AwsRedshiftClusterPendingModifiedValues] = None
     PreferredMaintenanceWindow: Optional[str] = None
     PubliclyAccessible: Optional[bool] = None
-    ResizeInfo: Optional[AwsRedshiftClusterResizeInfoTypeDef] = None
-    RestoreStatus: Optional[AwsRedshiftClusterRestoreStatusTypeDef] = None
+    ResizeInfo: Optional[AwsRedshiftClusterResizeInfo] = None
+    RestoreStatus: Optional[AwsRedshiftClusterRestoreStatus] = None
     SnapshotScheduleIdentifier: Optional[str] = None
     SnapshotScheduleState: Optional[str] = None
     VpcId: Optional[str] = None
-    VpcSecurityGroups: Optional[Sequence[AwsRedshiftClusterVpcSecurityGroupTypeDef]] = None
-    LoggingStatus: Optional[AwsRedshiftClusterLoggingStatusTypeDef] = None
+    VpcSecurityGroups: Optional[Sequence[AwsRedshiftClusterVpcSecurityGroup]] = None
+    LoggingStatus: Optional[AwsRedshiftClusterLoggingStatus] = None
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutputTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutput(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutputTypeDef(BaseValidatorModel):
-    Predicate: Optional[ AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutputTypeDef ] = None
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutput(BaseValidatorModel):
+    Predicate: Optional[ AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutput ] = None
 
 
-class AwsS3BucketNotificationConfigurationS3KeyFilterUnionTypeDef(BaseValidatorModel):
+class AwsS3BucketNotificationConfigurationS3KeyFilterUnion(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketNotificationConfigurationFilterTypeDef(BaseValidatorModel):
-    S3KeyFilter: Optional[AwsS3BucketNotificationConfigurationS3KeyFilterUnionTypeDef] = None
+class AwsS3BucketNotificationConfigurationFilter(BaseValidatorModel):
+    S3KeyFilter: Optional[AwsS3BucketNotificationConfigurationS3KeyFilterUnion] = None
 
 
-class AwsWafWebAclRuleUnionTypeDef(BaseValidatorModel):
+class AwsWafWebAclRuleUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafWebAclDetailsTypeDef(BaseValidatorModel):
+class AwsWafWebAclDetails(BaseValidatorModel):
     Name: Optional[str] = None
     DefaultAction: Optional[str] = None
-    Rules: Optional[Sequence[AwsWafWebAclRuleUnionTypeDef]] = None
+    Rules: Optional[Sequence[AwsWafWebAclRuleUnion]] = None
     WebAclId: Optional[str] = None
 
 
-class AwsWafv2CustomRequestHandlingDetailsUnionTypeDef(BaseValidatorModel):
+class AwsWafv2CustomRequestHandlingDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafv2ActionAllowDetailsTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsUnionTypeDef] = None
+class AwsWafv2ActionAllowDetails(BaseValidatorModel):
+    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsUnion] = None
 
 
-class AwsWafv2RulesActionCaptchaDetailsTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsUnionTypeDef] = None
+class AwsWafv2RulesActionCaptchaDetails(BaseValidatorModel):
+    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsUnion] = None
 
 
-class AwsWafv2RulesActionCountDetailsTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsUnionTypeDef] = None
+class AwsWafv2RulesActionCountDetails(BaseValidatorModel):
+    CustomRequestHandling: Optional[AwsWafv2CustomRequestHandlingDetailsUnion] = None
 
 
-class AwsWafv2RulesActionDetailsOutputTypeDef(BaseValidatorModel):
-    Allow: Optional[AwsWafv2ActionAllowDetailsOutputTypeDef] = None
-    Block: Optional[AwsWafv2ActionBlockDetailsOutputTypeDef] = None
-    Captcha: Optional[AwsWafv2RulesActionCaptchaDetailsOutputTypeDef] = None
-    Count: Optional[AwsWafv2RulesActionCountDetailsOutputTypeDef] = None
+class AwsWafv2RulesActionDetailsOutput(BaseValidatorModel):
+    Allow: Optional[AwsWafv2ActionAllowDetailsOutput] = None
+    Block: Optional[AwsWafv2ActionBlockDetailsOutput] = None
+    Captcha: Optional[AwsWafv2RulesActionCaptchaDetailsOutput] = None
+    Count: Optional[AwsWafv2RulesActionCountDetailsOutput] = None
 
 
-class AwsWafv2WebAclActionDetailsOutputTypeDef(BaseValidatorModel):
-    Allow: Optional[AwsWafv2ActionAllowDetailsOutputTypeDef] = None
-    Block: Optional[AwsWafv2ActionBlockDetailsOutputTypeDef] = None
+class AwsWafv2WebAclActionDetailsOutput(BaseValidatorModel):
+    Allow: Optional[AwsWafv2ActionAllowDetailsOutput] = None
+    Block: Optional[AwsWafv2ActionBlockDetailsOutput] = None
 
 
-class AwsWafv2CustomResponseDetailsUnionTypeDef(BaseValidatorModel):
+class AwsWafv2CustomResponseDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafv2ActionBlockDetailsTypeDef(BaseValidatorModel):
-    CustomResponse: Optional[AwsWafv2CustomResponseDetailsUnionTypeDef] = None
+class AwsWafv2ActionBlockDetails(BaseValidatorModel):
+    CustomResponse: Optional[AwsWafv2CustomResponseDetailsUnion] = None
 
 
-class VulnerabilityCodeVulnerabilitiesUnionTypeDef(BaseValidatorModel):
+class VulnerabilityCodeVulnerabilitiesUnion(BaseValidatorModel):
     pass
 
 
-class CvssUnionTypeDef(BaseValidatorModel):
+class CvssUnion(BaseValidatorModel):
     pass
 
 
-class VulnerabilityTypeDef(BaseValidatorModel):
+class Vulnerability(BaseValidatorModel):
     Id: str
-    VulnerablePackages: Optional[Sequence[SoftwarePackageTypeDef]] = None
-    Cvss: Optional[Sequence[CvssUnionTypeDef]] = None
+    VulnerablePackages: Optional[Sequence[SoftwarePackage]] = None
+    Cvss: Optional[Sequence[CvssUnion]] = None
     RelatedVulnerabilities: Optional[Sequence[str]] = None
-    Vendor: Optional[VulnerabilityVendorTypeDef] = None
+    Vendor: Optional[VulnerabilityVendor] = None
     ReferenceUrls: Optional[Sequence[str]] = None
     FixAvailable: Optional[VulnerabilityFixAvailableType] = None
     EpssScore: Optional[float] = None
     ExploitAvailable: Optional[VulnerabilityExploitAvailableType] = None
     LastKnownExploitAt: Optional[str] = None
-    CodeVulnerabilities: Optional[Sequence[VulnerabilityCodeVulnerabilitiesUnionTypeDef]] = None
+    CodeVulnerabilities: Optional[Sequence[VulnerabilityCodeVulnerabilitiesUnion]] = None
 
 
-class SecurityControlDefinitionTypeDef(BaseValidatorModel):
+class SecurityControlDefinition(BaseValidatorModel):
     SecurityControlId: str
     Title: str
     Description: str
@@ -6661,226 +6661,226 @@ class SecurityControlDefinitionTypeDef(BaseValidatorModel):
     SeverityRating: SeverityRatingType
     CurrentRegionAvailability: RegionAvailabilityStatusType
     CustomizableProperties: Optional[List[Literal["Parameters"]]] = None
-    ParameterDefinitions: Optional[Dict[str, ParameterDefinitionTypeDef]] = None
+    ParameterDefinitions: Optional[Dict[str, ParameterDefinition]] = None
 
 
-class BatchGetConfigurationPolicyAssociationsResponseTypeDef(BaseValidatorModel):
-    ConfigurationPolicyAssociations: List[ConfigurationPolicyAssociationSummaryTypeDef]
-    UnprocessedConfigurationPolicyAssociations: List[ UnprocessedConfigurationPolicyAssociationTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetConfigurationPolicyAssociationsResponse(BaseValidatorModel):
+    ConfigurationPolicyAssociations: List[ConfigurationPolicyAssociationSummary]
+    UnprocessedConfigurationPolicyAssociations: List[ UnprocessedConfigurationPolicyAssociation ]
+    ResponseMetadata: ResponseMetadata
 
 
-class AutomationRulesActionOutputTypeDef(BaseValidatorModel):
+class AutomationRulesActionOutput(BaseValidatorModel):
     pass
 
 
-class AutomationRulesFindingFiltersOutputTypeDef(BaseValidatorModel):
+class AutomationRulesFindingFiltersOutput(BaseValidatorModel):
     pass
 
 
-class AutomationRulesConfigTypeDef(BaseValidatorModel):
+class AutomationRulesConfig(BaseValidatorModel):
     RuleArn: Optional[str] = None
     RuleStatus: Optional[RuleStatusType] = None
     RuleOrder: Optional[int] = None
     RuleName: Optional[str] = None
     Description: Optional[str] = None
     IsTerminal: Optional[bool] = None
-    Criteria: Optional[AutomationRulesFindingFiltersOutputTypeDef] = None
-    Actions: Optional[List[AutomationRulesActionOutputTypeDef]] = None
+    Criteria: Optional[AutomationRulesFindingFiltersOutput] = None
+    Actions: Optional[List[AutomationRulesActionOutput]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     CreatedBy: Optional[str] = None
 
 
-class AwsSecurityFindingFiltersOutputTypeDef(BaseValidatorModel):
+class AwsSecurityFindingFiltersOutput(BaseValidatorModel):
     pass
 
 
-class InsightTypeDef(BaseValidatorModel):
+class Insight(BaseValidatorModel):
     InsightArn: str
     Name: str
-    Filters: AwsSecurityFindingFiltersOutputTypeDef
+    Filters: AwsSecurityFindingFiltersOutput
     GroupByAttribute: str
 
 
-class IndicatorUnionTypeDef(BaseValidatorModel):
+class IndicatorUnion(BaseValidatorModel):
     pass
 
 
-class SignalUnionTypeDef(BaseValidatorModel):
+class SignalUnion(BaseValidatorModel):
     pass
 
 
-class SequenceTypeDef(BaseValidatorModel):
+class SequenceType(BaseValidatorModel):
     Uid: Optional[str] = None
-    Actors: Optional[Sequence[ActorTypeDef]] = None
-    Endpoints: Optional[Sequence[NetworkEndpointTypeDef]] = None
-    Signals: Optional[Sequence[SignalUnionTypeDef]] = None
-    SequenceIndicators: Optional[Sequence[IndicatorUnionTypeDef]] = None
+    Actors: Optional[Sequence[Actor]] = None
+    Endpoints: Optional[Sequence[NetworkEndpoint]] = None
+    Signals: Optional[Sequence[SignalUnion]] = None
+    SequenceIndicators: Optional[Sequence[IndicatorUnion]] = None
 
 
-class NetworkHeaderOutputTypeDef(BaseValidatorModel):
+class NetworkHeaderOutput(BaseValidatorModel):
     pass
 
 
-class NetworkPathComponentOutputTypeDef(BaseValidatorModel):
+class NetworkPathComponentOutput(BaseValidatorModel):
     ComponentId: Optional[str] = None
     ComponentType: Optional[str] = None
-    Egress: Optional[NetworkHeaderOutputTypeDef] = None
-    Ingress: Optional[NetworkHeaderOutputTypeDef] = None
+    Egress: Optional[NetworkHeaderOutput] = None
+    Ingress: Optional[NetworkHeaderOutput] = None
 
 
-class CustomDataIdentifiersDetectionsOutputTypeDef(BaseValidatorModel):
+class CustomDataIdentifiersDetectionsOutput(BaseValidatorModel):
     Count: Optional[int] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
-    Occurrences: Optional[OccurrencesOutputTypeDef] = None
+    Occurrences: Optional[OccurrencesOutput] = None
 
 
-class SecurityControlsConfigurationOutputTypeDef(BaseValidatorModel):
+class SecurityControlsConfigurationOutput(BaseValidatorModel):
     EnabledSecurityControlIdentifiers: Optional[List[str]] = None
     DisabledSecurityControlIdentifiers: Optional[List[str]] = None
-    SecurityControlCustomParameters: Optional[List[SecurityControlCustomParameterOutputTypeDef]] = None
+    SecurityControlCustomParameters: Optional[List[SecurityControlCustomParameterOutput]] = None
 
 
-class BatchGetSecurityControlsResponseTypeDef(BaseValidatorModel):
-    SecurityControls: List[SecurityControlTypeDef]
-    UnprocessedIds: List[UnprocessedSecurityControlTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetSecurityControlsResponse(BaseValidatorModel):
+    SecurityControls: List[SecurityControl]
+    UnprocessedIds: List[UnprocessedSecurityControl]
+    ResponseMetadata: ResponseMetadata
 
 
-class SecurityControlCustomParameterTypeDef(BaseValidatorModel):
+class SecurityControlCustomParameter(BaseValidatorModel):
     SecurityControlId: Optional[str] = None
-    Parameters: Optional[Mapping[str, ParameterConfigurationTypeDef]] = None
+    Parameters: Optional[Mapping[str, ParameterConfiguration]] = None
 
 
-class RuleGroupSourceStatelessRulesDetailsOutputTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRulesDetailsOutput(BaseValidatorModel):
     Priority: Optional[int] = None
-    RuleDefinition: Optional[RuleGroupSourceStatelessRuleDefinitionOutputTypeDef] = None
+    RuleDefinition: Optional[RuleGroupSourceStatelessRuleDefinitionOutput] = None
 
 
-class FirewallPolicyStatelessCustomActionsDetailsOutputTypeDef(BaseValidatorModel):
-    ActionDefinition: Optional[StatelessCustomActionDefinitionOutputTypeDef] = None
+class FirewallPolicyStatelessCustomActionsDetailsOutput(BaseValidatorModel):
+    ActionDefinition: Optional[StatelessCustomActionDefinitionOutput] = None
     ActionName: Optional[str] = None
 
 
-class RuleGroupSourceCustomActionsDetailsOutputTypeDef(BaseValidatorModel):
-    ActionDefinition: Optional[StatelessCustomActionDefinitionOutputTypeDef] = None
+class RuleGroupSourceCustomActionsDetailsOutput(BaseValidatorModel):
+    ActionDefinition: Optional[StatelessCustomActionDefinitionOutput] = None
     ActionName: Optional[str] = None
 
 
-class StatelessCustomPublishMetricActionUnionTypeDef(BaseValidatorModel):
+class StatelessCustomPublishMetricActionUnion(BaseValidatorModel):
     pass
 
 
-class StatelessCustomActionDefinitionTypeDef(BaseValidatorModel):
-    PublishMetricAction: Optional[StatelessCustomPublishMetricActionUnionTypeDef] = None
+class StatelessCustomActionDefinition(BaseValidatorModel):
+    PublishMetricAction: Optional[StatelessCustomPublishMetricActionUnion] = None
 
 
-class NetworkConnectionActionTypeDef(BaseValidatorModel):
+class NetworkConnectionAction(BaseValidatorModel):
     pass
 
 
-class DnsRequestActionTypeDef(BaseValidatorModel):
+class DnsRequestAction(BaseValidatorModel):
     pass
 
 
-class AwsApiCallActionOutputTypeDef(BaseValidatorModel):
+class AwsApiCallActionOutput(BaseValidatorModel):
     pass
 
 
-class ActionOutputTypeDef(BaseValidatorModel):
+class ActionOutput(BaseValidatorModel):
     ActionType: Optional[str] = None
-    NetworkConnectionAction: Optional[NetworkConnectionActionTypeDef] = None
-    AwsApiCallAction: Optional[AwsApiCallActionOutputTypeDef] = None
-    DnsRequestAction: Optional[DnsRequestActionTypeDef] = None
-    PortProbeAction: Optional[PortProbeActionOutputTypeDef] = None
+    NetworkConnectionAction: Optional[NetworkConnectionAction] = None
+    AwsApiCallAction: Optional[AwsApiCallActionOutput] = None
+    DnsRequestAction: Optional[DnsRequestAction] = None
+    PortProbeAction: Optional[PortProbeActionOutput] = None
 
 
-class AwsBackupBackupPlanDetailsOutputTypeDef(BaseValidatorModel):
-    BackupPlan: Optional[AwsBackupBackupPlanBackupPlanDetailsOutputTypeDef] = None
+class AwsBackupBackupPlanDetailsOutput(BaseValidatorModel):
+    BackupPlan: Optional[AwsBackupBackupPlanBackupPlanDetailsOutput] = None
     BackupPlanArn: Optional[str] = None
     BackupPlanId: Optional[str] = None
     VersionId: Optional[str] = None
 
 
-class AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnionTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsBackupBackupPlanRuleDetailsUnionTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanRuleDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsBackupBackupPlanBackupPlanDetailsTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanBackupPlanDetails(BaseValidatorModel):
     BackupPlanName: Optional[str] = None
-    AdvancedBackupSettings: Optional[ Sequence[AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnionTypeDef] ] = None
-    BackupPlanRule: Optional[Sequence[AwsBackupBackupPlanRuleDetailsUnionTypeDef]] = None
+    AdvancedBackupSettings: Optional[ Sequence[AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnion] ] = None
+    BackupPlanRule: Optional[Sequence[AwsBackupBackupPlanRuleDetailsUnion]] = None
 
 
-class AwsCloudFrontDistributionDetailsOutputTypeDef(BaseValidatorModel):
-    CacheBehaviors: Optional[AwsCloudFrontDistributionCacheBehaviorsOutputTypeDef] = None
-    DefaultCacheBehavior: Optional[AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef] = None
+class AwsCloudFrontDistributionDetailsOutput(BaseValidatorModel):
+    CacheBehaviors: Optional[AwsCloudFrontDistributionCacheBehaviorsOutput] = None
+    DefaultCacheBehavior: Optional[AwsCloudFrontDistributionDefaultCacheBehavior] = None
     DefaultRootObject: Optional[str] = None
     DomainName: Optional[str] = None
     ETag: Optional[str] = None
     LastModifiedTime: Optional[str] = None
-    Logging: Optional[AwsCloudFrontDistributionLoggingTypeDef] = None
-    Origins: Optional[AwsCloudFrontDistributionOriginsOutputTypeDef] = None
-    OriginGroups: Optional[AwsCloudFrontDistributionOriginGroupsOutputTypeDef] = None
-    ViewerCertificate: Optional[AwsCloudFrontDistributionViewerCertificateTypeDef] = None
+    Logging: Optional[AwsCloudFrontDistributionLogging] = None
+    Origins: Optional[AwsCloudFrontDistributionOriginsOutput] = None
+    OriginGroups: Optional[AwsCloudFrontDistributionOriginGroupsOutput] = None
+    ViewerCertificate: Optional[AwsCloudFrontDistributionViewerCertificate] = None
     Status: Optional[str] = None
     WebAclId: Optional[str] = None
 
 
-class AwsCloudFrontDistributionOriginGroupFailoverUnionTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginGroupFailoverUnion(BaseValidatorModel):
     pass
 
 
-class AwsCloudFrontDistributionOriginGroupTypeDef(BaseValidatorModel):
-    FailoverCriteria: Optional[AwsCloudFrontDistributionOriginGroupFailoverUnionTypeDef] = None
+class AwsCloudFrontDistributionOriginGroup(BaseValidatorModel):
+    FailoverCriteria: Optional[AwsCloudFrontDistributionOriginGroupFailoverUnion] = None
 
 
-class AwsCloudFrontDistributionOriginCustomOriginConfigUnionTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginCustomOriginConfigUnion(BaseValidatorModel):
     pass
 
 
-class AwsCloudFrontDistributionOriginItemTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginItem(BaseValidatorModel):
     DomainName: Optional[str] = None
     Id: Optional[str] = None
     OriginPath: Optional[str] = None
-    S3OriginConfig: Optional[AwsCloudFrontDistributionOriginS3OriginConfigTypeDef] = None
-    CustomOriginConfig: Optional[AwsCloudFrontDistributionOriginCustomOriginConfigUnionTypeDef] = None
+    S3OriginConfig: Optional[AwsCloudFrontDistributionOriginS3OriginConfig] = None
+    CustomOriginConfig: Optional[AwsCloudFrontDistributionOriginCustomOriginConfigUnion] = None
 
 
-class AwsDynamoDbTableLocalSecondaryIndexUnionTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableLocalSecondaryIndexUnion(BaseValidatorModel):
     pass
 
 
-class AwsDynamoDbTableGlobalSecondaryIndexUnionTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableGlobalSecondaryIndexUnion(BaseValidatorModel):
     pass
 
 
-class AwsDynamoDbTableReplicaUnionTypeDef(BaseValidatorModel):
+class AwsDynamoDbTableReplicaUnion(BaseValidatorModel):
     pass
 
 
-class AwsDynamoDbTableDetailsTypeDef(BaseValidatorModel):
-    AttributeDefinitions: Optional[Sequence[AwsDynamoDbTableAttributeDefinitionTypeDef]] = None
-    BillingModeSummary: Optional[AwsDynamoDbTableBillingModeSummaryTypeDef] = None
+class AwsDynamoDbTableDetails(BaseValidatorModel):
+    AttributeDefinitions: Optional[Sequence[AwsDynamoDbTableAttributeDefinition]] = None
+    BillingModeSummary: Optional[AwsDynamoDbTableBillingModeSummary] = None
     CreationDateTime: Optional[str] = None
-    GlobalSecondaryIndexes: Optional[Sequence[AwsDynamoDbTableGlobalSecondaryIndexUnionTypeDef]] = None
+    GlobalSecondaryIndexes: Optional[Sequence[AwsDynamoDbTableGlobalSecondaryIndexUnion]] = None
     GlobalTableVersion: Optional[str] = None
     ItemCount: Optional[int] = None
-    KeySchema: Optional[Sequence[AwsDynamoDbTableKeySchemaTypeDef]] = None
+    KeySchema: Optional[Sequence[AwsDynamoDbTableKeySchema]] = None
     LatestStreamArn: Optional[str] = None
     LatestStreamLabel: Optional[str] = None
-    LocalSecondaryIndexes: Optional[Sequence[AwsDynamoDbTableLocalSecondaryIndexUnionTypeDef]] = None
-    ProvisionedThroughput: Optional[AwsDynamoDbTableProvisionedThroughputTypeDef] = None
-    Replicas: Optional[Sequence[AwsDynamoDbTableReplicaUnionTypeDef]] = None
-    RestoreSummary: Optional[AwsDynamoDbTableRestoreSummaryTypeDef] = None
-    SseDescription: Optional[AwsDynamoDbTableSseDescriptionTypeDef] = None
-    StreamSpecification: Optional[AwsDynamoDbTableStreamSpecificationTypeDef] = None
+    LocalSecondaryIndexes: Optional[Sequence[AwsDynamoDbTableLocalSecondaryIndexUnion]] = None
+    ProvisionedThroughput: Optional[AwsDynamoDbTableProvisionedThroughput] = None
+    Replicas: Optional[Sequence[AwsDynamoDbTableReplicaUnion]] = None
+    RestoreSummary: Optional[AwsDynamoDbTableRestoreSummary] = None
+    SseDescription: Optional[AwsDynamoDbTableSseDescription] = None
+    StreamSpecification: Optional[AwsDynamoDbTableStreamSpecification] = None
     TableId: Optional[str] = None
     TableName: Optional[str] = None
     TableSizeBytes: Optional[int] = None
@@ -6888,127 +6888,127 @@ class AwsDynamoDbTableDetailsTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: Optional[bool] = None
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsDetails(BaseValidatorModel):
     Command: Optional[Sequence[str]] = None
     Cpu: Optional[int] = None
-    DependsOn: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef] ] = None
+    DependsOn: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails] ] = None
     DisableNetworking: Optional[bool] = None
     DnsSearchDomains: Optional[Sequence[str]] = None
     DnsServers: Optional[Sequence[str]] = None
     DockerLabels: Optional[Mapping[str, str]] = None
     DockerSecurityOptions: Optional[Sequence[str]] = None
     EntryPoint: Optional[Sequence[str]] = None
-    Environment: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef] ] = None
-    EnvironmentFiles: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef] ] = None
+    Environment: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails] ] = None
+    EnvironmentFiles: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails] ] = None
     Essential: Optional[bool] = None
-    ExtraHosts: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef] ] = None
-    FirelensConfiguration: Optional[ AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnionTypeDef ] = None
-    HealthCheck: Optional[AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnionTypeDef] = None
+    ExtraHosts: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails] ] = None
+    FirelensConfiguration: Optional[ AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnion ] = None
+    HealthCheck: Optional[AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnion] = None
     Hostname: Optional[str] = None
     Image: Optional[str] = None
     Interactive: Optional[bool] = None
     Links: Optional[Sequence[str]] = None
-    LinuxParameters: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnionTypeDef ] = None
-    LogConfiguration: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnionTypeDef ] = None
+    LinuxParameters: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnion ] = None
+    LogConfiguration: Optional[ AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnion ] = None
     Memory: Optional[int] = None
     MemoryReservation: Optional[int] = None
-    MountPoints: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef] ] = None
+    MountPoints: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails] ] = None
     Name: Optional[str] = None
-    PortMappings: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef] ] = None
+    PortMappings: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails] ] = None
     Privileged: Optional[bool] = None
     PseudoTerminal: Optional[bool] = None
     ReadonlyRootFilesystem: Optional[bool] = None
-    RepositoryCredentials: Optional[ AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef ] = None
-    ResourceRequirements: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef] ] = None
-    Secrets: Optional[Sequence[AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef]] = None
+    RepositoryCredentials: Optional[ AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails ] = None
+    ResourceRequirements: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails] ] = None
+    Secrets: Optional[Sequence[AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails]] = None
     StartTimeout: Optional[int] = None
     StopTimeout: Optional[int] = None
-    SystemControls: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef] ] = None
-    Ulimits: Optional[Sequence[AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef]] = None
+    SystemControls: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails] ] = None
+    Ulimits: Optional[Sequence[AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]] = None
     User: Optional[str] = None
-    VolumesFrom: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef] ] = None
+    VolumesFrom: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails] ] = None
     WorkingDirectory: Optional[str] = None
 
 
-class AwsEksClusterLoggingDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEksClusterLoggingDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEksClusterResourcesVpcConfigDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEksClusterResourcesVpcConfigDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEksClusterDetailsTypeDef(BaseValidatorModel):
+class AwsEksClusterDetails(BaseValidatorModel):
     Arn: Optional[str] = None
     CertificateAuthorityData: Optional[str] = None
     ClusterStatus: Optional[str] = None
     Endpoint: Optional[str] = None
     Name: Optional[str] = None
-    ResourcesVpcConfig: Optional[AwsEksClusterResourcesVpcConfigDetailsUnionTypeDef] = None
+    ResourcesVpcConfig: Optional[AwsEksClusterResourcesVpcConfigDetailsUnion] = None
     RoleArn: Optional[str] = None
     Version: Optional[str] = None
-    Logging: Optional[AwsEksClusterLoggingDetailsUnionTypeDef] = None
+    Logging: Optional[AwsEksClusterLoggingDetailsUnion] = None
 
 
-class AwsGuardDutyDetectorDetailsOutputTypeDef(BaseValidatorModel):
-    DataSources: Optional[AwsGuardDutyDetectorDataSourcesDetailsTypeDef] = None
-    Features: Optional[List[AwsGuardDutyDetectorFeaturesDetailsTypeDef]] = None
+class AwsGuardDutyDetectorDetailsOutput(BaseValidatorModel):
+    DataSources: Optional[AwsGuardDutyDetectorDataSourcesDetails] = None
+    Features: Optional[List[AwsGuardDutyDetectorFeaturesDetails]] = None
     FindingPublishingFrequency: Optional[str] = None
     ServiceRole: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsGuardDutyDetectorDetailsTypeDef(BaseValidatorModel):
-    DataSources: Optional[AwsGuardDutyDetectorDataSourcesDetailsTypeDef] = None
-    Features: Optional[Sequence[AwsGuardDutyDetectorFeaturesDetailsTypeDef]] = None
+class AwsGuardDutyDetectorDetails(BaseValidatorModel):
+    DataSources: Optional[AwsGuardDutyDetectorDataSourcesDetails] = None
+    Features: Optional[Sequence[AwsGuardDutyDetectorFeaturesDetails]] = None
     FindingPublishingFrequency: Optional[str] = None
     ServiceRole: Optional[str] = None
     Status: Optional[str] = None
 
 
-class AwsMskClusterDetailsOutputTypeDef(BaseValidatorModel):
-    ClusterInfo: Optional[AwsMskClusterClusterInfoDetailsOutputTypeDef] = None
+class AwsMskClusterDetailsOutput(BaseValidatorModel):
+    ClusterInfo: Optional[AwsMskClusterClusterInfoDetailsOutput] = None
 
 
-class AwsMskClusterClusterInfoClientAuthenticationDetailsUnionTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoClientAuthenticationDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsMskClusterClusterInfoDetailsTypeDef(BaseValidatorModel):
-    EncryptionInfo: Optional[AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef] = None
+class AwsMskClusterClusterInfoDetails(BaseValidatorModel):
+    EncryptionInfo: Optional[AwsMskClusterClusterInfoEncryptionInfoDetails] = None
     CurrentVersion: Optional[str] = None
     NumberOfBrokerNodes: Optional[int] = None
     ClusterName: Optional[str] = None
-    ClientAuthentication: Optional[ AwsMskClusterClusterInfoClientAuthenticationDetailsUnionTypeDef ] = None
+    ClientAuthentication: Optional[ AwsMskClusterClusterInfoClientAuthenticationDetailsUnion ] = None
     EnhancedMonitoring: Optional[str] = None
 
 
-class AwsRdsDbPendingModifiedValuesUnionTypeDef(BaseValidatorModel):
+class AwsRdsDbPendingModifiedValuesUnion(BaseValidatorModel):
     pass
 
 
-class AwsRdsDbSubnetGroupUnionTypeDef(BaseValidatorModel):
+class AwsRdsDbSubnetGroupUnion(BaseValidatorModel):
     pass
 
 
-class AwsRdsDbInstanceDetailsTypeDef(BaseValidatorModel):
-    AssociatedRoles: Optional[Sequence[AwsRdsDbInstanceAssociatedRoleTypeDef]] = None
+class AwsRdsDbInstanceDetails(BaseValidatorModel):
+    AssociatedRoles: Optional[Sequence[AwsRdsDbInstanceAssociatedRole]] = None
     CACertificateIdentifier: Optional[str] = None
     DBClusterIdentifier: Optional[str] = None
     DBInstanceIdentifier: Optional[str] = None
@@ -7017,7 +7017,7 @@ class AwsRdsDbInstanceDetailsTypeDef(BaseValidatorModel):
     DbiResourceId: Optional[str] = None
     DBName: Optional[str] = None
     DeletionProtection: Optional[bool] = None
-    Endpoint: Optional[AwsRdsDbInstanceEndpointTypeDef] = None
+    Endpoint: Optional[AwsRdsDbInstanceEndpoint] = None
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     IAMDatabaseAuthenticationEnabled: Optional[bool] = None
@@ -7026,7 +7026,7 @@ class AwsRdsDbInstanceDetailsTypeDef(BaseValidatorModel):
     PubliclyAccessible: Optional[bool] = None
     StorageEncrypted: Optional[bool] = None
     TdeCredentialArn: Optional[str] = None
-    VpcSecurityGroups: Optional[Sequence[AwsRdsDbInstanceVpcSecurityGroupTypeDef]] = None
+    VpcSecurityGroups: Optional[Sequence[AwsRdsDbInstanceVpcSecurityGroup]] = None
     MultiAz: Optional[bool] = None
     EnhancedMonitoringResourceArn: Optional[str] = None
     DbInstanceStatus: Optional[str] = None
@@ -7035,11 +7035,11 @@ class AwsRdsDbInstanceDetailsTypeDef(BaseValidatorModel):
     PreferredBackupWindow: Optional[str] = None
     BackupRetentionPeriod: Optional[int] = None
     DbSecurityGroups: Optional[Sequence[str]] = None
-    DbParameterGroups: Optional[Sequence[AwsRdsDbParameterGroupTypeDef]] = None
+    DbParameterGroups: Optional[Sequence[AwsRdsDbParameterGroup]] = None
     AvailabilityZone: Optional[str] = None
-    DbSubnetGroup: Optional[AwsRdsDbSubnetGroupUnionTypeDef] = None
+    DbSubnetGroup: Optional[AwsRdsDbSubnetGroupUnion] = None
     PreferredMaintenanceWindow: Optional[str] = None
-    PendingModifiedValues: Optional[AwsRdsDbPendingModifiedValuesUnionTypeDef] = None
+    PendingModifiedValues: Optional[AwsRdsDbPendingModifiedValuesUnion] = None
     LatestRestorableTime: Optional[str] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     ReadReplicaSourceDBInstanceIdentifier: Optional[str] = None
@@ -7047,12 +7047,12 @@ class AwsRdsDbInstanceDetailsTypeDef(BaseValidatorModel):
     ReadReplicaDBClusterIdentifiers: Optional[Sequence[str]] = None
     LicenseModel: Optional[str] = None
     Iops: Optional[int] = None
-    OptionGroupMemberships: Optional[Sequence[AwsRdsDbOptionGroupMembershipTypeDef]] = None
+    OptionGroupMemberships: Optional[Sequence[AwsRdsDbOptionGroupMembership]] = None
     CharacterSetName: Optional[str] = None
     SecondaryAvailabilityZone: Optional[str] = None
-    StatusInfos: Optional[Sequence[AwsRdsDbStatusInfoTypeDef]] = None
+    StatusInfos: Optional[Sequence[AwsRdsDbStatusInfo]] = None
     StorageType: Optional[str] = None
-    DomainMemberships: Optional[Sequence[AwsRdsDbDomainMembershipTypeDef]] = None
+    DomainMemberships: Optional[Sequence[AwsRdsDbDomainMembership]] = None
     CopyTagsToSnapshot: Optional[bool] = None
     MonitoringInterval: Optional[int] = None
     MonitoringRoleArn: Optional[str] = None
@@ -7062,800 +7062,800 @@ class AwsRdsDbInstanceDetailsTypeDef(BaseValidatorModel):
     PerformanceInsightsKmsKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
     EnabledCloudWatchLogsExports: Optional[Sequence[str]] = None
-    ProcessorFeatures: Optional[Sequence[AwsRdsDbProcessorFeatureTypeDef]] = None
-    ListenerEndpoint: Optional[AwsRdsDbInstanceEndpointTypeDef] = None
+    ProcessorFeatures: Optional[Sequence[AwsRdsDbProcessorFeature]] = None
+    ListenerEndpoint: Optional[AwsRdsDbInstanceEndpoint] = None
     MaxAllocatedStorage: Optional[int] = None
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutputTypeDef(BaseValidatorModel):
-    AbortIncompleteMultipartUpload: Optional[ AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef ] = None
+class AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutput(BaseValidatorModel):
+    AbortIncompleteMultipartUpload: Optional[ AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails ] = None
     ExpirationDate: Optional[str] = None
     ExpirationInDays: Optional[int] = None
     ExpiredObjectDeleteMarker: Optional[bool] = None
-    Filter: Optional[AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutputTypeDef] = None
+    Filter: Optional[AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutput] = None
     ID: Optional[str] = None
     NoncurrentVersionExpirationInDays: Optional[int] = None
-    NoncurrentVersionTransitions: Optional[ List[AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef] ] = None
+    NoncurrentVersionTransitions: Optional[ List[AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails] ] = None
     Prefix: Optional[str] = None
     Status: Optional[str] = None
-    Transitions: Optional[ List[AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef] ] = None
+    Transitions: Optional[ List[AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails] ] = None
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsUnionTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsTypeDef(BaseValidatorModel):
-    Predicate: Optional[ AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsUnionTypeDef ] = None
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails(BaseValidatorModel):
+    Predicate: Optional[ AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsUnion ] = None
 
 
-class AwsS3BucketNotificationConfigurationDetailOutputTypeDef(BaseValidatorModel):
+class AwsS3BucketNotificationConfigurationDetailOutput(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketNotificationConfigurationOutputTypeDef(BaseValidatorModel):
-    Configurations: Optional[List[AwsS3BucketNotificationConfigurationDetailOutputTypeDef]] = None
+class AwsS3BucketNotificationConfigurationOutput(BaseValidatorModel):
+    Configurations: Optional[List[AwsS3BucketNotificationConfigurationDetailOutput]] = None
 
 
-class AwsWafv2RulesDetailsOutputTypeDef(BaseValidatorModel):
-    Action: Optional[AwsWafv2RulesActionDetailsOutputTypeDef] = None
+class AwsWafv2RulesDetailsOutput(BaseValidatorModel):
+    Action: Optional[AwsWafv2RulesActionDetailsOutput] = None
     Name: Optional[str] = None
     OverrideAction: Optional[str] = None
     Priority: Optional[int] = None
-    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetailsTypeDef] = None
+    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetails] = None
 
 
-class GetSecurityControlDefinitionResponseTypeDef(BaseValidatorModel):
-    SecurityControlDefinition: SecurityControlDefinitionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSecurityControlDefinitionResponse(BaseValidatorModel):
+    SecurityControlDefinition: SecurityControlDefinition
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSecurityControlDefinitionsResponseTypeDef(BaseValidatorModel):
-    SecurityControlDefinitions: List[SecurityControlDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSecurityControlDefinitionsResponse(BaseValidatorModel):
+    SecurityControlDefinitions: List[SecurityControlDefinition]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BatchGetAutomationRulesResponseTypeDef(BaseValidatorModel):
-    Rules: List[AutomationRulesConfigTypeDef]
-    UnprocessedAutomationRules: List[UnprocessedAutomationRuleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetAutomationRulesResponse(BaseValidatorModel):
+    Rules: List[AutomationRulesConfig]
+    UnprocessedAutomationRules: List[UnprocessedAutomationRule]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInsightsResponseTypeDef(BaseValidatorModel):
-    Insights: List[InsightTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInsightsResponse(BaseValidatorModel):
+    Insights: List[Insight]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AwsSecurityFindingFiltersUnionTypeDef(BaseValidatorModel):
+class AwsSecurityFindingFiltersUnion(BaseValidatorModel):
     pass
 
 
-class CreateInsightRequestTypeDef(BaseValidatorModel):
+class CreateInsightRequest(BaseValidatorModel):
     Name: str
-    Filters: AwsSecurityFindingFiltersUnionTypeDef
+    Filters: AwsSecurityFindingFiltersUnion
     GroupByAttribute: str
 
 
-class GetFindingsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[AwsSecurityFindingFiltersUnionTypeDef] = None
-    SortCriteria: Optional[Sequence[SortCriterionTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class GetFindingsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[AwsSecurityFindingFiltersUnion] = None
+    SortCriteria: Optional[Sequence[SortCriterion]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetFindingsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[AwsSecurityFindingFiltersUnionTypeDef] = None
-    SortCriteria: Optional[Sequence[SortCriterionTypeDef]] = None
+class GetFindingsRequest(BaseValidatorModel):
+    Filters: Optional[AwsSecurityFindingFiltersUnion] = None
+    SortCriteria: Optional[Sequence[SortCriterion]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class UpdateFindingsRequestTypeDef(BaseValidatorModel):
-    Filters: AwsSecurityFindingFiltersUnionTypeDef
-    Note: Optional[NoteUpdateTypeDef] = None
+class UpdateFindingsRequest(BaseValidatorModel):
+    Filters: AwsSecurityFindingFiltersUnion
+    Note: Optional[NoteUpdate] = None
     RecordState: Optional[RecordStateType] = None
 
 
-class UpdateInsightRequestTypeDef(BaseValidatorModel):
+class UpdateInsightRequest(BaseValidatorModel):
     InsightArn: str
     Name: Optional[str] = None
-    Filters: Optional[AwsSecurityFindingFiltersUnionTypeDef] = None
+    Filters: Optional[AwsSecurityFindingFiltersUnion] = None
     GroupByAttribute: Optional[str] = None
 
 
-class CustomDataIdentifiersResultOutputTypeDef(BaseValidatorModel):
-    Detections: Optional[List[CustomDataIdentifiersDetectionsOutputTypeDef]] = None
+class CustomDataIdentifiersResultOutput(BaseValidatorModel):
+    Detections: Optional[List[CustomDataIdentifiersDetectionsOutput]] = None
     TotalCount: Optional[int] = None
 
 
-class SensitiveDataDetectionsOutputTypeDef(BaseValidatorModel):
+class SensitiveDataDetectionsOutput(BaseValidatorModel):
     pass
 
 
-class SensitiveDataResultOutputTypeDef(BaseValidatorModel):
+class SensitiveDataResultOutput(BaseValidatorModel):
     Category: Optional[str] = None
-    Detections: Optional[List[SensitiveDataDetectionsOutputTypeDef]] = None
+    Detections: Optional[List[SensitiveDataDetectionsOutput]] = None
     TotalCount: Optional[int] = None
 
 
-class OccurrencesUnionTypeDef(BaseValidatorModel):
+class OccurrencesUnion(BaseValidatorModel):
     pass
 
 
-class CustomDataIdentifiersDetectionsTypeDef(BaseValidatorModel):
+class CustomDataIdentifiersDetections(BaseValidatorModel):
     Count: Optional[int] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
-    Occurrences: Optional[OccurrencesUnionTypeDef] = None
+    Occurrences: Optional[OccurrencesUnion] = None
 
 
-class SecurityHubPolicyOutputTypeDef(BaseValidatorModel):
+class SecurityHubPolicyOutput(BaseValidatorModel):
     ServiceEnabled: Optional[bool] = None
     EnabledStandardIdentifiers: Optional[List[str]] = None
-    SecurityControlsConfiguration: Optional[SecurityControlsConfigurationOutputTypeDef] = None
+    SecurityControlsConfiguration: Optional[SecurityControlsConfigurationOutput] = None
 
 
-class ParameterConfigurationUnionTypeDef(BaseValidatorModel):
+class ParameterConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateSecurityControlRequestTypeDef(BaseValidatorModel):
+class UpdateSecurityControlRequest(BaseValidatorModel):
     SecurityControlId: str
-    Parameters: Mapping[str, ParameterConfigurationUnionTypeDef]
+    Parameters: Mapping[str, ParameterConfigurationUnion]
     LastUpdateReason: Optional[str] = None
 
 
-class SecurityControlsConfigurationTypeDef(BaseValidatorModel):
+class SecurityControlsConfiguration(BaseValidatorModel):
     EnabledSecurityControlIdentifiers: Optional[Sequence[str]] = None
     DisabledSecurityControlIdentifiers: Optional[Sequence[str]] = None
-    SecurityControlCustomParameters: Optional[Sequence[SecurityControlCustomParameterTypeDef]] = None
+    SecurityControlCustomParameters: Optional[Sequence[SecurityControlCustomParameter]] = None
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleMatchAttributesUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceStatelessRuleDefinitionTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleDefinition(BaseValidatorModel):
     Actions: Optional[Sequence[str]] = None
-    MatchAttributes: Optional[RuleGroupSourceStatelessRuleMatchAttributesUnionTypeDef] = None
+    MatchAttributes: Optional[RuleGroupSourceStatelessRuleMatchAttributesUnion] = None
 
 
-class FirewallPolicyDetailsOutputTypeDef(BaseValidatorModel):
-    StatefulRuleGroupReferences: Optional[ List[FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef] ] = None
-    StatelessCustomActions: Optional[ List[FirewallPolicyStatelessCustomActionsDetailsOutputTypeDef] ] = None
+class FirewallPolicyDetailsOutput(BaseValidatorModel):
+    StatefulRuleGroupReferences: Optional[ List[FirewallPolicyStatefulRuleGroupReferencesDetails] ] = None
+    StatelessCustomActions: Optional[ List[FirewallPolicyStatelessCustomActionsDetailsOutput] ] = None
     StatelessDefaultActions: Optional[List[str]] = None
     StatelessFragmentDefaultActions: Optional[List[str]] = None
-    StatelessRuleGroupReferences: Optional[ List[FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef] ] = None
+    StatelessRuleGroupReferences: Optional[ List[FirewallPolicyStatelessRuleGroupReferencesDetails] ] = None
 
 
-class RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutputTypeDef(BaseValidatorModel):
-    CustomActions: Optional[List[RuleGroupSourceCustomActionsDetailsOutputTypeDef]] = None
-    StatelessRules: Optional[List[RuleGroupSourceStatelessRulesDetailsOutputTypeDef]] = None
+class RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutput(BaseValidatorModel):
+    CustomActions: Optional[List[RuleGroupSourceCustomActionsDetailsOutput]] = None
+    StatelessRules: Optional[List[RuleGroupSourceStatelessRulesDetailsOutput]] = None
 
 
-class AwsApiCallActionUnionTypeDef(BaseValidatorModel):
+class AwsApiCallActionUnion(BaseValidatorModel):
     pass
 
 
-class PortProbeActionUnionTypeDef(BaseValidatorModel):
+class PortProbeActionUnion(BaseValidatorModel):
     pass
 
 
-class ActionTypeDef(BaseValidatorModel):
+class Action(BaseValidatorModel):
     ActionType: Optional[str] = None
-    NetworkConnectionAction: Optional[NetworkConnectionActionTypeDef] = None
-    AwsApiCallAction: Optional[AwsApiCallActionUnionTypeDef] = None
-    DnsRequestAction: Optional[DnsRequestActionTypeDef] = None
-    PortProbeAction: Optional[PortProbeActionUnionTypeDef] = None
+    NetworkConnectionAction: Optional[NetworkConnectionAction] = None
+    AwsApiCallAction: Optional[AwsApiCallActionUnion] = None
+    DnsRequestAction: Optional[DnsRequestAction] = None
+    PortProbeAction: Optional[PortProbeActionUnion] = None
 
 
-class AutomationRulesFindingFiltersUnionTypeDef(BaseValidatorModel):
+class AutomationRulesFindingFiltersUnion(BaseValidatorModel):
     pass
 
 
-class AutomationRulesActionUnionTypeDef(BaseValidatorModel):
+class AutomationRulesActionUnion(BaseValidatorModel):
     pass
 
 
-class CreateAutomationRuleRequestTypeDef(BaseValidatorModel):
+class CreateAutomationRuleRequest(BaseValidatorModel):
     RuleOrder: int
     RuleName: str
     Description: str
-    Criteria: AutomationRulesFindingFiltersUnionTypeDef
-    Actions: Sequence[AutomationRulesActionUnionTypeDef]
+    Criteria: AutomationRulesFindingFiltersUnion
+    Actions: Sequence[AutomationRulesActionUnion]
     Tags: Optional[Mapping[str, str]] = None
     RuleStatus: Optional[RuleStatusType] = None
     IsTerminal: Optional[bool] = None
 
 
-class UpdateAutomationRulesRequestItemTypeDef(BaseValidatorModel):
+class UpdateAutomationRulesRequestItem(BaseValidatorModel):
     RuleArn: str
     RuleStatus: Optional[RuleStatusType] = None
     RuleOrder: Optional[int] = None
     Description: Optional[str] = None
     RuleName: Optional[str] = None
     IsTerminal: Optional[bool] = None
-    Criteria: Optional[AutomationRulesFindingFiltersUnionTypeDef] = None
-    Actions: Optional[Sequence[AutomationRulesActionUnionTypeDef]] = None
+    Criteria: Optional[AutomationRulesFindingFiltersUnion] = None
+    Actions: Optional[Sequence[AutomationRulesActionUnion]] = None
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnionTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsAutoScalingAutoScalingGroupDetailsTypeDef(BaseValidatorModel):
+class AwsAutoScalingAutoScalingGroupDetails(BaseValidatorModel):
     LaunchConfigurationName: Optional[str] = None
     LoadBalancerNames: Optional[Sequence[str]] = None
     HealthCheckType: Optional[str] = None
     HealthCheckGracePeriod: Optional[int] = None
     CreatedTime: Optional[str] = None
-    MixedInstancesPolicy: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnionTypeDef ] = None
-    AvailabilityZones: Optional[ Sequence[AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef] ] = None
-    LaunchTemplate: Optional[ AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef ] = None
+    MixedInstancesPolicy: Optional[ AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnion ] = None
+    AvailabilityZones: Optional[ Sequence[AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails] ] = None
+    LaunchTemplate: Optional[ AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification ] = None
     CapacityRebalance: Optional[bool] = None
 
 
-class AwsEc2LaunchTemplateDataDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDataDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEc2LaunchTemplateDetailsTypeDef(BaseValidatorModel):
+class AwsEc2LaunchTemplateDetails(BaseValidatorModel):
     LaunchTemplateName: Optional[str] = None
     Id: Optional[str] = None
-    LaunchTemplateData: Optional[AwsEc2LaunchTemplateDataDetailsUnionTypeDef] = None
+    LaunchTemplateData: Optional[AwsEc2LaunchTemplateDataDetailsUnion] = None
     DefaultVersionNumber: Optional[int] = None
     LatestVersionNumber: Optional[int] = None
 
 
-class AwsS3BucketBucketLifecycleConfigurationDetailsOutputTypeDef(BaseValidatorModel):
-    Rules: Optional[List[AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutputTypeDef]] = None
+class AwsS3BucketBucketLifecycleConfigurationDetailsOutput(BaseValidatorModel):
+    Rules: Optional[List[AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutput]] = None
 
 
-class AwsWafv2RuleGroupDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafv2RuleGroupDetailsOutput(BaseValidatorModel):
     Capacity: Optional[int] = None
     Description: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
     Arn: Optional[str] = None
-    Rules: Optional[List[AwsWafv2RulesDetailsOutputTypeDef]] = None
+    Rules: Optional[List[AwsWafv2RulesDetailsOutput]] = None
     Scope: Optional[str] = None
-    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetailsTypeDef] = None
+    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetails] = None
 
 
-class AwsWafv2WebAclDetailsOutputTypeDef(BaseValidatorModel):
+class AwsWafv2WebAclDetailsOutput(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     ManagedbyFirewallManager: Optional[bool] = None
     Id: Optional[str] = None
     Capacity: Optional[int] = None
-    CaptchaConfig: Optional[AwsWafv2WebAclCaptchaConfigDetailsTypeDef] = None
-    DefaultAction: Optional[AwsWafv2WebAclActionDetailsOutputTypeDef] = None
+    CaptchaConfig: Optional[AwsWafv2WebAclCaptchaConfigDetails] = None
+    DefaultAction: Optional[AwsWafv2WebAclActionDetailsOutput] = None
     Description: Optional[str] = None
-    Rules: Optional[List[AwsWafv2RulesDetailsOutputTypeDef]] = None
-    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetailsTypeDef] = None
+    Rules: Optional[List[AwsWafv2RulesDetailsOutput]] = None
+    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetails] = None
 
 
-class AwsWafv2ActionAllowDetailsUnionTypeDef(BaseValidatorModel):
+class AwsWafv2ActionAllowDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafv2RulesActionCaptchaDetailsUnionTypeDef(BaseValidatorModel):
+class AwsWafv2RulesActionCaptchaDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafv2RulesActionCountDetailsUnionTypeDef(BaseValidatorModel):
+class AwsWafv2RulesActionCountDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafv2ActionBlockDetailsUnionTypeDef(BaseValidatorModel):
+class AwsWafv2ActionBlockDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafv2RulesActionDetailsTypeDef(BaseValidatorModel):
-    Allow: Optional[AwsWafv2ActionAllowDetailsUnionTypeDef] = None
-    Block: Optional[AwsWafv2ActionBlockDetailsUnionTypeDef] = None
-    Captcha: Optional[AwsWafv2RulesActionCaptchaDetailsUnionTypeDef] = None
-    Count: Optional[AwsWafv2RulesActionCountDetailsUnionTypeDef] = None
+class AwsWafv2RulesActionDetails(BaseValidatorModel):
+    Allow: Optional[AwsWafv2ActionAllowDetailsUnion] = None
+    Block: Optional[AwsWafv2ActionBlockDetailsUnion] = None
+    Captcha: Optional[AwsWafv2RulesActionCaptchaDetailsUnion] = None
+    Count: Optional[AwsWafv2RulesActionCountDetailsUnion] = None
 
 
-class AwsWafv2WebAclActionDetailsTypeDef(BaseValidatorModel):
-    Allow: Optional[AwsWafv2ActionAllowDetailsUnionTypeDef] = None
-    Block: Optional[AwsWafv2ActionBlockDetailsUnionTypeDef] = None
+class AwsWafv2WebAclActionDetails(BaseValidatorModel):
+    Allow: Optional[AwsWafv2ActionAllowDetailsUnion] = None
+    Block: Optional[AwsWafv2ActionBlockDetailsUnion] = None
 
 
-class NetworkHeaderUnionTypeDef(BaseValidatorModel):
+class NetworkHeaderUnion(BaseValidatorModel):
     pass
 
 
-class NetworkPathComponentTypeDef(BaseValidatorModel):
+class NetworkPathComponent(BaseValidatorModel):
     ComponentId: Optional[str] = None
     ComponentType: Optional[str] = None
-    Egress: Optional[NetworkHeaderUnionTypeDef] = None
-    Ingress: Optional[NetworkHeaderUnionTypeDef] = None
+    Egress: Optional[NetworkHeaderUnion] = None
+    Ingress: Optional[NetworkHeaderUnion] = None
 
 
-class ClassificationResultOutputTypeDef(BaseValidatorModel):
+class ClassificationResultOutput(BaseValidatorModel):
     MimeType: Optional[str] = None
     SizeClassified: Optional[int] = None
     AdditionalOccurrences: Optional[bool] = None
-    Status: Optional[ClassificationStatusTypeDef] = None
-    SensitiveData: Optional[List[SensitiveDataResultOutputTypeDef]] = None
-    CustomDataIdentifiers: Optional[CustomDataIdentifiersResultOutputTypeDef] = None
+    Status: Optional[ClassificationStatus] = None
+    SensitiveData: Optional[List[SensitiveDataResultOutput]] = None
+    CustomDataIdentifiers: Optional[CustomDataIdentifiersResultOutput] = None
 
 
-class PolicyOutputTypeDef(BaseValidatorModel):
-    SecurityHub: Optional[SecurityHubPolicyOutputTypeDef] = None
+class PolicyOutput(BaseValidatorModel):
+    SecurityHub: Optional[SecurityHubPolicyOutput] = None
 
 
-class SecurityHubPolicyTypeDef(BaseValidatorModel):
+class SecurityHubPolicy(BaseValidatorModel):
     ServiceEnabled: Optional[bool] = None
     EnabledStandardIdentifiers: Optional[Sequence[str]] = None
-    SecurityControlsConfiguration: Optional[SecurityControlsConfigurationTypeDef] = None
+    SecurityControlsConfiguration: Optional[SecurityControlsConfiguration] = None
 
 
-class AwsNetworkFirewallFirewallPolicyDetailsOutputTypeDef(BaseValidatorModel):
-    FirewallPolicy: Optional[FirewallPolicyDetailsOutputTypeDef] = None
+class AwsNetworkFirewallFirewallPolicyDetailsOutput(BaseValidatorModel):
+    FirewallPolicy: Optional[FirewallPolicyDetailsOutput] = None
     FirewallPolicyArn: Optional[str] = None
     FirewallPolicyId: Optional[str] = None
     FirewallPolicyName: Optional[str] = None
     Description: Optional[str] = None
 
 
-class RuleGroupSourceOutputTypeDef(BaseValidatorModel):
-    RulesSourceList: Optional[RuleGroupSourceListDetailsOutputTypeDef] = None
+class RuleGroupSourceOutput(BaseValidatorModel):
+    RulesSourceList: Optional[RuleGroupSourceListDetailsOutput] = None
     RulesString: Optional[str] = None
-    StatefulRules: Optional[List[RuleGroupSourceStatefulRulesDetailsOutputTypeDef]] = None
-    StatelessRulesAndCustomActions: Optional[ RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutputTypeDef ] = None
+    StatefulRules: Optional[List[RuleGroupSourceStatefulRulesDetailsOutput]] = None
+    StatelessRulesAndCustomActions: Optional[ RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutput ] = None
 
 
-class StatelessCustomActionDefinitionUnionTypeDef(BaseValidatorModel):
+class StatelessCustomActionDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class FirewallPolicyStatelessCustomActionsDetailsTypeDef(BaseValidatorModel):
-    ActionDefinition: Optional[StatelessCustomActionDefinitionUnionTypeDef] = None
+class FirewallPolicyStatelessCustomActionsDetails(BaseValidatorModel):
+    ActionDefinition: Optional[StatelessCustomActionDefinitionUnion] = None
     ActionName: Optional[str] = None
 
 
-class RuleGroupSourceCustomActionsDetailsTypeDef(BaseValidatorModel):
-    ActionDefinition: Optional[StatelessCustomActionDefinitionUnionTypeDef] = None
+class RuleGroupSourceCustomActionsDetails(BaseValidatorModel):
+    ActionDefinition: Optional[StatelessCustomActionDefinitionUnion] = None
     ActionName: Optional[str] = None
 
 
-class BatchUpdateAutomationRulesRequestTypeDef(BaseValidatorModel):
-    UpdateAutomationRulesRequestItems: Sequence[UpdateAutomationRulesRequestItemTypeDef]
+class BatchUpdateAutomationRulesRequest(BaseValidatorModel):
+    UpdateAutomationRulesRequestItems: Sequence[UpdateAutomationRulesRequestItem]
 
 
-class AwsBackupBackupPlanBackupPlanDetailsUnionTypeDef(BaseValidatorModel):
+class AwsBackupBackupPlanBackupPlanDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsBackupBackupPlanDetailsTypeDef(BaseValidatorModel):
-    BackupPlan: Optional[AwsBackupBackupPlanBackupPlanDetailsUnionTypeDef] = None
+class AwsBackupBackupPlanDetails(BaseValidatorModel):
+    BackupPlan: Optional[AwsBackupBackupPlanBackupPlanDetailsUnion] = None
     BackupPlanArn: Optional[str] = None
     BackupPlanId: Optional[str] = None
     VersionId: Optional[str] = None
 
 
-class AwsCloudFrontDistributionOriginGroupUnionTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginGroupUnion(BaseValidatorModel):
     pass
 
 
-class AwsCloudFrontDistributionOriginGroupsTypeDef(BaseValidatorModel):
-    Items: Optional[Sequence[AwsCloudFrontDistributionOriginGroupUnionTypeDef]] = None
+class AwsCloudFrontDistributionOriginGroups(BaseValidatorModel):
+    Items: Optional[Sequence[AwsCloudFrontDistributionOriginGroupUnion]] = None
 
 
-class AwsCloudFrontDistributionOriginItemUnionTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginItemUnion(BaseValidatorModel):
     pass
 
 
-class AwsCloudFrontDistributionOriginsTypeDef(BaseValidatorModel):
-    Items: Optional[Sequence[AwsCloudFrontDistributionOriginItemUnionTypeDef]] = None
+class AwsCloudFrontDistributionOrigins(BaseValidatorModel):
+    Items: Optional[Sequence[AwsCloudFrontDistributionOriginItemUnion]] = None
 
 
-class AwsEcsTaskDefinitionVolumesDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionVolumesDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionProxyConfigurationDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionProxyConfigurationDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsDetailsUnionTypeDef(BaseValidatorModel):
+class AwsEcsTaskDefinitionContainerDefinitionsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsEcsTaskDefinitionDetailsTypeDef(BaseValidatorModel):
-    ContainerDefinitions: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsDetailsUnionTypeDef] ] = None
+class AwsEcsTaskDefinitionDetails(BaseValidatorModel):
+    ContainerDefinitions: Optional[ Sequence[AwsEcsTaskDefinitionContainerDefinitionsDetailsUnion] ] = None
     Cpu: Optional[str] = None
     ExecutionRoleArn: Optional[str] = None
     Family: Optional[str] = None
-    InferenceAccelerators: Optional[ Sequence[AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef] ] = None
+    InferenceAccelerators: Optional[ Sequence[AwsEcsTaskDefinitionInferenceAcceleratorsDetails] ] = None
     IpcMode: Optional[str] = None
     Memory: Optional[str] = None
     NetworkMode: Optional[str] = None
     PidMode: Optional[str] = None
-    PlacementConstraints: Optional[ Sequence[AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef] ] = None
-    ProxyConfiguration: Optional[AwsEcsTaskDefinitionProxyConfigurationDetailsUnionTypeDef] = None
+    PlacementConstraints: Optional[ Sequence[AwsEcsTaskDefinitionPlacementConstraintsDetails] ] = None
+    ProxyConfiguration: Optional[AwsEcsTaskDefinitionProxyConfigurationDetailsUnion] = None
     RequiresCompatibilities: Optional[Sequence[str]] = None
     TaskRoleArn: Optional[str] = None
-    Volumes: Optional[Sequence[AwsEcsTaskDefinitionVolumesDetailsUnionTypeDef]] = None
+    Volumes: Optional[Sequence[AwsEcsTaskDefinitionVolumesDetailsUnion]] = None
     Status: Optional[str] = None
 
 
-class AwsMskClusterClusterInfoDetailsUnionTypeDef(BaseValidatorModel):
+class AwsMskClusterClusterInfoDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsMskClusterDetailsTypeDef(BaseValidatorModel):
-    ClusterInfo: Optional[AwsMskClusterClusterInfoDetailsUnionTypeDef] = None
+class AwsMskClusterDetails(BaseValidatorModel):
+    ClusterInfo: Optional[AwsMskClusterClusterInfoDetailsUnion] = None
 
 
-class AwsS3BucketDetailsOutputTypeDef(BaseValidatorModel):
+class AwsS3BucketDetailsOutput(BaseValidatorModel):
     OwnerId: Optional[str] = None
     OwnerName: Optional[str] = None
     OwnerAccountId: Optional[str] = None
     CreatedAt: Optional[str] = None
-    ServerSideEncryptionConfiguration: Optional[ AwsS3BucketServerSideEncryptionConfigurationOutputTypeDef ] = None
-    BucketLifecycleConfiguration: Optional[ AwsS3BucketBucketLifecycleConfigurationDetailsOutputTypeDef ] = None
-    PublicAccessBlockConfiguration: Optional[AwsS3AccountPublicAccessBlockDetailsTypeDef] = None
+    ServerSideEncryptionConfiguration: Optional[ AwsS3BucketServerSideEncryptionConfigurationOutput ] = None
+    BucketLifecycleConfiguration: Optional[ AwsS3BucketBucketLifecycleConfigurationDetailsOutput ] = None
+    PublicAccessBlockConfiguration: Optional[AwsS3AccountPublicAccessBlockDetails] = None
     AccessControlList: Optional[str] = None
-    BucketLoggingConfiguration: Optional[AwsS3BucketLoggingConfigurationTypeDef] = None
-    BucketWebsiteConfiguration: Optional[AwsS3BucketWebsiteConfigurationOutputTypeDef] = None
-    BucketNotificationConfiguration: Optional[AwsS3BucketNotificationConfigurationOutputTypeDef] = None
-    BucketVersioningConfiguration: Optional[AwsS3BucketBucketVersioningConfigurationTypeDef] = None
-    ObjectLockConfiguration: Optional[AwsS3BucketObjectLockConfigurationTypeDef] = None
+    BucketLoggingConfiguration: Optional[AwsS3BucketLoggingConfiguration] = None
+    BucketWebsiteConfiguration: Optional[AwsS3BucketWebsiteConfigurationOutput] = None
+    BucketNotificationConfiguration: Optional[AwsS3BucketNotificationConfigurationOutput] = None
+    BucketVersioningConfiguration: Optional[AwsS3BucketBucketVersioningConfiguration] = None
+    ObjectLockConfiguration: Optional[AwsS3BucketObjectLockConfiguration] = None
     Name: Optional[str] = None
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnionTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesDetailsTypeDef(BaseValidatorModel):
-    AbortIncompleteMultipartUpload: Optional[ AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef ] = None
+class AwsS3BucketBucketLifecycleConfigurationRulesDetails(BaseValidatorModel):
+    AbortIncompleteMultipartUpload: Optional[ AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails ] = None
     ExpirationDate: Optional[str] = None
     ExpirationInDays: Optional[int] = None
     ExpiredObjectDeleteMarker: Optional[bool] = None
-    Filter: Optional[AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnionTypeDef] = None
+    Filter: Optional[AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnion] = None
     ID: Optional[str] = None
     NoncurrentVersionExpirationInDays: Optional[int] = None
-    NoncurrentVersionTransitions: Optional[ Sequence[ AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef ] ] = None
+    NoncurrentVersionTransitions: Optional[ Sequence[ AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails ] ] = None
     Prefix: Optional[str] = None
     Status: Optional[str] = None
-    Transitions: Optional[ Sequence[AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef] ] = None
+    Transitions: Optional[ Sequence[AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails] ] = None
 
 
-class DataClassificationDetailsOutputTypeDef(BaseValidatorModel):
+class DataClassificationDetailsOutput(BaseValidatorModel):
     DetailedResultsLocation: Optional[str] = None
-    Result: Optional[ClassificationResultOutputTypeDef] = None
+    Result: Optional[ClassificationResultOutput] = None
 
 
-class CustomDataIdentifiersDetectionsUnionTypeDef(BaseValidatorModel):
+class CustomDataIdentifiersDetectionsUnion(BaseValidatorModel):
     pass
 
 
-class CustomDataIdentifiersResultTypeDef(BaseValidatorModel):
-    Detections: Optional[Sequence[CustomDataIdentifiersDetectionsUnionTypeDef]] = None
+class CustomDataIdentifiersResult(BaseValidatorModel):
+    Detections: Optional[Sequence[CustomDataIdentifiersDetectionsUnion]] = None
     TotalCount: Optional[int] = None
 
 
-class SensitiveDataDetectionsUnionTypeDef(BaseValidatorModel):
+class SensitiveDataDetectionsUnion(BaseValidatorModel):
     pass
 
 
-class SensitiveDataResultTypeDef(BaseValidatorModel):
+class SensitiveDataResult(BaseValidatorModel):
     Category: Optional[str] = None
-    Detections: Optional[Sequence[SensitiveDataDetectionsUnionTypeDef]] = None
+    Detections: Optional[Sequence[SensitiveDataDetectionsUnion]] = None
     TotalCount: Optional[int] = None
 
 
-class CreateConfigurationPolicyResponseTypeDef(BaseValidatorModel):
+class CreateConfigurationPolicyResponse(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
     Description: str
     UpdatedAt: datetime
     CreatedAt: datetime
-    ConfigurationPolicy: PolicyOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ConfigurationPolicy: PolicyOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConfigurationPolicyResponseTypeDef(BaseValidatorModel):
+class GetConfigurationPolicyResponse(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
     Description: str
     UpdatedAt: datetime
     CreatedAt: datetime
-    ConfigurationPolicy: PolicyOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ConfigurationPolicy: PolicyOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConfigurationPolicyResponseTypeDef(BaseValidatorModel):
+class UpdateConfigurationPolicyResponse(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
     Description: str
     UpdatedAt: datetime
     CreatedAt: datetime
-    ConfigurationPolicy: PolicyOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ConfigurationPolicy: PolicyOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class PolicyTypeDef(BaseValidatorModel):
-    SecurityHub: Optional[SecurityHubPolicyTypeDef] = None
+class Policy(BaseValidatorModel):
+    SecurityHub: Optional[SecurityHubPolicy] = None
 
 
-class RuleGroupSourceStatelessRuleDefinitionUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRuleDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceStatelessRulesDetailsTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRulesDetails(BaseValidatorModel):
     Priority: Optional[int] = None
-    RuleDefinition: Optional[RuleGroupSourceStatelessRuleDefinitionUnionTypeDef] = None
+    RuleDefinition: Optional[RuleGroupSourceStatelessRuleDefinitionUnion] = None
 
 
-class RuleGroupDetailsOutputTypeDef(BaseValidatorModel):
-    RuleVariables: Optional[RuleGroupVariablesOutputTypeDef] = None
-    RulesSource: Optional[RuleGroupSourceOutputTypeDef] = None
+class RuleGroupDetailsOutput(BaseValidatorModel):
+    RuleVariables: Optional[RuleGroupVariablesOutput] = None
+    RulesSource: Optional[RuleGroupSourceOutput] = None
 
 
-class AwsS3BucketNotificationConfigurationDetailUnionTypeDef(BaseValidatorModel):
+class AwsS3BucketNotificationConfigurationDetailUnion(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketNotificationConfigurationTypeDef(BaseValidatorModel):
-    Configurations: Optional[Sequence[AwsS3BucketNotificationConfigurationDetailUnionTypeDef]] = None
+class AwsS3BucketNotificationConfiguration(BaseValidatorModel):
+    Configurations: Optional[Sequence[AwsS3BucketNotificationConfigurationDetailUnion]] = None
 
 
-class AwsWafv2RulesActionDetailsUnionTypeDef(BaseValidatorModel):
+class AwsWafv2RulesActionDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafv2RulesDetailsTypeDef(BaseValidatorModel):
-    Action: Optional[AwsWafv2RulesActionDetailsUnionTypeDef] = None
+class AwsWafv2RulesDetails(BaseValidatorModel):
+    Action: Optional[AwsWafv2RulesActionDetailsUnion] = None
     Name: Optional[str] = None
     OverrideAction: Optional[str] = None
     Priority: Optional[int] = None
-    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetailsTypeDef] = None
+    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetails] = None
 
 
-class FirewallPolicyStatelessCustomActionsDetailsUnionTypeDef(BaseValidatorModel):
+class FirewallPolicyStatelessCustomActionsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class FirewallPolicyDetailsTypeDef(BaseValidatorModel):
-    StatefulRuleGroupReferences: Optional[ Sequence[FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef] ] = None
-    StatelessCustomActions: Optional[ Sequence[FirewallPolicyStatelessCustomActionsDetailsUnionTypeDef] ] = None
+class FirewallPolicyDetails(BaseValidatorModel):
+    StatefulRuleGroupReferences: Optional[ Sequence[FirewallPolicyStatefulRuleGroupReferencesDetails] ] = None
+    StatelessCustomActions: Optional[ Sequence[FirewallPolicyStatelessCustomActionsDetailsUnion] ] = None
     StatelessDefaultActions: Optional[Sequence[str]] = None
     StatelessFragmentDefaultActions: Optional[Sequence[str]] = None
-    StatelessRuleGroupReferences: Optional[ Sequence[FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef] ] = None
+    StatelessRuleGroupReferences: Optional[ Sequence[FirewallPolicyStatelessRuleGroupReferencesDetails] ] = None
 
 
-class AwsCloudFrontDistributionCacheBehaviorsUnionTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionCacheBehaviorsUnion(BaseValidatorModel):
     pass
 
 
-class AwsCloudFrontDistributionOriginGroupsUnionTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginGroupsUnion(BaseValidatorModel):
     pass
 
 
-class AwsCloudFrontDistributionOriginsUnionTypeDef(BaseValidatorModel):
+class AwsCloudFrontDistributionOriginsUnion(BaseValidatorModel):
     pass
 
 
-class AwsCloudFrontDistributionDetailsTypeDef(BaseValidatorModel):
-    CacheBehaviors: Optional[AwsCloudFrontDistributionCacheBehaviorsUnionTypeDef] = None
-    DefaultCacheBehavior: Optional[AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef] = None
+class AwsCloudFrontDistributionDetails(BaseValidatorModel):
+    CacheBehaviors: Optional[AwsCloudFrontDistributionCacheBehaviorsUnion] = None
+    DefaultCacheBehavior: Optional[AwsCloudFrontDistributionDefaultCacheBehavior] = None
     DefaultRootObject: Optional[str] = None
     DomainName: Optional[str] = None
     ETag: Optional[str] = None
     LastModifiedTime: Optional[str] = None
-    Logging: Optional[AwsCloudFrontDistributionLoggingTypeDef] = None
-    Origins: Optional[AwsCloudFrontDistributionOriginsUnionTypeDef] = None
-    OriginGroups: Optional[AwsCloudFrontDistributionOriginGroupsUnionTypeDef] = None
-    ViewerCertificate: Optional[AwsCloudFrontDistributionViewerCertificateTypeDef] = None
+    Logging: Optional[AwsCloudFrontDistributionLogging] = None
+    Origins: Optional[AwsCloudFrontDistributionOriginsUnion] = None
+    OriginGroups: Optional[AwsCloudFrontDistributionOriginGroupsUnion] = None
+    ViewerCertificate: Optional[AwsCloudFrontDistributionViewerCertificate] = None
     Status: Optional[str] = None
     WebAclId: Optional[str] = None
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesDetailsUnionTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketLifecycleConfigurationRulesDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketBucketLifecycleConfigurationDetailsTypeDef(BaseValidatorModel):
-    Rules: Optional[Sequence[AwsS3BucketBucketLifecycleConfigurationRulesDetailsUnionTypeDef]] = None
+class AwsS3BucketBucketLifecycleConfigurationDetails(BaseValidatorModel):
+    Rules: Optional[Sequence[AwsS3BucketBucketLifecycleConfigurationRulesDetailsUnion]] = None
 
 
-class AwsWafv2WebAclActionDetailsUnionTypeDef(BaseValidatorModel):
+class AwsWafv2WebAclActionDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafv2WebAclDetailsTypeDef(BaseValidatorModel):
+class AwsWafv2WebAclDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     ManagedbyFirewallManager: Optional[bool] = None
     Id: Optional[str] = None
     Capacity: Optional[int] = None
-    CaptchaConfig: Optional[AwsWafv2WebAclCaptchaConfigDetailsTypeDef] = None
-    DefaultAction: Optional[AwsWafv2WebAclActionDetailsUnionTypeDef] = None
+    CaptchaConfig: Optional[AwsWafv2WebAclCaptchaConfigDetails] = None
+    DefaultAction: Optional[AwsWafv2WebAclActionDetailsUnion] = None
     Description: Optional[str] = None
-    Rules: Optional[Sequence[AwsWafv2RulesDetailsTypeDef]] = None
-    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetailsTypeDef] = None
+    Rules: Optional[Sequence[AwsWafv2RulesDetails]] = None
+    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetails] = None
 
 
-class SensitiveDataResultUnionTypeDef(BaseValidatorModel):
+class SensitiveDataResultUnion(BaseValidatorModel):
     pass
 
 
-class CustomDataIdentifiersResultUnionTypeDef(BaseValidatorModel):
+class CustomDataIdentifiersResultUnion(BaseValidatorModel):
     pass
 
 
-class ClassificationResultTypeDef(BaseValidatorModel):
+class ClassificationResult(BaseValidatorModel):
     MimeType: Optional[str] = None
     SizeClassified: Optional[int] = None
     AdditionalOccurrences: Optional[bool] = None
-    Status: Optional[ClassificationStatusTypeDef] = None
-    SensitiveData: Optional[Sequence[SensitiveDataResultUnionTypeDef]] = None
-    CustomDataIdentifiers: Optional[CustomDataIdentifiersResultUnionTypeDef] = None
+    Status: Optional[ClassificationStatus] = None
+    SensitiveData: Optional[Sequence[SensitiveDataResultUnion]] = None
+    CustomDataIdentifiers: Optional[CustomDataIdentifiersResultUnion] = None
 
 
-class PolicyUnionTypeDef(BaseValidatorModel):
+class PolicyUnion(BaseValidatorModel):
     pass
 
 
-class CreateConfigurationPolicyRequestTypeDef(BaseValidatorModel):
+class CreateConfigurationPolicyRequest(BaseValidatorModel):
     Name: str
-    ConfigurationPolicy: PolicyUnionTypeDef
+    ConfigurationPolicy: PolicyUnion
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateConfigurationPolicyRequestTypeDef(BaseValidatorModel):
+class UpdateConfigurationPolicyRequest(BaseValidatorModel):
     Identifier: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     UpdatedReason: Optional[str] = None
-    ConfigurationPolicy: Optional[PolicyUnionTypeDef] = None
+    ConfigurationPolicy: Optional[PolicyUnion] = None
 
 
-class RuleGroupSourceCustomActionsDetailsUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceCustomActionsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceStatelessRulesDetailsUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRulesDetailsUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef(BaseValidatorModel):
-    CustomActions: Optional[Sequence[RuleGroupSourceCustomActionsDetailsUnionTypeDef]] = None
-    StatelessRules: Optional[Sequence[RuleGroupSourceStatelessRulesDetailsUnionTypeDef]] = None
+class RuleGroupSourceStatelessRulesAndCustomActionsDetails(BaseValidatorModel):
+    CustomActions: Optional[Sequence[RuleGroupSourceCustomActionsDetailsUnion]] = None
+    StatelessRules: Optional[Sequence[RuleGroupSourceStatelessRulesDetailsUnion]] = None
 
 
-class AwsWafv2RulesDetailsUnionTypeDef(BaseValidatorModel):
+class AwsWafv2RulesDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsWafv2RuleGroupDetailsTypeDef(BaseValidatorModel):
+class AwsWafv2RuleGroupDetails(BaseValidatorModel):
     Capacity: Optional[int] = None
     Description: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
     Arn: Optional[str] = None
-    Rules: Optional[Sequence[AwsWafv2RulesDetailsUnionTypeDef]] = None
+    Rules: Optional[Sequence[AwsWafv2RulesDetailsUnion]] = None
     Scope: Optional[str] = None
-    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetailsTypeDef] = None
+    VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetails] = None
 
 
-class FirewallPolicyDetailsUnionTypeDef(BaseValidatorModel):
+class FirewallPolicyDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsNetworkFirewallFirewallPolicyDetailsTypeDef(BaseValidatorModel):
-    FirewallPolicy: Optional[FirewallPolicyDetailsUnionTypeDef] = None
+class AwsNetworkFirewallFirewallPolicyDetails(BaseValidatorModel):
+    FirewallPolicy: Optional[FirewallPolicyDetailsUnion] = None
     FirewallPolicyArn: Optional[str] = None
     FirewallPolicyId: Optional[str] = None
     FirewallPolicyName: Optional[str] = None
     Description: Optional[str] = None
 
 
-class AwsS3BucketWebsiteConfigurationUnionTypeDef(BaseValidatorModel):
+class AwsS3BucketWebsiteConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketNotificationConfigurationUnionTypeDef(BaseValidatorModel):
+class AwsS3BucketNotificationConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketServerSideEncryptionConfigurationUnionTypeDef(BaseValidatorModel):
+class AwsS3BucketServerSideEncryptionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketBucketLifecycleConfigurationDetailsUnionTypeDef(BaseValidatorModel):
+class AwsS3BucketBucketLifecycleConfigurationDetailsUnion(BaseValidatorModel):
     pass
 
 
-class AwsS3BucketDetailsTypeDef(BaseValidatorModel):
+class AwsS3BucketDetails(BaseValidatorModel):
     OwnerId: Optional[str] = None
     OwnerName: Optional[str] = None
     OwnerAccountId: Optional[str] = None
     CreatedAt: Optional[str] = None
-    ServerSideEncryptionConfiguration: Optional[ AwsS3BucketServerSideEncryptionConfigurationUnionTypeDef ] = None
-    BucketLifecycleConfiguration: Optional[ AwsS3BucketBucketLifecycleConfigurationDetailsUnionTypeDef ] = None
-    PublicAccessBlockConfiguration: Optional[AwsS3AccountPublicAccessBlockDetailsTypeDef] = None
+    ServerSideEncryptionConfiguration: Optional[ AwsS3BucketServerSideEncryptionConfigurationUnion ] = None
+    BucketLifecycleConfiguration: Optional[ AwsS3BucketBucketLifecycleConfigurationDetailsUnion ] = None
+    PublicAccessBlockConfiguration: Optional[AwsS3AccountPublicAccessBlockDetails] = None
     AccessControlList: Optional[str] = None
-    BucketLoggingConfiguration: Optional[AwsS3BucketLoggingConfigurationTypeDef] = None
-    BucketWebsiteConfiguration: Optional[AwsS3BucketWebsiteConfigurationUnionTypeDef] = None
-    BucketNotificationConfiguration: Optional[AwsS3BucketNotificationConfigurationUnionTypeDef] = None
-    BucketVersioningConfiguration: Optional[AwsS3BucketBucketVersioningConfigurationTypeDef] = None
-    ObjectLockConfiguration: Optional[AwsS3BucketObjectLockConfigurationTypeDef] = None
+    BucketLoggingConfiguration: Optional[AwsS3BucketLoggingConfiguration] = None
+    BucketWebsiteConfiguration: Optional[AwsS3BucketWebsiteConfigurationUnion] = None
+    BucketNotificationConfiguration: Optional[AwsS3BucketNotificationConfigurationUnion] = None
+    BucketVersioningConfiguration: Optional[AwsS3BucketBucketVersioningConfiguration] = None
+    ObjectLockConfiguration: Optional[AwsS3BucketObjectLockConfiguration] = None
     Name: Optional[str] = None
 
 
-class ClassificationResultUnionTypeDef(BaseValidatorModel):
+class ClassificationResultUnion(BaseValidatorModel):
     pass
 
 
-class DataClassificationDetailsTypeDef(BaseValidatorModel):
+class DataClassificationDetails(BaseValidatorModel):
     DetailedResultsLocation: Optional[str] = None
-    Result: Optional[ClassificationResultUnionTypeDef] = None
+    Result: Optional[ClassificationResultUnion] = None
 
 
-class RuleGroupSourceStatefulRulesDetailsUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatefulRulesDetailsUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceListDetailsUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceListDetailsUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupSourceTypeDef(BaseValidatorModel):
-    RulesSourceList: Optional[RuleGroupSourceListDetailsUnionTypeDef] = None
+class RuleGroupSource(BaseValidatorModel):
+    RulesSourceList: Optional[RuleGroupSourceListDetailsUnion] = None
     RulesString: Optional[str] = None
-    StatefulRules: Optional[Sequence[RuleGroupSourceStatefulRulesDetailsUnionTypeDef]] = None
-    StatelessRulesAndCustomActions: Optional[ RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnionTypeDef ] = None
+    StatefulRules: Optional[Sequence[RuleGroupSourceStatefulRulesDetailsUnion]] = None
+    StatelessRulesAndCustomActions: Optional[ RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnion ] = None
 
 
-class NoteTypeDef(BaseValidatorModel):
+class Note(BaseValidatorModel):
     pass
 
 
-class NetworkTypeDef(BaseValidatorModel):
+class Network(BaseValidatorModel):
     pass
 
 
-class ThreatIntelIndicatorTypeDef(BaseValidatorModel):
+class ThreatIntelIndicator(BaseValidatorModel):
     pass
 
 
-class ResourceOutputTypeDef(BaseValidatorModel):
+class ResourceOutput(BaseValidatorModel):
     pass
 
 
-class DetectionOutputTypeDef(BaseValidatorModel):
+class DetectionOutput(BaseValidatorModel):
     pass
 
 
-class MalwareTypeDef(BaseValidatorModel):
+class Malware(BaseValidatorModel):
     pass
 
 
-class AwsSecurityFindingOutputTypeDef(BaseValidatorModel):
+class AwsSecurityFindingOutput(BaseValidatorModel):
     SchemaVersion: str
     Id: str
     ProductArn: str
@@ -7865,100 +7865,100 @@ class AwsSecurityFindingOutputTypeDef(BaseValidatorModel):
     UpdatedAt: str
     Title: str
     Description: str
-    Resources: List[ResourceOutputTypeDef]
+    Resources: List[ResourceOutput]
     ProductName: Optional[str] = None
     CompanyName: Optional[str] = None
     Region: Optional[str] = None
     Types: Optional[List[str]] = None
     FirstObservedAt: Optional[str] = None
     LastObservedAt: Optional[str] = None
-    Severity: Optional[SeverityTypeDef] = None
+    Severity: Optional[Severity] = None
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
-    Remediation: Optional[RemediationTypeDef] = None
+    Remediation: Optional[Remediation] = None
     SourceUrl: Optional[str] = None
     ProductFields: Optional[Dict[str, str]] = None
     UserDefinedFields: Optional[Dict[str, str]] = None
-    Malware: Optional[List[MalwareTypeDef]] = None
-    Network: Optional[NetworkTypeDef] = None
-    NetworkPath: Optional[List[NetworkPathComponentOutputTypeDef]] = None
-    Process: Optional[ProcessDetailsTypeDef] = None
-    Threats: Optional[List[ThreatOutputTypeDef]] = None
-    ThreatIntelIndicators: Optional[List[ThreatIntelIndicatorTypeDef]] = None
-    Compliance: Optional[ComplianceOutputTypeDef] = None
+    Malware: Optional[List[Malware]] = None
+    Network: Optional[Network] = None
+    NetworkPath: Optional[List[NetworkPathComponentOutput]] = None
+    Process: Optional[ProcessDetails] = None
+    Threats: Optional[List[ThreatOutput]] = None
+    ThreatIntelIndicators: Optional[List[ThreatIntelIndicator]] = None
+    Compliance: Optional[ComplianceOutput] = None
     VerificationState: Optional[VerificationStateType] = None
     WorkflowState: Optional[WorkflowStateType] = None
-    Workflow: Optional[WorkflowTypeDef] = None
+    Workflow: Optional[Workflow] = None
     RecordState: Optional[RecordStateType] = None
-    RelatedFindings: Optional[List[RelatedFindingTypeDef]] = None
-    Note: Optional[NoteTypeDef] = None
-    Vulnerabilities: Optional[List[VulnerabilityOutputTypeDef]] = None
-    PatchSummary: Optional[PatchSummaryTypeDef] = None
-    Action: Optional[ActionOutputTypeDef] = None
-    FindingProviderFields: Optional[FindingProviderFieldsOutputTypeDef] = None
+    RelatedFindings: Optional[List[RelatedFinding]] = None
+    Note: Optional[Note] = None
+    Vulnerabilities: Optional[List[VulnerabilityOutput]] = None
+    PatchSummary: Optional[PatchSummary] = None
+    Action: Optional[ActionOutput] = None
+    FindingProviderFields: Optional[FindingProviderFieldsOutput] = None
     Sample: Optional[bool] = None
-    GeneratorDetails: Optional[GeneratorDetailsOutputTypeDef] = None
+    GeneratorDetails: Optional[GeneratorDetailsOutput] = None
     ProcessedAt: Optional[str] = None
     AwsAccountName: Optional[str] = None
-    Detection: Optional[DetectionOutputTypeDef] = None
+    Detection: Optional[DetectionOutput] = None
 
 
-class GetFindingsResponseTypeDef(BaseValidatorModel):
-    Findings: List[AwsSecurityFindingOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFindingsResponse(BaseValidatorModel):
+    Findings: List[AwsSecurityFindingOutput]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RuleGroupSourceUnionTypeDef(BaseValidatorModel):
+class RuleGroupSourceUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupVariablesUnionTypeDef(BaseValidatorModel):
+class RuleGroupVariablesUnion(BaseValidatorModel):
     pass
 
 
-class RuleGroupDetailsTypeDef(BaseValidatorModel):
-    RuleVariables: Optional[RuleGroupVariablesUnionTypeDef] = None
-    RulesSource: Optional[RuleGroupSourceUnionTypeDef] = None
+class RuleGroupDetails(BaseValidatorModel):
+    RuleVariables: Optional[RuleGroupVariablesUnion] = None
+    RulesSource: Optional[RuleGroupSourceUnion] = None
 
 
-class DetectionUnionTypeDef(BaseValidatorModel):
+class DetectionUnion(BaseValidatorModel):
     pass
 
 
-class NetworkPathComponentUnionTypeDef(BaseValidatorModel):
+class NetworkPathComponentUnion(BaseValidatorModel):
     pass
 
 
-class ActionUnionTypeDef(BaseValidatorModel):
+class ActionUnion(BaseValidatorModel):
     pass
 
 
-class ThreatUnionTypeDef(BaseValidatorModel):
+class ThreatUnion(BaseValidatorModel):
     pass
 
 
-class GeneratorDetailsUnionTypeDef(BaseValidatorModel):
+class GeneratorDetailsUnion(BaseValidatorModel):
     pass
 
 
-class ResourceUnionTypeDef(BaseValidatorModel):
+class ResourceUnion(BaseValidatorModel):
     pass
 
 
-class ComplianceUnionTypeDef(BaseValidatorModel):
+class ComplianceUnion(BaseValidatorModel):
     pass
 
 
-class FindingProviderFieldsUnionTypeDef(BaseValidatorModel):
+class FindingProviderFieldsUnion(BaseValidatorModel):
     pass
 
 
-class VulnerabilityUnionTypeDef(BaseValidatorModel):
+class VulnerabilityUnion(BaseValidatorModel):
     pass
 
 
-class AwsSecurityFindingTypeDef(BaseValidatorModel):
+class AwsSecurityFinding(BaseValidatorModel):
     SchemaVersion: str
     Id: str
     ProductArn: str
@@ -7968,49 +7968,49 @@ class AwsSecurityFindingTypeDef(BaseValidatorModel):
     UpdatedAt: str
     Title: str
     Description: str
-    Resources: Sequence[ResourceUnionTypeDef]
+    Resources: Sequence[ResourceUnion]
     ProductName: Optional[str] = None
     CompanyName: Optional[str] = None
     Region: Optional[str] = None
     Types: Optional[Sequence[str]] = None
     FirstObservedAt: Optional[str] = None
     LastObservedAt: Optional[str] = None
-    Severity: Optional[SeverityTypeDef] = None
+    Severity: Optional[Severity] = None
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
-    Remediation: Optional[RemediationTypeDef] = None
+    Remediation: Optional[Remediation] = None
     SourceUrl: Optional[str] = None
     ProductFields: Optional[Mapping[str, str]] = None
     UserDefinedFields: Optional[Mapping[str, str]] = None
-    Malware: Optional[Sequence[MalwareTypeDef]] = None
-    Network: Optional[NetworkTypeDef] = None
-    NetworkPath: Optional[Sequence[NetworkPathComponentUnionTypeDef]] = None
-    Process: Optional[ProcessDetailsTypeDef] = None
-    Threats: Optional[Sequence[ThreatUnionTypeDef]] = None
-    ThreatIntelIndicators: Optional[Sequence[ThreatIntelIndicatorTypeDef]] = None
-    Compliance: Optional[ComplianceUnionTypeDef] = None
+    Malware: Optional[Sequence[Malware]] = None
+    Network: Optional[Network] = None
+    NetworkPath: Optional[Sequence[NetworkPathComponentUnion]] = None
+    Process: Optional[ProcessDetails] = None
+    Threats: Optional[Sequence[ThreatUnion]] = None
+    ThreatIntelIndicators: Optional[Sequence[ThreatIntelIndicator]] = None
+    Compliance: Optional[ComplianceUnion] = None
     VerificationState: Optional[VerificationStateType] = None
     WorkflowState: Optional[WorkflowStateType] = None
-    Workflow: Optional[WorkflowTypeDef] = None
+    Workflow: Optional[Workflow] = None
     RecordState: Optional[RecordStateType] = None
-    RelatedFindings: Optional[Sequence[RelatedFindingTypeDef]] = None
-    Note: Optional[NoteTypeDef] = None
-    Vulnerabilities: Optional[Sequence[VulnerabilityUnionTypeDef]] = None
-    PatchSummary: Optional[PatchSummaryTypeDef] = None
-    Action: Optional[ActionUnionTypeDef] = None
-    FindingProviderFields: Optional[FindingProviderFieldsUnionTypeDef] = None
+    RelatedFindings: Optional[Sequence[RelatedFinding]] = None
+    Note: Optional[Note] = None
+    Vulnerabilities: Optional[Sequence[VulnerabilityUnion]] = None
+    PatchSummary: Optional[PatchSummary] = None
+    Action: Optional[ActionUnion] = None
+    FindingProviderFields: Optional[FindingProviderFieldsUnion] = None
     Sample: Optional[bool] = None
-    GeneratorDetails: Optional[GeneratorDetailsUnionTypeDef] = None
+    GeneratorDetails: Optional[GeneratorDetailsUnion] = None
     ProcessedAt: Optional[str] = None
     AwsAccountName: Optional[str] = None
-    Detection: Optional[DetectionUnionTypeDef] = None
+    Detection: Optional[DetectionUnion] = None
 
 
-class AwsSecurityFindingUnionTypeDef(BaseValidatorModel):
+class AwsSecurityFindingUnion(BaseValidatorModel):
     pass
 
 
-class BatchImportFindingsRequestTypeDef(BaseValidatorModel):
-    Findings: Sequence[AwsSecurityFindingUnionTypeDef]
+class BatchImportFindingsRequest(BaseValidatorModel):
+    Findings: Sequence[AwsSecurityFindingUnion]
 
 

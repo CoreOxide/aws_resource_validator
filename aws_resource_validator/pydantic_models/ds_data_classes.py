@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ds_data_constants import *
 
-class AddGroupMemberRequestTypeDef(BaseValidatorModel):
+class AddGroupMemberRequest(BaseValidatorModel):
     DirectoryId: str
     GroupName: str
     MemberName: str
@@ -20,21 +20,21 @@ class AddGroupMemberRequestTypeDef(BaseValidatorModel):
     MemberRealm: Optional[str] = None
 
 
-class AttributeValueOutputTypeDef(BaseValidatorModel):
+class AttributeValueOutput(BaseValidatorModel):
     BOOL: Optional[bool] = None
     N: Optional[int] = None
     S: Optional[str] = None
     SS: Optional[List[str]] = None
 
 
-class AttributeValueTypeDef(BaseValidatorModel):
+class AttributeValue(BaseValidatorModel):
     BOOL: Optional[bool] = None
     N: Optional[int] = None
     S: Optional[str] = None
     SS: Optional[Sequence[str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -42,52 +42,52 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteGroupRequestTypeDef(BaseValidatorModel):
+class DeleteGroupRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     ClientToken: Optional[str] = None
 
 
-class DeleteUserRequestTypeDef(BaseValidatorModel):
+class DeleteUserRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     ClientToken: Optional[str] = None
 
 
-class DescribeGroupRequestTypeDef(BaseValidatorModel):
+class DescribeGroupRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     OtherAttributes: Optional[Sequence[str]] = None
     Realm: Optional[str] = None
 
 
-class DescribeUserRequestTypeDef(BaseValidatorModel):
+class DescribeUserRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     OtherAttributes: Optional[Sequence[str]] = None
     Realm: Optional[str] = None
 
 
-class DisableUserRequestTypeDef(BaseValidatorModel):
+class DisableUserRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     ClientToken: Optional[str] = None
 
 
-class GroupSummaryTypeDef(BaseValidatorModel):
+class GroupSummary(BaseValidatorModel):
     GroupScope: GroupScopeType
     GroupType: GroupTypeType
     SAMAccountName: str
     SID: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListGroupMembersRequestTypeDef(BaseValidatorModel):
+class ListGroupMembersRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     MaxResults: Optional[int] = None
@@ -96,13 +96,13 @@ class ListGroupMembersRequestTypeDef(BaseValidatorModel):
     Realm: Optional[str] = None
 
 
-class MemberTypeDef(BaseValidatorModel):
+class Member(BaseValidatorModel):
     MemberType: MemberTypeType
     SAMAccountName: str
     SID: str
 
 
-class ListGroupsForMemberRequestTypeDef(BaseValidatorModel):
+class ListGroupsForMemberRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     MaxResults: Optional[int] = None
@@ -111,21 +111,21 @@ class ListGroupsForMemberRequestTypeDef(BaseValidatorModel):
     Realm: Optional[str] = None
 
 
-class ListGroupsRequestTypeDef(BaseValidatorModel):
+class ListGroupsRequest(BaseValidatorModel):
     DirectoryId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Realm: Optional[str] = None
 
 
-class ListUsersRequestTypeDef(BaseValidatorModel):
+class ListUsersRequest(BaseValidatorModel):
     DirectoryId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Realm: Optional[str] = None
 
 
-class UserSummaryTypeDef(BaseValidatorModel):
+class UserSummary(BaseValidatorModel):
     Enabled: bool
     SAMAccountName: str
     SID: str
@@ -133,7 +133,7 @@ class UserSummaryTypeDef(BaseValidatorModel):
     Surname: Optional[str] = None
 
 
-class RemoveGroupMemberRequestTypeDef(BaseValidatorModel):
+class RemoveGroupMemberRequest(BaseValidatorModel):
     DirectoryId: str
     GroupName: str
     MemberName: str
@@ -141,7 +141,7 @@ class RemoveGroupMemberRequestTypeDef(BaseValidatorModel):
     MemberRealm: Optional[str] = None
 
 
-class SearchGroupsRequestTypeDef(BaseValidatorModel):
+class SearchGroupsRequest(BaseValidatorModel):
     DirectoryId: str
     SearchAttributes: Sequence[str]
     SearchString: str
@@ -150,7 +150,7 @@ class SearchGroupsRequestTypeDef(BaseValidatorModel):
     Realm: Optional[str] = None
 
 
-class SearchUsersRequestTypeDef(BaseValidatorModel):
+class SearchUsersRequest(BaseValidatorModel):
     DirectoryId: str
     SearchAttributes: Sequence[str]
     SearchString: str
@@ -159,202 +159,202 @@ class SearchUsersRequestTypeDef(BaseValidatorModel):
     Realm: Optional[str] = None
 
 
-class GroupTypeDef(BaseValidatorModel):
+class Group(BaseValidatorModel):
     SAMAccountName: str
     DistinguishedName: Optional[str] = None
     GroupScope: Optional[GroupScopeType] = None
     GroupType: Optional[GroupTypeType] = None
-    OtherAttributes: Optional[Dict[str, AttributeValueOutputTypeDef]] = None
+    OtherAttributes: Optional[Dict[str, AttributeValueOutput]] = None
     SID: Optional[str] = None
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     SAMAccountName: str
     DistinguishedName: Optional[str] = None
     EmailAddress: Optional[str] = None
     Enabled: Optional[bool] = None
     GivenName: Optional[str] = None
-    OtherAttributes: Optional[Dict[str, AttributeValueOutputTypeDef]] = None
+    OtherAttributes: Optional[Dict[str, AttributeValueOutput]] = None
     SID: Optional[str] = None
     Surname: Optional[str] = None
     UserPrincipalName: Optional[str] = None
 
 
-class CreateGroupResultTypeDef(BaseValidatorModel):
+class CreateGroupResult(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     SID: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateUserResultTypeDef(BaseValidatorModel):
+class CreateUserResult(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     SID: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGroupResultTypeDef(BaseValidatorModel):
+class DescribeGroupResult(BaseValidatorModel):
     DirectoryId: str
     DistinguishedName: str
     GroupScope: GroupScopeType
     GroupType: GroupTypeType
-    OtherAttributes: Dict[str, AttributeValueOutputTypeDef]
+    OtherAttributes: Dict[str, AttributeValueOutput]
     Realm: str
     SAMAccountName: str
     SID: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeUserResultTypeDef(BaseValidatorModel):
+class DescribeUserResult(BaseValidatorModel):
     DirectoryId: str
     DistinguishedName: str
     EmailAddress: str
     Enabled: bool
     GivenName: str
-    OtherAttributes: Dict[str, AttributeValueOutputTypeDef]
+    OtherAttributes: Dict[str, AttributeValueOutput]
     Realm: str
     SAMAccountName: str
     SID: str
     Surname: str
     UserPrincipalName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGroupsForMemberResultTypeDef(BaseValidatorModel):
+class ListGroupsForMemberResult(BaseValidatorModel):
     DirectoryId: str
-    Groups: List[GroupSummaryTypeDef]
+    Groups: List[GroupSummary]
     MemberRealm: str
     Realm: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGroupsResultTypeDef(BaseValidatorModel):
+class ListGroupsResult(BaseValidatorModel):
     DirectoryId: str
-    Groups: List[GroupSummaryTypeDef]
+    Groups: List[GroupSummary]
     Realm: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGroupMembersRequestPaginateTypeDef(BaseValidatorModel):
+class ListGroupMembersRequestPaginate(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     MemberRealm: Optional[str] = None
     Realm: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupsForMemberRequestPaginateTypeDef(BaseValidatorModel):
+class ListGroupsForMemberRequestPaginate(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     MemberRealm: Optional[str] = None
     Realm: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListGroupsRequestPaginate(BaseValidatorModel):
     DirectoryId: str
     Realm: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListUsersRequestPaginateTypeDef(BaseValidatorModel):
+class ListUsersRequestPaginate(BaseValidatorModel):
     DirectoryId: str
     Realm: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchGroupsRequestPaginateTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SearchAttributes: Sequence[str]
-    SearchString: str
-    Realm: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-
-class SearchUsersRequestPaginateTypeDef(BaseValidatorModel):
+class SearchGroupsRequestPaginate(BaseValidatorModel):
     DirectoryId: str
     SearchAttributes: Sequence[str]
     SearchString: str
     Realm: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupMembersResultTypeDef(BaseValidatorModel):
+class SearchUsersRequestPaginate(BaseValidatorModel):
+    DirectoryId: str
+    SearchAttributes: Sequence[str]
+    SearchString: str
+    Realm: Optional[str] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
+
+
+class ListGroupMembersResult(BaseValidatorModel):
     DirectoryId: str
     MemberRealm: str
-    Members: List[MemberTypeDef]
+    Members: List[Member]
     Realm: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListUsersResultTypeDef(BaseValidatorModel):
+class ListUsersResult(BaseValidatorModel):
     DirectoryId: str
     Realm: str
-    Users: List[UserSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Users: List[UserSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchGroupsResultTypeDef(BaseValidatorModel):
+class SearchGroupsResult(BaseValidatorModel):
     DirectoryId: str
-    Groups: List[GroupTypeDef]
+    Groups: List[Group]
     Realm: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchUsersResultTypeDef(BaseValidatorModel):
+class SearchUsersResult(BaseValidatorModel):
     DirectoryId: str
     Realm: str
-    Users: List[UserTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Users: List[User]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AttributeValueUnionTypeDef(BaseValidatorModel):
+class AttributeValueUnion(BaseValidatorModel):
     pass
 
 
-class CreateGroupRequestTypeDef(BaseValidatorModel):
+class CreateGroupRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     ClientToken: Optional[str] = None
     GroupScope: Optional[GroupScopeType] = None
     GroupType: Optional[GroupTypeType] = None
-    OtherAttributes: Optional[Mapping[str, AttributeValueUnionTypeDef]] = None
+    OtherAttributes: Optional[Mapping[str, AttributeValueUnion]] = None
 
 
-class CreateUserRequestTypeDef(BaseValidatorModel):
+class CreateUserRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     ClientToken: Optional[str] = None
     EmailAddress: Optional[str] = None
     GivenName: Optional[str] = None
-    OtherAttributes: Optional[Mapping[str, AttributeValueUnionTypeDef]] = None
+    OtherAttributes: Optional[Mapping[str, AttributeValueUnion]] = None
     Surname: Optional[str] = None
 
 
-class UpdateGroupRequestTypeDef(BaseValidatorModel):
+class UpdateGroupRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     ClientToken: Optional[str] = None
     GroupScope: Optional[GroupScopeType] = None
     GroupType: Optional[GroupTypeType] = None
-    OtherAttributes: Optional[Mapping[str, AttributeValueUnionTypeDef]] = None
+    OtherAttributes: Optional[Mapping[str, AttributeValueUnion]] = None
     UpdateType: Optional[UpdateTypeType] = None
 
 
-class UpdateUserRequestTypeDef(BaseValidatorModel):
+class UpdateUserRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
     ClientToken: Optional[str] = None
     EmailAddress: Optional[str] = None
     GivenName: Optional[str] = None
-    OtherAttributes: Optional[Mapping[str, AttributeValueUnionTypeDef]] = None
+    OtherAttributes: Optional[Mapping[str, AttributeValueUnion]] = None
     Surname: Optional[str] = None
     UpdateType: Optional[UpdateTypeType] = None
 

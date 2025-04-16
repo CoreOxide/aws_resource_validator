@@ -1,6 +1,6 @@
 # Appintegrations Classes
 
-# ApplicationAssociationSummaryTypeDef
+# ApplicationAssociationSummary
 
 ### ApplicationAssociationArn
 - **Type**: typing.Optional[str]
@@ -12,25 +12,25 @@
 - **Type**: typing.Optional[str]
 
 
-# ApplicationSourceConfigOutputTypeDef
+# ApplicationSourceConfig
 
 ### ExternalUrlConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ExternalUrlConfigOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ApplicationSourceConfigTypeDef
+# ApplicationSourceConfigOutput
 
 ### ExternalUrlConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ExternalUrlConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ExternalUrlConfigOutput]
 
 
-# ApplicationSourceConfigUnionTypeDef
+# ApplicationSourceConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ApplicationSummaryTypeDef
+# ApplicationSummary
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -57,7 +57,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateApplicationRequestTypeDef
+# CreateApplicationRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -68,17 +68,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ApplicationSourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationSourceConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationSourceConfigUnion'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Subscriptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appintegrations_classes.SubscriptionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appintegrations_classes.Subscription]]
 
 ### Publications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appintegrations_classes.PublicationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appintegrations_classes.Publication]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -90,7 +90,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CreateApplicationResponseTypeDef
+# CreateApplicationResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -101,11 +101,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDataIntegrationAssociationRequestTypeDef
+# CreateDataIntegrationAssociationRequest
 
 ### DataIntegrationIdentifier
 - **Type**: <class 'str'>
@@ -127,10 +127,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExecutionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ExecutionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateDataIntegrationAssociationResponseTypeDef
+# CreateDataIntegrationAssociationResponse
 
 ### DataIntegrationAssociationId
 - **Type**: <class 'str'>
@@ -141,11 +141,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDataIntegrationRequestTypeDef
+# CreateDataIntegrationRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -162,7 +162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ScheduleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ScheduleConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ScheduleConfiguration]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -171,13 +171,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FileConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.FileConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.FileConfigurationUnion]
 
 ### ObjectConfiguration
 - **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, typing.Sequence[str]]]]
 
 
-# CreateDataIntegrationResponseTypeDef
+# CreateDataIntegrationResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -204,7 +204,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ScheduleConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ScheduleConfiguration'>
 - **Required**: Yes
 
 ### Tags
@@ -216,7 +216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FileConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.FileConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.FileConfigurationOutput'>
 - **Required**: Yes
 
 ### ObjectConfiguration
@@ -224,18 +224,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEventIntegrationRequestTypeDef
+# CreateEventIntegrationRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EventFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.EventFilterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.EventFilter'>
 - **Required**: Yes
 
 ### EventBridgeBus
@@ -252,18 +252,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateEventIntegrationResponseTypeDef
+# CreateEventIntegrationResponse
 
 ### EventIntegrationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataIntegrationAssociationSummaryTypeDef
+# DataIntegrationAssociationSummary
 
 ### DataIntegrationAssociationArn
 - **Type**: typing.Optional[str]
@@ -278,13 +278,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LastExecutionStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.LastExecutionStatusTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ExecutionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ExecutionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DataIntegrationSummaryTypeDef
+# DataIntegrationSummary
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -296,35 +296,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteApplicationRequestTypeDef
+# DeleteApplicationRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDataIntegrationRequestTypeDef
+# DeleteDataIntegrationRequest
 
 ### DataIntegrationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventIntegrationRequestTypeDef
+# DeleteEventIntegrationRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EventFilterTypeDef
+# EventFilter
 
 ### Source
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EventIntegrationAssociationTypeDef
+# EventIntegration
+
+### EventIntegrationArn
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### EventFilter
+- **Type**: <class 'NoneType'>
+
+### EventBridgeBus
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# EventIntegrationAssociation
 
 ### EventIntegrationAssociationArn
 - **Type**: typing.Optional[str]
@@ -345,51 +366,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# EventIntegrationTypeDef
-
-### EventIntegrationArn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### EventFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.EventFilterTypeDef]
-
-### EventBridgeBus
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# ExecutionConfigurationTypeDef
+# ExecutionConfiguration
 
 ### ExecutionMode
 - **Type**: typing.Literal['ON_DEMAND', 'SCHEDULED']
 - **Required**: Yes
 
 ### OnDemandConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.OnDemandConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ScheduleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ScheduleConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ExternalUrlConfigOutputTypeDef
-
-### AccessUrl
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ApprovedOrigins
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# ExternalUrlConfigTypeDef
+# ExternalUrlConfig
 
 ### AccessUrl
 - **Type**: <class 'str'>
@@ -399,17 +389,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# FileConfigurationOutputTypeDef
+# ExternalUrlConfigOutput
 
-### Folders
-- **Type**: typing.List[str]
+### AccessUrl
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### Filters
-- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
+### ApprovedOrigins
+- **Type**: typing.Optional[typing.List[str]]
 
 
-# FileConfigurationTypeDef
+# FileConfiguration
 
 ### Folders
 - **Type**: typing.Sequence[str]
@@ -419,20 +409,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
 
 
-# FileConfigurationUnionTypeDef
+# FileConfigurationOutput
+
+### Folders
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
+
+
+# FileConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetApplicationRequestTypeDef
+# GetApplicationRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApplicationResponseTypeDef
+# GetApplicationResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -455,15 +455,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ApplicationSourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationSourceConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationSourceConfigOutput'>
 - **Required**: Yes
 
 ### Subscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.SubscriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.Subscription]
 - **Required**: Yes
 
 ### Publications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.PublicationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.Publication]
 - **Required**: Yes
 
 ### CreatedTime
@@ -483,18 +483,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDataIntegrationRequestTypeDef
+# GetDataIntegrationRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDataIntegrationResponseTypeDef
+# GetDataIntegrationResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -521,7 +521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ScheduleConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ScheduleConfiguration'>
 - **Required**: Yes
 
 ### Tags
@@ -529,7 +529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FileConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.FileConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.FileConfigurationOutput'>
 - **Required**: Yes
 
 ### ObjectConfiguration
@@ -537,18 +537,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEventIntegrationRequestTypeDef
+# GetEventIntegrationRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEventIntegrationResponseTypeDef
+# GetEventIntegrationResponse
 
 ### Name
 - **Type**: <class 'str'>
@@ -567,7 +567,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.EventFilterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.EventFilter'>
 - **Required**: Yes
 
 ### Tags
@@ -575,11 +575,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LastExecutionStatusTypeDef
+# LastExecutionStatus
 
 ### ExecutionStatus
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS']]
@@ -588,17 +588,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationAssociationsRequestPaginateTypeDef
-
-### ApplicationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfigTypeDef]
-
-
-# ListApplicationAssociationsRequestTypeDef
+# ListApplicationAssociationsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -611,27 +601,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListApplicationAssociationsResponseTypeDef
+# ListApplicationAssociationsRequestPaginate
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfig]
+
+
+# ListApplicationAssociationsResponse
 
 ### ApplicationAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationAssociationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfigTypeDef]
-
-
-# ListApplicationsRequestTypeDef
+# ListApplicationsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -640,31 +634,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListApplicationsResponseTypeDef
+# ListApplicationsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfig]
+
+
+# ListApplicationsResponse
 
 ### Applications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDataIntegrationAssociationsRequestPaginateTypeDef
-
-### DataIntegrationIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfigTypeDef]
-
-
-# ListDataIntegrationAssociationsRequestTypeDef
+# ListDataIntegrationAssociationsRequest
 
 ### DataIntegrationIdentifier
 - **Type**: <class 'str'>
@@ -677,27 +667,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDataIntegrationAssociationsResponseTypeDef
+# ListDataIntegrationAssociationsRequestPaginate
+
+### DataIntegrationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfig]
+
+
+# ListDataIntegrationAssociationsResponse
 
 ### DataIntegrationAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.DataIntegrationAssociationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.DataIntegrationAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDataIntegrationsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfigTypeDef]
-
-
-# ListDataIntegrationsRequestTypeDef
+# ListDataIntegrationsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -706,31 +700,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDataIntegrationsResponseTypeDef
+# ListDataIntegrationsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfig]
+
+
+# ListDataIntegrationsResponse
 
 ### DataIntegrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.DataIntegrationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.DataIntegrationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEventIntegrationAssociationsRequestPaginateTypeDef
-
-### EventIntegrationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfigTypeDef]
-
-
-# ListEventIntegrationAssociationsRequestTypeDef
+# ListEventIntegrationAssociationsRequest
 
 ### EventIntegrationName
 - **Type**: <class 'str'>
@@ -743,27 +733,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEventIntegrationAssociationsResponseTypeDef
+# ListEventIntegrationAssociationsRequestPaginate
+
+### EventIntegrationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfig]
+
+
+# ListEventIntegrationAssociationsResponse
 
 ### EventIntegrationAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.EventIntegrationAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.EventIntegrationAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEventIntegrationsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfigTypeDef]
-
-
-# ListEventIntegrationsRequestTypeDef
+# ListEventIntegrationsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -772,39 +766,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEventIntegrationsResponseTypeDef
+# ListEventIntegrationsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.PaginatorConfig]
+
+
+# ListEventIntegrationsResponse
 
 ### EventIntegrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.EventIntegrationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appintegrations_classes.EventIntegration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# OnDemandConfigurationTypeDef
+# OnDemandConfiguration
 
 ### StartTime
 - **Type**: <class 'str'>
@@ -814,7 +814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -826,7 +826,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublicationTypeDef
+# Publication
 
 ### Event
 - **Type**: <class 'str'>
@@ -840,7 +840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -862,7 +862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScheduleConfigurationTypeDef
+# ScheduleConfiguration
 
 ### ScheduleExpression
 - **Type**: <class 'str'>
@@ -875,7 +875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SubscriptionTypeDef
+# Subscription
 
 ### Event
 - **Type**: <class 'str'>
@@ -885,7 +885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -896,7 +896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -907,7 +907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestTypeDef
+# UpdateApplicationRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -920,19 +920,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ApplicationSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationSourceConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appintegrations_classes.ApplicationSourceConfigUnion]
 
 ### Subscriptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appintegrations_classes.SubscriptionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appintegrations_classes.Subscription]]
 
 ### Publications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appintegrations_classes.PublicationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appintegrations_classes.Publication]]
 
 ### Permissions
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateDataIntegrationAssociationRequestTypeDef
+# UpdateDataIntegrationAssociationRequest
 
 ### DataIntegrationIdentifier
 - **Type**: <class 'str'>
@@ -943,11 +943,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExecutionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ExecutionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appintegrations_classes.ExecutionConfiguration'>
 - **Required**: Yes
 
 
-# UpdateDataIntegrationRequestTypeDef
+# UpdateDataIntegrationRequest
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -960,7 +960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateEventIntegrationRequestTypeDef
+# UpdateEventIntegrationRequest
 
 ### Name
 - **Type**: <class 'str'>

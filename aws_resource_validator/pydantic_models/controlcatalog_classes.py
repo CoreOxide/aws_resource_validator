@@ -12,35 +12,35 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.controlcatalog_constants import *
 
-class AssociatedDomainSummaryTypeDef(BaseValidatorModel):
+class AssociatedDomainSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
 
-class AssociatedObjectiveSummaryTypeDef(BaseValidatorModel):
+class AssociatedObjectiveSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
 
-class ObjectiveResourceFilterTypeDef(BaseValidatorModel):
+class ObjectiveResourceFilter(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class ControlParameterTypeDef(BaseValidatorModel):
+class ControlParameter(BaseValidatorModel):
     Name: str
 
 
-class ControlSummaryTypeDef(BaseValidatorModel):
+class ControlSummary(BaseValidatorModel):
     Arn: str
     Name: str
     Description: str
 
 
-class DomainResourceFilterTypeDef(BaseValidatorModel):
+class DomainResourceFilter(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class DomainSummaryTypeDef(BaseValidatorModel):
+class DomainSummary(BaseValidatorModel):
     Arn: str
     Name: str
     Description: str
@@ -48,16 +48,16 @@ class DomainSummaryTypeDef(BaseValidatorModel):
     LastUpdateTime: datetime
 
 
-class GetControlRequestTypeDef(BaseValidatorModel):
+class GetControlRequest(BaseValidatorModel):
     ControlArn: str
 
 
-class RegionConfigurationTypeDef(BaseValidatorModel):
+class RegionConfiguration(BaseValidatorModel):
     Scope: ControlScopeType
     DeployableRegions: Optional[List[str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -65,115 +65,115 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListControlsRequestTypeDef(BaseValidatorModel):
+class ListControlsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDomainsRequestTypeDef(BaseValidatorModel):
+class ListDomainsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ObjectiveSummaryTypeDef(BaseValidatorModel):
+class ObjectiveSummary(BaseValidatorModel):
     Arn: str
     Name: str
     Description: str
-    Domain: AssociatedDomainSummaryTypeDef
+    Domain: AssociatedDomainSummary
     CreateTime: datetime
     LastUpdateTime: datetime
 
 
-class CommonControlSummaryTypeDef(BaseValidatorModel):
+class CommonControlSummary(BaseValidatorModel):
     Arn: str
     Name: str
     Description: str
-    Domain: AssociatedDomainSummaryTypeDef
-    Objective: AssociatedObjectiveSummaryTypeDef
+    Domain: AssociatedDomainSummary
+    Objective: AssociatedObjectiveSummary
     CreateTime: datetime
     LastUpdateTime: datetime
 
 
-class CommonControlFilterTypeDef(BaseValidatorModel):
-    Objectives: Optional[Sequence[ObjectiveResourceFilterTypeDef]] = None
+class CommonControlFilter(BaseValidatorModel):
+    Objectives: Optional[Sequence[ObjectiveResourceFilter]] = None
 
 
-class ObjectiveFilterTypeDef(BaseValidatorModel):
-    Domains: Optional[Sequence[DomainResourceFilterTypeDef]] = None
+class ObjectiveFilter(BaseValidatorModel):
+    Domains: Optional[Sequence[DomainResourceFilter]] = None
 
 
-class ImplementationDetailsTypeDef(BaseValidatorModel):
+class ImplementationDetails(BaseValidatorModel):
     pass
 
 
-class GetControlResponseTypeDef(BaseValidatorModel):
+class GetControlResponse(BaseValidatorModel):
     Arn: str
     Name: str
     Description: str
     Behavior: ControlBehaviorType
-    RegionConfiguration: RegionConfigurationTypeDef
-    Implementation: ImplementationDetailsTypeDef
-    Parameters: List[ControlParameterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    RegionConfiguration: RegionConfiguration
+    Implementation: ImplementationDetails
+    Parameters: List[ControlParameter]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListControlsResponseTypeDef(BaseValidatorModel):
-    Controls: List[ControlSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListControlsResponse(BaseValidatorModel):
+    Controls: List[ControlSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDomainsResponseTypeDef(BaseValidatorModel):
-    Domains: List[DomainSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainsResponse(BaseValidatorModel):
+    Domains: List[DomainSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListControlsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListControlsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDomainsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDomainsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListObjectivesResponseTypeDef(BaseValidatorModel):
-    Objectives: List[ObjectiveSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListObjectivesResponse(BaseValidatorModel):
+    Objectives: List[ObjectiveSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCommonControlsResponseTypeDef(BaseValidatorModel):
-    CommonControls: List[CommonControlSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCommonControlsResponse(BaseValidatorModel):
+    CommonControls: List[CommonControlSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCommonControlsRequestPaginateTypeDef(BaseValidatorModel):
-    CommonControlFilter: Optional[CommonControlFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCommonControlsRequestPaginate(BaseValidatorModel):
+    CommonControlFilter: Optional[CommonControlFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCommonControlsRequestTypeDef(BaseValidatorModel):
+class ListCommonControlsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    CommonControlFilter: Optional[CommonControlFilterTypeDef] = None
+    CommonControlFilter: Optional[CommonControlFilter] = None
 
 
-class ListObjectivesRequestPaginateTypeDef(BaseValidatorModel):
-    ObjectiveFilter: Optional[ObjectiveFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListObjectivesRequestPaginate(BaseValidatorModel):
+    ObjectiveFilter: Optional[ObjectiveFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListObjectivesRequestTypeDef(BaseValidatorModel):
+class ListObjectivesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    ObjectiveFilter: Optional[ObjectiveFilterTypeDef] = None
+    ObjectiveFilter: Optional[ObjectiveFilter] = None
 
 

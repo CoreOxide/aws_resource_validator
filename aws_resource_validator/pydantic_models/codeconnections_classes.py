@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codeconnections_constants import *
 
-class ConnectionTypeDef(BaseValidatorModel):
+class Connection(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     ConnectionArn: Optional[str] = None
     ProviderType: Optional[ProviderTypeType] = None
@@ -21,12 +21,12 @@ class ConnectionTypeDef(BaseValidatorModel):
     HostArn: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -34,7 +34,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class RepositoryLinkInfoTypeDef(BaseValidatorModel):
+class RepositoryLinkInfo(BaseValidatorModel):
     ConnectionArn: str
     OwnerId: str
     ProviderType: ProviderTypeType
@@ -44,7 +44,7 @@ class RepositoryLinkInfoTypeDef(BaseValidatorModel):
     EncryptionKeyArn: Optional[str] = None
 
 
-class CreateSyncConfigurationInputTypeDef(BaseValidatorModel):
+class CreateSyncConfigurationInput(BaseValidatorModel):
     Branch: str
     ConfigFile: str
     RepositoryLinkId: str
@@ -56,7 +56,7 @@ class CreateSyncConfigurationInputTypeDef(BaseValidatorModel):
     PullRequestComment: Optional[PullRequestCommentType] = None
 
 
-class SyncConfigurationTypeDef(BaseValidatorModel):
+class SyncConfiguration(BaseValidatorModel):
     Branch: str
     OwnerId: str
     ProviderType: ProviderTypeType
@@ -71,54 +71,54 @@ class SyncConfigurationTypeDef(BaseValidatorModel):
     PullRequestComment: Optional[PullRequestCommentType] = None
 
 
-class DeleteConnectionInputTypeDef(BaseValidatorModel):
+class DeleteConnectionInput(BaseValidatorModel):
     ConnectionArn: str
 
 
-class DeleteHostInputTypeDef(BaseValidatorModel):
+class DeleteHostInput(BaseValidatorModel):
     HostArn: str
 
 
-class DeleteRepositoryLinkInputTypeDef(BaseValidatorModel):
+class DeleteRepositoryLinkInput(BaseValidatorModel):
     RepositoryLinkId: str
 
 
-class DeleteSyncConfigurationInputTypeDef(BaseValidatorModel):
+class DeleteSyncConfigurationInput(BaseValidatorModel):
     SyncType: Literal["CFN_STACK_SYNC"]
     ResourceName: str
 
 
-class GetConnectionInputTypeDef(BaseValidatorModel):
+class GetConnectionInput(BaseValidatorModel):
     ConnectionArn: str
 
 
-class GetHostInputTypeDef(BaseValidatorModel):
+class GetHostInput(BaseValidatorModel):
     HostArn: str
 
 
-class VpcConfigurationOutputTypeDef(BaseValidatorModel):
+class VpcConfigurationOutput(BaseValidatorModel):
     VpcId: str
     SubnetIds: List[str]
     SecurityGroupIds: List[str]
     TlsCertificate: Optional[str] = None
 
 
-class GetRepositoryLinkInputTypeDef(BaseValidatorModel):
+class GetRepositoryLinkInput(BaseValidatorModel):
     RepositoryLinkId: str
 
 
-class GetRepositorySyncStatusInputTypeDef(BaseValidatorModel):
+class GetRepositorySyncStatusInput(BaseValidatorModel):
     Branch: str
     RepositoryLinkId: str
     SyncType: Literal["CFN_STACK_SYNC"]
 
 
-class GetResourceSyncStatusInputTypeDef(BaseValidatorModel):
+class GetResourceSyncStatusInput(BaseValidatorModel):
     ResourceName: str
     SyncType: Literal["CFN_STACK_SYNC"]
 
 
-class RevisionTypeDef(BaseValidatorModel):
+class Revision(BaseValidatorModel):
     Branch: str
     Directory: str
     OwnerId: str
@@ -127,80 +127,80 @@ class RevisionTypeDef(BaseValidatorModel):
     Sha: str
 
 
-class GetSyncBlockerSummaryInputTypeDef(BaseValidatorModel):
+class GetSyncBlockerSummaryInput(BaseValidatorModel):
     SyncType: Literal["CFN_STACK_SYNC"]
     ResourceName: str
 
 
-class GetSyncConfigurationInputTypeDef(BaseValidatorModel):
+class GetSyncConfigurationInput(BaseValidatorModel):
     SyncType: Literal["CFN_STACK_SYNC"]
     ResourceName: str
 
 
-class ListConnectionsInputTypeDef(BaseValidatorModel):
+class ListConnectionsInput(BaseValidatorModel):
     ProviderTypeFilter: Optional[ProviderTypeType] = None
     HostArnFilter: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListHostsInputTypeDef(BaseValidatorModel):
+class ListHostsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListRepositoryLinksInputTypeDef(BaseValidatorModel):
+class ListRepositoryLinksInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListRepositorySyncDefinitionsInputTypeDef(BaseValidatorModel):
+class ListRepositorySyncDefinitionsInput(BaseValidatorModel):
     RepositoryLinkId: str
     SyncType: Literal["CFN_STACK_SYNC"]
 
 
-class RepositorySyncDefinitionTypeDef(BaseValidatorModel):
+class RepositorySyncDefinition(BaseValidatorModel):
     Branch: str
     Directory: str
     Parent: str
     Target: str
 
 
-class ListSyncConfigurationsInputTypeDef(BaseValidatorModel):
+class ListSyncConfigurationsInput(BaseValidatorModel):
     RepositoryLinkId: str
     SyncType: Literal["CFN_STACK_SYNC"]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
 
-class SyncBlockerContextTypeDef(BaseValidatorModel):
+class SyncBlockerContext(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateRepositoryLinkInputTypeDef(BaseValidatorModel):
+class UpdateRepositoryLinkInput(BaseValidatorModel):
     RepositoryLinkId: str
     ConnectionArn: Optional[str] = None
     EncryptionKeyArn: Optional[str] = None
 
 
-class UpdateSyncBlockerInputTypeDef(BaseValidatorModel):
+class UpdateSyncBlockerInput(BaseValidatorModel):
     Id: str
     SyncType: Literal["CFN_STACK_SYNC"]
     ResourceName: str
     ResolvedReason: str
 
 
-class UpdateSyncConfigurationInputTypeDef(BaseValidatorModel):
+class UpdateSyncConfigurationInput(BaseValidatorModel):
     ResourceName: str
     SyncType: Literal["CFN_STACK_SYNC"]
     Branch: Optional[str] = None
@@ -212,206 +212,206 @@ class UpdateSyncConfigurationInputTypeDef(BaseValidatorModel):
     PullRequestComment: Optional[PullRequestCommentType] = None
 
 
-class VpcConfigurationTypeDef(BaseValidatorModel):
+class VpcConfiguration(BaseValidatorModel):
     VpcId: str
     SubnetIds: Sequence[str]
     SecurityGroupIds: Sequence[str]
     TlsCertificate: Optional[str] = None
 
 
-class CreateConnectionInputTypeDef(BaseValidatorModel):
+class CreateConnectionInput(BaseValidatorModel):
     ConnectionName: str
     ProviderType: Optional[ProviderTypeType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     HostArn: Optional[str] = None
 
 
-class CreateRepositoryLinkInputTypeDef(BaseValidatorModel):
+class CreateRepositoryLinkInput(BaseValidatorModel):
     ConnectionArn: str
     OwnerId: str
     RepositoryName: str
     EncryptionKeyArn: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateConnectionOutputTypeDef(BaseValidatorModel):
+class CreateConnectionOutput(BaseValidatorModel):
     ConnectionArn: str
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateHostOutputTypeDef(BaseValidatorModel):
+class CreateHostOutput(BaseValidatorModel):
     HostArn: str
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConnectionOutputTypeDef(BaseValidatorModel):
-    Connection: ConnectionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConnectionOutput(BaseValidatorModel):
+    Connection: Connection
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConnectionsOutputTypeDef(BaseValidatorModel):
-    Connections: List[ConnectionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConnectionsOutput(BaseValidatorModel):
+    Connections: List[Connection]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceOutput(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRepositoryLinkOutputTypeDef(BaseValidatorModel):
-    RepositoryLinkInfo: RepositoryLinkInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateRepositoryLinkOutput(BaseValidatorModel):
+    RepositoryLinkInfo: RepositoryLinkInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRepositoryLinkOutputTypeDef(BaseValidatorModel):
-    RepositoryLinkInfo: RepositoryLinkInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRepositoryLinkOutput(BaseValidatorModel):
+    RepositoryLinkInfo: RepositoryLinkInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRepositoryLinksOutputTypeDef(BaseValidatorModel):
-    RepositoryLinks: List[RepositoryLinkInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRepositoryLinksOutput(BaseValidatorModel):
+    RepositoryLinks: List[RepositoryLinkInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateRepositoryLinkOutputTypeDef(BaseValidatorModel):
-    RepositoryLinkInfo: RepositoryLinkInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateRepositoryLinkOutput(BaseValidatorModel):
+    RepositoryLinkInfo: RepositoryLinkInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSyncConfigurationOutputTypeDef(BaseValidatorModel):
-    SyncConfiguration: SyncConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSyncConfigurationOutput(BaseValidatorModel):
+    SyncConfiguration: SyncConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSyncConfigurationOutputTypeDef(BaseValidatorModel):
-    SyncConfiguration: SyncConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSyncConfigurationOutput(BaseValidatorModel):
+    SyncConfiguration: SyncConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSyncConfigurationsOutputTypeDef(BaseValidatorModel):
-    SyncConfigurations: List[SyncConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSyncConfigurationsOutput(BaseValidatorModel):
+    SyncConfigurations: List[SyncConfiguration]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateSyncConfigurationOutputTypeDef(BaseValidatorModel):
-    SyncConfiguration: SyncConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSyncConfigurationOutput(BaseValidatorModel):
+    SyncConfiguration: SyncConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetHostOutputTypeDef(BaseValidatorModel):
+class GetHostOutput(BaseValidatorModel):
     Name: str
     Status: str
     ProviderType: ProviderTypeType
     ProviderEndpoint: str
-    VpcConfiguration: VpcConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    VpcConfiguration: VpcConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class HostTypeDef(BaseValidatorModel):
+class Host(BaseValidatorModel):
     Name: Optional[str] = None
     HostArn: Optional[str] = None
     ProviderType: Optional[ProviderTypeType] = None
     ProviderEndpoint: Optional[str] = None
-    VpcConfiguration: Optional[VpcConfigurationOutputTypeDef] = None
+    VpcConfiguration: Optional[VpcConfigurationOutput] = None
     Status: Optional[str] = None
     StatusMessage: Optional[str] = None
 
 
-class ListRepositorySyncDefinitionsOutputTypeDef(BaseValidatorModel):
-    RepositorySyncDefinitions: List[RepositorySyncDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRepositorySyncDefinitionsOutput(BaseValidatorModel):
+    RepositorySyncDefinitions: List[RepositorySyncDefinition]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RepositorySyncEventTypeDef(BaseValidatorModel):
+class RepositorySyncEvent(BaseValidatorModel):
     pass
 
 
-class RepositorySyncAttemptTypeDef(BaseValidatorModel):
+class RepositorySyncAttempt(BaseValidatorModel):
     StartedAt: datetime
     Status: RepositorySyncStatusType
-    Events: List[RepositorySyncEventTypeDef]
+    Events: List[RepositorySyncEvent]
 
 
-class ResourceSyncEventTypeDef(BaseValidatorModel):
+class ResourceSyncEvent(BaseValidatorModel):
     pass
 
 
-class ResourceSyncAttemptTypeDef(BaseValidatorModel):
-    Events: List[ResourceSyncEventTypeDef]
-    InitialRevision: RevisionTypeDef
+class ResourceSyncAttempt(BaseValidatorModel):
+    Events: List[ResourceSyncEvent]
+    InitialRevision: Revision
     StartedAt: datetime
     Status: ResourceSyncStatusType
-    TargetRevision: RevisionTypeDef
+    TargetRevision: Revision
     Target: str
 
 
-class ListHostsOutputTypeDef(BaseValidatorModel):
-    Hosts: List[HostTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListHostsOutput(BaseValidatorModel):
+    Hosts: List[Host]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetRepositorySyncStatusOutputTypeDef(BaseValidatorModel):
-    LatestSync: RepositorySyncAttemptTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRepositorySyncStatusOutput(BaseValidatorModel):
+    LatestSync: RepositorySyncAttempt
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourceSyncStatusOutputTypeDef(BaseValidatorModel):
-    DesiredState: RevisionTypeDef
-    LatestSuccessfulSync: ResourceSyncAttemptTypeDef
-    LatestSync: ResourceSyncAttemptTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResourceSyncStatusOutput(BaseValidatorModel):
+    DesiredState: Revision
+    LatestSuccessfulSync: ResourceSyncAttempt
+    LatestSync: ResourceSyncAttempt
+    ResponseMetadata: ResponseMetadata
 
 
-class SyncBlockerTypeDef(BaseValidatorModel):
+class SyncBlocker(BaseValidatorModel):
     pass
 
 
-class SyncBlockerSummaryTypeDef(BaseValidatorModel):
+class SyncBlockerSummary(BaseValidatorModel):
     ResourceName: str
     ParentResourceName: Optional[str] = None
-    LatestBlockers: Optional[List[SyncBlockerTypeDef]] = None
+    LatestBlockers: Optional[List[SyncBlocker]] = None
 
 
-class UpdateSyncBlockerOutputTypeDef(BaseValidatorModel):
+class UpdateSyncBlockerOutput(BaseValidatorModel):
     ResourceName: str
     ParentResourceName: str
-    SyncBlocker: SyncBlockerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    SyncBlocker: SyncBlocker
+    ResponseMetadata: ResponseMetadata
 
 
-class VpcConfigurationUnionTypeDef(BaseValidatorModel):
+class VpcConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateHostInputTypeDef(BaseValidatorModel):
+class CreateHostInput(BaseValidatorModel):
     Name: str
     ProviderType: ProviderTypeType
     ProviderEndpoint: str
-    VpcConfiguration: Optional[VpcConfigurationUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    VpcConfiguration: Optional[VpcConfigurationUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateHostInputTypeDef(BaseValidatorModel):
+class UpdateHostInput(BaseValidatorModel):
     HostArn: str
     ProviderEndpoint: Optional[str] = None
-    VpcConfiguration: Optional[VpcConfigurationUnionTypeDef] = None
+    VpcConfiguration: Optional[VpcConfigurationUnion] = None
 
 
-class GetSyncBlockerSummaryOutputTypeDef(BaseValidatorModel):
-    SyncBlockerSummary: SyncBlockerSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSyncBlockerSummaryOutput(BaseValidatorModel):
+    SyncBlockerSummary: SyncBlockerSummary
+    ResponseMetadata: ResponseMetadata
 
 

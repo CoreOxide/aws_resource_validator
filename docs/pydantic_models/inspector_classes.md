@@ -1,28 +1,28 @@
 # Inspector Classes
 
-# AddAttributesToFindingsRequestTypeDef
+# AddAttributesToFindingsRequest
 
 ### findingArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.AttributeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.Attribute]
 - **Required**: Yes
 
 
-# AddAttributesToFindingsResponseTypeDef
+# AddAttributesToFindingsResponse
 
 ### failedItems
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetailsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AgentFilterTypeDef
+# AgentFilter
 
 ### agentHealths
 - **Type**: typing.Sequence[typing.Literal['HEALTHY', 'UNHEALTHY', 'UNKNOWN']]
@@ -33,7 +33,7 @@
 - **Required**: Yes
 
 
-# AgentPreviewTypeDef
+# AgentPreview
 
 ### agentId
 - **Type**: <class 'str'>
@@ -61,7 +61,68 @@
 - **Type**: typing.Optional[str]
 
 
-# AssessmentRunAgentTypeDef
+# AssessmentRun
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assessmentTemplateArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### state
+- **Type**: typing.Literal['CANCELED', 'COLLECTING_DATA', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'CREATED', 'DATA_COLLECTED', 'ERROR', 'EVALUATING_RULES', 'FAILED', 'START_DATA_COLLECTION_IN_PROGRESS', 'START_DATA_COLLECTION_PENDING', 'START_EVALUATING_RULES_PENDING', 'STOP_DATA_COLLECTION_PENDING']
+- **Required**: Yes
+
+### durationInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### rulesPackageArns
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### userAttributesForFindings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.Attribute]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### stateChangedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### dataCollected
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### stateChanges
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentRunStateChange]
+- **Required**: Yes
+
+### notifications
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentRunNotification]
+- **Required**: Yes
+
+### findingCounts
+- **Type**: typing.Dict[typing.Literal['High', 'Informational', 'Low', 'Medium', 'Undefined'], int]
+- **Required**: Yes
+
+### startedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### completedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# AssessmentRunAgent
 
 ### agentId
 - **Type**: <class 'str'>
@@ -80,7 +141,7 @@
 - **Required**: Yes
 
 ### telemetryMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.TelemetryMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.TelemetryMetadata]
 - **Required**: Yes
 
 ### agentHealthDetails
@@ -90,7 +151,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssessmentRunFilterTypeDef
+# AssessmentRunFilter
 
 ### namePattern
 - **Type**: typing.Optional[str]
@@ -99,22 +160,22 @@
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELED', 'COLLECTING_DATA', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'CREATED', 'DATA_COLLECTED', 'ERROR', 'EVALUATING_RULES', 'FAILED', 'START_DATA_COLLECTION_IN_PROGRESS', 'START_DATA_COLLECTION_PENDING', 'START_EVALUATING_RULES_PENDING', 'STOP_DATA_COLLECTION_PENDING']]]
 
 ### durationRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.DurationRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.DurationRange]
 
 ### rulesPackageArns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### startTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampRange]
 
 ### completionTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampRange]
 
 ### stateChangeTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampRange]
 
 
-# AssessmentRunNotificationTypeDef
+# AssessmentRunNotification
 
 ### date
 - **Type**: <class 'datetime.datetime'>
@@ -138,7 +199,7 @@
 - **Type**: typing.Optional[typing.Literal['ACCESS_DENIED', 'INTERNAL_ERROR', 'SUCCESS', 'TOPIC_DOES_NOT_EXIST']]
 
 
-# AssessmentRunStateChangeTypeDef
+# AssessmentRunStateChange
 
 ### stateChangedAt
 - **Type**: <class 'datetime.datetime'>
@@ -149,74 +210,7 @@
 - **Required**: Yes
 
 
-# AssessmentRunTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### assessmentTemplateArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### state
-- **Type**: typing.Literal['CANCELED', 'COLLECTING_DATA', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'CREATED', 'DATA_COLLECTED', 'ERROR', 'EVALUATING_RULES', 'FAILED', 'START_DATA_COLLECTION_IN_PROGRESS', 'START_DATA_COLLECTION_PENDING', 'START_EVALUATING_RULES_PENDING', 'STOP_DATA_COLLECTION_PENDING']
-- **Required**: Yes
-
-### durationInSeconds
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### rulesPackageArns
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### userAttributesForFindings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AttributeTypeDef]
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### stateChangedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### dataCollected
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### stateChanges
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentRunStateChangeTypeDef]
-- **Required**: Yes
-
-### notifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentRunNotificationTypeDef]
-- **Required**: Yes
-
-### findingCounts
-- **Type**: typing.Dict[typing.Literal['High', 'Informational', 'Low', 'Medium', 'Undefined'], int]
-- **Required**: Yes
-
-### startedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### completedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# AssessmentTargetFilterTypeDef
-
-### assessmentTargetNamePattern
-- **Type**: typing.Optional[str]
-
-
-# AssessmentTargetTypeDef
+# AssessmentTarget
 
 ### arn
 - **Type**: <class 'str'>
@@ -238,19 +232,13 @@
 - **Type**: typing.Optional[str]
 
 
-# AssessmentTemplateFilterTypeDef
+# AssessmentTargetFilter
 
-### namePattern
+### assessmentTargetNamePattern
 - **Type**: typing.Optional[str]
 
-### durationRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.DurationRangeTypeDef]
 
-### rulesPackageArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# AssessmentTemplateTypeDef
+# AssessmentTemplate
 
 ### arn
 - **Type**: <class 'str'>
@@ -273,7 +261,7 @@
 - **Required**: Yes
 
 ### userAttributesForFindings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.Attribute]
 - **Required**: Yes
 
 ### assessmentRunCount
@@ -288,7 +276,19 @@
 - **Type**: typing.Optional[str]
 
 
-# AssetAttributesTypeDef
+# AssessmentTemplateFilter
+
+### namePattern
+- **Type**: typing.Optional[str]
+
+### durationRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.DurationRange]
+
+### rulesPackageArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# AssetAttributes
 
 ### schemaVersion
 - **Type**: <class 'int'>
@@ -310,13 +310,13 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.Tag]]
 
 ### networkInterfaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.NetworkInterfaceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.NetworkInterface]]
 
 
-# AttributeTypeDef
+# Attribute
 
 ### key
 - **Type**: <class 'str'>
@@ -332,7 +332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAssessmentTargetRequestTypeDef
+# CreateAssessmentTargetRequest
 
 ### assessmentTargetName
 - **Type**: <class 'str'>
@@ -342,18 +342,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateAssessmentTargetResponseTypeDef
+# CreateAssessmentTargetResponse
 
 ### assessmentTargetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAssessmentTemplateRequestTypeDef
+# CreateAssessmentTemplateRequest
 
 ### assessmentTargetArn
 - **Type**: <class 'str'>
@@ -372,144 +372,144 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### userAttributesForFindings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.Attribute]]
 
 
-# CreateAssessmentTemplateResponseTypeDef
+# CreateAssessmentTemplateResponse
 
 ### assessmentTemplateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateExclusionsPreviewRequestTypeDef
+# CreateExclusionsPreviewRequest
 
 ### assessmentTemplateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateExclusionsPreviewResponseTypeDef
+# CreateExclusionsPreviewResponse
 
 ### previewToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateResourceGroupRequestTypeDef
+# CreateResourceGroupRequest
 
 ### resourceGroupTags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.ResourceGroupTagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.ResourceGroupTag]
 - **Required**: Yes
 
 
-# CreateResourceGroupResponseTypeDef
+# CreateResourceGroupResponse
 
 ### resourceGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAssessmentRunRequestTypeDef
+# DeleteAssessmentRunRequest
 
 ### assessmentRunArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAssessmentTargetRequestTypeDef
+# DeleteAssessmentTargetRequest
 
 ### assessmentTargetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAssessmentTemplateRequestTypeDef
+# DeleteAssessmentTemplateRequest
 
 ### assessmentTemplateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAssessmentRunsRequestTypeDef
+# DescribeAssessmentRunsRequest
 
 ### assessmentRunArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeAssessmentRunsResponseTypeDef
+# DescribeAssessmentRunsResponse
 
 ### assessmentRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentRunTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentRun]
 - **Required**: Yes
 
 ### failedItems
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetailsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAssessmentTargetsRequestTypeDef
+# DescribeAssessmentTargetsRequest
 
 ### assessmentTargetArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeAssessmentTargetsResponseTypeDef
+# DescribeAssessmentTargetsResponse
 
 ### assessmentTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentTargetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentTarget]
 - **Required**: Yes
 
 ### failedItems
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetailsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAssessmentTemplatesRequestTypeDef
+# DescribeAssessmentTemplatesRequest
 
 ### assessmentTemplateArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeAssessmentTemplatesResponseTypeDef
+# DescribeAssessmentTemplatesResponse
 
 ### assessmentTemplates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentTemplateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentTemplate]
 - **Required**: Yes
 
 ### failedItems
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetailsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCrossAccountAccessRoleResponseTypeDef
+# DescribeCrossAccountAccessRoleResponse
 
 ### roleArn
 - **Type**: <class 'str'>
@@ -524,11 +524,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeExclusionsRequestTypeDef
+# DescribeExclusionsRequest
 
 ### exclusionArns
 - **Type**: typing.Sequence[str]
@@ -538,22 +538,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EN_US']]
 
 
-# DescribeExclusionsResponseTypeDef
+# DescribeExclusionsResponse
 
 ### exclusions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.ExclusionTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.Exclusion]
 - **Required**: Yes
 
 ### failedItems
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetailsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFindingsRequestTypeDef
+# DescribeFindingsRequest
 
 ### findingArns
 - **Type**: typing.Sequence[str]
@@ -563,44 +563,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EN_US']]
 
 
-# DescribeFindingsResponseTypeDef
+# DescribeFindingsResponse
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.FindingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.Finding]
 - **Required**: Yes
 
 ### failedItems
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetailsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeResourceGroupsRequestTypeDef
+# DescribeResourceGroupsRequest
 
 ### resourceGroupArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeResourceGroupsResponseTypeDef
+# DescribeResourceGroupsResponse
 
 ### resourceGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.ResourceGroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.ResourceGroup]
 - **Required**: Yes
 
 ### failedItems
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetailsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeRulesPackagesRequestTypeDef
+# DescribeRulesPackagesRequest
 
 ### rulesPackageArns
 - **Type**: typing.Sequence[str]
@@ -610,22 +610,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EN_US']]
 
 
-# DescribeRulesPackagesResponseTypeDef
+# DescribeRulesPackagesResponse
 
 ### rulesPackages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.RulesPackageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.RulesPackage]
 - **Required**: Yes
 
 ### failedItems
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetailsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DurationRangeTypeDef
+# DurationRange
 
 ### minSeconds
 - **Type**: typing.Optional[int]
@@ -634,14 +634,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EventSubscriptionTypeDef
+# EventSubscription
 
 ### event
 - **Type**: typing.Literal['ASSESSMENT_RUN_COMPLETED', 'ASSESSMENT_RUN_STARTED', 'ASSESSMENT_RUN_STATE_CHANGED', 'FINDING_REPORTED', 'OTHER']
@@ -652,29 +652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExclusionPreviewTypeDef
-
-### title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### recommendation
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### scopes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.ScopeTypeDef]
-- **Required**: Yes
-
-### attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.AttributeTypeDef]]
-
-
-# ExclusionTypeDef
+# Exclusion
 
 ### arn
 - **Type**: <class 'str'>
@@ -693,14 +671,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scopes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.ScopeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.Scope]
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.Attribute]]
 
 
-# FailedItemDetailsTypeDef
+# ExclusionPreview
+
+### title
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### recommendation
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### scopes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.Scope]
+- **Required**: Yes
+
+### attributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.Attribute]]
+
+
+# FailedItemDetails
 
 ### failureCode
 - **Type**: typing.Literal['ACCESS_DENIED', 'DUPLICATE_ARN', 'INTERNAL_ERROR', 'INVALID_ARN', 'ITEM_DOES_NOT_EXIST', 'LIMIT_EXCEEDED']
@@ -711,7 +711,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FindingFilterTypeDef
+# Finding
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FindingFilter
 
 ### agentIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -729,22 +735,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.Attribute]]
 
 ### userAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.Attribute]]
 
 ### creationTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampRange]
 
 
-# FindingTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# GetAssessmentReportRequestTypeDef
+# GetAssessmentReportRequest
 
 ### assessmentRunArn
 - **Type**: <class 'str'>
@@ -759,7 +759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAssessmentReportResponseTypeDef
+# GetAssessmentReportResponse
 
 ### status
 - **Type**: typing.Literal['COMPLETED', 'FAILED', 'WORK_IN_PROGRESS']
@@ -770,11 +770,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetExclusionsPreviewRequestTypeDef
+# GetExclusionsPreviewRequest
 
 ### assessmentTemplateArn
 - **Type**: <class 'str'>
@@ -794,43 +794,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EN_US']]
 
 
-# GetExclusionsPreviewResponseTypeDef
+# GetExclusionsPreviewResponse
 
 ### previewStatus
 - **Type**: typing.Literal['COMPLETED', 'WORK_IN_PROGRESS']
 - **Required**: Yes
 
 ### exclusionPreviews
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.ExclusionPreviewTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.ExclusionPreview]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetTelemetryMetadataRequestTypeDef
+# GetTelemetryMetadataRequest
 
 ### assessmentRunArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTelemetryMetadataResponseTypeDef
+# GetTelemetryMetadataResponse
 
 ### telemetryMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.TelemetryMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.TelemetryMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InspectorServiceAttributesTypeDef
+# InspectorServiceAttributes
 
 ### schemaVersion
 - **Type**: <class 'int'>
@@ -843,72 +843,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAssessmentRunAgentsResponseTypeDef
+# ListAssessmentRunAgentsResponse
 
 ### assessmentRunAgents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentRunAgentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AssessmentRunAgent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAssessmentRunsResponseTypeDef
+# ListAssessmentRunsResponse
 
 ### assessmentRunArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAssessmentTargetsResponseTypeDef
+# ListAssessmentTargetsResponse
 
 ### assessmentTargetArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAssessmentTemplatesResponseTypeDef
+# ListAssessmentTemplatesResponse
 
 ### assessmentTemplateArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEventSubscriptionsRequestPaginateTypeDef
-
-### resourceArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.PaginatorConfigTypeDef]
-
-
-# ListEventSubscriptionsRequestTypeDef
+# ListEventSubscriptionsRequest
 
 ### resourceArn
 - **Type**: typing.Optional[str]
@@ -920,31 +911,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEventSubscriptionsResponseTypeDef
+# ListEventSubscriptionsRequestPaginate
+
+### resourceArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.PaginatorConfig]
+
+
+# ListEventSubscriptionsResponse
 
 ### subscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.SubscriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.Subscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListExclusionsRequestPaginateTypeDef
-
-### assessmentRunArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.PaginatorConfigTypeDef]
-
-
-# ListExclusionsRequestTypeDef
+# ListExclusionsRequest
 
 ### assessmentRunArn
 - **Type**: <class 'str'>
@@ -957,41 +947,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListExclusionsResponseTypeDef
+# ListExclusionsRequestPaginate
+
+### assessmentRunArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.PaginatorConfig]
+
+
+# ListExclusionsResponse
 
 ### exclusionArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFindingsResponseTypeDef
+# ListFindingsResponse
 
 ### findingArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRulesPackagesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.PaginatorConfigTypeDef]
-
-
-# ListRulesPackagesRequestTypeDef
+# ListRulesPackagesRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1000,39 +994,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRulesPackagesResponseTypeDef
+# ListRulesPackagesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.PaginatorConfig]
+
+
+# ListRulesPackagesResponse
 
 ### rulesPackageArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# NetworkInterfaceTypeDef
+# NetworkInterface
 
 ### networkInterfaceId
 - **Type**: typing.Optional[str]
@@ -1050,7 +1050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### privateIpAddresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.PrivateIpTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.PrivateIp]]
 
 ### publicDnsName
 - **Type**: typing.Optional[str]
@@ -1062,10 +1062,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### securityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.SecurityGroupTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector_classes.SecurityGroup]]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1077,17 +1077,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PreviewAgentsRequestPaginateTypeDef
-
-### previewAgentsArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.PaginatorConfigTypeDef]
-
-
-# PreviewAgentsRequestTypeDef
+# PreviewAgentsRequest
 
 ### previewAgentsArn
 - **Type**: <class 'str'>
@@ -1100,21 +1090,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PreviewAgentsResponseTypeDef
+# PreviewAgentsRequestPaginate
+
+### previewAgentsArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.PaginatorConfig]
+
+
+# PreviewAgentsResponse
 
 ### agentPreviews
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AgentPreviewTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.AgentPreview]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# PrivateIpTypeDef
+# PrivateIp
 
 ### privateDnsName
 - **Type**: typing.Optional[str]
@@ -1123,14 +1123,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterCrossAccountAccessRoleRequestTypeDef
+# RegisterCrossAccountAccessRoleRequest
 
 ### roleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RemoveAttributesFromFindingsRequestTypeDef
+# RemoveAttributesFromFindingsRequest
 
 ### findingArns
 - **Type**: typing.Sequence[str]
@@ -1141,18 +1141,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveAttributesFromFindingsResponseTypeDef
+# RemoveAttributesFromFindingsResponse
 
 ### failedItems
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetailsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.inspector_classes.FailedItemDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResourceGroupTagTypeDef
+# ResourceGroup
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.ResourceGroupTag]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# ResourceGroupTag
 
 ### key
 - **Type**: <class 'str'>
@@ -1162,22 +1177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceGroupTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.ResourceGroupTagTypeDef]
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1199,7 +1199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RulesPackageTypeDef
+# RulesPackage
 
 ### arn
 - **Type**: <class 'str'>
@@ -1221,7 +1221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScopeTypeDef
+# Scope
 
 ### key
 - **Type**: typing.Optional[typing.Literal['INSTANCE_ID', 'RULES_PACKAGE_ARN']]
@@ -1230,7 +1230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SecurityGroupTypeDef
+# SecurityGroup
 
 ### groupName
 - **Type**: typing.Optional[str]
@@ -1239,17 +1239,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetTagsForResourceRequestTypeDef
+# SetTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector_classes.Tag]]
 
 
-# StartAssessmentRunRequestTypeDef
+# StartAssessmentRunRequest
 
 ### assessmentTemplateArn
 - **Type**: <class 'str'>
@@ -1259,18 +1259,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartAssessmentRunResponseTypeDef
+# StartAssessmentRunResponse
 
 ### assessmentRunArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopAssessmentRunRequestTypeDef
+# StopAssessmentRunRequest
 
 ### assessmentRunArn
 - **Type**: <class 'str'>
@@ -1280,7 +1280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SKIP_EVALUATION', 'START_EVALUATION']]
 
 
-# SubscribeToEventRequestTypeDef
+# SubscribeToEventRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1295,7 +1295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SubscriptionTypeDef
+# Subscription
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1306,11 +1306,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### eventSubscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.EventSubscriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector_classes.EventSubscription]
 - **Required**: Yes
 
 
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: <class 'str'>
@@ -1320,7 +1320,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TelemetryMetadataTypeDef
+# TelemetryMetadata
 
 ### messageType
 - **Type**: <class 'str'>
@@ -1334,22 +1334,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TimestampRangeTypeDef
-
-### beginDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampTypeDef]
-
-### endDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.TimestampTypeDef]
-
-
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UnsubscribeFromEventRequestTypeDef
+# TimestampRange
+
+### beginDate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.Timestamp]
+
+### endDate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector_classes.Timestamp]
+
+
+# UnsubscribeFromEventRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1364,7 +1364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAssessmentTargetRequestTypeDef
+# UpdateAssessmentTargetRequest
 
 ### assessmentTargetArn
 - **Type**: <class 'str'>

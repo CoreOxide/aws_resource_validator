@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kinesis_video_media_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,25 +20,25 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetMediaOutputTypeDef(BaseValidatorModel):
+class GetMediaOutput(BaseValidatorModel):
     ContentType: str
     Payload: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class StartSelectorTypeDef(BaseValidatorModel):
+class StartSelector(BaseValidatorModel):
     StartSelectorType: StartSelectorTypeType
     AfterFragmentNumber: Optional[str] = None
-    StartTimestamp: Optional[TimestampTypeDef] = None
+    StartTimestamp: Optional[Timestamp] = None
     ContinuationToken: Optional[str] = None
 
 
-class GetMediaInputTypeDef(BaseValidatorModel):
-    StartSelector: StartSelectorTypeDef
+class GetMediaInput(BaseValidatorModel):
+    StartSelector: StartSelector
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 

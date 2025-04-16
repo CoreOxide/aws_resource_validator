@@ -12,23 +12,23 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.servicecatalog_appregistry_constants import *
 
-class TagQueryConfigurationTypeDef(BaseValidatorModel):
+class TagQueryConfiguration(BaseValidatorModel):
     tagKey: Optional[str] = None
 
 
-class ResourcesListItemTypeDef(BaseValidatorModel):
+class ResourcesListItem(BaseValidatorModel):
     resourceArn: Optional[str] = None
     errorMessage: Optional[str] = None
     status: Optional[str] = None
     resourceType: Optional[str] = None
 
 
-class AssociateAttributeGroupRequestTypeDef(BaseValidatorModel):
+class AssociateAttributeGroupRequest(BaseValidatorModel):
     application: str
     attributeGroup: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -36,21 +36,21 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociateResourceRequestTypeDef(BaseValidatorModel):
+class AssociateResourceRequest(BaseValidatorModel):
     application: str
     resourceType: ResourceTypeType
     resource: str
     options: Optional[Sequence[AssociationOptionType]] = None
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     name: str
     clientToken: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateAttributeGroupRequestTypeDef(BaseValidatorModel):
+class CreateAttributeGroupRequest(BaseValidatorModel):
     name: str
     attributes: str
     clientToken: str
@@ -58,30 +58,30 @@ class CreateAttributeGroupRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class DeleteApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationRequest(BaseValidatorModel):
     application: str
 
 
-class DeleteAttributeGroupRequestTypeDef(BaseValidatorModel):
+class DeleteAttributeGroupRequest(BaseValidatorModel):
     attributeGroup: str
 
 
-class DisassociateAttributeGroupRequestTypeDef(BaseValidatorModel):
+class DisassociateAttributeGroupRequest(BaseValidatorModel):
     application: str
     attributeGroup: str
 
 
-class DisassociateResourceRequestTypeDef(BaseValidatorModel):
+class DisassociateResourceRequest(BaseValidatorModel):
     application: str
     resourceType: ResourceTypeType
     resource: str
 
 
-class GetApplicationRequestTypeDef(BaseValidatorModel):
+class GetApplicationRequest(BaseValidatorModel):
     application: str
 
 
-class GetAssociatedResourceRequestTypeDef(BaseValidatorModel):
+class GetAssociatedResourceRequest(BaseValidatorModel):
     application: str
     resourceType: ResourceTypeType
     resource: str
@@ -90,278 +90,278 @@ class GetAssociatedResourceRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class GetAttributeGroupRequestTypeDef(BaseValidatorModel):
+class GetAttributeGroupRequest(BaseValidatorModel):
     attributeGroup: str
 
 
-class ResourceGroupTypeDef(BaseValidatorModel):
+class ResourceGroup(BaseValidatorModel):
     state: Optional[ResourceGroupStateType] = None
     arn: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApplicationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAssociatedAttributeGroupsRequestTypeDef(BaseValidatorModel):
+class ListAssociatedAttributeGroupsRequest(BaseValidatorModel):
     application: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAssociatedResourcesRequestTypeDef(BaseValidatorModel):
+class ListAssociatedResourcesRequest(BaseValidatorModel):
     application: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAttributeGroupsForApplicationRequestTypeDef(BaseValidatorModel):
+class ListAttributeGroupsForApplicationRequest(BaseValidatorModel):
     application: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAttributeGroupsRequestTypeDef(BaseValidatorModel):
+class ListAttributeGroupsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ResourceDetailsTypeDef(BaseValidatorModel):
+class ResourceDetails(BaseValidatorModel):
     tagValue: Optional[str] = None
 
 
-class SyncResourceRequestTypeDef(BaseValidatorModel):
+class SyncResourceRequest(BaseValidatorModel):
     resourceType: ResourceTypeType
     resource: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     application: str
     name: Optional[str] = None
     description: Optional[str] = None
 
 
-class UpdateAttributeGroupRequestTypeDef(BaseValidatorModel):
+class UpdateAttributeGroupRequest(BaseValidatorModel):
     attributeGroup: str
     name: Optional[str] = None
     description: Optional[str] = None
     attributes: Optional[str] = None
 
 
-class AppRegistryConfigurationTypeDef(BaseValidatorModel):
-    tagQueryConfiguration: Optional[TagQueryConfigurationTypeDef] = None
+class AppRegistryConfiguration(BaseValidatorModel):
+    tagQueryConfiguration: Optional[TagQueryConfiguration] = None
 
 
-class ApplicationTagResultTypeDef(BaseValidatorModel):
+class ApplicationTagResult(BaseValidatorModel):
     applicationTagStatus: Optional[ApplicationTagStatusType] = None
     errorMessage: Optional[str] = None
-    resources: Optional[List[ResourcesListItemTypeDef]] = None
+    resources: Optional[List[ResourcesListItem]] = None
     nextToken: Optional[str] = None
 
 
-class AssociateAttributeGroupResponseTypeDef(BaseValidatorModel):
+class AssociateAttributeGroupResponse(BaseValidatorModel):
     applicationArn: str
     attributeGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateResourceResponseTypeDef(BaseValidatorModel):
+class AssociateResourceResponse(BaseValidatorModel):
     applicationArn: str
     resourceArn: str
     options: List[AssociationOptionType]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationTypeDef(BaseValidatorModel):
+class Application(BaseValidatorModel):
     pass
 
 
-class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    application: ApplicationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateApplicationResponse(BaseValidatorModel):
+    application: Application
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationSummaryTypeDef(BaseValidatorModel):
+class ApplicationSummary(BaseValidatorModel):
     pass
 
 
-class DeleteApplicationResponseTypeDef(BaseValidatorModel):
-    application: ApplicationSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteApplicationResponse(BaseValidatorModel):
+    application: ApplicationSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateAttributeGroupResponseTypeDef(BaseValidatorModel):
+class DisassociateAttributeGroupResponse(BaseValidatorModel):
     applicationArn: str
     attributeGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateResourceResponseTypeDef(BaseValidatorModel):
+class DisassociateResourceResponse(BaseValidatorModel):
     applicationArn: str
     resourceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationsResponseTypeDef(BaseValidatorModel):
-    applications: List[ApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsResponse(BaseValidatorModel):
+    applications: List[ApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAssociatedAttributeGroupsResponseTypeDef(BaseValidatorModel):
+class ListAssociatedAttributeGroupsResponse(BaseValidatorModel):
     attributeGroups: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SyncResourceResponseTypeDef(BaseValidatorModel):
+class SyncResourceResponse(BaseValidatorModel):
     applicationArn: str
     resourceArn: str
     actionTaken: SyncActionType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationResponseTypeDef(BaseValidatorModel):
-    application: ApplicationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateApplicationResponse(BaseValidatorModel):
+    application: Application
+    ResponseMetadata: ResponseMetadata
 
 
-class AttributeGroupDetailsTypeDef(BaseValidatorModel):
+class AttributeGroupDetails(BaseValidatorModel):
     pass
 
 
-class ListAttributeGroupsForApplicationResponseTypeDef(BaseValidatorModel):
-    attributeGroupsDetails: List[AttributeGroupDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAttributeGroupsForApplicationResponse(BaseValidatorModel):
+    attributeGroupsDetails: List[AttributeGroupDetails]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AttributeGroupSummaryTypeDef(BaseValidatorModel):
+class AttributeGroupSummary(BaseValidatorModel):
     pass
 
 
-class DeleteAttributeGroupResponseTypeDef(BaseValidatorModel):
-    attributeGroup: AttributeGroupSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteAttributeGroupResponse(BaseValidatorModel):
+    attributeGroup: AttributeGroupSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAttributeGroupsResponseTypeDef(BaseValidatorModel):
-    attributeGroups: List[AttributeGroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAttributeGroupsResponse(BaseValidatorModel):
+    attributeGroups: List[AttributeGroupSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AttributeGroupTypeDef(BaseValidatorModel):
+class AttributeGroup(BaseValidatorModel):
     pass
 
 
-class CreateAttributeGroupResponseTypeDef(BaseValidatorModel):
-    attributeGroup: AttributeGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAttributeGroupResponse(BaseValidatorModel):
+    attributeGroup: AttributeGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAttributeGroupResponseTypeDef(BaseValidatorModel):
-    attributeGroup: AttributeGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAttributeGroupResponse(BaseValidatorModel):
+    attributeGroup: AttributeGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class IntegrationsTypeDef(BaseValidatorModel):
-    resourceGroup: Optional[ResourceGroupTypeDef] = None
-    applicationTagResourceGroup: Optional[ResourceGroupTypeDef] = None
+class Integrations(BaseValidatorModel):
+    resourceGroup: Optional[ResourceGroup] = None
+    applicationTagResourceGroup: Optional[ResourceGroup] = None
 
 
-class ResourceIntegrationsTypeDef(BaseValidatorModel):
-    resourceGroup: Optional[ResourceGroupTypeDef] = None
+class ResourceIntegrations(BaseValidatorModel):
+    resourceGroup: Optional[ResourceGroup] = None
 
 
-class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListApplicationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssociatedAttributeGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssociatedAttributeGroupsRequestPaginate(BaseValidatorModel):
     application: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssociatedResourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssociatedResourcesRequestPaginate(BaseValidatorModel):
     application: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAttributeGroupsForApplicationRequestPaginateTypeDef(BaseValidatorModel):
+class ListAttributeGroupsForApplicationRequestPaginate(BaseValidatorModel):
     application: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAttributeGroupsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAttributeGroupsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ResourceInfoTypeDef(BaseValidatorModel):
+class ResourceInfo(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     resourceType: Optional[ResourceTypeType] = None
-    resourceDetails: Optional[ResourceDetailsTypeDef] = None
+    resourceDetails: Optional[ResourceDetails] = None
     options: Optional[List[AssociationOptionType]] = None
 
 
-class GetConfigurationResponseTypeDef(BaseValidatorModel):
-    configuration: AppRegistryConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConfigurationResponse(BaseValidatorModel):
+    configuration: AppRegistryConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class PutConfigurationRequestTypeDef(BaseValidatorModel):
-    configuration: AppRegistryConfigurationTypeDef
+class PutConfigurationRequest(BaseValidatorModel):
+    configuration: AppRegistryConfiguration
 
 
-class ResourceTypeDef(BaseValidatorModel):
+class Resource(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     associationTime: Optional[datetime] = None
-    integrations: Optional[ResourceIntegrationsTypeDef] = None
+    integrations: Optional[ResourceIntegrations] = None
 
 
-class ListAssociatedResourcesResponseTypeDef(BaseValidatorModel):
-    resources: List[ResourceInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssociatedResourcesResponse(BaseValidatorModel):
+    resources: List[ResourceInfo]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetAssociatedResourceResponseTypeDef(BaseValidatorModel):
-    resource: ResourceTypeDef
+class GetAssociatedResourceResponse(BaseValidatorModel):
+    resource: Resource
     options: List[AssociationOptionType]
-    applicationTagResult: ApplicationTagResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    applicationTagResult: ApplicationTagResult
+    ResponseMetadata: ResponseMetadata
 
 

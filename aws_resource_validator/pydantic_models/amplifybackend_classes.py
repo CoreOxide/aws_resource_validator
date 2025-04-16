@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.amplifybackend_constants import *
 
-class BackendAPIAppSyncAuthSettingsTypeDef(BaseValidatorModel):
+class BackendAPIAppSyncAuthSettings(BaseValidatorModel):
     CognitoUserPoolId: Optional[str] = None
     Description: Optional[str] = None
     ExpirationTime: Optional[float] = None
@@ -23,23 +23,23 @@ class BackendAPIAppSyncAuthSettingsTypeDef(BaseValidatorModel):
     OpenIDProviderName: Optional[str] = None
 
 
-class BackendAPIConflictResolutionTypeDef(BaseValidatorModel):
+class BackendAPIConflictResolution(BaseValidatorModel):
     ResolutionStrategy: Optional[ResolutionStrategyType] = None
 
 
-class BackendAuthAppleProviderConfigTypeDef(BaseValidatorModel):
+class BackendAuthAppleProviderConfig(BaseValidatorModel):
     ClientId: Optional[str] = None
     KeyId: Optional[str] = None
     PrivateKey: Optional[str] = None
     TeamId: Optional[str] = None
 
 
-class BackendAuthSocialProviderConfigTypeDef(BaseValidatorModel):
+class BackendAuthSocialProviderConfig(BaseValidatorModel):
     ClientId: Optional[str] = None
     ClientSecret: Optional[str] = None
 
 
-class BackendJobRespObjTypeDef(BaseValidatorModel):
+class BackendJobRespObj(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     CreateTime: Optional[str] = None
@@ -50,23 +50,23 @@ class BackendJobRespObjTypeDef(BaseValidatorModel):
     UpdateTime: Optional[str] = None
 
 
-class BackendStoragePermissionsOutputTypeDef(BaseValidatorModel):
+class BackendStoragePermissionsOutput(BaseValidatorModel):
     Authenticated: List[AuthenticatedElementType]
     UnAuthenticated: Optional[List[UnAuthenticatedElementType]] = None
 
 
-class BackendStoragePermissionsTypeDef(BaseValidatorModel):
+class BackendStoragePermissions(BaseValidatorModel):
     Authenticated: Sequence[AuthenticatedElementType]
     UnAuthenticated: Optional[Sequence[UnAuthenticatedElementType]] = None
 
 
-class CloneBackendRequestTypeDef(BaseValidatorModel):
+class CloneBackendRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     TargetEnvironmentName: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -74,46 +74,46 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class EmailSettingsTypeDef(BaseValidatorModel):
+class EmailSettings(BaseValidatorModel):
     EmailMessage: Optional[str] = None
     EmailSubject: Optional[str] = None
 
 
-class SmsSettingsTypeDef(BaseValidatorModel):
+class SmsSettings(BaseValidatorModel):
     SmsMessage: Optional[str] = None
 
 
-class CreateBackendAuthIdentityPoolConfigTypeDef(BaseValidatorModel):
+class CreateBackendAuthIdentityPoolConfig(BaseValidatorModel):
     IdentityPoolName: str
     UnauthenticatedLogin: bool
 
 
-class SettingsOutputTypeDef(BaseValidatorModel):
+class SettingsOutput(BaseValidatorModel):
     MfaTypes: Optional[List[MfaTypesElementType]] = None
     SmsMessage: Optional[str] = None
 
 
-class SettingsTypeDef(BaseValidatorModel):
+class Settings(BaseValidatorModel):
     MfaTypes: Optional[Sequence[MfaTypesElementType]] = None
     SmsMessage: Optional[str] = None
 
 
-class CreateBackendAuthPasswordPolicyConfigOutputTypeDef(BaseValidatorModel):
+class CreateBackendAuthPasswordPolicyConfigOutput(BaseValidatorModel):
     MinimumLength: float
     AdditionalConstraints: Optional[List[AdditionalConstraintsElementType]] = None
 
 
-class CreateBackendAuthPasswordPolicyConfigTypeDef(BaseValidatorModel):
+class CreateBackendAuthPasswordPolicyConfig(BaseValidatorModel):
     MinimumLength: float
     AdditionalConstraints: Optional[Sequence[AdditionalConstraintsElementType]] = None
 
 
-class CreateBackendConfigRequestTypeDef(BaseValidatorModel):
+class CreateBackendConfigRequest(BaseValidatorModel):
     AppId: str
     BackendManagerAppId: Optional[str] = None
 
 
-class CreateBackendRequestTypeDef(BaseValidatorModel):
+class CreateBackendRequest(BaseValidatorModel):
     AppId: str
     AppName: str
     BackendEnvironmentName: str
@@ -121,67 +121,67 @@ class CreateBackendRequestTypeDef(BaseValidatorModel):
     ResourceName: Optional[str] = None
 
 
-class CreateTokenRequestTypeDef(BaseValidatorModel):
+class CreateTokenRequest(BaseValidatorModel):
     AppId: str
 
 
-class DeleteBackendAuthRequestTypeDef(BaseValidatorModel):
+class DeleteBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
-class DeleteBackendRequestTypeDef(BaseValidatorModel):
+class DeleteBackendRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
 
 
-class DeleteTokenRequestTypeDef(BaseValidatorModel):
+class DeleteTokenRequest(BaseValidatorModel):
     AppId: str
     SessionId: str
 
 
-class GenerateBackendAPIModelsRequestTypeDef(BaseValidatorModel):
+class GenerateBackendAPIModelsRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
-class GetBackendAPIModelsRequestTypeDef(BaseValidatorModel):
+class GetBackendAPIModelsRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
-class GetBackendAuthRequestTypeDef(BaseValidatorModel):
+class GetBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
-class GetBackendJobRequestTypeDef(BaseValidatorModel):
+class GetBackendJobRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: str
 
 
-class GetBackendRequestTypeDef(BaseValidatorModel):
+class GetBackendRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: Optional[str] = None
 
 
-class GetBackendStorageRequestTypeDef(BaseValidatorModel):
+class GetBackendStorageRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
-class GetTokenRequestTypeDef(BaseValidatorModel):
+class GetTokenRequest(BaseValidatorModel):
     AppId: str
     SessionId: str
 
 
-class ImportBackendAuthRequestTypeDef(BaseValidatorModel):
+class ImportBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     NativeClientId: str
@@ -190,13 +190,13 @@ class ImportBackendAuthRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListBackendJobsRequestTypeDef(BaseValidatorModel):
+class ListBackendJobsRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: Optional[str] = None
@@ -206,41 +206,41 @@ class ListBackendJobsRequestTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class ListS3BucketsRequestTypeDef(BaseValidatorModel):
+class ListS3BucketsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class S3BucketInfoTypeDef(BaseValidatorModel):
+class S3BucketInfo(BaseValidatorModel):
     CreationDate: Optional[str] = None
     Name: Optional[str] = None
 
 
-class LoginAuthConfigReqObjTypeDef(BaseValidatorModel):
+class LoginAuthConfigReqObj(BaseValidatorModel):
     AwsCognitoIdentityPoolId: Optional[str] = None
     AwsCognitoRegion: Optional[str] = None
     AwsUserPoolsId: Optional[str] = None
     AwsUserPoolsWebClientId: Optional[str] = None
 
 
-class RemoveAllBackendsRequestTypeDef(BaseValidatorModel):
+class RemoveAllBackendsRequest(BaseValidatorModel):
     AppId: str
     CleanAmplifyApp: Optional[bool] = None
 
 
-class RemoveBackendConfigRequestTypeDef(BaseValidatorModel):
+class RemoveBackendConfigRequest(BaseValidatorModel):
     AppId: str
 
 
-class UpdateBackendAuthIdentityPoolConfigTypeDef(BaseValidatorModel):
+class UpdateBackendAuthIdentityPoolConfig(BaseValidatorModel):
     UnauthenticatedLogin: Optional[bool] = None
 
 
-class UpdateBackendAuthPasswordPolicyConfigTypeDef(BaseValidatorModel):
+class UpdateBackendAuthPasswordPolicyConfig(BaseValidatorModel):
     AdditionalConstraints: Optional[Sequence[AdditionalConstraintsElementType]] = None
     MinimumLength: Optional[float] = None
 
 
-class UpdateBackendJobRequestTypeDef(BaseValidatorModel):
+class UpdateBackendJobRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: str
@@ -248,143 +248,143 @@ class UpdateBackendJobRequestTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class BackendAPIAuthTypeTypeDef(BaseValidatorModel):
+class BackendAPIAuthType(BaseValidatorModel):
     Mode: Optional[ModeType] = None
-    Settings: Optional[BackendAPIAppSyncAuthSettingsTypeDef] = None
+    Settings: Optional[BackendAPIAppSyncAuthSettings] = None
 
 
-class SocialProviderSettingsTypeDef(BaseValidatorModel):
-    Facebook: Optional[BackendAuthSocialProviderConfigTypeDef] = None
-    Google: Optional[BackendAuthSocialProviderConfigTypeDef] = None
-    LoginWithAmazon: Optional[BackendAuthSocialProviderConfigTypeDef] = None
-    SignInWithApple: Optional[BackendAuthAppleProviderConfigTypeDef] = None
+class SocialProviderSettings(BaseValidatorModel):
+    Facebook: Optional[BackendAuthSocialProviderConfig] = None
+    Google: Optional[BackendAuthSocialProviderConfig] = None
+    LoginWithAmazon: Optional[BackendAuthSocialProviderConfig] = None
+    SignInWithApple: Optional[BackendAuthAppleProviderConfig] = None
 
 
-class CloneBackendResponseTypeDef(BaseValidatorModel):
+class CloneBackendResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBackendAPIResponseTypeDef(BaseValidatorModel):
+class CreateBackendAPIResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBackendAuthResponseTypeDef(BaseValidatorModel):
+class CreateBackendAuthResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBackendConfigResponseTypeDef(BaseValidatorModel):
+class CreateBackendConfigResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBackendResponseTypeDef(BaseValidatorModel):
+class CreateBackendResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBackendStorageResponseTypeDef(BaseValidatorModel):
+class CreateBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTokenResponseTypeDef(BaseValidatorModel):
+class CreateTokenResponse(BaseValidatorModel):
     AppId: str
     ChallengeCode: str
     SessionId: str
     Ttl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBackendAPIResponseTypeDef(BaseValidatorModel):
+class DeleteBackendAPIResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBackendAuthResponseTypeDef(BaseValidatorModel):
+class DeleteBackendAuthResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBackendResponseTypeDef(BaseValidatorModel):
+class DeleteBackendResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBackendStorageResponseTypeDef(BaseValidatorModel):
+class DeleteBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTokenResponseTypeDef(BaseValidatorModel):
+class DeleteTokenResponse(BaseValidatorModel):
     IsSuccess: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GenerateBackendAPIModelsResponseTypeDef(BaseValidatorModel):
+class GenerateBackendAPIModelsResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBackendAPIModelsResponseTypeDef(BaseValidatorModel):
+class GetBackendAPIModelsResponse(BaseValidatorModel):
     Models: str
     Status: StatusType
     ModelIntrospectionSchema: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBackendJobResponseTypeDef(BaseValidatorModel):
+class GetBackendJobResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     CreateTime: str
@@ -393,10 +393,10 @@ class GetBackendJobResponseTypeDef(BaseValidatorModel):
     Operation: str
     Status: str
     UpdateTime: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBackendResponseTypeDef(BaseValidatorModel):
+class GetBackendResponse(BaseValidatorModel):
     AmplifyFeatureFlags: str
     AmplifyMetaConfig: str
     AppId: str
@@ -404,76 +404,76 @@ class GetBackendResponseTypeDef(BaseValidatorModel):
     BackendEnvironmentList: List[str]
     BackendEnvironmentName: str
     Error: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTokenResponseTypeDef(BaseValidatorModel):
+class GetTokenResponse(BaseValidatorModel):
     AppId: str
     ChallengeCode: str
     SessionId: str
     Ttl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportBackendAuthResponseTypeDef(BaseValidatorModel):
+class ImportBackendAuthResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportBackendStorageResponseTypeDef(BaseValidatorModel):
+class ImportBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBackendJobsResponseTypeDef(BaseValidatorModel):
-    Jobs: List[BackendJobRespObjTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBackendJobsResponse(BaseValidatorModel):
+    Jobs: List[BackendJobRespObj]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RemoveAllBackendsResponseTypeDef(BaseValidatorModel):
+class RemoveAllBackendsResponse(BaseValidatorModel):
     AppId: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveBackendConfigResponseTypeDef(BaseValidatorModel):
+class RemoveBackendConfigResponse(BaseValidatorModel):
     Error: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBackendAPIResponseTypeDef(BaseValidatorModel):
-    AppId: str
-    BackendEnvironmentName: str
-    Error: str
-    JobId: str
-    Operation: str
-    Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class UpdateBackendAuthResponseTypeDef(BaseValidatorModel):
+class UpdateBackendAPIResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
     JobId: str
     Operation: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBackendJobResponseTypeDef(BaseValidatorModel):
+class UpdateBackendAuthResponse(BaseValidatorModel):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadata
+
+
+class UpdateBackendJobResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     CreateTime: str
@@ -482,283 +482,283 @@ class UpdateBackendJobResponseTypeDef(BaseValidatorModel):
     Operation: str
     Status: str
     UpdateTime: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBackendStorageResponseTypeDef(BaseValidatorModel):
+class UpdateBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: str
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBackendAuthForgotPasswordConfigTypeDef(BaseValidatorModel):
+class CreateBackendAuthForgotPasswordConfig(BaseValidatorModel):
     DeliveryMethod: DeliveryMethodType
-    EmailSettings: Optional[EmailSettingsTypeDef] = None
-    SmsSettings: Optional[SmsSettingsTypeDef] = None
+    EmailSettings: Optional[EmailSettings] = None
+    SmsSettings: Optional[SmsSettings] = None
 
 
-class CreateBackendAuthVerificationMessageConfigTypeDef(BaseValidatorModel):
+class CreateBackendAuthVerificationMessageConfig(BaseValidatorModel):
     DeliveryMethod: DeliveryMethodType
-    EmailSettings: Optional[EmailSettingsTypeDef] = None
-    SmsSettings: Optional[SmsSettingsTypeDef] = None
+    EmailSettings: Optional[EmailSettings] = None
+    SmsSettings: Optional[SmsSettings] = None
 
 
-class UpdateBackendAuthForgotPasswordConfigTypeDef(BaseValidatorModel):
+class UpdateBackendAuthForgotPasswordConfig(BaseValidatorModel):
     DeliveryMethod: Optional[DeliveryMethodType] = None
-    EmailSettings: Optional[EmailSettingsTypeDef] = None
-    SmsSettings: Optional[SmsSettingsTypeDef] = None
+    EmailSettings: Optional[EmailSettings] = None
+    SmsSettings: Optional[SmsSettings] = None
 
 
-class UpdateBackendAuthVerificationMessageConfigTypeDef(BaseValidatorModel):
+class UpdateBackendAuthVerificationMessageConfig(BaseValidatorModel):
     DeliveryMethod: DeliveryMethodType
-    EmailSettings: Optional[EmailSettingsTypeDef] = None
-    SmsSettings: Optional[SmsSettingsTypeDef] = None
+    EmailSettings: Optional[EmailSettings] = None
+    SmsSettings: Optional[SmsSettings] = None
 
 
-class CreateBackendAuthMFAConfigOutputTypeDef(BaseValidatorModel):
+class CreateBackendAuthMFAConfigOutput(BaseValidatorModel):
     MFAMode: MFAModeType
-    Settings: Optional[SettingsOutputTypeDef] = None
+    Settings: Optional[SettingsOutput] = None
 
 
-class CreateBackendAuthMFAConfigTypeDef(BaseValidatorModel):
+class CreateBackendAuthMFAConfig(BaseValidatorModel):
     MFAMode: MFAModeType
-    Settings: Optional[SettingsTypeDef] = None
+    Settings: Optional[Settings] = None
 
 
-class ListBackendJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListBackendJobsRequestPaginate(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: Optional[str] = None
     Operation: Optional[str] = None
     Status: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListS3BucketsResponseTypeDef(BaseValidatorModel):
-    Buckets: List[S3BucketInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListS3BucketsResponse(BaseValidatorModel):
+    Buckets: List[S3BucketInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateBackendConfigRequestTypeDef(BaseValidatorModel):
+class UpdateBackendConfigRequest(BaseValidatorModel):
     AppId: str
-    LoginAuthConfig: Optional[LoginAuthConfigReqObjTypeDef] = None
+    LoginAuthConfig: Optional[LoginAuthConfigReqObj] = None
 
 
-class UpdateBackendConfigResponseTypeDef(BaseValidatorModel):
+class UpdateBackendConfigResponse(BaseValidatorModel):
     AppId: str
     BackendManagerAppId: str
     Error: str
-    LoginAuthConfig: LoginAuthConfigReqObjTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LoginAuthConfig: LoginAuthConfigReqObj
+    ResponseMetadata: ResponseMetadata
 
 
-class BackendAPIResourceConfigOutputTypeDef(BaseValidatorModel):
-    AdditionalAuthTypes: Optional[List[BackendAPIAuthTypeTypeDef]] = None
+class BackendAPIResourceConfigOutput(BaseValidatorModel):
+    AdditionalAuthTypes: Optional[List[BackendAPIAuthType]] = None
     ApiName: Optional[str] = None
-    ConflictResolution: Optional[BackendAPIConflictResolutionTypeDef] = None
-    DefaultAuthType: Optional[BackendAPIAuthTypeTypeDef] = None
+    ConflictResolution: Optional[BackendAPIConflictResolution] = None
+    DefaultAuthType: Optional[BackendAPIAuthType] = None
     Service: Optional[str] = None
     TransformSchema: Optional[str] = None
 
 
-class BackendAPIResourceConfigTypeDef(BaseValidatorModel):
-    AdditionalAuthTypes: Optional[Sequence[BackendAPIAuthTypeTypeDef]] = None
+class BackendAPIResourceConfig(BaseValidatorModel):
+    AdditionalAuthTypes: Optional[Sequence[BackendAPIAuthType]] = None
     ApiName: Optional[str] = None
-    ConflictResolution: Optional[BackendAPIConflictResolutionTypeDef] = None
-    DefaultAuthType: Optional[BackendAPIAuthTypeTypeDef] = None
+    ConflictResolution: Optional[BackendAPIConflictResolution] = None
+    DefaultAuthType: Optional[BackendAPIAuthType] = None
     Service: Optional[str] = None
     TransformSchema: Optional[str] = None
 
 
-class CreateBackendAuthOAuthConfigOutputTypeDef(BaseValidatorModel):
+class CreateBackendAuthOAuthConfigOutput(BaseValidatorModel):
     OAuthGrantType: OAuthGrantTypeType
     OAuthScopes: List[OAuthScopesElementType]
     RedirectSignInURIs: List[str]
     RedirectSignOutURIs: List[str]
     DomainPrefix: Optional[str] = None
-    SocialProviderSettings: Optional[SocialProviderSettingsTypeDef] = None
+    SocialProviderSettings: Optional[SocialProviderSettings] = None
 
 
-class CreateBackendAuthOAuthConfigTypeDef(BaseValidatorModel):
+class CreateBackendAuthOAuthConfig(BaseValidatorModel):
     OAuthGrantType: OAuthGrantTypeType
     OAuthScopes: Sequence[OAuthScopesElementType]
     RedirectSignInURIs: Sequence[str]
     RedirectSignOutURIs: Sequence[str]
     DomainPrefix: Optional[str] = None
-    SocialProviderSettings: Optional[SocialProviderSettingsTypeDef] = None
+    SocialProviderSettings: Optional[SocialProviderSettings] = None
 
 
-class UpdateBackendAuthOAuthConfigTypeDef(BaseValidatorModel):
+class UpdateBackendAuthOAuthConfig(BaseValidatorModel):
     DomainPrefix: Optional[str] = None
     OAuthGrantType: Optional[OAuthGrantTypeType] = None
     OAuthScopes: Optional[Sequence[OAuthScopesElementType]] = None
     RedirectSignInURIs: Optional[Sequence[str]] = None
     RedirectSignOutURIs: Optional[Sequence[str]] = None
-    SocialProviderSettings: Optional[SocialProviderSettingsTypeDef] = None
+    SocialProviderSettings: Optional[SocialProviderSettings] = None
 
 
-class GetBackendStorageResourceConfigTypeDef(BaseValidatorModel):
+class GetBackendStorageResourceConfig(BaseValidatorModel):
     pass
 
 
-class GetBackendStorageResponseTypeDef(BaseValidatorModel):
+class GetBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
-    ResourceConfig: GetBackendStorageResourceConfigTypeDef
+    ResourceConfig: GetBackendStorageResourceConfig
     ResourceName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SettingsUnionTypeDef(BaseValidatorModel):
+class SettingsUnion(BaseValidatorModel):
     pass
 
 
-class UpdateBackendAuthMFAConfigTypeDef(BaseValidatorModel):
+class UpdateBackendAuthMFAConfig(BaseValidatorModel):
     MFAMode: Optional[MFAModeType] = None
-    Settings: Optional[SettingsUnionTypeDef] = None
+    Settings: Optional[SettingsUnion] = None
 
 
-class GetBackendAPIResponseTypeDef(BaseValidatorModel):
+class GetBackendAPIResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
-    ResourceConfig: BackendAPIResourceConfigOutputTypeDef
+    ResourceConfig: BackendAPIResourceConfigOutput
     ResourceName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBackendAuthUserPoolConfigOutputTypeDef(BaseValidatorModel):
+class CreateBackendAuthUserPoolConfigOutput(BaseValidatorModel):
     RequiredSignUpAttributes: List[RequiredSignUpAttributesElementType]
     SignInMethod: SignInMethodType
     UserPoolName: str
-    ForgotPassword: Optional[CreateBackendAuthForgotPasswordConfigTypeDef] = None
-    Mfa: Optional[CreateBackendAuthMFAConfigOutputTypeDef] = None
-    OAuth: Optional[CreateBackendAuthOAuthConfigOutputTypeDef] = None
-    PasswordPolicy: Optional[CreateBackendAuthPasswordPolicyConfigOutputTypeDef] = None
-    VerificationMessage: Optional[CreateBackendAuthVerificationMessageConfigTypeDef] = None
+    ForgotPassword: Optional[CreateBackendAuthForgotPasswordConfig] = None
+    Mfa: Optional[CreateBackendAuthMFAConfigOutput] = None
+    OAuth: Optional[CreateBackendAuthOAuthConfigOutput] = None
+    PasswordPolicy: Optional[CreateBackendAuthPasswordPolicyConfigOutput] = None
+    VerificationMessage: Optional[CreateBackendAuthVerificationMessageConfig] = None
 
 
-class CreateBackendAuthUserPoolConfigTypeDef(BaseValidatorModel):
+class CreateBackendAuthUserPoolConfig(BaseValidatorModel):
     RequiredSignUpAttributes: Sequence[RequiredSignUpAttributesElementType]
     SignInMethod: SignInMethodType
     UserPoolName: str
-    ForgotPassword: Optional[CreateBackendAuthForgotPasswordConfigTypeDef] = None
-    Mfa: Optional[CreateBackendAuthMFAConfigTypeDef] = None
-    OAuth: Optional[CreateBackendAuthOAuthConfigTypeDef] = None
-    PasswordPolicy: Optional[CreateBackendAuthPasswordPolicyConfigTypeDef] = None
-    VerificationMessage: Optional[CreateBackendAuthVerificationMessageConfigTypeDef] = None
+    ForgotPassword: Optional[CreateBackendAuthForgotPasswordConfig] = None
+    Mfa: Optional[CreateBackendAuthMFAConfig] = None
+    OAuth: Optional[CreateBackendAuthOAuthConfig] = None
+    PasswordPolicy: Optional[CreateBackendAuthPasswordPolicyConfig] = None
+    VerificationMessage: Optional[CreateBackendAuthVerificationMessageConfig] = None
 
 
-class CreateBackendStorageResourceConfigTypeDef(BaseValidatorModel):
+class CreateBackendStorageResourceConfig(BaseValidatorModel):
     pass
 
 
-class CreateBackendStorageRequestTypeDef(BaseValidatorModel):
+class CreateBackendStorageRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
-    ResourceConfig: CreateBackendStorageResourceConfigTypeDef
+    ResourceConfig: CreateBackendStorageResourceConfig
     ResourceName: str
 
 
-class UpdateBackendStorageResourceConfigTypeDef(BaseValidatorModel):
+class UpdateBackendStorageResourceConfig(BaseValidatorModel):
     pass
 
 
-class UpdateBackendStorageRequestTypeDef(BaseValidatorModel):
+class UpdateBackendStorageRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
-    ResourceConfig: UpdateBackendStorageResourceConfigTypeDef
+    ResourceConfig: UpdateBackendStorageResourceConfig
     ResourceName: str
 
 
-class UpdateBackendAuthUserPoolConfigTypeDef(BaseValidatorModel):
-    ForgotPassword: Optional[UpdateBackendAuthForgotPasswordConfigTypeDef] = None
-    Mfa: Optional[UpdateBackendAuthMFAConfigTypeDef] = None
-    OAuth: Optional[UpdateBackendAuthOAuthConfigTypeDef] = None
-    PasswordPolicy: Optional[UpdateBackendAuthPasswordPolicyConfigTypeDef] = None
-    VerificationMessage: Optional[UpdateBackendAuthVerificationMessageConfigTypeDef] = None
+class UpdateBackendAuthUserPoolConfig(BaseValidatorModel):
+    ForgotPassword: Optional[UpdateBackendAuthForgotPasswordConfig] = None
+    Mfa: Optional[UpdateBackendAuthMFAConfig] = None
+    OAuth: Optional[UpdateBackendAuthOAuthConfig] = None
+    PasswordPolicy: Optional[UpdateBackendAuthPasswordPolicyConfig] = None
+    VerificationMessage: Optional[UpdateBackendAuthVerificationMessageConfig] = None
 
 
-class BackendAPIResourceConfigUnionTypeDef(BaseValidatorModel):
+class BackendAPIResourceConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateBackendAPIRequestTypeDef(BaseValidatorModel):
+class CreateBackendAPIRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
-    ResourceConfig: BackendAPIResourceConfigUnionTypeDef
+    ResourceConfig: BackendAPIResourceConfigUnion
     ResourceName: str
 
 
-class DeleteBackendAPIRequestTypeDef(BaseValidatorModel):
+class DeleteBackendAPIRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
-    ResourceConfig: Optional[BackendAPIResourceConfigUnionTypeDef] = None
+    ResourceConfig: Optional[BackendAPIResourceConfigUnion] = None
 
 
-class GetBackendAPIRequestTypeDef(BaseValidatorModel):
+class GetBackendAPIRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
-    ResourceConfig: Optional[BackendAPIResourceConfigUnionTypeDef] = None
+    ResourceConfig: Optional[BackendAPIResourceConfigUnion] = None
 
 
-class UpdateBackendAPIRequestTypeDef(BaseValidatorModel):
+class UpdateBackendAPIRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
-    ResourceConfig: Optional[BackendAPIResourceConfigUnionTypeDef] = None
+    ResourceConfig: Optional[BackendAPIResourceConfigUnion] = None
 
 
-class CreateBackendAuthResourceConfigOutputTypeDef(BaseValidatorModel):
+class CreateBackendAuthResourceConfigOutput(BaseValidatorModel):
     AuthResources: AuthResourcesType
     Service: Literal["COGNITO"]
-    UserPoolConfigs: CreateBackendAuthUserPoolConfigOutputTypeDef
-    IdentityPoolConfigs: Optional[CreateBackendAuthIdentityPoolConfigTypeDef] = None
+    UserPoolConfigs: CreateBackendAuthUserPoolConfigOutput
+    IdentityPoolConfigs: Optional[CreateBackendAuthIdentityPoolConfig] = None
 
 
-class CreateBackendAuthResourceConfigTypeDef(BaseValidatorModel):
+class CreateBackendAuthResourceConfig(BaseValidatorModel):
     AuthResources: AuthResourcesType
     Service: Literal["COGNITO"]
-    UserPoolConfigs: CreateBackendAuthUserPoolConfigTypeDef
-    IdentityPoolConfigs: Optional[CreateBackendAuthIdentityPoolConfigTypeDef] = None
+    UserPoolConfigs: CreateBackendAuthUserPoolConfig
+    IdentityPoolConfigs: Optional[CreateBackendAuthIdentityPoolConfig] = None
 
 
-class UpdateBackendAuthResourceConfigTypeDef(BaseValidatorModel):
+class UpdateBackendAuthResourceConfig(BaseValidatorModel):
     AuthResources: AuthResourcesType
     Service: Literal["COGNITO"]
-    UserPoolConfigs: UpdateBackendAuthUserPoolConfigTypeDef
-    IdentityPoolConfigs: Optional[UpdateBackendAuthIdentityPoolConfigTypeDef] = None
+    UserPoolConfigs: UpdateBackendAuthUserPoolConfig
+    IdentityPoolConfigs: Optional[UpdateBackendAuthIdentityPoolConfig] = None
 
 
-class GetBackendAuthResponseTypeDef(BaseValidatorModel):
+class GetBackendAuthResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     Error: str
-    ResourceConfig: CreateBackendAuthResourceConfigOutputTypeDef
+    ResourceConfig: CreateBackendAuthResourceConfigOutput
     ResourceName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBackendAuthRequestTypeDef(BaseValidatorModel):
+class UpdateBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
-    ResourceConfig: UpdateBackendAuthResourceConfigTypeDef
+    ResourceConfig: UpdateBackendAuthResourceConfig
     ResourceName: str
 
 
-class CreateBackendAuthResourceConfigUnionTypeDef(BaseValidatorModel):
+class CreateBackendAuthResourceConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateBackendAuthRequestTypeDef(BaseValidatorModel):
+class CreateBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
-    ResourceConfig: CreateBackendAuthResourceConfigUnionTypeDef
+    ResourceConfig: CreateBackendAuthResourceConfigUnion
     ResourceName: str
 
 

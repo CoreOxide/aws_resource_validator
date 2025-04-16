@@ -12,23 +12,23 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.service_quotas_constants import *
 
-class DeleteServiceQuotaIncreaseRequestFromTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteServiceQuotaIncreaseRequestFromTemplateRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
     AwsRegion: str
 
 
-class ErrorReasonTypeDef(BaseValidatorModel):
+class ErrorReason(BaseValidatorModel):
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class GetAWSDefaultServiceQuotaRequestTypeDef(BaseValidatorModel):
+class GetAWSDefaultServiceQuotaRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -36,35 +36,35 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetRequestedServiceQuotaChangeRequestTypeDef(BaseValidatorModel):
+class GetRequestedServiceQuotaChangeRequest(BaseValidatorModel):
     RequestId: str
 
 
-class GetServiceQuotaIncreaseRequestFromTemplateRequestTypeDef(BaseValidatorModel):
+class GetServiceQuotaIncreaseRequestFromTemplateRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
     AwsRegion: str
 
 
-class GetServiceQuotaRequestTypeDef(BaseValidatorModel):
+class GetServiceQuotaRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
     ContextId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAWSDefaultServiceQuotasRequestTypeDef(BaseValidatorModel):
+class ListAWSDefaultServiceQuotasRequest(BaseValidatorModel):
     ServiceCode: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListRequestedServiceQuotaChangeHistoryByQuotaRequestTypeDef(BaseValidatorModel):
+class ListRequestedServiceQuotaChangeHistoryByQuotaRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
     Status: Optional[RequestStatusType] = None
@@ -73,7 +73,7 @@ class ListRequestedServiceQuotaChangeHistoryByQuotaRequestTypeDef(BaseValidatorM
     QuotaRequestedAtLevel: Optional[AppliedLevelEnumType] = None
 
 
-class ListRequestedServiceQuotaChangeHistoryRequestTypeDef(BaseValidatorModel):
+class ListRequestedServiceQuotaChangeHistoryRequest(BaseValidatorModel):
     ServiceCode: Optional[str] = None
     Status: Optional[RequestStatusType] = None
     NextToken: Optional[str] = None
@@ -81,14 +81,14 @@ class ListRequestedServiceQuotaChangeHistoryRequestTypeDef(BaseValidatorModel):
     QuotaRequestedAtLevel: Optional[AppliedLevelEnumType] = None
 
 
-class ListServiceQuotaIncreaseRequestsInTemplateRequestTypeDef(BaseValidatorModel):
+class ListServiceQuotaIncreaseRequestsInTemplateRequest(BaseValidatorModel):
     ServiceCode: Optional[str] = None
     AwsRegion: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListServiceQuotasRequestTypeDef(BaseValidatorModel):
+class ListServiceQuotasRequest(BaseValidatorModel):
     ServiceCode: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -96,188 +96,188 @@ class ListServiceQuotasRequestTypeDef(BaseValidatorModel):
     QuotaAppliedAtLevel: Optional[AppliedLevelEnumType] = None
 
 
-class ListServicesRequestTypeDef(BaseValidatorModel):
+class ListServicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class MetricInfoTypeDef(BaseValidatorModel):
+class MetricInfo(BaseValidatorModel):
     MetricNamespace: Optional[str] = None
     MetricName: Optional[str] = None
     MetricDimensions: Optional[Dict[str, str]] = None
     MetricStatisticRecommendation: Optional[str] = None
 
 
-class PutServiceQuotaIncreaseRequestIntoTemplateRequestTypeDef(BaseValidatorModel):
+class PutServiceQuotaIncreaseRequestIntoTemplateRequest(BaseValidatorModel):
     QuotaCode: str
     ServiceCode: str
     AwsRegion: str
     DesiredValue: float
 
 
-class QuotaContextInfoTypeDef(BaseValidatorModel):
+class QuotaContextInfo(BaseValidatorModel):
     ContextScope: Optional[QuotaContextScopeType] = None
     ContextScopeType: Optional[str] = None
     ContextId: Optional[str] = None
 
 
-class QuotaPeriodTypeDef(BaseValidatorModel):
+class QuotaPeriod(BaseValidatorModel):
     PeriodValue: Optional[int] = None
     PeriodUnit: Optional[PeriodUnitType] = None
 
 
-class RequestServiceQuotaIncreaseRequestTypeDef(BaseValidatorModel):
+class RequestServiceQuotaIncreaseRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
     DesiredValue: float
     ContextId: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class GetAssociationForServiceQuotaTemplateResponseTypeDef(BaseValidatorModel):
+class GetAssociationForServiceQuotaTemplateResponse(BaseValidatorModel):
     ServiceQuotaTemplateAssociationStatus: ServiceQuotaTemplateAssociationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ServiceQuotaIncreaseRequestInTemplateTypeDef(BaseValidatorModel):
+class ServiceQuotaIncreaseRequestInTemplate(BaseValidatorModel):
     pass
 
 
-class GetServiceQuotaIncreaseRequestFromTemplateResponseTypeDef(BaseValidatorModel):
-    ServiceQuotaIncreaseRequestInTemplate: ServiceQuotaIncreaseRequestInTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetServiceQuotaIncreaseRequestFromTemplateResponse(BaseValidatorModel):
+    ServiceQuotaIncreaseRequestInTemplate: ServiceQuotaIncreaseRequestInTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class ListServiceQuotaIncreaseRequestsInTemplateResponseTypeDef(BaseValidatorModel):
-    ServiceQuotaIncreaseRequestInTemplateList: List[ServiceQuotaIncreaseRequestInTemplateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListServiceQuotaIncreaseRequestsInTemplateResponse(BaseValidatorModel):
+    ServiceQuotaIncreaseRequestInTemplateList: List[ServiceQuotaIncreaseRequestInTemplate]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutServiceQuotaIncreaseRequestIntoTemplateResponseTypeDef(BaseValidatorModel):
-    ServiceQuotaIncreaseRequestInTemplate: ServiceQuotaIncreaseRequestInTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutServiceQuotaIncreaseRequestIntoTemplateResponse(BaseValidatorModel):
+    ServiceQuotaIncreaseRequestInTemplate: ServiceQuotaIncreaseRequestInTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAWSDefaultServiceQuotasRequestPaginateTypeDef(BaseValidatorModel):
+class ListAWSDefaultServiceQuotasRequestPaginate(BaseValidatorModel):
     ServiceCode: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRequestedServiceQuotaChangeHistoryByQuotaRequestPaginateTypeDef(BaseValidatorModel):
+class ListRequestedServiceQuotaChangeHistoryByQuotaRequestPaginate(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
     Status: Optional[RequestStatusType] = None
     QuotaRequestedAtLevel: Optional[AppliedLevelEnumType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRequestedServiceQuotaChangeHistoryRequestPaginateTypeDef(BaseValidatorModel):
+class ListRequestedServiceQuotaChangeHistoryRequestPaginate(BaseValidatorModel):
     ServiceCode: Optional[str] = None
     Status: Optional[RequestStatusType] = None
     QuotaRequestedAtLevel: Optional[AppliedLevelEnumType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServiceQuotaIncreaseRequestsInTemplateRequestPaginateTypeDef(BaseValidatorModel):
+class ListServiceQuotaIncreaseRequestsInTemplateRequestPaginate(BaseValidatorModel):
     ServiceCode: Optional[str] = None
     AwsRegion: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServiceQuotasRequestPaginateTypeDef(BaseValidatorModel):
+class ListServiceQuotasRequestPaginate(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: Optional[str] = None
     QuotaAppliedAtLevel: Optional[AppliedLevelEnumType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServicesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListServicesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ServiceInfoTypeDef(BaseValidatorModel):
+class ServiceInfo(BaseValidatorModel):
     pass
 
 
-class ListServicesResponseTypeDef(BaseValidatorModel):
-    Services: List[ServiceInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListServicesResponse(BaseValidatorModel):
+    Services: List[ServiceInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class RequestedServiceQuotaChangeTypeDef(BaseValidatorModel):
+class RequestedServiceQuotaChange(BaseValidatorModel):
     pass
 
 
-class GetRequestedServiceQuotaChangeResponseTypeDef(BaseValidatorModel):
-    RequestedQuota: RequestedServiceQuotaChangeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRequestedServiceQuotaChangeResponse(BaseValidatorModel):
+    RequestedQuota: RequestedServiceQuotaChange
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRequestedServiceQuotaChangeHistoryByQuotaResponseTypeDef(BaseValidatorModel):
-    RequestedQuotas: List[RequestedServiceQuotaChangeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRequestedServiceQuotaChangeHistoryByQuotaResponse(BaseValidatorModel):
+    RequestedQuotas: List[RequestedServiceQuotaChange]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListRequestedServiceQuotaChangeHistoryResponseTypeDef(BaseValidatorModel):
-    RequestedQuotas: List[RequestedServiceQuotaChangeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRequestedServiceQuotaChangeHistoryResponse(BaseValidatorModel):
+    RequestedQuotas: List[RequestedServiceQuotaChange]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RequestServiceQuotaIncreaseResponseTypeDef(BaseValidatorModel):
-    RequestedQuota: RequestedServiceQuotaChangeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RequestServiceQuotaIncreaseResponse(BaseValidatorModel):
+    RequestedQuota: RequestedServiceQuotaChange
+    ResponseMetadata: ResponseMetadata
 
 
-class ServiceQuotaTypeDef(BaseValidatorModel):
+class ServiceQuota(BaseValidatorModel):
     pass
 
 
-class GetAWSDefaultServiceQuotaResponseTypeDef(BaseValidatorModel):
-    Quota: ServiceQuotaTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAWSDefaultServiceQuotaResponse(BaseValidatorModel):
+    Quota: ServiceQuota
+    ResponseMetadata: ResponseMetadata
 
 
-class GetServiceQuotaResponseTypeDef(BaseValidatorModel):
-    Quota: ServiceQuotaTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetServiceQuotaResponse(BaseValidatorModel):
+    Quota: ServiceQuota
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAWSDefaultServiceQuotasResponseTypeDef(BaseValidatorModel):
-    Quotas: List[ServiceQuotaTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAWSDefaultServiceQuotasResponse(BaseValidatorModel):
+    Quotas: List[ServiceQuota]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListServiceQuotasResponseTypeDef(BaseValidatorModel):
-    Quotas: List[ServiceQuotaTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListServiceQuotasResponse(BaseValidatorModel):
+    Quotas: List[ServiceQuota]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

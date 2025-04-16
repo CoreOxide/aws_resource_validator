@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.workspaces_thin_client_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,136 +20,136 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListDevicesRequestTypeDef(BaseValidatorModel):
+class ListDevicesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
+class ListEnvironmentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListSoftwareSetsRequestTypeDef(BaseValidatorModel):
+class ListSoftwareSetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class SoftwareTypeDef(BaseValidatorModel):
+class Software(BaseValidatorModel):
     name: Optional[str] = None
     version: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeviceSummaryTypeDef(BaseValidatorModel):
+class DeviceSummary(BaseValidatorModel):
     pass
 
 
-class ListDevicesResponseTypeDef(BaseValidatorModel):
-    devices: List[DeviceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDevicesResponse(BaseValidatorModel):
+    devices: List[DeviceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateDeviceResponseTypeDef(BaseValidatorModel):
-    device: DeviceSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDeviceResponse(BaseValidatorModel):
+    device: DeviceSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class DeviceTypeDef(BaseValidatorModel):
+class Device(BaseValidatorModel):
     pass
 
 
-class GetDeviceResponseTypeDef(BaseValidatorModel):
-    device: DeviceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDeviceResponse(BaseValidatorModel):
+    device: Device
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDevicesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDevicesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEnvironmentsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEnvironmentsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSoftwareSetsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSoftwareSetsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SoftwareSetSummaryTypeDef(BaseValidatorModel):
+class SoftwareSetSummary(BaseValidatorModel):
     pass
 
 
-class ListSoftwareSetsResponseTypeDef(BaseValidatorModel):
-    softwareSets: List[SoftwareSetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSoftwareSetsResponse(BaseValidatorModel):
+    softwareSets: List[SoftwareSetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EnvironmentSummaryTypeDef(BaseValidatorModel):
+class EnvironmentSummary(BaseValidatorModel):
     pass
 
 
-class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
-    environment: EnvironmentSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateEnvironmentResponse(BaseValidatorModel):
+    environment: EnvironmentSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEnvironmentsResponseTypeDef(BaseValidatorModel):
-    environments: List[EnvironmentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnvironmentsResponse(BaseValidatorModel):
+    environments: List[EnvironmentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateEnvironmentResponseTypeDef(BaseValidatorModel):
-    environment: EnvironmentSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateEnvironmentResponse(BaseValidatorModel):
+    environment: EnvironmentSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class EnvironmentTypeDef(BaseValidatorModel):
+class Environment(BaseValidatorModel):
     pass
 
 
-class GetEnvironmentResponseTypeDef(BaseValidatorModel):
-    environment: EnvironmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEnvironmentResponse(BaseValidatorModel):
+    environment: Environment
+    ResponseMetadata: ResponseMetadata
 
 
-class MaintenanceWindowUnionTypeDef(BaseValidatorModel):
+class MaintenanceWindowUnion(BaseValidatorModel):
     pass
 
 
-class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
+class CreateEnvironmentRequest(BaseValidatorModel):
     desktopArn: str
     name: Optional[str] = None
     desktopEndpoint: Optional[str] = None
     softwareSetUpdateSchedule: Optional[SoftwareSetUpdateScheduleType] = None
-    maintenanceWindow: Optional[MaintenanceWindowUnionTypeDef] = None
+    maintenanceWindow: Optional[MaintenanceWindowUnion] = None
     softwareSetUpdateMode: Optional[SoftwareSetUpdateModeType] = None
     desiredSoftwareSetId: Optional[str] = None
     kmsKeyArn: Optional[str] = None
@@ -158,12 +158,12 @@ class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
     deviceCreationTags: Optional[Mapping[str, str]] = None
 
 
-class SoftwareSetTypeDef(BaseValidatorModel):
+class SoftwareSet(BaseValidatorModel):
     pass
 
 
-class GetSoftwareSetResponseTypeDef(BaseValidatorModel):
-    softwareSet: SoftwareSetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSoftwareSetResponse(BaseValidatorModel):
+    softwareSet: SoftwareSet
+    ResponseMetadata: ResponseMetadata
 
 

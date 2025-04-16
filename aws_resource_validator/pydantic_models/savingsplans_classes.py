@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.savingsplans_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,31 +20,31 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteQueuedSavingsPlanRequestTypeDef(BaseValidatorModel):
+class DeleteQueuedSavingsPlanRequest(BaseValidatorModel):
     savingsPlanId: str
 
 
-class SavingsPlanRateFilterTypeDef(BaseValidatorModel):
+class SavingsPlanRateFilter(BaseValidatorModel):
     name: Optional[SavingsPlanRateFilterNameType] = None
     values: Optional[Sequence[str]] = None
 
 
-class SavingsPlanOfferingRateFilterElementTypeDef(BaseValidatorModel):
+class SavingsPlanOfferingRateFilterElement(BaseValidatorModel):
     name: Optional[SavingsPlanRateFilterAttributeType] = None
     values: Optional[Sequence[str]] = None
 
 
-class SavingsPlanOfferingFilterElementTypeDef(BaseValidatorModel):
+class SavingsPlanOfferingFilterElement(BaseValidatorModel):
     name: Optional[SavingsPlanOfferingFilterAttributeType] = None
     values: Optional[Sequence[str]] = None
 
 
-class SavingsPlanFilterTypeDef(BaseValidatorModel):
+class SavingsPlanFilter(BaseValidatorModel):
     name: Optional[SavingsPlansFilterNameType] = None
     values: Optional[Sequence[str]] = None
 
 
-class SavingsPlanTypeDef(BaseValidatorModel):
+class SavingsPlan(BaseValidatorModel):
     offeringId: Optional[str] = None
     savingsPlanId: Optional[str] = None
     savingsPlanArn: Optional[str] = None
@@ -66,11 +66,11 @@ class SavingsPlanTypeDef(BaseValidatorModel):
     returnableUntil: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ParentSavingsPlanOfferingTypeDef(BaseValidatorModel):
+class ParentSavingsPlanOffering(BaseValidatorModel):
     offeringId: Optional[str] = None
     paymentOption: Optional[SavingsPlanPaymentOptionType] = None
     planType: Optional[SavingsPlanTypeType] = None
@@ -79,72 +79,72 @@ class ParentSavingsPlanOfferingTypeDef(BaseValidatorModel):
     planDescription: Optional[str] = None
 
 
-class ReturnSavingsPlanRequestTypeDef(BaseValidatorModel):
+class ReturnSavingsPlanRequest(BaseValidatorModel):
     savingsPlanId: str
     clientToken: Optional[str] = None
 
 
-class SavingsPlanOfferingPropertyTypeDef(BaseValidatorModel):
+class SavingsPlanOfferingProperty(BaseValidatorModel):
     name: Optional[SavingsPlanOfferingPropertyKeyType] = None
     value: Optional[str] = None
 
 
-class SavingsPlanOfferingRatePropertyTypeDef(BaseValidatorModel):
+class SavingsPlanOfferingRateProperty(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
 
 
-class SavingsPlanRatePropertyTypeDef(BaseValidatorModel):
+class SavingsPlanRateProperty(BaseValidatorModel):
     name: Optional[SavingsPlanRatePropertyKeyType] = None
     value: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class CreateSavingsPlanRequestTypeDef(BaseValidatorModel):
+class CreateSavingsPlanRequest(BaseValidatorModel):
     savingsPlanOfferingId: str
     commitment: str
     upfrontPaymentAmount: Optional[str] = None
-    purchaseTime: Optional[TimestampTypeDef] = None
+    purchaseTime: Optional[Timestamp] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateSavingsPlanResponseTypeDef(BaseValidatorModel):
+class CreateSavingsPlanResponse(BaseValidatorModel):
     savingsPlanId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ReturnSavingsPlanResponseTypeDef(BaseValidatorModel):
+class ReturnSavingsPlanResponse(BaseValidatorModel):
     savingsPlanId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSavingsPlanRatesRequestTypeDef(BaseValidatorModel):
+class DescribeSavingsPlanRatesRequest(BaseValidatorModel):
     savingsPlanId: str
-    filters: Optional[Sequence[SavingsPlanRateFilterTypeDef]] = None
+    filters: Optional[Sequence[SavingsPlanRateFilter]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class DescribeSavingsPlansOfferingRatesRequestTypeDef(BaseValidatorModel):
+class DescribeSavingsPlansOfferingRatesRequest(BaseValidatorModel):
     savingsPlanOfferingIds: Optional[Sequence[str]] = None
     savingsPlanPaymentOptions: Optional[Sequence[SavingsPlanPaymentOptionType]] = None
     savingsPlanTypes: Optional[Sequence[SavingsPlanTypeType]] = None
@@ -152,12 +152,12 @@ class DescribeSavingsPlansOfferingRatesRequestTypeDef(BaseValidatorModel):
     serviceCodes: Optional[Sequence[SavingsPlanRateServiceCodeType]] = None
     usageTypes: Optional[Sequence[str]] = None
     operations: Optional[Sequence[str]] = None
-    filters: Optional[Sequence[SavingsPlanOfferingRateFilterElementTypeDef]] = None
+    filters: Optional[Sequence[SavingsPlanOfferingRateFilterElement]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class DescribeSavingsPlansOfferingsRequestTypeDef(BaseValidatorModel):
+class DescribeSavingsPlansOfferingsRequest(BaseValidatorModel):
     offeringIds: Optional[Sequence[str]] = None
     paymentOptions: Optional[Sequence[SavingsPlanPaymentOptionType]] = None
     productType: Optional[SavingsPlanProductTypeType] = None
@@ -168,27 +168,27 @@ class DescribeSavingsPlansOfferingsRequestTypeDef(BaseValidatorModel):
     serviceCodes: Optional[Sequence[str]] = None
     usageTypes: Optional[Sequence[str]] = None
     operations: Optional[Sequence[str]] = None
-    filters: Optional[Sequence[SavingsPlanOfferingFilterElementTypeDef]] = None
+    filters: Optional[Sequence[SavingsPlanOfferingFilterElement]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class DescribeSavingsPlansRequestTypeDef(BaseValidatorModel):
+class DescribeSavingsPlansRequest(BaseValidatorModel):
     savingsPlanArns: Optional[Sequence[str]] = None
     savingsPlanIds: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     states: Optional[Sequence[SavingsPlanStateType]] = None
-    filters: Optional[Sequence[SavingsPlanFilterTypeDef]] = None
+    filters: Optional[Sequence[SavingsPlanFilter]] = None
 
 
-class DescribeSavingsPlansResponseTypeDef(BaseValidatorModel):
-    savingsPlans: List[SavingsPlanTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSavingsPlansResponse(BaseValidatorModel):
+    savingsPlans: List[SavingsPlan]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SavingsPlanOfferingTypeDef(BaseValidatorModel):
+class SavingsPlanOffering(BaseValidatorModel):
     offeringId: Optional[str] = None
     productTypes: Optional[List[SavingsPlanProductTypeType]] = None
     planType: Optional[SavingsPlanTypeType] = None
@@ -199,21 +199,21 @@ class SavingsPlanOfferingTypeDef(BaseValidatorModel):
     serviceCode: Optional[str] = None
     usageType: Optional[str] = None
     operation: Optional[str] = None
-    properties: Optional[List[SavingsPlanOfferingPropertyTypeDef]] = None
+    properties: Optional[List[SavingsPlanOfferingProperty]] = None
 
 
-class SavingsPlanOfferingRateTypeDef(BaseValidatorModel):
-    savingsPlanOffering: Optional[ParentSavingsPlanOfferingTypeDef] = None
+class SavingsPlanOfferingRate(BaseValidatorModel):
+    savingsPlanOffering: Optional[ParentSavingsPlanOffering] = None
     rate: Optional[str] = None
     unit: Optional[SavingsPlanRateUnitType] = None
     productType: Optional[SavingsPlanProductTypeType] = None
     serviceCode: Optional[SavingsPlanRateServiceCodeType] = None
     usageType: Optional[str] = None
     operation: Optional[str] = None
-    properties: Optional[List[SavingsPlanOfferingRatePropertyTypeDef]] = None
+    properties: Optional[List[SavingsPlanOfferingRateProperty]] = None
 
 
-class SavingsPlanRateTypeDef(BaseValidatorModel):
+class SavingsPlanRate(BaseValidatorModel):
     rate: Optional[str] = None
     currency: Optional[CurrencyCodeType] = None
     unit: Optional[SavingsPlanRateUnitType] = None
@@ -221,25 +221,25 @@ class SavingsPlanRateTypeDef(BaseValidatorModel):
     serviceCode: Optional[SavingsPlanRateServiceCodeType] = None
     usageType: Optional[str] = None
     operation: Optional[str] = None
-    properties: Optional[List[SavingsPlanRatePropertyTypeDef]] = None
+    properties: Optional[List[SavingsPlanRateProperty]] = None
 
 
-class DescribeSavingsPlansOfferingsResponseTypeDef(BaseValidatorModel):
-    searchResults: List[SavingsPlanOfferingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSavingsPlansOfferingsResponse(BaseValidatorModel):
+    searchResults: List[SavingsPlanOffering]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeSavingsPlansOfferingRatesResponseTypeDef(BaseValidatorModel):
-    searchResults: List[SavingsPlanOfferingRateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSavingsPlansOfferingRatesResponse(BaseValidatorModel):
+    searchResults: List[SavingsPlanOfferingRate]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeSavingsPlanRatesResponseTypeDef(BaseValidatorModel):
+class DescribeSavingsPlanRatesResponse(BaseValidatorModel):
     savingsPlanId: str
-    searchResults: List[SavingsPlanRateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    searchResults: List[SavingsPlanRate]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

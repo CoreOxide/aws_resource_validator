@@ -12,17 +12,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.payment_cryptography_constants import *
 
-class AliasTypeDef(BaseValidatorModel):
+class Alias(BaseValidatorModel):
     AliasName: str
     KeyArn: Optional[str] = None
 
 
-class CreateAliasInputTypeDef(BaseValidatorModel):
+class CreateAliasInput(BaseValidatorModel):
     AliasName: str
     KeyArn: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -30,31 +30,31 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class DeleteAliasInputTypeDef(BaseValidatorModel):
+class DeleteAliasInput(BaseValidatorModel):
     AliasName: str
 
 
-class DeleteKeyInputTypeDef(BaseValidatorModel):
+class DeleteKeyInput(BaseValidatorModel):
     KeyIdentifier: str
     DeleteKeyInDays: Optional[int] = None
 
 
-class ExportDukptInitialKeyTypeDef(BaseValidatorModel):
+class ExportDukptInitialKey(BaseValidatorModel):
     KeySerialNumber: str
 
 
-class ExportKeyCryptogramTypeDef(BaseValidatorModel):
+class ExportKeyCryptogram(BaseValidatorModel):
     CertificateAuthorityPublicKeyIdentifier: str
     WrappingKeyCertificate: str
     WrappingSpec: Optional[WrappingKeySpecType] = None
 
 
-class WrappedKeyTypeDef(BaseValidatorModel):
+class WrappedKey(BaseValidatorModel):
     WrappingKeyArn: str
     WrappedKeyMaterialFormat: WrappedKeyMaterialFormatType
     KeyMaterial: str
@@ -62,34 +62,34 @@ class WrappedKeyTypeDef(BaseValidatorModel):
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
 
 
-class GetAliasInputTypeDef(BaseValidatorModel):
+class GetAliasInput(BaseValidatorModel):
     AliasName: str
 
 
-class GetKeyInputTypeDef(BaseValidatorModel):
+class GetKeyInput(BaseValidatorModel):
     KeyIdentifier: str
 
 
-class GetParametersForExportInputTypeDef(BaseValidatorModel):
+class GetParametersForExportInput(BaseValidatorModel):
     KeyMaterialType: KeyMaterialTypeType
     SigningKeyAlgorithm: KeyAlgorithmType
 
 
-class GetParametersForImportInputTypeDef(BaseValidatorModel):
+class GetParametersForImportInput(BaseValidatorModel):
     KeyMaterialType: KeyMaterialTypeType
     WrappingKeyAlgorithm: KeyAlgorithmType
 
 
-class GetPublicKeyCertificateInputTypeDef(BaseValidatorModel):
+class GetPublicKeyCertificateInput(BaseValidatorModel):
     KeyIdentifier: str
 
 
-class ImportTr31KeyBlockTypeDef(BaseValidatorModel):
+class ImportTr31KeyBlock(BaseValidatorModel):
     WrappingKeyIdentifier: str
     WrappedKeyBlock: str
 
 
-class ImportTr34KeyBlockTypeDef(BaseValidatorModel):
+class ImportTr34KeyBlock(BaseValidatorModel):
     CertificateAuthorityPublicKeyIdentifier: str
     SigningKeyCertificate: str
     ImportToken: str
@@ -98,7 +98,7 @@ class ImportTr34KeyBlockTypeDef(BaseValidatorModel):
     RandomNonce: Optional[str] = None
 
 
-class KeyModesOfUseTypeDef(BaseValidatorModel):
+class KeyModesOfUse(BaseValidatorModel):
     Encrypt: Optional[bool] = None
     Decrypt: Optional[bool] = None
     Wrap: Optional[bool] = None
@@ -110,175 +110,175 @@ class KeyModesOfUseTypeDef(BaseValidatorModel):
     NoRestrictions: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAliasesInputTypeDef(BaseValidatorModel):
+class ListAliasesInput(BaseValidatorModel):
     KeyArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListKeysInputTypeDef(BaseValidatorModel):
+class ListKeysInput(BaseValidatorModel):
     KeyState: Optional[KeyStateType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class RestoreKeyInputTypeDef(BaseValidatorModel):
+class RestoreKeyInput(BaseValidatorModel):
     KeyIdentifier: str
 
 
-class StartKeyUsageInputTypeDef(BaseValidatorModel):
+class StartKeyUsageInput(BaseValidatorModel):
     KeyIdentifier: str
 
 
-class StopKeyUsageInputTypeDef(BaseValidatorModel):
+class StopKeyUsageInput(BaseValidatorModel):
     KeyIdentifier: str
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateAliasInputTypeDef(BaseValidatorModel):
+class UpdateAliasInput(BaseValidatorModel):
     AliasName: str
     KeyArn: Optional[str] = None
 
 
-class CreateAliasOutputTypeDef(BaseValidatorModel):
-    Alias: AliasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAliasOutput(BaseValidatorModel):
+    Alias: Alias
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAliasOutputTypeDef(BaseValidatorModel):
-    Alias: AliasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAliasOutput(BaseValidatorModel):
+    Alias: Alias
+    ResponseMetadata: ResponseMetadata
 
 
-class GetParametersForExportOutputTypeDef(BaseValidatorModel):
+class GetParametersForExportOutput(BaseValidatorModel):
     SigningKeyCertificate: str
     SigningKeyCertificateChain: str
     SigningKeyAlgorithm: KeyAlgorithmType
     ExportToken: str
     ParametersValidUntilTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetParametersForImportOutputTypeDef(BaseValidatorModel):
+class GetParametersForImportOutput(BaseValidatorModel):
     WrappingKeyCertificate: str
     WrappingKeyCertificateChain: str
     WrappingKeyAlgorithm: KeyAlgorithmType
     ImportToken: str
     ParametersValidUntilTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPublicKeyCertificateOutputTypeDef(BaseValidatorModel):
+class GetPublicKeyCertificateOutput(BaseValidatorModel):
     KeyCertificate: str
     KeyCertificateChain: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAliasesOutputTypeDef(BaseValidatorModel):
-    Aliases: List[AliasTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAliasesOutput(BaseValidatorModel):
+    Aliases: List[Alias]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateAliasOutputTypeDef(BaseValidatorModel):
-    Alias: AliasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAliasOutput(BaseValidatorModel):
+    Alias: Alias
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceOutput(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class ExportAttributesTypeDef(BaseValidatorModel):
-    ExportDukptInitialKey: Optional[ExportDukptInitialKeyTypeDef] = None
+class ExportAttributes(BaseValidatorModel):
+    ExportDukptInitialKey: Optional[ExportDukptInitialKey] = None
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
 
 
-class ExportKeyOutputTypeDef(BaseValidatorModel):
-    WrappedKey: WrappedKeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExportKeyOutput(BaseValidatorModel):
+    WrappedKey: WrappedKey
+    ResponseMetadata: ResponseMetadata
 
 
-class KeyAttributesTypeDef(BaseValidatorModel):
+class KeyAttributes(BaseValidatorModel):
     KeyUsage: KeyUsageType
     KeyClass: KeyClassType
     KeyAlgorithm: KeyAlgorithmType
-    KeyModesOfUse: KeyModesOfUseTypeDef
+    KeyModesOfUse: KeyModesOfUse
 
 
-class KeyBlockHeadersTypeDef(BaseValidatorModel):
-    KeyModesOfUse: Optional[KeyModesOfUseTypeDef] = None
+class KeyBlockHeaders(BaseValidatorModel):
+    KeyModesOfUse: Optional[KeyModesOfUse] = None
     KeyExportability: Optional[KeyExportabilityType] = None
     KeyVersion: Optional[str] = None
     OptionalBlocks: Optional[Mapping[str, str]] = None
 
 
-class ListAliasesInputPaginateTypeDef(BaseValidatorModel):
+class ListAliasesInputPaginate(BaseValidatorModel):
     KeyArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListKeysInputPaginateTypeDef(BaseValidatorModel):
+class ListKeysInputPaginate(BaseValidatorModel):
     KeyState: Optional[KeyStateType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsForResourceInputPaginateTypeDef(BaseValidatorModel):
+class ListTagsForResourceInputPaginate(BaseValidatorModel):
     ResourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class CreateKeyInputTypeDef(BaseValidatorModel):
-    KeyAttributes: KeyAttributesTypeDef
+class CreateKeyInput(BaseValidatorModel):
+    KeyAttributes: KeyAttributes
     Exportable: bool
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
     Enabled: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ImportKeyCryptogramTypeDef(BaseValidatorModel):
-    KeyAttributes: KeyAttributesTypeDef
+class ImportKeyCryptogram(BaseValidatorModel):
+    KeyAttributes: KeyAttributes
     Exportable: bool
     WrappedKeyCryptogram: str
     ImportToken: str
     WrappingSpec: Optional[WrappingKeySpecType] = None
 
 
-class KeySummaryTypeDef(BaseValidatorModel):
+class KeySummary(BaseValidatorModel):
     KeyArn: str
     KeyState: KeyStateType
-    KeyAttributes: KeyAttributesTypeDef
+    KeyAttributes: KeyAttributes
     KeyCheckValue: str
     Exportable: bool
     Enabled: bool
 
 
-class KeyTypeDef(BaseValidatorModel):
+class Key(BaseValidatorModel):
     KeyArn: str
-    KeyAttributes: KeyAttributesTypeDef
+    KeyAttributes: KeyAttributes
     KeyCheckValue: str
     KeyCheckValueAlgorithm: KeyCheckValueAlgorithmType
     Enabled: bool
@@ -292,96 +292,96 @@ class KeyTypeDef(BaseValidatorModel):
     DeleteTimestamp: Optional[datetime] = None
 
 
-class RootCertificatePublicKeyTypeDef(BaseValidatorModel):
-    KeyAttributes: KeyAttributesTypeDef
+class RootCertificatePublicKey(BaseValidatorModel):
+    KeyAttributes: KeyAttributes
     PublicKeyCertificate: str
 
 
-class TrustedCertificatePublicKeyTypeDef(BaseValidatorModel):
-    KeyAttributes: KeyAttributesTypeDef
+class TrustedCertificatePublicKey(BaseValidatorModel):
+    KeyAttributes: KeyAttributes
     PublicKeyCertificate: str
     CertificateAuthorityPublicKeyIdentifier: str
 
 
-class ExportTr31KeyBlockTypeDef(BaseValidatorModel):
+class ExportTr31KeyBlock(BaseValidatorModel):
     WrappingKeyIdentifier: str
-    KeyBlockHeaders: Optional[KeyBlockHeadersTypeDef] = None
+    KeyBlockHeaders: Optional[KeyBlockHeaders] = None
 
 
-class ExportTr34KeyBlockTypeDef(BaseValidatorModel):
+class ExportTr34KeyBlock(BaseValidatorModel):
     CertificateAuthorityPublicKeyIdentifier: str
     WrappingKeyCertificate: str
     ExportToken: str
     KeyBlockFormat: Literal["X9_TR34_2012"]
     RandomNonce: Optional[str] = None
-    KeyBlockHeaders: Optional[KeyBlockHeadersTypeDef] = None
+    KeyBlockHeaders: Optional[KeyBlockHeaders] = None
 
 
-class ListKeysOutputTypeDef(BaseValidatorModel):
-    Keys: List[KeySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKeysOutput(BaseValidatorModel):
+    Keys: List[KeySummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateKeyOutputTypeDef(BaseValidatorModel):
-    Key: KeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateKeyOutput(BaseValidatorModel):
+    Key: Key
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteKeyOutputTypeDef(BaseValidatorModel):
-    Key: KeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteKeyOutput(BaseValidatorModel):
+    Key: Key
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKeyOutputTypeDef(BaseValidatorModel):
-    Key: KeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetKeyOutput(BaseValidatorModel):
+    Key: Key
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportKeyOutputTypeDef(BaseValidatorModel):
-    Key: KeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ImportKeyOutput(BaseValidatorModel):
+    Key: Key
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreKeyOutputTypeDef(BaseValidatorModel):
-    Key: KeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreKeyOutput(BaseValidatorModel):
+    Key: Key
+    ResponseMetadata: ResponseMetadata
 
 
-class StartKeyUsageOutputTypeDef(BaseValidatorModel):
-    Key: KeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartKeyUsageOutput(BaseValidatorModel):
+    Key: Key
+    ResponseMetadata: ResponseMetadata
 
 
-class StopKeyUsageOutputTypeDef(BaseValidatorModel):
-    Key: KeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopKeyUsageOutput(BaseValidatorModel):
+    Key: Key
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportKeyMaterialTypeDef(BaseValidatorModel):
-    RootCertificatePublicKey: Optional[RootCertificatePublicKeyTypeDef] = None
-    TrustedCertificatePublicKey: Optional[TrustedCertificatePublicKeyTypeDef] = None
-    Tr31KeyBlock: Optional[ImportTr31KeyBlockTypeDef] = None
-    Tr34KeyBlock: Optional[ImportTr34KeyBlockTypeDef] = None
-    KeyCryptogram: Optional[ImportKeyCryptogramTypeDef] = None
+class ImportKeyMaterial(BaseValidatorModel):
+    RootCertificatePublicKey: Optional[RootCertificatePublicKey] = None
+    TrustedCertificatePublicKey: Optional[TrustedCertificatePublicKey] = None
+    Tr31KeyBlock: Optional[ImportTr31KeyBlock] = None
+    Tr34KeyBlock: Optional[ImportTr34KeyBlock] = None
+    KeyCryptogram: Optional[ImportKeyCryptogram] = None
 
 
-class ExportKeyMaterialTypeDef(BaseValidatorModel):
-    Tr31KeyBlock: Optional[ExportTr31KeyBlockTypeDef] = None
-    Tr34KeyBlock: Optional[ExportTr34KeyBlockTypeDef] = None
-    KeyCryptogram: Optional[ExportKeyCryptogramTypeDef] = None
+class ExportKeyMaterial(BaseValidatorModel):
+    Tr31KeyBlock: Optional[ExportTr31KeyBlock] = None
+    Tr34KeyBlock: Optional[ExportTr34KeyBlock] = None
+    KeyCryptogram: Optional[ExportKeyCryptogram] = None
 
 
-class ImportKeyInputTypeDef(BaseValidatorModel):
-    KeyMaterial: ImportKeyMaterialTypeDef
+class ImportKeyInput(BaseValidatorModel):
+    KeyMaterial: ImportKeyMaterial
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
     Enabled: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ExportKeyInputTypeDef(BaseValidatorModel):
-    KeyMaterial: ExportKeyMaterialTypeDef
+class ExportKeyInput(BaseValidatorModel):
+    KeyMaterial: ExportKeyMaterial
     ExportKeyIdentifier: str
-    ExportAttributes: Optional[ExportAttributesTypeDef] = None
+    ExportAttributes: Optional[ExportAttributes] = None
 
 

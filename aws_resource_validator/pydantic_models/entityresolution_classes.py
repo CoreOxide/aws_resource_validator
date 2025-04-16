@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.entityresolution_constants import *
 
-class AddPolicyStatementInputTypeDef(BaseValidatorModel):
+class AddPolicyStatementInput(BaseValidatorModel):
     action: Sequence[str]
     arn: str
     effect: StatementEffectType
@@ -21,7 +21,7 @@ class AddPolicyStatementInputTypeDef(BaseValidatorModel):
     condition: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -29,72 +29,72 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchDeleteUniqueIdInputTypeDef(BaseValidatorModel):
+class BatchDeleteUniqueIdInput(BaseValidatorModel):
     uniqueIds: Sequence[str]
     workflowName: str
     inputSource: Optional[str] = None
 
 
-class DeleteUniqueIdErrorTypeDef(BaseValidatorModel):
+class DeleteUniqueIdError(BaseValidatorModel):
     errorType: DeleteUniqueIdErrorTypeType
     uniqueId: str
 
 
-class DeletedUniqueIdTypeDef(BaseValidatorModel):
+class DeletedUniqueId(BaseValidatorModel):
     uniqueId: str
 
 
-class IdMappingWorkflowOutputSourceTypeDef(BaseValidatorModel):
+class IdMappingWorkflowOutputSource(BaseValidatorModel):
     outputS3Path: str
     KMSArn: Optional[str] = None
 
 
-class IdNamespaceInputSourceTypeDef(BaseValidatorModel):
+class IdNamespaceInputSource(BaseValidatorModel):
     inputSourceARN: str
     schemaName: Optional[str] = None
 
 
-class IncrementalRunConfigTypeDef(BaseValidatorModel):
+class IncrementalRunConfig(BaseValidatorModel):
     incrementalRunType: Optional[Literal["IMMEDIATE"]] = None
 
 
-class InputSourceTypeDef(BaseValidatorModel):
+class InputSource(BaseValidatorModel):
     inputSourceARN: str
     schemaName: str
     applyNormalization: Optional[bool] = None
 
 
-class DeleteIdMappingWorkflowInputTypeDef(BaseValidatorModel):
+class DeleteIdMappingWorkflowInput(BaseValidatorModel):
     workflowName: str
 
 
-class DeleteIdNamespaceInputTypeDef(BaseValidatorModel):
+class DeleteIdNamespaceInput(BaseValidatorModel):
     idNamespaceName: str
 
 
-class DeleteMatchingWorkflowInputTypeDef(BaseValidatorModel):
+class DeleteMatchingWorkflowInput(BaseValidatorModel):
     workflowName: str
 
 
-class DeletePolicyStatementInputTypeDef(BaseValidatorModel):
+class DeletePolicyStatementInput(BaseValidatorModel):
     arn: str
     statementId: str
 
 
-class DeleteSchemaMappingInputTypeDef(BaseValidatorModel):
+class DeleteSchemaMappingInput(BaseValidatorModel):
     schemaName: str
 
 
-class ErrorDetailsTypeDef(BaseValidatorModel):
+class ErrorDetails(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
-class GetIdMappingJobInputTypeDef(BaseValidatorModel):
+class GetIdMappingJobInput(BaseValidatorModel):
     jobId: str
     workflowName: str
 
 
-class IdMappingJobMetricsTypeDef(BaseValidatorModel):
+class IdMappingJobMetrics(BaseValidatorModel):
     inputRecords: Optional[int] = None
     recordsNotProcessed: Optional[int] = None
     totalMappedRecords: Optional[int] = None
@@ -103,143 +103,143 @@ class IdMappingJobMetricsTypeDef(BaseValidatorModel):
     totalRecordsProcessed: Optional[int] = None
 
 
-class IdMappingJobOutputSourceTypeDef(BaseValidatorModel):
+class IdMappingJobOutputSource(BaseValidatorModel):
     outputS3Path: str
     roleArn: str
     KMSArn: Optional[str] = None
 
 
-class GetIdMappingWorkflowInputTypeDef(BaseValidatorModel):
+class GetIdMappingWorkflowInput(BaseValidatorModel):
     workflowName: str
 
 
-class GetIdNamespaceInputTypeDef(BaseValidatorModel):
+class GetIdNamespaceInput(BaseValidatorModel):
     idNamespaceName: str
 
 
-class GetMatchIdInputTypeDef(BaseValidatorModel):
+class GetMatchIdInput(BaseValidatorModel):
     record: Mapping[str, str]
     workflowName: str
     applyNormalization: Optional[bool] = None
 
 
-class GetMatchingJobInputTypeDef(BaseValidatorModel):
+class GetMatchingJobInput(BaseValidatorModel):
     jobId: str
     workflowName: str
 
 
-class JobMetricsTypeDef(BaseValidatorModel):
+class JobMetrics(BaseValidatorModel):
     inputRecords: Optional[int] = None
     matchIDs: Optional[int] = None
     recordsNotProcessed: Optional[int] = None
     totalRecordsProcessed: Optional[int] = None
 
 
-class JobOutputSourceTypeDef(BaseValidatorModel):
+class JobOutputSource(BaseValidatorModel):
     outputS3Path: str
     roleArn: str
     KMSArn: Optional[str] = None
 
 
-class GetMatchingWorkflowInputTypeDef(BaseValidatorModel):
+class GetMatchingWorkflowInput(BaseValidatorModel):
     workflowName: str
 
 
-class GetPolicyInputTypeDef(BaseValidatorModel):
+class GetPolicyInput(BaseValidatorModel):
     arn: str
 
 
-class GetProviderServiceInputTypeDef(BaseValidatorModel):
+class GetProviderServiceInput(BaseValidatorModel):
     providerName: str
     providerServiceName: str
 
 
-class ProviderIdNameSpaceConfigurationTypeDef(BaseValidatorModel):
+class ProviderIdNameSpaceConfiguration(BaseValidatorModel):
     description: Optional[str] = None
     providerSourceConfigurationDefinition: Optional[Dict[str, Any]] = None
     providerTargetConfigurationDefinition: Optional[Dict[str, Any]] = None
 
 
-class ProviderIntermediateDataAccessConfigurationTypeDef(BaseValidatorModel):
+class ProviderIntermediateDataAccessConfiguration(BaseValidatorModel):
     awsAccountIds: Optional[List[str]] = None
     requiredBucketActions: Optional[List[str]] = None
 
 
-class GetSchemaMappingInputTypeDef(BaseValidatorModel):
+class GetSchemaMappingInput(BaseValidatorModel):
     schemaName: str
 
 
-class RuleOutputTypeDef(BaseValidatorModel):
+class RuleOutput(BaseValidatorModel):
     matchingKeys: List[str]
     ruleName: str
 
 
-class RuleTypeDef(BaseValidatorModel):
+class Rule(BaseValidatorModel):
     matchingKeys: Sequence[str]
     ruleName: str
 
 
-class IdMappingWorkflowSummaryTypeDef(BaseValidatorModel):
+class IdMappingWorkflowSummary(BaseValidatorModel):
     createdAt: datetime
     updatedAt: datetime
     workflowArn: str
     workflowName: str
 
 
-class IdNamespaceIdMappingWorkflowMetadataTypeDef(BaseValidatorModel):
+class IdNamespaceIdMappingWorkflowMetadata(BaseValidatorModel):
     idMappingType: IdMappingTypeType
 
 
-class NamespaceProviderPropertiesOutputTypeDef(BaseValidatorModel):
+class NamespaceProviderPropertiesOutput(BaseValidatorModel):
     providerServiceArn: str
     providerConfiguration: Optional[Dict[str, Any]] = None
 
 
-class IntermediateSourceConfigurationTypeDef(BaseValidatorModel):
+class IntermediateSourceConfiguration(BaseValidatorModel):
     intermediateS3Path: str
 
 
-class JobSummaryTypeDef(BaseValidatorModel):
+class JobSummary(BaseValidatorModel):
     jobId: str
     startTime: datetime
     status: JobStatusType
     endTime: Optional[datetime] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListIdMappingJobsInputTypeDef(BaseValidatorModel):
+class ListIdMappingJobsInput(BaseValidatorModel):
     workflowName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListIdMappingWorkflowsInputTypeDef(BaseValidatorModel):
+class ListIdMappingWorkflowsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListIdNamespacesInputTypeDef(BaseValidatorModel):
+class ListIdNamespacesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListMatchingJobsInputTypeDef(BaseValidatorModel):
+class ListMatchingJobsInput(BaseValidatorModel):
     workflowName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListMatchingWorkflowsInputTypeDef(BaseValidatorModel):
+class ListMatchingWorkflowsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class MatchingWorkflowSummaryTypeDef(BaseValidatorModel):
+class MatchingWorkflowSummary(BaseValidatorModel):
     createdAt: datetime
     resolutionType: ResolutionTypeType
     updatedAt: datetime
@@ -247,13 +247,13 @@ class MatchingWorkflowSummaryTypeDef(BaseValidatorModel):
     workflowName: str
 
 
-class ListProviderServicesInputTypeDef(BaseValidatorModel):
+class ListProviderServicesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     providerName: Optional[str] = None
 
 
-class ProviderServiceSummaryTypeDef(BaseValidatorModel):
+class ProviderServiceSummary(BaseValidatorModel):
     providerName: str
     providerServiceArn: str
     providerServiceDisplayName: str
@@ -261,12 +261,12 @@ class ProviderServiceSummaryTypeDef(BaseValidatorModel):
     providerServiceType: ServiceTypeType
 
 
-class ListSchemaMappingsInputTypeDef(BaseValidatorModel):
+class ListSchemaMappingsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class SchemaMappingSummaryTypeDef(BaseValidatorModel):
+class SchemaMappingSummary(BaseValidatorModel):
     createdAt: datetime
     hasWorkflows: bool
     schemaArn: str
@@ -274,557 +274,557 @@ class SchemaMappingSummaryTypeDef(BaseValidatorModel):
     updatedAt: datetime
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class NamespaceProviderPropertiesTypeDef(BaseValidatorModel):
+class NamespaceProviderProperties(BaseValidatorModel):
     providerServiceArn: str
     providerConfiguration: Optional[Mapping[str, Any]] = None
 
 
-class OutputAttributeTypeDef(BaseValidatorModel):
+class OutputAttribute(BaseValidatorModel):
     name: str
     hashed: Optional[bool] = None
 
 
-class ProviderMarketplaceConfigurationTypeDef(BaseValidatorModel):
+class ProviderMarketplaceConfiguration(BaseValidatorModel):
     assetId: str
     dataSetId: str
     listingId: str
     revisionId: str
 
 
-class PutPolicyInputTypeDef(BaseValidatorModel):
+class PutPolicyInput(BaseValidatorModel):
     arn: str
     policy: str
     token: Optional[str] = None
 
 
-class StartMatchingJobInputTypeDef(BaseValidatorModel):
+class StartMatchingJobInput(BaseValidatorModel):
     workflowName: str
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class AddPolicyStatementOutputTypeDef(BaseValidatorModel):
+class AddPolicyStatementOutput(BaseValidatorModel):
     arn: str
     policy: str
     token: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteIdMappingWorkflowOutputTypeDef(BaseValidatorModel):
+class DeleteIdMappingWorkflowOutput(BaseValidatorModel):
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteIdNamespaceOutputTypeDef(BaseValidatorModel):
+class DeleteIdNamespaceOutput(BaseValidatorModel):
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteMatchingWorkflowOutputTypeDef(BaseValidatorModel):
+class DeleteMatchingWorkflowOutput(BaseValidatorModel):
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePolicyStatementOutputTypeDef(BaseValidatorModel):
+class DeletePolicyStatementOutput(BaseValidatorModel):
     arn: str
     policy: str
     token: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSchemaMappingOutputTypeDef(BaseValidatorModel):
+class DeleteSchemaMappingOutput(BaseValidatorModel):
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMatchIdOutputTypeDef(BaseValidatorModel):
+class GetMatchIdOutput(BaseValidatorModel):
     matchId: str
     matchRule: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPolicyOutputTypeDef(BaseValidatorModel):
+class GetPolicyOutput(BaseValidatorModel):
     arn: str
     policy: str
     token: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutPolicyOutputTypeDef(BaseValidatorModel):
+class PutPolicyOutput(BaseValidatorModel):
     arn: str
     policy: str
     token: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartMatchingJobOutputTypeDef(BaseValidatorModel):
+class StartMatchingJobOutput(BaseValidatorModel):
     jobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDeleteUniqueIdOutputTypeDef(BaseValidatorModel):
-    deleted: List[DeletedUniqueIdTypeDef]
+class BatchDeleteUniqueIdOutput(BaseValidatorModel):
+    deleted: List[DeletedUniqueId]
     disconnectedUniqueIds: List[str]
-    errors: List[DeleteUniqueIdErrorTypeDef]
+    errors: List[DeleteUniqueIdError]
     status: DeleteUniqueIdStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SchemaInputAttributeTypeDef(BaseValidatorModel):
+class SchemaInputAttribute(BaseValidatorModel):
     pass
 
 
-class CreateSchemaMappingInputTypeDef(BaseValidatorModel):
-    mappedInputFields: Sequence[SchemaInputAttributeTypeDef]
+class CreateSchemaMappingInput(BaseValidatorModel):
+    mappedInputFields: Sequence[SchemaInputAttribute]
     schemaName: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateSchemaMappingOutputTypeDef(BaseValidatorModel):
+class CreateSchemaMappingOutput(BaseValidatorModel):
     description: str
-    mappedInputFields: List[SchemaInputAttributeTypeDef]
+    mappedInputFields: List[SchemaInputAttribute]
     schemaArn: str
     schemaName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSchemaMappingOutputTypeDef(BaseValidatorModel):
+class GetSchemaMappingOutput(BaseValidatorModel):
     createdAt: datetime
     description: str
     hasWorkflows: bool
-    mappedInputFields: List[SchemaInputAttributeTypeDef]
+    mappedInputFields: List[SchemaInputAttribute]
     schemaArn: str
     schemaName: str
     tags: Dict[str, str]
     updatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSchemaMappingInputTypeDef(BaseValidatorModel):
-    mappedInputFields: Sequence[SchemaInputAttributeTypeDef]
+class UpdateSchemaMappingInput(BaseValidatorModel):
+    mappedInputFields: Sequence[SchemaInputAttribute]
     schemaName: str
     description: Optional[str] = None
 
 
-class UpdateSchemaMappingOutputTypeDef(BaseValidatorModel):
+class UpdateSchemaMappingOutput(BaseValidatorModel):
     description: str
-    mappedInputFields: List[SchemaInputAttributeTypeDef]
+    mappedInputFields: List[SchemaInputAttribute]
     schemaArn: str
     schemaName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdMappingJobOutputTypeDef(BaseValidatorModel):
+class GetIdMappingJobOutput(BaseValidatorModel):
     endTime: datetime
-    errorDetails: ErrorDetailsTypeDef
+    errorDetails: ErrorDetails
     jobId: str
-    metrics: IdMappingJobMetricsTypeDef
-    outputSourceConfig: List[IdMappingJobOutputSourceTypeDef]
+    metrics: IdMappingJobMetrics
+    outputSourceConfig: List[IdMappingJobOutputSource]
     startTime: datetime
     status: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartIdMappingJobInputTypeDef(BaseValidatorModel):
+class StartIdMappingJobInput(BaseValidatorModel):
     workflowName: str
-    outputSourceConfig: Optional[Sequence[IdMappingJobOutputSourceTypeDef]] = None
+    outputSourceConfig: Optional[Sequence[IdMappingJobOutputSource]] = None
 
 
-class StartIdMappingJobOutputTypeDef(BaseValidatorModel):
+class StartIdMappingJobOutput(BaseValidatorModel):
     jobId: str
-    outputSourceConfig: List[IdMappingJobOutputSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    outputSourceConfig: List[IdMappingJobOutputSource]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMatchingJobOutputTypeDef(BaseValidatorModel):
+class GetMatchingJobOutput(BaseValidatorModel):
     endTime: datetime
-    errorDetails: ErrorDetailsTypeDef
+    errorDetails: ErrorDetails
     jobId: str
-    metrics: JobMetricsTypeDef
-    outputSourceConfig: List[JobOutputSourceTypeDef]
+    metrics: JobMetrics
+    outputSourceConfig: List[JobOutputSource]
     startTime: datetime
     status: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class IdMappingRuleBasedPropertiesOutputTypeDef(BaseValidatorModel):
+class IdMappingRuleBasedPropertiesOutput(BaseValidatorModel):
     attributeMatchingModel: AttributeMatchingModelType
     recordMatchingModel: RecordMatchingModelType
     ruleDefinitionType: IdMappingWorkflowRuleDefinitionTypeType
-    rules: Optional[List[RuleOutputTypeDef]] = None
+    rules: Optional[List[RuleOutput]] = None
 
 
-class NamespaceRuleBasedPropertiesOutputTypeDef(BaseValidatorModel):
+class NamespaceRuleBasedPropertiesOutput(BaseValidatorModel):
     attributeMatchingModel: Optional[AttributeMatchingModelType] = None
     recordMatchingModels: Optional[List[RecordMatchingModelType]] = None
     ruleDefinitionTypes: Optional[List[IdMappingWorkflowRuleDefinitionTypeType]] = None
-    rules: Optional[List[RuleOutputTypeDef]] = None
+    rules: Optional[List[RuleOutput]] = None
 
 
-class RuleBasedPropertiesOutputTypeDef(BaseValidatorModel):
+class RuleBasedPropertiesOutput(BaseValidatorModel):
     attributeMatchingModel: AttributeMatchingModelType
-    rules: List[RuleOutputTypeDef]
+    rules: List[RuleOutput]
     matchPurpose: Optional[MatchPurposeType] = None
 
 
-class IdMappingRuleBasedPropertiesTypeDef(BaseValidatorModel):
+class IdMappingRuleBasedProperties(BaseValidatorModel):
     attributeMatchingModel: AttributeMatchingModelType
     recordMatchingModel: RecordMatchingModelType
     ruleDefinitionType: IdMappingWorkflowRuleDefinitionTypeType
-    rules: Optional[Sequence[RuleTypeDef]] = None
+    rules: Optional[Sequence[Rule]] = None
 
 
-class RuleBasedPropertiesTypeDef(BaseValidatorModel):
+class RuleBasedProperties(BaseValidatorModel):
     attributeMatchingModel: AttributeMatchingModelType
-    rules: Sequence[RuleTypeDef]
+    rules: Sequence[Rule]
     matchPurpose: Optional[MatchPurposeType] = None
 
 
-class ListIdMappingWorkflowsOutputTypeDef(BaseValidatorModel):
-    workflowSummaries: List[IdMappingWorkflowSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdMappingWorkflowsOutput(BaseValidatorModel):
+    workflowSummaries: List[IdMappingWorkflowSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ProviderPropertiesOutputTypeDef(BaseValidatorModel):
+class ProviderPropertiesOutput(BaseValidatorModel):
     providerServiceArn: str
-    intermediateSourceConfiguration: Optional[IntermediateSourceConfigurationTypeDef] = None
+    intermediateSourceConfiguration: Optional[IntermediateSourceConfiguration] = None
     providerConfiguration: Optional[Dict[str, Any]] = None
 
 
-class ProviderPropertiesTypeDef(BaseValidatorModel):
+class ProviderProperties(BaseValidatorModel):
     providerServiceArn: str
-    intermediateSourceConfiguration: Optional[IntermediateSourceConfigurationTypeDef] = None
+    intermediateSourceConfiguration: Optional[IntermediateSourceConfiguration] = None
     providerConfiguration: Optional[Mapping[str, Any]] = None
 
 
-class ListIdMappingJobsOutputTypeDef(BaseValidatorModel):
-    jobs: List[JobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdMappingJobsOutput(BaseValidatorModel):
+    jobs: List[JobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListMatchingJobsOutputTypeDef(BaseValidatorModel):
-    jobs: List[JobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMatchingJobsOutput(BaseValidatorModel):
+    jobs: List[JobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListIdMappingJobsInputPaginateTypeDef(BaseValidatorModel):
+class ListIdMappingJobsInputPaginate(BaseValidatorModel):
     workflowName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIdMappingWorkflowsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListIdMappingWorkflowsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIdNamespacesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListIdNamespacesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMatchingJobsInputPaginateTypeDef(BaseValidatorModel):
+class ListMatchingJobsInputPaginate(BaseValidatorModel):
     workflowName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMatchingWorkflowsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListMatchingWorkflowsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProviderServicesInputPaginateTypeDef(BaseValidatorModel):
+class ListProviderServicesInputPaginate(BaseValidatorModel):
     providerName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSchemaMappingsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSchemaMappingsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMatchingWorkflowsOutputTypeDef(BaseValidatorModel):
-    workflowSummaries: List[MatchingWorkflowSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMatchingWorkflowsOutput(BaseValidatorModel):
+    workflowSummaries: List[MatchingWorkflowSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListProviderServicesOutputTypeDef(BaseValidatorModel):
-    providerServiceSummaries: List[ProviderServiceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProviderServicesOutput(BaseValidatorModel):
+    providerServiceSummaries: List[ProviderServiceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSchemaMappingsOutputTypeDef(BaseValidatorModel):
-    schemaList: List[SchemaMappingSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSchemaMappingsOutput(BaseValidatorModel):
+    schemaList: List[SchemaMappingSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class OutputSourceOutputTypeDef(BaseValidatorModel):
-    output: List[OutputAttributeTypeDef]
+class OutputSourceOutput(BaseValidatorModel):
+    output: List[OutputAttribute]
     outputS3Path: str
     KMSArn: Optional[str] = None
     applyNormalization: Optional[bool] = None
 
 
-class OutputSourceTypeDef(BaseValidatorModel):
-    output: Sequence[OutputAttributeTypeDef]
+class OutputSource(BaseValidatorModel):
+    output: Sequence[OutputAttribute]
     outputS3Path: str
     KMSArn: Optional[str] = None
     applyNormalization: Optional[bool] = None
 
 
-class ProviderSchemaAttributeTypeDef(BaseValidatorModel):
+class ProviderSchemaAttribute(BaseValidatorModel):
     pass
 
 
-class ProviderComponentSchemaTypeDef(BaseValidatorModel):
-    providerSchemaAttributes: Optional[List[ProviderSchemaAttributeTypeDef]] = None
+class ProviderComponentSchema(BaseValidatorModel):
+    providerSchemaAttributes: Optional[List[ProviderSchemaAttribute]] = None
     schemas: Optional[List[List[str]]] = None
 
 
-class ProviderEndpointConfigurationTypeDef(BaseValidatorModel):
-    marketplaceConfiguration: Optional[ProviderMarketplaceConfigurationTypeDef] = None
+class ProviderEndpointConfiguration(BaseValidatorModel):
+    marketplaceConfiguration: Optional[ProviderMarketplaceConfiguration] = None
 
 
-class IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef(BaseValidatorModel):
+class IdNamespaceIdMappingWorkflowPropertiesOutput(BaseValidatorModel):
     idMappingType: IdMappingTypeType
-    providerProperties: Optional[NamespaceProviderPropertiesOutputTypeDef] = None
-    ruleBasedProperties: Optional[NamespaceRuleBasedPropertiesOutputTypeDef] = None
+    providerProperties: Optional[NamespaceProviderPropertiesOutput] = None
+    ruleBasedProperties: Optional[NamespaceRuleBasedPropertiesOutput] = None
 
 
-class RuleUnionTypeDef(BaseValidatorModel):
+class RuleUnion(BaseValidatorModel):
     pass
 
 
-class NamespaceRuleBasedPropertiesTypeDef(BaseValidatorModel):
+class NamespaceRuleBasedProperties(BaseValidatorModel):
     attributeMatchingModel: Optional[AttributeMatchingModelType] = None
     recordMatchingModels: Optional[Sequence[RecordMatchingModelType]] = None
     ruleDefinitionTypes: Optional[Sequence[IdMappingWorkflowRuleDefinitionTypeType]] = None
-    rules: Optional[Sequence[RuleUnionTypeDef]] = None
+    rules: Optional[Sequence[RuleUnion]] = None
 
 
-class IdNamespaceSummaryTypeDef(BaseValidatorModel):
+class IdNamespaceSummary(BaseValidatorModel):
     pass
 
 
-class ListIdNamespacesOutputTypeDef(BaseValidatorModel):
-    idNamespaceSummaries: List[IdNamespaceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdNamespacesOutput(BaseValidatorModel):
+    idNamespaceSummaries: List[IdNamespaceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class IdMappingTechniquesOutputTypeDef(BaseValidatorModel):
+class IdMappingTechniquesOutput(BaseValidatorModel):
     idMappingType: IdMappingTypeType
-    providerProperties: Optional[ProviderPropertiesOutputTypeDef] = None
-    ruleBasedProperties: Optional[IdMappingRuleBasedPropertiesOutputTypeDef] = None
+    providerProperties: Optional[ProviderPropertiesOutput] = None
+    ruleBasedProperties: Optional[IdMappingRuleBasedPropertiesOutput] = None
 
 
-class ResolutionTechniquesOutputTypeDef(BaseValidatorModel):
+class ResolutionTechniquesOutput(BaseValidatorModel):
     resolutionType: ResolutionTypeType
-    providerProperties: Optional[ProviderPropertiesOutputTypeDef] = None
-    ruleBasedProperties: Optional[RuleBasedPropertiesOutputTypeDef] = None
+    providerProperties: Optional[ProviderPropertiesOutput] = None
+    ruleBasedProperties: Optional[RuleBasedPropertiesOutput] = None
 
 
-class IdMappingTechniquesTypeDef(BaseValidatorModel):
+class IdMappingTechniques(BaseValidatorModel):
     idMappingType: IdMappingTypeType
-    providerProperties: Optional[ProviderPropertiesTypeDef] = None
-    ruleBasedProperties: Optional[IdMappingRuleBasedPropertiesTypeDef] = None
+    providerProperties: Optional[ProviderProperties] = None
+    ruleBasedProperties: Optional[IdMappingRuleBasedProperties] = None
 
 
-class ResolutionTechniquesTypeDef(BaseValidatorModel):
+class ResolutionTechniques(BaseValidatorModel):
     resolutionType: ResolutionTypeType
-    providerProperties: Optional[ProviderPropertiesTypeDef] = None
-    ruleBasedProperties: Optional[RuleBasedPropertiesTypeDef] = None
+    providerProperties: Optional[ProviderProperties] = None
+    ruleBasedProperties: Optional[RuleBasedProperties] = None
 
 
-class GetProviderServiceOutputTypeDef(BaseValidatorModel):
+class GetProviderServiceOutput(BaseValidatorModel):
     anonymizedOutput: bool
-    providerComponentSchema: ProviderComponentSchemaTypeDef
+    providerComponentSchema: ProviderComponentSchema
     providerConfigurationDefinition: Dict[str, Any]
-    providerEndpointConfiguration: ProviderEndpointConfigurationTypeDef
+    providerEndpointConfiguration: ProviderEndpointConfiguration
     providerEntityOutputDefinition: Dict[str, Any]
-    providerIdNameSpaceConfiguration: ProviderIdNameSpaceConfigurationTypeDef
-    providerIntermediateDataAccessConfiguration: ProviderIntermediateDataAccessConfigurationTypeDef
+    providerIdNameSpaceConfiguration: ProviderIdNameSpaceConfiguration
+    providerIntermediateDataAccessConfiguration: ProviderIntermediateDataAccessConfiguration
     providerJobConfiguration: Dict[str, Any]
     providerName: str
     providerServiceArn: str
     providerServiceDisplayName: str
     providerServiceName: str
     providerServiceType: ServiceTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class IdMappingWorkflowInputSourceTypeDef(BaseValidatorModel):
+class IdMappingWorkflowInputSource(BaseValidatorModel):
     pass
 
 
-class CreateIdMappingWorkflowOutputTypeDef(BaseValidatorModel):
+class CreateIdMappingWorkflowOutput(BaseValidatorModel):
     description: str
-    idMappingTechniques: IdMappingTechniquesOutputTypeDef
-    inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
-    outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
+    idMappingTechniques: IdMappingTechniquesOutput
+    inputSourceConfig: List[IdMappingWorkflowInputSource]
+    outputSourceConfig: List[IdMappingWorkflowOutputSource]
     roleArn: str
     workflowArn: str
     workflowName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdMappingWorkflowOutputTypeDef(BaseValidatorModel):
+class GetIdMappingWorkflowOutput(BaseValidatorModel):
     createdAt: datetime
     description: str
-    idMappingTechniques: IdMappingTechniquesOutputTypeDef
-    inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
-    outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
+    idMappingTechniques: IdMappingTechniquesOutput
+    inputSourceConfig: List[IdMappingWorkflowInputSource]
+    outputSourceConfig: List[IdMappingWorkflowOutputSource]
     roleArn: str
     tags: Dict[str, str]
     updatedAt: datetime
     workflowArn: str
     workflowName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIdMappingWorkflowOutputTypeDef(BaseValidatorModel):
+class UpdateIdMappingWorkflowOutput(BaseValidatorModel):
     description: str
-    idMappingTechniques: IdMappingTechniquesOutputTypeDef
-    inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
-    outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
+    idMappingTechniques: IdMappingTechniquesOutput
+    inputSourceConfig: List[IdMappingWorkflowInputSource]
+    outputSourceConfig: List[IdMappingWorkflowOutputSource]
     roleArn: str
     workflowArn: str
     workflowName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMatchingWorkflowOutputTypeDef(BaseValidatorModel):
+class CreateMatchingWorkflowOutput(BaseValidatorModel):
     description: str
-    incrementalRunConfig: IncrementalRunConfigTypeDef
-    inputSourceConfig: List[InputSourceTypeDef]
-    outputSourceConfig: List[OutputSourceOutputTypeDef]
-    resolutionTechniques: ResolutionTechniquesOutputTypeDef
+    incrementalRunConfig: IncrementalRunConfig
+    inputSourceConfig: List[InputSource]
+    outputSourceConfig: List[OutputSourceOutput]
+    resolutionTechniques: ResolutionTechniquesOutput
     roleArn: str
     workflowArn: str
     workflowName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMatchingWorkflowOutputTypeDef(BaseValidatorModel):
+class GetMatchingWorkflowOutput(BaseValidatorModel):
     createdAt: datetime
     description: str
-    incrementalRunConfig: IncrementalRunConfigTypeDef
-    inputSourceConfig: List[InputSourceTypeDef]
-    outputSourceConfig: List[OutputSourceOutputTypeDef]
-    resolutionTechniques: ResolutionTechniquesOutputTypeDef
+    incrementalRunConfig: IncrementalRunConfig
+    inputSourceConfig: List[InputSource]
+    outputSourceConfig: List[OutputSourceOutput]
+    resolutionTechniques: ResolutionTechniquesOutput
     roleArn: str
     tags: Dict[str, str]
     updatedAt: datetime
     workflowArn: str
     workflowName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMatchingWorkflowOutputTypeDef(BaseValidatorModel):
+class UpdateMatchingWorkflowOutput(BaseValidatorModel):
     description: str
-    incrementalRunConfig: IncrementalRunConfigTypeDef
-    inputSourceConfig: List[InputSourceTypeDef]
-    outputSourceConfig: List[OutputSourceOutputTypeDef]
-    resolutionTechniques: ResolutionTechniquesOutputTypeDef
+    incrementalRunConfig: IncrementalRunConfig
+    inputSourceConfig: List[InputSource]
+    outputSourceConfig: List[OutputSourceOutput]
+    resolutionTechniques: ResolutionTechniquesOutput
     roleArn: str
     workflowName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class NamespaceRuleBasedPropertiesUnionTypeDef(BaseValidatorModel):
+class NamespaceRuleBasedPropertiesUnion(BaseValidatorModel):
     pass
 
 
-class NamespaceProviderPropertiesUnionTypeDef(BaseValidatorModel):
+class NamespaceProviderPropertiesUnion(BaseValidatorModel):
     pass
 
 
-class IdNamespaceIdMappingWorkflowPropertiesTypeDef(BaseValidatorModel):
+class IdNamespaceIdMappingWorkflowProperties(BaseValidatorModel):
     idMappingType: IdMappingTypeType
-    providerProperties: Optional[NamespaceProviderPropertiesUnionTypeDef] = None
-    ruleBasedProperties: Optional[NamespaceRuleBasedPropertiesUnionTypeDef] = None
+    providerProperties: Optional[NamespaceProviderPropertiesUnion] = None
+    ruleBasedProperties: Optional[NamespaceRuleBasedPropertiesUnion] = None
 
 
-class IdMappingTechniquesUnionTypeDef(BaseValidatorModel):
+class IdMappingTechniquesUnion(BaseValidatorModel):
     pass
 
 
-class CreateIdMappingWorkflowInputTypeDef(BaseValidatorModel):
-    idMappingTechniques: IdMappingTechniquesUnionTypeDef
-    inputSourceConfig: Sequence[IdMappingWorkflowInputSourceTypeDef]
+class CreateIdMappingWorkflowInput(BaseValidatorModel):
+    idMappingTechniques: IdMappingTechniquesUnion
+    inputSourceConfig: Sequence[IdMappingWorkflowInputSource]
     workflowName: str
     description: Optional[str] = None
-    outputSourceConfig: Optional[Sequence[IdMappingWorkflowOutputSourceTypeDef]] = None
+    outputSourceConfig: Optional[Sequence[IdMappingWorkflowOutputSource]] = None
     roleArn: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateIdMappingWorkflowInputTypeDef(BaseValidatorModel):
-    idMappingTechniques: IdMappingTechniquesUnionTypeDef
-    inputSourceConfig: Sequence[IdMappingWorkflowInputSourceTypeDef]
+class UpdateIdMappingWorkflowInput(BaseValidatorModel):
+    idMappingTechniques: IdMappingTechniquesUnion
+    inputSourceConfig: Sequence[IdMappingWorkflowInputSource]
     workflowName: str
     description: Optional[str] = None
-    outputSourceConfig: Optional[Sequence[IdMappingWorkflowOutputSourceTypeDef]] = None
+    outputSourceConfig: Optional[Sequence[IdMappingWorkflowOutputSource]] = None
     roleArn: Optional[str] = None
 
 
-class ResolutionTechniquesUnionTypeDef(BaseValidatorModel):
+class ResolutionTechniquesUnion(BaseValidatorModel):
     pass
 
 
-class OutputSourceUnionTypeDef(BaseValidatorModel):
+class OutputSourceUnion(BaseValidatorModel):
     pass
 
 
-class CreateMatchingWorkflowInputTypeDef(BaseValidatorModel):
-    inputSourceConfig: Sequence[InputSourceTypeDef]
-    outputSourceConfig: Sequence[OutputSourceUnionTypeDef]
-    resolutionTechniques: ResolutionTechniquesUnionTypeDef
+class CreateMatchingWorkflowInput(BaseValidatorModel):
+    inputSourceConfig: Sequence[InputSource]
+    outputSourceConfig: Sequence[OutputSourceUnion]
+    resolutionTechniques: ResolutionTechniquesUnion
     roleArn: str
     workflowName: str
     description: Optional[str] = None
-    incrementalRunConfig: Optional[IncrementalRunConfigTypeDef] = None
+    incrementalRunConfig: Optional[IncrementalRunConfig] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateMatchingWorkflowInputTypeDef(BaseValidatorModel):
-    inputSourceConfig: Sequence[InputSourceTypeDef]
-    outputSourceConfig: Sequence[OutputSourceUnionTypeDef]
-    resolutionTechniques: ResolutionTechniquesUnionTypeDef
+class UpdateMatchingWorkflowInput(BaseValidatorModel):
+    inputSourceConfig: Sequence[InputSource]
+    outputSourceConfig: Sequence[OutputSourceUnion]
+    resolutionTechniques: ResolutionTechniquesUnion
     roleArn: str
     workflowName: str
     description: Optional[str] = None
-    incrementalRunConfig: Optional[IncrementalRunConfigTypeDef] = None
+    incrementalRunConfig: Optional[IncrementalRunConfig] = None
 
 
-class IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef(BaseValidatorModel):
+class IdNamespaceIdMappingWorkflowPropertiesUnion(BaseValidatorModel):
     pass
 
 
-class UpdateIdNamespaceInputTypeDef(BaseValidatorModel):
+class UpdateIdNamespaceInput(BaseValidatorModel):
     idNamespaceName: str
     description: Optional[str] = None
-    idMappingWorkflowProperties: Optional[ Sequence[IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef] ] = None
-    inputSourceConfig: Optional[Sequence[IdNamespaceInputSourceTypeDef]] = None
+    idMappingWorkflowProperties: Optional[ Sequence[IdNamespaceIdMappingWorkflowPropertiesUnion] ] = None
+    inputSourceConfig: Optional[Sequence[IdNamespaceInputSource]] = None
     roleArn: Optional[str] = None
 
 

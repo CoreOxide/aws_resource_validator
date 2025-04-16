@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BillOfMaterialsImportJobTypeDef
+# BillOfMaterialsImportJob
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateBillOfMaterialsImportJobRequestTypeDef
+# CreateBillOfMaterialsImportJobRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -42,18 +42,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateBillOfMaterialsImportJobResponseTypeDef
+# CreateBillOfMaterialsImportJobResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDataIntegrationFlowRequestTypeDef
+# CreateDataIntegrationFlowRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -64,22 +64,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowSourceTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowSource]
 - **Required**: Yes
 
 ### transformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTransformationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTransformation'>
 - **Required**: Yes
 
 ### target
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTargetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTarget'>
 - **Required**: Yes
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateDataIntegrationFlowResponseTypeDef
+# CreateDataIntegrationFlowResponse
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -90,11 +90,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDataLakeDatasetRequestTypeDef
+# CreateDataLakeDatasetRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetSchemaUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetSchemaUnion]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -118,18 +118,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateDataLakeDatasetResponseTypeDef
+# CreateDataLakeDatasetResponse
 
 ### dataset
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDataset'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateInstanceRequestTypeDef
+# CreateInstanceRequest
 
 ### instanceName
 - **Type**: typing.Optional[str]
@@ -150,128 +150,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateInstanceResponseTypeDef
+# CreateInstanceResponse
 
 ### instance
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.InstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.Instance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataIntegrationFlowDatasetOptionsTypeDef
-
-### loadType
-- **Type**: typing.Optional[typing.Literal['INCREMENTAL', 'REPLACE']]
-
-### dedupeRecords
-- **Type**: typing.Optional[bool]
-
-
-# DataIntegrationFlowDatasetSourceConfigurationTypeDef
-
-### datasetIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowDatasetOptionsTypeDef]
-
-
-# DataIntegrationFlowDatasetTargetConfigurationTypeDef
-
-### datasetIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowDatasetOptionsTypeDef]
-
-
-# DataIntegrationFlowS3OptionsTypeDef
-
-### fileType
-- **Type**: typing.Optional[typing.Literal['CSV', 'JSON', 'PARQUET']]
-
-
-# DataIntegrationFlowS3SourceConfigurationTypeDef
-
-### bucketName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### prefix
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowS3OptionsTypeDef]
-
-
-# DataIntegrationFlowS3TargetConfigurationTypeDef
-
-### bucketName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### prefix
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowS3OptionsTypeDef]
-
-
-# DataIntegrationFlowSQLTransformationConfigurationTypeDef
-
-### query
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DataIntegrationFlowSourceTypeDef
-
-### sourceType
-- **Type**: typing.Literal['DATASET', 'S3']
-- **Required**: Yes
-
-### sourceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### s3Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowS3SourceConfigurationTypeDef]
-
-### datasetSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowDatasetSourceConfigurationTypeDef]
-
-
-# DataIntegrationFlowTargetTypeDef
-
-### targetType
-- **Type**: typing.Literal['DATASET', 'S3']
-- **Required**: Yes
-
-### s3Target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowS3TargetConfigurationTypeDef]
-
-### datasetTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowDatasetTargetConfigurationTypeDef]
-
-
-# DataIntegrationFlowTransformationTypeDef
-
-### transformationType
-- **Type**: typing.Literal['NONE', 'SQL']
-- **Required**: Yes
-
-### sqlTransformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowSQLTransformationConfigurationTypeDef]
-
-
-# DataIntegrationFlowTypeDef
+# DataIntegrationFlow
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -282,15 +172,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowSource]
 - **Required**: Yes
 
 ### transformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTransformationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTransformation'>
 - **Required**: Yes
 
 ### target
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTargetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTarget'>
 - **Required**: Yes
 
 ### createdTime
@@ -302,41 +192,117 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DataLakeDatasetSchemaFieldTypeDef
+# DataIntegrationFlowDatasetOptions
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### loadType
+- **Type**: typing.Optional[typing.Literal['INCREMENTAL', 'REPLACE']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### dedupeRecords
+- **Type**: typing.Optional[bool]
 
-# DataLakeDatasetSchemaOutputTypeDef
 
-### name
+# DataIntegrationFlowDatasetSourceConfiguration
+
+### datasetIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### fields
-- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetSchemaFieldTypeDef]
-- **Required**: Yes
+### options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowDatasetOptions]
 
 
-# DataLakeDatasetSchemaTypeDef
+# DataIntegrationFlowDatasetTargetConfiguration
 
-### name
+### datasetIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### fields
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetSchemaFieldTypeDef]
+### options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowDatasetOptions]
+
+
+# DataIntegrationFlowS3Options
+
+### fileType
+- **Type**: typing.Optional[typing.Literal['CSV', 'JSON', 'PARQUET']]
+
+
+# DataIntegrationFlowS3SourceConfiguration
+
+### bucketName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### prefix
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowS3Options]
+
+
+# DataIntegrationFlowS3TargetConfiguration
+
+### bucketName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### prefix
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowS3Options]
+
+
+# DataIntegrationFlowSQLTransformationConfiguration
+
+### query
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DataLakeDatasetSchemaUnionTypeDef
+# DataIntegrationFlowSource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### sourceType
+- **Type**: typing.Literal['DATASET', 'S3']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### sourceName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# DataLakeDatasetTypeDef
+### s3Source
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowS3SourceConfiguration]
+
+### datasetSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowDatasetSourceConfiguration]
+
+
+# DataIntegrationFlowTarget
+
+### targetType
+- **Type**: typing.Literal['DATASET', 'S3']
+- **Required**: Yes
+
+### s3Target
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowS3TargetConfiguration]
+
+### datasetTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowDatasetTargetConfiguration]
+
+
+# DataIntegrationFlowTransformation
+
+### transformationType
+- **Type**: typing.Literal['NONE', 'SQL']
+- **Required**: Yes
+
+### sqlTransformation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowSQLTransformationConfiguration]
+
+
+# DataLakeDataset
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -355,8 +321,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### schema
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetSchemaOutputTypeDef'>
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetTypeDef'>>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetSchemaOutput'>
+- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDataset'>>
 
 ### createdTime
 - **Type**: <class 'datetime.datetime'>
@@ -370,7 +336,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteDataIntegrationFlowRequestTypeDef
+# DataLakeDatasetSchema
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### fields
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetSchemaField]
+- **Required**: Yes
+
+
+# DataLakeDatasetSchemaField
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DataLakeDatasetSchemaOutput
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### fields
+- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetSchemaField]
+- **Required**: Yes
+
+
+# DataLakeDatasetSchemaUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeleteDataIntegrationFlowRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -381,7 +381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataIntegrationFlowResponseTypeDef
+# DeleteDataIntegrationFlowResponse
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -392,11 +392,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDataLakeDatasetRequestTypeDef
+# DeleteDataLakeDatasetRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -411,7 +411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataLakeDatasetResponseTypeDef
+# DeleteDataLakeDatasetResponse
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -426,29 +426,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteInstanceRequestTypeDef
+# DeleteInstanceRequest
 
 ### instanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInstanceResponseTypeDef
+# DeleteInstanceResponse
 
 ### instance
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.InstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.Instance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBillOfMaterialsImportJobRequestTypeDef
+# GetBillOfMaterialsImportJobRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -459,18 +459,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBillOfMaterialsImportJobResponseTypeDef
+# GetBillOfMaterialsImportJobResponse
 
 ### job
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.BillOfMaterialsImportJobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.BillOfMaterialsImportJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDataIntegrationFlowRequestTypeDef
+# GetDataIntegrationFlowRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -481,18 +481,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataIntegrationFlowResponseTypeDef
+# GetDataIntegrationFlowResponse
 
 ### flow
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlow'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDataLakeDatasetRequestTypeDef
+# GetDataLakeDatasetRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -507,36 +507,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataLakeDatasetResponseTypeDef
+# GetDataLakeDatasetResponse
 
 ### dataset
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDataset'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetInstanceRequestTypeDef
+# GetInstanceRequest
 
 ### instanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetInstanceResponseTypeDef
+# GetInstanceResponse
 
 ### instance
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.InstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.Instance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InstanceTypeDef
+# Instance
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -575,17 +575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ListDataIntegrationFlowsRequestPaginateTypeDef
-
-### instanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.PaginatorConfigTypeDef]
-
-
-# ListDataIntegrationFlowsRequestTypeDef
+# ListDataIntegrationFlowsRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -598,35 +588,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDataIntegrationFlowsResponseTypeDef
+# ListDataIntegrationFlowsRequestPaginate
+
+### instanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.PaginatorConfig]
+
+
+# ListDataIntegrationFlowsResponse
 
 ### flows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlow]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDataLakeDatasetsRequestPaginateTypeDef
-
-### instanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.PaginatorConfigTypeDef]
-
-
-# ListDataLakeDatasetsRequestTypeDef
+# ListDataLakeDatasetsRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -643,33 +629,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDataLakeDatasetsResponseTypeDef
+# ListDataLakeDatasetsRequestPaginate
+
+### instanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.PaginatorConfig]
+
+
+# ListDataLakeDatasetsResponse
 
 ### datasets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDataset]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListInstancesRequestPaginateTypeDef
-
-### instanceNameFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### instanceStateFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Active', 'CreateFailed', 'DeleteFailed', 'Deleted', 'Deleting', 'Initializing']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.PaginatorConfigTypeDef]
-
-
-# ListInstancesRequestTypeDef
+# ListInstancesRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -684,39 +672,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Active', 'CreateFailed', 'DeleteFailed', 'Deleted', 'Deleting', 'Initializing']]]
 
 
-# ListInstancesResponseTypeDef
+# ListInstancesRequestPaginate
+
+### instanceNameFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### instanceStateFilter
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['Active', 'CreateFailed', 'DeleteFailed', 'Deleted', 'Deleting', 'Initializing']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.PaginatorConfig]
+
+
+# ListInstancesResponse
 
 ### instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.InstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.supplychain_classes.Instance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -728,7 +728,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -750,7 +750,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendDataIntegrationEventRequestTypeDef
+# SendDataIntegrationEventRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -769,24 +769,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### eventTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.Timestamp]
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 
-# SendDataIntegrationEventResponseTypeDef
+# SendDataIntegrationEventResponse
 
 ### eventId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -797,13 +797,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -814,7 +814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataIntegrationFlowRequestTypeDef
+# UpdateDataIntegrationFlowRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -825,27 +825,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowSource]]
 
 ### transformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTransformationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTransformation]
 
 ### target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTargetTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTarget]
 
 
-# UpdateDataIntegrationFlowResponseTypeDef
+# UpdateDataIntegrationFlowResponse
 
 ### flow
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlowTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataIntegrationFlow'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDataLakeDatasetRequestTypeDef
+# UpdateDataLakeDatasetRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -863,18 +863,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDataLakeDatasetResponseTypeDef
+# UpdateDataLakeDatasetResponse
 
 ### dataset
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDatasetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.DataLakeDataset'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateInstanceRequestTypeDef
+# UpdateInstanceRequest
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -887,14 +887,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateInstanceResponseTypeDef
+# UpdateInstanceResponse
 
 ### instance
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.InstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.Instance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.supplychain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

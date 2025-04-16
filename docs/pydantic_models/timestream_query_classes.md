@@ -1,13 +1,13 @@
 # Timestream Query Classes
 
-# AccountSettingsNotificationConfigurationTypeDef
+# AccountSettingsNotificationConfiguration
 
 ### RoleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SnsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.SnsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
 # BaseValidatorModel
@@ -16,37 +16,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelQueryRequestTypeDef
+# CancelQueryRequest
 
 ### QueryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelQueryResponseTypeDef
+# CancelQueryResponse
 
 ### CancellationMessage
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ColumnInfoPaginatorTypeDef
+# ColumnInfo
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ColumnInfoTypeDef
+# ColumnInfoPaginator
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateScheduledQueryRequestTypeDef
+# CreateScheduledQueryRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -57,11 +57,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ScheduleConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ScheduleConfiguration'>
 - **Required**: Yes
 
 ### NotificationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.NotificationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.NotificationConfiguration'>
 - **Required**: Yes
 
 ### ScheduledQueryExecutionRoleArn
@@ -69,40 +69,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ErrorReportConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ErrorReportConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ErrorReportConfiguration'>
 - **Required**: Yes
 
 ### TargetConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.TargetConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.TargetConfigurationUnion]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.Tag]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
 
-# CreateScheduledQueryResponseTypeDef
+# CreateScheduledQueryResponse
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DatumPaginatorTypeDef
+# Datum
 
 ### ScalarValue
 - **Type**: typing.Optional[str]
 
 ### TimeSeriesValue
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.TimeSeriesDataPointPaginatorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.TimeSeriesDataPoint]]
 
 ### ArrayValue
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
@@ -114,13 +114,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DatumTypeDef
+# DatumPaginator
 
 ### ScalarValue
 - **Type**: typing.Optional[str]
 
 ### TimeSeriesValue
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.TimeSeriesDataPointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.TimeSeriesDataPointPaginator]]
 
 ### ArrayValue
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
@@ -132,14 +132,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteScheduledQueryRequestTypeDef
+# DeleteScheduledQueryRequest
 
 ### ScheduledQueryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAccountSettingsResponseTypeDef
+# DescribeAccountSettingsResponse
 
 ### MaxQueryTCU
 - **Type**: <class 'int'>
@@ -150,44 +150,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QueryCompute
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryComputeResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryComputeResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEndpointsResponseTypeDef
+# DescribeEndpointsResponse
 
 ### Endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.EndpointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.Endpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeScheduledQueryRequestTypeDef
+# DescribeScheduledQueryRequest
 
 ### ScheduledQueryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeScheduledQueryResponseTypeDef
+# DescribeScheduledQueryResponse
 
 ### ScheduledQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DimensionMappingTypeDef
+# DimensionMapping
 
 ### Name
 - **Type**: <class 'str'>
@@ -198,14 +198,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EndpointTypeDef
+# Endpoint
 
 ### Address
 - **Type**: <class 'str'>
@@ -216,37 +216,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ErrorReportConfigurationTypeDef
+# ErrorReportConfiguration
 
 ### S3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.S3ConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.S3Configuration'>
 - **Required**: Yes
 
 
-# ErrorReportLocationTypeDef
+# ErrorReportLocation
 
 ### S3ReportLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.S3ReportLocationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ExecuteScheduledQueryRequestTypeDef
+# ExecuteScheduledQueryRequest
 
 ### ScheduledQueryArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InvocationTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.Timestamp'>
 - **Required**: Yes
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### QueryInsights
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryInsightsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryInsights]
 
 
-# ExecutionStatsTypeDef
+# ExecutionStats
 
 ### ExecutionTimeInMillis
 - **Type**: typing.Optional[int]
@@ -267,7 +267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LastUpdateTypeDef
+# LastUpdate
 
 ### TargetQueryTCU
 - **Type**: typing.Optional[int]
@@ -279,13 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListScheduledQueriesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.PaginatorConfigTypeDef]
-
-
-# ListScheduledQueriesRequestTypeDef
+# ListScheduledQueriesRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -294,31 +288,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListScheduledQueriesResponseTypeDef
+# ListScheduledQueriesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.PaginatorConfig]
+
+
+# ListScheduledQueriesResponse
 
 ### ScheduledQueries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQuery]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestPaginateTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.PaginatorConfigTypeDef]
-
-
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -331,21 +321,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceRequestPaginate
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.PaginatorConfig]
+
+
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MixedMeasureMappingOutputTypeDef
+# MixedMeasureMapping
 
 ### MeasureValueType
 - **Type**: typing.Literal['BIGINT', 'BOOLEAN', 'DOUBLE', 'MULTI', 'VARCHAR']
@@ -361,10 +361,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureAttributeMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureAttributeMapping]]
 
 
-# MixedMeasureMappingTypeDef
+# MixedMeasureMappingOutput
 
 ### MeasureValueType
 - **Type**: typing.Literal['BIGINT', 'BOOLEAN', 'DOUBLE', 'MULTI', 'VARCHAR']
@@ -380,10 +380,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureAttributeMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureAttributeMapping]]
 
 
-# MultiMeasureAttributeMappingTypeDef
+# MultiMeasureAttributeMapping
 
 ### SourceColumn
 - **Type**: <class 'str'>
@@ -397,34 +397,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MultiMeasureMappingsOutputTypeDef
+# MultiMeasureMappings
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureAttributeMappingTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureAttributeMapping]
 - **Required**: Yes
 
 ### TargetMultiMeasureName
 - **Type**: typing.Optional[str]
 
 
-# MultiMeasureMappingsTypeDef
+# MultiMeasureMappingsOutput
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureAttributeMappingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureAttributeMapping]
 - **Required**: Yes
 
 ### TargetMultiMeasureName
 - **Type**: typing.Optional[str]
 
 
-# NotificationConfigurationTypeDef
+# NotificationConfiguration
 
 ### SnsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.SnsConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.SnsConfiguration'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -436,13 +436,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParameterMappingTypeDef
+# ParameterMapping
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PrepareQueryRequestTypeDef
+# PrepareQueryRequest
 
 ### QueryString
 - **Type**: <class 'str'>
@@ -452,72 +452,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PrepareQueryResponseTypeDef
+# PrepareQueryResponse
 
 ### QueryString
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Columns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.SelectColumnTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.SelectColumn]
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ParameterMappingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ParameterMapping]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ProvisionedCapacityRequestTypeDef
+# ProvisionedCapacityRequest
 
 ### TargetQueryTCU
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### NotificationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.AccountSettingsNotificationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.AccountSettingsNotificationConfiguration]
 
 
-# ProvisionedCapacityResponseTypeDef
+# ProvisionedCapacityResponse
 
 ### ActiveQueryTCU
 - **Type**: typing.Optional[int]
 
 ### NotificationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.AccountSettingsNotificationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.AccountSettingsNotificationConfiguration]
 
 ### LastUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.LastUpdateTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# QueryComputeRequestTypeDef
-
-### ComputeMode
-- **Type**: typing.Optional[typing.Literal['ON_DEMAND', 'PROVISIONED']]
-
-### ProvisionedCapacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ProvisionedCapacityRequestTypeDef]
-
-
-# QueryComputeResponseTypeDef
+# QueryComputeRequest
 
 ### ComputeMode
 - **Type**: typing.Optional[typing.Literal['ON_DEMAND', 'PROVISIONED']]
 
 ### ProvisionedCapacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ProvisionedCapacityResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ProvisionedCapacityRequest]
 
 
-# QueryInsightsResponseTypeDef
+# QueryComputeResponse
+
+### ComputeMode
+- **Type**: typing.Optional[typing.Literal['ON_DEMAND', 'PROVISIONED']]
+
+### ProvisionedCapacity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ProvisionedCapacityResponse]
+
+
+# QueryInsights
+
+### Mode
+- **Type**: typing.Literal['DISABLED', 'ENABLED_WITH_RATE_CONTROL']
+- **Required**: Yes
+
+
+# QueryInsightsResponse
 
 ### QuerySpatialCoverage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QuerySpatialCoverageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### QueryTemporalRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QueryTemporalRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### QueryTableCount
 - **Type**: typing.Optional[int]
@@ -538,30 +545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# QueryInsightsTypeDef
-
-### Mode
-- **Type**: typing.Literal['DISABLED', 'ENABLED_WITH_RATE_CONTROL']
-- **Required**: Yes
-
-
-# QueryRequestPaginateTypeDef
-
-### QueryString
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ClientToken
-- **Type**: typing.Optional[str]
-
-### QueryInsights
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QueryInsightsTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.PaginatorConfigTypeDef]
-
-
-# QueryRequestTypeDef
+# QueryRequest
 
 ### QueryString
 - **Type**: <class 'str'>
@@ -577,70 +561,92 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### QueryInsights
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QueryInsightsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# QueryResponsePaginatorTypeDef
+# QueryRequestPaginate
+
+### QueryString
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+### QueryInsights
+- **Type**: <class 'NoneType'>
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.PaginatorConfig]
+
+
+# QueryResponse
 
 ### QueryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Rows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.RowPaginatorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.Row]
 - **Required**: Yes
 
 ### ColumnInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ColumnInfoPaginatorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ColumnInfo]
 - **Required**: Yes
 
 ### QueryStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryStatus'>
 - **Required**: Yes
 
 ### QueryInsightsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryInsightsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryInsightsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# QueryResponseTypeDef
+# QueryResponsePaginator
 
 ### QueryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Rows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.RowTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.RowPaginator]
 - **Required**: Yes
 
 ### ColumnInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ColumnInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ColumnInfoPaginator]
 - **Required**: Yes
 
 ### QueryStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryStatus'>
 - **Required**: Yes
 
 ### QueryInsightsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryInsightsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryInsightsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# QuerySpatialCoverageMaxTypeDef
+# QuerySpatialCoverage
+
+### Max
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QuerySpatialCoverageMax]
+
+
+# QuerySpatialCoverageMax
 
 ### Value
 - **Type**: typing.Optional[float]
@@ -652,13 +658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# QuerySpatialCoverageTypeDef
-
-### Max
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QuerySpatialCoverageMaxTypeDef]
-
-
-# QueryStatusTypeDef
+# QueryStatus
 
 ### ProgressPercentage
 - **Type**: typing.Optional[float]
@@ -670,7 +670,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# QueryTemporalRangeMaxTypeDef
+# QueryTemporalRange
+
+### Max
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QueryTemporalRangeMax]
+
+
+# QueryTemporalRangeMax
 
 ### Value
 - **Type**: typing.Optional[int]
@@ -679,13 +685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# QueryTemporalRangeTypeDef
-
-### Max
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QueryTemporalRangeMaxTypeDef]
-
-
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -707,21 +707,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RowPaginatorTypeDef
+# Row
 
 ### Data
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.DatumPaginatorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.Datum]
 - **Required**: Yes
 
 
-# RowTypeDef
+# RowPaginator
 
 ### Data
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.DatumTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.DatumPaginator]
 - **Required**: Yes
 
 
-# S3ConfigurationTypeDef
+# S3Configuration
 
 ### BucketName
 - **Type**: <class 'str'>
@@ -734,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SSE_KMS', 'SSE_S3']]
 
 
-# S3ReportLocationTypeDef
+# S3ReportLocation
 
 ### BucketName
 - **Type**: typing.Optional[str]
@@ -743,14 +743,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScheduleConfigurationTypeDef
+# ScheduleConfiguration
 
 ### ScheduleExpression
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ScheduledQueryDescriptionTypeDef
+# ScheduledQuery
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### State
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### CreationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### PreviousInvocationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### NextInvocationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### ErrorReportConfiguration
+- **Type**: <class 'NoneType'>
+
+### TargetDestination
+- **Type**: <class 'NoneType'>
+
+### LastRunStatus
+- **Type**: typing.Optional[typing.Literal['AUTO_TRIGGER_FAILURE', 'AUTO_TRIGGER_SUCCESS', 'MANUAL_TRIGGER_FAILURE', 'MANUAL_TRIGGER_SUCCESS']]
+
+
+# ScheduledQueryDescription
 
 ### Arn
 - **Type**: <class 'str'>
@@ -769,11 +802,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ScheduleConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ScheduleConfiguration'>
 - **Required**: Yes
 
 ### NotificationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.NotificationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.NotificationConfiguration'>
 - **Required**: Yes
 
 ### CreationTime
@@ -786,7 +819,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### TargetConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.TargetConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.TargetConfigurationOutput]
 
 ### ScheduledQueryExecutionRoleArn
 - **Type**: typing.Optional[str]
@@ -795,22 +828,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ErrorReportConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ErrorReportConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LastRunSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryRunSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryRunSummary]
 
 ### RecentlyFailedRuns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryRunSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryRunSummary]]
 
 
-# ScheduledQueryInsightsResponseTypeDef
+# ScheduledQueryInsights
+
+### Mode
+- **Type**: typing.Literal['DISABLED', 'ENABLED_WITH_RATE_CONTROL']
+- **Required**: Yes
+
+
+# ScheduledQueryInsightsResponse
 
 ### QuerySpatialCoverage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QuerySpatialCoverageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### QueryTemporalRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QueryTemporalRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### QueryTableCount
 - **Type**: typing.Optional[int]
@@ -822,14 +862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ScheduledQueryInsightsTypeDef
-
-### Mode
-- **Type**: typing.Literal['DISABLED', 'ENABLED_WITH_RATE_CONTROL']
-- **Required**: Yes
-
-
-# ScheduledQueryRunSummaryTypeDef
+# ScheduledQueryRunSummary
 
 ### InvocationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -841,76 +874,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTO_TRIGGER_FAILURE', 'AUTO_TRIGGER_SUCCESS', 'MANUAL_TRIGGER_FAILURE', 'MANUAL_TRIGGER_SUCCESS']]
 
 ### ExecutionStats
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ExecutionStatsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### QueryInsightsResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryInsightsResponseTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ScheduledQueryInsightsResponse]
 
 ### ErrorReportLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ErrorReportLocationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### FailureReason
 - **Type**: typing.Optional[str]
 
 
-# ScheduledQueryTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### CreationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### PreviousInvocationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### NextInvocationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### ErrorReportConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.ErrorReportConfigurationTypeDef]
-
-### TargetDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.TargetDestinationTypeDef]
-
-### LastRunStatus
-- **Type**: typing.Optional[typing.Literal['AUTO_TRIGGER_FAILURE', 'AUTO_TRIGGER_SUCCESS', 'MANUAL_TRIGGER_FAILURE', 'MANUAL_TRIGGER_SUCCESS']]
-
-
-# SelectColumnTypeDef
+# SelectColumn
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SnsConfigurationTypeDef
+# SnsConfiguration
 
 ### TopicArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -921,44 +910,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetConfigurationOutputTypeDef
+# TagResourceRequest
 
-### TimestreamConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.TimestreamConfigurationOutputTypeDef'>
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.Tag]
 - **Required**: Yes
 
 
-# TargetConfigurationTypeDef
+# TargetConfiguration
 
 ### TimestreamConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.TimestreamConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.TimestreamConfiguration'>
 - **Required**: Yes
 
 
-# TargetConfigurationUnionTypeDef
+# TargetConfigurationOutput
+
+### TimestreamConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.TimestreamConfigurationOutput'>
+- **Required**: Yes
+
+
+# TargetConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TargetDestinationTypeDef
+# TargetDestination
 
 ### TimestreamDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.TimestreamDestinationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# TimeSeriesDataPointPaginatorTypeDef
-
-### Time
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Value
-- **Type**: typing.Dict[str, typing.Any]
-- **Required**: Yes
-
-
-# TimeSeriesDataPointTypeDef
+# TimeSeriesDataPoint
 
 ### Time
 - **Type**: <class 'str'>
@@ -969,13 +958,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# TimeSeriesDataPointPaginator
+
+### Time
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Value
+- **Type**: typing.Dict[str, typing.Any]
+- **Required**: Yes
+
+
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TimestreamConfigurationOutputTypeDef
+# TimestreamConfiguration
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -990,20 +990,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DimensionMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.DimensionMappingTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.DimensionMapping]
 - **Required**: Yes
 
 ### MultiMeasureMappings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureMappingsOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MixedMeasureMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.MixedMeasureMappingOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.MixedMeasureMapping]]
 
 ### MeasureNameColumn
 - **Type**: typing.Optional[str]
 
 
-# TimestreamConfigurationTypeDef
+# TimestreamConfigurationOutput
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -1018,20 +1018,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DimensionMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.DimensionMappingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.DimensionMapping]
 - **Required**: Yes
 
 ### MultiMeasureMappings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureMappingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.MultiMeasureMappingsOutput]
 
 ### MixedMeasureMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_query_classes.MixedMeasureMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.MixedMeasureMappingOutput]]
 
 ### MeasureNameColumn
 - **Type**: typing.Optional[str]
 
 
-# TimestreamDestinationTypeDef
+# TimestreamDestination
 
 ### DatabaseName
 - **Type**: typing.Optional[str]
@@ -1040,7 +1040,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TypePaginatorTypeDef
+# Type
+
+### ScalarType
+- **Type**: typing.Optional[typing.Literal['BIGINT', 'BOOLEAN', 'DATE', 'DOUBLE', 'INTEGER', 'INTERVAL_DAY_TO_SECOND', 'INTERVAL_YEAR_TO_MONTH', 'TIME', 'TIMESTAMP', 'UNKNOWN', 'VARCHAR']]
+
+### ArrayColumnInfo
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### TimeSeriesMeasureValueColumnInfo
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### RowColumnInfo
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ColumnInfo]]
+
+
+# TypePaginator
 
 ### ScalarType
 - **Type**: typing.Optional[typing.Literal['BIGINT', 'BOOLEAN', 'DATE', 'DOUBLE', 'INTEGER', 'INTERVAL_DAY_TO_SECOND', 'INTERVAL_YEAR_TO_MONTH', 'TIME', 'TIMESTAMP', 'UNKNOWN', 'VARCHAR']]
@@ -1055,22 +1070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
-# TypeTypeDef
-
-### ScalarType
-- **Type**: typing.Optional[typing.Literal['BIGINT', 'BOOLEAN', 'DATE', 'DOUBLE', 'INTEGER', 'INTERVAL_DAY_TO_SECOND', 'INTERVAL_YEAR_TO_MONTH', 'TIME', 'TIMESTAMP', 'UNKNOWN', 'VARCHAR']]
-
-### ArrayColumnInfo
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### TimeSeriesMeasureValueColumnInfo
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### RowColumnInfo
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_query_classes.ColumnInfoTypeDef]]
-
-
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1081,7 +1081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccountSettingsRequestTypeDef
+# UpdateAccountSettingsRequest
 
 ### MaxQueryTCU
 - **Type**: typing.Optional[int]
@@ -1090,10 +1090,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BYTES_SCANNED', 'COMPUTE_UNITS']]
 
 ### QueryCompute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QueryComputeRequestTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_query_classes.QueryComputeRequest]
 
 
-# UpdateAccountSettingsResponseTypeDef
+# UpdateAccountSettingsResponse
 
 ### MaxQueryTCU
 - **Type**: <class 'int'>
@@ -1104,15 +1104,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QueryCompute
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryComputeResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.QueryComputeResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateScheduledQueryRequestTypeDef
+# UpdateScheduledQueryRequest
 
 ### ScheduledQueryArn
 - **Type**: <class 'str'>

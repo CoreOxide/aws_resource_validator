@@ -12,21 +12,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.opensearchserverless_constants import *
 
-class AccessPolicyStatsTypeDef(BaseValidatorModel):
+class AccessPolicyStats(BaseValidatorModel):
     DataPolicyCount: Optional[int] = None
 
 
-class CapacityLimitsTypeDef(BaseValidatorModel):
+class CapacityLimits(BaseValidatorModel):
     maxIndexingCapacityInOCU: Optional[int] = None
     maxSearchCapacityInOCU: Optional[int] = None
 
 
-class BatchGetCollectionRequestTypeDef(BaseValidatorModel):
+class BatchGetCollectionRequest(BaseValidatorModel):
     ids: Optional[Sequence[str]] = None
     names: Optional[Sequence[str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -34,27 +34,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchGetVpcEndpointRequestTypeDef(BaseValidatorModel):
+class BatchGetVpcEndpointRequest(BaseValidatorModel):
     ids: Sequence[str]
 
 
-class CollectionFiltersTypeDef(BaseValidatorModel):
+class CollectionFilters(BaseValidatorModel):
     name: Optional[str] = None
     status: Optional[CollectionStatusType] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class CreateIamIdentityCenterConfigOptionsTypeDef(BaseValidatorModel):
+class CreateIamIdentityCenterConfigOptions(BaseValidatorModel):
     instanceArn: str
     userAttribute: Optional[IamIdentityCenterUserAttributeType] = None
     groupAttribute: Optional[IamIdentityCenterGroupAttributeType] = None
 
 
-class SamlConfigOptionsTypeDef(BaseValidatorModel):
+class SamlConfigOptions(BaseValidatorModel):
     metadata: str
     userAttribute: Optional[str] = None
     groupAttribute: Optional[str] = None
@@ -62,7 +62,7 @@ class SamlConfigOptionsTypeDef(BaseValidatorModel):
     sessionTimeout: Optional[int] = None
 
 
-class CreateVpcEndpointRequestTypeDef(BaseValidatorModel):
+class CreateVpcEndpointRequest(BaseValidatorModel):
     name: str
     vpcId: str
     subnetIds: Sequence[str]
@@ -70,20 +70,20 @@ class CreateVpcEndpointRequestTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
-class LifecyclePolicyStatsTypeDef(BaseValidatorModel):
+class LifecyclePolicyStats(BaseValidatorModel):
     RetentionPolicyCount: Optional[int] = None
 
 
-class SecurityConfigStatsTypeDef(BaseValidatorModel):
+class SecurityConfigStats(BaseValidatorModel):
     SamlConfigCount: Optional[int] = None
 
 
-class SecurityPolicyStatsTypeDef(BaseValidatorModel):
+class SecurityPolicyStats(BaseValidatorModel):
     EncryptionPolicyCount: Optional[int] = None
     NetworkPolicyCount: Optional[int] = None
 
 
-class IamIdentityCenterConfigOptionsTypeDef(BaseValidatorModel):
+class IamIdentityCenterConfigOptions(BaseValidatorModel):
     instanceArn: Optional[str] = None
     applicationArn: Optional[str] = None
     applicationName: Optional[str] = None
@@ -92,323 +92,323 @@ class IamIdentityCenterConfigOptionsTypeDef(BaseValidatorModel):
     groupAttribute: Optional[IamIdentityCenterGroupAttributeType] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class VpcEndpointFiltersTypeDef(BaseValidatorModel):
+class VpcEndpointFilters(BaseValidatorModel):
     status: Optional[VpcEndpointStatusType] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateIamIdentityCenterConfigOptionsTypeDef(BaseValidatorModel):
+class UpdateIamIdentityCenterConfigOptions(BaseValidatorModel):
     userAttribute: Optional[IamIdentityCenterUserAttributeType] = None
     groupAttribute: Optional[IamIdentityCenterGroupAttributeType] = None
 
 
-class AccountSettingsDetailTypeDef(BaseValidatorModel):
-    capacityLimits: Optional[CapacityLimitsTypeDef] = None
+class AccountSettingsDetail(BaseValidatorModel):
+    capacityLimits: Optional[CapacityLimits] = None
 
 
-class UpdateAccountSettingsRequestTypeDef(BaseValidatorModel):
-    capacityLimits: Optional[CapacityLimitsTypeDef] = None
+class UpdateAccountSettingsRequest(BaseValidatorModel):
+    capacityLimits: Optional[CapacityLimits] = None
 
 
-class CollectionErrorDetailTypeDef(BaseValidatorModel):
+class CollectionErrorDetail(BaseValidatorModel):
     pass
 
 
-class CollectionDetailTypeDef(BaseValidatorModel):
+class CollectionDetail(BaseValidatorModel):
     pass
 
 
-class BatchGetCollectionResponseTypeDef(BaseValidatorModel):
-    collectionDetails: List[CollectionDetailTypeDef]
-    collectionErrorDetails: List[CollectionErrorDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetCollectionResponse(BaseValidatorModel):
+    collectionDetails: List[CollectionDetail]
+    collectionErrorDetails: List[CollectionErrorDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class AccessPolicyDetailTypeDef(BaseValidatorModel):
+class AccessPolicyDetail(BaseValidatorModel):
     pass
 
 
-class CreateAccessPolicyResponseTypeDef(BaseValidatorModel):
-    accessPolicyDetail: AccessPolicyDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAccessPolicyResponse(BaseValidatorModel):
+    accessPolicyDetail: AccessPolicyDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccessPolicyResponseTypeDef(BaseValidatorModel):
-    accessPolicyDetail: AccessPolicyDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAccessPolicyResponse(BaseValidatorModel):
+    accessPolicyDetail: AccessPolicyDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class AccessPolicySummaryTypeDef(BaseValidatorModel):
+class AccessPolicySummary(BaseValidatorModel):
     pass
 
 
-class ListAccessPoliciesResponseTypeDef(BaseValidatorModel):
-    accessPolicySummaries: List[AccessPolicySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccessPoliciesResponse(BaseValidatorModel):
+    accessPolicySummaries: List[AccessPolicySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateAccessPolicyResponseTypeDef(BaseValidatorModel):
-    accessPolicyDetail: AccessPolicyDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAccessPolicyResponse(BaseValidatorModel):
+    accessPolicyDetail: AccessPolicyDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class LifecyclePolicyResourceIdentifierTypeDef(BaseValidatorModel):
+class LifecyclePolicyResourceIdentifier(BaseValidatorModel):
     pass
 
 
-class BatchGetEffectiveLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    resourceIdentifiers: Sequence[LifecyclePolicyResourceIdentifierTypeDef]
+class BatchGetEffectiveLifecyclePolicyRequest(BaseValidatorModel):
+    resourceIdentifiers: Sequence[LifecyclePolicyResourceIdentifier]
 
 
-class EffectiveLifecyclePolicyDetailTypeDef(BaseValidatorModel):
+class EffectiveLifecyclePolicyDetail(BaseValidatorModel):
     pass
 
 
-class EffectiveLifecyclePolicyErrorDetailTypeDef(BaseValidatorModel):
+class EffectiveLifecyclePolicyErrorDetail(BaseValidatorModel):
     pass
 
 
-class BatchGetEffectiveLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    effectiveLifecyclePolicyDetails: List[EffectiveLifecyclePolicyDetailTypeDef]
-    effectiveLifecyclePolicyErrorDetails: List[EffectiveLifecyclePolicyErrorDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetEffectiveLifecyclePolicyResponse(BaseValidatorModel):
+    effectiveLifecyclePolicyDetails: List[EffectiveLifecyclePolicyDetail]
+    effectiveLifecyclePolicyErrorDetails: List[EffectiveLifecyclePolicyErrorDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class LifecyclePolicyIdentifierTypeDef(BaseValidatorModel):
+class LifecyclePolicyIdentifier(BaseValidatorModel):
     pass
 
 
-class BatchGetLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    identifiers: Sequence[LifecyclePolicyIdentifierTypeDef]
+class BatchGetLifecyclePolicyRequest(BaseValidatorModel):
+    identifiers: Sequence[LifecyclePolicyIdentifier]
 
 
-class LifecyclePolicyDetailTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetail(BaseValidatorModel):
     pass
 
 
-class CreateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    lifecyclePolicyDetail: LifecyclePolicyDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateLifecyclePolicyResponse(BaseValidatorModel):
+    lifecyclePolicyDetail: LifecyclePolicyDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    lifecyclePolicyDetail: LifecyclePolicyDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateLifecyclePolicyResponse(BaseValidatorModel):
+    lifecyclePolicyDetail: LifecyclePolicyDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class LifecyclePolicyErrorDetailTypeDef(BaseValidatorModel):
+class LifecyclePolicyErrorDetail(BaseValidatorModel):
     pass
 
 
-class BatchGetLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    lifecyclePolicyDetails: List[LifecyclePolicyDetailTypeDef]
-    lifecyclePolicyErrorDetails: List[LifecyclePolicyErrorDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetLifecyclePolicyResponse(BaseValidatorModel):
+    lifecyclePolicyDetails: List[LifecyclePolicyDetail]
+    lifecyclePolicyErrorDetails: List[LifecyclePolicyErrorDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class VpcEndpointErrorDetailTypeDef(BaseValidatorModel):
+class VpcEndpointErrorDetail(BaseValidatorModel):
     pass
 
 
-class VpcEndpointDetailTypeDef(BaseValidatorModel):
+class VpcEndpointDetail(BaseValidatorModel):
     pass
 
 
-class BatchGetVpcEndpointResponseTypeDef(BaseValidatorModel):
-    vpcEndpointDetails: List[VpcEndpointDetailTypeDef]
-    vpcEndpointErrorDetails: List[VpcEndpointErrorDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetVpcEndpointResponse(BaseValidatorModel):
+    vpcEndpointDetails: List[VpcEndpointDetail]
+    vpcEndpointErrorDetails: List[VpcEndpointErrorDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCollectionsRequestTypeDef(BaseValidatorModel):
-    collectionFilters: Optional[CollectionFiltersTypeDef] = None
+class ListCollectionsRequest(BaseValidatorModel):
+    collectionFilters: Optional[CollectionFilters] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class CollectionSummaryTypeDef(BaseValidatorModel):
+class CollectionSummary(BaseValidatorModel):
     pass
 
 
-class ListCollectionsResponseTypeDef(BaseValidatorModel):
-    collectionSummaries: List[CollectionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollectionsResponse(BaseValidatorModel):
+    collectionSummaries: List[CollectionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateCollectionDetailTypeDef(BaseValidatorModel):
+class CreateCollectionDetail(BaseValidatorModel):
     pass
 
 
-class CreateCollectionResponseTypeDef(BaseValidatorModel):
-    createCollectionDetail: CreateCollectionDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateCollectionResponse(BaseValidatorModel):
+    createCollectionDetail: CreateCollectionDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class SecurityPolicyDetailTypeDef(BaseValidatorModel):
+class SecurityPolicyDetail(BaseValidatorModel):
     pass
 
 
-class CreateSecurityPolicyResponseTypeDef(BaseValidatorModel):
-    securityPolicyDetail: SecurityPolicyDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSecurityPolicyResponse(BaseValidatorModel):
+    securityPolicyDetail: SecurityPolicyDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSecurityPolicyResponseTypeDef(BaseValidatorModel):
-    securityPolicyDetail: SecurityPolicyDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSecurityPolicyResponse(BaseValidatorModel):
+    securityPolicyDetail: SecurityPolicyDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSecurityPolicyResponseTypeDef(BaseValidatorModel):
-    securityPolicyDetail: SecurityPolicyDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSecurityPolicyResponse(BaseValidatorModel):
+    securityPolicyDetail: SecurityPolicyDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVpcEndpointDetailTypeDef(BaseValidatorModel):
+class CreateVpcEndpointDetail(BaseValidatorModel):
     pass
 
 
-class CreateVpcEndpointResponseTypeDef(BaseValidatorModel):
-    createVpcEndpointDetail: CreateVpcEndpointDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVpcEndpointResponse(BaseValidatorModel):
+    createVpcEndpointDetail: CreateVpcEndpointDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteCollectionDetailTypeDef(BaseValidatorModel):
+class DeleteCollectionDetail(BaseValidatorModel):
     pass
 
 
-class DeleteCollectionResponseTypeDef(BaseValidatorModel):
-    deleteCollectionDetail: DeleteCollectionDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteCollectionResponse(BaseValidatorModel):
+    deleteCollectionDetail: DeleteCollectionDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteVpcEndpointDetailTypeDef(BaseValidatorModel):
+class DeleteVpcEndpointDetail(BaseValidatorModel):
     pass
 
 
-class DeleteVpcEndpointResponseTypeDef(BaseValidatorModel):
-    deleteVpcEndpointDetail: DeleteVpcEndpointDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteVpcEndpointResponse(BaseValidatorModel):
+    deleteVpcEndpointDetail: DeleteVpcEndpointDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPoliciesStatsResponseTypeDef(BaseValidatorModel):
-    AccessPolicyStats: AccessPolicyStatsTypeDef
-    SecurityPolicyStats: SecurityPolicyStatsTypeDef
-    SecurityConfigStats: SecurityConfigStatsTypeDef
-    LifecyclePolicyStats: LifecyclePolicyStatsTypeDef
+class GetPoliciesStatsResponse(BaseValidatorModel):
+    AccessPolicyStats: AccessPolicyStats
+    SecurityPolicyStats: SecurityPolicyStats
+    SecurityConfigStats: SecurityConfigStats
+    LifecyclePolicyStats: LifecyclePolicyStats
     TotalPolicyCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LifecyclePolicySummaryTypeDef(BaseValidatorModel):
+class LifecyclePolicySummary(BaseValidatorModel):
     pass
 
 
-class ListLifecyclePoliciesResponseTypeDef(BaseValidatorModel):
-    lifecyclePolicySummaries: List[LifecyclePolicySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLifecyclePoliciesResponse(BaseValidatorModel):
+    lifecyclePolicySummaries: List[LifecyclePolicySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SecurityConfigSummaryTypeDef(BaseValidatorModel):
+class SecurityConfigSummary(BaseValidatorModel):
     pass
 
 
-class ListSecurityConfigsResponseTypeDef(BaseValidatorModel):
-    securityConfigSummaries: List[SecurityConfigSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSecurityConfigsResponse(BaseValidatorModel):
+    securityConfigSummaries: List[SecurityConfigSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SecurityPolicySummaryTypeDef(BaseValidatorModel):
+class SecurityPolicySummary(BaseValidatorModel):
     pass
 
 
-class ListSecurityPoliciesResponseTypeDef(BaseValidatorModel):
-    securityPolicySummaries: List[SecurityPolicySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSecurityPoliciesResponse(BaseValidatorModel):
+    securityPolicySummaries: List[SecurityPolicySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListVpcEndpointsRequestTypeDef(BaseValidatorModel):
-    vpcEndpointFilters: Optional[VpcEndpointFiltersTypeDef] = None
+class ListVpcEndpointsRequest(BaseValidatorModel):
+    vpcEndpointFilters: Optional[VpcEndpointFilters] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class VpcEndpointSummaryTypeDef(BaseValidatorModel):
+class VpcEndpointSummary(BaseValidatorModel):
     pass
 
 
-class ListVpcEndpointsResponseTypeDef(BaseValidatorModel):
-    vpcEndpointSummaries: List[VpcEndpointSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVpcEndpointsResponse(BaseValidatorModel):
+    vpcEndpointSummaries: List[VpcEndpointSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateCollectionDetailTypeDef(BaseValidatorModel):
+class UpdateCollectionDetail(BaseValidatorModel):
     pass
 
 
-class UpdateCollectionResponseTypeDef(BaseValidatorModel):
-    updateCollectionDetail: UpdateCollectionDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateCollectionResponse(BaseValidatorModel):
+    updateCollectionDetail: UpdateCollectionDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateVpcEndpointDetailTypeDef(BaseValidatorModel):
+class UpdateVpcEndpointDetail(BaseValidatorModel):
     pass
 
 
-class UpdateVpcEndpointResponseTypeDef(BaseValidatorModel):
-    UpdateVpcEndpointDetail: UpdateVpcEndpointDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateVpcEndpointResponse(BaseValidatorModel):
+    UpdateVpcEndpointDetail: UpdateVpcEndpointDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccountSettingsResponseTypeDef(BaseValidatorModel):
-    accountSettingsDetail: AccountSettingsDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAccountSettingsResponse(BaseValidatorModel):
+    accountSettingsDetail: AccountSettingsDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAccountSettingsResponseTypeDef(BaseValidatorModel):
-    accountSettingsDetail: AccountSettingsDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAccountSettingsResponse(BaseValidatorModel):
+    accountSettingsDetail: AccountSettingsDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class SecurityConfigDetailTypeDef(BaseValidatorModel):
+class SecurityConfigDetail(BaseValidatorModel):
     pass
 
 
-class CreateSecurityConfigResponseTypeDef(BaseValidatorModel):
-    securityConfigDetail: SecurityConfigDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSecurityConfigResponse(BaseValidatorModel):
+    securityConfigDetail: SecurityConfigDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSecurityConfigResponseTypeDef(BaseValidatorModel):
-    securityConfigDetail: SecurityConfigDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSecurityConfigResponse(BaseValidatorModel):
+    securityConfigDetail: SecurityConfigDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSecurityConfigResponseTypeDef(BaseValidatorModel):
-    securityConfigDetail: SecurityConfigDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSecurityConfigResponse(BaseValidatorModel):
+    securityConfigDetail: SecurityConfigDetail
+    ResponseMetadata: ResponseMetadata
 
 

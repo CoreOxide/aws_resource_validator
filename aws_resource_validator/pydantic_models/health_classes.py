@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.health_constants import *
 
-class AccountEntityAggregateTypeDef(BaseValidatorModel):
+class AccountEntityAggregate(BaseValidatorModel):
     accountId: Optional[str] = None
     count: Optional[int] = None
     statuses: Optional[Dict[EntityStatusCodeType, int]] = None
 
 
-class AffectedEntityTypeDef(BaseValidatorModel):
+class AffectedEntity(BaseValidatorModel):
     entityArn: Optional[str] = None
     eventArn: Optional[str] = None
     entityValue: Optional[str] = None
@@ -30,19 +30,19 @@ class AffectedEntityTypeDef(BaseValidatorModel):
     entityMetadata: Optional[Dict[str, str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeAffectedAccountsForOrganizationRequestTypeDef(BaseValidatorModel):
+class DescribeAffectedAccountsForOrganizationRequest(BaseValidatorModel):
     eventArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -50,75 +50,75 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class EntityAccountFilterTypeDef(BaseValidatorModel):
+class EntityAccountFilter(BaseValidatorModel):
     eventArn: str
     awsAccountId: Optional[str] = None
     statusCodes: Optional[Sequence[EntityStatusCodeType]] = None
 
 
-class EventAccountFilterTypeDef(BaseValidatorModel):
+class EventAccountFilter(BaseValidatorModel):
     eventArn: str
     awsAccountId: Optional[str] = None
 
 
-class OrganizationAffectedEntitiesErrorItemTypeDef(BaseValidatorModel):
+class OrganizationAffectedEntitiesErrorItem(BaseValidatorModel):
     awsAccountId: Optional[str] = None
     eventArn: Optional[str] = None
     errorName: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class DescribeEntityAggregatesForOrganizationRequestTypeDef(BaseValidatorModel):
+class DescribeEntityAggregatesForOrganizationRequest(BaseValidatorModel):
     eventArns: Sequence[str]
     awsAccountIds: Optional[Sequence[str]] = None
 
 
-class DescribeEntityAggregatesRequestTypeDef(BaseValidatorModel):
+class DescribeEntityAggregatesRequest(BaseValidatorModel):
     eventArns: Optional[Sequence[str]] = None
 
 
-class EntityAggregateTypeDef(BaseValidatorModel):
+class EntityAggregate(BaseValidatorModel):
     eventArn: Optional[str] = None
     count: Optional[int] = None
     statuses: Optional[Dict[EntityStatusCodeType, int]] = None
 
 
-class EventAggregateTypeDef(BaseValidatorModel):
+class EventAggregate(BaseValidatorModel):
     aggregateValue: Optional[str] = None
     count: Optional[int] = None
 
 
-class OrganizationEventDetailsErrorItemTypeDef(BaseValidatorModel):
+class OrganizationEventDetailsErrorItem(BaseValidatorModel):
     awsAccountId: Optional[str] = None
     eventArn: Optional[str] = None
     errorName: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class DescribeEventDetailsRequestTypeDef(BaseValidatorModel):
+class DescribeEventDetailsRequest(BaseValidatorModel):
     eventArns: Sequence[str]
     locale: Optional[str] = None
 
 
-class EventDetailsErrorItemTypeDef(BaseValidatorModel):
+class EventDetailsErrorItem(BaseValidatorModel):
     eventArn: Optional[str] = None
     errorName: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class EventTypeFilterTypeDef(BaseValidatorModel):
+class EventTypeFilter(BaseValidatorModel):
     eventTypeCodes: Optional[Sequence[str]] = None
     services: Optional[Sequence[str]] = None
     eventTypeCategories: Optional[Sequence[EventTypeCategoryType]] = None
 
 
-class EventTypeTypeDef(BaseValidatorModel):
+class EventType(BaseValidatorModel):
     service: Optional[str] = None
     code: Optional[str] = None
     category: Optional[EventTypeCategoryType] = None
 
 
-class OrganizationEventTypeDef(BaseValidatorModel):
+class OrganizationEvent(BaseValidatorModel):
     arn: Optional[str] = None
     service: Optional[str] = None
     eventTypeCode: Optional[str] = None
@@ -131,7 +131,7 @@ class OrganizationEventTypeDef(BaseValidatorModel):
     statusCode: Optional[EventStatusCodeType] = None
 
 
-class EventTypeDef(BaseValidatorModel):
+class Event(BaseValidatorModel):
     arn: Optional[str] = None
     service: Optional[str] = None
     eventTypeCode: Optional[str] = None
@@ -145,140 +145,140 @@ class EventTypeDef(BaseValidatorModel):
     eventScopeCode: Optional[EventScopeCodeType] = None
 
 
-class EventDescriptionTypeDef(BaseValidatorModel):
+class EventDescription(BaseValidatorModel):
     latestDescription: Optional[str] = None
 
 
-class OrganizationEntityAggregateTypeDef(BaseValidatorModel):
+class OrganizationEntityAggregate(BaseValidatorModel):
     eventArn: Optional[str] = None
     count: Optional[int] = None
     statuses: Optional[Dict[EntityStatusCodeType, int]] = None
-    accounts: Optional[List[AccountEntityAggregateTypeDef]] = None
+    accounts: Optional[List[AccountEntityAggregate]] = None
 
 
-class DescribeAffectedAccountsForOrganizationRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeAffectedAccountsForOrganizationRequestPaginate(BaseValidatorModel):
     eventArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeAffectedAccountsForOrganizationResponseTypeDef(BaseValidatorModel):
+class DescribeAffectedAccountsForOrganizationResponse(BaseValidatorModel):
     affectedAccounts: List[str]
     eventScopeCode: EventScopeCodeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeAffectedEntitiesResponseTypeDef(BaseValidatorModel):
-    entities: List[AffectedEntityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAffectedEntitiesResponse(BaseValidatorModel):
+    entities: List[AffectedEntity]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeHealthServiceStatusForOrganizationResponseTypeDef(BaseValidatorModel):
+class DescribeHealthServiceStatusForOrganizationResponse(BaseValidatorModel):
     healthServiceAccessStatusForOrganization: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAffectedEntitiesForOrganizationRequestPaginateTypeDef(BaseValidatorModel):
-    organizationEntityFilters: Optional[Sequence[EventAccountFilterTypeDef]] = None
+class DescribeAffectedEntitiesForOrganizationRequestPaginate(BaseValidatorModel):
+    organizationEntityFilters: Optional[Sequence[EventAccountFilter]] = None
     locale: Optional[str] = None
-    organizationEntityAccountFilters: Optional[Sequence[EntityAccountFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    organizationEntityAccountFilters: Optional[Sequence[EntityAccountFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeAffectedEntitiesForOrganizationRequestTypeDef(BaseValidatorModel):
-    organizationEntityFilters: Optional[Sequence[EventAccountFilterTypeDef]] = None
+class DescribeAffectedEntitiesForOrganizationRequest(BaseValidatorModel):
+    organizationEntityFilters: Optional[Sequence[EventAccountFilter]] = None
     locale: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    organizationEntityAccountFilters: Optional[Sequence[EntityAccountFilterTypeDef]] = None
+    organizationEntityAccountFilters: Optional[Sequence[EntityAccountFilter]] = None
 
 
-class DescribeEventDetailsForOrganizationRequestTypeDef(BaseValidatorModel):
-    organizationEventDetailFilters: Sequence[EventAccountFilterTypeDef]
+class DescribeEventDetailsForOrganizationRequest(BaseValidatorModel):
+    organizationEventDetailFilters: Sequence[EventAccountFilter]
     locale: Optional[str] = None
 
 
-class DescribeAffectedEntitiesForOrganizationResponseTypeDef(BaseValidatorModel):
-    entities: List[AffectedEntityTypeDef]
-    failedSet: List[OrganizationAffectedEntitiesErrorItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAffectedEntitiesForOrganizationResponse(BaseValidatorModel):
+    entities: List[AffectedEntity]
+    failedSet: List[OrganizationAffectedEntitiesErrorItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeEntityAggregatesResponseTypeDef(BaseValidatorModel):
-    entityAggregates: List[EntityAggregateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEntityAggregatesResponse(BaseValidatorModel):
+    entityAggregates: List[EntityAggregate]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEventAggregatesResponseTypeDef(BaseValidatorModel):
-    eventAggregates: List[EventAggregateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventAggregatesResponse(BaseValidatorModel):
+    eventAggregates: List[EventAggregate]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeEventTypesResponseTypeDef(BaseValidatorModel):
-    eventTypes: List[EventTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventTypesResponse(BaseValidatorModel):
+    eventTypes: List[EventType]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeEventsForOrganizationResponseTypeDef(BaseValidatorModel):
-    events: List[OrganizationEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventsForOrganizationResponse(BaseValidatorModel):
+    events: List[OrganizationEvent]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeEventsResponseTypeDef(BaseValidatorModel):
-    events: List[EventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventsResponse(BaseValidatorModel):
+    events: List[Event]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EventDetailsTypeDef(BaseValidatorModel):
-    event: Optional[EventTypeDef] = None
-    eventDescription: Optional[EventDescriptionTypeDef] = None
+class EventDetails(BaseValidatorModel):
+    event: Optional[Event] = None
+    eventDescription: Optional[EventDescription] = None
     eventMetadata: Optional[Dict[str, str]] = None
 
 
-class OrganizationEventDetailsTypeDef(BaseValidatorModel):
+class OrganizationEventDetails(BaseValidatorModel):
     awsAccountId: Optional[str] = None
-    event: Optional[EventTypeDef] = None
-    eventDescription: Optional[EventDescriptionTypeDef] = None
+    event: Optional[Event] = None
+    eventDescription: Optional[EventDescription] = None
     eventMetadata: Optional[Dict[str, str]] = None
 
 
-class DescribeEntityAggregatesForOrganizationResponseTypeDef(BaseValidatorModel):
-    organizationEntityAggregates: List[OrganizationEntityAggregateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEntityAggregatesForOrganizationResponse(BaseValidatorModel):
+    organizationEntityAggregates: List[OrganizationEntityAggregate]
+    ResponseMetadata: ResponseMetadata
 
 
-class DateTimeRangeTypeDef(BaseValidatorModel):
+class DateTimeRange(BaseValidatorModel):
     pass
 
 
-class EntityFilterTypeDef(BaseValidatorModel):
+class EntityFilter(BaseValidatorModel):
     eventArns: Sequence[str]
     entityArns: Optional[Sequence[str]] = None
     entityValues: Optional[Sequence[str]] = None
-    lastUpdatedTimes: Optional[Sequence[DateTimeRangeTypeDef]] = None
+    lastUpdatedTimes: Optional[Sequence[DateTimeRange]] = None
     tags: Optional[Sequence[Mapping[str, str]]] = None
     statusCodes: Optional[Sequence[EntityStatusCodeType]] = None
 
 
-class EventFilterTypeDef(BaseValidatorModel):
+class EventFilter(BaseValidatorModel):
     eventArns: Optional[Sequence[str]] = None
     eventTypeCodes: Optional[Sequence[str]] = None
     services: Optional[Sequence[str]] = None
     regions: Optional[Sequence[str]] = None
     availabilityZones: Optional[Sequence[str]] = None
-    startTimes: Optional[Sequence[DateTimeRangeTypeDef]] = None
-    endTimes: Optional[Sequence[DateTimeRangeTypeDef]] = None
-    lastUpdatedTimes: Optional[Sequence[DateTimeRangeTypeDef]] = None
+    startTimes: Optional[Sequence[DateTimeRange]] = None
+    endTimes: Optional[Sequence[DateTimeRange]] = None
+    lastUpdatedTimes: Optional[Sequence[DateTimeRange]] = None
     entityArns: Optional[Sequence[str]] = None
     entityValues: Optional[Sequence[str]] = None
     eventTypeCategories: Optional[Sequence[EventTypeCategoryType]] = None
@@ -286,29 +286,29 @@ class EventFilterTypeDef(BaseValidatorModel):
     eventStatusCodes: Optional[Sequence[EventStatusCodeType]] = None
 
 
-class OrganizationEventFilterTypeDef(BaseValidatorModel):
+class OrganizationEventFilter(BaseValidatorModel):
     eventTypeCodes: Optional[Sequence[str]] = None
     awsAccountIds: Optional[Sequence[str]] = None
     services: Optional[Sequence[str]] = None
     regions: Optional[Sequence[str]] = None
-    startTime: Optional[DateTimeRangeTypeDef] = None
-    endTime: Optional[DateTimeRangeTypeDef] = None
-    lastUpdatedTime: Optional[DateTimeRangeTypeDef] = None
+    startTime: Optional[DateTimeRange] = None
+    endTime: Optional[DateTimeRange] = None
+    lastUpdatedTime: Optional[DateTimeRange] = None
     entityArns: Optional[Sequence[str]] = None
     entityValues: Optional[Sequence[str]] = None
     eventTypeCategories: Optional[Sequence[EventTypeCategoryType]] = None
     eventStatusCodes: Optional[Sequence[EventStatusCodeType]] = None
 
 
-class DescribeEventDetailsResponseTypeDef(BaseValidatorModel):
-    successfulSet: List[EventDetailsTypeDef]
-    failedSet: List[EventDetailsErrorItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventDetailsResponse(BaseValidatorModel):
+    successfulSet: List[EventDetails]
+    failedSet: List[EventDetailsErrorItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEventDetailsForOrganizationResponseTypeDef(BaseValidatorModel):
-    successfulSet: List[OrganizationEventDetailsTypeDef]
-    failedSet: List[OrganizationEventDetailsErrorItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventDetailsForOrganizationResponse(BaseValidatorModel):
+    successfulSet: List[OrganizationEventDetails]
+    failedSet: List[OrganizationEventDetailsErrorItem]
+    ResponseMetadata: ResponseMetadata
 
 

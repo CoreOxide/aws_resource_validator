@@ -12,22 +12,22 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.translate_constants import *
 
-class TermTypeDef(BaseValidatorModel):
+class Term(BaseValidatorModel):
     SourceText: Optional[str] = None
     TargetText: Optional[str] = None
 
 
-class ParallelDataConfigTypeDef(BaseValidatorModel):
+class ParallelDataConfig(BaseValidatorModel):
     S3Uri: Optional[str] = None
     Format: Optional[ParallelDataFormatType] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -35,134 +35,134 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteParallelDataRequestTypeDef(BaseValidatorModel):
+class DeleteParallelDataRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteTerminologyRequestTypeDef(BaseValidatorModel):
+class DeleteTerminologyRequest(BaseValidatorModel):
     Name: str
 
 
-class DescribeTextTranslationJobRequestTypeDef(BaseValidatorModel):
+class DescribeTextTranslationJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class GetParallelDataRequestTypeDef(BaseValidatorModel):
+class GetParallelDataRequest(BaseValidatorModel):
     Name: str
 
 
-class ParallelDataDataLocationTypeDef(BaseValidatorModel):
+class ParallelDataDataLocation(BaseValidatorModel):
     RepositoryType: str
     Location: str
 
 
-class GetTerminologyRequestTypeDef(BaseValidatorModel):
+class GetTerminologyRequest(BaseValidatorModel):
     Name: str
     TerminologyDataFormat: Optional[TerminologyDataFormatType] = None
 
 
-class TerminologyDataLocationTypeDef(BaseValidatorModel):
+class TerminologyDataLocation(BaseValidatorModel):
     RepositoryType: str
     Location: str
 
 
-class InputDataConfigTypeDef(BaseValidatorModel):
+class InputDataConfig(BaseValidatorModel):
     S3Uri: str
     ContentType: str
 
 
-class JobDetailsTypeDef(BaseValidatorModel):
+class JobDetails(BaseValidatorModel):
     TranslatedDocumentsCount: Optional[int] = None
     DocumentsWithErrorsCount: Optional[int] = None
     InputDocumentsCount: Optional[int] = None
 
 
-class LanguageTypeDef(BaseValidatorModel):
+class Language(BaseValidatorModel):
     LanguageName: str
     LanguageCode: str
 
 
-class ListLanguagesRequestTypeDef(BaseValidatorModel):
+class ListLanguagesRequest(BaseValidatorModel):
     DisplayLanguageCode: Optional[DisplayLanguageCodeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListParallelDataRequestTypeDef(BaseValidatorModel):
+class ListParallelDataRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListTerminologiesRequestTypeDef(BaseValidatorModel):
+class ListTerminologiesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class TranslationSettingsTypeDef(BaseValidatorModel):
+class TranslationSettings(BaseValidatorModel):
     Formality: Optional[FormalityType] = None
     Profanity: Optional[Literal["MASK"]] = None
     Brevity: Optional[Literal["ON"]] = None
 
 
-class StopTextTranslationJobRequestTypeDef(BaseValidatorModel):
+class StopTextTranslationJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class TranslatedDocumentTypeDef(BaseValidatorModel):
+class TranslatedDocument(BaseValidatorModel):
     Content: bytes
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class AppliedTerminologyTypeDef(BaseValidatorModel):
+class AppliedTerminology(BaseValidatorModel):
     Name: Optional[str] = None
-    Terms: Optional[List[TermTypeDef]] = None
+    Terms: Optional[List[Term]] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class DocumentTypeDef(BaseValidatorModel):
-    Content: BlobTypeDef
+class Document(BaseValidatorModel):
+    Content: Blob
     ContentType: str
 
 
-class TerminologyDataTypeDef(BaseValidatorModel):
-    File: BlobTypeDef
+class TerminologyData(BaseValidatorModel):
+    File: Blob
     Format: TerminologyDataFormatType
     Directionality: Optional[DirectionalityType] = None
 
 
-class EncryptionKeyTypeDef(BaseValidatorModel):
+class EncryptionKey(BaseValidatorModel):
     pass
 
 
-class OutputDataConfigTypeDef(BaseValidatorModel):
+class OutputDataConfig(BaseValidatorModel):
     S3Uri: str
-    EncryptionKey: Optional[EncryptionKeyTypeDef] = None
+    EncryptionKey: Optional[EncryptionKey] = None
 
 
-class TerminologyPropertiesTypeDef(BaseValidatorModel):
+class TerminologyProperties(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Arn: Optional[str] = None
     SourceLanguageCode: Optional[str] = None
     TargetLanguageCodes: Optional[List[str]] = None
-    EncryptionKey: Optional[EncryptionKeyTypeDef] = None
+    EncryptionKey: Optional[EncryptionKey] = None
     SizeBytes: Optional[int] = None
     TermCount: Optional[int] = None
     CreatedAt: Optional[datetime] = None
@@ -173,148 +173,148 @@ class TerminologyPropertiesTypeDef(BaseValidatorModel):
     Format: Optional[TerminologyDataFormatType] = None
 
 
-class ParallelDataPropertiesTypeDef(BaseValidatorModel):
+class ParallelDataProperties(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[ParallelDataStatusType] = None
     SourceLanguageCode: Optional[str] = None
     TargetLanguageCodes: Optional[List[str]] = None
-    ParallelDataConfig: Optional[ParallelDataConfigTypeDef] = None
+    ParallelDataConfig: Optional[ParallelDataConfig] = None
     Message: Optional[str] = None
     ImportedDataSize: Optional[int] = None
     ImportedRecordCount: Optional[int] = None
     FailedRecordCount: Optional[int] = None
     SkippedRecordCount: Optional[int] = None
-    EncryptionKey: Optional[EncryptionKeyTypeDef] = None
+    EncryptionKey: Optional[EncryptionKey] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
     LatestUpdateAttemptStatus: Optional[ParallelDataStatusType] = None
     LatestUpdateAttemptAt: Optional[datetime] = None
 
 
-class UpdateParallelDataRequestTypeDef(BaseValidatorModel):
+class UpdateParallelDataRequest(BaseValidatorModel):
     Name: str
-    ParallelDataConfig: ParallelDataConfigTypeDef
+    ParallelDataConfig: ParallelDataConfig
     ClientToken: str
     Description: Optional[str] = None
 
 
-class CreateParallelDataRequestTypeDef(BaseValidatorModel):
+class CreateParallelDataRequest(BaseValidatorModel):
     Name: str
-    ParallelDataConfig: ParallelDataConfigTypeDef
+    ParallelDataConfig: ParallelDataConfig
     ClientToken: str
     Description: Optional[str] = None
-    EncryptionKey: Optional[EncryptionKeyTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    EncryptionKey: Optional[EncryptionKey] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateParallelDataResponseTypeDef(BaseValidatorModel):
+class CreateParallelDataResponse(BaseValidatorModel):
     Name: str
     Status: ParallelDataStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteParallelDataResponseTypeDef(BaseValidatorModel):
+class DeleteParallelDataResponse(BaseValidatorModel):
     Name: str
     Status: ParallelDataStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class StartTextTranslationJobResponseTypeDef(BaseValidatorModel):
+class StartTextTranslationJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopTextTranslationJobResponseTypeDef(BaseValidatorModel):
+class StopTextTranslationJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateParallelDataResponseTypeDef(BaseValidatorModel):
+class UpdateParallelDataResponse(BaseValidatorModel):
     Name: str
     Status: ParallelDataStatusType
     LatestUpdateAttemptStatus: ParallelDataStatusType
     LatestUpdateAttemptAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListLanguagesResponseTypeDef(BaseValidatorModel):
-    Languages: List[LanguageTypeDef]
+class ListLanguagesResponse(BaseValidatorModel):
+    Languages: List[Language]
     DisplayLanguageCode: DisplayLanguageCodeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTerminologiesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListTerminologiesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class TextTranslationJobFilterTypeDef(BaseValidatorModel):
+class TextTranslationJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmittedBeforeTime: Optional[TimestampTypeDef] = None
-    SubmittedAfterTime: Optional[TimestampTypeDef] = None
+    SubmittedBeforeTime: Optional[Timestamp] = None
+    SubmittedAfterTime: Optional[Timestamp] = None
 
 
-class TranslateDocumentResponseTypeDef(BaseValidatorModel):
-    TranslatedDocument: TranslatedDocumentTypeDef
+class TranslateDocumentResponse(BaseValidatorModel):
+    TranslatedDocument: TranslatedDocument
     SourceLanguageCode: str
     TargetLanguageCode: str
-    AppliedTerminologies: List[AppliedTerminologyTypeDef]
-    AppliedSettings: TranslationSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AppliedTerminologies: List[AppliedTerminology]
+    AppliedSettings: TranslationSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class TranslateTextResponseTypeDef(BaseValidatorModel):
+class TranslateTextResponse(BaseValidatorModel):
     TranslatedText: str
     SourceLanguageCode: str
     TargetLanguageCode: str
-    AppliedTerminologies: List[AppliedTerminologyTypeDef]
-    AppliedSettings: TranslationSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AppliedTerminologies: List[AppliedTerminology]
+    AppliedSettings: TranslationSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class TranslateDocumentRequestTypeDef(BaseValidatorModel):
-    Document: DocumentTypeDef
+class TranslateDocumentRequest(BaseValidatorModel):
+    Document: Document
     SourceLanguageCode: str
     TargetLanguageCode: str
     TerminologyNames: Optional[Sequence[str]] = None
-    Settings: Optional[TranslationSettingsTypeDef] = None
+    Settings: Optional[TranslationSettings] = None
 
 
-class ImportTerminologyRequestTypeDef(BaseValidatorModel):
+class ImportTerminologyRequest(BaseValidatorModel):
     Name: str
     MergeStrategy: Literal["OVERWRITE"]
-    TerminologyData: TerminologyDataTypeDef
+    TerminologyData: TerminologyData
     Description: Optional[str] = None
-    EncryptionKey: Optional[EncryptionKeyTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    EncryptionKey: Optional[EncryptionKey] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class StartTextTranslationJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartTextTranslationJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfig
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     SourceLanguageCode: str
     TargetLanguageCodes: Sequence[str]
@@ -322,14 +322,14 @@ class StartTextTranslationJobRequestTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     TerminologyNames: Optional[Sequence[str]] = None
     ParallelDataNames: Optional[Sequence[str]] = None
-    Settings: Optional[TranslationSettingsTypeDef] = None
+    Settings: Optional[TranslationSettings] = None
 
 
-class TextTranslationJobPropertiesTypeDef(BaseValidatorModel):
+class TextTranslationJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    JobDetails: Optional[JobDetailsTypeDef] = None
+    JobDetails: Optional[JobDetails] = None
     SourceLanguageCode: Optional[str] = None
     TargetLanguageCodes: Optional[List[str]] = None
     TerminologyNames: Optional[List[str]] = None
@@ -337,59 +337,59 @@ class TextTranslationJobPropertiesTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     SubmittedTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    InputDataConfig: Optional[InputDataConfigTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfig] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     DataAccessRoleArn: Optional[str] = None
-    Settings: Optional[TranslationSettingsTypeDef] = None
+    Settings: Optional[TranslationSettings] = None
 
 
-class GetTerminologyResponseTypeDef(BaseValidatorModel):
-    TerminologyProperties: TerminologyPropertiesTypeDef
-    TerminologyDataLocation: TerminologyDataLocationTypeDef
-    AuxiliaryDataLocation: TerminologyDataLocationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTerminologyResponse(BaseValidatorModel):
+    TerminologyProperties: TerminologyProperties
+    TerminologyDataLocation: TerminologyDataLocation
+    AuxiliaryDataLocation: TerminologyDataLocation
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportTerminologyResponseTypeDef(BaseValidatorModel):
-    TerminologyProperties: TerminologyPropertiesTypeDef
-    AuxiliaryDataLocation: TerminologyDataLocationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ImportTerminologyResponse(BaseValidatorModel):
+    TerminologyProperties: TerminologyProperties
+    AuxiliaryDataLocation: TerminologyDataLocation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTerminologiesResponseTypeDef(BaseValidatorModel):
-    TerminologyPropertiesList: List[TerminologyPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTerminologiesResponse(BaseValidatorModel):
+    TerminologyPropertiesList: List[TerminologyProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetParallelDataResponseTypeDef(BaseValidatorModel):
-    ParallelDataProperties: ParallelDataPropertiesTypeDef
-    DataLocation: ParallelDataDataLocationTypeDef
-    AuxiliaryDataLocation: ParallelDataDataLocationTypeDef
-    LatestUpdateAttemptAuxiliaryDataLocation: ParallelDataDataLocationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetParallelDataResponse(BaseValidatorModel):
+    ParallelDataProperties: ParallelDataProperties
+    DataLocation: ParallelDataDataLocation
+    AuxiliaryDataLocation: ParallelDataDataLocation
+    LatestUpdateAttemptAuxiliaryDataLocation: ParallelDataDataLocation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListParallelDataResponseTypeDef(BaseValidatorModel):
-    ParallelDataPropertiesList: List[ParallelDataPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListParallelDataResponse(BaseValidatorModel):
+    ParallelDataPropertiesList: List[ParallelDataProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTextTranslationJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[TextTranslationJobFilterTypeDef] = None
+class ListTextTranslationJobsRequest(BaseValidatorModel):
+    Filter: Optional[TextTranslationJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeTextTranslationJobResponseTypeDef(BaseValidatorModel):
-    TextTranslationJobProperties: TextTranslationJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTextTranslationJobResponse(BaseValidatorModel):
+    TextTranslationJobProperties: TextTranslationJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTextTranslationJobsResponseTypeDef(BaseValidatorModel):
-    TextTranslationJobPropertiesList: List[TextTranslationJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTextTranslationJobsResponse(BaseValidatorModel):
+    TextTranslationJobPropertiesList: List[TextTranslationJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

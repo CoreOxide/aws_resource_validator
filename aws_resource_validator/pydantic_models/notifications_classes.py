@@ -12,38 +12,38 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.notifications_constants import *
 
-class SummarizationDimensionDetailTypeDef(BaseValidatorModel):
+class SummarizationDimensionDetail(BaseValidatorModel):
     name: str
     value: str
 
 
-class AggregationKeyTypeDef(BaseValidatorModel):
+class AggregationKey(BaseValidatorModel):
     name: str
     value: str
 
 
-class SummarizationDimensionOverviewTypeDef(BaseValidatorModel):
+class SummarizationDimensionOverview(BaseValidatorModel):
     name: str
     count: int
     sampleValues: Optional[List[str]] = None
 
 
-class AssociateChannelRequestTypeDef(BaseValidatorModel):
+class AssociateChannelRequest(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
 
 
-class AssociateManagedNotificationAccountContactRequestTypeDef(BaseValidatorModel):
+class AssociateManagedNotificationAccountContactRequest(BaseValidatorModel):
     contactIdentifier: AccountContactTypeType
     managedNotificationConfigurationArn: str
 
 
-class AssociateManagedNotificationAdditionalChannelRequestTypeDef(BaseValidatorModel):
+class AssociateManagedNotificationAdditionalChannelRequest(BaseValidatorModel):
     channelArn: str
     managedNotificationConfigurationArn: str
 
 
-class CreateEventRuleRequestTypeDef(BaseValidatorModel):
+class CreateEventRuleRequest(BaseValidatorModel):
     notificationConfigurationArn: str
     source: str
     eventType: str
@@ -51,12 +51,12 @@ class CreateEventRuleRequestTypeDef(BaseValidatorModel):
     eventPattern: Optional[str] = None
 
 
-class EventRuleStatusSummaryTypeDef(BaseValidatorModel):
+class EventRuleStatusSummary(BaseValidatorModel):
     status: EventRuleStatusType
     reason: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -64,124 +64,124 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateNotificationConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateNotificationConfigurationRequest(BaseValidatorModel):
     name: str
     description: str
     aggregationDuration: Optional[AggregationDurationType] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DeleteEventRuleRequestTypeDef(BaseValidatorModel):
+class DeleteEventRuleRequest(BaseValidatorModel):
     arn: str
 
 
-class DeleteNotificationConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteNotificationConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
-class DeregisterNotificationHubRequestTypeDef(BaseValidatorModel):
+class DeregisterNotificationHubRequest(BaseValidatorModel):
     notificationHubRegion: str
 
 
-class NotificationHubStatusSummaryTypeDef(BaseValidatorModel):
+class NotificationHubStatusSummary(BaseValidatorModel):
     status: NotificationHubStatusType
     reason: str
 
 
-class DimensionTypeDef(BaseValidatorModel):
+class Dimension(BaseValidatorModel):
     name: str
     value: str
 
 
-class DisassociateChannelRequestTypeDef(BaseValidatorModel):
+class DisassociateChannelRequest(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
 
 
-class DisassociateManagedNotificationAccountContactRequestTypeDef(BaseValidatorModel):
+class DisassociateManagedNotificationAccountContactRequest(BaseValidatorModel):
     contactIdentifier: AccountContactTypeType
     managedNotificationConfigurationArn: str
 
 
-class DisassociateManagedNotificationAdditionalChannelRequestTypeDef(BaseValidatorModel):
+class DisassociateManagedNotificationAdditionalChannelRequest(BaseValidatorModel):
     channelArn: str
     managedNotificationConfigurationArn: str
 
 
-class GetEventRuleRequestTypeDef(BaseValidatorModel):
+class GetEventRuleRequest(BaseValidatorModel):
     arn: str
 
 
-class GetManagedNotificationChildEventRequestTypeDef(BaseValidatorModel):
-    arn: str
-    locale: Optional[LocaleCodeType] = None
-
-
-class GetManagedNotificationConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
-
-
-class GetManagedNotificationEventRequestTypeDef(BaseValidatorModel):
+class GetManagedNotificationChildEventRequest(BaseValidatorModel):
     arn: str
     locale: Optional[LocaleCodeType] = None
 
 
-class GetNotificationConfigurationRequestTypeDef(BaseValidatorModel):
+class GetManagedNotificationConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
-class GetNotificationEventRequestTypeDef(BaseValidatorModel):
+class GetManagedNotificationEventRequest(BaseValidatorModel):
     arn: str
     locale: Optional[LocaleCodeType] = None
 
 
-class NotificationsAccessForOrganizationTypeDef(BaseValidatorModel):
+class GetNotificationConfigurationRequest(BaseValidatorModel):
+    arn: str
+
+
+class GetNotificationEventRequest(BaseValidatorModel):
+    arn: str
+    locale: Optional[LocaleCodeType] = None
+
+
+class NotificationsAccessForOrganization(BaseValidatorModel):
     accessStatus: AccessStatusType
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListChannelsRequestTypeDef(BaseValidatorModel):
+class ListChannelsRequest(BaseValidatorModel):
     notificationConfigurationArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListEventRulesRequestTypeDef(BaseValidatorModel):
+class ListEventRulesRequest(BaseValidatorModel):
     notificationConfigurationArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListManagedNotificationChannelAssociationsRequestTypeDef(BaseValidatorModel):
+class ListManagedNotificationChannelAssociationsRequest(BaseValidatorModel):
     managedNotificationConfigurationArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ManagedNotificationChannelAssociationSummaryTypeDef(BaseValidatorModel):
+class ManagedNotificationChannelAssociationSummary(BaseValidatorModel):
     channelIdentifier: str
     channelType: ChannelTypeType
     overrideOption: Optional[ChannelAssociationOverrideOptionType] = None
 
 
-class ListManagedNotificationConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListManagedNotificationConfigurationsRequest(BaseValidatorModel):
     channelIdentifier: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ManagedNotificationConfigurationStructureTypeDef(BaseValidatorModel):
+class ManagedNotificationConfigurationStructure(BaseValidatorModel):
     arn: str
     name: str
     description: str
 
 
-class ListNotificationConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListNotificationConfigurationsRequest(BaseValidatorModel):
     eventRuleSource: Optional[str] = None
     channelArn: Optional[str] = None
     status: Optional[NotificationConfigurationStatusType] = None
@@ -189,7 +189,7 @@ class ListNotificationConfigurationsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class NotificationConfigurationStructureTypeDef(BaseValidatorModel):
+class NotificationConfigurationStructure(BaseValidatorModel):
     arn: str
     name: str
     description: str
@@ -198,72 +198,72 @@ class NotificationConfigurationStructureTypeDef(BaseValidatorModel):
     aggregationDuration: Optional[AggregationDurationType] = None
 
 
-class ListNotificationHubsRequestTypeDef(BaseValidatorModel):
+class ListNotificationHubsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
 
-class ManagedSourceEventMetadataSummaryTypeDef(BaseValidatorModel):
+class ManagedSourceEventMetadataSummary(BaseValidatorModel):
     source: str
     eventType: str
     eventOriginRegion: Optional[str] = None
 
 
-class MessageComponentsSummaryTypeDef(BaseValidatorModel):
+class MessageComponentsSummary(BaseValidatorModel):
     headline: str
 
 
-class SourceEventMetadataSummaryTypeDef(BaseValidatorModel):
+class SourceEventMetadataSummary(BaseValidatorModel):
     source: str
     eventType: str
     eventOriginRegion: Optional[str] = None
 
 
-class RegisterNotificationHubRequestTypeDef(BaseValidatorModel):
+class RegisterNotificationHubRequest(BaseValidatorModel):
     notificationHubRegion: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     arn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     arn: str
     tagKeys: Sequence[str]
 
 
-class UpdateEventRuleRequestTypeDef(BaseValidatorModel):
+class UpdateEventRuleRequest(BaseValidatorModel):
     arn: str
     eventPattern: Optional[str] = None
     regions: Optional[Sequence[str]] = None
 
 
-class UpdateNotificationConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateNotificationConfigurationRequest(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     description: Optional[str] = None
     aggregationDuration: Optional[AggregationDurationType] = None
 
 
-class AggregationDetailTypeDef(BaseValidatorModel):
-    summarizationDimensions: Optional[List[SummarizationDimensionDetailTypeDef]] = None
+class AggregationDetail(BaseValidatorModel):
+    summarizationDimensions: Optional[List[SummarizationDimensionDetail]] = None
 
 
-class AggregationSummaryTypeDef(BaseValidatorModel):
+class AggregationSummary(BaseValidatorModel):
     eventCount: int
-    aggregatedBy: List[AggregationKeyTypeDef]
-    aggregatedAccounts: SummarizationDimensionOverviewTypeDef
-    aggregatedRegions: SummarizationDimensionOverviewTypeDef
-    aggregatedOrganizationalUnits: Optional[SummarizationDimensionOverviewTypeDef] = None
-    additionalSummarizationDimensions: Optional[List[SummarizationDimensionOverviewTypeDef]] = None
+    aggregatedBy: List[AggregationKey]
+    aggregatedAccounts: SummarizationDimensionOverview
+    aggregatedRegions: SummarizationDimensionOverview
+    aggregatedOrganizationalUnits: Optional[SummarizationDimensionOverview] = None
+    additionalSummarizationDimensions: Optional[List[SummarizationDimensionOverview]] = None
 
 
-class EventRuleStructureTypeDef(BaseValidatorModel):
+class EventRuleStructure(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
     creationTime: datetime
@@ -272,23 +272,23 @@ class EventRuleStructureTypeDef(BaseValidatorModel):
     eventPattern: str
     regions: List[str]
     managedRules: List[str]
-    statusSummaryByRegion: Dict[str, EventRuleStatusSummaryTypeDef]
+    statusSummaryByRegion: Dict[str, EventRuleStatusSummary]
 
 
-class CreateEventRuleResponseTypeDef(BaseValidatorModel):
+class CreateEventRuleResponse(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
-    statusSummaryByRegion: Dict[str, EventRuleStatusSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    statusSummaryByRegion: Dict[str, EventRuleStatusSummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNotificationConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateNotificationConfigurationResponse(BaseValidatorModel):
     arn: str
     status: NotificationConfigurationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEventRuleResponseTypeDef(BaseValidatorModel):
+class GetEventRuleResponse(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
     creationTime: datetime
@@ -297,140 +297,140 @@ class GetEventRuleResponseTypeDef(BaseValidatorModel):
     eventPattern: str
     regions: List[str]
     managedRules: List[str]
-    statusSummaryByRegion: Dict[str, EventRuleStatusSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    statusSummaryByRegion: Dict[str, EventRuleStatusSummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetManagedNotificationConfigurationResponseTypeDef(BaseValidatorModel):
+class GetManagedNotificationConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
     description: str
     category: str
     subCategory: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNotificationConfigurationResponseTypeDef(BaseValidatorModel):
+class GetNotificationConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
     description: str
     status: NotificationConfigurationStatusType
     creationTime: datetime
     aggregationDuration: AggregationDurationType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelsResponseTypeDef(BaseValidatorModel):
+class ListChannelsResponse(BaseValidatorModel):
     channels: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEventRuleResponseTypeDef(BaseValidatorModel):
+class UpdateEventRuleResponse(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
-    statusSummaryByRegion: Dict[str, EventRuleStatusSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    statusSummaryByRegion: Dict[str, EventRuleStatusSummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateNotificationConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateNotificationConfigurationResponse(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeregisterNotificationHubResponseTypeDef(BaseValidatorModel):
+class DeregisterNotificationHubResponse(BaseValidatorModel):
     notificationHubRegion: str
-    statusSummary: NotificationHubStatusSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    statusSummary: NotificationHubStatusSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class NotificationHubOverviewTypeDef(BaseValidatorModel):
+class NotificationHubOverview(BaseValidatorModel):
     notificationHubRegion: str
-    statusSummary: NotificationHubStatusSummaryTypeDef
+    statusSummary: NotificationHubStatusSummary
     creationTime: datetime
     lastActivationTime: Optional[datetime] = None
 
 
-class RegisterNotificationHubResponseTypeDef(BaseValidatorModel):
+class RegisterNotificationHubResponse(BaseValidatorModel):
     notificationHubRegion: str
-    statusSummary: NotificationHubStatusSummaryTypeDef
+    statusSummary: NotificationHubStatusSummary
     creationTime: datetime
     lastActivationTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class MessageComponentsTypeDef(BaseValidatorModel):
+class MessageComponents(BaseValidatorModel):
     headline: Optional[str] = None
     paragraphSummary: Optional[str] = None
     completeDescription: Optional[str] = None
-    dimensions: Optional[List[DimensionTypeDef]] = None
+    dimensions: Optional[List[Dimension]] = None
 
 
-class GetNotificationsAccessForOrganizationResponseTypeDef(BaseValidatorModel):
-    notificationsAccessForOrganization: NotificationsAccessForOrganizationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetNotificationsAccessForOrganizationResponse(BaseValidatorModel):
+    notificationsAccessForOrganization: NotificationsAccessForOrganization
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelsRequestPaginateTypeDef(BaseValidatorModel):
+class ListChannelsRequestPaginate(BaseValidatorModel):
     notificationConfigurationArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEventRulesRequestPaginateTypeDef(BaseValidatorModel):
+class ListEventRulesRequestPaginate(BaseValidatorModel):
     notificationConfigurationArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedNotificationChannelAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListManagedNotificationChannelAssociationsRequestPaginate(BaseValidatorModel):
     managedNotificationConfigurationArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedNotificationConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListManagedNotificationConfigurationsRequestPaginate(BaseValidatorModel):
     channelIdentifier: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNotificationConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListNotificationConfigurationsRequestPaginate(BaseValidatorModel):
     eventRuleSource: Optional[str] = None
     channelArn: Optional[str] = None
     status: Optional[NotificationConfigurationStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNotificationHubsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListNotificationHubsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedNotificationChannelAssociationsResponseTypeDef(BaseValidatorModel):
-    channelAssociations: List[ManagedNotificationChannelAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListManagedNotificationChannelAssociationsResponse(BaseValidatorModel):
+    channelAssociations: List[ManagedNotificationChannelAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListManagedNotificationChildEventsRequestPaginateTypeDef(BaseValidatorModel):
+class ListManagedNotificationChildEventsRequestPaginate(BaseValidatorModel):
     aggregateManagedNotificationEventArn: str
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
     locale: Optional[LocaleCodeType] = None
     relatedAccount: Optional[str] = None
     organizationalUnitId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedNotificationChildEventsRequestTypeDef(BaseValidatorModel):
+class ListManagedNotificationChildEventsRequest(BaseValidatorModel):
     aggregateManagedNotificationEventArn: str
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
     locale: Optional[LocaleCodeType] = None
     maxResults: Optional[int] = None
     relatedAccount: Optional[str] = None
@@ -438,19 +438,19 @@ class ListManagedNotificationChildEventsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListManagedNotificationEventsRequestPaginateTypeDef(BaseValidatorModel):
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+class ListManagedNotificationEventsRequestPaginate(BaseValidatorModel):
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
     locale: Optional[LocaleCodeType] = None
     source: Optional[str] = None
     organizationalUnitId: Optional[str] = None
     relatedAccount: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedNotificationEventsRequestTypeDef(BaseValidatorModel):
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+class ListManagedNotificationEventsRequest(BaseValidatorModel):
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
     locale: Optional[LocaleCodeType] = None
     source: Optional[str] = None
     maxResults: Optional[int] = None
@@ -459,19 +459,19 @@ class ListManagedNotificationEventsRequestTypeDef(BaseValidatorModel):
     relatedAccount: Optional[str] = None
 
 
-class ListNotificationEventsRequestPaginateTypeDef(BaseValidatorModel):
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+class ListNotificationEventsRequestPaginate(BaseValidatorModel):
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
     locale: Optional[LocaleCodeType] = None
     source: Optional[str] = None
     includeChildEvents: Optional[bool] = None
     aggregateNotificationEventArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNotificationEventsRequestTypeDef(BaseValidatorModel):
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+class ListNotificationEventsRequest(BaseValidatorModel):
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
     locale: Optional[LocaleCodeType] = None
     source: Optional[str] = None
     includeChildEvents: Optional[bool] = None
@@ -480,154 +480,154 @@ class ListNotificationEventsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListManagedNotificationConfigurationsResponseTypeDef(BaseValidatorModel):
-    managedNotificationConfigurations: List[ManagedNotificationConfigurationStructureTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListManagedNotificationConfigurationsResponse(BaseValidatorModel):
+    managedNotificationConfigurations: List[ManagedNotificationConfigurationStructure]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListNotificationConfigurationsResponseTypeDef(BaseValidatorModel):
-    notificationConfigurations: List[NotificationConfigurationStructureTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNotificationConfigurationsResponse(BaseValidatorModel):
+    notificationConfigurations: List[NotificationConfigurationStructure]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ManagedNotificationEventSummaryTypeDef(BaseValidatorModel):
+class ManagedNotificationEventSummary(BaseValidatorModel):
     schemaVersion: Literal["v1.0"]
-    sourceEventMetadata: ManagedSourceEventMetadataSummaryTypeDef
-    messageComponents: MessageComponentsSummaryTypeDef
+    sourceEventMetadata: ManagedSourceEventMetadataSummary
+    messageComponents: MessageComponentsSummary
     eventStatus: EventStatusType
     notificationType: NotificationTypeType
 
 
-class NotificationEventSummaryTypeDef(BaseValidatorModel):
+class NotificationEventSummary(BaseValidatorModel):
     schemaVersion: Literal["v1.0"]
-    sourceEventMetadata: SourceEventMetadataSummaryTypeDef
-    messageComponents: MessageComponentsSummaryTypeDef
+    sourceEventMetadata: SourceEventMetadataSummary
+    messageComponents: MessageComponentsSummary
     eventStatus: EventStatusType
     notificationType: NotificationTypeType
 
 
-class ResourceTypeDef(BaseValidatorModel):
+class Resource(BaseValidatorModel):
     pass
 
 
-class SourceEventMetadataTypeDef(BaseValidatorModel):
+class SourceEventMetadata(BaseValidatorModel):
     eventTypeVersion: str
     sourceEventId: str
     relatedAccount: str
     source: str
     eventOccurrenceTime: datetime
     eventType: str
-    relatedResources: List[ResourceTypeDef]
+    relatedResources: List[Resource]
     eventOriginRegion: Optional[str] = None
 
 
-class ManagedNotificationChildEventSummaryTypeDef(BaseValidatorModel):
+class ManagedNotificationChildEventSummary(BaseValidatorModel):
     schemaVersion: Literal["v1.0"]
-    sourceEventMetadata: ManagedSourceEventMetadataSummaryTypeDef
-    messageComponents: MessageComponentsSummaryTypeDef
-    aggregationDetail: AggregationDetailTypeDef
+    sourceEventMetadata: ManagedSourceEventMetadataSummary
+    messageComponents: MessageComponentsSummary
+    aggregationDetail: AggregationDetail
     eventStatus: EventStatusType
     notificationType: NotificationTypeType
 
 
-class ListEventRulesResponseTypeDef(BaseValidatorModel):
-    eventRules: List[EventRuleStructureTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventRulesResponse(BaseValidatorModel):
+    eventRules: List[EventRuleStructure]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListNotificationHubsResponseTypeDef(BaseValidatorModel):
-    notificationHubs: List[NotificationHubOverviewTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNotificationHubsResponse(BaseValidatorModel):
+    notificationHubs: List[NotificationHubOverview]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ManagedNotificationEventOverviewTypeDef(BaseValidatorModel):
+class ManagedNotificationEventOverview(BaseValidatorModel):
     arn: str
     managedNotificationConfigurationArn: str
     relatedAccount: str
     creationTime: datetime
-    notificationEvent: ManagedNotificationEventSummaryTypeDef
+    notificationEvent: ManagedNotificationEventSummary
     aggregationEventType: Optional[AggregationEventTypeType] = None
     organizationalUnitId: Optional[str] = None
-    aggregationSummary: Optional[AggregationSummaryTypeDef] = None
+    aggregationSummary: Optional[AggregationSummary] = None
     aggregatedNotificationRegions: Optional[List[str]] = None
 
 
-class NotificationEventOverviewTypeDef(BaseValidatorModel):
+class NotificationEventOverview(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
     relatedAccount: str
     creationTime: datetime
-    notificationEvent: NotificationEventSummaryTypeDef
+    notificationEvent: NotificationEventSummary
     aggregationEventType: Optional[AggregationEventTypeType] = None
     aggregateNotificationEventArn: Optional[str] = None
-    aggregationSummary: Optional[AggregationSummaryTypeDef] = None
+    aggregationSummary: Optional[AggregationSummary] = None
 
 
-class ManagedNotificationChildEventOverviewTypeDef(BaseValidatorModel):
+class ManagedNotificationChildEventOverview(BaseValidatorModel):
     arn: str
     managedNotificationConfigurationArn: str
     relatedAccount: str
     creationTime: datetime
-    childEvent: ManagedNotificationChildEventSummaryTypeDef
+    childEvent: ManagedNotificationChildEventSummary
     aggregateManagedNotificationEventArn: str
     organizationalUnitId: Optional[str] = None
 
 
-class ManagedNotificationChildEventTypeDef(BaseValidatorModel):
+class ManagedNotificationChildEvent(BaseValidatorModel):
     pass
 
 
-class GetManagedNotificationChildEventResponseTypeDef(BaseValidatorModel):
+class GetManagedNotificationChildEventResponse(BaseValidatorModel):
     arn: str
     managedNotificationConfigurationArn: str
     creationTime: datetime
-    content: ManagedNotificationChildEventTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    content: ManagedNotificationChildEvent
+    ResponseMetadata: ResponseMetadata
 
 
-class ManagedNotificationEventTypeDef(BaseValidatorModel):
+class ManagedNotificationEvent(BaseValidatorModel):
     pass
 
 
-class GetManagedNotificationEventResponseTypeDef(BaseValidatorModel):
+class GetManagedNotificationEventResponse(BaseValidatorModel):
     arn: str
     managedNotificationConfigurationArn: str
     creationTime: datetime
-    content: ManagedNotificationEventTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    content: ManagedNotificationEvent
+    ResponseMetadata: ResponseMetadata
 
 
-class ListManagedNotificationEventsResponseTypeDef(BaseValidatorModel):
-    managedNotificationEvents: List[ManagedNotificationEventOverviewTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListManagedNotificationEventsResponse(BaseValidatorModel):
+    managedNotificationEvents: List[ManagedNotificationEventOverview]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListNotificationEventsResponseTypeDef(BaseValidatorModel):
-    notificationEvents: List[NotificationEventOverviewTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNotificationEventsResponse(BaseValidatorModel):
+    notificationEvents: List[NotificationEventOverview]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class NotificationEventTypeDef(BaseValidatorModel):
+class NotificationEvent(BaseValidatorModel):
     pass
 
 
-class GetNotificationEventResponseTypeDef(BaseValidatorModel):
+class GetNotificationEventResponse(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
     creationTime: datetime
-    content: NotificationEventTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    content: NotificationEvent
+    ResponseMetadata: ResponseMetadata
 
 
-class ListManagedNotificationChildEventsResponseTypeDef(BaseValidatorModel):
-    managedNotificationChildEvents: List[ManagedNotificationChildEventOverviewTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListManagedNotificationChildEventsResponse(BaseValidatorModel):
+    managedNotificationChildEvents: List[ManagedNotificationChildEventOverview]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cognito_identity_constants import *
 
-class CognitoIdentityProviderTypeDef(BaseValidatorModel):
+class CognitoIdentityProvider(BaseValidatorModel):
     ProviderName: Optional[str] = None
     ClientId: Optional[str] = None
     ServerSideTokenCheck: Optional[bool] = None
 
 
-class CredentialsTypeDef(BaseValidatorModel):
+class Credentials(BaseValidatorModel):
     AccessKeyId: Optional[str] = None
     SecretKey: Optional[str] = None
     SessionToken: Optional[str] = None
     Expiration: Optional[datetime] = None
 
 
-class DeleteIdentitiesInputTypeDef(BaseValidatorModel):
+class DeleteIdentitiesInput(BaseValidatorModel):
     IdentityIdsToDelete: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,40 +37,40 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class UnprocessedIdentityIdTypeDef(BaseValidatorModel):
+class UnprocessedIdentityId(BaseValidatorModel):
     IdentityId: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
 
 
-class DeleteIdentityPoolInputTypeDef(BaseValidatorModel):
+class DeleteIdentityPoolInput(BaseValidatorModel):
     IdentityPoolId: str
 
 
-class DescribeIdentityInputTypeDef(BaseValidatorModel):
+class DescribeIdentityInput(BaseValidatorModel):
     IdentityId: str
 
 
-class DescribeIdentityPoolInputTypeDef(BaseValidatorModel):
+class DescribeIdentityPoolInput(BaseValidatorModel):
     IdentityPoolId: str
 
 
-class GetCredentialsForIdentityInputTypeDef(BaseValidatorModel):
+class GetCredentialsForIdentityInput(BaseValidatorModel):
     IdentityId: str
     Logins: Optional[Mapping[str, str]] = None
     CustomRoleArn: Optional[str] = None
 
 
-class GetIdInputTypeDef(BaseValidatorModel):
+class GetIdInput(BaseValidatorModel):
     IdentityPoolId: str
     AccountId: Optional[str] = None
     Logins: Optional[Mapping[str, str]] = None
 
 
-class GetIdentityPoolRolesInputTypeDef(BaseValidatorModel):
+class GetIdentityPoolRolesInput(BaseValidatorModel):
     IdentityPoolId: str
 
 
-class GetOpenIdTokenForDeveloperIdentityInputTypeDef(BaseValidatorModel):
+class GetOpenIdTokenForDeveloperIdentityInput(BaseValidatorModel):
     IdentityPoolId: str
     Logins: Mapping[str, str]
     IdentityId: Optional[str] = None
@@ -78,51 +78,51 @@ class GetOpenIdTokenForDeveloperIdentityInputTypeDef(BaseValidatorModel):
     TokenDuration: Optional[int] = None
 
 
-class GetOpenIdTokenInputTypeDef(BaseValidatorModel):
+class GetOpenIdTokenInput(BaseValidatorModel):
     IdentityId: str
     Logins: Optional[Mapping[str, str]] = None
 
 
-class GetPrincipalTagAttributeMapInputTypeDef(BaseValidatorModel):
+class GetPrincipalTagAttributeMapInput(BaseValidatorModel):
     IdentityPoolId: str
     IdentityProviderName: str
 
 
-class IdentityDescriptionTypeDef(BaseValidatorModel):
+class IdentityDescription(BaseValidatorModel):
     IdentityId: Optional[str] = None
     Logins: Optional[List[str]] = None
     CreationDate: Optional[datetime] = None
     LastModifiedDate: Optional[datetime] = None
 
 
-class IdentityPoolShortDescriptionTypeDef(BaseValidatorModel):
+class IdentityPoolShortDescription(BaseValidatorModel):
     IdentityPoolId: Optional[str] = None
     IdentityPoolName: Optional[str] = None
 
 
-class ListIdentitiesInputTypeDef(BaseValidatorModel):
+class ListIdentitiesInput(BaseValidatorModel):
     IdentityPoolId: str
     MaxResults: int
     NextToken: Optional[str] = None
     HideDisabled: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListIdentityPoolsInputTypeDef(BaseValidatorModel):
+class ListIdentityPoolsInput(BaseValidatorModel):
     MaxResults: int
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
 
-class LookupDeveloperIdentityInputTypeDef(BaseValidatorModel):
+class LookupDeveloperIdentityInput(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: Optional[str] = None
     DeveloperUserIdentifier: Optional[str] = None
@@ -130,63 +130,63 @@ class LookupDeveloperIdentityInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class MappingRuleTypeDef(BaseValidatorModel):
+class MappingRule(BaseValidatorModel):
     Claim: str
     MatchType: MappingRuleMatchTypeType
     Value: str
     RoleARN: str
 
 
-class MergeDeveloperIdentitiesInputTypeDef(BaseValidatorModel):
+class MergeDeveloperIdentitiesInput(BaseValidatorModel):
     SourceUserIdentifier: str
     DestinationUserIdentifier: str
     DeveloperProviderName: str
     IdentityPoolId: str
 
 
-class SetPrincipalTagAttributeMapInputTypeDef(BaseValidatorModel):
+class SetPrincipalTagAttributeMapInput(BaseValidatorModel):
     IdentityPoolId: str
     IdentityProviderName: str
     UseDefaults: Optional[bool] = None
     PrincipalTags: Optional[Mapping[str, str]] = None
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UnlinkDeveloperIdentityInputTypeDef(BaseValidatorModel):
+class UnlinkDeveloperIdentityInput(BaseValidatorModel):
     IdentityId: str
     IdentityPoolId: str
     DeveloperProviderName: str
     DeveloperUserIdentifier: str
 
 
-class UnlinkIdentityInputTypeDef(BaseValidatorModel):
+class UnlinkIdentityInput(BaseValidatorModel):
     IdentityId: str
     Logins: Mapping[str, str]
     LoginsToRemove: Sequence[str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class CreateIdentityPoolInputTypeDef(BaseValidatorModel):
+class CreateIdentityPoolInput(BaseValidatorModel):
     IdentityPoolName: str
     AllowUnauthenticatedIdentities: bool
     AllowClassicFlow: Optional[bool] = None
     SupportedLoginProviders: Optional[Mapping[str, str]] = None
     DeveloperProviderName: Optional[str] = None
     OpenIdConnectProviderARNs: Optional[Sequence[str]] = None
-    CognitoIdentityProviders: Optional[Sequence[CognitoIdentityProviderTypeDef]] = None
+    CognitoIdentityProviders: Optional[Sequence[CognitoIdentityProvider]] = None
     SamlProviderARNs: Optional[Sequence[str]] = None
     IdentityPoolTags: Optional[Mapping[str, str]] = None
 
 
-class IdentityPoolRequestTypeDef(BaseValidatorModel):
+class IdentityPoolRequest(BaseValidatorModel):
     IdentityPoolId: str
     IdentityPoolName: str
     AllowUnauthenticatedIdentities: bool
@@ -194,55 +194,55 @@ class IdentityPoolRequestTypeDef(BaseValidatorModel):
     SupportedLoginProviders: Optional[Mapping[str, str]] = None
     DeveloperProviderName: Optional[str] = None
     OpenIdConnectProviderARNs: Optional[Sequence[str]] = None
-    CognitoIdentityProviders: Optional[Sequence[CognitoIdentityProviderTypeDef]] = None
+    CognitoIdentityProviders: Optional[Sequence[CognitoIdentityProvider]] = None
     SamlProviderARNs: Optional[Sequence[str]] = None
     IdentityPoolTags: Optional[Mapping[str, str]] = None
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCredentialsForIdentityResponseTypeDef(BaseValidatorModel):
+class GetCredentialsForIdentityResponse(BaseValidatorModel):
     IdentityId: str
-    Credentials: CredentialsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Credentials: Credentials
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdResponseTypeDef(BaseValidatorModel):
+class GetIdResponse(BaseValidatorModel):
     IdentityId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetOpenIdTokenForDeveloperIdentityResponseTypeDef(BaseValidatorModel):
-    IdentityId: str
-    Token: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class GetOpenIdTokenResponseTypeDef(BaseValidatorModel):
+class GetOpenIdTokenForDeveloperIdentityResponse(BaseValidatorModel):
     IdentityId: str
     Token: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPrincipalTagAttributeMapResponseTypeDef(BaseValidatorModel):
+class GetOpenIdTokenResponse(BaseValidatorModel):
+    IdentityId: str
+    Token: str
+    ResponseMetadata: ResponseMetadata
+
+
+class GetPrincipalTagAttributeMapResponse(BaseValidatorModel):
     IdentityPoolId: str
     IdentityProviderName: str
     UseDefaults: bool
     PrincipalTags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class IdentityDescriptionResponseTypeDef(BaseValidatorModel):
+class IdentityDescriptionResponse(BaseValidatorModel):
     IdentityId: str
     Logins: List[str]
     CreationDate: datetime
     LastModifiedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class IdentityPoolTypeDef(BaseValidatorModel):
+class IdentityPool(BaseValidatorModel):
     IdentityPoolId: str
     IdentityPoolName: str
     AllowUnauthenticatedIdentities: bool
@@ -250,85 +250,85 @@ class IdentityPoolTypeDef(BaseValidatorModel):
     SupportedLoginProviders: Dict[str, str]
     DeveloperProviderName: str
     OpenIdConnectProviderARNs: List[str]
-    CognitoIdentityProviders: List[CognitoIdentityProviderTypeDef]
+    CognitoIdentityProviders: List[CognitoIdentityProvider]
     SamlProviderARNs: List[str]
     IdentityPoolTags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LookupDeveloperIdentityResponseTypeDef(BaseValidatorModel):
+class LookupDeveloperIdentityResponse(BaseValidatorModel):
     IdentityId: str
     DeveloperUserIdentifierList: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MergeDeveloperIdentitiesResponseTypeDef(BaseValidatorModel):
+class MergeDeveloperIdentitiesResponse(BaseValidatorModel):
     IdentityId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetPrincipalTagAttributeMapResponseTypeDef(BaseValidatorModel):
+class SetPrincipalTagAttributeMapResponse(BaseValidatorModel):
     IdentityPoolId: str
     IdentityProviderName: str
     UseDefaults: bool
     PrincipalTags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteIdentitiesResponseTypeDef(BaseValidatorModel):
-    UnprocessedIdentityIds: List[UnprocessedIdentityIdTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteIdentitiesResponse(BaseValidatorModel):
+    UnprocessedIdentityIds: List[UnprocessedIdentityId]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListIdentitiesResponseTypeDef(BaseValidatorModel):
+class ListIdentitiesResponse(BaseValidatorModel):
     IdentityPoolId: str
-    Identities: List[IdentityDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Identities: List[IdentityDescription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListIdentityPoolsResponseTypeDef(BaseValidatorModel):
-    IdentityPools: List[IdentityPoolShortDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdentityPoolsResponse(BaseValidatorModel):
+    IdentityPools: List[IdentityPoolShortDescription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListIdentityPoolsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListIdentityPoolsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class RulesConfigurationTypeOutputTypeDef(BaseValidatorModel):
-    Rules: List[MappingRuleTypeDef]
+class RulesConfigurationTypeOutput(BaseValidatorModel):
+    Rules: List[MappingRule]
 
 
-class RulesConfigurationTypeTypeDef(BaseValidatorModel):
-    Rules: Sequence[MappingRuleTypeDef]
+class RulesConfigurationType(BaseValidatorModel):
+    Rules: Sequence[MappingRule]
 
 
-class RoleMappingOutputTypeDef(BaseValidatorModel):
+class RoleMappingOutput(BaseValidatorModel):
     pass
 
 
-class GetIdentityPoolRolesResponseTypeDef(BaseValidatorModel):
+class GetIdentityPoolRolesResponse(BaseValidatorModel):
     IdentityPoolId: str
     Roles: Dict[str, str]
-    RoleMappings: Dict[str, RoleMappingOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    RoleMappings: Dict[str, RoleMappingOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class RoleMappingUnionTypeDef(BaseValidatorModel):
+class RoleMappingUnion(BaseValidatorModel):
     pass
 
 
-class SetIdentityPoolRolesInputTypeDef(BaseValidatorModel):
+class SetIdentityPoolRolesInput(BaseValidatorModel):
     IdentityPoolId: str
     Roles: Mapping[str, str]
-    RoleMappings: Optional[Mapping[str, RoleMappingUnionTypeDef]] = None
+    RoleMappings: Optional[Mapping[str, RoleMappingUnion]] = None
 
 

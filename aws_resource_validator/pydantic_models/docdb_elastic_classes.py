@@ -12,14 +12,14 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.docdb_elastic_constants import *
 
-class ApplyPendingMaintenanceActionInputTypeDef(BaseValidatorModel):
+class ApplyPendingMaintenanceActionInput(BaseValidatorModel):
     applyAction: str
     optInType: OptInTypeType
     resourceArn: str
     applyOn: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -27,13 +27,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ClusterInListTypeDef(BaseValidatorModel):
+class ClusterInList(BaseValidatorModel):
     clusterArn: str
     clusterName: str
     status: StatusType
 
 
-class ClusterSnapshotInListTypeDef(BaseValidatorModel):
+class ClusterSnapshotInList(BaseValidatorModel):
     clusterArn: str
     snapshotArn: str
     snapshotCreationTime: str
@@ -41,7 +41,7 @@ class ClusterSnapshotInListTypeDef(BaseValidatorModel):
     status: StatusType
 
 
-class ClusterSnapshotTypeDef(BaseValidatorModel):
+class ClusterSnapshot(BaseValidatorModel):
     adminUserName: str
     clusterArn: str
     clusterCreationTime: str
@@ -55,13 +55,13 @@ class ClusterSnapshotTypeDef(BaseValidatorModel):
     snapshotType: Optional[SnapshotTypeType] = None
 
 
-class ShardTypeDef(BaseValidatorModel):
+class Shard(BaseValidatorModel):
     createTime: str
     shardId: str
     status: StatusType
 
 
-class CopyClusterSnapshotInputTypeDef(BaseValidatorModel):
+class CopyClusterSnapshotInput(BaseValidatorModel):
     snapshotArn: str
     targetSnapshotName: str
     copyTags: Optional[bool] = None
@@ -69,7 +69,7 @@ class CopyClusterSnapshotInputTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateClusterInputTypeDef(BaseValidatorModel):
+class CreateClusterInput(BaseValidatorModel):
     adminUserName: str
     adminUserPassword: str
     authType: AuthType
@@ -87,60 +87,60 @@ class CreateClusterInputTypeDef(BaseValidatorModel):
     vpcSecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class CreateClusterSnapshotInputTypeDef(BaseValidatorModel):
+class CreateClusterSnapshotInput(BaseValidatorModel):
     clusterArn: str
     snapshotName: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class DeleteClusterInputTypeDef(BaseValidatorModel):
+class DeleteClusterInput(BaseValidatorModel):
     clusterArn: str
 
 
-class DeleteClusterSnapshotInputTypeDef(BaseValidatorModel):
+class DeleteClusterSnapshotInput(BaseValidatorModel):
     snapshotArn: str
 
 
-class GetClusterInputTypeDef(BaseValidatorModel):
+class GetClusterInput(BaseValidatorModel):
     clusterArn: str
 
 
-class GetClusterSnapshotInputTypeDef(BaseValidatorModel):
+class GetClusterSnapshotInput(BaseValidatorModel):
     snapshotArn: str
 
 
-class GetPendingMaintenanceActionInputTypeDef(BaseValidatorModel):
+class GetPendingMaintenanceActionInput(BaseValidatorModel):
     resourceArn: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListClusterSnapshotsInputTypeDef(BaseValidatorModel):
+class ListClusterSnapshotsInput(BaseValidatorModel):
     clusterArn: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     snapshotType: Optional[str] = None
 
 
-class ListClustersInputTypeDef(BaseValidatorModel):
+class ListClustersInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListPendingMaintenanceActionsInputTypeDef(BaseValidatorModel):
+class ListPendingMaintenanceActionsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class PendingMaintenanceActionDetailsTypeDef(BaseValidatorModel):
+class PendingMaintenanceActionDetails(BaseValidatorModel):
     action: str
     autoAppliedAfterDate: Optional[str] = None
     currentApplyDate: Optional[str] = None
@@ -149,7 +149,7 @@ class PendingMaintenanceActionDetailsTypeDef(BaseValidatorModel):
     optInStatus: Optional[str] = None
 
 
-class RestoreClusterFromSnapshotInputTypeDef(BaseValidatorModel):
+class RestoreClusterFromSnapshotInput(BaseValidatorModel):
     clusterName: str
     snapshotArn: str
     kmsKeyId: Optional[str] = None
@@ -160,25 +160,25 @@ class RestoreClusterFromSnapshotInputTypeDef(BaseValidatorModel):
     vpcSecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class StartClusterInputTypeDef(BaseValidatorModel):
+class StartClusterInput(BaseValidatorModel):
     clusterArn: str
 
 
-class StopClusterInputTypeDef(BaseValidatorModel):
+class StopClusterInput(BaseValidatorModel):
     clusterArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateClusterInputTypeDef(BaseValidatorModel):
+class UpdateClusterInput(BaseValidatorModel):
     clusterArn: str
     adminUserPassword: Optional[str] = None
     authType: Optional[AuthType] = None
@@ -193,44 +193,44 @@ class UpdateClusterInputTypeDef(BaseValidatorModel):
     vpcSecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListClustersOutputTypeDef(BaseValidatorModel):
-    clusters: List[ClusterInListTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClustersOutput(BaseValidatorModel):
+    clusters: List[ClusterInList]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListClusterSnapshotsOutputTypeDef(BaseValidatorModel):
-    snapshots: List[ClusterSnapshotInListTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClusterSnapshotsOutput(BaseValidatorModel):
+    snapshots: List[ClusterSnapshotInList]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CopyClusterSnapshotOutputTypeDef(BaseValidatorModel):
-    snapshot: ClusterSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CopyClusterSnapshotOutput(BaseValidatorModel):
+    snapshot: ClusterSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateClusterSnapshotOutputTypeDef(BaseValidatorModel):
-    snapshot: ClusterSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateClusterSnapshotOutput(BaseValidatorModel):
+    snapshot: ClusterSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteClusterSnapshotOutputTypeDef(BaseValidatorModel):
-    snapshot: ClusterSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteClusterSnapshotOutput(BaseValidatorModel):
+    snapshot: ClusterSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class GetClusterSnapshotOutputTypeDef(BaseValidatorModel):
-    snapshot: ClusterSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetClusterSnapshotOutput(BaseValidatorModel):
+    snapshot: ClusterSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class ClusterTypeDef(BaseValidatorModel):
+class Cluster(BaseValidatorModel):
     adminUserName: str
     authType: AuthType
     clusterArn: str
@@ -247,76 +247,76 @@ class ClusterTypeDef(BaseValidatorModel):
     backupRetentionPeriod: Optional[int] = None
     preferredBackupWindow: Optional[str] = None
     shardInstanceCount: Optional[int] = None
-    shards: Optional[List[ShardTypeDef]] = None
+    shards: Optional[List[Shard]] = None
 
 
-class ListClusterSnapshotsInputPaginateTypeDef(BaseValidatorModel):
+class ListClusterSnapshotsInputPaginate(BaseValidatorModel):
     clusterArn: Optional[str] = None
     snapshotType: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClustersInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListClustersInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPendingMaintenanceActionsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPendingMaintenanceActionsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ResourcePendingMaintenanceActionTypeDef(BaseValidatorModel):
-    pendingMaintenanceActionDetails: Optional[List[PendingMaintenanceActionDetailsTypeDef]] = None
+class ResourcePendingMaintenanceAction(BaseValidatorModel):
+    pendingMaintenanceActionDetails: Optional[List[PendingMaintenanceActionDetails]] = None
     resourceArn: Optional[str] = None
 
 
-class CreateClusterOutputTypeDef(BaseValidatorModel):
-    cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateClusterOutput(BaseValidatorModel):
+    cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteClusterOutputTypeDef(BaseValidatorModel):
-    cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteClusterOutput(BaseValidatorModel):
+    cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class GetClusterOutputTypeDef(BaseValidatorModel):
-    cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetClusterOutput(BaseValidatorModel):
+    cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreClusterFromSnapshotOutputTypeDef(BaseValidatorModel):
-    cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreClusterFromSnapshotOutput(BaseValidatorModel):
+    cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class StartClusterOutputTypeDef(BaseValidatorModel):
-    cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartClusterOutput(BaseValidatorModel):
+    cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class StopClusterOutputTypeDef(BaseValidatorModel):
-    cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopClusterOutput(BaseValidatorModel):
+    cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateClusterOutputTypeDef(BaseValidatorModel):
-    cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateClusterOutput(BaseValidatorModel):
+    cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplyPendingMaintenanceActionOutputTypeDef(BaseValidatorModel):
-    resourcePendingMaintenanceAction: ResourcePendingMaintenanceActionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ApplyPendingMaintenanceActionOutput(BaseValidatorModel):
+    resourcePendingMaintenanceAction: ResourcePendingMaintenanceAction
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPendingMaintenanceActionOutputTypeDef(BaseValidatorModel):
-    resourcePendingMaintenanceAction: ResourcePendingMaintenanceActionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPendingMaintenanceActionOutput(BaseValidatorModel):
+    resourcePendingMaintenanceAction: ResourcePendingMaintenanceAction
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPendingMaintenanceActionsOutputTypeDef(BaseValidatorModel):
-    resourcePendingMaintenanceActions: List[ResourcePendingMaintenanceActionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPendingMaintenanceActionsOutput(BaseValidatorModel):
+    resourcePendingMaintenanceActions: List[ResourcePendingMaintenanceAction]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

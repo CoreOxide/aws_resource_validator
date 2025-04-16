@@ -12,28 +12,28 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.imagebuilder_constants import *
 
-class SystemsManagerAgentTypeDef(BaseValidatorModel):
+class SystemsManagerAgent(BaseValidatorModel):
     uninstallAfterBuild: Optional[bool] = None
 
 
-class LaunchPermissionConfigurationOutputTypeDef(BaseValidatorModel):
+class LaunchPermissionConfigurationOutput(BaseValidatorModel):
     userIds: Optional[List[str]] = None
     userGroups: Optional[List[str]] = None
     organizationArns: Optional[List[str]] = None
     organizationalUnitArns: Optional[List[str]] = None
 
 
-class ImageStateTypeDef(BaseValidatorModel):
+class ImageState(BaseValidatorModel):
     status: Optional[ImageStatusType] = None
     reason: Optional[str] = None
 
 
-class CancelImageCreationRequestTypeDef(BaseValidatorModel):
+class CancelImageCreationRequest(BaseValidatorModel):
     imageBuildVersionArn: str
     clientToken: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -41,37 +41,37 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CancelLifecycleExecutionRequestTypeDef(BaseValidatorModel):
+class CancelLifecycleExecutionRequest(BaseValidatorModel):
     lifecycleExecutionId: str
     clientToken: str
 
 
-class ComponentParameterOutputTypeDef(BaseValidatorModel):
+class ComponentParameterOutput(BaseValidatorModel):
     name: str
     value: List[str]
 
 
-class ComponentParameterTypeDef(BaseValidatorModel):
+class ComponentParameter(BaseValidatorModel):
     name: str
     value: Sequence[str]
 
 
-class ComponentStateTypeDef(BaseValidatorModel):
+class ComponentState(BaseValidatorModel):
     status: Optional[ComponentStatusType] = None
     reason: Optional[str] = None
 
 
-class ProductCodeListItemTypeDef(BaseValidatorModel):
+class ProductCodeListItem(BaseValidatorModel):
     productCodeId: str
     productCodeType: Literal["marketplace"]
 
 
-class TargetContainerRepositoryTypeDef(BaseValidatorModel):
+class TargetContainerRepository(BaseValidatorModel):
     service: Literal["ECR"]
     repositoryName: str
 
 
-class ContainerRecipeSummaryTypeDef(BaseValidatorModel):
+class ContainerRecipeSummary(BaseValidatorModel):
     arn: Optional[str] = None
     containerType: Optional[Literal["DOCKER"]] = None
     name: Optional[str] = None
@@ -82,12 +82,12 @@ class ContainerRecipeSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ContainerTypeDef(BaseValidatorModel):
+class Container(BaseValidatorModel):
     region: Optional[str] = None
     imageUris: Optional[List[str]] = None
 
 
-class CreateComponentRequestTypeDef(BaseValidatorModel):
+class CreateComponentRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
     platform: PlatformType
@@ -101,78 +101,78 @@ class CreateComponentRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class ImageTestsConfigurationTypeDef(BaseValidatorModel):
+class ImageTestsConfiguration(BaseValidatorModel):
     imageTestsEnabled: Optional[bool] = None
     timeoutMinutes: Optional[int] = None
 
 
-class ScheduleTypeDef(BaseValidatorModel):
+class Schedule(BaseValidatorModel):
     scheduleExpression: Optional[str] = None
     timezone: Optional[str] = None
     pipelineExecutionStartCondition: Optional[PipelineExecutionStartConditionType] = None
 
 
-class InstanceMetadataOptionsTypeDef(BaseValidatorModel):
+class InstanceMetadataOptions(BaseValidatorModel):
     httpTokens: Optional[str] = None
     httpPutResponseHopLimit: Optional[int] = None
 
 
-class PlacementTypeDef(BaseValidatorModel):
+class Placement(BaseValidatorModel):
     availabilityZone: Optional[str] = None
     tenancy: Optional[TenancyTypeType] = None
     hostId: Optional[str] = None
     hostResourceGroupArn: Optional[str] = None
 
 
-class CvssScoreAdjustmentTypeDef(BaseValidatorModel):
+class CvssScoreAdjustment(BaseValidatorModel):
     metric: Optional[str] = None
     reason: Optional[str] = None
 
 
-class CvssScoreTypeDef(BaseValidatorModel):
+class CvssScore(BaseValidatorModel):
     baseScore: Optional[float] = None
     scoringVector: Optional[str] = None
     version: Optional[str] = None
     source: Optional[str] = None
 
 
-class DeleteComponentRequestTypeDef(BaseValidatorModel):
+class DeleteComponentRequest(BaseValidatorModel):
     componentBuildVersionArn: str
 
 
-class DeleteContainerRecipeRequestTypeDef(BaseValidatorModel):
+class DeleteContainerRecipeRequest(BaseValidatorModel):
     containerRecipeArn: str
 
 
-class DeleteDistributionConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteDistributionConfigurationRequest(BaseValidatorModel):
     distributionConfigurationArn: str
 
 
-class DeleteImagePipelineRequestTypeDef(BaseValidatorModel):
+class DeleteImagePipelineRequest(BaseValidatorModel):
     imagePipelineArn: str
 
 
-class DeleteImageRecipeRequestTypeDef(BaseValidatorModel):
+class DeleteImageRecipeRequest(BaseValidatorModel):
     imageRecipeArn: str
 
 
-class DeleteImageRequestTypeDef(BaseValidatorModel):
+class DeleteImageRequest(BaseValidatorModel):
     imageBuildVersionArn: str
 
 
-class DeleteInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteInfrastructureConfigurationRequest(BaseValidatorModel):
     infrastructureConfigurationArn: str
 
 
-class DeleteLifecyclePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteLifecyclePolicyRequest(BaseValidatorModel):
     lifecyclePolicyArn: str
 
 
-class DeleteWorkflowRequestTypeDef(BaseValidatorModel):
+class DeleteWorkflowRequest(BaseValidatorModel):
     workflowBuildVersionArn: str
 
 
-class DistributionConfigurationSummaryTypeDef(BaseValidatorModel):
+class DistributionConfigurationSummary(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -182,20 +182,20 @@ class DistributionConfigurationSummaryTypeDef(BaseValidatorModel):
     regions: Optional[List[str]] = None
 
 
-class LaunchTemplateConfigurationTypeDef(BaseValidatorModel):
+class LaunchTemplateConfiguration(BaseValidatorModel):
     launchTemplateId: str
     accountId: Optional[str] = None
     setDefaultVersion: Optional[bool] = None
 
 
-class S3ExportConfigurationTypeDef(BaseValidatorModel):
+class S3ExportConfiguration(BaseValidatorModel):
     roleName: str
     diskImageFormat: DiskImageFormatType
     s3Bucket: str
     s3Prefix: Optional[str] = None
 
 
-class EbsInstanceBlockDeviceSpecificationTypeDef(BaseValidatorModel):
+class EbsInstanceBlockDeviceSpecification(BaseValidatorModel):
     encrypted: Optional[bool] = None
     deleteOnTermination: Optional[bool] = None
     iops: Optional[int] = None
@@ -206,107 +206,107 @@ class EbsInstanceBlockDeviceSpecificationTypeDef(BaseValidatorModel):
     throughput: Optional[int] = None
 
 
-class EcrConfigurationOutputTypeDef(BaseValidatorModel):
+class EcrConfigurationOutput(BaseValidatorModel):
     repositoryName: Optional[str] = None
     containerTags: Optional[List[str]] = None
 
 
-class EcrConfigurationTypeDef(BaseValidatorModel):
+class EcrConfiguration(BaseValidatorModel):
     repositoryName: Optional[str] = None
     containerTags: Optional[Sequence[str]] = None
 
 
-class FastLaunchLaunchTemplateSpecificationTypeDef(BaseValidatorModel):
+class FastLaunchLaunchTemplateSpecification(BaseValidatorModel):
     launchTemplateId: Optional[str] = None
     launchTemplateName: Optional[str] = None
     launchTemplateVersion: Optional[str] = None
 
 
-class FastLaunchSnapshotConfigurationTypeDef(BaseValidatorModel):
+class FastLaunchSnapshotConfiguration(BaseValidatorModel):
     targetResourceCount: Optional[int] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     name: Optional[str] = None
     values: Optional[Sequence[str]] = None
 
 
-class GetComponentPolicyRequestTypeDef(BaseValidatorModel):
+class GetComponentPolicyRequest(BaseValidatorModel):
     componentArn: str
 
 
-class GetComponentRequestTypeDef(BaseValidatorModel):
+class GetComponentRequest(BaseValidatorModel):
     componentBuildVersionArn: str
 
 
-class GetContainerRecipePolicyRequestTypeDef(BaseValidatorModel):
+class GetContainerRecipePolicyRequest(BaseValidatorModel):
     containerRecipeArn: str
 
 
-class GetContainerRecipeRequestTypeDef(BaseValidatorModel):
+class GetContainerRecipeRequest(BaseValidatorModel):
     containerRecipeArn: str
 
 
-class GetDistributionConfigurationRequestTypeDef(BaseValidatorModel):
+class GetDistributionConfigurationRequest(BaseValidatorModel):
     distributionConfigurationArn: str
 
 
-class GetImagePipelineRequestTypeDef(BaseValidatorModel):
+class GetImagePipelineRequest(BaseValidatorModel):
     imagePipelineArn: str
 
 
-class GetImagePolicyRequestTypeDef(BaseValidatorModel):
+class GetImagePolicyRequest(BaseValidatorModel):
     imageArn: str
 
 
-class GetImageRecipePolicyRequestTypeDef(BaseValidatorModel):
+class GetImageRecipePolicyRequest(BaseValidatorModel):
     imageRecipeArn: str
 
 
-class GetImageRecipeRequestTypeDef(BaseValidatorModel):
+class GetImageRecipeRequest(BaseValidatorModel):
     imageRecipeArn: str
 
 
-class GetImageRequestTypeDef(BaseValidatorModel):
+class GetImageRequest(BaseValidatorModel):
     imageBuildVersionArn: str
 
 
-class GetInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
+class GetInfrastructureConfigurationRequest(BaseValidatorModel):
     infrastructureConfigurationArn: str
 
 
-class GetLifecycleExecutionRequestTypeDef(BaseValidatorModel):
+class GetLifecycleExecutionRequest(BaseValidatorModel):
     lifecycleExecutionId: str
 
 
-class GetLifecyclePolicyRequestTypeDef(BaseValidatorModel):
+class GetLifecyclePolicyRequest(BaseValidatorModel):
     lifecyclePolicyArn: str
 
 
-class GetMarketplaceResourceRequestTypeDef(BaseValidatorModel):
+class GetMarketplaceResourceRequest(BaseValidatorModel):
     resourceType: MarketplaceResourceTypeType
     resourceArn: str
     resourceLocation: Optional[str] = None
 
 
-class GetWorkflowExecutionRequestTypeDef(BaseValidatorModel):
+class GetWorkflowExecutionRequest(BaseValidatorModel):
     workflowExecutionId: str
 
 
-class GetWorkflowRequestTypeDef(BaseValidatorModel):
+class GetWorkflowRequest(BaseValidatorModel):
     workflowBuildVersionArn: str
 
 
-class GetWorkflowStepExecutionRequestTypeDef(BaseValidatorModel):
+class GetWorkflowStepExecutionRequest(BaseValidatorModel):
     stepExecutionId: str
 
 
-class ImagePackageTypeDef(BaseValidatorModel):
+class ImagePackage(BaseValidatorModel):
     packageName: Optional[str] = None
     packageVersion: Optional[str] = None
 
 
-class ImageRecipeSummaryTypeDef(BaseValidatorModel):
+class ImageRecipeSummary(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     platform: Optional[PlatformType] = None
@@ -316,17 +316,17 @@ class ImageRecipeSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ImageScanFindingsFilterTypeDef(BaseValidatorModel):
+class ImageScanFindingsFilter(BaseValidatorModel):
     name: Optional[str] = None
     values: Optional[Sequence[str]] = None
 
 
-class ImageScanStateTypeDef(BaseValidatorModel):
+class ImageScanState(BaseValidatorModel):
     status: Optional[ImageScanStatusType] = None
     reason: Optional[str] = None
 
 
-class ImportDiskImageRequestTypeDef(BaseValidatorModel):
+class ImportDiskImageRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
     platform: str
@@ -339,7 +339,7 @@ class ImportDiskImageRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class ImportVmImageRequestTypeDef(BaseValidatorModel):
+class ImportVmImageRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
     platform: PlatformType
@@ -350,49 +350,49 @@ class ImportVmImageRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class LaunchPermissionConfigurationTypeDef(BaseValidatorModel):
+class LaunchPermissionConfiguration(BaseValidatorModel):
     userIds: Optional[Sequence[str]] = None
     userGroups: Optional[Sequence[str]] = None
     organizationArns: Optional[Sequence[str]] = None
     organizationalUnitArns: Optional[Sequence[str]] = None
 
 
-class LifecycleExecutionResourceActionTypeDef(BaseValidatorModel):
+class LifecycleExecutionResourceAction(BaseValidatorModel):
     name: Optional[LifecycleExecutionResourceActionNameType] = None
     reason: Optional[str] = None
 
 
-class LifecycleExecutionResourceStateTypeDef(BaseValidatorModel):
+class LifecycleExecutionResourceState(BaseValidatorModel):
     status: Optional[LifecycleExecutionResourceStatusType] = None
     reason: Optional[str] = None
 
 
-class LifecycleExecutionResourcesImpactedSummaryTypeDef(BaseValidatorModel):
+class LifecycleExecutionResourcesImpactedSummary(BaseValidatorModel):
     hasImpactedResources: Optional[bool] = None
 
 
-class LifecycleExecutionStateTypeDef(BaseValidatorModel):
+class LifecycleExecutionState(BaseValidatorModel):
     status: Optional[LifecycleExecutionStatusType] = None
     reason: Optional[str] = None
 
 
-class LifecyclePolicyDetailActionIncludeResourcesTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetailActionIncludeResources(BaseValidatorModel):
     amis: Optional[bool] = None
     snapshots: Optional[bool] = None
     containers: Optional[bool] = None
 
 
-class LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetailExclusionRulesAmisLastLaunched(BaseValidatorModel):
     value: int
     unit: LifecyclePolicyTimeUnitType
 
 
-class LifecyclePolicyResourceSelectionRecipeTypeDef(BaseValidatorModel):
+class LifecyclePolicyResourceSelectionRecipe(BaseValidatorModel):
     name: str
     semanticVersion: str
 
 
-class LifecyclePolicySummaryTypeDef(BaseValidatorModel):
+class LifecyclePolicySummary(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -405,41 +405,41 @@ class LifecyclePolicySummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ListComponentBuildVersionsRequestTypeDef(BaseValidatorModel):
+class ListComponentBuildVersionsRequest(BaseValidatorModel):
     componentVersionArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImagePackagesRequestTypeDef(BaseValidatorModel):
+class ListImagePackagesRequest(BaseValidatorModel):
     imageBuildVersionArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListLifecycleExecutionResourcesRequestTypeDef(BaseValidatorModel):
+class ListLifecycleExecutionResourcesRequest(BaseValidatorModel):
     lifecycleExecutionId: str
     parentResourceId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListLifecycleExecutionsRequestTypeDef(BaseValidatorModel):
+class ListLifecycleExecutionsRequest(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListWaitingWorkflowStepsRequestTypeDef(BaseValidatorModel):
+class ListWaitingWorkflowStepsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class WorkflowStepExecutionTypeDef(BaseValidatorModel):
+class WorkflowStepExecution(BaseValidatorModel):
     stepExecutionId: Optional[str] = None
     imageBuildVersionArn: Optional[str] = None
     workflowExecutionId: Optional[str] = None
@@ -449,25 +449,25 @@ class WorkflowStepExecutionTypeDef(BaseValidatorModel):
     startTime: Optional[str] = None
 
 
-class ListWorkflowBuildVersionsRequestTypeDef(BaseValidatorModel):
+class ListWorkflowBuildVersionsRequest(BaseValidatorModel):
     workflowVersionArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListWorkflowExecutionsRequestTypeDef(BaseValidatorModel):
+class ListWorkflowExecutionsRequest(BaseValidatorModel):
     imageBuildVersionArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListWorkflowStepExecutionsRequestTypeDef(BaseValidatorModel):
+class ListWorkflowStepExecutionsRequest(BaseValidatorModel):
     workflowExecutionId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class WorkflowStepMetadataTypeDef(BaseValidatorModel):
+class WorkflowStepMetadata(BaseValidatorModel):
     stepExecutionId: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -481,12 +481,12 @@ class WorkflowStepMetadataTypeDef(BaseValidatorModel):
     endTime: Optional[str] = None
 
 
-class S3LogsTypeDef(BaseValidatorModel):
+class S3Logs(BaseValidatorModel):
     s3BucketName: Optional[str] = None
     s3KeyPrefix: Optional[str] = None
 
 
-class VulnerablePackageTypeDef(BaseValidatorModel):
+class VulnerablePackage(BaseValidatorModel):
     name: Optional[str] = None
     version: Optional[str] = None
     sourceLayerHash: Optional[str] = None
@@ -499,42 +499,42 @@ class VulnerablePackageTypeDef(BaseValidatorModel):
     remediation: Optional[str] = None
 
 
-class PutComponentPolicyRequestTypeDef(BaseValidatorModel):
+class PutComponentPolicyRequest(BaseValidatorModel):
     componentArn: str
     policy: str
 
 
-class PutContainerRecipePolicyRequestTypeDef(BaseValidatorModel):
+class PutContainerRecipePolicyRequest(BaseValidatorModel):
     containerRecipeArn: str
     policy: str
 
 
-class PutImagePolicyRequestTypeDef(BaseValidatorModel):
+class PutImagePolicyRequest(BaseValidatorModel):
     imageArn: str
     policy: str
 
 
-class PutImageRecipePolicyRequestTypeDef(BaseValidatorModel):
+class PutImageRecipePolicyRequest(BaseValidatorModel):
     imageRecipeArn: str
     policy: str
 
 
-class RemediationRecommendationTypeDef(BaseValidatorModel):
+class RemediationRecommendation(BaseValidatorModel):
     text: Optional[str] = None
     url: Optional[str] = None
 
 
-class ResourceStateTypeDef(BaseValidatorModel):
+class ResourceState(BaseValidatorModel):
     status: Optional[ResourceStatusType] = None
 
 
-class ResourceStateUpdateIncludeResourcesTypeDef(BaseValidatorModel):
+class ResourceStateUpdateIncludeResources(BaseValidatorModel):
     amis: Optional[bool] = None
     snapshots: Optional[bool] = None
     containers: Optional[bool] = None
 
 
-class SendWorkflowStepActionRequestTypeDef(BaseValidatorModel):
+class SendWorkflowStepActionRequest(BaseValidatorModel):
     stepExecutionId: str
     imageBuildVersionArn: str
     action: WorkflowStepActionTypeType
@@ -542,240 +542,240 @@ class SendWorkflowStepActionRequestTypeDef(BaseValidatorModel):
     reason: Optional[str] = None
 
 
-class StartImagePipelineExecutionRequestTypeDef(BaseValidatorModel):
+class StartImagePipelineExecutionRequest(BaseValidatorModel):
     imagePipelineArn: str
     clientToken: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class WorkflowParameterOutputTypeDef(BaseValidatorModel):
+class WorkflowParameterOutput(BaseValidatorModel):
     name: str
     value: List[str]
 
 
-class WorkflowParameterTypeDef(BaseValidatorModel):
+class WorkflowParameter(BaseValidatorModel):
     name: str
     value: Sequence[str]
 
 
-class WorkflowStateTypeDef(BaseValidatorModel):
+class WorkflowState(BaseValidatorModel):
     status: Optional[Literal["DEPRECATED"]] = None
     reason: Optional[str] = None
 
 
-class SeverityCountsTypeDef(BaseValidatorModel):
+class SeverityCounts(BaseValidatorModel):
     pass
 
 
-class AccountAggregationTypeDef(BaseValidatorModel):
+class AccountAggregation(BaseValidatorModel):
     accountId: Optional[str] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class ImageAggregationTypeDef(BaseValidatorModel):
+class ImageAggregation(BaseValidatorModel):
     imageBuildVersionArn: Optional[str] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class ImagePipelineAggregationTypeDef(BaseValidatorModel):
+class ImagePipelineAggregation(BaseValidatorModel):
     imagePipelineArn: Optional[str] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class VulnerabilityIdAggregationTypeDef(BaseValidatorModel):
+class VulnerabilityIdAggregation(BaseValidatorModel):
     vulnerabilityId: Optional[str] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class AdditionalInstanceConfigurationTypeDef(BaseValidatorModel):
-    systemsManagerAgent: Optional[SystemsManagerAgentTypeDef] = None
+class AdditionalInstanceConfiguration(BaseValidatorModel):
+    systemsManagerAgent: Optional[SystemsManagerAgent] = None
     userDataOverride: Optional[str] = None
 
 
-class AmiDistributionConfigurationOutputTypeDef(BaseValidatorModel):
+class AmiDistributionConfigurationOutput(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     targetAccountIds: Optional[List[str]] = None
     amiTags: Optional[Dict[str, str]] = None
     kmsKeyId: Optional[str] = None
-    launchPermission: Optional[LaunchPermissionConfigurationOutputTypeDef] = None
+    launchPermission: Optional[LaunchPermissionConfigurationOutput] = None
 
 
-class AmiTypeDef(BaseValidatorModel):
+class Ami(BaseValidatorModel):
     region: Optional[str] = None
     image: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
-    state: Optional[ImageStateTypeDef] = None
+    state: Optional[ImageState] = None
     accountId: Optional[str] = None
 
 
-class CancelImageCreationResponseTypeDef(BaseValidatorModel):
+class CancelImageCreationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     imageBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelLifecycleExecutionResponseTypeDef(BaseValidatorModel):
+class CancelLifecycleExecutionResponse(BaseValidatorModel):
     lifecycleExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateComponentResponseTypeDef(BaseValidatorModel):
+class CreateComponentResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     componentBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateContainerRecipeResponseTypeDef(BaseValidatorModel):
+class CreateContainerRecipeResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     containerRecipeArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDistributionConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateDistributionConfigurationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     distributionConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateImagePipelineResponseTypeDef(BaseValidatorModel):
+class CreateImagePipelineResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     imagePipelineArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateImageRecipeResponseTypeDef(BaseValidatorModel):
+class CreateImageRecipeResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     imageRecipeArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateImageResponseTypeDef(BaseValidatorModel):
+class CreateImageResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     imageBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateInfrastructureConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateInfrastructureConfigurationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     infrastructureConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
+class CreateLifecyclePolicyResponse(BaseValidatorModel):
     clientToken: str
     lifecyclePolicyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWorkflowResponseTypeDef(BaseValidatorModel):
+class CreateWorkflowResponse(BaseValidatorModel):
     clientToken: str
     workflowBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteComponentResponseTypeDef(BaseValidatorModel):
+class DeleteComponentResponse(BaseValidatorModel):
     requestId: str
     componentBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteContainerRecipeResponseTypeDef(BaseValidatorModel):
+class DeleteContainerRecipeResponse(BaseValidatorModel):
     requestId: str
     containerRecipeArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDistributionConfigurationResponseTypeDef(BaseValidatorModel):
+class DeleteDistributionConfigurationResponse(BaseValidatorModel):
     requestId: str
     distributionConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteImagePipelineResponseTypeDef(BaseValidatorModel):
+class DeleteImagePipelineResponse(BaseValidatorModel):
     requestId: str
     imagePipelineArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteImageRecipeResponseTypeDef(BaseValidatorModel):
+class DeleteImageRecipeResponse(BaseValidatorModel):
     requestId: str
     imageRecipeArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteImageResponseTypeDef(BaseValidatorModel):
+class DeleteImageResponse(BaseValidatorModel):
     requestId: str
     imageBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteInfrastructureConfigurationResponseTypeDef(BaseValidatorModel):
+class DeleteInfrastructureConfigurationResponse(BaseValidatorModel):
     requestId: str
     infrastructureConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteLifecyclePolicyResponseTypeDef(BaseValidatorModel):
+class DeleteLifecyclePolicyResponse(BaseValidatorModel):
     lifecyclePolicyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteWorkflowResponseTypeDef(BaseValidatorModel):
+class DeleteWorkflowResponse(BaseValidatorModel):
     workflowBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetComponentPolicyResponseTypeDef(BaseValidatorModel):
+class GetComponentPolicyResponse(BaseValidatorModel):
     requestId: str
     policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetContainerRecipePolicyResponseTypeDef(BaseValidatorModel):
+class GetContainerRecipePolicyResponse(BaseValidatorModel):
     requestId: str
     policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetImagePolicyResponseTypeDef(BaseValidatorModel):
+class GetImagePolicyResponse(BaseValidatorModel):
     requestId: str
     policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetImageRecipePolicyResponseTypeDef(BaseValidatorModel):
+class GetImageRecipePolicyResponse(BaseValidatorModel):
     requestId: str
     policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMarketplaceResourceResponseTypeDef(BaseValidatorModel):
+class GetMarketplaceResourceResponse(BaseValidatorModel):
     resourceArn: str
     url: str
     data: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetWorkflowStepExecutionResponseTypeDef(BaseValidatorModel):
+class GetWorkflowStepExecutionResponse(BaseValidatorModel):
     requestId: str
     stepExecutionId: str
     workflowBuildVersionArn: str
@@ -793,129 +793,129 @@ class GetWorkflowStepExecutionResponseTypeDef(BaseValidatorModel):
     endTime: str
     onFailure: str
     timeoutSeconds: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportComponentResponseTypeDef(BaseValidatorModel):
+class ImportComponentResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     componentBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportDiskImageResponseTypeDef(BaseValidatorModel):
+class ImportDiskImageResponse(BaseValidatorModel):
     clientToken: str
     imageBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportVmImageResponseTypeDef(BaseValidatorModel):
+class ImportVmImageResponse(BaseValidatorModel):
     requestId: str
     imageArn: str
     clientToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutComponentPolicyResponseTypeDef(BaseValidatorModel):
+class PutComponentPolicyResponse(BaseValidatorModel):
     requestId: str
     componentArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutContainerRecipePolicyResponseTypeDef(BaseValidatorModel):
+class PutContainerRecipePolicyResponse(BaseValidatorModel):
     requestId: str
     containerRecipeArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutImagePolicyResponseTypeDef(BaseValidatorModel):
+class PutImagePolicyResponse(BaseValidatorModel):
     requestId: str
     imageArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutImageRecipePolicyResponseTypeDef(BaseValidatorModel):
+class PutImageRecipePolicyResponse(BaseValidatorModel):
     requestId: str
     imageRecipeArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendWorkflowStepActionResponseTypeDef(BaseValidatorModel):
+class SendWorkflowStepActionResponse(BaseValidatorModel):
     stepExecutionId: str
     imageBuildVersionArn: str
     clientToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartImagePipelineExecutionResponseTypeDef(BaseValidatorModel):
+class StartImagePipelineExecutionResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     imageBuildVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartResourceStateUpdateResponseTypeDef(BaseValidatorModel):
+class StartResourceStateUpdateResponse(BaseValidatorModel):
     lifecycleExecutionId: str
     resourceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDistributionConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateDistributionConfigurationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     distributionConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateImagePipelineResponseTypeDef(BaseValidatorModel):
+class UpdateImagePipelineResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     imagePipelineArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateInfrastructureConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateInfrastructureConfigurationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
     infrastructureConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
+class UpdateLifecyclePolicyResponse(BaseValidatorModel):
     lifecyclePolicyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ComponentConfigurationOutputTypeDef(BaseValidatorModel):
+class ComponentConfigurationOutput(BaseValidatorModel):
     componentArn: str
-    parameters: Optional[List[ComponentParameterOutputTypeDef]] = None
+    parameters: Optional[List[ComponentParameterOutput]] = None
 
 
-class ContainerDistributionConfigurationOutputTypeDef(BaseValidatorModel):
-    targetRepository: TargetContainerRepositoryTypeDef
+class ContainerDistributionConfigurationOutput(BaseValidatorModel):
+    targetRepository: TargetContainerRepository
     description: Optional[str] = None
     containerTags: Optional[List[str]] = None
 
 
-class ContainerDistributionConfigurationTypeDef(BaseValidatorModel):
-    targetRepository: TargetContainerRepositoryTypeDef
+class ContainerDistributionConfiguration(BaseValidatorModel):
+    targetRepository: TargetContainerRepository
     description: Optional[str] = None
     containerTags: Optional[Sequence[str]] = None
 
 
-class ListContainerRecipesResponseTypeDef(BaseValidatorModel):
+class ListContainerRecipesResponse(BaseValidatorModel):
     requestId: str
-    containerRecipeSummaryList: List[ContainerRecipeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    containerRecipeSummaryList: List[ContainerRecipeSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class InfrastructureConfigurationSummaryTypeDef(BaseValidatorModel):
+class InfrastructureConfigurationSummary(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -925,253 +925,253 @@ class InfrastructureConfigurationSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
     instanceTypes: Optional[List[str]] = None
     instanceProfileName: Optional[str] = None
-    placement: Optional[PlacementTypeDef] = None
+    placement: Optional[Placement] = None
 
 
-class CvssScoreDetailsTypeDef(BaseValidatorModel):
+class CvssScoreDetails(BaseValidatorModel):
     scoreSource: Optional[str] = None
     cvssSource: Optional[str] = None
     version: Optional[str] = None
     score: Optional[float] = None
     scoringVector: Optional[str] = None
-    adjustments: Optional[List[CvssScoreAdjustmentTypeDef]] = None
+    adjustments: Optional[List[CvssScoreAdjustment]] = None
 
 
-class ListDistributionConfigurationsResponseTypeDef(BaseValidatorModel):
+class ListDistributionConfigurationsResponse(BaseValidatorModel):
     requestId: str
-    distributionConfigurationSummaryList: List[DistributionConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    distributionConfigurationSummaryList: List[DistributionConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class InstanceBlockDeviceMappingTypeDef(BaseValidatorModel):
+class InstanceBlockDeviceMapping(BaseValidatorModel):
     deviceName: Optional[str] = None
-    ebs: Optional[EbsInstanceBlockDeviceSpecificationTypeDef] = None
+    ebs: Optional[EbsInstanceBlockDeviceSpecification] = None
     virtualName: Optional[str] = None
     noDevice: Optional[str] = None
 
 
-class ImageScanningConfigurationOutputTypeDef(BaseValidatorModel):
+class ImageScanningConfigurationOutput(BaseValidatorModel):
     imageScanningEnabled: Optional[bool] = None
-    ecrConfiguration: Optional[EcrConfigurationOutputTypeDef] = None
+    ecrConfiguration: Optional[EcrConfigurationOutput] = None
 
 
-class ImageScanningConfigurationTypeDef(BaseValidatorModel):
+class ImageScanningConfiguration(BaseValidatorModel):
     imageScanningEnabled: Optional[bool] = None
-    ecrConfiguration: Optional[EcrConfigurationTypeDef] = None
+    ecrConfiguration: Optional[EcrConfiguration] = None
 
 
-class FastLaunchConfigurationTypeDef(BaseValidatorModel):
+class FastLaunchConfiguration(BaseValidatorModel):
     enabled: bool
-    snapshotConfiguration: Optional[FastLaunchSnapshotConfigurationTypeDef] = None
+    snapshotConfiguration: Optional[FastLaunchSnapshotConfiguration] = None
     maxParallelLaunches: Optional[int] = None
-    launchTemplate: Optional[FastLaunchLaunchTemplateSpecificationTypeDef] = None
+    launchTemplate: Optional[FastLaunchLaunchTemplateSpecification] = None
     accountId: Optional[str] = None
 
 
-class ListComponentsRequestTypeDef(BaseValidatorModel):
+class ListComponentsRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     byName: Optional[bool] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListContainerRecipesRequestTypeDef(BaseValidatorModel):
+class ListContainerRecipesRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListDistributionConfigurationsRequestTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
+class ListDistributionConfigurationsRequest(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImageBuildVersionsRequestTypeDef(BaseValidatorModel):
+class ListImageBuildVersionsRequest(BaseValidatorModel):
     imageVersionArn: str
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImagePipelineImagesRequestTypeDef(BaseValidatorModel):
+class ListImagePipelineImagesRequest(BaseValidatorModel):
     imagePipelineArn: str
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImagePipelinesRequestTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
+class ListImagePipelinesRequest(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImageRecipesRequestTypeDef(BaseValidatorModel):
+class ListImageRecipesRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImagesRequestTypeDef(BaseValidatorModel):
+class ListImagesRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     byName: Optional[bool] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     includeDeprecated: Optional[bool] = None
 
 
-class ListInfrastructureConfigurationsRequestTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
+class ListInfrastructureConfigurationsRequest(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListLifecyclePoliciesRequestTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[FilterTypeDef]] = None
+class ListLifecyclePoliciesRequest(BaseValidatorModel):
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListWorkflowsRequestTypeDef(BaseValidatorModel):
+class ListWorkflowsRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     byName: Optional[bool] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImagePackagesResponseTypeDef(BaseValidatorModel):
+class ListImagePackagesResponse(BaseValidatorModel):
     requestId: str
-    imagePackageList: List[ImagePackageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    imagePackageList: List[ImagePackage]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListImageRecipesResponseTypeDef(BaseValidatorModel):
+class ListImageRecipesResponse(BaseValidatorModel):
     requestId: str
-    imageRecipeSummaryList: List[ImageRecipeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    imageRecipeSummaryList: List[ImageRecipeSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListImageScanFindingsRequestTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[ImageScanFindingsFilterTypeDef]] = None
+class ListImageScanFindingsRequest(BaseValidatorModel):
+    filters: Optional[Sequence[ImageScanFindingsFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ImageVersionTypeDef(BaseValidatorModel):
+class ImageVersion(BaseValidatorModel):
     pass
 
 
-class ListImagesResponseTypeDef(BaseValidatorModel):
+class ListImagesResponse(BaseValidatorModel):
     requestId: str
-    imageVersionList: List[ImageVersionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    imageVersionList: List[ImageVersion]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class LifecycleExecutionSnapshotResourceTypeDef(BaseValidatorModel):
+class LifecycleExecutionSnapshotResource(BaseValidatorModel):
     snapshotId: Optional[str] = None
-    state: Optional[LifecycleExecutionResourceStateTypeDef] = None
+    state: Optional[LifecycleExecutionResourceState] = None
 
 
-class LifecycleExecutionTypeDef(BaseValidatorModel):
+class LifecycleExecution(BaseValidatorModel):
     lifecycleExecutionId: Optional[str] = None
     lifecyclePolicyArn: Optional[str] = None
-    resourcesImpactedSummary: Optional[LifecycleExecutionResourcesImpactedSummaryTypeDef] = None
-    state: Optional[LifecycleExecutionStateTypeDef] = None
+    resourcesImpactedSummary: Optional[LifecycleExecutionResourcesImpactedSummary] = None
+    state: Optional[LifecycleExecutionState] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
 
-class LifecyclePolicyDetailExclusionRulesAmisOutputTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetailExclusionRulesAmisOutput(BaseValidatorModel):
     isPublic: Optional[bool] = None
     regions: Optional[List[str]] = None
     sharedAccounts: Optional[List[str]] = None
-    lastLaunched: Optional[LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef] = None
+    lastLaunched: Optional[LifecyclePolicyDetailExclusionRulesAmisLastLaunched] = None
     tagMap: Optional[Dict[str, str]] = None
 
 
-class LifecyclePolicyDetailExclusionRulesAmisTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetailExclusionRulesAmis(BaseValidatorModel):
     isPublic: Optional[bool] = None
     regions: Optional[Sequence[str]] = None
     sharedAccounts: Optional[Sequence[str]] = None
-    lastLaunched: Optional[LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef] = None
+    lastLaunched: Optional[LifecyclePolicyDetailExclusionRulesAmisLastLaunched] = None
     tagMap: Optional[Mapping[str, str]] = None
 
 
-class LifecyclePolicyResourceSelectionOutputTypeDef(BaseValidatorModel):
-    recipes: Optional[List[LifecyclePolicyResourceSelectionRecipeTypeDef]] = None
+class LifecyclePolicyResourceSelectionOutput(BaseValidatorModel):
+    recipes: Optional[List[LifecyclePolicyResourceSelectionRecipe]] = None
     tagMap: Optional[Dict[str, str]] = None
 
 
-class LifecyclePolicyResourceSelectionTypeDef(BaseValidatorModel):
-    recipes: Optional[Sequence[LifecyclePolicyResourceSelectionRecipeTypeDef]] = None
+class LifecyclePolicyResourceSelection(BaseValidatorModel):
+    recipes: Optional[Sequence[LifecyclePolicyResourceSelectionRecipe]] = None
     tagMap: Optional[Mapping[str, str]] = None
 
 
-class ListLifecyclePoliciesResponseTypeDef(BaseValidatorModel):
-    lifecyclePolicySummaryList: List[LifecyclePolicySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLifecyclePoliciesResponse(BaseValidatorModel):
+    lifecyclePolicySummaryList: List[LifecyclePolicySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListWaitingWorkflowStepsResponseTypeDef(BaseValidatorModel):
-    steps: List[WorkflowStepExecutionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWaitingWorkflowStepsResponse(BaseValidatorModel):
+    steps: List[WorkflowStepExecution]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WorkflowExecutionMetadataTypeDef(BaseValidatorModel):
+class WorkflowExecutionMetadata(BaseValidatorModel):
     pass
 
 
-class ListWorkflowExecutionsResponseTypeDef(BaseValidatorModel):
+class ListWorkflowExecutionsResponse(BaseValidatorModel):
     requestId: str
-    workflowExecutions: List[WorkflowExecutionMetadataTypeDef]
+    workflowExecutions: List[WorkflowExecutionMetadata]
     imageBuildVersionArn: str
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListWorkflowStepExecutionsResponseTypeDef(BaseValidatorModel):
+class ListWorkflowStepExecutionsResponse(BaseValidatorModel):
     requestId: str
-    steps: List[WorkflowStepMetadataTypeDef]
+    steps: List[WorkflowStepMetadata]
     workflowBuildVersionArn: str
     workflowExecutionId: str
     imageBuildVersionArn: str
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WorkflowVersionTypeDef(BaseValidatorModel):
+class WorkflowVersion(BaseValidatorModel):
     pass
 
 
-class ListWorkflowsResponseTypeDef(BaseValidatorModel):
-    workflowVersionList: List[WorkflowVersionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkflowsResponse(BaseValidatorModel):
+    workflowVersionList: List[WorkflowVersion]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class LoggingTypeDef(BaseValidatorModel):
-    s3Logs: Optional[S3LogsTypeDef] = None
+class Logging(BaseValidatorModel):
+    s3Logs: Optional[S3Logs] = None
 
 
-class PackageVulnerabilityDetailsTypeDef(BaseValidatorModel):
+class PackageVulnerabilityDetails(BaseValidatorModel):
     vulnerabilityId: str
-    vulnerablePackages: Optional[List[VulnerablePackageTypeDef]] = None
+    vulnerablePackages: Optional[List[VulnerablePackage]] = None
     source: Optional[str] = None
-    cvss: Optional[List[CvssScoreTypeDef]] = None
+    cvss: Optional[List[CvssScore]] = None
     relatedVulnerabilities: Optional[List[str]] = None
     sourceUrl: Optional[str] = None
     vendorSeverity: Optional[str] = None
@@ -1180,143 +1180,143 @@ class PackageVulnerabilityDetailsTypeDef(BaseValidatorModel):
     referenceUrls: Optional[List[str]] = None
 
 
-class RemediationTypeDef(BaseValidatorModel):
-    recommendation: Optional[RemediationRecommendationTypeDef] = None
+class Remediation(BaseValidatorModel):
+    recommendation: Optional[RemediationRecommendation] = None
 
 
-class WorkflowConfigurationOutputTypeDef(BaseValidatorModel):
+class WorkflowConfigurationOutput(BaseValidatorModel):
     workflowArn: str
-    parameters: Optional[List[WorkflowParameterOutputTypeDef]] = None
+    parameters: Optional[List[WorkflowParameterOutput]] = None
     parallelGroup: Optional[str] = None
     onFailure: Optional[OnWorkflowFailureType] = None
 
 
-class ImageScanFindingAggregationTypeDef(BaseValidatorModel):
-    accountAggregation: Optional[AccountAggregationTypeDef] = None
-    imageAggregation: Optional[ImageAggregationTypeDef] = None
-    imagePipelineAggregation: Optional[ImagePipelineAggregationTypeDef] = None
-    vulnerabilityIdAggregation: Optional[VulnerabilityIdAggregationTypeDef] = None
+class ImageScanFindingAggregation(BaseValidatorModel):
+    accountAggregation: Optional[AccountAggregation] = None
+    imageAggregation: Optional[ImageAggregation] = None
+    imagePipelineAggregation: Optional[ImagePipelineAggregation] = None
+    vulnerabilityIdAggregation: Optional[VulnerabilityIdAggregation] = None
 
 
-class OutputResourcesTypeDef(BaseValidatorModel):
-    amis: Optional[List[AmiTypeDef]] = None
-    containers: Optional[List[ContainerTypeDef]] = None
+class OutputResources(BaseValidatorModel):
+    amis: Optional[List[Ami]] = None
+    containers: Optional[List[Container]] = None
 
 
-class ComponentParameterUnionTypeDef(BaseValidatorModel):
+class ComponentParameterUnion(BaseValidatorModel):
     pass
 
 
-class ComponentConfigurationTypeDef(BaseValidatorModel):
+class ComponentConfiguration(BaseValidatorModel):
     componentArn: str
-    parameters: Optional[Sequence[ComponentParameterUnionTypeDef]] = None
+    parameters: Optional[Sequence[ComponentParameterUnion]] = None
 
 
-class ComponentSummaryTypeDef(BaseValidatorModel):
+class ComponentSummary(BaseValidatorModel):
     pass
 
 
-class ListComponentBuildVersionsResponseTypeDef(BaseValidatorModel):
+class ListComponentBuildVersionsResponse(BaseValidatorModel):
     requestId: str
-    componentSummaryList: List[ComponentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    componentSummaryList: List[ComponentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ComponentTypeDef(BaseValidatorModel):
+class Component(BaseValidatorModel):
     pass
 
 
-class GetComponentResponseTypeDef(BaseValidatorModel):
+class GetComponentResponse(BaseValidatorModel):
     requestId: str
-    component: ComponentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    component: Component
+    ResponseMetadata: ResponseMetadata
 
 
-class ComponentVersionTypeDef(BaseValidatorModel):
+class ComponentVersion(BaseValidatorModel):
     pass
 
 
-class ListComponentsResponseTypeDef(BaseValidatorModel):
+class ListComponentsResponse(BaseValidatorModel):
     requestId: str
-    componentVersionList: List[ComponentVersionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    componentVersionList: List[ComponentVersion]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListInfrastructureConfigurationsResponseTypeDef(BaseValidatorModel):
+class ListInfrastructureConfigurationsResponse(BaseValidatorModel):
     requestId: str
-    infrastructureConfigurationSummaryList: List[InfrastructureConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    infrastructureConfigurationSummaryList: List[InfrastructureConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class InspectorScoreDetailsTypeDef(BaseValidatorModel):
-    adjustedCvss: Optional[CvssScoreDetailsTypeDef] = None
+class InspectorScoreDetails(BaseValidatorModel):
+    adjustedCvss: Optional[CvssScoreDetails] = None
 
 
-class InstanceConfigurationOutputTypeDef(BaseValidatorModel):
+class InstanceConfigurationOutput(BaseValidatorModel):
     image: Optional[str] = None
-    blockDeviceMappings: Optional[List[InstanceBlockDeviceMappingTypeDef]] = None
+    blockDeviceMappings: Optional[List[InstanceBlockDeviceMapping]] = None
 
 
-class InstanceConfigurationTypeDef(BaseValidatorModel):
+class InstanceConfiguration(BaseValidatorModel):
     image: Optional[str] = None
-    blockDeviceMappings: Optional[Sequence[InstanceBlockDeviceMappingTypeDef]] = None
+    blockDeviceMappings: Optional[Sequence[InstanceBlockDeviceMapping]] = None
 
 
-class DistributionOutputTypeDef(BaseValidatorModel):
+class DistributionOutput(BaseValidatorModel):
     region: str
-    amiDistributionConfiguration: Optional[AmiDistributionConfigurationOutputTypeDef] = None
-    containerDistributionConfiguration: Optional[ContainerDistributionConfigurationOutputTypeDef] = None
+    amiDistributionConfiguration: Optional[AmiDistributionConfigurationOutput] = None
+    containerDistributionConfiguration: Optional[ContainerDistributionConfigurationOutput] = None
     licenseConfigurationArns: Optional[List[str]] = None
-    launchTemplateConfigurations: Optional[List[LaunchTemplateConfigurationTypeDef]] = None
-    s3ExportConfiguration: Optional[S3ExportConfigurationTypeDef] = None
-    fastLaunchConfigurations: Optional[List[FastLaunchConfigurationTypeDef]] = None
+    launchTemplateConfigurations: Optional[List[LaunchTemplateConfiguration]] = None
+    s3ExportConfiguration: Optional[S3ExportConfiguration] = None
+    fastLaunchConfigurations: Optional[List[FastLaunchConfiguration]] = None
 
 
-class LaunchPermissionConfigurationUnionTypeDef(BaseValidatorModel):
+class LaunchPermissionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class AmiDistributionConfigurationTypeDef(BaseValidatorModel):
+class AmiDistributionConfiguration(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     targetAccountIds: Optional[Sequence[str]] = None
     amiTags: Optional[Mapping[str, str]] = None
     kmsKeyId: Optional[str] = None
-    launchPermission: Optional[LaunchPermissionConfigurationUnionTypeDef] = None
+    launchPermission: Optional[LaunchPermissionConfigurationUnion] = None
 
 
-class LifecycleExecutionResourceTypeDef(BaseValidatorModel):
+class LifecycleExecutionResource(BaseValidatorModel):
     accountId: Optional[str] = None
     resourceId: Optional[str] = None
-    state: Optional[LifecycleExecutionResourceStateTypeDef] = None
-    action: Optional[LifecycleExecutionResourceActionTypeDef] = None
+    state: Optional[LifecycleExecutionResourceState] = None
+    action: Optional[LifecycleExecutionResourceAction] = None
     region: Optional[str] = None
-    snapshots: Optional[List[LifecycleExecutionSnapshotResourceTypeDef]] = None
+    snapshots: Optional[List[LifecycleExecutionSnapshotResource]] = None
     imageUris: Optional[List[str]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
 
-class GetLifecycleExecutionResponseTypeDef(BaseValidatorModel):
-    lifecycleExecution: LifecycleExecutionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetLifecycleExecutionResponse(BaseValidatorModel):
+    lifecycleExecution: LifecycleExecution
+    ResponseMetadata: ResponseMetadata
 
 
-class ListLifecycleExecutionsResponseTypeDef(BaseValidatorModel):
-    lifecycleExecutions: List[LifecycleExecutionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLifecycleExecutionsResponse(BaseValidatorModel):
+    lifecycleExecutions: List[LifecycleExecution]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class LifecyclePolicyDetailExclusionRulesOutputTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetailExclusionRulesOutput(BaseValidatorModel):
     tagMap: Optional[Dict[str, str]] = None
-    amis: Optional[LifecyclePolicyDetailExclusionRulesAmisOutputTypeDef] = None
+    amis: Optional[LifecyclePolicyDetailExclusionRulesAmisOutput] = None
 
 
-class CreateInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateInfrastructureConfigurationRequest(BaseValidatorModel):
     name: str
     instanceProfileName: str
     clientToken: str
@@ -1324,17 +1324,17 @@ class CreateInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
     instanceTypes: Optional[Sequence[str]] = None
     securityGroupIds: Optional[Sequence[str]] = None
     subnetId: Optional[str] = None
-    logging: Optional[LoggingTypeDef] = None
+    logging: Optional[Logging] = None
     keyPair: Optional[str] = None
     terminateInstanceOnFailure: Optional[bool] = None
     snsTopicArn: Optional[str] = None
     resourceTags: Optional[Mapping[str, str]] = None
-    instanceMetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
+    instanceMetadataOptions: Optional[InstanceMetadataOptions] = None
     tags: Optional[Mapping[str, str]] = None
-    placement: Optional[PlacementTypeDef] = None
+    placement: Optional[Placement] = None
 
 
-class InfrastructureConfigurationTypeDef(BaseValidatorModel):
+class InfrastructureConfiguration(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -1342,19 +1342,19 @@ class InfrastructureConfigurationTypeDef(BaseValidatorModel):
     instanceProfileName: Optional[str] = None
     securityGroupIds: Optional[List[str]] = None
     subnetId: Optional[str] = None
-    logging: Optional[LoggingTypeDef] = None
+    logging: Optional[Logging] = None
     keyPair: Optional[str] = None
     terminateInstanceOnFailure: Optional[bool] = None
     snsTopicArn: Optional[str] = None
     dateCreated: Optional[str] = None
     dateUpdated: Optional[str] = None
     resourceTags: Optional[Dict[str, str]] = None
-    instanceMetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
+    instanceMetadataOptions: Optional[InstanceMetadataOptions] = None
     tags: Optional[Dict[str, str]] = None
-    placement: Optional[PlacementTypeDef] = None
+    placement: Optional[Placement] = None
 
 
-class UpdateInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateInfrastructureConfigurationRequest(BaseValidatorModel):
     infrastructureConfigurationArn: str
     instanceProfileName: str
     clientToken: str
@@ -1362,16 +1362,16 @@ class UpdateInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
     instanceTypes: Optional[Sequence[str]] = None
     securityGroupIds: Optional[Sequence[str]] = None
     subnetId: Optional[str] = None
-    logging: Optional[LoggingTypeDef] = None
+    logging: Optional[Logging] = None
     keyPair: Optional[str] = None
     terminateInstanceOnFailure: Optional[bool] = None
     snsTopicArn: Optional[str] = None
     resourceTags: Optional[Mapping[str, str]] = None
-    instanceMetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
-    placement: Optional[PlacementTypeDef] = None
+    instanceMetadataOptions: Optional[InstanceMetadataOptions] = None
+    placement: Optional[Placement] = None
 
 
-class ImagePipelineTypeDef(BaseValidatorModel):
+class ImagePipeline(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -1381,68 +1381,68 @@ class ImagePipelineTypeDef(BaseValidatorModel):
     containerRecipeArn: Optional[str] = None
     infrastructureConfigurationArn: Optional[str] = None
     distributionConfigurationArn: Optional[str] = None
-    imageTestsConfiguration: Optional[ImageTestsConfigurationTypeDef] = None
-    schedule: Optional[ScheduleTypeDef] = None
+    imageTestsConfiguration: Optional[ImageTestsConfiguration] = None
+    schedule: Optional[Schedule] = None
     status: Optional[PipelineStatusType] = None
     dateCreated: Optional[str] = None
     dateUpdated: Optional[str] = None
     dateLastRun: Optional[str] = None
     dateNextRun: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    imageScanningConfiguration: Optional[ImageScanningConfigurationOutputTypeDef] = None
+    imageScanningConfiguration: Optional[ImageScanningConfigurationOutput] = None
     executionRole: Optional[str] = None
-    workflows: Optional[List[WorkflowConfigurationOutputTypeDef]] = None
+    workflows: Optional[List[WorkflowConfigurationOutput]] = None
 
 
-class WorkflowParameterUnionTypeDef(BaseValidatorModel):
+class WorkflowParameterUnion(BaseValidatorModel):
     pass
 
 
-class WorkflowConfigurationTypeDef(BaseValidatorModel):
+class WorkflowConfiguration(BaseValidatorModel):
     workflowArn: str
-    parameters: Optional[Sequence[WorkflowParameterUnionTypeDef]] = None
+    parameters: Optional[Sequence[WorkflowParameterUnion]] = None
     parallelGroup: Optional[str] = None
     onFailure: Optional[OnWorkflowFailureType] = None
 
 
-class WorkflowSummaryTypeDef(BaseValidatorModel):
+class WorkflowSummary(BaseValidatorModel):
     pass
 
 
-class ListWorkflowBuildVersionsResponseTypeDef(BaseValidatorModel):
-    workflowSummaryList: List[WorkflowSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkflowBuildVersionsResponse(BaseValidatorModel):
+    workflowSummaryList: List[WorkflowSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WorkflowTypeDef(BaseValidatorModel):
+class Workflow(BaseValidatorModel):
     pass
 
 
-class GetWorkflowResponseTypeDef(BaseValidatorModel):
-    workflow: WorkflowTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetWorkflowResponse(BaseValidatorModel):
+    workflow: Workflow
+    ResponseMetadata: ResponseMetadata
 
 
-class ListImageScanFindingAggregationsResponseTypeDef(BaseValidatorModel):
+class ListImageScanFindingAggregationsResponse(BaseValidatorModel):
     requestId: str
     aggregationType: str
-    responses: List[ImageScanFindingAggregationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    responses: List[ImageScanFindingAggregation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ImageRecipeTypeDef(BaseValidatorModel):
+class ImageRecipe(BaseValidatorModel):
     pass
 
 
-class GetImageRecipeResponseTypeDef(BaseValidatorModel):
+class GetImageRecipeResponse(BaseValidatorModel):
     requestId: str
-    imageRecipe: ImageRecipeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    imageRecipe: ImageRecipe
+    ResponseMetadata: ResponseMetadata
 
 
-class ContainerRecipeTypeDef(BaseValidatorModel):
+class ContainerRecipe(BaseValidatorModel):
     arn: Optional[str] = None
     containerType: Optional[Literal["DOCKER"]] = None
     name: Optional[str] = None
@@ -1450,8 +1450,8 @@ class ContainerRecipeTypeDef(BaseValidatorModel):
     platform: Optional[PlatformType] = None
     owner: Optional[str] = None
     version: Optional[str] = None
-    components: Optional[List[ComponentConfigurationOutputTypeDef]] = None
-    instanceConfiguration: Optional[InstanceConfigurationOutputTypeDef] = None
+    components: Optional[List[ComponentConfigurationOutput]] = None
+    instanceConfiguration: Optional[InstanceConfigurationOutput] = None
     dockerfileTemplateData: Optional[str] = None
     kmsKeyId: Optional[str] = None
     encrypted: Optional[bool] = None
@@ -1459,126 +1459,126 @@ class ContainerRecipeTypeDef(BaseValidatorModel):
     dateCreated: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     workingDirectory: Optional[str] = None
-    targetRepository: Optional[TargetContainerRepositoryTypeDef] = None
+    targetRepository: Optional[TargetContainerRepository] = None
 
 
-class DistributionConfigurationTypeDef(BaseValidatorModel):
+class DistributionConfiguration(BaseValidatorModel):
     timeoutMinutes: int
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
-    distributions: Optional[List[DistributionOutputTypeDef]] = None
+    distributions: Optional[List[DistributionOutput]] = None
     dateCreated: Optional[str] = None
     dateUpdated: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class ListLifecycleExecutionResourcesResponseTypeDef(BaseValidatorModel):
+class ListLifecycleExecutionResourcesResponse(BaseValidatorModel):
     lifecycleExecutionId: str
-    lifecycleExecutionState: LifecycleExecutionStateTypeDef
-    resources: List[LifecycleExecutionResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    lifecycleExecutionState: LifecycleExecutionState
+    resources: List[LifecycleExecutionResource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class LifecyclePolicyDetailExclusionRulesAmisUnionTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetailExclusionRulesAmisUnion(BaseValidatorModel):
     pass
 
 
-class LifecyclePolicyDetailExclusionRulesTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetailExclusionRules(BaseValidatorModel):
     tagMap: Optional[Mapping[str, str]] = None
-    amis: Optional[LifecyclePolicyDetailExclusionRulesAmisUnionTypeDef] = None
+    amis: Optional[LifecyclePolicyDetailExclusionRulesAmisUnion] = None
 
 
-class ResourceStateUpdateExclusionRulesTypeDef(BaseValidatorModel):
-    amis: Optional[LifecyclePolicyDetailExclusionRulesAmisUnionTypeDef] = None
+class ResourceStateUpdateExclusionRules(BaseValidatorModel):
+    amis: Optional[LifecyclePolicyDetailExclusionRulesAmisUnion] = None
 
 
-class GetInfrastructureConfigurationResponseTypeDef(BaseValidatorModel):
+class GetInfrastructureConfigurationResponse(BaseValidatorModel):
     requestId: str
-    infrastructureConfiguration: InfrastructureConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    infrastructureConfiguration: InfrastructureConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetImagePipelineResponseTypeDef(BaseValidatorModel):
+class GetImagePipelineResponse(BaseValidatorModel):
     requestId: str
-    imagePipeline: ImagePipelineTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    imagePipeline: ImagePipeline
+    ResponseMetadata: ResponseMetadata
 
 
-class ListImagePipelinesResponseTypeDef(BaseValidatorModel):
+class ListImagePipelinesResponse(BaseValidatorModel):
     requestId: str
-    imagePipelineList: List[ImagePipelineTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    imagePipelineList: List[ImagePipeline]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ImageSummaryTypeDef(BaseValidatorModel):
+class ImageSummary(BaseValidatorModel):
     pass
 
 
-class ListImageBuildVersionsResponseTypeDef(BaseValidatorModel):
+class ListImageBuildVersionsResponse(BaseValidatorModel):
     requestId: str
-    imageSummaryList: List[ImageSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    imageSummaryList: List[ImageSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListImagePipelineImagesResponseTypeDef(BaseValidatorModel):
+class ListImagePipelineImagesResponse(BaseValidatorModel):
     requestId: str
-    imageSummaryList: List[ImageSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    imageSummaryList: List[ImageSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ComponentConfigurationUnionTypeDef(BaseValidatorModel):
+class ComponentConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateImageRecipeRequestTypeDef(BaseValidatorModel):
+class CreateImageRecipeRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
-    components: Sequence[ComponentConfigurationUnionTypeDef]
+    components: Sequence[ComponentConfigurationUnion]
     parentImage: str
     clientToken: str
     description: Optional[str] = None
-    blockDeviceMappings: Optional[Sequence[InstanceBlockDeviceMappingTypeDef]] = None
+    blockDeviceMappings: Optional[Sequence[InstanceBlockDeviceMapping]] = None
     tags: Optional[Mapping[str, str]] = None
     workingDirectory: Optional[str] = None
-    additionalInstanceConfiguration: Optional[AdditionalInstanceConfigurationTypeDef] = None
+    additionalInstanceConfiguration: Optional[AdditionalInstanceConfiguration] = None
 
 
-class ImageScanFindingTypeDef(BaseValidatorModel):
+class ImageScanFinding(BaseValidatorModel):
     pass
 
 
-class ListImageScanFindingsResponseTypeDef(BaseValidatorModel):
+class ListImageScanFindingsResponse(BaseValidatorModel):
     requestId: str
-    findings: List[ImageScanFindingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    findings: List[ImageScanFinding]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetContainerRecipeResponseTypeDef(BaseValidatorModel):
+class GetContainerRecipeResponse(BaseValidatorModel):
     requestId: str
-    containerRecipe: ContainerRecipeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    containerRecipe: ContainerRecipe
+    ResponseMetadata: ResponseMetadata
 
 
-class InstanceConfigurationUnionTypeDef(BaseValidatorModel):
+class InstanceConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateContainerRecipeRequestTypeDef(BaseValidatorModel):
+class CreateContainerRecipeRequest(BaseValidatorModel):
     containerType: Literal["DOCKER"]
     name: str
     semanticVersion: str
-    components: Sequence[ComponentConfigurationUnionTypeDef]
+    components: Sequence[ComponentConfigurationUnion]
     parentImage: str
-    targetRepository: TargetContainerRepositoryTypeDef
+    targetRepository: TargetContainerRepository
     clientToken: str
     description: Optional[str] = None
-    instanceConfiguration: Optional[InstanceConfigurationUnionTypeDef] = None
+    instanceConfiguration: Optional[InstanceConfigurationUnion] = None
     dockerfileTemplateData: Optional[str] = None
     dockerfileTemplateUri: Optional[str] = None
     platformOverride: Optional[PlatformType] = None
@@ -1588,72 +1588,72 @@ class CreateContainerRecipeRequestTypeDef(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
-class GetDistributionConfigurationResponseTypeDef(BaseValidatorModel):
+class GetDistributionConfigurationResponse(BaseValidatorModel):
     requestId: str
-    distributionConfiguration: DistributionConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    distributionConfiguration: DistributionConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ContainerDistributionConfigurationUnionTypeDef(BaseValidatorModel):
+class ContainerDistributionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class AmiDistributionConfigurationUnionTypeDef(BaseValidatorModel):
+class AmiDistributionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class DistributionTypeDef(BaseValidatorModel):
+class Distribution(BaseValidatorModel):
     region: str
-    amiDistributionConfiguration: Optional[AmiDistributionConfigurationUnionTypeDef] = None
-    containerDistributionConfiguration: Optional[ContainerDistributionConfigurationUnionTypeDef] = None
+    amiDistributionConfiguration: Optional[AmiDistributionConfigurationUnion] = None
+    containerDistributionConfiguration: Optional[ContainerDistributionConfigurationUnion] = None
     licenseConfigurationArns: Optional[Sequence[str]] = None
-    launchTemplateConfigurations: Optional[Sequence[LaunchTemplateConfigurationTypeDef]] = None
-    s3ExportConfiguration: Optional[S3ExportConfigurationTypeDef] = None
-    fastLaunchConfigurations: Optional[Sequence[FastLaunchConfigurationTypeDef]] = None
+    launchTemplateConfigurations: Optional[Sequence[LaunchTemplateConfiguration]] = None
+    s3ExportConfiguration: Optional[S3ExportConfiguration] = None
+    fastLaunchConfigurations: Optional[Sequence[FastLaunchConfiguration]] = None
 
 
-class LifecyclePolicyDetailOutputTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetailOutput(BaseValidatorModel):
     pass
 
 
-class LifecyclePolicyTypeDef(BaseValidatorModel):
+class LifecyclePolicy(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
     status: Optional[LifecyclePolicyStatusType] = None
     executionRole: Optional[str] = None
     resourceType: Optional[LifecyclePolicyResourceTypeType] = None
-    policyDetails: Optional[List[LifecyclePolicyDetailOutputTypeDef]] = None
-    resourceSelection: Optional[LifecyclePolicyResourceSelectionOutputTypeDef] = None
+    policyDetails: Optional[List[LifecyclePolicyDetailOutput]] = None
+    resourceSelection: Optional[LifecyclePolicyResourceSelectionOutput] = None
     dateCreated: Optional[datetime] = None
     dateUpdated: Optional[datetime] = None
     dateLastRun: Optional[datetime] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class StartResourceStateUpdateRequestTypeDef(BaseValidatorModel):
+class StartResourceStateUpdateRequest(BaseValidatorModel):
     resourceArn: str
-    state: ResourceStateTypeDef
+    state: ResourceState
     clientToken: str
     executionRole: Optional[str] = None
-    includeResources: Optional[ResourceStateUpdateIncludeResourcesTypeDef] = None
-    exclusionRules: Optional[ResourceStateUpdateExclusionRulesTypeDef] = None
-    updateAt: Optional[TimestampTypeDef] = None
+    includeResources: Optional[ResourceStateUpdateIncludeResources] = None
+    exclusionRules: Optional[ResourceStateUpdateExclusionRules] = None
+    updateAt: Optional[Timestamp] = None
 
 
-class WorkflowConfigurationUnionTypeDef(BaseValidatorModel):
+class WorkflowConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class ImageScanningConfigurationUnionTypeDef(BaseValidatorModel):
+class ImageScanningConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateImagePipelineRequestTypeDef(BaseValidatorModel):
+class CreateImagePipelineRequest(BaseValidatorModel):
     name: str
     infrastructureConfigurationArn: str
     clientToken: str
@@ -1661,31 +1661,31 @@ class CreateImagePipelineRequestTypeDef(BaseValidatorModel):
     imageRecipeArn: Optional[str] = None
     containerRecipeArn: Optional[str] = None
     distributionConfigurationArn: Optional[str] = None
-    imageTestsConfiguration: Optional[ImageTestsConfigurationTypeDef] = None
+    imageTestsConfiguration: Optional[ImageTestsConfiguration] = None
     enhancedImageMetadataEnabled: Optional[bool] = None
-    schedule: Optional[ScheduleTypeDef] = None
+    schedule: Optional[Schedule] = None
     status: Optional[PipelineStatusType] = None
     tags: Optional[Mapping[str, str]] = None
-    imageScanningConfiguration: Optional[ImageScanningConfigurationUnionTypeDef] = None
-    workflows: Optional[Sequence[WorkflowConfigurationUnionTypeDef]] = None
+    imageScanningConfiguration: Optional[ImageScanningConfigurationUnion] = None
+    workflows: Optional[Sequence[WorkflowConfigurationUnion]] = None
     executionRole: Optional[str] = None
 
 
-class CreateImageRequestTypeDef(BaseValidatorModel):
+class CreateImageRequest(BaseValidatorModel):
     infrastructureConfigurationArn: str
     clientToken: str
     imageRecipeArn: Optional[str] = None
     containerRecipeArn: Optional[str] = None
     distributionConfigurationArn: Optional[str] = None
-    imageTestsConfiguration: Optional[ImageTestsConfigurationTypeDef] = None
+    imageTestsConfiguration: Optional[ImageTestsConfiguration] = None
     enhancedImageMetadataEnabled: Optional[bool] = None
     tags: Optional[Mapping[str, str]] = None
-    imageScanningConfiguration: Optional[ImageScanningConfigurationUnionTypeDef] = None
-    workflows: Optional[Sequence[WorkflowConfigurationUnionTypeDef]] = None
+    imageScanningConfiguration: Optional[ImageScanningConfigurationUnion] = None
+    workflows: Optional[Sequence[WorkflowConfigurationUnion]] = None
     executionRole: Optional[str] = None
 
 
-class UpdateImagePipelineRequestTypeDef(BaseValidatorModel):
+class UpdateImagePipelineRequest(BaseValidatorModel):
     imagePipelineArn: str
     infrastructureConfigurationArn: str
     clientToken: str
@@ -1693,75 +1693,75 @@ class UpdateImagePipelineRequestTypeDef(BaseValidatorModel):
     imageRecipeArn: Optional[str] = None
     containerRecipeArn: Optional[str] = None
     distributionConfigurationArn: Optional[str] = None
-    imageTestsConfiguration: Optional[ImageTestsConfigurationTypeDef] = None
+    imageTestsConfiguration: Optional[ImageTestsConfiguration] = None
     enhancedImageMetadataEnabled: Optional[bool] = None
-    schedule: Optional[ScheduleTypeDef] = None
+    schedule: Optional[Schedule] = None
     status: Optional[PipelineStatusType] = None
-    imageScanningConfiguration: Optional[ImageScanningConfigurationUnionTypeDef] = None
-    workflows: Optional[Sequence[WorkflowConfigurationUnionTypeDef]] = None
+    imageScanningConfiguration: Optional[ImageScanningConfigurationUnion] = None
+    workflows: Optional[Sequence[WorkflowConfigurationUnion]] = None
     executionRole: Optional[str] = None
 
 
-class ImageTypeDef(BaseValidatorModel):
+class Image(BaseValidatorModel):
     pass
 
 
-class GetImageResponseTypeDef(BaseValidatorModel):
+class GetImageResponse(BaseValidatorModel):
     requestId: str
-    image: ImageTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    image: Image
+    ResponseMetadata: ResponseMetadata
 
 
-class GetLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    lifecyclePolicy: LifecyclePolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetLifecyclePolicyResponse(BaseValidatorModel):
+    lifecyclePolicy: LifecyclePolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class DistributionUnionTypeDef(BaseValidatorModel):
+class DistributionUnion(BaseValidatorModel):
     pass
 
 
-class CreateDistributionConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateDistributionConfigurationRequest(BaseValidatorModel):
     name: str
-    distributions: Sequence[DistributionUnionTypeDef]
+    distributions: Sequence[DistributionUnion]
     clientToken: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateDistributionConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateDistributionConfigurationRequest(BaseValidatorModel):
     distributionConfigurationArn: str
-    distributions: Sequence[DistributionUnionTypeDef]
+    distributions: Sequence[DistributionUnion]
     clientToken: str
     description: Optional[str] = None
 
 
-class LifecyclePolicyDetailUnionTypeDef(BaseValidatorModel):
+class LifecyclePolicyDetailUnion(BaseValidatorModel):
     pass
 
 
-class LifecyclePolicyResourceSelectionUnionTypeDef(BaseValidatorModel):
+class LifecyclePolicyResourceSelectionUnion(BaseValidatorModel):
     pass
 
 
-class CreateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
+class CreateLifecyclePolicyRequest(BaseValidatorModel):
     name: str
     executionRole: str
     resourceType: LifecyclePolicyResourceTypeType
-    policyDetails: Sequence[LifecyclePolicyDetailUnionTypeDef]
-    resourceSelection: LifecyclePolicyResourceSelectionUnionTypeDef
+    policyDetails: Sequence[LifecyclePolicyDetailUnion]
+    resourceSelection: LifecyclePolicyResourceSelectionUnion
     clientToken: str
     description: Optional[str] = None
     status: Optional[LifecyclePolicyStatusType] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
+class UpdateLifecyclePolicyRequest(BaseValidatorModel):
     lifecyclePolicyArn: str
     executionRole: str
     resourceType: LifecyclePolicyResourceTypeType
-    policyDetails: Sequence[LifecyclePolicyDetailUnionTypeDef]
-    resourceSelection: LifecyclePolicyResourceSelectionUnionTypeDef
+    policyDetails: Sequence[LifecyclePolicyDetailUnion]
+    resourceSelection: LifecyclePolicyResourceSelectionUnion
     clientToken: str
     description: Optional[str] = None
     status: Optional[LifecyclePolicyStatusType] = None

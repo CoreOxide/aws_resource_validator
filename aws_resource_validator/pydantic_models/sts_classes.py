@@ -12,33 +12,33 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sts_constants import *
 
-class PolicyDescriptorTypeTypeDef(BaseValidatorModel):
+class PolicyDescriptorType(BaseValidatorModel):
     arn: Optional[str] = None
 
 
-class ProvidedContextTypeDef(BaseValidatorModel):
+class ProvidedContext(BaseValidatorModel):
     ProviderArn: Optional[str] = None
     ContextAssertion: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class AssumedRoleUserTypeDef(BaseValidatorModel):
+class AssumedRoleUser(BaseValidatorModel):
     AssumedRoleId: str
     Arn: str
 
 
-class CredentialsTypeDef(BaseValidatorModel):
+class Credentials(BaseValidatorModel):
     AccessKeyId: str
     SecretAccessKey: str
     SessionToken: str
     Expiration: datetime
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -46,84 +46,84 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DecodeAuthorizationMessageRequestTypeDef(BaseValidatorModel):
+class DecodeAuthorizationMessageRequest(BaseValidatorModel):
     EncodedMessage: str
 
 
-class FederatedUserTypeDef(BaseValidatorModel):
+class FederatedUser(BaseValidatorModel):
     FederatedUserId: str
     Arn: str
 
 
-class GetAccessKeyInfoRequestTypeDef(BaseValidatorModel):
+class GetAccessKeyInfoRequest(BaseValidatorModel):
     AccessKeyId: str
 
 
-class GetSessionTokenRequestTypeDef(BaseValidatorModel):
+class GetSessionTokenRequest(BaseValidatorModel):
     DurationSeconds: Optional[int] = None
     SerialNumber: Optional[str] = None
     TokenCode: Optional[str] = None
 
 
-class AssumeRoleWithSAMLRequestTypeDef(BaseValidatorModel):
+class AssumeRoleWithSAMLRequest(BaseValidatorModel):
     RoleArn: str
     PrincipalArn: str
     SAMLAssertion: str
-    PolicyArns: Optional[Sequence[PolicyDescriptorTypeTypeDef]] = None
+    PolicyArns: Optional[Sequence[PolicyDescriptorType]] = None
     Policy: Optional[str] = None
     DurationSeconds: Optional[int] = None
 
 
-class AssumeRoleWithWebIdentityRequestTypeDef(BaseValidatorModel):
+class AssumeRoleWithWebIdentityRequest(BaseValidatorModel):
     RoleArn: str
     RoleSessionName: str
     WebIdentityToken: str
     ProviderId: Optional[str] = None
-    PolicyArns: Optional[Sequence[PolicyDescriptorTypeTypeDef]] = None
+    PolicyArns: Optional[Sequence[PolicyDescriptorType]] = None
     Policy: Optional[str] = None
     DurationSeconds: Optional[int] = None
 
 
-class AssumeRootRequestTypeDef(BaseValidatorModel):
+class AssumeRootRequest(BaseValidatorModel):
     TargetPrincipal: str
-    TaskPolicyArn: PolicyDescriptorTypeTypeDef
+    TaskPolicyArn: PolicyDescriptorType
     DurationSeconds: Optional[int] = None
 
 
-class AssumeRoleRequestTypeDef(BaseValidatorModel):
+class AssumeRoleRequest(BaseValidatorModel):
     RoleArn: str
     RoleSessionName: str
-    PolicyArns: Optional[Sequence[PolicyDescriptorTypeTypeDef]] = None
+    PolicyArns: Optional[Sequence[PolicyDescriptorType]] = None
     Policy: Optional[str] = None
     DurationSeconds: Optional[int] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     TransitiveTagKeys: Optional[Sequence[str]] = None
     ExternalId: Optional[str] = None
     SerialNumber: Optional[str] = None
     TokenCode: Optional[str] = None
     SourceIdentity: Optional[str] = None
-    ProvidedContexts: Optional[Sequence[ProvidedContextTypeDef]] = None
+    ProvidedContexts: Optional[Sequence[ProvidedContext]] = None
 
 
-class GetFederationTokenRequestTypeDef(BaseValidatorModel):
+class GetFederationTokenRequest(BaseValidatorModel):
     Name: str
     Policy: Optional[str] = None
-    PolicyArns: Optional[Sequence[PolicyDescriptorTypeTypeDef]] = None
+    PolicyArns: Optional[Sequence[PolicyDescriptorType]] = None
     DurationSeconds: Optional[int] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class AssumeRoleResponseTypeDef(BaseValidatorModel):
-    Credentials: CredentialsTypeDef
-    AssumedRoleUser: AssumedRoleUserTypeDef
+class AssumeRoleResponse(BaseValidatorModel):
+    Credentials: Credentials
+    AssumedRoleUser: AssumedRoleUser
     PackedPolicySize: int
     SourceIdentity: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssumeRoleWithSAMLResponseTypeDef(BaseValidatorModel):
-    Credentials: CredentialsTypeDef
-    AssumedRoleUser: AssumedRoleUserTypeDef
+class AssumeRoleWithSAMLResponse(BaseValidatorModel):
+    Credentials: Credentials
+    AssumedRoleUser: AssumedRoleUser
     PackedPolicySize: int
     Subject: str
     SubjectType: str
@@ -131,52 +131,52 @@ class AssumeRoleWithSAMLResponseTypeDef(BaseValidatorModel):
     Audience: str
     NameQualifier: str
     SourceIdentity: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssumeRoleWithWebIdentityResponseTypeDef(BaseValidatorModel):
-    Credentials: CredentialsTypeDef
+class AssumeRoleWithWebIdentityResponse(BaseValidatorModel):
+    Credentials: Credentials
     SubjectFromWebIdentityToken: str
-    AssumedRoleUser: AssumedRoleUserTypeDef
+    AssumedRoleUser: AssumedRoleUser
     PackedPolicySize: int
     Provider: str
     Audience: str
     SourceIdentity: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssumeRootResponseTypeDef(BaseValidatorModel):
-    Credentials: CredentialsTypeDef
+class AssumeRootResponse(BaseValidatorModel):
+    Credentials: Credentials
     SourceIdentity: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DecodeAuthorizationMessageResponseTypeDef(BaseValidatorModel):
+class DecodeAuthorizationMessageResponse(BaseValidatorModel):
     DecodedMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccessKeyInfoResponseTypeDef(BaseValidatorModel):
+class GetAccessKeyInfoResponse(BaseValidatorModel):
     Account: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCallerIdentityResponseTypeDef(BaseValidatorModel):
+class GetCallerIdentityResponse(BaseValidatorModel):
     UserId: str
     Account: str
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSessionTokenResponseTypeDef(BaseValidatorModel):
-    Credentials: CredentialsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSessionTokenResponse(BaseValidatorModel):
+    Credentials: Credentials
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFederationTokenResponseTypeDef(BaseValidatorModel):
-    Credentials: CredentialsTypeDef
-    FederatedUser: FederatedUserTypeDef
+class GetFederationTokenResponse(BaseValidatorModel):
+    Credentials: Credentials
+    FederatedUser: FederatedUser
     PackedPolicySize: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

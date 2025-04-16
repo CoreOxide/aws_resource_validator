@@ -12,21 +12,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_constants import *
 
-class DeregisterSubscriptionProviderRequestTypeDef(BaseValidatorModel):
+class DeregisterSubscriptionProviderRequest(BaseValidatorModel):
     SubscriptionProviderArn: str
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Name: Optional[str] = None
     Operator: Optional[OperatorType] = None
     Values: Optional[Sequence[str]] = None
 
 
-class GetRegisteredSubscriptionProviderRequestTypeDef(BaseValidatorModel):
+class GetRegisteredSubscriptionProviderRequest(BaseValidatorModel):
     SubscriptionProviderArn: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -34,12 +34,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class LinuxSubscriptionsDiscoverySettingsOutputTypeDef(BaseValidatorModel):
+class LinuxSubscriptionsDiscoverySettingsOutput(BaseValidatorModel):
     OrganizationIntegration: OrganizationIntegrationType
     SourceRegions: List[str]
 
 
-class InstanceTypeDef(BaseValidatorModel):
+class Instance(BaseValidatorModel):
     AccountID: Optional[str] = None
     AmiId: Optional[str] = None
     DualSubscription: Optional[str] = None
@@ -57,24 +57,24 @@ class InstanceTypeDef(BaseValidatorModel):
     UsageOperation: Optional[str] = None
 
 
-class LinuxSubscriptionsDiscoverySettingsTypeDef(BaseValidatorModel):
+class LinuxSubscriptionsDiscoverySettings(BaseValidatorModel):
     OrganizationIntegration: OrganizationIntegrationType
     SourceRegions: Sequence[str]
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListRegisteredSubscriptionProvidersRequestTypeDef(BaseValidatorModel):
+class ListRegisteredSubscriptionProvidersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SubscriptionProviderSources: Optional[Sequence[Literal["RedHat"]]] = None
 
 
-class RegisteredSubscriptionProviderTypeDef(BaseValidatorModel):
+class RegisteredSubscriptionProvider(BaseValidatorModel):
     LastSuccessfulDataRetrievalTime: Optional[str] = None
     SecretArn: Optional[str] = None
     SubscriptionProviderArn: Optional[str] = None
@@ -83,122 +83,122 @@ class RegisteredSubscriptionProviderTypeDef(BaseValidatorModel):
     SubscriptionProviderStatusMessage: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class RegisterSubscriptionProviderRequestTypeDef(BaseValidatorModel):
+class RegisterSubscriptionProviderRequest(BaseValidatorModel):
     SecretArn: str
     SubscriptionProviderSource: Literal["RedHat"]
     Tags: Optional[Mapping[str, str]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class ListLinuxSubscriptionInstancesRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListLinuxSubscriptionInstancesRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListLinuxSubscriptionsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListLinuxSubscriptionsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetRegisteredSubscriptionProviderResponseTypeDef(BaseValidatorModel):
+class GetRegisteredSubscriptionProviderResponse(BaseValidatorModel):
     LastSuccessfulDataRetrievalTime: str
     SecretArn: str
     SubscriptionProviderArn: str
     SubscriptionProviderSource: Literal["RedHat"]
     SubscriptionProviderStatus: SubscriptionProviderStatusType
     SubscriptionProviderStatusMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterSubscriptionProviderResponseTypeDef(BaseValidatorModel):
+class RegisterSubscriptionProviderResponse(BaseValidatorModel):
     SubscriptionProviderArn: str
     SubscriptionProviderSource: Literal["RedHat"]
     SubscriptionProviderStatus: SubscriptionProviderStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetServiceSettingsResponseTypeDef(BaseValidatorModel):
+class GetServiceSettingsResponse(BaseValidatorModel):
     HomeRegions: List[str]
     LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscoveryType
-    LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsOutputTypeDef
+    LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsOutput
     Status: StatusType
     StatusMessage: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateServiceSettingsResponseTypeDef(BaseValidatorModel):
+class UpdateServiceSettingsResponse(BaseValidatorModel):
     HomeRegions: List[str]
     LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscoveryType
-    LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsOutputTypeDef
+    LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsOutput
     Status: StatusType
     StatusMessage: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListLinuxSubscriptionInstancesResponseTypeDef(BaseValidatorModel):
-    Instances: List[InstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLinuxSubscriptionInstancesResponse(BaseValidatorModel):
+    Instances: List[Instance]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListLinuxSubscriptionInstancesRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListLinuxSubscriptionInstancesRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLinuxSubscriptionsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListLinuxSubscriptionsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRegisteredSubscriptionProvidersRequestPaginateTypeDef(BaseValidatorModel):
+class ListRegisteredSubscriptionProvidersRequestPaginate(BaseValidatorModel):
     SubscriptionProviderSources: Optional[Sequence[Literal["RedHat"]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SubscriptionTypeDef(BaseValidatorModel):
+class Subscription(BaseValidatorModel):
     pass
 
 
-class ListLinuxSubscriptionsResponseTypeDef(BaseValidatorModel):
-    Subscriptions: List[SubscriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLinuxSubscriptionsResponse(BaseValidatorModel):
+    Subscriptions: List[Subscription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListRegisteredSubscriptionProvidersResponseTypeDef(BaseValidatorModel):
-    RegisteredSubscriptionProviders: List[RegisteredSubscriptionProviderTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRegisteredSubscriptionProvidersResponse(BaseValidatorModel):
+    RegisteredSubscriptionProviders: List[RegisteredSubscriptionProvider]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class LinuxSubscriptionsDiscoverySettingsUnionTypeDef(BaseValidatorModel):
+class LinuxSubscriptionsDiscoverySettingsUnion(BaseValidatorModel):
     pass
 
 
-class UpdateServiceSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateServiceSettingsRequest(BaseValidatorModel):
     LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscoveryType
-    LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsUnionTypeDef
+    LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsUnion
     AllowUpdate: Optional[bool] = None
 
 

@@ -12,19 +12,19 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.workspaces_constants import *
 
-class AcceptAccountLinkInvitationRequestTypeDef(BaseValidatorModel):
+class AcceptAccountLinkInvitationRequest(BaseValidatorModel):
     LinkId: str
     ClientToken: Optional[str] = None
 
 
-class AccountLinkTypeDef(BaseValidatorModel):
+class AccountLink(BaseValidatorModel):
     AccountLinkId: Optional[str] = None
     AccountLinkStatus: Optional[AccountLinkStatusEnumType] = None
     SourceAccountId: Optional[str] = None
     TargetAccountId: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -32,7 +32,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AccountModificationTypeDef(BaseValidatorModel):
+class AccountModification(BaseValidatorModel):
     ModificationState: Optional[DedicatedTenancyModificationStateEnumType] = None
     DedicatedTenancySupport: Optional[DedicatedTenancySupportResultEnumType] = None
     DedicatedTenancyManagementCidrRange: Optional[str] = None
@@ -41,134 +41,134 @@ class AccountModificationTypeDef(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
-class ActiveDirectoryConfigTypeDef(BaseValidatorModel):
+class ActiveDirectoryConfig(BaseValidatorModel):
     DomainName: str
     ServiceAccountSecretArn: str
 
 
-class AssociationStateReasonTypeDef(BaseValidatorModel):
+class AssociationStateReason(BaseValidatorModel):
     ErrorCode: Optional[AssociationErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class ApplicationSettingsRequestTypeDef(BaseValidatorModel):
+class ApplicationSettingsRequest(BaseValidatorModel):
     Status: ApplicationSettingsStatusEnumType
     SettingsGroup: Optional[str] = None
 
 
-class ApplicationSettingsResponseTypeDef(BaseValidatorModel):
+class ApplicationSettingsResponse(BaseValidatorModel):
     Status: ApplicationSettingsStatusEnumType
     SettingsGroup: Optional[str] = None
     S3BucketName: Optional[str] = None
 
 
-class AssociateConnectionAliasRequestTypeDef(BaseValidatorModel):
+class AssociateConnectionAliasRequest(BaseValidatorModel):
     AliasId: str
     ResourceId: str
 
 
-class AssociateIpGroupsRequestTypeDef(BaseValidatorModel):
+class AssociateIpGroupsRequest(BaseValidatorModel):
     DirectoryId: str
     GroupIds: Sequence[str]
 
 
-class AssociateWorkspaceApplicationRequestTypeDef(BaseValidatorModel):
+class AssociateWorkspaceApplicationRequest(BaseValidatorModel):
     WorkspaceId: str
     ApplicationId: str
 
 
-class IpRuleItemTypeDef(BaseValidatorModel):
+class IpRuleItem(BaseValidatorModel):
     ipRule: Optional[str] = None
     ruleDesc: Optional[str] = None
 
 
-class CapacityStatusTypeDef(BaseValidatorModel):
+class CapacityStatus(BaseValidatorModel):
     AvailableUserSessions: int
     DesiredUserSessions: int
     ActualUserSessions: int
     ActiveUserSessions: int
 
 
-class CapacityTypeDef(BaseValidatorModel):
+class Capacity(BaseValidatorModel):
     DesiredUserSessions: int
 
 
-class CertificateBasedAuthPropertiesTypeDef(BaseValidatorModel):
+class CertificateBasedAuthProperties(BaseValidatorModel):
     Status: Optional[CertificateBasedAuthStatusEnumType] = None
     CertificateAuthorityArn: Optional[str] = None
 
 
-class ClientPropertiesTypeDef(BaseValidatorModel):
+class ClientProperties(BaseValidatorModel):
     ReconnectEnabled: Optional[ReconnectEnumType] = None
     LogUploadEnabled: Optional[LogUploadEnumType] = None
 
 
-class ComputeTypeTypeDef(BaseValidatorModel):
+class ComputeType(BaseValidatorModel):
     Name: Optional[ComputeType] = None
 
 
-class ConnectClientAddInTypeDef(BaseValidatorModel):
+class ConnectClientAddIn(BaseValidatorModel):
     AddInId: Optional[str] = None
     ResourceId: Optional[str] = None
     Name: Optional[str] = None
     URL: Optional[str] = None
 
 
-class ConnectionAliasAssociationTypeDef(BaseValidatorModel):
+class ConnectionAliasAssociation(BaseValidatorModel):
     AssociationStatus: Optional[AssociationStatusType] = None
     AssociatedAccountId: Optional[str] = None
     ResourceId: Optional[str] = None
     ConnectionIdentifier: Optional[str] = None
 
 
-class ConnectionAliasPermissionTypeDef(BaseValidatorModel):
+class ConnectionAliasPermission(BaseValidatorModel):
     SharedAccountId: str
     AllowAssociation: bool
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
 
-class CreateAccountLinkInvitationRequestTypeDef(BaseValidatorModel):
+class CreateAccountLinkInvitationRequest(BaseValidatorModel):
     TargetAccountId: str
     ClientToken: Optional[str] = None
 
 
-class CreateConnectClientAddInRequestTypeDef(BaseValidatorModel):
+class CreateConnectClientAddInRequest(BaseValidatorModel):
     ResourceId: str
     Name: str
     URL: str
 
 
-class PendingCreateStandbyWorkspacesRequestTypeDef(BaseValidatorModel):
+class PendingCreateStandbyWorkspacesRequest(BaseValidatorModel):
     UserName: Optional[str] = None
     DirectoryId: Optional[str] = None
     State: Optional[WorkspaceStateType] = None
     WorkspaceId: Optional[str] = None
 
 
-class RootStorageTypeDef(BaseValidatorModel):
+class RootStorage(BaseValidatorModel):
     Capacity: str
 
 
-class UserStorageTypeDef(BaseValidatorModel):
+class UserStorage(BaseValidatorModel):
     Capacity: str
 
 
-class TimeoutSettingsTypeDef(BaseValidatorModel):
+class TimeoutSettings(BaseValidatorModel):
     DisconnectTimeoutInSeconds: Optional[int] = None
     IdleDisconnectTimeoutInSeconds: Optional[int] = None
     MaxUserDurationInSeconds: Optional[int] = None
 
 
-class DataReplicationSettingsTypeDef(BaseValidatorModel):
+class DataReplicationSettings(BaseValidatorModel):
     DataReplication: Optional[DataReplicationType] = None
     RecoverySnapshotTime: Optional[datetime] = None
 
 
-class DefaultClientBrandingAttributesTypeDef(BaseValidatorModel):
+class DefaultClientBrandingAttributes(BaseValidatorModel):
     LogoUrl: Optional[str] = None
     SupportEmail: Optional[str] = None
     SupportLink: Optional[str] = None
@@ -176,7 +176,7 @@ class DefaultClientBrandingAttributesTypeDef(BaseValidatorModel):
     LoginMessage: Optional[Dict[str, str]] = None
 
 
-class DefaultWorkspaceCreationPropertiesTypeDef(BaseValidatorModel):
+class DefaultWorkspaceCreationProperties(BaseValidatorModel):
     EnableWorkDocs: Optional[bool] = None
     EnableInternetAccess: Optional[bool] = None
     DefaultOu: Optional[str] = None
@@ -186,69 +186,69 @@ class DefaultWorkspaceCreationPropertiesTypeDef(BaseValidatorModel):
     InstanceIamRoleArn: Optional[str] = None
 
 
-class DeleteAccountLinkInvitationRequestTypeDef(BaseValidatorModel):
+class DeleteAccountLinkInvitationRequest(BaseValidatorModel):
     LinkId: str
     ClientToken: Optional[str] = None
 
 
-class DeleteClientBrandingRequestTypeDef(BaseValidatorModel):
+class DeleteClientBrandingRequest(BaseValidatorModel):
     ResourceId: str
     Platforms: Sequence[ClientDeviceTypeType]
 
 
-class DeleteConnectClientAddInRequestTypeDef(BaseValidatorModel):
+class DeleteConnectClientAddInRequest(BaseValidatorModel):
     AddInId: str
     ResourceId: str
 
 
-class DeleteConnectionAliasRequestTypeDef(BaseValidatorModel):
+class DeleteConnectionAliasRequest(BaseValidatorModel):
     AliasId: str
 
 
-class DeleteIpGroupRequestTypeDef(BaseValidatorModel):
+class DeleteIpGroupRequest(BaseValidatorModel):
     GroupId: str
 
 
-class DeleteTagsRequestTypeDef(BaseValidatorModel):
+class DeleteTagsRequest(BaseValidatorModel):
     ResourceId: str
     TagKeys: Sequence[str]
 
 
-class DeleteWorkspaceBundleRequestTypeDef(BaseValidatorModel):
+class DeleteWorkspaceBundleRequest(BaseValidatorModel):
     BundleId: Optional[str] = None
 
 
-class DeleteWorkspaceImageRequestTypeDef(BaseValidatorModel):
+class DeleteWorkspaceImageRequest(BaseValidatorModel):
     ImageId: str
 
 
-class DeployWorkspaceApplicationsRequestTypeDef(BaseValidatorModel):
+class DeployWorkspaceApplicationsRequest(BaseValidatorModel):
     WorkspaceId: str
     Force: Optional[bool] = None
 
 
-class DeregisterWorkspaceDirectoryRequestTypeDef(BaseValidatorModel):
+class DeregisterWorkspaceDirectoryRequest(BaseValidatorModel):
     DirectoryId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeAccountModificationsRequestTypeDef(BaseValidatorModel):
+class DescribeAccountModificationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeApplicationAssociationsRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationAssociationsRequest(BaseValidatorModel):
     ApplicationId: str
     AssociatedResourceTypes: Sequence[ApplicationAssociatedResourceTypeType]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeApplicationsRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationsRequest(BaseValidatorModel):
     ApplicationIds: Optional[Sequence[str]] = None
     ComputeTypeNames: Optional[Sequence[ComputeType]] = None
     LicenseType: Optional[WorkSpaceApplicationLicenseTypeType] = None
@@ -258,7 +258,7 @@ class DescribeApplicationsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class WorkSpaceApplicationTypeDef(BaseValidatorModel):
+class WorkSpaceApplication(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     Created: Optional[datetime] = None
     Description: Optional[str] = None
@@ -270,16 +270,16 @@ class WorkSpaceApplicationTypeDef(BaseValidatorModel):
     SupportedOperatingSystemNames: Optional[List[OperatingSystemNameType]] = None
 
 
-class DescribeBundleAssociationsRequestTypeDef(BaseValidatorModel):
+class DescribeBundleAssociationsRequest(BaseValidatorModel):
     BundleId: str
     AssociatedResourceTypes: Sequence[Literal["APPLICATION"]]
 
 
-class DescribeClientBrandingRequestTypeDef(BaseValidatorModel):
+class DescribeClientBrandingRequest(BaseValidatorModel):
     ResourceId: str
 
 
-class IosClientBrandingAttributesTypeDef(BaseValidatorModel):
+class IosClientBrandingAttributes(BaseValidatorModel):
     LogoUrl: Optional[str] = None
     Logo2xUrl: Optional[str] = None
     Logo3xUrl: Optional[str] = None
@@ -289,111 +289,111 @@ class IosClientBrandingAttributesTypeDef(BaseValidatorModel):
     LoginMessage: Optional[Dict[str, str]] = None
 
 
-class DescribeClientPropertiesRequestTypeDef(BaseValidatorModel):
+class DescribeClientPropertiesRequest(BaseValidatorModel):
     ResourceIds: Sequence[str]
 
 
-class DescribeConnectClientAddInsRequestTypeDef(BaseValidatorModel):
+class DescribeConnectClientAddInsRequest(BaseValidatorModel):
     ResourceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeConnectionAliasPermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeConnectionAliasPermissionsRequest(BaseValidatorModel):
     AliasId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeConnectionAliasesRequestTypeDef(BaseValidatorModel):
+class DescribeConnectionAliasesRequest(BaseValidatorModel):
     AliasIds: Optional[Sequence[str]] = None
     ResourceId: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeImageAssociationsRequestTypeDef(BaseValidatorModel):
+class DescribeImageAssociationsRequest(BaseValidatorModel):
     ImageId: str
     AssociatedResourceTypes: Sequence[Literal["APPLICATION"]]
 
 
-class DescribeIpGroupsRequestTypeDef(BaseValidatorModel):
+class DescribeIpGroupsRequest(BaseValidatorModel):
     GroupIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeTagsRequestTypeDef(BaseValidatorModel):
+class DescribeTagsRequest(BaseValidatorModel):
     ResourceId: str
 
 
-class DescribeWorkspaceAssociationsRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspaceAssociationsRequest(BaseValidatorModel):
     WorkspaceId: str
     AssociatedResourceTypes: Sequence[Literal["APPLICATION"]]
 
 
-class DescribeWorkspaceBundlesRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspaceBundlesRequest(BaseValidatorModel):
     BundleIds: Optional[Sequence[str]] = None
     Owner: Optional[str] = None
     NextToken: Optional[str] = None
 
 
-class DescribeWorkspaceDirectoriesFilterTypeDef(BaseValidatorModel):
+class DescribeWorkspaceDirectoriesFilter(BaseValidatorModel):
     Name: DescribeWorkspaceDirectoriesFilterNameType
     Values: Sequence[str]
 
 
-class DescribeWorkspaceImagePermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspaceImagePermissionsRequest(BaseValidatorModel):
     ImageId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ImagePermissionTypeDef(BaseValidatorModel):
+class ImagePermission(BaseValidatorModel):
     SharedAccountId: Optional[str] = None
 
 
-class DescribeWorkspaceImagesRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspaceImagesRequest(BaseValidatorModel):
     ImageIds: Optional[Sequence[str]] = None
     ImageType: Optional[ImageTypeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeWorkspaceSnapshotsRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspaceSnapshotsRequest(BaseValidatorModel):
     WorkspaceId: str
 
 
-class SnapshotTypeDef(BaseValidatorModel):
+class Snapshot(BaseValidatorModel):
     SnapshotTime: Optional[datetime] = None
 
 
-class DescribeWorkspacesConnectionStatusRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspacesConnectionStatusRequest(BaseValidatorModel):
     WorkspaceIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
 
 
-class WorkspaceConnectionStatusTypeDef(BaseValidatorModel):
+class WorkspaceConnectionStatus(BaseValidatorModel):
     WorkspaceId: Optional[str] = None
     ConnectionState: Optional[ConnectionStateType] = None
     ConnectionStateCheckTimestamp: Optional[datetime] = None
     LastKnownUserConnectionTimestamp: Optional[datetime] = None
 
 
-class DescribeWorkspacesPoolSessionsRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspacesPoolSessionsRequest(BaseValidatorModel):
     PoolId: str
     UserId: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeWorkspacesPoolsFilterTypeDef(BaseValidatorModel):
+class DescribeWorkspacesPoolsFilter(BaseValidatorModel):
     Name: Literal["PoolName"]
     Values: Sequence[str]
     Operator: DescribeWorkspacesPoolsFilterOperatorType
 
 
-class DescribeWorkspacesRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspacesRequest(BaseValidatorModel):
     WorkspaceIds: Optional[Sequence[str]] = None
     DirectoryId: Optional[str] = None
     UserName: Optional[str] = None
@@ -403,95 +403,95 @@ class DescribeWorkspacesRequestTypeDef(BaseValidatorModel):
     WorkspaceName: Optional[str] = None
 
 
-class DisassociateConnectionAliasRequestTypeDef(BaseValidatorModel):
+class DisassociateConnectionAliasRequest(BaseValidatorModel):
     AliasId: str
 
 
-class DisassociateIpGroupsRequestTypeDef(BaseValidatorModel):
+class DisassociateIpGroupsRequest(BaseValidatorModel):
     DirectoryId: str
     GroupIds: Sequence[str]
 
 
-class DisassociateWorkspaceApplicationRequestTypeDef(BaseValidatorModel):
+class DisassociateWorkspaceApplicationRequest(BaseValidatorModel):
     WorkspaceId: str
     ApplicationId: str
 
 
-class ErrorDetailsTypeDef(BaseValidatorModel):
+class ErrorDetails(BaseValidatorModel):
     ErrorCode: Optional[WorkspaceImageErrorDetailCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class FailedWorkspaceChangeRequestTypeDef(BaseValidatorModel):
+class FailedWorkspaceChangeRequest(BaseValidatorModel):
     WorkspaceId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class GetAccountLinkRequestTypeDef(BaseValidatorModel):
+class GetAccountLinkRequest(BaseValidatorModel):
     LinkId: Optional[str] = None
     LinkedAccountId: Optional[str] = None
 
 
-class GlobalAcceleratorForDirectoryTypeDef(BaseValidatorModel):
+class GlobalAcceleratorForDirectory(BaseValidatorModel):
     Mode: AGAModeForDirectoryEnumType
     PreferredProtocol: Optional[AGAPreferredProtocolForDirectoryType] = None
 
 
-class GlobalAcceleratorForWorkSpaceTypeDef(BaseValidatorModel):
+class GlobalAcceleratorForWorkSpace(BaseValidatorModel):
     Mode: AGAModeForWorkSpaceEnumType
     PreferredProtocol: Optional[AGAPreferredProtocolForWorkSpaceType] = None
 
 
-class IDCConfigTypeDef(BaseValidatorModel):
+class IDCConfig(BaseValidatorModel):
     InstanceArn: Optional[str] = None
     ApplicationArn: Optional[str] = None
 
 
-class ListAccountLinksRequestTypeDef(BaseValidatorModel):
+class ListAccountLinksRequest(BaseValidatorModel):
     LinkStatusFilter: Optional[Sequence[AccountLinkStatusEnumType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAvailableManagementCidrRangesRequestTypeDef(BaseValidatorModel):
+class ListAvailableManagementCidrRangesRequest(BaseValidatorModel):
     ManagementCidrRangeConstraint: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class MicrosoftEntraConfigTypeDef(BaseValidatorModel):
+class MicrosoftEntraConfig(BaseValidatorModel):
     TenantId: Optional[str] = None
     ApplicationConfigSecretArn: Optional[str] = None
 
 
-class MigrateWorkspaceRequestTypeDef(BaseValidatorModel):
+class MigrateWorkspaceRequest(BaseValidatorModel):
     SourceWorkspaceId: str
     BundleId: str
 
 
-class ModificationStateTypeDef(BaseValidatorModel):
+class ModificationState(BaseValidatorModel):
     Resource: Optional[ModificationResourceEnumType] = None
     State: Optional[ModificationStateEnumType] = None
 
 
-class ModifyAccountRequestTypeDef(BaseValidatorModel):
+class ModifyAccountRequest(BaseValidatorModel):
     DedicatedTenancySupport: Optional[Literal["ENABLED"]] = None
     DedicatedTenancyManagementCidrRange: Optional[str] = None
 
 
-class ModifyEndpointEncryptionModeRequestTypeDef(BaseValidatorModel):
+class ModifyEndpointEncryptionModeRequest(BaseValidatorModel):
     DirectoryId: str
     EndpointEncryptionMode: EndpointEncryptionModeType
 
 
-class SamlPropertiesTypeDef(BaseValidatorModel):
+class SamlProperties(BaseValidatorModel):
     Status: Optional[SamlStatusEnumType] = None
     UserAccessUrl: Optional[str] = None
     RelayStateParameterName: Optional[str] = None
 
 
-class SelfservicePermissionsTypeDef(BaseValidatorModel):
+class SelfservicePermissions(BaseValidatorModel):
     RestartWorkspace: Optional[ReconnectEnumType] = None
     IncreaseVolumeSize: Optional[ReconnectEnumType] = None
     ChangeComputeType: Optional[ReconnectEnumType] = None
@@ -499,7 +499,7 @@ class SelfservicePermissionsTypeDef(BaseValidatorModel):
     RebuildWorkspace: Optional[ReconnectEnumType] = None
 
 
-class WorkspaceAccessPropertiesTypeDef(BaseValidatorModel):
+class WorkspaceAccessProperties(BaseValidatorModel):
     DeviceTypeWindows: Optional[AccessPropertyValueType] = None
     DeviceTypeOsx: Optional[AccessPropertyValueType] = None
     DeviceTypeWeb: Optional[AccessPropertyValueType] = None
@@ -511,7 +511,7 @@ class WorkspaceAccessPropertiesTypeDef(BaseValidatorModel):
     DeviceTypeWorkSpacesThinClient: Optional[AccessPropertyValueType] = None
 
 
-class WorkspaceCreationPropertiesTypeDef(BaseValidatorModel):
+class WorkspaceCreationProperties(BaseValidatorModel):
     EnableWorkDocs: Optional[bool] = None
     EnableInternetAccess: Optional[bool] = None
     DefaultOu: Optional[str] = None
@@ -521,574 +521,574 @@ class WorkspaceCreationPropertiesTypeDef(BaseValidatorModel):
     InstanceIamRoleArn: Optional[str] = None
 
 
-class ModifyWorkspaceStateRequestTypeDef(BaseValidatorModel):
+class ModifyWorkspaceStateRequest(BaseValidatorModel):
     WorkspaceId: str
     WorkspaceState: TargetWorkspaceStateType
 
 
-class NetworkAccessConfigurationTypeDef(BaseValidatorModel):
+class NetworkAccessConfiguration(BaseValidatorModel):
     EniPrivateIpAddress: Optional[str] = None
     EniId: Optional[str] = None
 
 
-class RebootRequestTypeDef(BaseValidatorModel):
+class RebootRequest(BaseValidatorModel):
     WorkspaceId: str
 
 
-class RebuildRequestTypeDef(BaseValidatorModel):
+class RebuildRequest(BaseValidatorModel):
     WorkspaceId: str
 
 
-class RejectAccountLinkInvitationRequestTypeDef(BaseValidatorModel):
+class RejectAccountLinkInvitationRequest(BaseValidatorModel):
     LinkId: str
     ClientToken: Optional[str] = None
 
 
-class RestoreWorkspaceRequestTypeDef(BaseValidatorModel):
+class RestoreWorkspaceRequest(BaseValidatorModel):
     WorkspaceId: str
 
 
-class RevokeIpRulesRequestTypeDef(BaseValidatorModel):
+class RevokeIpRulesRequest(BaseValidatorModel):
     GroupId: str
     UserRules: Sequence[str]
 
 
-class StandbyWorkspacesPropertiesTypeDef(BaseValidatorModel):
+class StandbyWorkspacesProperties(BaseValidatorModel):
     StandbyWorkspaceId: Optional[str] = None
     DataReplication: Optional[DataReplicationType] = None
     RecoverySnapshotTime: Optional[datetime] = None
 
 
-class StartRequestTypeDef(BaseValidatorModel):
+class StartRequest(BaseValidatorModel):
     WorkspaceId: Optional[str] = None
 
 
-class StartWorkspacesPoolRequestTypeDef(BaseValidatorModel):
+class StartWorkspacesPoolRequest(BaseValidatorModel):
     PoolId: str
 
 
-class StopRequestTypeDef(BaseValidatorModel):
+class StopRequest(BaseValidatorModel):
     WorkspaceId: Optional[str] = None
 
 
-class StopWorkspacesPoolRequestTypeDef(BaseValidatorModel):
+class StopWorkspacesPoolRequest(BaseValidatorModel):
     PoolId: str
 
 
-class StorageConnectorTypeDef(BaseValidatorModel):
+class StorageConnector(BaseValidatorModel):
     ConnectorType: Literal["HOME_FOLDER"]
     Status: StorageConnectorStatusEnumType
 
 
-class UserSettingTypeDef(BaseValidatorModel):
+class UserSetting(BaseValidatorModel):
     Action: UserSettingActionEnumType
     Permission: UserSettingPermissionEnumType
     MaximumLength: Optional[int] = None
 
 
-class TerminateRequestTypeDef(BaseValidatorModel):
+class TerminateRequest(BaseValidatorModel):
     WorkspaceId: str
 
 
-class TerminateWorkspacesPoolRequestTypeDef(BaseValidatorModel):
+class TerminateWorkspacesPoolRequest(BaseValidatorModel):
     PoolId: str
 
 
-class TerminateWorkspacesPoolSessionRequestTypeDef(BaseValidatorModel):
+class TerminateWorkspacesPoolSessionRequest(BaseValidatorModel):
     SessionId: str
 
 
-class UpdateConnectClientAddInRequestTypeDef(BaseValidatorModel):
+class UpdateConnectClientAddInRequest(BaseValidatorModel):
     AddInId: str
     ResourceId: str
     Name: Optional[str] = None
     URL: Optional[str] = None
 
 
-class UpdateResultTypeDef(BaseValidatorModel):
+class UpdateResult(BaseValidatorModel):
     UpdateAvailable: Optional[bool] = None
     Description: Optional[str] = None
 
 
-class UpdateWorkspaceBundleRequestTypeDef(BaseValidatorModel):
+class UpdateWorkspaceBundleRequest(BaseValidatorModel):
     BundleId: Optional[str] = None
     ImageId: Optional[str] = None
 
 
-class UpdateWorkspaceImagePermissionRequestTypeDef(BaseValidatorModel):
+class UpdateWorkspaceImagePermissionRequest(BaseValidatorModel):
     ImageId: str
     AllowCopyImage: bool
     SharedAccountId: str
 
 
-class WorkspacesPoolErrorTypeDef(BaseValidatorModel):
+class WorkspacesPoolError(BaseValidatorModel):
     ErrorCode: Optional[WorkspacesPoolErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class AcceptAccountLinkInvitationResultTypeDef(BaseValidatorModel):
-    AccountLink: AccountLinkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AcceptAccountLinkInvitationResult(BaseValidatorModel):
+    AccountLink: AccountLink
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateConnectionAliasResultTypeDef(BaseValidatorModel):
+class AssociateConnectionAliasResult(BaseValidatorModel):
     ConnectionIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CopyWorkspaceImageResultTypeDef(BaseValidatorModel):
+class CopyWorkspaceImageResult(BaseValidatorModel):
     ImageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAccountLinkInvitationResultTypeDef(BaseValidatorModel):
-    AccountLink: AccountLinkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAccountLinkInvitationResult(BaseValidatorModel):
+    AccountLink: AccountLink
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateConnectClientAddInResultTypeDef(BaseValidatorModel):
+class CreateConnectClientAddInResult(BaseValidatorModel):
     AddInId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateConnectionAliasResultTypeDef(BaseValidatorModel):
+class CreateConnectionAliasResult(BaseValidatorModel):
     AliasId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIpGroupResultTypeDef(BaseValidatorModel):
+class CreateIpGroupResult(BaseValidatorModel):
     GroupId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateUpdatedWorkspaceImageResultTypeDef(BaseValidatorModel):
+class CreateUpdatedWorkspaceImageResult(BaseValidatorModel):
     ImageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAccountLinkInvitationResultTypeDef(BaseValidatorModel):
-    AccountLink: AccountLinkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteAccountLinkInvitationResult(BaseValidatorModel):
+    AccountLink: AccountLink
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountResultTypeDef(BaseValidatorModel):
+class DescribeAccountResult(BaseValidatorModel):
     DedicatedTenancySupport: DedicatedTenancySupportResultEnumType
     DedicatedTenancyManagementCidrRange: str
     DedicatedTenancyAccountType: DedicatedTenancyAccountTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccountLinkResultTypeDef(BaseValidatorModel):
-    AccountLink: AccountLinkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAccountLinkResult(BaseValidatorModel):
+    AccountLink: AccountLink
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportWorkspaceImageResultTypeDef(BaseValidatorModel):
+class ImportWorkspaceImageResult(BaseValidatorModel):
     ImageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAccountLinksResultTypeDef(BaseValidatorModel):
-    AccountLinks: List[AccountLinkTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccountLinksResult(BaseValidatorModel):
+    AccountLinks: List[AccountLink]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAvailableManagementCidrRangesResultTypeDef(BaseValidatorModel):
+class ListAvailableManagementCidrRangesResult(BaseValidatorModel):
     ManagementCidrRanges: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MigrateWorkspaceResultTypeDef(BaseValidatorModel):
+class MigrateWorkspaceResult(BaseValidatorModel):
     SourceWorkspaceId: str
     TargetWorkspaceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterWorkspaceDirectoryResultTypeDef(BaseValidatorModel):
+class RegisterWorkspaceDirectoryResult(BaseValidatorModel):
     DirectoryId: str
     State: WorkspaceDirectoryStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RejectAccountLinkInvitationResultTypeDef(BaseValidatorModel):
-    AccountLink: AccountLinkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RejectAccountLinkInvitationResult(BaseValidatorModel):
+    AccountLink: AccountLink
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountModificationsResultTypeDef(BaseValidatorModel):
-    AccountModifications: List[AccountModificationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAccountModificationsResult(BaseValidatorModel):
+    AccountModifications: List[AccountModification]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ApplicationResourceAssociationTypeDef(BaseValidatorModel):
+class ApplicationResourceAssociation(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     AssociatedResourceId: Optional[str] = None
     AssociatedResourceType: Optional[ApplicationAssociatedResourceTypeType] = None
     Created: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     State: Optional[AssociationStateType] = None
-    StateReason: Optional[AssociationStateReasonTypeDef] = None
+    StateReason: Optional[AssociationStateReason] = None
 
 
-class BundleResourceAssociationTypeDef(BaseValidatorModel):
+class BundleResourceAssociation(BaseValidatorModel):
     AssociatedResourceId: Optional[str] = None
     AssociatedResourceType: Optional[Literal["APPLICATION"]] = None
     BundleId: Optional[str] = None
     Created: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     State: Optional[AssociationStateType] = None
-    StateReason: Optional[AssociationStateReasonTypeDef] = None
+    StateReason: Optional[AssociationStateReason] = None
 
 
-class ImageResourceAssociationTypeDef(BaseValidatorModel):
+class ImageResourceAssociation(BaseValidatorModel):
     AssociatedResourceId: Optional[str] = None
     AssociatedResourceType: Optional[Literal["APPLICATION"]] = None
     Created: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     ImageId: Optional[str] = None
     State: Optional[AssociationStateType] = None
-    StateReason: Optional[AssociationStateReasonTypeDef] = None
+    StateReason: Optional[AssociationStateReason] = None
 
 
-class WorkspaceResourceAssociationTypeDef(BaseValidatorModel):
+class WorkspaceResourceAssociation(BaseValidatorModel):
     AssociatedResourceId: Optional[str] = None
     AssociatedResourceType: Optional[Literal["APPLICATION"]] = None
     Created: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     State: Optional[AssociationStateType] = None
-    StateReason: Optional[AssociationStateReasonTypeDef] = None
+    StateReason: Optional[AssociationStateReason] = None
     WorkspaceId: Optional[str] = None
 
 
-class AuthorizeIpRulesRequestTypeDef(BaseValidatorModel):
+class AuthorizeIpRulesRequest(BaseValidatorModel):
     GroupId: str
-    UserRules: Sequence[IpRuleItemTypeDef]
+    UserRules: Sequence[IpRuleItem]
 
 
-class UpdateRulesOfIpGroupRequestTypeDef(BaseValidatorModel):
+class UpdateRulesOfIpGroupRequest(BaseValidatorModel):
     GroupId: str
-    UserRules: Sequence[IpRuleItemTypeDef]
+    UserRules: Sequence[IpRuleItem]
 
 
-class WorkspacesIpGroupTypeDef(BaseValidatorModel):
+class WorkspacesIpGroup(BaseValidatorModel):
     groupId: Optional[str] = None
     groupName: Optional[str] = None
     groupDesc: Optional[str] = None
-    userRules: Optional[List[IpRuleItemTypeDef]] = None
+    userRules: Optional[List[IpRuleItem]] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class DefaultImportClientBrandingAttributesTypeDef(BaseValidatorModel):
-    Logo: Optional[BlobTypeDef] = None
+class DefaultImportClientBrandingAttributes(BaseValidatorModel):
+    Logo: Optional[Blob] = None
     SupportEmail: Optional[str] = None
     SupportLink: Optional[str] = None
     ForgotPasswordLink: Optional[str] = None
     LoginMessage: Optional[Mapping[str, str]] = None
 
 
-class IosImportClientBrandingAttributesTypeDef(BaseValidatorModel):
-    Logo: Optional[BlobTypeDef] = None
-    Logo2x: Optional[BlobTypeDef] = None
-    Logo3x: Optional[BlobTypeDef] = None
+class IosImportClientBrandingAttributes(BaseValidatorModel):
+    Logo: Optional[Blob] = None
+    Logo2x: Optional[Blob] = None
+    Logo3x: Optional[Blob] = None
     SupportEmail: Optional[str] = None
     SupportLink: Optional[str] = None
     ForgotPasswordLink: Optional[str] = None
     LoginMessage: Optional[Mapping[str, str]] = None
 
 
-class ModifyCertificateBasedAuthPropertiesRequestTypeDef(BaseValidatorModel):
+class ModifyCertificateBasedAuthPropertiesRequest(BaseValidatorModel):
     ResourceId: str
-    CertificateBasedAuthProperties: Optional[CertificateBasedAuthPropertiesTypeDef] = None
+    CertificateBasedAuthProperties: Optional[CertificateBasedAuthProperties] = None
     PropertiesToDelete: Optional[ Sequence[Literal["CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN"]] ] = None
 
 
-class ClientPropertiesResultTypeDef(BaseValidatorModel):
+class ClientPropertiesResult(BaseValidatorModel):
     ResourceId: Optional[str] = None
-    ClientProperties: Optional[ClientPropertiesTypeDef] = None
+    ClientProperties: Optional[ClientProperties] = None
 
 
-class ModifyClientPropertiesRequestTypeDef(BaseValidatorModel):
+class ModifyClientPropertiesRequest(BaseValidatorModel):
     ResourceId: str
-    ClientProperties: ClientPropertiesTypeDef
+    ClientProperties: ClientProperties
 
 
-class DescribeConnectClientAddInsResultTypeDef(BaseValidatorModel):
-    AddIns: List[ConnectClientAddInTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeConnectClientAddInsResult(BaseValidatorModel):
+    AddIns: List[ConnectClientAddIn]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ConnectionAliasTypeDef(BaseValidatorModel):
+class ConnectionAlias(BaseValidatorModel):
     ConnectionString: Optional[str] = None
     AliasId: Optional[str] = None
     State: Optional[ConnectionAliasStateType] = None
     OwnerAccountId: Optional[str] = None
-    Associations: Optional[List[ConnectionAliasAssociationTypeDef]] = None
+    Associations: Optional[List[ConnectionAliasAssociation]] = None
 
 
-class DescribeConnectionAliasPermissionsResultTypeDef(BaseValidatorModel):
+class DescribeConnectionAliasPermissionsResult(BaseValidatorModel):
     AliasId: str
-    ConnectionAliasPermissions: List[ConnectionAliasPermissionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ConnectionAliasPermissions: List[ConnectionAliasPermission]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateConnectionAliasPermissionRequestTypeDef(BaseValidatorModel):
+class UpdateConnectionAliasPermissionRequest(BaseValidatorModel):
     AliasId: str
-    ConnectionAliasPermission: ConnectionAliasPermissionTypeDef
+    ConnectionAliasPermission: ConnectionAliasPermission
 
 
-class CopyWorkspaceImageRequestTypeDef(BaseValidatorModel):
+class CopyWorkspaceImageRequest(BaseValidatorModel):
     Name: str
     SourceImageId: str
     SourceRegion: str
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateConnectionAliasRequestTypeDef(BaseValidatorModel):
+class CreateConnectionAliasRequest(BaseValidatorModel):
     ConnectionString: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateIpGroupRequestTypeDef(BaseValidatorModel):
+class CreateIpGroupRequest(BaseValidatorModel):
     GroupName: str
     GroupDesc: Optional[str] = None
-    UserRules: Optional[Sequence[IpRuleItemTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    UserRules: Optional[Sequence[IpRuleItem]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateTagsRequestTypeDef(BaseValidatorModel):
+class CreateTagsRequest(BaseValidatorModel):
     ResourceId: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateUpdatedWorkspaceImageRequestTypeDef(BaseValidatorModel):
+class CreateUpdatedWorkspaceImageRequest(BaseValidatorModel):
     Name: str
     Description: str
     SourceImageId: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateWorkspaceImageRequestTypeDef(BaseValidatorModel):
+class CreateWorkspaceImageRequest(BaseValidatorModel):
     Name: str
     Description: str
     WorkspaceId: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeTagsResultTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTagsResult(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportWorkspaceImageRequestTypeDef(BaseValidatorModel):
+class ImportWorkspaceImageRequest(BaseValidatorModel):
     Ec2ImageId: str
     IngestionProcess: WorkspaceImageIngestionProcessType
     ImageName: str
     ImageDescription: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     Applications: Optional[Sequence[ApplicationType]] = None
 
 
-class StandbyWorkspaceOutputTypeDef(BaseValidatorModel):
+class StandbyWorkspaceOutput(BaseValidatorModel):
     PrimaryWorkspaceId: str
     DirectoryId: str
     VolumeEncryptionKey: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     DataReplication: Optional[DataReplicationType] = None
 
 
-class StandbyWorkspaceTypeDef(BaseValidatorModel):
+class StandbyWorkspace(BaseValidatorModel):
     PrimaryWorkspaceId: str
     DirectoryId: str
     VolumeEncryptionKey: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     DataReplication: Optional[DataReplicationType] = None
 
 
-class OperatingSystemTypeDef(BaseValidatorModel):
+class OperatingSystem(BaseValidatorModel):
     pass
 
 
-class CreateWorkspaceImageResultTypeDef(BaseValidatorModel):
+class CreateWorkspaceImageResult(BaseValidatorModel):
     ImageId: str
     Name: str
     Description: str
-    OperatingSystem: OperatingSystemTypeDef
+    OperatingSystem: OperatingSystem
     State: WorkspaceImageStateType
     RequiredTenancy: WorkspaceImageRequiredTenancyType
     Created: datetime
     OwnerAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWorkspacesPoolRequestTypeDef(BaseValidatorModel):
+class CreateWorkspacesPoolRequest(BaseValidatorModel):
     PoolName: str
     Description: str
     BundleId: str
     DirectoryId: str
-    Capacity: CapacityTypeDef
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    ApplicationSettings: Optional[ApplicationSettingsRequestTypeDef] = None
-    TimeoutSettings: Optional[TimeoutSettingsTypeDef] = None
+    Capacity: Capacity
+    Tags: Optional[Sequence[Tag]] = None
+    ApplicationSettings: Optional[ApplicationSettingsRequest] = None
+    TimeoutSettings: Optional[TimeoutSettings] = None
 
 
-class UpdateWorkspacesPoolRequestTypeDef(BaseValidatorModel):
+class UpdateWorkspacesPoolRequest(BaseValidatorModel):
     PoolId: str
     Description: Optional[str] = None
     BundleId: Optional[str] = None
     DirectoryId: Optional[str] = None
-    Capacity: Optional[CapacityTypeDef] = None
-    ApplicationSettings: Optional[ApplicationSettingsRequestTypeDef] = None
-    TimeoutSettings: Optional[TimeoutSettingsTypeDef] = None
+    Capacity: Optional[Capacity] = None
+    ApplicationSettings: Optional[ApplicationSettingsRequest] = None
+    TimeoutSettings: Optional[TimeoutSettings] = None
 
 
-class DescribeAccountModificationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeAccountModificationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeIpGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeIpGroupsRequestPaginate(BaseValidatorModel):
     GroupIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeWorkspaceBundlesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeWorkspaceBundlesRequestPaginate(BaseValidatorModel):
     BundleIds: Optional[Sequence[str]] = None
     Owner: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeWorkspaceImagesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeWorkspaceImagesRequestPaginate(BaseValidatorModel):
     ImageIds: Optional[Sequence[str]] = None
     ImageType: Optional[ImageTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeWorkspacesConnectionStatusRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeWorkspacesConnectionStatusRequestPaginate(BaseValidatorModel):
     WorkspaceIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeWorkspacesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeWorkspacesRequestPaginate(BaseValidatorModel):
     WorkspaceIds: Optional[Sequence[str]] = None
     DirectoryId: Optional[str] = None
     UserName: Optional[str] = None
     BundleId: Optional[str] = None
     WorkspaceName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAccountLinksRequestPaginateTypeDef(BaseValidatorModel):
+class ListAccountLinksRequestPaginate(BaseValidatorModel):
     LinkStatusFilter: Optional[Sequence[AccountLinkStatusEnumType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAvailableManagementCidrRangesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAvailableManagementCidrRangesRequestPaginate(BaseValidatorModel):
     ManagementCidrRangeConstraint: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeApplicationsResultTypeDef(BaseValidatorModel):
-    Applications: List[WorkSpaceApplicationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeApplicationsResult(BaseValidatorModel):
+    Applications: List[WorkSpaceApplication]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeClientBrandingResultTypeDef(BaseValidatorModel):
-    DeviceTypeWindows: DefaultClientBrandingAttributesTypeDef
-    DeviceTypeOsx: DefaultClientBrandingAttributesTypeDef
-    DeviceTypeAndroid: DefaultClientBrandingAttributesTypeDef
-    DeviceTypeIos: IosClientBrandingAttributesTypeDef
-    DeviceTypeLinux: DefaultClientBrandingAttributesTypeDef
-    DeviceTypeWeb: DefaultClientBrandingAttributesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClientBrandingResult(BaseValidatorModel):
+    DeviceTypeWindows: DefaultClientBrandingAttributes
+    DeviceTypeOsx: DefaultClientBrandingAttributes
+    DeviceTypeAndroid: DefaultClientBrandingAttributes
+    DeviceTypeIos: IosClientBrandingAttributes
+    DeviceTypeLinux: DefaultClientBrandingAttributes
+    DeviceTypeWeb: DefaultClientBrandingAttributes
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportClientBrandingResultTypeDef(BaseValidatorModel):
-    DeviceTypeWindows: DefaultClientBrandingAttributesTypeDef
-    DeviceTypeOsx: DefaultClientBrandingAttributesTypeDef
-    DeviceTypeAndroid: DefaultClientBrandingAttributesTypeDef
-    DeviceTypeIos: IosClientBrandingAttributesTypeDef
-    DeviceTypeLinux: DefaultClientBrandingAttributesTypeDef
-    DeviceTypeWeb: DefaultClientBrandingAttributesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ImportClientBrandingResult(BaseValidatorModel):
+    DeviceTypeWindows: DefaultClientBrandingAttributes
+    DeviceTypeOsx: DefaultClientBrandingAttributes
+    DeviceTypeAndroid: DefaultClientBrandingAttributes
+    DeviceTypeIos: IosClientBrandingAttributes
+    DeviceTypeLinux: DefaultClientBrandingAttributes
+    DeviceTypeWeb: DefaultClientBrandingAttributes
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorkspaceDirectoriesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeWorkspaceDirectoriesRequestPaginate(BaseValidatorModel):
     DirectoryIds: Optional[Sequence[str]] = None
     WorkspaceDirectoryNames: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
-    Filters: Optional[Sequence[DescribeWorkspaceDirectoriesFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[DescribeWorkspaceDirectoriesFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeWorkspaceDirectoriesRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspaceDirectoriesRequest(BaseValidatorModel):
     DirectoryIds: Optional[Sequence[str]] = None
     WorkspaceDirectoryNames: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[DescribeWorkspaceDirectoriesFilterTypeDef]] = None
+    Filters: Optional[Sequence[DescribeWorkspaceDirectoriesFilter]] = None
 
 
-class DescribeWorkspaceImagePermissionsResultTypeDef(BaseValidatorModel):
+class DescribeWorkspaceImagePermissionsResult(BaseValidatorModel):
     ImageId: str
-    ImagePermissions: List[ImagePermissionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ImagePermissions: List[ImagePermission]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeWorkspaceSnapshotsResultTypeDef(BaseValidatorModel):
-    RebuildSnapshots: List[SnapshotTypeDef]
-    RestoreSnapshots: List[SnapshotTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspaceSnapshotsResult(BaseValidatorModel):
+    RebuildSnapshots: List[Snapshot]
+    RestoreSnapshots: List[Snapshot]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorkspacesConnectionStatusResultTypeDef(BaseValidatorModel):
-    WorkspacesConnectionStatus: List[WorkspaceConnectionStatusTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspacesConnectionStatusResult(BaseValidatorModel):
+    WorkspacesConnectionStatus: List[WorkspaceConnectionStatus]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeWorkspacesPoolsRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspacesPoolsRequest(BaseValidatorModel):
     PoolIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[DescribeWorkspacesPoolsFilterTypeDef]] = None
+    Filters: Optional[Sequence[DescribeWorkspacesPoolsFilter]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class RebootWorkspacesResultTypeDef(BaseValidatorModel):
-    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class RebootWorkspacesResult(BaseValidatorModel):
+    FailedRequests: List[FailedWorkspaceChangeRequest]
+    ResponseMetadata: ResponseMetadata
 
 
-class RebuildWorkspacesResultTypeDef(BaseValidatorModel):
-    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class RebuildWorkspacesResult(BaseValidatorModel):
+    FailedRequests: List[FailedWorkspaceChangeRequest]
+    ResponseMetadata: ResponseMetadata
 
 
-class StartWorkspacesResultTypeDef(BaseValidatorModel):
-    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartWorkspacesResult(BaseValidatorModel):
+    FailedRequests: List[FailedWorkspaceChangeRequest]
+    ResponseMetadata: ResponseMetadata
 
 
-class StopWorkspacesResultTypeDef(BaseValidatorModel):
-    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopWorkspacesResult(BaseValidatorModel):
+    FailedRequests: List[FailedWorkspaceChangeRequest]
+    ResponseMetadata: ResponseMetadata
 
 
-class TerminateWorkspacesResultTypeDef(BaseValidatorModel):
-    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class TerminateWorkspacesResult(BaseValidatorModel):
+    FailedRequests: List[FailedWorkspaceChangeRequest]
+    ResponseMetadata: ResponseMetadata
 
 
-class WorkspacePropertiesOutputTypeDef(BaseValidatorModel):
+class WorkspacePropertiesOutput(BaseValidatorModel):
     RunningMode: Optional[RunningModeType] = None
     RunningModeAutoStopTimeoutInMinutes: Optional[int] = None
     RootVolumeSizeGib: Optional[int] = None
@@ -1096,10 +1096,10 @@ class WorkspacePropertiesOutputTypeDef(BaseValidatorModel):
     ComputeTypeName: Optional[ComputeType] = None
     Protocols: Optional[List[ProtocolType]] = None
     OperatingSystemName: Optional[OperatingSystemNameType] = None
-    GlobalAccelerator: Optional[GlobalAcceleratorForWorkSpaceTypeDef] = None
+    GlobalAccelerator: Optional[GlobalAcceleratorForWorkSpace] = None
 
 
-class WorkspacePropertiesTypeDef(BaseValidatorModel):
+class WorkspaceProperties(BaseValidatorModel):
     RunningMode: Optional[RunningModeType] = None
     RunningModeAutoStopTimeoutInMinutes: Optional[int] = None
     RootVolumeSizeGib: Optional[int] = None
@@ -1107,47 +1107,47 @@ class WorkspacePropertiesTypeDef(BaseValidatorModel):
     ComputeTypeName: Optional[ComputeType] = None
     Protocols: Optional[Sequence[ProtocolType]] = None
     OperatingSystemName: Optional[OperatingSystemNameType] = None
-    GlobalAccelerator: Optional[GlobalAcceleratorForWorkSpaceTypeDef] = None
+    GlobalAccelerator: Optional[GlobalAcceleratorForWorkSpace] = None
 
 
-class RegisterWorkspaceDirectoryRequestTypeDef(BaseValidatorModel):
+class RegisterWorkspaceDirectoryRequest(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     SubnetIds: Optional[Sequence[str]] = None
     EnableWorkDocs: Optional[bool] = None
     EnableSelfService: Optional[bool] = None
     Tenancy: Optional[TenancyType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     WorkspaceDirectoryName: Optional[str] = None
     WorkspaceDirectoryDescription: Optional[str] = None
     UserIdentityType: Optional[UserIdentityTypeType] = None
     IdcInstanceArn: Optional[str] = None
-    MicrosoftEntraConfig: Optional[MicrosoftEntraConfigTypeDef] = None
+    MicrosoftEntraConfig: Optional[MicrosoftEntraConfig] = None
     WorkspaceType: Optional[WorkspaceTypeType] = None
-    ActiveDirectoryConfig: Optional[ActiveDirectoryConfigTypeDef] = None
+    ActiveDirectoryConfig: Optional[ActiveDirectoryConfig] = None
 
 
-class ModifySamlPropertiesRequestTypeDef(BaseValidatorModel):
+class ModifySamlPropertiesRequest(BaseValidatorModel):
     ResourceId: str
-    SamlProperties: Optional[SamlPropertiesTypeDef] = None
+    SamlProperties: Optional[SamlProperties] = None
     PropertiesToDelete: Optional[Sequence[DeletableSamlPropertyType]] = None
 
 
-class ModifySelfservicePermissionsRequestTypeDef(BaseValidatorModel):
+class ModifySelfservicePermissionsRequest(BaseValidatorModel):
     ResourceId: str
-    SelfservicePermissions: SelfservicePermissionsTypeDef
+    SelfservicePermissions: SelfservicePermissions
 
 
-class ModifyWorkspaceAccessPropertiesRequestTypeDef(BaseValidatorModel):
+class ModifyWorkspaceAccessPropertiesRequest(BaseValidatorModel):
     ResourceId: str
-    WorkspaceAccessProperties: WorkspaceAccessPropertiesTypeDef
+    WorkspaceAccessProperties: WorkspaceAccessProperties
 
 
-class ModifyWorkspaceCreationPropertiesRequestTypeDef(BaseValidatorModel):
+class ModifyWorkspaceCreationPropertiesRequest(BaseValidatorModel):
     ResourceId: str
-    WorkspaceCreationProperties: WorkspaceCreationPropertiesTypeDef
+    WorkspaceCreationProperties: WorkspaceCreationProperties
 
 
-class WorkspacesPoolSessionTypeDef(BaseValidatorModel):
+class WorkspacesPoolSession(BaseValidatorModel):
     SessionId: str
     PoolId: str
     UserId: str
@@ -1155,174 +1155,174 @@ class WorkspacesPoolSessionTypeDef(BaseValidatorModel):
     ConnectionState: Optional[SessionConnectionStateType] = None
     InstanceId: Optional[str] = None
     ExpirationTime: Optional[datetime] = None
-    NetworkAccessConfiguration: Optional[NetworkAccessConfigurationTypeDef] = None
+    NetworkAccessConfiguration: Optional[NetworkAccessConfiguration] = None
     StartTime: Optional[datetime] = None
 
 
-class RebootWorkspacesRequestTypeDef(BaseValidatorModel):
-    RebootWorkspaceRequests: Sequence[RebootRequestTypeDef]
+class RebootWorkspacesRequest(BaseValidatorModel):
+    RebootWorkspaceRequests: Sequence[RebootRequest]
 
 
-class RebuildWorkspacesRequestTypeDef(BaseValidatorModel):
-    RebuildWorkspaceRequests: Sequence[RebuildRequestTypeDef]
+class RebuildWorkspacesRequest(BaseValidatorModel):
+    RebuildWorkspaceRequests: Sequence[RebuildRequest]
 
 
-class StartWorkspacesRequestTypeDef(BaseValidatorModel):
-    StartWorkspaceRequests: Sequence[StartRequestTypeDef]
+class StartWorkspacesRequest(BaseValidatorModel):
+    StartWorkspaceRequests: Sequence[StartRequest]
 
 
-class StopWorkspacesRequestTypeDef(BaseValidatorModel):
-    StopWorkspaceRequests: Sequence[StopRequestTypeDef]
+class StopWorkspacesRequest(BaseValidatorModel):
+    StopWorkspaceRequests: Sequence[StopRequest]
 
 
-class StreamingPropertiesOutputTypeDef(BaseValidatorModel):
+class StreamingPropertiesOutput(BaseValidatorModel):
     StreamingExperiencePreferredProtocol: Optional[StreamingExperiencePreferredProtocolEnumType] = None
-    UserSettings: Optional[List[UserSettingTypeDef]] = None
-    StorageConnectors: Optional[List[StorageConnectorTypeDef]] = None
-    GlobalAccelerator: Optional[GlobalAcceleratorForDirectoryTypeDef] = None
+    UserSettings: Optional[List[UserSetting]] = None
+    StorageConnectors: Optional[List[StorageConnector]] = None
+    GlobalAccelerator: Optional[GlobalAcceleratorForDirectory] = None
 
 
-class StreamingPropertiesTypeDef(BaseValidatorModel):
+class StreamingProperties(BaseValidatorModel):
     StreamingExperiencePreferredProtocol: Optional[StreamingExperiencePreferredProtocolEnumType] = None
-    UserSettings: Optional[Sequence[UserSettingTypeDef]] = None
-    StorageConnectors: Optional[Sequence[StorageConnectorTypeDef]] = None
-    GlobalAccelerator: Optional[GlobalAcceleratorForDirectoryTypeDef] = None
+    UserSettings: Optional[Sequence[UserSetting]] = None
+    StorageConnectors: Optional[Sequence[StorageConnector]] = None
+    GlobalAccelerator: Optional[GlobalAcceleratorForDirectory] = None
 
 
-class TerminateWorkspacesRequestTypeDef(BaseValidatorModel):
-    TerminateWorkspaceRequests: Sequence[TerminateRequestTypeDef]
+class TerminateWorkspacesRequest(BaseValidatorModel):
+    TerminateWorkspaceRequests: Sequence[TerminateRequest]
 
 
-class WorkspaceImageTypeDef(BaseValidatorModel):
+class WorkspaceImage(BaseValidatorModel):
     ImageId: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
-    OperatingSystem: Optional[OperatingSystemTypeDef] = None
+    OperatingSystem: Optional[OperatingSystem] = None
     State: Optional[WorkspaceImageStateType] = None
     RequiredTenancy: Optional[WorkspaceImageRequiredTenancyType] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
     Created: Optional[datetime] = None
     OwnerAccountId: Optional[str] = None
-    Updates: Optional[UpdateResultTypeDef] = None
-    ErrorDetails: Optional[List[ErrorDetailsTypeDef]] = None
+    Updates: Optional[UpdateResult] = None
+    ErrorDetails: Optional[List[ErrorDetails]] = None
 
 
-class WorkspacesPoolTypeDef(BaseValidatorModel):
+class WorkspacesPool(BaseValidatorModel):
     PoolId: str
     PoolArn: str
-    CapacityStatus: CapacityStatusTypeDef
+    CapacityStatus: CapacityStatus
     PoolName: str
     State: WorkspacesPoolStateType
     CreatedAt: datetime
     BundleId: str
     DirectoryId: str
     Description: Optional[str] = None
-    Errors: Optional[List[WorkspacesPoolErrorTypeDef]] = None
-    ApplicationSettings: Optional[ApplicationSettingsResponseTypeDef] = None
-    TimeoutSettings: Optional[TimeoutSettingsTypeDef] = None
+    Errors: Optional[List[WorkspacesPoolError]] = None
+    ApplicationSettings: Optional[ApplicationSettingsResponse] = None
+    TimeoutSettings: Optional[TimeoutSettings] = None
 
 
-class DescribeApplicationAssociationsResultTypeDef(BaseValidatorModel):
-    Associations: List[ApplicationResourceAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeApplicationAssociationsResult(BaseValidatorModel):
+    Associations: List[ApplicationResourceAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeBundleAssociationsResultTypeDef(BaseValidatorModel):
-    Associations: List[BundleResourceAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBundleAssociationsResult(BaseValidatorModel):
+    Associations: List[BundleResourceAssociation]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeImageAssociationsResultTypeDef(BaseValidatorModel):
-    Associations: List[ImageResourceAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeImageAssociationsResult(BaseValidatorModel):
+    Associations: List[ImageResourceAssociation]
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateWorkspaceApplicationResultTypeDef(BaseValidatorModel):
-    Association: WorkspaceResourceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateWorkspaceApplicationResult(BaseValidatorModel):
+    Association: WorkspaceResourceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorkspaceAssociationsResultTypeDef(BaseValidatorModel):
-    Associations: List[WorkspaceResourceAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspaceAssociationsResult(BaseValidatorModel):
+    Associations: List[WorkspaceResourceAssociation]
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateWorkspaceApplicationResultTypeDef(BaseValidatorModel):
-    Association: WorkspaceResourceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateWorkspaceApplicationResult(BaseValidatorModel):
+    Association: WorkspaceResourceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class WorkSpaceApplicationDeploymentTypeDef(BaseValidatorModel):
-    Associations: Optional[List[WorkspaceResourceAssociationTypeDef]] = None
+class WorkSpaceApplicationDeployment(BaseValidatorModel):
+    Associations: Optional[List[WorkspaceResourceAssociation]] = None
 
 
-class DescribeIpGroupsResultTypeDef(BaseValidatorModel):
-    Result: List[WorkspacesIpGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeIpGroupsResult(BaseValidatorModel):
+    Result: List[WorkspacesIpGroup]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ImportClientBrandingRequestTypeDef(BaseValidatorModel):
+class ImportClientBrandingRequest(BaseValidatorModel):
     ResourceId: str
-    DeviceTypeWindows: Optional[DefaultImportClientBrandingAttributesTypeDef] = None
-    DeviceTypeOsx: Optional[DefaultImportClientBrandingAttributesTypeDef] = None
-    DeviceTypeAndroid: Optional[DefaultImportClientBrandingAttributesTypeDef] = None
-    DeviceTypeIos: Optional[IosImportClientBrandingAttributesTypeDef] = None
-    DeviceTypeLinux: Optional[DefaultImportClientBrandingAttributesTypeDef] = None
-    DeviceTypeWeb: Optional[DefaultImportClientBrandingAttributesTypeDef] = None
+    DeviceTypeWindows: Optional[DefaultImportClientBrandingAttributes] = None
+    DeviceTypeOsx: Optional[DefaultImportClientBrandingAttributes] = None
+    DeviceTypeAndroid: Optional[DefaultImportClientBrandingAttributes] = None
+    DeviceTypeIos: Optional[IosImportClientBrandingAttributes] = None
+    DeviceTypeLinux: Optional[DefaultImportClientBrandingAttributes] = None
+    DeviceTypeWeb: Optional[DefaultImportClientBrandingAttributes] = None
 
 
-class DescribeClientPropertiesResultTypeDef(BaseValidatorModel):
-    ClientPropertiesList: List[ClientPropertiesResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClientPropertiesResult(BaseValidatorModel):
+    ClientPropertiesList: List[ClientPropertiesResult]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeConnectionAliasesResultTypeDef(BaseValidatorModel):
-    ConnectionAliases: List[ConnectionAliasTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeConnectionAliasesResult(BaseValidatorModel):
+    ConnectionAliases: List[ConnectionAlias]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FailedCreateStandbyWorkspacesRequestTypeDef(BaseValidatorModel):
-    StandbyWorkspaceRequest: Optional[StandbyWorkspaceOutputTypeDef] = None
+class FailedCreateStandbyWorkspacesRequest(BaseValidatorModel):
+    StandbyWorkspaceRequest: Optional[StandbyWorkspaceOutput] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class WorkspaceBundleTypeDef(BaseValidatorModel):
+class WorkspaceBundle(BaseValidatorModel):
     pass
 
 
-class CreateWorkspaceBundleResultTypeDef(BaseValidatorModel):
-    WorkspaceBundle: WorkspaceBundleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateWorkspaceBundleResult(BaseValidatorModel):
+    WorkspaceBundle: WorkspaceBundle
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorkspaceBundlesResultTypeDef(BaseValidatorModel):
-    Bundles: List[WorkspaceBundleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspaceBundlesResult(BaseValidatorModel):
+    Bundles: List[WorkspaceBundle]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class WorkspaceRequestOutputTypeDef(BaseValidatorModel):
+class WorkspaceRequestOutput(BaseValidatorModel):
     DirectoryId: str
     UserName: str
     BundleId: str
     VolumeEncryptionKey: Optional[str] = None
     UserVolumeEncryptionEnabled: Optional[bool] = None
     RootVolumeEncryptionEnabled: Optional[bool] = None
-    WorkspaceProperties: Optional[WorkspacePropertiesOutputTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    WorkspaceProperties: Optional[WorkspacePropertiesOutput] = None
+    Tags: Optional[List[Tag]] = None
     WorkspaceName: Optional[str] = None
 
 
-class RelatedWorkspacePropertiesTypeDef(BaseValidatorModel):
+class RelatedWorkspaceProperties(BaseValidatorModel):
     pass
 
 
-class WorkspaceTypeDef(BaseValidatorModel):
+class Workspace(BaseValidatorModel):
     WorkspaceId: Optional[str] = None
     DirectoryId: Optional[str] = None
     UserName: Optional[str] = None
@@ -1337,20 +1337,20 @@ class WorkspaceTypeDef(BaseValidatorModel):
     UserVolumeEncryptionEnabled: Optional[bool] = None
     RootVolumeEncryptionEnabled: Optional[bool] = None
     WorkspaceName: Optional[str] = None
-    WorkspaceProperties: Optional[WorkspacePropertiesOutputTypeDef] = None
-    ModificationStates: Optional[List[ModificationStateTypeDef]] = None
-    RelatedWorkspaces: Optional[List[RelatedWorkspacePropertiesTypeDef]] = None
-    DataReplicationSettings: Optional[DataReplicationSettingsTypeDef] = None
-    StandbyWorkspacesProperties: Optional[List[StandbyWorkspacesPropertiesTypeDef]] = None
+    WorkspaceProperties: Optional[WorkspacePropertiesOutput] = None
+    ModificationStates: Optional[List[ModificationState]] = None
+    RelatedWorkspaces: Optional[List[RelatedWorkspaceProperties]] = None
+    DataReplicationSettings: Optional[DataReplicationSettings] = None
+    StandbyWorkspacesProperties: Optional[List[StandbyWorkspacesProperties]] = None
 
 
-class DescribeWorkspacesPoolSessionsResultTypeDef(BaseValidatorModel):
-    Sessions: List[WorkspacesPoolSessionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspacesPoolSessionsResult(BaseValidatorModel):
+    Sessions: List[WorkspacesPoolSession]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class WorkspaceDirectoryTypeDef(BaseValidatorModel):
+class WorkspaceDirectory(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     Alias: Optional[str] = None
     DirectoryName: Optional[str] = None
@@ -1362,127 +1362,127 @@ class WorkspaceDirectoryTypeDef(BaseValidatorModel):
     DirectoryType: Optional[WorkspaceDirectoryTypeType] = None
     WorkspaceSecurityGroupId: Optional[str] = None
     State: Optional[WorkspaceDirectoryStateType] = None
-    WorkspaceCreationProperties: Optional[DefaultWorkspaceCreationPropertiesTypeDef] = None
+    WorkspaceCreationProperties: Optional[DefaultWorkspaceCreationProperties] = None
     ipGroupIds: Optional[List[str]] = None
-    WorkspaceAccessProperties: Optional[WorkspaceAccessPropertiesTypeDef] = None
+    WorkspaceAccessProperties: Optional[WorkspaceAccessProperties] = None
     Tenancy: Optional[TenancyType] = None
-    SelfservicePermissions: Optional[SelfservicePermissionsTypeDef] = None
-    SamlProperties: Optional[SamlPropertiesTypeDef] = None
-    CertificateBasedAuthProperties: Optional[CertificateBasedAuthPropertiesTypeDef] = None
+    SelfservicePermissions: Optional[SelfservicePermissions] = None
+    SamlProperties: Optional[SamlProperties] = None
+    CertificateBasedAuthProperties: Optional[CertificateBasedAuthProperties] = None
     EndpointEncryptionMode: Optional[EndpointEncryptionModeType] = None
-    MicrosoftEntraConfig: Optional[MicrosoftEntraConfigTypeDef] = None
+    MicrosoftEntraConfig: Optional[MicrosoftEntraConfig] = None
     WorkspaceDirectoryName: Optional[str] = None
     WorkspaceDirectoryDescription: Optional[str] = None
     UserIdentityType: Optional[UserIdentityTypeType] = None
     WorkspaceType: Optional[WorkspaceTypeType] = None
-    IDCConfig: Optional[IDCConfigTypeDef] = None
-    ActiveDirectoryConfig: Optional[ActiveDirectoryConfigTypeDef] = None
-    StreamingProperties: Optional[StreamingPropertiesOutputTypeDef] = None
+    IDCConfig: Optional[IDCConfig] = None
+    ActiveDirectoryConfig: Optional[ActiveDirectoryConfig] = None
+    StreamingProperties: Optional[StreamingPropertiesOutput] = None
     ErrorMessage: Optional[str] = None
 
 
-class DescribeWorkspaceImagesResultTypeDef(BaseValidatorModel):
-    Images: List[WorkspaceImageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspaceImagesResult(BaseValidatorModel):
+    Images: List[WorkspaceImage]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateWorkspacesPoolResultTypeDef(BaseValidatorModel):
-    WorkspacesPool: WorkspacesPoolTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateWorkspacesPoolResult(BaseValidatorModel):
+    WorkspacesPool: WorkspacesPool
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorkspacesPoolsResultTypeDef(BaseValidatorModel):
-    WorkspacesPools: List[WorkspacesPoolTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspacesPoolsResult(BaseValidatorModel):
+    WorkspacesPools: List[WorkspacesPool]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateWorkspacesPoolResultTypeDef(BaseValidatorModel):
-    WorkspacesPool: WorkspacesPoolTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateWorkspacesPoolResult(BaseValidatorModel):
+    WorkspacesPool: WorkspacesPool
+    ResponseMetadata: ResponseMetadata
 
 
-class DeployWorkspaceApplicationsResultTypeDef(BaseValidatorModel):
-    Deployment: WorkSpaceApplicationDeploymentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeployWorkspaceApplicationsResult(BaseValidatorModel):
+    Deployment: WorkSpaceApplicationDeployment
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStandbyWorkspacesResultTypeDef(BaseValidatorModel):
-    FailedStandbyRequests: List[FailedCreateStandbyWorkspacesRequestTypeDef]
-    PendingStandbyRequests: List[PendingCreateStandbyWorkspacesRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateStandbyWorkspacesResult(BaseValidatorModel):
+    FailedStandbyRequests: List[FailedCreateStandbyWorkspacesRequest]
+    PendingStandbyRequests: List[PendingCreateStandbyWorkspacesRequest]
+    ResponseMetadata: ResponseMetadata
 
 
-class StandbyWorkspaceUnionTypeDef(BaseValidatorModel):
+class StandbyWorkspaceUnion(BaseValidatorModel):
     pass
 
 
-class CreateStandbyWorkspacesRequestTypeDef(BaseValidatorModel):
+class CreateStandbyWorkspacesRequest(BaseValidatorModel):
     PrimaryRegion: str
-    StandbyWorkspaces: Sequence[StandbyWorkspaceUnionTypeDef]
+    StandbyWorkspaces: Sequence[StandbyWorkspaceUnion]
 
 
-class FailedCreateWorkspaceRequestTypeDef(BaseValidatorModel):
-    WorkspaceRequest: Optional[WorkspaceRequestOutputTypeDef] = None
+class FailedCreateWorkspaceRequest(BaseValidatorModel):
+    WorkspaceRequest: Optional[WorkspaceRequestOutput] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class DescribeWorkspacesResultTypeDef(BaseValidatorModel):
-    Workspaces: List[WorkspaceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspacesResult(BaseValidatorModel):
+    Workspaces: List[Workspace]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class WorkspacePropertiesUnionTypeDef(BaseValidatorModel):
+class WorkspacePropertiesUnion(BaseValidatorModel):
     pass
 
 
-class ModifyWorkspacePropertiesRequestTypeDef(BaseValidatorModel):
+class ModifyWorkspacePropertiesRequest(BaseValidatorModel):
     WorkspaceId: str
-    WorkspaceProperties: Optional[WorkspacePropertiesUnionTypeDef] = None
+    WorkspaceProperties: Optional[WorkspacePropertiesUnion] = None
     DataReplication: Optional[DataReplicationType] = None
 
 
-class WorkspaceRequestTypeDef(BaseValidatorModel):
+class WorkspaceRequest(BaseValidatorModel):
     DirectoryId: str
     UserName: str
     BundleId: str
     VolumeEncryptionKey: Optional[str] = None
     UserVolumeEncryptionEnabled: Optional[bool] = None
     RootVolumeEncryptionEnabled: Optional[bool] = None
-    WorkspaceProperties: Optional[WorkspacePropertiesUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    WorkspaceProperties: Optional[WorkspacePropertiesUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
     WorkspaceName: Optional[str] = None
 
 
-class DescribeWorkspaceDirectoriesResultTypeDef(BaseValidatorModel):
-    Directories: List[WorkspaceDirectoryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspaceDirectoriesResult(BaseValidatorModel):
+    Directories: List[WorkspaceDirectory]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StreamingPropertiesUnionTypeDef(BaseValidatorModel):
+class StreamingPropertiesUnion(BaseValidatorModel):
     pass
 
 
-class ModifyStreamingPropertiesRequestTypeDef(BaseValidatorModel):
+class ModifyStreamingPropertiesRequest(BaseValidatorModel):
     ResourceId: str
-    StreamingProperties: Optional[StreamingPropertiesUnionTypeDef] = None
+    StreamingProperties: Optional[StreamingPropertiesUnion] = None
 
 
-class CreateWorkspacesResultTypeDef(BaseValidatorModel):
-    FailedRequests: List[FailedCreateWorkspaceRequestTypeDef]
-    PendingRequests: List[WorkspaceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateWorkspacesResult(BaseValidatorModel):
+    FailedRequests: List[FailedCreateWorkspaceRequest]
+    PendingRequests: List[Workspace]
+    ResponseMetadata: ResponseMetadata
 
 
-class WorkspaceRequestUnionTypeDef(BaseValidatorModel):
+class WorkspaceRequestUnion(BaseValidatorModel):
     pass
 
 
-class CreateWorkspacesRequestTypeDef(BaseValidatorModel):
-    Workspaces: Sequence[WorkspaceRequestUnionTypeDef]
+class CreateWorkspacesRequest(BaseValidatorModel):
+    Workspaces: Sequence[WorkspaceRequestUnion]
 
 

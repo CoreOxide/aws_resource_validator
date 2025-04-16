@@ -12,19 +12,19 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.repostspace_constants import *
 
-class BatchAddRoleInputTypeDef(BaseValidatorModel):
+class BatchAddRoleInput(BaseValidatorModel):
     accessorIds: Sequence[str]
     role: RoleType
     spaceId: str
 
 
-class BatchErrorTypeDef(BaseValidatorModel):
+class BatchError(BaseValidatorModel):
     accessorId: str
     error: int
     message: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -32,13 +32,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchRemoveRoleInputTypeDef(BaseValidatorModel):
+class BatchRemoveRoleInput(BaseValidatorModel):
     accessorIds: Sequence[str]
     role: RoleType
     spaceId: str
 
 
-class CreateSpaceInputTypeDef(BaseValidatorModel):
+class CreateSpaceInput(BaseValidatorModel):
     name: str
     subdomain: str
     tier: TierLevelType
@@ -48,31 +48,31 @@ class CreateSpaceInputTypeDef(BaseValidatorModel):
     userKMSKey: Optional[str] = None
 
 
-class DeleteSpaceInputTypeDef(BaseValidatorModel):
+class DeleteSpaceInput(BaseValidatorModel):
     spaceId: str
 
 
-class DeregisterAdminInputTypeDef(BaseValidatorModel):
+class DeregisterAdminInput(BaseValidatorModel):
     adminId: str
     spaceId: str
 
 
-class GetSpaceInputTypeDef(BaseValidatorModel):
+class GetSpaceInput(BaseValidatorModel):
     spaceId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListSpacesInputTypeDef(BaseValidatorModel):
+class ListSpacesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class SpaceDataTypeDef(BaseValidatorModel):
+class SpaceData(BaseValidatorModel):
     arn: str
     configurationStatus: ConfigurationStatusType
     createDateTime: datetime
@@ -91,61 +91,61 @@ class SpaceDataTypeDef(BaseValidatorModel):
     userKMSKey: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class RegisterAdminInputTypeDef(BaseValidatorModel):
+class RegisterAdminInput(BaseValidatorModel):
     adminId: str
     spaceId: str
 
 
-class SendInvitesInputTypeDef(BaseValidatorModel):
+class SendInvitesInput(BaseValidatorModel):
     accessorIds: Sequence[str]
     body: str
     spaceId: str
     title: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateSpaceInputTypeDef(BaseValidatorModel):
+class UpdateSpaceInput(BaseValidatorModel):
     spaceId: str
     description: Optional[str] = None
     roleArn: Optional[str] = None
     tier: Optional[TierLevelType] = None
 
 
-class BatchAddRoleOutputTypeDef(BaseValidatorModel):
+class BatchAddRoleOutput(BaseValidatorModel):
     addedAccessorIds: List[str]
-    errors: List[BatchErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    errors: List[BatchError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchRemoveRoleOutputTypeDef(BaseValidatorModel):
-    errors: List[BatchErrorTypeDef]
+class BatchRemoveRoleOutput(BaseValidatorModel):
+    errors: List[BatchError]
     removedAccessorIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSpaceOutputTypeDef(BaseValidatorModel):
+class CreateSpaceOutput(BaseValidatorModel):
     spaceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSpaceOutputTypeDef(BaseValidatorModel):
+class GetSpaceOutput(BaseValidatorModel):
     arn: str
     clientId: str
     configurationStatus: ConfigurationStatusType
@@ -167,21 +167,21 @@ class GetSpaceOutputTypeDef(BaseValidatorModel):
     userKMSKey: str
     vanityDomain: str
     vanityDomainStatus: VanityDomainStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSpacesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSpacesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSpacesOutputTypeDef(BaseValidatorModel):
-    spaces: List[SpaceDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSpacesOutput(BaseValidatorModel):
+    spaces: List[SpaceData]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

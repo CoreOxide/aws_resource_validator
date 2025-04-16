@@ -12,25 +12,25 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_constants import *
 
-class AccountAttributeTypeDef(BaseValidatorModel):
+class AccountAttribute(BaseValidatorModel):
     Name: AccountAttributeNameType
     Value: str
 
 
-class AccountLimitTypeDef(BaseValidatorModel):
+class AccountLimit(BaseValidatorModel):
     Name: AccountLimitNameType
     Used: int
     Max: int
 
 
-class AssociateOriginationIdentityRequestTypeDef(BaseValidatorModel):
+class AssociateOriginationIdentityRequest(BaseValidatorModel):
     PoolId: str
     OriginationIdentity: str
     IsoCountryCode: str
     ClientToken: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -38,45 +38,45 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociateProtectConfigurationRequestTypeDef(BaseValidatorModel):
+class AssociateProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     ConfigurationSetName: str
 
 
-class CloudWatchLogsDestinationTypeDef(BaseValidatorModel):
+class CloudWatchLogsDestination(BaseValidatorModel):
     IamRoleArn: str
     LogGroupArn: str
 
 
-class ConfigurationSetFilterTypeDef(BaseValidatorModel):
+class ConfigurationSetFilter(BaseValidatorModel):
     Name: ConfigurationSetFilterNameType
     Values: Sequence[str]
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class KinesisFirehoseDestinationTypeDef(BaseValidatorModel):
+class KinesisFirehoseDestination(BaseValidatorModel):
     IamRoleArn: str
     DeliveryStreamArn: str
 
 
-class SnsDestinationTypeDef(BaseValidatorModel):
+class SnsDestination(BaseValidatorModel):
     TopicArn: str
 
 
-class CreateRegistrationAssociationRequestTypeDef(BaseValidatorModel):
+class CreateRegistrationAssociationRequest(BaseValidatorModel):
     RegistrationId: str
     ResourceId: str
 
 
-class CreateRegistrationVersionRequestTypeDef(BaseValidatorModel):
+class CreateRegistrationVersionRequest(BaseValidatorModel):
     RegistrationId: str
 
 
-class RegistrationVersionStatusHistoryTypeDef(BaseValidatorModel):
+class RegistrationVersionStatusHistory(BaseValidatorModel):
     DraftTimestamp: datetime
     SubmittedTimestamp: Optional[datetime] = None
     ReviewingTimestamp: Optional[datetime] = None
@@ -88,128 +88,128 @@ class RegistrationVersionStatusHistoryTypeDef(BaseValidatorModel):
     ArchivedTimestamp: Optional[datetime] = None
 
 
-class DeleteConfigurationSetRequestTypeDef(BaseValidatorModel):
+class DeleteConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
-class DeleteDefaultMessageTypeRequestTypeDef(BaseValidatorModel):
+class DeleteDefaultMessageTypeRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
-class DeleteDefaultSenderIdRequestTypeDef(BaseValidatorModel):
+class DeleteDefaultSenderIdRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
-class DeleteEventDestinationRequestTypeDef(BaseValidatorModel):
+class DeleteEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
     EventDestinationName: str
 
 
-class DeleteKeywordRequestTypeDef(BaseValidatorModel):
+class DeleteKeywordRequest(BaseValidatorModel):
     OriginationIdentity: str
     Keyword: str
 
 
-class DeleteOptOutListRequestTypeDef(BaseValidatorModel):
+class DeleteOptOutListRequest(BaseValidatorModel):
     OptOutListName: str
 
 
-class DeleteOptedOutNumberRequestTypeDef(BaseValidatorModel):
+class DeleteOptedOutNumberRequest(BaseValidatorModel):
     OptOutListName: str
     OptedOutNumber: str
 
 
-class DeletePoolRequestTypeDef(BaseValidatorModel):
+class DeletePoolRequest(BaseValidatorModel):
     PoolId: str
 
 
-class DeleteProtectConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
 
 
-class DeleteProtectConfigurationRuleSetNumberOverrideRequestTypeDef(BaseValidatorModel):
+class DeleteProtectConfigurationRuleSetNumberOverrideRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     DestinationPhoneNumber: str
 
 
-class DeleteRegistrationAttachmentRequestTypeDef(BaseValidatorModel):
+class DeleteRegistrationAttachmentRequest(BaseValidatorModel):
     RegistrationAttachmentId: str
 
 
-class DeleteRegistrationFieldValueRequestTypeDef(BaseValidatorModel):
+class DeleteRegistrationFieldValueRequest(BaseValidatorModel):
     RegistrationId: str
     FieldPath: str
 
 
-class DeleteRegistrationRequestTypeDef(BaseValidatorModel):
+class DeleteRegistrationRequest(BaseValidatorModel):
     RegistrationId: str
 
 
-class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class DeleteVerifiedDestinationNumberRequestTypeDef(BaseValidatorModel):
+class DeleteVerifiedDestinationNumberRequest(BaseValidatorModel):
     VerifiedDestinationNumberId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeAccountAttributesRequestTypeDef(BaseValidatorModel):
+class DescribeAccountAttributesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeAccountLimitsRequestTypeDef(BaseValidatorModel):
+class DescribeAccountLimitsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class KeywordFilterTypeDef(BaseValidatorModel):
+class KeywordFilter(BaseValidatorModel):
     Name: Literal["keyword-action"]
     Values: Sequence[str]
 
 
-class KeywordInformationTypeDef(BaseValidatorModel):
+class KeywordInformation(BaseValidatorModel):
     Keyword: str
     KeywordMessage: str
     KeywordAction: KeywordActionType
 
 
-class DescribeOptOutListsRequestTypeDef(BaseValidatorModel):
+class DescribeOptOutListsRequest(BaseValidatorModel):
     OptOutListNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Owner: Optional[OwnerType] = None
 
 
-class OptOutListInformationTypeDef(BaseValidatorModel):
+class OptOutListInformation(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
     CreatedTimestamp: datetime
 
 
-class OptedOutFilterTypeDef(BaseValidatorModel):
+class OptedOutFilter(BaseValidatorModel):
     Name: Literal["end-user-opted-out"]
     Values: Sequence[str]
 
 
-class OptedOutNumberInformationTypeDef(BaseValidatorModel):
+class OptedOutNumberInformation(BaseValidatorModel):
     OptedOutNumber: str
     OptedOutTimestamp: datetime
     EndUserOptedOut: bool
 
 
-class PhoneNumberFilterTypeDef(BaseValidatorModel):
+class PhoneNumberFilter(BaseValidatorModel):
     Name: PhoneNumberFilterNameType
     Values: Sequence[str]
 
 
-class PhoneNumberInformationTypeDef(BaseValidatorModel):
+class PhoneNumberInformation(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumber: str
     Status: NumberStatusType
@@ -230,12 +230,12 @@ class PhoneNumberInformationTypeDef(BaseValidatorModel):
     RegistrationId: Optional[str] = None
 
 
-class PoolFilterTypeDef(BaseValidatorModel):
+class PoolFilter(BaseValidatorModel):
     Name: PoolFilterNameType
     Values: Sequence[str]
 
 
-class PoolInformationTypeDef(BaseValidatorModel):
+class PoolInformation(BaseValidatorModel):
     PoolArn: str
     PoolId: str
     Status: PoolStatusType
@@ -250,12 +250,12 @@ class PoolInformationTypeDef(BaseValidatorModel):
     TwoWayChannelRole: Optional[str] = None
 
 
-class ProtectConfigurationFilterTypeDef(BaseValidatorModel):
+class ProtectConfigurationFilter(BaseValidatorModel):
     Name: ProtectConfigurationFilterNameType
     Values: Sequence[str]
 
 
-class ProtectConfigurationInformationTypeDef(BaseValidatorModel):
+class ProtectConfigurationInformation(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
     CreatedTimestamp: datetime
@@ -263,12 +263,12 @@ class ProtectConfigurationInformationTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: bool
 
 
-class RegistrationAttachmentFilterTypeDef(BaseValidatorModel):
+class RegistrationAttachmentFilter(BaseValidatorModel):
     Name: Literal["attachment-status"]
     Values: Sequence[str]
 
 
-class RegistrationAttachmentsInformationTypeDef(BaseValidatorModel):
+class RegistrationAttachmentsInformation(BaseValidatorModel):
     RegistrationAttachmentArn: str
     RegistrationAttachmentId: str
     AttachmentStatus: AttachmentStatusType
@@ -276,7 +276,7 @@ class RegistrationAttachmentsInformationTypeDef(BaseValidatorModel):
     AttachmentUploadErrorReason: Optional[Literal["INTERNAL_ERROR"]] = None
 
 
-class DescribeRegistrationFieldDefinitionsRequestTypeDef(BaseValidatorModel):
+class DescribeRegistrationFieldDefinitionsRequest(BaseValidatorModel):
     RegistrationType: str
     SectionPath: Optional[str] = None
     FieldPaths: Optional[Sequence[str]] = None
@@ -284,7 +284,7 @@ class DescribeRegistrationFieldDefinitionsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class DescribeRegistrationFieldValuesRequestTypeDef(BaseValidatorModel):
+class DescribeRegistrationFieldValuesRequest(BaseValidatorModel):
     RegistrationId: str
     VersionNumber: Optional[int] = None
     SectionPath: Optional[str] = None
@@ -293,7 +293,7 @@ class DescribeRegistrationFieldValuesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class RegistrationFieldValueInformationTypeDef(BaseValidatorModel):
+class RegistrationFieldValueInformation(BaseValidatorModel):
     FieldPath: str
     SelectChoices: Optional[List[str]] = None
     TextValue: Optional[str] = None
@@ -301,29 +301,29 @@ class RegistrationFieldValueInformationTypeDef(BaseValidatorModel):
     DeniedReason: Optional[str] = None
 
 
-class DescribeRegistrationSectionDefinitionsRequestTypeDef(BaseValidatorModel):
+class DescribeRegistrationSectionDefinitionsRequest(BaseValidatorModel):
     RegistrationType: str
     SectionPaths: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class RegistrationTypeFilterTypeDef(BaseValidatorModel):
+class RegistrationTypeFilter(BaseValidatorModel):
     Name: RegistrationTypeFilterNameType
     Values: Sequence[str]
 
 
-class RegistrationVersionFilterTypeDef(BaseValidatorModel):
+class RegistrationVersionFilter(BaseValidatorModel):
     Name: Literal["registration-version-status"]
     Values: Sequence[str]
 
 
-class RegistrationFilterTypeDef(BaseValidatorModel):
+class RegistrationFilter(BaseValidatorModel):
     Name: RegistrationFilterNameType
     Values: Sequence[str]
 
 
-class RegistrationInformationTypeDef(BaseValidatorModel):
+class RegistrationInformation(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     RegistrationType: str
@@ -335,17 +335,17 @@ class RegistrationInformationTypeDef(BaseValidatorModel):
     AdditionalAttributes: Optional[Dict[str, str]] = None
 
 
-class SenderIdAndCountryTypeDef(BaseValidatorModel):
+class SenderIdAndCountry(BaseValidatorModel):
     SenderId: str
     IsoCountryCode: str
 
 
-class SenderIdFilterTypeDef(BaseValidatorModel):
+class SenderIdFilter(BaseValidatorModel):
     Name: SenderIdFilterNameType
     Values: Sequence[str]
 
 
-class SenderIdInformationTypeDef(BaseValidatorModel):
+class SenderIdInformation(BaseValidatorModel):
     SenderIdArn: str
     SenderId: str
     IsoCountryCode: str
@@ -356,24 +356,24 @@ class SenderIdInformationTypeDef(BaseValidatorModel):
     RegistrationId: Optional[str] = None
 
 
-class DescribeSpendLimitsRequestTypeDef(BaseValidatorModel):
+class DescribeSpendLimitsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class SpendLimitTypeDef(BaseValidatorModel):
+class SpendLimit(BaseValidatorModel):
     Name: SpendLimitNameType
     EnforcedLimit: int
     MaxLimit: int
     Overridden: bool
 
 
-class VerifiedDestinationNumberFilterTypeDef(BaseValidatorModel):
+class VerifiedDestinationNumberFilter(BaseValidatorModel):
     Name: Literal["status"]
     Values: Sequence[str]
 
 
-class VerifiedDestinationNumberInformationTypeDef(BaseValidatorModel):
+class VerifiedDestinationNumberInformation(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
     DestinationPhoneNumber: str
@@ -381,41 +381,41 @@ class VerifiedDestinationNumberInformationTypeDef(BaseValidatorModel):
     CreatedTimestamp: datetime
 
 
-class DisassociateOriginationIdentityRequestTypeDef(BaseValidatorModel):
+class DisassociateOriginationIdentityRequest(BaseValidatorModel):
     PoolId: str
     OriginationIdentity: str
     IsoCountryCode: str
     ClientToken: Optional[str] = None
 
 
-class DisassociateProtectConfigurationRequestTypeDef(BaseValidatorModel):
+class DisassociateProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     ConfigurationSetName: str
 
 
-class DiscardRegistrationVersionRequestTypeDef(BaseValidatorModel):
+class DiscardRegistrationVersionRequest(BaseValidatorModel):
     RegistrationId: str
 
 
-class GetProtectConfigurationCountryRuleSetRequestTypeDef(BaseValidatorModel):
+class GetProtectConfigurationCountryRuleSetRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     NumberCapability: NumberCapabilityType
 
 
-class ProtectConfigurationCountryRuleSetInformationTypeDef(BaseValidatorModel):
+class ProtectConfigurationCountryRuleSetInformation(BaseValidatorModel):
     ProtectStatus: ProtectStatusType
 
 
-class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
+class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class PoolOriginationIdentitiesFilterTypeDef(BaseValidatorModel):
+class PoolOriginationIdentitiesFilter(BaseValidatorModel):
     Name: PoolOriginationIdentitiesFilterNameType
     Values: Sequence[str]
 
 
-class OriginationIdentityMetadataTypeDef(BaseValidatorModel):
+class OriginationIdentityMetadata(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
     IsoCountryCode: str
@@ -423,12 +423,12 @@ class OriginationIdentityMetadataTypeDef(BaseValidatorModel):
     PhoneNumber: Optional[str] = None
 
 
-class ProtectConfigurationRuleSetNumberOverrideFilterItemTypeDef(BaseValidatorModel):
+class ProtectConfigurationRuleSetNumberOverrideFilterItem(BaseValidatorModel):
     Name: ProtectConfigurationRuleSetNumberOverrideFilterNameType
     Values: Sequence[str]
 
 
-class ProtectConfigurationRuleSetNumberOverrideTypeDef(BaseValidatorModel):
+class ProtectConfigurationRuleSetNumberOverride(BaseValidatorModel):
     DestinationPhoneNumber: str
     CreatedTimestamp: datetime
     Action: ProtectConfigurationRuleOverrideActionType
@@ -436,12 +436,12 @@ class ProtectConfigurationRuleSetNumberOverrideTypeDef(BaseValidatorModel):
     ExpirationTimestamp: Optional[datetime] = None
 
 
-class RegistrationAssociationFilterTypeDef(BaseValidatorModel):
+class RegistrationAssociationFilter(BaseValidatorModel):
     Name: RegistrationAssociationFilterNameType
     Values: Sequence[str]
 
 
-class RegistrationAssociationMetadataTypeDef(BaseValidatorModel):
+class RegistrationAssociationMetadata(BaseValidatorModel):
     ResourceArn: str
     ResourceId: str
     ResourceType: str
@@ -449,28 +449,28 @@ class RegistrationAssociationMetadataTypeDef(BaseValidatorModel):
     PhoneNumber: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class PutKeywordRequestTypeDef(BaseValidatorModel):
+class PutKeywordRequest(BaseValidatorModel):
     OriginationIdentity: str
     Keyword: str
     KeywordMessage: str
     KeywordAction: Optional[KeywordActionType] = None
 
 
-class PutMessageFeedbackRequestTypeDef(BaseValidatorModel):
+class PutMessageFeedbackRequest(BaseValidatorModel):
     MessageId: str
     MessageFeedbackStatus: MessageFeedbackStatusType
 
 
-class PutOptedOutNumberRequestTypeDef(BaseValidatorModel):
+class PutOptedOutNumberRequest(BaseValidatorModel):
     OptOutListName: str
     OptedOutNumber: str
 
 
-class PutRegistrationFieldValueRequestTypeDef(BaseValidatorModel):
+class PutRegistrationFieldValueRequest(BaseValidatorModel):
     RegistrationId: str
     FieldPath: str
     SelectChoices: Optional[Sequence[str]] = None
@@ -478,12 +478,12 @@ class PutRegistrationFieldValueRequestTypeDef(BaseValidatorModel):
     RegistrationAttachmentId: Optional[str] = None
 
 
-class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
+class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     Policy: str
 
 
-class RegistrationDeniedReasonInformationTypeDef(BaseValidatorModel):
+class RegistrationDeniedReasonInformation(BaseValidatorModel):
     Reason: str
     ShortDescription: str
     LongDescription: Optional[str] = None
@@ -491,19 +491,19 @@ class RegistrationDeniedReasonInformationTypeDef(BaseValidatorModel):
     DocumentationLink: Optional[str] = None
 
 
-class SelectValidationTypeDef(BaseValidatorModel):
+class SelectValidation(BaseValidatorModel):
     MinChoices: int
     MaxChoices: int
     Options: List[str]
 
 
-class SelectOptionDescriptionTypeDef(BaseValidatorModel):
+class SelectOptionDescription(BaseValidatorModel):
     Option: str
     Title: Optional[str] = None
     Description: Optional[str] = None
 
 
-class RegistrationSectionDisplayHintsTypeDef(BaseValidatorModel):
+class RegistrationSectionDisplayHints(BaseValidatorModel):
     Title: str
     ShortDescription: str
     LongDescription: Optional[str] = None
@@ -511,7 +511,7 @@ class RegistrationSectionDisplayHintsTypeDef(BaseValidatorModel):
     DocumentationLink: Optional[str] = None
 
 
-class RegistrationTypeDisplayHintsTypeDef(BaseValidatorModel):
+class RegistrationTypeDisplayHints(BaseValidatorModel):
     Title: str
     ShortDescription: Optional[str] = None
     LongDescription: Optional[str] = None
@@ -519,23 +519,23 @@ class RegistrationTypeDisplayHintsTypeDef(BaseValidatorModel):
     DocumentationLink: Optional[str] = None
 
 
-class SupportedAssociationTypeDef(BaseValidatorModel):
+class SupportedAssociation(BaseValidatorModel):
     ResourceType: str
     AssociationBehavior: RegistrationAssociationBehaviorType
     DisassociationBehavior: RegistrationDisassociationBehaviorType
     IsoCountryCode: Optional[str] = None
 
 
-class ReleasePhoneNumberRequestTypeDef(BaseValidatorModel):
+class ReleasePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
-class ReleaseSenderIdRequestTypeDef(BaseValidatorModel):
+class ReleaseSenderIdRequest(BaseValidatorModel):
     SenderId: str
     IsoCountryCode: str
 
 
-class SendDestinationNumberVerificationCodeRequestTypeDef(BaseValidatorModel):
+class SendDestinationNumberVerificationCodeRequest(BaseValidatorModel):
     VerifiedDestinationNumberId: str
     VerificationChannel: VerificationChannelType
     LanguageCode: Optional[LanguageCodeType] = None
@@ -545,7 +545,7 @@ class SendDestinationNumberVerificationCodeRequestTypeDef(BaseValidatorModel):
     DestinationCountryParameters: Optional[Mapping[DestinationCountryParameterKeyType, str]] = None
 
 
-class SendMediaMessageRequestTypeDef(BaseValidatorModel):
+class SendMediaMessageRequest(BaseValidatorModel):
     DestinationPhoneNumber: str
     OriginationIdentity: str
     MessageBody: Optional[str] = None
@@ -559,7 +559,7 @@ class SendMediaMessageRequestTypeDef(BaseValidatorModel):
     MessageFeedbackEnabled: Optional[bool] = None
 
 
-class SendTextMessageRequestTypeDef(BaseValidatorModel):
+class SendTextMessageRequest(BaseValidatorModel):
     DestinationPhoneNumber: str
     OriginationIdentity: Optional[str] = None
     MessageBody: Optional[str] = None
@@ -575,7 +575,7 @@ class SendTextMessageRequestTypeDef(BaseValidatorModel):
     MessageFeedbackEnabled: Optional[bool] = None
 
 
-class SendVoiceMessageRequestTypeDef(BaseValidatorModel):
+class SendVoiceMessageRequest(BaseValidatorModel):
     DestinationPhoneNumber: str
     OriginationIdentity: str
     MessageBody: Optional[str] = None
@@ -590,47 +590,47 @@ class SendVoiceMessageRequestTypeDef(BaseValidatorModel):
     MessageFeedbackEnabled: Optional[bool] = None
 
 
-class SetAccountDefaultProtectConfigurationRequestTypeDef(BaseValidatorModel):
+class SetAccountDefaultProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
 
 
-class SetDefaultMessageFeedbackEnabledRequestTypeDef(BaseValidatorModel):
+class SetDefaultMessageFeedbackEnabledRequest(BaseValidatorModel):
     ConfigurationSetName: str
     MessageFeedbackEnabled: bool
 
 
-class SetDefaultMessageTypeRequestTypeDef(BaseValidatorModel):
+class SetDefaultMessageTypeRequest(BaseValidatorModel):
     ConfigurationSetName: str
     MessageType: MessageTypeType
 
 
-class SetDefaultSenderIdRequestTypeDef(BaseValidatorModel):
+class SetDefaultSenderIdRequest(BaseValidatorModel):
     ConfigurationSetName: str
     SenderId: str
 
 
-class SetMediaMessageSpendLimitOverrideRequestTypeDef(BaseValidatorModel):
+class SetMediaMessageSpendLimitOverrideRequest(BaseValidatorModel):
     MonthlyLimit: int
 
 
-class SetTextMessageSpendLimitOverrideRequestTypeDef(BaseValidatorModel):
+class SetTextMessageSpendLimitOverrideRequest(BaseValidatorModel):
     MonthlyLimit: int
 
 
-class SetVoiceMessageSpendLimitOverrideRequestTypeDef(BaseValidatorModel):
+class SetVoiceMessageSpendLimitOverrideRequest(BaseValidatorModel):
     MonthlyLimit: int
 
 
-class SubmitRegistrationVersionRequestTypeDef(BaseValidatorModel):
+class SubmitRegistrationVersionRequest(BaseValidatorModel):
     RegistrationId: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
+class UpdatePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
     TwoWayEnabled: Optional[bool] = None
     TwoWayChannelArn: Optional[str] = None
@@ -640,7 +640,7 @@ class UpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: Optional[bool] = None
 
 
-class UpdatePoolRequestTypeDef(BaseValidatorModel):
+class UpdatePoolRequest(BaseValidatorModel):
     PoolId: str
     TwoWayEnabled: Optional[bool] = None
     TwoWayChannelArn: Optional[str] = None
@@ -651,40 +651,40 @@ class UpdatePoolRequestTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: Optional[bool] = None
 
 
-class UpdateProtectConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     DeletionProtectionEnabled: Optional[bool] = None
 
 
-class UpdateSenderIdRequestTypeDef(BaseValidatorModel):
+class UpdateSenderIdRequest(BaseValidatorModel):
     SenderId: str
     IsoCountryCode: str
     DeletionProtectionEnabled: Optional[bool] = None
 
 
-class VerifyDestinationNumberRequestTypeDef(BaseValidatorModel):
+class VerifyDestinationNumberRequest(BaseValidatorModel):
     VerifiedDestinationNumberId: str
     VerificationCode: str
 
 
-class AssociateOriginationIdentityResultTypeDef(BaseValidatorModel):
+class AssociateOriginationIdentityResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
     OriginationIdentityArn: str
     OriginationIdentity: str
     IsoCountryCode: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateProtectConfigurationResultTypeDef(BaseValidatorModel):
+class AssociateProtectConfigurationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRegistrationAssociationResultTypeDef(BaseValidatorModel):
+class CreateRegistrationAssociationResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     RegistrationType: str
@@ -693,60 +693,60 @@ class CreateRegistrationAssociationResultTypeDef(BaseValidatorModel):
     ResourceType: str
     IsoCountryCode: str
     PhoneNumber: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAccountDefaultProtectConfigurationResultTypeDef(BaseValidatorModel):
+class DeleteAccountDefaultProtectConfigurationResult(BaseValidatorModel):
     DefaultProtectConfigurationArn: str
     DefaultProtectConfigurationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDefaultMessageTypeResultTypeDef(BaseValidatorModel):
+class DeleteDefaultMessageTypeResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
     MessageType: MessageTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDefaultSenderIdResultTypeDef(BaseValidatorModel):
+class DeleteDefaultSenderIdResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
     SenderId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteKeywordResultTypeDef(BaseValidatorModel):
+class DeleteKeywordResult(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
     Keyword: str
     KeywordMessage: str
     KeywordAction: KeywordActionType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteMediaMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
+class DeleteMediaMessageSpendLimitOverrideResult(BaseValidatorModel):
     MonthlyLimit: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteOptOutListResultTypeDef(BaseValidatorModel):
+class DeleteOptOutListResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteOptedOutNumberResultTypeDef(BaseValidatorModel):
+class DeleteOptedOutNumberResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
     OptedOutNumber: str
     OptedOutTimestamp: datetime
     EndUserOptedOut: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePoolResultTypeDef(BaseValidatorModel):
+class DeletePoolResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
     Status: PoolStatusType
@@ -758,19 +758,19 @@ class DeletePoolResultTypeDef(BaseValidatorModel):
     OptOutListName: str
     SharedRoutesEnabled: bool
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProtectConfigurationResultTypeDef(BaseValidatorModel):
+class DeleteProtectConfigurationResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
     CreatedTimestamp: datetime
     AccountDefault: bool
     DeletionProtectionEnabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProtectConfigurationRuleSetNumberOverrideResultTypeDef(BaseValidatorModel):
+class DeleteProtectConfigurationRuleSetNumberOverrideResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
     DestinationPhoneNumber: str
@@ -778,19 +778,19 @@ class DeleteProtectConfigurationRuleSetNumberOverrideResultTypeDef(BaseValidator
     Action: ProtectConfigurationRuleOverrideActionType
     IsoCountryCode: str
     ExpirationTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteRegistrationAttachmentResultTypeDef(BaseValidatorModel):
+class DeleteRegistrationAttachmentResult(BaseValidatorModel):
     RegistrationAttachmentArn: str
     RegistrationAttachmentId: str
     AttachmentStatus: AttachmentStatusType
     AttachmentUploadErrorReason: Literal["INTERNAL_ERROR"]
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteRegistrationFieldValueResultTypeDef(BaseValidatorModel):
+class DeleteRegistrationFieldValueResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     VersionNumber: int
@@ -798,10 +798,10 @@ class DeleteRegistrationFieldValueResultTypeDef(BaseValidatorModel):
     SelectChoices: List[str]
     TextValue: str
     RegistrationAttachmentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteRegistrationResultTypeDef(BaseValidatorModel):
+class DeleteRegistrationResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     RegistrationType: str
@@ -811,95 +811,95 @@ class DeleteRegistrationResultTypeDef(BaseValidatorModel):
     LatestDeniedVersionNumber: int
     AdditionalAttributes: Dict[str, str]
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResourcePolicyResultTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyResult(BaseValidatorModel):
     ResourceArn: str
     Policy: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTextMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
+class DeleteTextMessageSpendLimitOverrideResult(BaseValidatorModel):
     MonthlyLimit: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteVerifiedDestinationNumberResultTypeDef(BaseValidatorModel):
+class DeleteVerifiedDestinationNumberResult(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
     DestinationPhoneNumber: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteVoiceMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
+class DeleteVoiceMessageSpendLimitOverrideResult(BaseValidatorModel):
     MonthlyLimit: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountAttributesResultTypeDef(BaseValidatorModel):
-    AccountAttributes: List[AccountAttributeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAccountAttributesResult(BaseValidatorModel):
+    AccountAttributes: List[AccountAttribute]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeAccountLimitsResultTypeDef(BaseValidatorModel):
-    AccountLimits: List[AccountLimitTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAccountLimitsResult(BaseValidatorModel):
+    AccountLimits: List[AccountLimit]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DisassociateOriginationIdentityResultTypeDef(BaseValidatorModel):
+class DisassociateOriginationIdentityResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
     OriginationIdentityArn: str
     OriginationIdentity: str
     IsoCountryCode: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateProtectConfigurationResultTypeDef(BaseValidatorModel):
+class DisassociateProtectConfigurationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcePolicyResultTypeDef(BaseValidatorModel):
+class GetResourcePolicyResult(BaseValidatorModel):
     ResourceArn: str
     Policy: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutKeywordResultTypeDef(BaseValidatorModel):
+class PutKeywordResult(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
     Keyword: str
     KeywordMessage: str
     KeywordAction: KeywordActionType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutMessageFeedbackResultTypeDef(BaseValidatorModel):
+class PutMessageFeedbackResult(BaseValidatorModel):
     MessageId: str
     MessageFeedbackStatus: MessageFeedbackStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutOptedOutNumberResultTypeDef(BaseValidatorModel):
+class PutOptedOutNumberResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
     OptedOutNumber: str
     OptedOutTimestamp: datetime
     EndUserOptedOut: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutProtectConfigurationRuleSetNumberOverrideResultTypeDef(BaseValidatorModel):
+class PutProtectConfigurationRuleSetNumberOverrideResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
     DestinationPhoneNumber: str
@@ -907,10 +907,10 @@ class PutProtectConfigurationRuleSetNumberOverrideResultTypeDef(BaseValidatorMod
     Action: ProtectConfigurationRuleOverrideActionType
     IsoCountryCode: str
     ExpirationTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutRegistrationFieldValueResultTypeDef(BaseValidatorModel):
+class PutRegistrationFieldValueResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     VersionNumber: int
@@ -918,17 +918,17 @@ class PutRegistrationFieldValueResultTypeDef(BaseValidatorModel):
     SelectChoices: List[str]
     TextValue: str
     RegistrationAttachmentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResourcePolicyResultTypeDef(BaseValidatorModel):
+class PutResourcePolicyResult(BaseValidatorModel):
     ResourceArn: str
     Policy: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ReleasePhoneNumberResultTypeDef(BaseValidatorModel):
+class ReleasePhoneNumberResult(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumberId: str
     PhoneNumber: str
@@ -945,10 +945,10 @@ class ReleasePhoneNumberResultTypeDef(BaseValidatorModel):
     OptOutListName: str
     RegistrationId: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ReleaseSenderIdResultTypeDef(BaseValidatorModel):
+class ReleaseSenderIdResult(BaseValidatorModel):
     SenderIdArn: str
     SenderId: str
     IsoCountryCode: str
@@ -956,72 +956,72 @@ class ReleaseSenderIdResultTypeDef(BaseValidatorModel):
     MonthlyLeasingPrice: str
     Registered: bool
     RegistrationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendDestinationNumberVerificationCodeResultTypeDef(BaseValidatorModel):
+class SendDestinationNumberVerificationCodeResult(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendMediaMessageResultTypeDef(BaseValidatorModel):
+class SendMediaMessageResult(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendTextMessageResultTypeDef(BaseValidatorModel):
+class SendTextMessageResult(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendVoiceMessageResultTypeDef(BaseValidatorModel):
+class SendVoiceMessageResult(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetAccountDefaultProtectConfigurationResultTypeDef(BaseValidatorModel):
+class SetAccountDefaultProtectConfigurationResult(BaseValidatorModel):
     DefaultProtectConfigurationArn: str
     DefaultProtectConfigurationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetDefaultMessageFeedbackEnabledResultTypeDef(BaseValidatorModel):
+class SetDefaultMessageFeedbackEnabledResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
     MessageFeedbackEnabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetDefaultMessageTypeResultTypeDef(BaseValidatorModel):
+class SetDefaultMessageTypeResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
     MessageType: MessageTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetDefaultSenderIdResultTypeDef(BaseValidatorModel):
+class SetDefaultSenderIdResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
     SenderId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetMediaMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
+class SetMediaMessageSpendLimitOverrideResult(BaseValidatorModel):
     MonthlyLimit: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetTextMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
+class SetTextMessageSpendLimitOverrideResult(BaseValidatorModel):
     MonthlyLimit: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetVoiceMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
+class SetVoiceMessageSpendLimitOverrideResult(BaseValidatorModel):
     MonthlyLimit: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePhoneNumberResultTypeDef(BaseValidatorModel):
+class UpdatePhoneNumberResult(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumberId: str
     PhoneNumber: str
@@ -1039,10 +1039,10 @@ class UpdatePhoneNumberResultTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: bool
     RegistrationId: str
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePoolResultTypeDef(BaseValidatorModel):
+class UpdatePoolResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
     Status: PoolStatusType
@@ -1055,19 +1055,19 @@ class UpdatePoolResultTypeDef(BaseValidatorModel):
     SharedRoutesEnabled: bool
     DeletionProtectionEnabled: bool
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProtectConfigurationResultTypeDef(BaseValidatorModel):
+class UpdateProtectConfigurationResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
     CreatedTimestamp: datetime
     AccountDefault: bool
     DeletionProtectionEnabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSenderIdResultTypeDef(BaseValidatorModel):
+class UpdateSenderIdResult(BaseValidatorModel):
     SenderIdArn: str
     SenderId: str
     IsoCountryCode: str
@@ -1076,63 +1076,63 @@ class UpdateSenderIdResultTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: bool
     Registered: bool
     RegistrationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class VerifyDestinationNumberResultTypeDef(BaseValidatorModel):
+class VerifyDestinationNumberResult(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
     DestinationPhoneNumber: str
     Status: VerificationStatusType
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeConfigurationSetsRequestTypeDef(BaseValidatorModel):
+class DescribeConfigurationSetsRequest(BaseValidatorModel):
     ConfigurationSetNames: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[ConfigurationSetFilterTypeDef]] = None
+    Filters: Optional[Sequence[ConfigurationSetFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class CreateConfigurationSetRequestTypeDef(BaseValidatorModel):
+class CreateConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class CreateConfigurationSetResultTypeDef(BaseValidatorModel):
+class CreateConfigurationSetResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOptOutListRequestTypeDef(BaseValidatorModel):
+class CreateOptOutListRequest(BaseValidatorModel):
     OptOutListName: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class CreateOptOutListResultTypeDef(BaseValidatorModel):
+class CreateOptOutListResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePoolRequestTypeDef(BaseValidatorModel):
+class CreatePoolRequest(BaseValidatorModel):
     OriginationIdentity: str
     IsoCountryCode: str
     MessageType: MessageTypeType
     DeletionProtectionEnabled: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class CreatePoolResultTypeDef(BaseValidatorModel):
+class CreatePoolResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
     Status: PoolStatusType
@@ -1144,88 +1144,88 @@ class CreatePoolResultTypeDef(BaseValidatorModel):
     OptOutListName: str
     SharedRoutesEnabled: bool
     DeletionProtectionEnabled: bool
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProtectConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateProtectConfigurationRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
     DeletionProtectionEnabled: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateProtectConfigurationResultTypeDef(BaseValidatorModel):
+class CreateProtectConfigurationResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
     CreatedTimestamp: datetime
     AccountDefault: bool
     DeletionProtectionEnabled: bool
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class CreateRegistrationAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentBody: Optional[BlobTypeDef] = None
+class CreateRegistrationAttachmentRequest(BaseValidatorModel):
+    AttachmentBody: Optional[Blob] = None
     AttachmentUrl: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class CreateRegistrationAttachmentResultTypeDef(BaseValidatorModel):
+class CreateRegistrationAttachmentResult(BaseValidatorModel):
     RegistrationAttachmentArn: str
     RegistrationAttachmentId: str
     AttachmentStatus: AttachmentStatusType
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRegistrationRequestTypeDef(BaseValidatorModel):
+class CreateRegistrationRequest(BaseValidatorModel):
     RegistrationType: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class CreateRegistrationResultTypeDef(BaseValidatorModel):
+class CreateRegistrationResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     RegistrationType: str
     RegistrationStatus: RegistrationStatusType
     CurrentVersionNumber: int
     AdditionalAttributes: Dict[str, str]
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVerifiedDestinationNumberRequestTypeDef(BaseValidatorModel):
+class CreateVerifiedDestinationNumberRequest(BaseValidatorModel):
     DestinationPhoneNumber: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class CreateVerifiedDestinationNumberResultTypeDef(BaseValidatorModel):
+class CreateVerifiedDestinationNumberResult(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
     DestinationPhoneNumber: str
     Status: VerificationStatusType
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResultTypeDef(BaseValidatorModel):
+class ListTagsForResourceResult(BaseValidatorModel):
     ResourceArn: str
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class RequestPhoneNumberRequestTypeDef(BaseValidatorModel):
+class RequestPhoneNumberRequest(BaseValidatorModel):
     IsoCountryCode: str
     MessageType: MessageTypeType
     NumberCapabilities: Sequence[NumberCapabilityType]
@@ -1234,11 +1234,11 @@ class RequestPhoneNumberRequestTypeDef(BaseValidatorModel):
     PoolId: Optional[str] = None
     RegistrationId: Optional[str] = None
     DeletionProtectionEnabled: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class RequestPhoneNumberResultTypeDef(BaseValidatorModel):
+class RequestPhoneNumberResult(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumberId: str
     PhoneNumber: str
@@ -1256,21 +1256,21 @@ class RequestPhoneNumberResultTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: bool
     PoolId: str
     RegistrationId: str
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RequestSenderIdRequestTypeDef(BaseValidatorModel):
+class RequestSenderIdRequest(BaseValidatorModel):
     SenderId: str
     IsoCountryCode: str
     MessageTypes: Optional[Sequence[MessageTypeType]] = None
     DeletionProtectionEnabled: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class RequestSenderIdResultTypeDef(BaseValidatorModel):
+class RequestSenderIdResult(BaseValidatorModel):
     SenderIdArn: str
     SenderId: str
     IsoCountryCode: str
@@ -1278,483 +1278,483 @@ class RequestSenderIdResultTypeDef(BaseValidatorModel):
     MonthlyLeasingPrice: str
     DeletionProtectionEnabled: bool
     Registered: bool
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateEventDestinationRequestTypeDef(BaseValidatorModel):
+class CreateEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
     EventDestinationName: str
     MatchingEventTypes: Sequence[EventTypeType]
-    CloudWatchLogsDestination: Optional[CloudWatchLogsDestinationTypeDef] = None
-    KinesisFirehoseDestination: Optional[KinesisFirehoseDestinationTypeDef] = None
-    SnsDestination: Optional[SnsDestinationTypeDef] = None
+    CloudWatchLogsDestination: Optional[CloudWatchLogsDestination] = None
+    KinesisFirehoseDestination: Optional[KinesisFirehoseDestination] = None
+    SnsDestination: Optional[SnsDestination] = None
     ClientToken: Optional[str] = None
 
 
-class EventDestinationTypeDef(BaseValidatorModel):
+class EventDestination(BaseValidatorModel):
     EventDestinationName: str
     Enabled: bool
     MatchingEventTypes: List[EventTypeType]
-    CloudWatchLogsDestination: Optional[CloudWatchLogsDestinationTypeDef] = None
-    KinesisFirehoseDestination: Optional[KinesisFirehoseDestinationTypeDef] = None
-    SnsDestination: Optional[SnsDestinationTypeDef] = None
+    CloudWatchLogsDestination: Optional[CloudWatchLogsDestination] = None
+    KinesisFirehoseDestination: Optional[KinesisFirehoseDestination] = None
+    SnsDestination: Optional[SnsDestination] = None
 
 
-class UpdateEventDestinationRequestTypeDef(BaseValidatorModel):
+class UpdateEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
     EventDestinationName: str
     Enabled: Optional[bool] = None
     MatchingEventTypes: Optional[Sequence[EventTypeType]] = None
-    CloudWatchLogsDestination: Optional[CloudWatchLogsDestinationTypeDef] = None
-    KinesisFirehoseDestination: Optional[KinesisFirehoseDestinationTypeDef] = None
-    SnsDestination: Optional[SnsDestinationTypeDef] = None
+    CloudWatchLogsDestination: Optional[CloudWatchLogsDestination] = None
+    KinesisFirehoseDestination: Optional[KinesisFirehoseDestination] = None
+    SnsDestination: Optional[SnsDestination] = None
 
 
-class CreateRegistrationVersionResultTypeDef(BaseValidatorModel):
+class CreateRegistrationVersionResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     VersionNumber: int
     RegistrationVersionStatus: RegistrationVersionStatusType
-    RegistrationVersionStatusHistory: RegistrationVersionStatusHistoryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    RegistrationVersionStatusHistory: RegistrationVersionStatusHistory
+    ResponseMetadata: ResponseMetadata
 
 
-class DiscardRegistrationVersionResultTypeDef(BaseValidatorModel):
+class DiscardRegistrationVersionResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     VersionNumber: int
     RegistrationVersionStatus: RegistrationVersionStatusType
-    RegistrationVersionStatusHistory: RegistrationVersionStatusHistoryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    RegistrationVersionStatusHistory: RegistrationVersionStatusHistory
+    ResponseMetadata: ResponseMetadata
 
 
-class SubmitRegistrationVersionResultTypeDef(BaseValidatorModel):
+class SubmitRegistrationVersionResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     VersionNumber: int
     RegistrationVersionStatus: RegistrationVersionStatusType
-    RegistrationVersionStatusHistory: RegistrationVersionStatusHistoryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    RegistrationVersionStatusHistory: RegistrationVersionStatusHistory
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountAttributesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeAccountAttributesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeAccountLimitsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeAccountLimitsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeConfigurationSetsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeConfigurationSetsRequestPaginate(BaseValidatorModel):
     ConfigurationSetNames: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[ConfigurationSetFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[ConfigurationSetFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeOptOutListsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeOptOutListsRequestPaginate(BaseValidatorModel):
     OptOutListNames: Optional[Sequence[str]] = None
     Owner: Optional[OwnerType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeRegistrationFieldDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeRegistrationFieldDefinitionsRequestPaginate(BaseValidatorModel):
     RegistrationType: str
     SectionPath: Optional[str] = None
     FieldPaths: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeRegistrationFieldValuesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeRegistrationFieldValuesRequestPaginate(BaseValidatorModel):
     RegistrationId: str
     VersionNumber: Optional[int] = None
     SectionPath: Optional[str] = None
     FieldPaths: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeRegistrationSectionDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeRegistrationSectionDefinitionsRequestPaginate(BaseValidatorModel):
     RegistrationType: str
     SectionPaths: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSpendLimitsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeSpendLimitsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeKeywordsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeKeywordsRequestPaginate(BaseValidatorModel):
     OriginationIdentity: str
     Keywords: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[KeywordFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[KeywordFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeKeywordsRequestTypeDef(BaseValidatorModel):
+class DescribeKeywordsRequest(BaseValidatorModel):
     OriginationIdentity: str
     Keywords: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[KeywordFilterTypeDef]] = None
+    Filters: Optional[Sequence[KeywordFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeKeywordsResultTypeDef(BaseValidatorModel):
+class DescribeKeywordsResult(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
-    Keywords: List[KeywordInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Keywords: List[KeywordInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeOptOutListsResultTypeDef(BaseValidatorModel):
-    OptOutLists: List[OptOutListInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeOptOutListsResult(BaseValidatorModel):
+    OptOutLists: List[OptOutListInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeOptedOutNumbersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeOptedOutNumbersRequestPaginate(BaseValidatorModel):
     OptOutListName: str
     OptedOutNumbers: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[OptedOutFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[OptedOutFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeOptedOutNumbersRequestTypeDef(BaseValidatorModel):
+class DescribeOptedOutNumbersRequest(BaseValidatorModel):
     OptOutListName: str
     OptedOutNumbers: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[OptedOutFilterTypeDef]] = None
+    Filters: Optional[Sequence[OptedOutFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeOptedOutNumbersResultTypeDef(BaseValidatorModel):
+class DescribeOptedOutNumbersResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
-    OptedOutNumbers: List[OptedOutNumberInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    OptedOutNumbers: List[OptedOutNumberInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribePhoneNumbersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribePhoneNumbersRequestPaginate(BaseValidatorModel):
     PhoneNumberIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[PhoneNumberFilterTypeDef]] = None
+    Filters: Optional[Sequence[PhoneNumberFilter]] = None
     Owner: Optional[OwnerType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribePhoneNumbersRequestTypeDef(BaseValidatorModel):
+class DescribePhoneNumbersRequest(BaseValidatorModel):
     PhoneNumberIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[PhoneNumberFilterTypeDef]] = None
+    Filters: Optional[Sequence[PhoneNumberFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Owner: Optional[OwnerType] = None
 
 
-class DescribePhoneNumbersResultTypeDef(BaseValidatorModel):
-    PhoneNumbers: List[PhoneNumberInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePhoneNumbersResult(BaseValidatorModel):
+    PhoneNumbers: List[PhoneNumberInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribePoolsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribePoolsRequestPaginate(BaseValidatorModel):
     PoolIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[PoolFilterTypeDef]] = None
+    Filters: Optional[Sequence[PoolFilter]] = None
     Owner: Optional[OwnerType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribePoolsRequestTypeDef(BaseValidatorModel):
+class DescribePoolsRequest(BaseValidatorModel):
     PoolIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[PoolFilterTypeDef]] = None
+    Filters: Optional[Sequence[PoolFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Owner: Optional[OwnerType] = None
 
 
-class DescribePoolsResultTypeDef(BaseValidatorModel):
-    Pools: List[PoolInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePoolsResult(BaseValidatorModel):
+    Pools: List[PoolInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeProtectConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeProtectConfigurationsRequestPaginate(BaseValidatorModel):
     ProtectConfigurationIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[ProtectConfigurationFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[ProtectConfigurationFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeProtectConfigurationsRequestTypeDef(BaseValidatorModel):
+class DescribeProtectConfigurationsRequest(BaseValidatorModel):
     ProtectConfigurationIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[ProtectConfigurationFilterTypeDef]] = None
+    Filters: Optional[Sequence[ProtectConfigurationFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeProtectConfigurationsResultTypeDef(BaseValidatorModel):
-    ProtectConfigurations: List[ProtectConfigurationInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeProtectConfigurationsResult(BaseValidatorModel):
+    ProtectConfigurations: List[ProtectConfigurationInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeRegistrationAttachmentsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeRegistrationAttachmentsRequestPaginate(BaseValidatorModel):
     RegistrationAttachmentIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[RegistrationAttachmentFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[RegistrationAttachmentFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeRegistrationAttachmentsRequestTypeDef(BaseValidatorModel):
+class DescribeRegistrationAttachmentsRequest(BaseValidatorModel):
     RegistrationAttachmentIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[RegistrationAttachmentFilterTypeDef]] = None
+    Filters: Optional[Sequence[RegistrationAttachmentFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeRegistrationAttachmentsResultTypeDef(BaseValidatorModel):
-    RegistrationAttachments: List[RegistrationAttachmentsInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeRegistrationAttachmentsResult(BaseValidatorModel):
+    RegistrationAttachments: List[RegistrationAttachmentsInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeRegistrationFieldValuesResultTypeDef(BaseValidatorModel):
+class DescribeRegistrationFieldValuesResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     VersionNumber: int
-    RegistrationFieldValues: List[RegistrationFieldValueInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    RegistrationFieldValues: List[RegistrationFieldValueInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeRegistrationTypeDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeRegistrationinitionsRequestPaginate(BaseValidatorModel):
     RegistrationTypes: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[RegistrationTypeFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[RegistrationTypeFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeRegistrationTypeDefinitionsRequestTypeDef(BaseValidatorModel):
+class DescribeRegistrationinitionsRequest(BaseValidatorModel):
     RegistrationTypes: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[RegistrationTypeFilterTypeDef]] = None
+    Filters: Optional[Sequence[RegistrationTypeFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeRegistrationVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeRegistrationVersionsRequestPaginate(BaseValidatorModel):
     RegistrationId: str
     VersionNumbers: Optional[Sequence[int]] = None
-    Filters: Optional[Sequence[RegistrationVersionFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[RegistrationVersionFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeRegistrationVersionsRequestTypeDef(BaseValidatorModel):
+class DescribeRegistrationVersionsRequest(BaseValidatorModel):
     RegistrationId: str
     VersionNumbers: Optional[Sequence[int]] = None
-    Filters: Optional[Sequence[RegistrationVersionFilterTypeDef]] = None
+    Filters: Optional[Sequence[RegistrationVersionFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeRegistrationsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeRegistrationsRequestPaginate(BaseValidatorModel):
     RegistrationIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[RegistrationFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[RegistrationFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeRegistrationsRequestTypeDef(BaseValidatorModel):
+class DescribeRegistrationsRequest(BaseValidatorModel):
     RegistrationIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[RegistrationFilterTypeDef]] = None
+    Filters: Optional[Sequence[RegistrationFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeRegistrationsResultTypeDef(BaseValidatorModel):
-    Registrations: List[RegistrationInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeRegistrationsResult(BaseValidatorModel):
+    Registrations: List[RegistrationInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeSenderIdsRequestPaginateTypeDef(BaseValidatorModel):
-    SenderIds: Optional[Sequence[SenderIdAndCountryTypeDef]] = None
-    Filters: Optional[Sequence[SenderIdFilterTypeDef]] = None
+class DescribeSenderIdsRequestPaginate(BaseValidatorModel):
+    SenderIds: Optional[Sequence[SenderIdAndCountry]] = None
+    Filters: Optional[Sequence[SenderIdFilter]] = None
     Owner: Optional[OwnerType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSenderIdsRequestTypeDef(BaseValidatorModel):
-    SenderIds: Optional[Sequence[SenderIdAndCountryTypeDef]] = None
-    Filters: Optional[Sequence[SenderIdFilterTypeDef]] = None
+class DescribeSenderIdsRequest(BaseValidatorModel):
+    SenderIds: Optional[Sequence[SenderIdAndCountry]] = None
+    Filters: Optional[Sequence[SenderIdFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Owner: Optional[OwnerType] = None
 
 
-class DescribeSenderIdsResultTypeDef(BaseValidatorModel):
-    SenderIds: List[SenderIdInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSenderIdsResult(BaseValidatorModel):
+    SenderIds: List[SenderIdInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeSpendLimitsResultTypeDef(BaseValidatorModel):
-    SpendLimits: List[SpendLimitTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSpendLimitsResult(BaseValidatorModel):
+    SpendLimits: List[SpendLimit]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeVerifiedDestinationNumbersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeVerifiedDestinationNumbersRequestPaginate(BaseValidatorModel):
     VerifiedDestinationNumberIds: Optional[Sequence[str]] = None
     DestinationPhoneNumbers: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[VerifiedDestinationNumberFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[VerifiedDestinationNumberFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeVerifiedDestinationNumbersRequestTypeDef(BaseValidatorModel):
+class DescribeVerifiedDestinationNumbersRequest(BaseValidatorModel):
     VerifiedDestinationNumberIds: Optional[Sequence[str]] = None
     DestinationPhoneNumbers: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[VerifiedDestinationNumberFilterTypeDef]] = None
+    Filters: Optional[Sequence[VerifiedDestinationNumberFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeVerifiedDestinationNumbersResultTypeDef(BaseValidatorModel):
-    VerifiedDestinationNumbers: List[VerifiedDestinationNumberInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeVerifiedDestinationNumbersResult(BaseValidatorModel):
+    VerifiedDestinationNumbers: List[VerifiedDestinationNumberInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetProtectConfigurationCountryRuleSetResultTypeDef(BaseValidatorModel):
+class GetProtectConfigurationCountryRuleSetResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
     NumberCapability: NumberCapabilityType
-    CountryRuleSet: Dict[str, ProtectConfigurationCountryRuleSetInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    CountryRuleSet: Dict[str, ProtectConfigurationCountryRuleSetInformation]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProtectConfigurationCountryRuleSetRequestTypeDef(BaseValidatorModel):
+class UpdateProtectConfigurationCountryRuleSetRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     NumberCapability: NumberCapabilityType
-    CountryRuleSetUpdates: Mapping[str, ProtectConfigurationCountryRuleSetInformationTypeDef]
+    CountryRuleSetUpdates: Mapping[str, ProtectConfigurationCountryRuleSetInformation]
 
 
-class UpdateProtectConfigurationCountryRuleSetResultTypeDef(BaseValidatorModel):
+class UpdateProtectConfigurationCountryRuleSetResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
     NumberCapability: NumberCapabilityType
-    CountryRuleSet: Dict[str, ProtectConfigurationCountryRuleSetInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    CountryRuleSet: Dict[str, ProtectConfigurationCountryRuleSetInformation]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPoolOriginationIdentitiesRequestPaginateTypeDef(BaseValidatorModel):
+class ListPoolOriginationIdentitiesRequestPaginate(BaseValidatorModel):
     PoolId: str
-    Filters: Optional[Sequence[PoolOriginationIdentitiesFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[PoolOriginationIdentitiesFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPoolOriginationIdentitiesRequestTypeDef(BaseValidatorModel):
+class ListPoolOriginationIdentitiesRequest(BaseValidatorModel):
     PoolId: str
-    Filters: Optional[Sequence[PoolOriginationIdentitiesFilterTypeDef]] = None
+    Filters: Optional[Sequence[PoolOriginationIdentitiesFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListPoolOriginationIdentitiesResultTypeDef(BaseValidatorModel):
+class ListPoolOriginationIdentitiesResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
-    OriginationIdentities: List[OriginationIdentityMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    OriginationIdentities: List[OriginationIdentityMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProtectConfigurationRuleSetNumberOverridesRequestPaginateTypeDef(BaseValidatorModel):
+class ListProtectConfigurationRuleSetNumberOverridesRequestPaginate(BaseValidatorModel):
     ProtectConfigurationId: str
-    Filters: Optional[Sequence[ProtectConfigurationRuleSetNumberOverrideFilterItemTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[ProtectConfigurationRuleSetNumberOverrideFilterItem]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProtectConfigurationRuleSetNumberOverridesRequestTypeDef(BaseValidatorModel):
+class ListProtectConfigurationRuleSetNumberOverridesRequest(BaseValidatorModel):
     ProtectConfigurationId: str
-    Filters: Optional[Sequence[ProtectConfigurationRuleSetNumberOverrideFilterItemTypeDef]] = None
+    Filters: Optional[Sequence[ProtectConfigurationRuleSetNumberOverrideFilterItem]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListProtectConfigurationRuleSetNumberOverridesResultTypeDef(BaseValidatorModel):
+class ListProtectConfigurationRuleSetNumberOverridesResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
-    RuleSetNumberOverrides: List[ProtectConfigurationRuleSetNumberOverrideTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    RuleSetNumberOverrides: List[ProtectConfigurationRuleSetNumberOverride]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListRegistrationAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRegistrationAssociationsRequestPaginate(BaseValidatorModel):
     RegistrationId: str
-    Filters: Optional[Sequence[RegistrationAssociationFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[RegistrationAssociationFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRegistrationAssociationsRequestTypeDef(BaseValidatorModel):
+class ListRegistrationAssociationsRequest(BaseValidatorModel):
     RegistrationId: str
-    Filters: Optional[Sequence[RegistrationAssociationFilterTypeDef]] = None
+    Filters: Optional[Sequence[RegistrationAssociationFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListRegistrationAssociationsResultTypeDef(BaseValidatorModel):
+class ListRegistrationAssociationsResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     RegistrationType: str
-    RegistrationAssociations: List[RegistrationAssociationMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    RegistrationAssociations: List[RegistrationAssociationMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class PutProtectConfigurationRuleSetNumberOverrideRequestTypeDef(BaseValidatorModel):
+class PutProtectConfigurationRuleSetNumberOverrideRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     DestinationPhoneNumber: str
     Action: ProtectConfigurationRuleOverrideActionType
     ClientToken: Optional[str] = None
-    ExpirationTimestamp: Optional[TimestampTypeDef] = None
+    ExpirationTimestamp: Optional[Timestamp] = None
 
 
-class RegistrationVersionInformationTypeDef(BaseValidatorModel):
+class RegistrationVersionInformation(BaseValidatorModel):
     VersionNumber: int
     RegistrationVersionStatus: RegistrationVersionStatusType
-    RegistrationVersionStatusHistory: RegistrationVersionStatusHistoryTypeDef
-    DeniedReasons: Optional[List[RegistrationDeniedReasonInformationTypeDef]] = None
+    RegistrationVersionStatusHistory: RegistrationVersionStatusHistory
+    DeniedReasons: Optional[List[RegistrationDeniedReasonInformation]] = None
 
 
-class RegistrationFieldDisplayHintsTypeDef(BaseValidatorModel):
+class RegistrationFieldDisplayHints(BaseValidatorModel):
     Title: str
     ShortDescription: str
     LongDescription: Optional[str] = None
     DocumentationTitle: Optional[str] = None
     DocumentationLink: Optional[str] = None
-    SelectOptionDescriptions: Optional[List[SelectOptionDescriptionTypeDef]] = None
+    SelectOptionDescriptions: Optional[List[SelectOptionDescription]] = None
     TextValidationDescription: Optional[str] = None
     ExampleTextValue: Optional[str] = None
 
 
-class RegistrationSectionDefinitionTypeDef(BaseValidatorModel):
+class RegistrationSectionDefinition(BaseValidatorModel):
     SectionPath: str
-    DisplayHints: RegistrationSectionDisplayHintsTypeDef
+    DisplayHints: RegistrationSectionDisplayHints
 
 
-class RegistrationTypeDefinitionTypeDef(BaseValidatorModel):
+class Registrationinition(BaseValidatorModel):
     RegistrationType: str
-    DisplayHints: RegistrationTypeDisplayHintsTypeDef
-    SupportedAssociations: Optional[List[SupportedAssociationTypeDef]] = None
+    DisplayHints: RegistrationTypeDisplayHints
+    SupportedAssociations: Optional[List[SupportedAssociation]] = None
 
 
-class ConfigurationSetInformationTypeDef(BaseValidatorModel):
+class ConfigurationSetInformation(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
-    EventDestinations: List[EventDestinationTypeDef]
+    EventDestinations: List[EventDestination]
     CreatedTimestamp: datetime
     DefaultMessageType: Optional[MessageTypeType] = None
     DefaultSenderId: Optional[str] = None
@@ -1762,83 +1762,83 @@ class ConfigurationSetInformationTypeDef(BaseValidatorModel):
     ProtectConfigurationId: Optional[str] = None
 
 
-class CreateEventDestinationResultTypeDef(BaseValidatorModel):
+class CreateEventDestinationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
-    EventDestination: EventDestinationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    EventDestination: EventDestination
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteConfigurationSetResultTypeDef(BaseValidatorModel):
+class DeleteConfigurationSetResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
-    EventDestinations: List[EventDestinationTypeDef]
+    EventDestinations: List[EventDestination]
     DefaultMessageType: MessageTypeType
     DefaultSenderId: str
     DefaultMessageFeedbackEnabled: bool
     CreatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteEventDestinationResultTypeDef(BaseValidatorModel):
+class DeleteEventDestinationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
-    EventDestination: EventDestinationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    EventDestination: EventDestination
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEventDestinationResultTypeDef(BaseValidatorModel):
+class UpdateEventDestinationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
-    EventDestination: EventDestinationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    EventDestination: EventDestination
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeRegistrationVersionsResultTypeDef(BaseValidatorModel):
+class DescribeRegistrationVersionsResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
-    RegistrationVersions: List[RegistrationVersionInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    RegistrationVersions: List[RegistrationVersionInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TextValidationTypeDef(BaseValidatorModel):
+class TextValidation(BaseValidatorModel):
     pass
 
 
-class RegistrationFieldDefinitionTypeDef(BaseValidatorModel):
+class RegistrationFieldDefinition(BaseValidatorModel):
     SectionPath: str
     FieldPath: str
     FieldType: FieldTypeType
     FieldRequirement: FieldRequirementType
-    DisplayHints: RegistrationFieldDisplayHintsTypeDef
-    SelectValidation: Optional[SelectValidationTypeDef] = None
-    TextValidation: Optional[TextValidationTypeDef] = None
+    DisplayHints: RegistrationFieldDisplayHints
+    SelectValidation: Optional[SelectValidation] = None
+    TextValidation: Optional[TextValidation] = None
 
 
-class DescribeRegistrationSectionDefinitionsResultTypeDef(BaseValidatorModel):
+class DescribeRegistrationSectionDefinitionsResult(BaseValidatorModel):
     RegistrationType: str
-    RegistrationSectionDefinitions: List[RegistrationSectionDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    RegistrationSectionDefinitions: List[RegistrationSectionDefinition]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeRegistrationTypeDefinitionsResultTypeDef(BaseValidatorModel):
-    RegistrationTypeDefinitions: List[RegistrationTypeDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeRegistrationinitionsResult(BaseValidatorModel):
+    Registrationinitions: List[Registrationinition]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeConfigurationSetsResultTypeDef(BaseValidatorModel):
-    ConfigurationSets: List[ConfigurationSetInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeConfigurationSetsResult(BaseValidatorModel):
+    ConfigurationSets: List[ConfigurationSetInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeRegistrationFieldDefinitionsResultTypeDef(BaseValidatorModel):
+class DescribeRegistrationFieldDefinitionsResult(BaseValidatorModel):
     RegistrationType: str
-    RegistrationFieldDefinitions: List[RegistrationFieldDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    RegistrationFieldDefinitions: List[RegistrationFieldDefinition]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

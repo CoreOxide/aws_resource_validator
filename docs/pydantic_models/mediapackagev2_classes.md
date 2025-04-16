@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelHarvestJobRequestTypeDef
+# CancelHarvestJobRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChannelGroupListConfigurationTypeDef
+# ChannelGroupListConfiguration
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -50,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChannelListConfigurationTypeDef
+# ChannelListConfiguration
 
 ### Arn
 - **Type**: <class 'str'>
@@ -79,7 +79,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CMAF', 'HLS']]
 
 
-# CreateChannelGroupRequestTypeDef
+# CreateChannelGroupRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -95,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateChannelGroupResponseTypeDef
+# CreateChannelGroupResponse
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -130,11 +130,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateChannelRequestTypeDef
+# CreateChannelRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -154,16 +154,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InputSwitchConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.InputSwitchConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OutputHeaderConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.OutputHeaderConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateChannelResponseTypeDef
+# CreateChannelResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -190,7 +190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IngestEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.IngestEndpointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.IngestEndpoint]
 - **Required**: Yes
 
 ### InputType
@@ -206,19 +206,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputSwitchConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.InputSwitchConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.InputSwitchConfiguration'>
 - **Required**: Yes
 
 ### OutputHeaderConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.OutputHeaderConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.OutputHeaderConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDashManifestConfigurationTypeDef
+# CreateDashManifestConfiguration
 
 ### ManifestName
 - **Type**: <class 'str'>
@@ -228,7 +228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FilterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationUnion]
 
 ### MinUpdatePeriodSeconds
 - **Type**: typing.Optional[int]
@@ -246,16 +246,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AVAILS', 'DRM_KEY_ROTATION', 'NONE', 'SOURCE_CHANGES', 'SOURCE_DISRUPTIONS']]]
 
 ### ScteDash
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ScteDashTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DrmSignaling
 - **Type**: typing.Optional[typing.Literal['INDIVIDUAL', 'REFERENCED']]
 
 ### UtcTiming
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.DashUtcTimingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.DashUtcTiming]
 
 
-# CreateHarvestJobRequestTypeDef
+# CreateHarvestJobRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -270,15 +270,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HarvestedManifests
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedManifestsUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedManifestsUnion'>
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvesterScheduleConfigurationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvesterScheduleConfigurationUnion'>
 - **Required**: Yes
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.Destination'>
 - **Required**: Yes
 
 ### Description
@@ -294,7 +294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateHarvestJobResponseTypeDef
+# CreateHarvestJobResponse
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -309,7 +309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.Destination'>
 - **Required**: Yes
 
 ### HarvestJobName
@@ -317,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HarvestedManifests
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedManifestsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedManifestsOutput'>
 - **Required**: Yes
 
 ### Description
@@ -325,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvesterScheduleConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvesterScheduleConfigurationOutput'>
 - **Required**: Yes
 
 ### Arn
@@ -357,11 +357,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateHlsManifestConfigurationTypeDef
+# CreateHlsManifestConfiguration
 
 ### ManifestName
 - **Type**: <class 'str'>
@@ -371,10 +371,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ScteHls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ScteHlsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### StartTag
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.StartTagTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ManifestWindowSeconds
 - **Type**: typing.Optional[int]
@@ -383,10 +383,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FilterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationUnion]
 
 
-# CreateLowLatencyHlsManifestConfigurationTypeDef
+# CreateLowLatencyHlsManifestConfiguration
 
 ### ManifestName
 - **Type**: <class 'str'>
@@ -396,10 +396,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ScteHls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ScteHlsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### StartTag
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.StartTagTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ManifestWindowSeconds
 - **Type**: typing.Optional[int]
@@ -408,10 +408,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FilterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationUnion]
 
 
-# CreateOriginEndpointRequestTypeDef
+# CreateOriginEndpointRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -430,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Segment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentUnion]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -442,22 +442,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### HlsManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateHlsManifestConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateHlsManifestConfiguration]]
 
 ### LowLatencyHlsManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateLowLatencyHlsManifestConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateLowLatencyHlsManifestConfiguration]]
 
 ### DashManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateDashManifestConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateDashManifestConfiguration]]
 
 ### ForceEndpointErrorConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationUnion]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateOriginEndpointResponseTypeDef
+# CreateOriginEndpointResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -480,7 +480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Segment
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentOutput'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -500,19 +500,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HlsManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetHlsManifestConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetHlsManifestConfiguration]
 - **Required**: Yes
 
 ### LowLatencyHlsManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetLowLatencyHlsManifestConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetLowLatencyHlsManifestConfiguration]
 - **Required**: Yes
 
 ### DashManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetDashManifestConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetDashManifestConfiguration]
 - **Required**: Yes
 
 ### ForceEndpointErrorConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -524,11 +524,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DashUtcTimingTypeDef
+# DashUtcTiming
 
 ### TimingMode
 - **Type**: typing.Optional[typing.Literal['HTTP_HEAD', 'HTTP_ISO', 'HTTP_XSDATE', 'UTC_DIRECT']]
@@ -537,25 +537,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteChannelGroupRequestTypeDef
+# DeleteChannelGroupRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteChannelPolicyRequestTypeDef
-
-### ChannelGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ChannelName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteChannelRequestTypeDef
+# DeleteChannelPolicyRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -566,7 +555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteOriginEndpointPolicyRequestTypeDef
+# DeleteChannelRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -576,12 +565,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### OriginEndpointName
-- **Type**: <class 'str'>
-- **Required**: Yes
 
-
-# DeleteOriginEndpointRequestTypeDef
+# DeleteOriginEndpointPolicyRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -596,21 +581,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DestinationTypeDef
+# DeleteOriginEndpointRequest
+
+### ChannelGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ChannelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OriginEndpointName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# Destination
 
 ### S3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.S3DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.S3DestinationConfig'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EncryptionContractConfigurationTypeDef
+# Encryption
+
+### EncryptionMethod
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionMethod'>
+- **Required**: Yes
+
+### SpekeKeyProvider
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SpekeKeyProvider'>
+- **Required**: Yes
+
+### ConstantInitializationVector
+- **Type**: typing.Optional[str]
+
+### KeyRotationIntervalSeconds
+- **Type**: typing.Optional[int]
+
+
+# EncryptionContractConfiguration
 
 ### PresetSpeke20Audio
 - **Type**: typing.Literal['PRESET_AUDIO_1', 'PRESET_AUDIO_2', 'PRESET_AUDIO_3', 'SHARED', 'UNENCRYPTED']
@@ -621,7 +638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EncryptionMethodTypeDef
+# EncryptionMethod
 
 ### TsEncryptionMethod
 - **Type**: typing.Optional[typing.Literal['AES_128', 'SAMPLE_AES']]
@@ -630,14 +647,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CBCS', 'CENC']]
 
 
-# EncryptionOutputTypeDef
+# EncryptionOutput
 
 ### EncryptionMethod
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionMethodTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionMethod'>
 - **Required**: Yes
 
 ### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SpekeKeyProviderOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SpekeKeyProviderOutput'>
 - **Required**: Yes
 
 ### ConstantInitializationVector
@@ -647,24 +664,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EncryptionTypeDef
+# FilterConfiguration
 
-### EncryptionMethod
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionMethodTypeDef'>
-- **Required**: Yes
-
-### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SpekeKeyProviderTypeDef'>
-- **Required**: Yes
-
-### ConstantInitializationVector
+### ManifestFilter
 - **Type**: typing.Optional[str]
 
-### KeyRotationIntervalSeconds
+### Start
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.Timestamp]
+
+### End
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.Timestamp]
+
+### TimeDelaySeconds
 - **Type**: typing.Optional[int]
 
+### ClipStartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.Timestamp]
 
-# FilterConfigurationOutputTypeDef
+
+# FilterConfigurationOutput
 
 ### ManifestFilter
 - **Type**: typing.Optional[str]
@@ -682,56 +700,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# FilterConfigurationTypeDef
-
-### ManifestFilter
-- **Type**: typing.Optional[str]
-
-### Start
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.TimestampTypeDef]
-
-### End
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.TimestampTypeDef]
-
-### TimeDelaySeconds
-- **Type**: typing.Optional[int]
-
-### ClipStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.TimestampTypeDef]
-
-
-# FilterConfigurationUnionTypeDef
+# FilterConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ForceEndpointErrorConfigurationOutputTypeDef
-
-### EndpointErrorConditions
-- **Type**: typing.Optional[typing.List[typing.Literal['INCOMPLETE_MANIFEST', 'MISSING_DRM_KEY', 'SLATE_INPUT', 'STALE_MANIFEST']]]
-
-
-# ForceEndpointErrorConfigurationTypeDef
+# ForceEndpointErrorConfiguration
 
 ### EndpointErrorConditions
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['INCOMPLETE_MANIFEST', 'MISSING_DRM_KEY', 'SLATE_INPUT', 'STALE_MANIFEST']]]
 
 
-# ForceEndpointErrorConfigurationUnionTypeDef
+# ForceEndpointErrorConfigurationOutput
+
+### EndpointErrorConditions
+- **Type**: typing.Optional[typing.List[typing.Literal['INCOMPLETE_MANIFEST', 'MISSING_DRM_KEY', 'SLATE_INPUT', 'STALE_MANIFEST']]]
+
+
+# ForceEndpointErrorConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetChannelGroupRequestTypeDef
+# GetChannelGroupRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetChannelGroupResponseTypeDef
+# GetChannelGroupResponse
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -766,11 +766,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChannelPolicyRequestTypeDef
+# GetChannelPolicyRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -781,7 +781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChannelPolicyResponseTypeDef
+# GetChannelPolicyResponse
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -796,11 +796,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChannelRequestTypeDef
+# GetChannelRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -811,7 +811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChannelResponseTypeDef
+# GetChannelResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -838,7 +838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IngestEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.IngestEndpointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.IngestEndpoint]
 - **Required**: Yes
 
 ### InputType
@@ -854,19 +854,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputSwitchConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.InputSwitchConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.InputSwitchConfiguration'>
 - **Required**: Yes
 
 ### OutputHeaderConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.OutputHeaderConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.OutputHeaderConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDashManifestConfigurationTypeDef
+# GetDashManifestConfiguration
 
 ### ManifestName
 - **Type**: <class 'str'>
@@ -880,7 +880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FilterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationOutput]
 
 ### MinUpdatePeriodSeconds
 - **Type**: typing.Optional[int]
@@ -898,16 +898,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['AVAILS', 'DRM_KEY_ROTATION', 'NONE', 'SOURCE_CHANGES', 'SOURCE_DISRUPTIONS']]]
 
 ### ScteDash
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ScteDashTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DrmSignaling
 - **Type**: typing.Optional[typing.Literal['INDIVIDUAL', 'REFERENCED']]
 
 ### UtcTiming
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.DashUtcTimingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.DashUtcTiming]
 
 
-# GetHarvestJobRequestTypeDef
+# GetHarvestJobRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -926,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHarvestJobRequestWaitTypeDef
+# GetHarvestJobRequestWait
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -945,10 +945,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetHarvestJobResponseTypeDef
+# GetHarvestJobResponse
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -963,7 +963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.Destination'>
 - **Required**: Yes
 
 ### HarvestJobName
@@ -971,7 +971,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HarvestedManifests
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedManifestsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedManifestsOutput'>
 - **Required**: Yes
 
 ### Description
@@ -979,7 +979,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvesterScheduleConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvesterScheduleConfigurationOutput'>
 - **Required**: Yes
 
 ### Arn
@@ -1011,11 +1011,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHlsManifestConfigurationTypeDef
+# GetHlsManifestConfiguration
 
 ### ManifestName
 - **Type**: <class 'str'>
@@ -1035,16 +1035,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ScteHls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ScteHlsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### FilterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationOutput]
 
 ### StartTag
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.StartTagTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetLowLatencyHlsManifestConfigurationTypeDef
+# GetLowLatencyHlsManifestConfiguration
 
 ### ManifestName
 - **Type**: <class 'str'>
@@ -1064,16 +1064,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ScteHls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ScteHlsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### FilterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.FilterConfigurationOutput]
 
 ### StartTag
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.StartTagTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetOriginEndpointPolicyRequestTypeDef
+# GetOriginEndpointPolicyRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1088,7 +1088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOriginEndpointPolicyResponseTypeDef
+# GetOriginEndpointPolicyResponse
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1107,11 +1107,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOriginEndpointRequestTypeDef
+# GetOriginEndpointRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1126,7 +1126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOriginEndpointResponseTypeDef
+# GetOriginEndpointResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1149,7 +1149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Segment
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentOutput'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -1169,19 +1169,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HlsManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetHlsManifestConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetHlsManifestConfiguration]
 - **Required**: Yes
 
 ### LowLatencyHlsManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetLowLatencyHlsManifestConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetLowLatencyHlsManifestConfiguration]
 - **Required**: Yes
 
 ### DashManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetDashManifestConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetDashManifestConfiguration]
 - **Required**: Yes
 
 ### ForceEndpointErrorConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -1193,11 +1193,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HarvestJobTypeDef
+# HarvestJob
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1212,7 +1212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.Destination'>
 - **Required**: Yes
 
 ### HarvestJobName
@@ -1220,11 +1220,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HarvestedManifests
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedManifestsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedManifestsOutput'>
 - **Required**: Yes
 
 ### ScheduleConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvesterScheduleConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvesterScheduleConfigurationOutput'>
 - **Required**: Yes
 
 ### Arn
@@ -1253,58 +1253,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# HarvestedDashManifestTypeDef
+# HarvestedDashManifest
 
 ### ManifestName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# HarvestedHlsManifestTypeDef
+# HarvestedHlsManifest
 
 ### ManifestName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# HarvestedLowLatencyHlsManifestTypeDef
+# HarvestedLowLatencyHlsManifest
 
 ### ManifestName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# HarvestedManifestsOutputTypeDef
+# HarvestedManifests
 
 ### HlsManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedHlsManifestTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedHlsManifest]]
 
 ### DashManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedDashManifestTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedDashManifest]]
 
 ### LowLatencyHlsManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedLowLatencyHlsManifestTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedLowLatencyHlsManifest]]
 
 
-# HarvestedManifestsTypeDef
+# HarvestedManifestsOutput
 
 ### HlsManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedHlsManifestTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedHlsManifest]]
 
 ### DashManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedDashManifestTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedDashManifest]]
 
 ### LowLatencyHlsManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedLowLatencyHlsManifestTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestedLowLatencyHlsManifest]]
 
 
-# HarvestedManifestsUnionTypeDef
+# HarvestedManifestsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HarvesterScheduleConfigurationOutputTypeDef
+# HarvesterScheduleConfiguration
+
+### StartTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.Timestamp'>
+- **Required**: Yes
+
+### EndTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.Timestamp'>
+- **Required**: Yes
+
+
+# HarvesterScheduleConfigurationOutput
 
 ### StartTime
 - **Type**: <class 'datetime.datetime'>
@@ -1315,24 +1326,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# HarvesterScheduleConfigurationTypeDef
-
-### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-
-# HarvesterScheduleConfigurationUnionTypeDef
+# HarvesterScheduleConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IngestEndpointTypeDef
+# IngestEndpoint
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1341,19 +1341,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InputSwitchConfigurationTypeDef
+# InputSwitchConfiguration
 
 ### MQCSInputSwitching
 - **Type**: typing.Optional[bool]
 
 
-# ListChannelGroupsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.PaginatorConfigTypeDef]
-
-
-# ListChannelGroupsRequestTypeDef
+# ListChannelGroupsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1362,31 +1356,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelGroupsResponseTypeDef
+# ListChannelGroupsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.PaginatorConfig]
+
+
+# ListChannelGroupsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ChannelGroupListConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ChannelGroupListConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsRequestPaginateTypeDef
-
-### ChannelGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.PaginatorConfigTypeDef]
-
-
-# ListChannelsRequestTypeDef
+# ListChannelsRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1399,21 +1389,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsResponseTypeDef
+# ListChannelsRequestPaginate
+
+### ChannelGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.PaginatorConfig]
+
+
+# ListChannelsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ChannelListConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ChannelListConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDashManifestConfigurationTypeDef
+# ListDashManifestConfiguration
 
 ### ManifestName
 - **Type**: <class 'str'>
@@ -1423,26 +1423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHarvestJobsRequestPaginateTypeDef
-
-### ChannelGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ChannelName
-- **Type**: typing.Optional[str]
-
-### OriginEndpointName
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'FAILED', 'IN_PROGRESS', 'QUEUED']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.PaginatorConfigTypeDef]
-
-
-# ListHarvestJobsRequestTypeDef
+# ListHarvestJobsRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1464,61 +1445,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHarvestJobsResponseTypeDef
-
-### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestJobTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListHlsManifestConfigurationTypeDef
-
-### ManifestName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ChildManifestName
-- **Type**: typing.Optional[str]
-
-### Url
-- **Type**: typing.Optional[str]
-
-
-# ListLowLatencyHlsManifestConfigurationTypeDef
-
-### ManifestName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ChildManifestName
-- **Type**: typing.Optional[str]
-
-### Url
-- **Type**: typing.Optional[str]
-
-
-# ListOriginEndpointsRequestPaginateTypeDef
+# ListHarvestJobsRequestPaginate
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ChannelName
+- **Type**: typing.Optional[str]
+
+### OriginEndpointName
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'FAILED', 'IN_PROGRESS', 'QUEUED']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.PaginatorConfig]
+
+
+# ListHarvestJobsResponse
+
+### Items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.HarvestJob]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListHlsManifestConfiguration
+
+### ManifestName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.PaginatorConfigTypeDef]
+### ChildManifestName
+- **Type**: typing.Optional[str]
+
+### Url
+- **Type**: typing.Optional[str]
 
 
-# ListOriginEndpointsRequestTypeDef
+# ListLowLatencyHlsManifestConfiguration
+
+### ManifestName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ChildManifestName
+- **Type**: typing.Optional[str]
+
+### Url
+- **Type**: typing.Optional[str]
+
+
+# ListOriginEndpointsRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1535,39 +1521,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOriginEndpointsResponseTypeDef
+# ListOriginEndpointsRequestPaginate
+
+### ChannelGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ChannelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.PaginatorConfig]
+
+
+# ListOriginEndpointsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.OriginEndpointListConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.OriginEndpointListConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# OriginEndpointListConfigurationTypeDef
+# OriginEndpointListConfiguration
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1599,25 +1599,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### HlsManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ListHlsManifestConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ListHlsManifestConfiguration]]
 
 ### LowLatencyHlsManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ListLowLatencyHlsManifestConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ListLowLatencyHlsManifestConfiguration]]
 
 ### DashManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ListDashManifestConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.ListDashManifestConfiguration]]
 
 ### ForceEndpointErrorConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationOutput]
 
 
-# OutputHeaderConfigurationTypeDef
+# OutputHeaderConfiguration
 
 ### PublishMQCS
 - **Type**: typing.Optional[bool]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1629,7 +1629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutChannelPolicyRequestTypeDef
+# PutChannelPolicyRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1644,7 +1644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutOriginEndpointPolicyRequestTypeDef
+# PutOriginEndpointPolicyRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1663,7 +1663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1685,7 +1685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3DestinationConfigTypeDef
+# S3DestinationConfig
 
 ### BucketName
 - **Type**: <class 'str'>
@@ -1696,31 +1696,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ScteDashTypeDef
-
-### AdMarkerDash
-- **Type**: typing.Optional[typing.Literal['BINARY', 'XML']]
-
-
-# ScteHlsTypeDef
-
-### AdMarkerHls
-- **Type**: typing.Optional[typing.Literal['DATERANGE']]
-
-
-# ScteOutputTypeDef
-
-### ScteFilter
-- **Type**: typing.Optional[typing.List[typing.Literal['BREAK', 'DISTRIBUTOR_ADVERTISEMENT', 'DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY', 'DISTRIBUTOR_PLACEMENT_OPPORTUNITY', 'PROGRAM', 'PROVIDER_ADVERTISEMENT', 'PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY', 'PROVIDER_PLACEMENT_OPPORTUNITY', 'SPLICE_INSERT']]]
-
-
-# ScteTypeDef
+# Scte
 
 ### ScteFilter
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['BREAK', 'DISTRIBUTOR_ADVERTISEMENT', 'DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY', 'DISTRIBUTOR_PLACEMENT_OPPORTUNITY', 'PROGRAM', 'PROVIDER_ADVERTISEMENT', 'PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY', 'PROVIDER_PLACEMENT_OPPORTUNITY', 'SPLICE_INSERT']]]
 
 
-# SegmentOutputTypeDef
+# ScteDash
+
+### AdMarkerDash
+- **Type**: typing.Optional[typing.Literal['BINARY', 'XML']]
+
+
+# ScteHls
+
+### AdMarkerHls
+- **Type**: typing.Optional[typing.Literal['DATERANGE']]
+
+
+# ScteOutput
+
+### ScteFilter
+- **Type**: typing.Optional[typing.List[typing.Literal['BREAK', 'DISTRIBUTOR_ADVERTISEMENT', 'DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY', 'DISTRIBUTOR_PLACEMENT_OPPORTUNITY', 'PROGRAM', 'PROVIDER_ADVERTISEMENT', 'PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY', 'PROVIDER_PLACEMENT_OPPORTUNITY', 'SPLICE_INSERT']]]
+
+
+# Segment
 
 ### SegmentDurationSeconds
 - **Type**: typing.Optional[int]
@@ -1738,13 +1738,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Scte
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ScteOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SegmentTypeDef
+# SegmentOutput
 
 ### SegmentDurationSeconds
 - **Type**: typing.Optional[int]
@@ -1762,45 +1762,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Scte
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ScteTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ScteOutput]
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionOutput]
 
 
-# SegmentUnionTypeDef
+# SegmentUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SpekeKeyProviderOutputTypeDef
+# SpekeKeyProvider
 
 ### EncryptionContractConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionContractConfigurationTypeDef'>
-- **Required**: Yes
-
-### ResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DrmSystems
-- **Type**: typing.List[typing.Literal['CLEAR_KEY_AES_128', 'FAIRPLAY', 'IRDETO', 'PLAYREADY', 'WIDEVINE']]
-- **Required**: Yes
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Url
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# SpekeKeyProviderTypeDef
-
-### EncryptionContractConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionContractConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionContractConfiguration'>
 - **Required**: Yes
 
 ### ResourceId
@@ -1820,7 +1797,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartTagTypeDef
+# SpekeKeyProviderOutput
+
+### EncryptionContractConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.EncryptionContractConfiguration'>
+- **Required**: Yes
+
+### ResourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DrmSystems
+- **Type**: typing.List[typing.Literal['CLEAR_KEY_AES_128', 'FAIRPLAY', 'IRDETO', 'PLAYREADY', 'WIDEVINE']]
+- **Required**: Yes
+
+### RoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Url
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StartTag
 
 ### TimeOffset
 - **Type**: <class 'float'>
@@ -1830,7 +1830,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1841,13 +1841,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1858,7 +1858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateChannelGroupRequestTypeDef
+# UpdateChannelGroupRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1871,7 +1871,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateChannelGroupResponseTypeDef
+# UpdateChannelGroupResponse
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1906,11 +1906,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateChannelRequestTypeDef
+# UpdateChannelRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -1927,13 +1927,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InputSwitchConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.InputSwitchConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OutputHeaderConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.OutputHeaderConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateChannelResponseTypeDef
+# UpdateChannelResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1960,7 +1960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IngestEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.IngestEndpointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.IngestEndpoint]
 - **Required**: Yes
 
 ### InputType
@@ -1976,19 +1976,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputSwitchConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.InputSwitchConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.InputSwitchConfiguration'>
 - **Required**: Yes
 
 ### OutputHeaderConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.OutputHeaderConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.OutputHeaderConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateOriginEndpointRequestTypeDef
+# UpdateOriginEndpointRequest
 
 ### ChannelGroupName
 - **Type**: <class 'str'>
@@ -2007,7 +2007,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Segment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentUnion]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -2016,22 +2016,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### HlsManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateHlsManifestConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateHlsManifestConfiguration]]
 
 ### LowLatencyHlsManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateLowLatencyHlsManifestConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateLowLatencyHlsManifestConfiguration]]
 
 ### DashManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateDashManifestConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediapackagev2_classes.CreateDashManifestConfiguration]]
 
 ### ForceEndpointErrorConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationUnion]
 
 ### ETag
 - **Type**: typing.Optional[str]
 
 
-# UpdateOriginEndpointResponseTypeDef
+# UpdateOriginEndpointResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2054,7 +2054,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Segment
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.SegmentOutput'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -2074,15 +2074,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HlsManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetHlsManifestConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetHlsManifestConfiguration]
 - **Required**: Yes
 
 ### LowLatencyHlsManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetLowLatencyHlsManifestConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetLowLatencyHlsManifestConfiguration]
 - **Required**: Yes
 
 ### ForceEndpointErrorConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ForceEndpointErrorConfigurationOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -2094,15 +2094,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DashManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetDashManifestConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackagev2_classes.GetDashManifestConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackagev2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

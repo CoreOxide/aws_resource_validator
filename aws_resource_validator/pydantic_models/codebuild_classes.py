@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codebuild_constants import *
 
-class AutoRetryConfigTypeDef(BaseValidatorModel):
+class AutoRetryConfig(BaseValidatorModel):
     autoRetryLimit: Optional[int] = None
     autoRetryNumber: Optional[int] = None
     nextAutoRetry: Optional[str] = None
     previousAutoRetry: Optional[str] = None
 
 
-class BatchDeleteBuildsInputTypeDef(BaseValidatorModel):
+class BatchDeleteBuildsInput(BaseValidatorModel):
     ids: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -31,43 +31,43 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchGetBuildBatchesInputTypeDef(BaseValidatorModel):
+class BatchGetBuildBatchesInput(BaseValidatorModel):
     ids: Sequence[str]
 
 
-class BatchGetBuildsInputTypeDef(BaseValidatorModel):
+class BatchGetBuildsInput(BaseValidatorModel):
     ids: Sequence[str]
 
 
-class BatchGetFleetsInputTypeDef(BaseValidatorModel):
+class BatchGetFleetsInput(BaseValidatorModel):
     names: Sequence[str]
 
 
-class BatchGetProjectsInputTypeDef(BaseValidatorModel):
+class BatchGetProjectsInput(BaseValidatorModel):
     names: Sequence[str]
 
 
-class BatchGetReportGroupsInputTypeDef(BaseValidatorModel):
+class BatchGetReportGroupsInput(BaseValidatorModel):
     reportGroupArns: Sequence[str]
 
 
-class BatchGetReportsInputTypeDef(BaseValidatorModel):
+class BatchGetReportsInput(BaseValidatorModel):
     reportArns: Sequence[str]
 
 
-class BatchRestrictionsOutputTypeDef(BaseValidatorModel):
+class BatchRestrictionsOutput(BaseValidatorModel):
     maximumBuildsAllowed: Optional[int] = None
     computeTypesAllowed: Optional[List[str]] = None
     fleetsAllowed: Optional[List[str]] = None
 
 
-class BatchRestrictionsTypeDef(BaseValidatorModel):
+class BatchRestrictions(BaseValidatorModel):
     maximumBuildsAllowed: Optional[int] = None
     computeTypesAllowed: Optional[Sequence[str]] = None
     fleetsAllowed: Optional[Sequence[str]] = None
 
 
-class BuildArtifactsTypeDef(BaseValidatorModel):
+class BuildArtifacts(BaseValidatorModel):
     location: Optional[str] = None
     sha256sum: Optional[str] = None
     md5sum: Optional[str] = None
@@ -77,53 +77,53 @@ class BuildArtifactsTypeDef(BaseValidatorModel):
     bucketOwnerAccess: Optional[BucketOwnerAccessType] = None
 
 
-class BuildBatchFilterTypeDef(BaseValidatorModel):
+class BuildBatchFilter(BaseValidatorModel):
     status: Optional[StatusTypeType] = None
 
 
-class PhaseContextTypeDef(BaseValidatorModel):
+class PhaseContext(BaseValidatorModel):
     statusCode: Optional[str] = None
     message: Optional[str] = None
 
 
-class ProjectSourceVersionTypeDef(BaseValidatorModel):
+class ProjectSourceVersion(BaseValidatorModel):
     sourceIdentifier: str
     sourceVersion: str
 
 
-class VpcConfigOutputTypeDef(BaseValidatorModel):
+class VpcConfigOutput(BaseValidatorModel):
     vpcId: Optional[str] = None
     subnets: Optional[List[str]] = None
     securityGroupIds: Optional[List[str]] = None
 
 
-class BuildStatusConfigTypeDef(BaseValidatorModel):
+class BuildStatusConfig(BaseValidatorModel):
     context: Optional[str] = None
     targetUrl: Optional[str] = None
 
 
-class DebugSessionTypeDef(BaseValidatorModel):
+class DebugSession(BaseValidatorModel):
     sessionEnabled: Optional[bool] = None
     sessionTarget: Optional[str] = None
 
 
-class ExportedEnvironmentVariableTypeDef(BaseValidatorModel):
+class ExportedEnvironmentVariable(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
 
 
-class NetworkInterfaceTypeDef(BaseValidatorModel):
+class NetworkInterface(BaseValidatorModel):
     subnetId: Optional[str] = None
     networkInterfaceId: Optional[str] = None
 
 
-class CloudWatchLogsConfigTypeDef(BaseValidatorModel):
+class CloudWatchLogsConfig(BaseValidatorModel):
     status: LogsConfigStatusTypeType
     groupName: Optional[str] = None
     streamName: Optional[str] = None
 
 
-class CodeCoverageReportSummaryTypeDef(BaseValidatorModel):
+class CodeCoverageReportSummary(BaseValidatorModel):
     lineCoveragePercentage: Optional[float] = None
     linesCovered: Optional[int] = None
     linesMissed: Optional[int] = None
@@ -132,60 +132,60 @@ class CodeCoverageReportSummaryTypeDef(BaseValidatorModel):
     branchesMissed: Optional[int] = None
 
 
-class ComputeConfigurationTypeDef(BaseValidatorModel):
+class ComputeConfiguration(BaseValidatorModel):
     vCpu: Optional[int] = None
     memory: Optional[int] = None
     disk: Optional[int] = None
     machineType: Optional[MachineTypeType] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
 
-class ScopeConfigurationTypeDef(BaseValidatorModel):
+class ScopeConfiguration(BaseValidatorModel):
     name: str
     scope: WebhookScopeTypeType
     domain: Optional[str] = None
 
 
-class DeleteFleetInputTypeDef(BaseValidatorModel):
+class DeleteFleetInput(BaseValidatorModel):
     arn: str
 
 
-class DeleteProjectInputTypeDef(BaseValidatorModel):
+class DeleteProjectInput(BaseValidatorModel):
     name: str
 
 
-class DeleteReportGroupInputTypeDef(BaseValidatorModel):
+class DeleteReportGroupInput(BaseValidatorModel):
     arn: str
     deleteReports: Optional[bool] = None
 
 
-class DeleteReportInputTypeDef(BaseValidatorModel):
+class DeleteReportInput(BaseValidatorModel):
     arn: str
 
 
-class DeleteResourcePolicyInputTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyInput(BaseValidatorModel):
     resourceArn: str
 
 
-class DeleteSourceCredentialsInputTypeDef(BaseValidatorModel):
+class DeleteSourceCredentialsInput(BaseValidatorModel):
     arn: str
 
 
-class DeleteWebhookInputTypeDef(BaseValidatorModel):
+class DeleteWebhookInput(BaseValidatorModel):
     projectName: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeCodeCoveragesInputTypeDef(BaseValidatorModel):
+class DescribeCodeCoveragesInput(BaseValidatorModel):
     reportArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -195,12 +195,12 @@ class DescribeCodeCoveragesInputTypeDef(BaseValidatorModel):
     maxLineCoveragePercentage: Optional[float] = None
 
 
-class TestCaseFilterTypeDef(BaseValidatorModel):
+class TestCaseFilter(BaseValidatorModel):
     status: Optional[str] = None
     keyword: Optional[str] = None
 
 
-class TestCaseTypeDef(BaseValidatorModel):
+class TestCase(BaseValidatorModel):
     reportArn: Optional[str] = None
     testRawDataPath: Optional[str] = None
     prefix: Optional[str] = None
@@ -212,38 +212,38 @@ class TestCaseTypeDef(BaseValidatorModel):
     testSuiteName: Optional[str] = None
 
 
-class EnvironmentImageTypeDef(BaseValidatorModel):
+class EnvironmentImage(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     versions: Optional[List[str]] = None
 
 
-class FleetStatusTypeDef(BaseValidatorModel):
+class FleetStatus(BaseValidatorModel):
     statusCode: Optional[FleetStatusCodeType] = None
     context: Optional[FleetContextCodeType] = None
     message: Optional[str] = None
 
 
-class GetReportGroupTrendInputTypeDef(BaseValidatorModel):
+class GetReportGroupTrendInput(BaseValidatorModel):
     reportGroupArn: str
     trendField: ReportGroupTrendFieldTypeType
     numOfReports: Optional[int] = None
 
 
-class ReportWithRawDataTypeDef(BaseValidatorModel):
+class ReportWithRawData(BaseValidatorModel):
     reportArn: Optional[str] = None
     data: Optional[str] = None
 
 
-class GetResourcePolicyInputTypeDef(BaseValidatorModel):
+class GetResourcePolicyInput(BaseValidatorModel):
     resourceArn: str
 
 
-class GitSubmodulesConfigTypeDef(BaseValidatorModel):
+class GitSubmodulesConfig(BaseValidatorModel):
     fetchSubmodules: bool
 
 
-class ImportSourceCredentialsInputTypeDef(BaseValidatorModel):
+class ImportSourceCredentialsInput(BaseValidatorModel):
     token: str
     serverType: ServerTypeType
     authType: AuthTypeType
@@ -251,93 +251,93 @@ class ImportSourceCredentialsInputTypeDef(BaseValidatorModel):
     shouldOverwrite: Optional[bool] = None
 
 
-class InvalidateProjectCacheInputTypeDef(BaseValidatorModel):
+class InvalidateProjectCacheInput(BaseValidatorModel):
     projectName: str
 
 
-class ListBuildsForProjectInputTypeDef(BaseValidatorModel):
+class ListBuildsForProjectInput(BaseValidatorModel):
     projectName: str
     sortOrder: Optional[SortOrderTypeType] = None
     nextToken: Optional[str] = None
 
 
-class ListBuildsInputTypeDef(BaseValidatorModel):
+class ListBuildsInput(BaseValidatorModel):
     sortOrder: Optional[SortOrderTypeType] = None
     nextToken: Optional[str] = None
 
 
-class ListFleetsInputTypeDef(BaseValidatorModel):
+class ListFleetsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     sortOrder: Optional[SortOrderTypeType] = None
     sortBy: Optional[FleetSortByTypeType] = None
 
 
-class ListProjectsInputTypeDef(BaseValidatorModel):
+class ListProjectsInput(BaseValidatorModel):
     sortBy: Optional[ProjectSortByTypeType] = None
     sortOrder: Optional[SortOrderTypeType] = None
     nextToken: Optional[str] = None
 
 
-class ListReportGroupsInputTypeDef(BaseValidatorModel):
+class ListReportGroupsInput(BaseValidatorModel):
     sortOrder: Optional[SortOrderTypeType] = None
     sortBy: Optional[ReportGroupSortByTypeType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ReportFilterTypeDef(BaseValidatorModel):
+class ReportFilter(BaseValidatorModel):
     status: Optional[ReportStatusTypeType] = None
 
 
-class ListSharedProjectsInputTypeDef(BaseValidatorModel):
+class ListSharedProjectsInput(BaseValidatorModel):
     sortBy: Optional[SharedResourceSortByTypeType] = None
     sortOrder: Optional[SortOrderTypeType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListSharedReportGroupsInputTypeDef(BaseValidatorModel):
+class ListSharedReportGroupsInput(BaseValidatorModel):
     sortOrder: Optional[SortOrderTypeType] = None
     sortBy: Optional[SharedResourceSortByTypeType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class SourceCredentialsInfoTypeDef(BaseValidatorModel):
+class SourceCredentialsInfo(BaseValidatorModel):
     arn: Optional[str] = None
     serverType: Optional[ServerTypeType] = None
     authType: Optional[AuthTypeType] = None
     resource: Optional[str] = None
 
 
-class S3LogsConfigTypeDef(BaseValidatorModel):
+class S3LogsConfig(BaseValidatorModel):
     status: LogsConfigStatusTypeType
     location: Optional[str] = None
     encryptionDisabled: Optional[bool] = None
     bucketOwnerAccess: Optional[BucketOwnerAccessType] = None
 
 
-class ProjectBadgeTypeDef(BaseValidatorModel):
+class ProjectBadge(BaseValidatorModel):
     badgeEnabled: Optional[bool] = None
     badgeRequestUrl: Optional[str] = None
 
 
-class ProjectFleetTypeDef(BaseValidatorModel):
+class ProjectFleet(BaseValidatorModel):
     fleetArn: Optional[str] = None
 
 
-class RegistryCredentialTypeDef(BaseValidatorModel):
+class RegistryCredential(BaseValidatorModel):
     credential: str
     credentialProvider: Literal["SECRETS_MANAGER"]
 
 
-class PutResourcePolicyInputTypeDef(BaseValidatorModel):
+class PutResourcePolicyInput(BaseValidatorModel):
     policy: str
     resourceArn: str
 
 
-class S3ReportExportConfigTypeDef(BaseValidatorModel):
+class S3ReportExportConfig(BaseValidatorModel):
     bucket: Optional[str] = None
     bucketOwner: Optional[str] = None
     path: Optional[str] = None
@@ -346,420 +346,420 @@ class S3ReportExportConfigTypeDef(BaseValidatorModel):
     encryptionDisabled: Optional[bool] = None
 
 
-class TestReportSummaryTypeDef(BaseValidatorModel):
+class TestReportSummary(BaseValidatorModel):
     total: int
     statusCounts: Dict[str, int]
     durationInNanoSeconds: int
 
 
-class TargetTrackingScalingConfigurationTypeDef(BaseValidatorModel):
+class TargetTrackingScalingConfiguration(BaseValidatorModel):
     metricType: Optional[Literal["FLEET_UTILIZATION_RATE"]] = None
     targetValue: Optional[float] = None
 
 
-class UpdateProjectVisibilityInputTypeDef(BaseValidatorModel):
+class UpdateProjectVisibilityInput(BaseValidatorModel):
     projectArn: str
     projectVisibility: ProjectVisibilityTypeType
     resourceAccessRole: Optional[str] = None
 
 
-class VpcConfigTypeDef(BaseValidatorModel):
+class VpcConfig(BaseValidatorModel):
     vpcId: Optional[str] = None
     subnets: Optional[Sequence[str]] = None
     securityGroupIds: Optional[Sequence[str]] = None
 
 
-class BuildNotDeletedTypeDef(BaseValidatorModel):
+class BuildNotDeleted(BaseValidatorModel):
     pass
 
 
-class BatchDeleteBuildsOutputTypeDef(BaseValidatorModel):
+class BatchDeleteBuildsOutput(BaseValidatorModel):
     buildsDeleted: List[str]
-    buildsNotDeleted: List[BuildNotDeletedTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    buildsNotDeleted: List[BuildNotDeleted]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBuildBatchOutputTypeDef(BaseValidatorModel):
+class DeleteBuildBatchOutput(BaseValidatorModel):
     statusCode: str
     buildsDeleted: List[str]
-    buildsNotDeleted: List[BuildNotDeletedTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    buildsNotDeleted: List[BuildNotDeleted]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSourceCredentialsOutputTypeDef(BaseValidatorModel):
+class DeleteSourceCredentialsOutput(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcePolicyOutputTypeDef(BaseValidatorModel):
+class GetResourcePolicyOutput(BaseValidatorModel):
     policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportSourceCredentialsOutputTypeDef(BaseValidatorModel):
+class ImportSourceCredentialsOutput(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBuildBatchesForProjectOutputTypeDef(BaseValidatorModel):
+class ListBuildBatchesForProjectOutput(BaseValidatorModel):
     ids: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListBuildBatchesOutputTypeDef(BaseValidatorModel):
+class ListBuildBatchesOutput(BaseValidatorModel):
     ids: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListBuildsForProjectOutputTypeDef(BaseValidatorModel):
+class ListBuildsForProjectOutput(BaseValidatorModel):
     ids: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListBuildsOutputTypeDef(BaseValidatorModel):
+class ListBuildsOutput(BaseValidatorModel):
     ids: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListFleetsOutputTypeDef(BaseValidatorModel):
+class ListFleetsOutput(BaseValidatorModel):
     fleets: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListProjectsOutputTypeDef(BaseValidatorModel):
+class ListProjectsOutput(BaseValidatorModel):
     projects: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListReportGroupsOutputTypeDef(BaseValidatorModel):
+class ListReportGroupsOutput(BaseValidatorModel):
     reportGroups: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListReportsForReportGroupOutputTypeDef(BaseValidatorModel):
+class ListReportsForReportGroupOutput(BaseValidatorModel):
     reports: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListReportsOutputTypeDef(BaseValidatorModel):
+class ListReportsOutput(BaseValidatorModel):
     reports: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSharedProjectsOutputTypeDef(BaseValidatorModel):
+class ListSharedProjectsOutput(BaseValidatorModel):
     projects: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSharedReportGroupsOutputTypeDef(BaseValidatorModel):
+class ListSharedReportGroupsOutput(BaseValidatorModel):
     reportGroups: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PutResourcePolicyOutputTypeDef(BaseValidatorModel):
+class PutResourcePolicyOutput(BaseValidatorModel):
     resourceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProjectVisibilityOutputTypeDef(BaseValidatorModel):
+class UpdateProjectVisibilityOutput(BaseValidatorModel):
     projectArn: str
     publicProjectAlias: str
     projectVisibility: ProjectVisibilityTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ProjectBuildBatchConfigOutputTypeDef(BaseValidatorModel):
+class ProjectBuildBatchConfigOutput(BaseValidatorModel):
     serviceRole: Optional[str] = None
     combineArtifacts: Optional[bool] = None
-    restrictions: Optional[BatchRestrictionsOutputTypeDef] = None
+    restrictions: Optional[BatchRestrictionsOutput] = None
     timeoutInMins: Optional[int] = None
     batchReportMode: Optional[BatchReportModeTypeType] = None
 
 
-class ProjectBuildBatchConfigTypeDef(BaseValidatorModel):
+class ProjectBuildBatchConfig(BaseValidatorModel):
     serviceRole: Optional[str] = None
     combineArtifacts: Optional[bool] = None
-    restrictions: Optional[BatchRestrictionsTypeDef] = None
+    restrictions: Optional[BatchRestrictions] = None
     timeoutInMins: Optional[int] = None
     batchReportMode: Optional[BatchReportModeTypeType] = None
 
 
-class BuildBatchPhaseTypeDef(BaseValidatorModel):
+class BuildBatchPhase(BaseValidatorModel):
     phaseType: Optional[BuildBatchPhaseTypeType] = None
     phaseStatus: Optional[StatusTypeType] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     durationInSeconds: Optional[int] = None
-    contexts: Optional[List[PhaseContextTypeDef]] = None
+    contexts: Optional[List[PhaseContext]] = None
 
 
-class BuildPhaseTypeDef(BaseValidatorModel):
+class BuildPhase(BaseValidatorModel):
     phaseType: Optional[BuildPhaseTypeType] = None
     phaseStatus: Optional[StatusTypeType] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     durationInSeconds: Optional[int] = None
-    contexts: Optional[List[PhaseContextTypeDef]] = None
+    contexts: Optional[List[PhaseContext]] = None
 
 
-class ResolvedArtifactTypeDef(BaseValidatorModel):
+class ResolvedArtifact(BaseValidatorModel):
     pass
 
 
-class BuildSummaryTypeDef(BaseValidatorModel):
+class BuildSummary(BaseValidatorModel):
     arn: Optional[str] = None
     requestedOn: Optional[datetime] = None
     buildStatus: Optional[StatusTypeType] = None
-    primaryArtifact: Optional[ResolvedArtifactTypeDef] = None
-    secondaryArtifacts: Optional[List[ResolvedArtifactTypeDef]] = None
+    primaryArtifact: Optional[ResolvedArtifact] = None
+    secondaryArtifacts: Optional[List[ResolvedArtifact]] = None
 
 
-class CodeCoverageTypeDef(BaseValidatorModel):
+class CodeCoverage(BaseValidatorModel):
     pass
 
 
-class DescribeCodeCoveragesOutputTypeDef(BaseValidatorModel):
-    codeCoverages: List[CodeCoverageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeCodeCoveragesOutput(BaseValidatorModel):
+    codeCoverages: List[CodeCoverage]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WebhookFilterTypeDef(BaseValidatorModel):
+class WebhookFilter(BaseValidatorModel):
     pass
 
 
-class CreateWebhookInputTypeDef(BaseValidatorModel):
+class CreateWebhookInput(BaseValidatorModel):
     projectName: str
     branchFilter: Optional[str] = None
-    filterGroups: Optional[Sequence[Sequence[WebhookFilterTypeDef]]] = None
+    filterGroups: Optional[Sequence[Sequence[WebhookFilter]]] = None
     buildType: Optional[WebhookBuildTypeType] = None
     manualCreation: Optional[bool] = None
-    scopeConfiguration: Optional[ScopeConfigurationTypeDef] = None
+    scopeConfiguration: Optional[ScopeConfiguration] = None
 
 
-class UpdateWebhookInputTypeDef(BaseValidatorModel):
+class UpdateWebhookInput(BaseValidatorModel):
     projectName: str
     branchFilter: Optional[str] = None
     rotateSecret: Optional[bool] = None
-    filterGroups: Optional[Sequence[Sequence[WebhookFilterTypeDef]]] = None
+    filterGroups: Optional[Sequence[Sequence[WebhookFilter]]] = None
     buildType: Optional[WebhookBuildTypeType] = None
 
 
-class WebhookTypeDef(BaseValidatorModel):
+class Webhook(BaseValidatorModel):
     url: Optional[str] = None
     payloadUrl: Optional[str] = None
     secret: Optional[str] = None
     branchFilter: Optional[str] = None
-    filterGroups: Optional[List[List[WebhookFilterTypeDef]]] = None
+    filterGroups: Optional[List[List[WebhookFilter]]] = None
     buildType: Optional[WebhookBuildTypeType] = None
     manualCreation: Optional[bool] = None
     lastModifiedSecret: Optional[datetime] = None
-    scopeConfiguration: Optional[ScopeConfigurationTypeDef] = None
+    scopeConfiguration: Optional[ScopeConfiguration] = None
     status: Optional[WebhookStatusType] = None
     statusMessage: Optional[str] = None
 
 
-class DescribeCodeCoveragesInputPaginateTypeDef(BaseValidatorModel):
+class DescribeCodeCoveragesInputPaginate(BaseValidatorModel):
     reportArn: str
     sortOrder: Optional[SortOrderTypeType] = None
     sortBy: Optional[ReportCodeCoverageSortByTypeType] = None
     minLineCoveragePercentage: Optional[float] = None
     maxLineCoveragePercentage: Optional[float] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBuildsForProjectInputPaginateTypeDef(BaseValidatorModel):
+class ListBuildsForProjectInputPaginate(BaseValidatorModel):
     projectName: str
     sortOrder: Optional[SortOrderTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBuildsInputPaginateTypeDef(BaseValidatorModel):
+class ListBuildsInputPaginate(BaseValidatorModel):
     sortOrder: Optional[SortOrderTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectsInputPaginateTypeDef(BaseValidatorModel):
+class ListProjectsInputPaginate(BaseValidatorModel):
     sortBy: Optional[ProjectSortByTypeType] = None
     sortOrder: Optional[SortOrderTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListReportGroupsInputPaginateTypeDef(BaseValidatorModel):
+class ListReportGroupsInputPaginate(BaseValidatorModel):
     sortOrder: Optional[SortOrderTypeType] = None
     sortBy: Optional[ReportGroupSortByTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSharedProjectsInputPaginateTypeDef(BaseValidatorModel):
+class ListSharedProjectsInputPaginate(BaseValidatorModel):
     sortBy: Optional[SharedResourceSortByTypeType] = None
     sortOrder: Optional[SortOrderTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSharedReportGroupsInputPaginateTypeDef(BaseValidatorModel):
+class ListSharedReportGroupsInputPaginate(BaseValidatorModel):
     sortOrder: Optional[SortOrderTypeType] = None
     sortBy: Optional[SharedResourceSortByTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeTestCasesOutputTypeDef(BaseValidatorModel):
-    testCases: List[TestCaseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTestCasesOutput(BaseValidatorModel):
+    testCases: List[TestCase]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EnvironmentLanguageTypeDef(BaseValidatorModel):
+class EnvironmentLanguage(BaseValidatorModel):
     language: Optional[LanguageTypeType] = None
-    images: Optional[List[EnvironmentImageTypeDef]] = None
+    images: Optional[List[EnvironmentImage]] = None
 
 
-class FleetProxyRuleOutputTypeDef(BaseValidatorModel):
+class FleetProxyRuleOutput(BaseValidatorModel):
     pass
 
 
-class ProxyConfigurationOutputTypeDef(BaseValidatorModel):
+class ProxyConfigurationOutput(BaseValidatorModel):
     defaultBehavior: Optional[FleetProxyRuleBehaviorType] = None
-    orderedProxyRules: Optional[List[FleetProxyRuleOutputTypeDef]] = None
+    orderedProxyRules: Optional[List[FleetProxyRuleOutput]] = None
 
 
-class FleetProxyRuleTypeDef(BaseValidatorModel):
+class FleetProxyRule(BaseValidatorModel):
     pass
 
 
-class ProxyConfigurationTypeDef(BaseValidatorModel):
+class ProxyConfiguration(BaseValidatorModel):
     defaultBehavior: Optional[FleetProxyRuleBehaviorType] = None
-    orderedProxyRules: Optional[Sequence[FleetProxyRuleTypeDef]] = None
+    orderedProxyRules: Optional[Sequence[FleetProxyRule]] = None
 
 
-class ReportGroupTrendStatsTypeDef(BaseValidatorModel):
+class ReportGroupTrendStats(BaseValidatorModel):
     pass
 
 
-class GetReportGroupTrendOutputTypeDef(BaseValidatorModel):
-    stats: ReportGroupTrendStatsTypeDef
-    rawData: List[ReportWithRawDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetReportGroupTrendOutput(BaseValidatorModel):
+    stats: ReportGroupTrendStats
+    rawData: List[ReportWithRawData]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSourceCredentialsOutputTypeDef(BaseValidatorModel):
-    sourceCredentialsInfos: List[SourceCredentialsInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSourceCredentialsOutput(BaseValidatorModel):
+    sourceCredentialsInfos: List[SourceCredentialsInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class LogsConfigTypeDef(BaseValidatorModel):
-    cloudWatchLogs: Optional[CloudWatchLogsConfigTypeDef] = None
-    s3Logs: Optional[S3LogsConfigTypeDef] = None
+class LogsConfig(BaseValidatorModel):
+    cloudWatchLogs: Optional[CloudWatchLogsConfig] = None
+    s3Logs: Optional[S3LogsConfig] = None
 
 
-class LogsLocationTypeDef(BaseValidatorModel):
+class LogsLocation(BaseValidatorModel):
     groupName: Optional[str] = None
     streamName: Optional[str] = None
     deepLink: Optional[str] = None
     s3DeepLink: Optional[str] = None
     cloudWatchLogsArn: Optional[str] = None
     s3LogsArn: Optional[str] = None
-    cloudWatchLogs: Optional[CloudWatchLogsConfigTypeDef] = None
-    s3Logs: Optional[S3LogsConfigTypeDef] = None
+    cloudWatchLogs: Optional[CloudWatchLogsConfig] = None
+    s3Logs: Optional[S3LogsConfig] = None
 
 
-class ReportExportConfigTypeDef(BaseValidatorModel):
+class ReportExportConfig(BaseValidatorModel):
     exportConfigType: Optional[ReportExportConfigTypeType] = None
-    s3Destination: Optional[S3ReportExportConfigTypeDef] = None
+    s3Destination: Optional[S3ReportExportConfig] = None
 
 
-class ScalingConfigurationInputTypeDef(BaseValidatorModel):
+class ScalingConfigurationInput(BaseValidatorModel):
     scalingType: Optional[Literal["TARGET_TRACKING_SCALING"]] = None
-    targetTrackingScalingConfigs: Optional[Sequence[TargetTrackingScalingConfigurationTypeDef]] = None
+    targetTrackingScalingConfigs: Optional[Sequence[TargetTrackingScalingConfiguration]] = None
     maxCapacity: Optional[int] = None
 
 
-class ScalingConfigurationOutputTypeDef(BaseValidatorModel):
+class ScalingConfigurationOutput(BaseValidatorModel):
     scalingType: Optional[Literal["TARGET_TRACKING_SCALING"]] = None
-    targetTrackingScalingConfigs: Optional[List[TargetTrackingScalingConfigurationTypeDef]] = None
+    targetTrackingScalingConfigs: Optional[List[TargetTrackingScalingConfiguration]] = None
     maxCapacity: Optional[int] = None
     desiredCapacity: Optional[int] = None
 
 
-class BuildGroupTypeDef(BaseValidatorModel):
+class BuildGroup(BaseValidatorModel):
     identifier: Optional[str] = None
     dependsOn: Optional[List[str]] = None
     ignoreFailure: Optional[bool] = None
-    currentBuildSummary: Optional[BuildSummaryTypeDef] = None
-    priorBuildSummaryList: Optional[List[BuildSummaryTypeDef]] = None
+    currentBuildSummary: Optional[BuildSummary] = None
+    priorBuildSummaryList: Optional[List[BuildSummary]] = None
 
 
-class CreateWebhookOutputTypeDef(BaseValidatorModel):
-    webhook: WebhookTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateWebhookOutput(BaseValidatorModel):
+    webhook: Webhook
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateWebhookOutputTypeDef(BaseValidatorModel):
-    webhook: WebhookTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateWebhookOutput(BaseValidatorModel):
+    webhook: Webhook
+    ResponseMetadata: ResponseMetadata
 
 
-class EnvironmentPlatformTypeDef(BaseValidatorModel):
+class EnvironmentPlatform(BaseValidatorModel):
     platform: Optional[PlatformTypeType] = None
-    languages: Optional[List[EnvironmentLanguageTypeDef]] = None
+    languages: Optional[List[EnvironmentLanguage]] = None
 
 
-class ProjectSourceTypeDef(BaseValidatorModel):
+class ProjectSource(BaseValidatorModel):
     pass
 
 
-class ProjectEnvironmentOutputTypeDef(BaseValidatorModel):
+class ProjectEnvironmentOutput(BaseValidatorModel):
     pass
 
 
-class ProjectCacheOutputTypeDef(BaseValidatorModel):
+class ProjectCacheOutput(BaseValidatorModel):
     pass
 
 
-class ProjectArtifactsTypeDef(BaseValidatorModel):
+class ProjectArtifacts(BaseValidatorModel):
     pass
 
 
-class ProjectFileSystemLocationTypeDef(BaseValidatorModel):
+class ProjectFileSystemLocation(BaseValidatorModel):
     pass
 
 
-class ProjectTypeDef(BaseValidatorModel):
+class Project(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     description: Optional[str] = None
-    source: Optional[ProjectSourceTypeDef] = None
-    secondarySources: Optional[List[ProjectSourceTypeDef]] = None
+    source: Optional[ProjectSource] = None
+    secondarySources: Optional[List[ProjectSource]] = None
     sourceVersion: Optional[str] = None
-    secondarySourceVersions: Optional[List[ProjectSourceVersionTypeDef]] = None
-    artifacts: Optional[ProjectArtifactsTypeDef] = None
-    secondaryArtifacts: Optional[List[ProjectArtifactsTypeDef]] = None
-    cache: Optional[ProjectCacheOutputTypeDef] = None
-    environment: Optional[ProjectEnvironmentOutputTypeDef] = None
+    secondarySourceVersions: Optional[List[ProjectSourceVersion]] = None
+    artifacts: Optional[ProjectArtifacts] = None
+    secondaryArtifacts: Optional[List[ProjectArtifacts]] = None
+    cache: Optional[ProjectCacheOutput] = None
+    environment: Optional[ProjectEnvironmentOutput] = None
     serviceRole: Optional[str] = None
     timeoutInMinutes: Optional[int] = None
     queuedTimeoutInMinutes: Optional[int] = None
     encryptionKey: Optional[str] = None
-    tags: Optional[List[TagTypeDef]] = None
+    tags: Optional[List[Tag]] = None
     created: Optional[datetime] = None
     lastModified: Optional[datetime] = None
-    webhook: Optional[WebhookTypeDef] = None
-    vpcConfig: Optional[VpcConfigOutputTypeDef] = None
-    badge: Optional[ProjectBadgeTypeDef] = None
-    logsConfig: Optional[LogsConfigTypeDef] = None
-    fileSystemLocations: Optional[List[ProjectFileSystemLocationTypeDef]] = None
-    buildBatchConfig: Optional[ProjectBuildBatchConfigOutputTypeDef] = None
+    webhook: Optional[Webhook] = None
+    vpcConfig: Optional[VpcConfigOutput] = None
+    badge: Optional[ProjectBadge] = None
+    logsConfig: Optional[LogsConfig] = None
+    fileSystemLocations: Optional[List[ProjectFileSystemLocation]] = None
+    buildBatchConfig: Optional[ProjectBuildBatchConfigOutput] = None
     concurrentBuildLimit: Optional[int] = None
     projectVisibility: Optional[ProjectVisibilityTypeType] = None
     publicProjectAlias: Optional[str] = None
@@ -767,77 +767,77 @@ class ProjectTypeDef(BaseValidatorModel):
     autoRetryLimit: Optional[int] = None
 
 
-class EnvironmentVariableTypeDef(BaseValidatorModel):
+class EnvironmentVariable(BaseValidatorModel):
     pass
 
 
-class SourceAuthTypeDef(BaseValidatorModel):
+class SourceAuth(BaseValidatorModel):
     pass
 
 
-class ProjectCacheUnionTypeDef(BaseValidatorModel):
+class ProjectCacheUnion(BaseValidatorModel):
     pass
 
 
-class StartBuildInputTypeDef(BaseValidatorModel):
+class StartBuildInput(BaseValidatorModel):
     projectName: str
-    secondarySourcesOverride: Optional[Sequence[ProjectSourceTypeDef]] = None
-    secondarySourcesVersionOverride: Optional[Sequence[ProjectSourceVersionTypeDef]] = None
+    secondarySourcesOverride: Optional[Sequence[ProjectSource]] = None
+    secondarySourcesVersionOverride: Optional[Sequence[ProjectSourceVersion]] = None
     sourceVersion: Optional[str] = None
-    artifactsOverride: Optional[ProjectArtifactsTypeDef] = None
-    secondaryArtifactsOverride: Optional[Sequence[ProjectArtifactsTypeDef]] = None
-    environmentVariablesOverride: Optional[Sequence[EnvironmentVariableTypeDef]] = None
+    artifactsOverride: Optional[ProjectArtifacts] = None
+    secondaryArtifactsOverride: Optional[Sequence[ProjectArtifacts]] = None
+    environmentVariablesOverride: Optional[Sequence[EnvironmentVariable]] = None
     sourceTypeOverride: Optional[SourceTypeType] = None
     sourceLocationOverride: Optional[str] = None
-    sourceAuthOverride: Optional[SourceAuthTypeDef] = None
+    sourceAuthOverride: Optional[SourceAuth] = None
     gitCloneDepthOverride: Optional[int] = None
-    gitSubmodulesConfigOverride: Optional[GitSubmodulesConfigTypeDef] = None
+    gitSubmodulesConfigOverride: Optional[GitSubmodulesConfig] = None
     buildspecOverride: Optional[str] = None
     insecureSslOverride: Optional[bool] = None
     reportBuildStatusOverride: Optional[bool] = None
-    buildStatusConfigOverride: Optional[BuildStatusConfigTypeDef] = None
+    buildStatusConfigOverride: Optional[BuildStatusConfig] = None
     environmentTypeOverride: Optional[EnvironmentTypeType] = None
     imageOverride: Optional[str] = None
     computeTypeOverride: Optional[ComputeTypeType] = None
     certificateOverride: Optional[str] = None
-    cacheOverride: Optional[ProjectCacheUnionTypeDef] = None
+    cacheOverride: Optional[ProjectCacheUnion] = None
     serviceRoleOverride: Optional[str] = None
     privilegedModeOverride: Optional[bool] = None
     timeoutInMinutesOverride: Optional[int] = None
     queuedTimeoutInMinutesOverride: Optional[int] = None
     encryptionKeyOverride: Optional[str] = None
     idempotencyToken: Optional[str] = None
-    logsConfigOverride: Optional[LogsConfigTypeDef] = None
-    registryCredentialOverride: Optional[RegistryCredentialTypeDef] = None
+    logsConfigOverride: Optional[LogsConfig] = None
+    registryCredentialOverride: Optional[RegistryCredential] = None
     imagePullCredentialsTypeOverride: Optional[ImagePullCredentialsTypeType] = None
     debugSessionEnabled: Optional[bool] = None
-    fleetOverride: Optional[ProjectFleetTypeDef] = None
+    fleetOverride: Optional[ProjectFleet] = None
     autoRetryLimitOverride: Optional[int] = None
 
 
-class UpdateReportGroupInputTypeDef(BaseValidatorModel):
+class UpdateReportGroupInput(BaseValidatorModel):
     arn: str
-    exportConfig: Optional[ReportExportConfigTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    exportConfig: Optional[ReportExportConfig] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class ProjectBuildBatchConfigUnionTypeDef(BaseValidatorModel):
+class ProjectBuildBatchConfigUnion(BaseValidatorModel):
     pass
 
 
-class StartBuildBatchInputTypeDef(BaseValidatorModel):
+class StartBuildBatchInput(BaseValidatorModel):
     projectName: str
-    secondarySourcesOverride: Optional[Sequence[ProjectSourceTypeDef]] = None
-    secondarySourcesVersionOverride: Optional[Sequence[ProjectSourceVersionTypeDef]] = None
+    secondarySourcesOverride: Optional[Sequence[ProjectSource]] = None
+    secondarySourcesVersionOverride: Optional[Sequence[ProjectSourceVersion]] = None
     sourceVersion: Optional[str] = None
-    artifactsOverride: Optional[ProjectArtifactsTypeDef] = None
-    secondaryArtifactsOverride: Optional[Sequence[ProjectArtifactsTypeDef]] = None
-    environmentVariablesOverride: Optional[Sequence[EnvironmentVariableTypeDef]] = None
+    artifactsOverride: Optional[ProjectArtifacts] = None
+    secondaryArtifactsOverride: Optional[Sequence[ProjectArtifacts]] = None
+    environmentVariablesOverride: Optional[Sequence[EnvironmentVariable]] = None
     sourceTypeOverride: Optional[SourceTypeType] = None
     sourceLocationOverride: Optional[str] = None
-    sourceAuthOverride: Optional[SourceAuthTypeDef] = None
+    sourceAuthOverride: Optional[SourceAuth] = None
     gitCloneDepthOverride: Optional[int] = None
-    gitSubmodulesConfigOverride: Optional[GitSubmodulesConfigTypeDef] = None
+    gitSubmodulesConfigOverride: Optional[GitSubmodulesConfig] = None
     buildspecOverride: Optional[str] = None
     insecureSslOverride: Optional[bool] = None
     reportBuildBatchStatusOverride: Optional[bool] = None
@@ -845,230 +845,230 @@ class StartBuildBatchInputTypeDef(BaseValidatorModel):
     imageOverride: Optional[str] = None
     computeTypeOverride: Optional[ComputeTypeType] = None
     certificateOverride: Optional[str] = None
-    cacheOverride: Optional[ProjectCacheUnionTypeDef] = None
+    cacheOverride: Optional[ProjectCacheUnion] = None
     serviceRoleOverride: Optional[str] = None
     privilegedModeOverride: Optional[bool] = None
     buildTimeoutInMinutesOverride: Optional[int] = None
     queuedTimeoutInMinutesOverride: Optional[int] = None
     encryptionKeyOverride: Optional[str] = None
     idempotencyToken: Optional[str] = None
-    logsConfigOverride: Optional[LogsConfigTypeDef] = None
-    registryCredentialOverride: Optional[RegistryCredentialTypeDef] = None
+    logsConfigOverride: Optional[LogsConfig] = None
+    registryCredentialOverride: Optional[RegistryCredential] = None
     imagePullCredentialsTypeOverride: Optional[ImagePullCredentialsTypeType] = None
-    buildBatchConfigOverride: Optional[ProjectBuildBatchConfigUnionTypeDef] = None
+    buildBatchConfigOverride: Optional[ProjectBuildBatchConfigUnion] = None
     debugSessionEnabled: Optional[bool] = None
 
 
-class ListCuratedEnvironmentImagesOutputTypeDef(BaseValidatorModel):
-    platforms: List[EnvironmentPlatformTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCuratedEnvironmentImagesOutput(BaseValidatorModel):
+    platforms: List[EnvironmentPlatform]
+    ResponseMetadata: ResponseMetadata
 
 
-class ProxyConfigurationUnionTypeDef(BaseValidatorModel):
+class ProxyConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class VpcConfigUnionTypeDef(BaseValidatorModel):
+class VpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateFleetInputTypeDef(BaseValidatorModel):
+class CreateFleetInput(BaseValidatorModel):
     name: str
     baseCapacity: int
     environmentType: EnvironmentTypeType
     computeType: ComputeTypeType
-    computeConfiguration: Optional[ComputeConfigurationTypeDef] = None
-    scalingConfiguration: Optional[ScalingConfigurationInputTypeDef] = None
+    computeConfiguration: Optional[ComputeConfiguration] = None
+    scalingConfiguration: Optional[ScalingConfigurationInput] = None
     overflowBehavior: Optional[FleetOverflowBehaviorType] = None
-    vpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    proxyConfiguration: Optional[ProxyConfigurationUnionTypeDef] = None
+    vpcConfig: Optional[VpcConfigUnion] = None
+    proxyConfiguration: Optional[ProxyConfigurationUnion] = None
     imageId: Optional[str] = None
     fleetServiceRole: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateFleetInputTypeDef(BaseValidatorModel):
+class UpdateFleetInput(BaseValidatorModel):
     arn: str
     baseCapacity: Optional[int] = None
     environmentType: Optional[EnvironmentTypeType] = None
     computeType: Optional[ComputeTypeType] = None
-    computeConfiguration: Optional[ComputeConfigurationTypeDef] = None
-    scalingConfiguration: Optional[ScalingConfigurationInputTypeDef] = None
+    computeConfiguration: Optional[ComputeConfiguration] = None
+    scalingConfiguration: Optional[ScalingConfigurationInput] = None
     overflowBehavior: Optional[FleetOverflowBehaviorType] = None
-    vpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    proxyConfiguration: Optional[ProxyConfigurationUnionTypeDef] = None
+    vpcConfig: Optional[VpcConfigUnion] = None
+    proxyConfiguration: Optional[ProxyConfigurationUnion] = None
     imageId: Optional[str] = None
     fleetServiceRole: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class ProjectEnvironmentUnionTypeDef(BaseValidatorModel):
+class ProjectEnvironmentUnion(BaseValidatorModel):
     pass
 
 
-class CreateProjectInputTypeDef(BaseValidatorModel):
+class CreateProjectInput(BaseValidatorModel):
     name: str
-    source: ProjectSourceTypeDef
-    artifacts: ProjectArtifactsTypeDef
-    environment: ProjectEnvironmentUnionTypeDef
+    source: ProjectSource
+    artifacts: ProjectArtifacts
+    environment: ProjectEnvironmentUnion
     serviceRole: str
     description: Optional[str] = None
-    secondarySources: Optional[Sequence[ProjectSourceTypeDef]] = None
+    secondarySources: Optional[Sequence[ProjectSource]] = None
     sourceVersion: Optional[str] = None
-    secondarySourceVersions: Optional[Sequence[ProjectSourceVersionTypeDef]] = None
-    secondaryArtifacts: Optional[Sequence[ProjectArtifactsTypeDef]] = None
-    cache: Optional[ProjectCacheUnionTypeDef] = None
+    secondarySourceVersions: Optional[Sequence[ProjectSourceVersion]] = None
+    secondaryArtifacts: Optional[Sequence[ProjectArtifacts]] = None
+    cache: Optional[ProjectCacheUnion] = None
     timeoutInMinutes: Optional[int] = None
     queuedTimeoutInMinutes: Optional[int] = None
     encryptionKey: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
-    vpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    tags: Optional[Sequence[Tag]] = None
+    vpcConfig: Optional[VpcConfigUnion] = None
     badgeEnabled: Optional[bool] = None
-    logsConfig: Optional[LogsConfigTypeDef] = None
-    fileSystemLocations: Optional[Sequence[ProjectFileSystemLocationTypeDef]] = None
-    buildBatchConfig: Optional[ProjectBuildBatchConfigUnionTypeDef] = None
+    logsConfig: Optional[LogsConfig] = None
+    fileSystemLocations: Optional[Sequence[ProjectFileSystemLocation]] = None
+    buildBatchConfig: Optional[ProjectBuildBatchConfigUnion] = None
     concurrentBuildLimit: Optional[int] = None
     autoRetryLimit: Optional[int] = None
 
 
-class UpdateProjectInputTypeDef(BaseValidatorModel):
+class UpdateProjectInput(BaseValidatorModel):
     name: str
     description: Optional[str] = None
-    source: Optional[ProjectSourceTypeDef] = None
-    secondarySources: Optional[Sequence[ProjectSourceTypeDef]] = None
+    source: Optional[ProjectSource] = None
+    secondarySources: Optional[Sequence[ProjectSource]] = None
     sourceVersion: Optional[str] = None
-    secondarySourceVersions: Optional[Sequence[ProjectSourceVersionTypeDef]] = None
-    artifacts: Optional[ProjectArtifactsTypeDef] = None
-    secondaryArtifacts: Optional[Sequence[ProjectArtifactsTypeDef]] = None
-    cache: Optional[ProjectCacheUnionTypeDef] = None
-    environment: Optional[ProjectEnvironmentUnionTypeDef] = None
+    secondarySourceVersions: Optional[Sequence[ProjectSourceVersion]] = None
+    artifacts: Optional[ProjectArtifacts] = None
+    secondaryArtifacts: Optional[Sequence[ProjectArtifacts]] = None
+    cache: Optional[ProjectCacheUnion] = None
+    environment: Optional[ProjectEnvironmentUnion] = None
     serviceRole: Optional[str] = None
     timeoutInMinutes: Optional[int] = None
     queuedTimeoutInMinutes: Optional[int] = None
     encryptionKey: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
-    vpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    tags: Optional[Sequence[Tag]] = None
+    vpcConfig: Optional[VpcConfigUnion] = None
     badgeEnabled: Optional[bool] = None
-    logsConfig: Optional[LogsConfigTypeDef] = None
-    fileSystemLocations: Optional[Sequence[ProjectFileSystemLocationTypeDef]] = None
-    buildBatchConfig: Optional[ProjectBuildBatchConfigUnionTypeDef] = None
+    logsConfig: Optional[LogsConfig] = None
+    fileSystemLocations: Optional[Sequence[ProjectFileSystemLocation]] = None
+    buildBatchConfig: Optional[ProjectBuildBatchConfigUnion] = None
     concurrentBuildLimit: Optional[int] = None
     autoRetryLimit: Optional[int] = None
 
 
-class BuildTypeDef(BaseValidatorModel):
+class Build(BaseValidatorModel):
     pass
 
 
-class BatchGetBuildsOutputTypeDef(BaseValidatorModel):
-    builds: List[BuildTypeDef]
+class BatchGetBuildsOutput(BaseValidatorModel):
+    builds: List[Build]
     buildsNotFound: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RetryBuildOutputTypeDef(BaseValidatorModel):
-    build: BuildTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RetryBuildOutput(BaseValidatorModel):
+    build: Build
+    ResponseMetadata: ResponseMetadata
 
 
-class StartBuildOutputTypeDef(BaseValidatorModel):
-    build: BuildTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartBuildOutput(BaseValidatorModel):
+    build: Build
+    ResponseMetadata: ResponseMetadata
 
 
-class StopBuildOutputTypeDef(BaseValidatorModel):
-    build: BuildTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopBuildOutput(BaseValidatorModel):
+    build: Build
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetProjectsOutputTypeDef(BaseValidatorModel):
-    projects: List[ProjectTypeDef]
+class BatchGetProjectsOutput(BaseValidatorModel):
+    projects: List[Project]
     projectsNotFound: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProjectOutputTypeDef(BaseValidatorModel):
-    project: ProjectTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateProjectOutput(BaseValidatorModel):
+    project: Project
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProjectOutputTypeDef(BaseValidatorModel):
-    project: ProjectTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateProjectOutput(BaseValidatorModel):
+    project: Project
+    ResponseMetadata: ResponseMetadata
 
 
-class ReportGroupTypeDef(BaseValidatorModel):
+class ReportGroup(BaseValidatorModel):
     pass
 
 
-class BatchGetReportGroupsOutputTypeDef(BaseValidatorModel):
-    reportGroups: List[ReportGroupTypeDef]
+class BatchGetReportGroupsOutput(BaseValidatorModel):
+    reportGroups: List[ReportGroup]
     reportGroupsNotFound: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateReportGroupOutputTypeDef(BaseValidatorModel):
-    reportGroup: ReportGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateReportGroupOutput(BaseValidatorModel):
+    reportGroup: ReportGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateReportGroupOutputTypeDef(BaseValidatorModel):
-    reportGroup: ReportGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateReportGroupOutput(BaseValidatorModel):
+    reportGroup: ReportGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class ReportTypeDef(BaseValidatorModel):
+class Report(BaseValidatorModel):
     pass
 
 
-class BatchGetReportsOutputTypeDef(BaseValidatorModel):
-    reports: List[ReportTypeDef]
+class BatchGetReportsOutput(BaseValidatorModel):
+    reports: List[Report]
     reportsNotFound: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FleetTypeDef(BaseValidatorModel):
+class Fleet(BaseValidatorModel):
     pass
 
 
-class BatchGetFleetsOutputTypeDef(BaseValidatorModel):
-    fleets: List[FleetTypeDef]
+class BatchGetFleetsOutput(BaseValidatorModel):
+    fleets: List[Fleet]
     fleetsNotFound: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFleetOutputTypeDef(BaseValidatorModel):
-    fleet: FleetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFleetOutput(BaseValidatorModel):
+    fleet: Fleet
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFleetOutputTypeDef(BaseValidatorModel):
-    fleet: FleetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFleetOutput(BaseValidatorModel):
+    fleet: Fleet
+    ResponseMetadata: ResponseMetadata
 
 
-class BuildBatchTypeDef(BaseValidatorModel):
+class BuildBatch(BaseValidatorModel):
     pass
 
 
-class BatchGetBuildBatchesOutputTypeDef(BaseValidatorModel):
-    buildBatches: List[BuildBatchTypeDef]
+class BatchGetBuildBatchesOutput(BaseValidatorModel):
+    buildBatches: List[BuildBatch]
     buildBatchesNotFound: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RetryBuildBatchOutputTypeDef(BaseValidatorModel):
-    buildBatch: BuildBatchTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RetryBuildBatchOutput(BaseValidatorModel):
+    buildBatch: BuildBatch
+    ResponseMetadata: ResponseMetadata
 
 
-class StartBuildBatchOutputTypeDef(BaseValidatorModel):
-    buildBatch: BuildBatchTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartBuildBatchOutput(BaseValidatorModel):
+    buildBatch: BuildBatch
+    ResponseMetadata: ResponseMetadata
 
 
-class StopBuildBatchOutputTypeDef(BaseValidatorModel):
-    buildBatch: BuildBatchTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopBuildBatchOutput(BaseValidatorModel):
+    buildBatch: BuildBatch
+    ResponseMetadata: ResponseMetadata
 
 

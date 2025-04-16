@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.migrationhub_config_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,48 +20,48 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteHomeRegionControlRequestTypeDef(BaseValidatorModel):
+class DeleteHomeRegionControlRequest(BaseValidatorModel):
     ControlId: str
 
 
-class TargetTypeDef(BaseValidatorModel):
+class Target(BaseValidatorModel):
     pass
 
 
-class CreateHomeRegionControlRequestTypeDef(BaseValidatorModel):
+class CreateHomeRegionControlRequest(BaseValidatorModel):
     HomeRegion: str
-    Target: TargetTypeDef
+    Target: Target
     DryRun: Optional[bool] = None
 
 
-class DescribeHomeRegionControlsRequestTypeDef(BaseValidatorModel):
+class DescribeHomeRegionControlsRequest(BaseValidatorModel):
     ControlId: Optional[str] = None
     HomeRegion: Optional[str] = None
-    Target: Optional[TargetTypeDef] = None
+    Target: Optional[Target] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class HomeRegionControlTypeDef(BaseValidatorModel):
+class HomeRegionControl(BaseValidatorModel):
     ControlId: Optional[str] = None
     HomeRegion: Optional[str] = None
-    Target: Optional[TargetTypeDef] = None
+    Target: Optional[Target] = None
     RequestedTime: Optional[datetime] = None
 
 
-class GetHomeRegionResultTypeDef(BaseValidatorModel):
+class GetHomeRegionResult(BaseValidatorModel):
     HomeRegion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateHomeRegionControlResultTypeDef(BaseValidatorModel):
-    HomeRegionControl: HomeRegionControlTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateHomeRegionControlResult(BaseValidatorModel):
+    HomeRegionControl: HomeRegionControl
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeHomeRegionControlsResultTypeDef(BaseValidatorModel):
-    HomeRegionControls: List[HomeRegionControlTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeHomeRegionControlsResult(BaseValidatorModel):
+    HomeRegionControls: List[HomeRegionControl]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

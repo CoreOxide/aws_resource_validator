@@ -12,26 +12,26 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.serverlessrepo_constants import *
 
-class ApplicationDependencySummaryTypeDef(BaseValidatorModel):
+class ApplicationDependencySummary(BaseValidatorModel):
     ApplicationId: str
     SemanticVersion: str
 
 
-class ApplicationPolicyStatementOutputTypeDef(BaseValidatorModel):
+class ApplicationPolicyStatementOutput(BaseValidatorModel):
     Actions: List[str]
     Principals: List[str]
     PrincipalOrgIDs: Optional[List[str]] = None
     StatementId: Optional[str] = None
 
 
-class ApplicationPolicyStatementTypeDef(BaseValidatorModel):
+class ApplicationPolicyStatement(BaseValidatorModel):
     Actions: Sequence[str]
     Principals: Sequence[str]
     PrincipalOrgIDs: Optional[Sequence[str]] = None
     StatementId: Optional[str] = None
 
 
-class ApplicationSummaryTypeDef(BaseValidatorModel):
+class ApplicationSummary(BaseValidatorModel):
     ApplicationId: str
     Author: str
     Description: str
@@ -42,7 +42,7 @@ class ApplicationSummaryTypeDef(BaseValidatorModel):
     SpdxLicenseId: Optional[str] = None
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     Author: str
     Description: str
     Name: str
@@ -60,7 +60,7 @@ class CreateApplicationRequestTypeDef(BaseValidatorModel):
     TemplateUrl: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -68,7 +68,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateApplicationVersionRequestTypeDef(BaseValidatorModel):
+class CreateApplicationVersionRequest(BaseValidatorModel):
     ApplicationId: str
     SemanticVersion: str
     SourceCodeArchiveUrl: Optional[str] = None
@@ -77,76 +77,76 @@ class CreateApplicationVersionRequestTypeDef(BaseValidatorModel):
     TemplateUrl: Optional[str] = None
 
 
-class ParameterValueTypeDef(BaseValidatorModel):
+class ParameterValue(BaseValidatorModel):
     Name: str
     Value: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class CreateCloudFormationTemplateRequestTypeDef(BaseValidatorModel):
+class CreateCloudFormationTemplateRequest(BaseValidatorModel):
     ApplicationId: str
     SemanticVersion: Optional[str] = None
 
 
-class DeleteApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationRequest(BaseValidatorModel):
     ApplicationId: str
 
 
-class GetApplicationPolicyRequestTypeDef(BaseValidatorModel):
+class GetApplicationPolicyRequest(BaseValidatorModel):
     ApplicationId: str
 
 
-class GetApplicationRequestTypeDef(BaseValidatorModel):
+class GetApplicationRequest(BaseValidatorModel):
     ApplicationId: str
     SemanticVersion: Optional[str] = None
 
 
-class GetCloudFormationTemplateRequestTypeDef(BaseValidatorModel):
+class GetCloudFormationTemplateRequest(BaseValidatorModel):
     ApplicationId: str
     TemplateId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApplicationDependenciesRequestTypeDef(BaseValidatorModel):
+class ListApplicationDependenciesRequest(BaseValidatorModel):
     ApplicationId: str
     MaxItems: Optional[int] = None
     NextToken: Optional[str] = None
     SemanticVersion: Optional[str] = None
 
 
-class ListApplicationVersionsRequestTypeDef(BaseValidatorModel):
+class ListApplicationVersionsRequest(BaseValidatorModel):
     ApplicationId: str
     MaxItems: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class VersionSummaryTypeDef(BaseValidatorModel):
+class VersionSummary(BaseValidatorModel):
     ApplicationId: str
     CreationTime: str
     SemanticVersion: str
     SourceCodeUrl: Optional[str] = None
 
 
-class ListApplicationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationsRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class UnshareApplicationRequestTypeDef(BaseValidatorModel):
+class UnshareApplicationRequest(BaseValidatorModel):
     ApplicationId: str
     OrganizationId: str
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     ApplicationId: str
     Author: Optional[str] = None
     Description: Optional[str] = None
@@ -156,15 +156,15 @@ class UpdateApplicationRequestTypeDef(BaseValidatorModel):
     ReadmeUrl: Optional[str] = None
 
 
-class CreateCloudFormationChangeSetResponseTypeDef(BaseValidatorModel):
+class CreateCloudFormationChangeSetResponse(BaseValidatorModel):
     ApplicationId: str
     ChangeSetId: str
     SemanticVersion: str
     StackId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCloudFormationTemplateResponseTypeDef(BaseValidatorModel):
+class CreateCloudFormationTemplateResponse(BaseValidatorModel):
     ApplicationId: str
     CreationTime: str
     ExpirationTime: str
@@ -172,19 +172,19 @@ class CreateCloudFormationTemplateResponseTypeDef(BaseValidatorModel):
     Status: StatusType
     TemplateId: str
     TemplateUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetApplicationPolicyResponseTypeDef(BaseValidatorModel):
-    Statements: List[ApplicationPolicyStatementOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetApplicationPolicyResponse(BaseValidatorModel):
+    Statements: List[ApplicationPolicyStatementOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCloudFormationTemplateResponseTypeDef(BaseValidatorModel):
+class GetCloudFormationTemplateResponse(BaseValidatorModel):
     ApplicationId: str
     CreationTime: str
     ExpirationTime: str
@@ -192,47 +192,47 @@ class GetCloudFormationTemplateResponseTypeDef(BaseValidatorModel):
     Status: StatusType
     TemplateId: str
     TemplateUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationDependenciesResponseTypeDef(BaseValidatorModel):
-    Dependencies: List[ApplicationDependencySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationDependenciesResponse(BaseValidatorModel):
+    Dependencies: List[ApplicationDependencySummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListApplicationsResponseTypeDef(BaseValidatorModel):
-    Applications: List[ApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsResponse(BaseValidatorModel):
+    Applications: List[ApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutApplicationPolicyResponseTypeDef(BaseValidatorModel):
-    Statements: List[ApplicationPolicyStatementOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutApplicationPolicyResponse(BaseValidatorModel):
+    Statements: List[ApplicationPolicyStatementOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class ParameterDefinitionTypeDef(BaseValidatorModel):
+class ParameterDefinition(BaseValidatorModel):
     pass
 
 
-class CreateApplicationVersionResponseTypeDef(BaseValidatorModel):
+class CreateApplicationVersionResponse(BaseValidatorModel):
     ApplicationId: str
     CreationTime: str
-    ParameterDefinitions: List[ParameterDefinitionTypeDef]
+    ParameterDefinitions: List[ParameterDefinition]
     RequiredCapabilities: List[CapabilityType]
     ResourcesSupported: bool
     SemanticVersion: str
     SourceCodeArchiveUrl: str
     SourceCodeUrl: str
     TemplateUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class VersionTypeDef(BaseValidatorModel):
+class Version(BaseValidatorModel):
     ApplicationId: str
     CreationTime: str
-    ParameterDefinitions: List[ParameterDefinitionTypeDef]
+    ParameterDefinitions: List[ParameterDefinition]
     RequiredCapabilities: List[CapabilityType]
     ResourcesSupported: bool
     SemanticVersion: str
@@ -241,63 +241,46 @@ class VersionTypeDef(BaseValidatorModel):
     SourceCodeUrl: Optional[str] = None
 
 
-class ListApplicationDependenciesRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationDependenciesRequestPaginate(BaseValidatorModel):
     ApplicationId: str
     SemanticVersion: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationVersionsRequestPaginate(BaseValidatorModel):
     ApplicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListApplicationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationVersionsResponseTypeDef(BaseValidatorModel):
-    Versions: List[VersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationVersionsResponse(BaseValidatorModel):
+    Versions: List[VersionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RollbackTriggerTypeDef(BaseValidatorModel):
+class RollbackTrigger(BaseValidatorModel):
     pass
 
 
-class RollbackConfigurationTypeDef(BaseValidatorModel):
+class RollbackConfiguration(BaseValidatorModel):
     MonitoringTimeInMinutes: Optional[int] = None
-    RollbackTriggers: Optional[Sequence[RollbackTriggerTypeDef]] = None
+    RollbackTriggers: Optional[Sequence[RollbackTrigger]] = None
 
 
-class ApplicationPolicyStatementUnionTypeDef(BaseValidatorModel):
+class ApplicationPolicyStatementUnion(BaseValidatorModel):
     pass
 
 
-class PutApplicationPolicyRequestTypeDef(BaseValidatorModel):
+class PutApplicationPolicyRequest(BaseValidatorModel):
     ApplicationId: str
-    Statements: Sequence[ApplicationPolicyStatementUnionTypeDef]
+    Statements: Sequence[ApplicationPolicyStatementUnion]
 
 
-class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    Author: str
-    CreationTime: str
-    Description: str
-    HomePageUrl: str
-    IsVerifiedAuthor: bool
-    Labels: List[str]
-    LicenseUrl: str
-    Name: str
-    ReadmeUrl: str
-    SpdxLicenseId: str
-    VerifiedAuthorUrl: str
-    Version: VersionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class GetApplicationResponseTypeDef(BaseValidatorModel):
+class CreateApplicationResponse(BaseValidatorModel):
     ApplicationId: str
     Author: str
     CreationTime: str
@@ -310,11 +293,11 @@ class GetApplicationResponseTypeDef(BaseValidatorModel):
     ReadmeUrl: str
     SpdxLicenseId: str
     VerifiedAuthorUrl: str
-    Version: VersionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Version: Version
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationResponseTypeDef(BaseValidatorModel):
+class GetApplicationResponse(BaseValidatorModel):
     ApplicationId: str
     Author: str
     CreationTime: str
@@ -327,11 +310,28 @@ class UpdateApplicationResponseTypeDef(BaseValidatorModel):
     ReadmeUrl: str
     SpdxLicenseId: str
     VerifiedAuthorUrl: str
-    Version: VersionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Version: Version
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCloudFormationChangeSetRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationResponse(BaseValidatorModel):
+    ApplicationId: str
+    Author: str
+    CreationTime: str
+    Description: str
+    HomePageUrl: str
+    IsVerifiedAuthor: bool
+    Labels: List[str]
+    LicenseUrl: str
+    Name: str
+    ReadmeUrl: str
+    SpdxLicenseId: str
+    VerifiedAuthorUrl: str
+    Version: Version
+    ResponseMetadata: ResponseMetadata
+
+
+class CreateCloudFormationChangeSetRequest(BaseValidatorModel):
     ApplicationId: str
     StackName: str
     Capabilities: Optional[Sequence[str]] = None
@@ -339,11 +339,11 @@ class CreateCloudFormationChangeSetRequestTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
     NotificationArns: Optional[Sequence[str]] = None
-    ParameterOverrides: Optional[Sequence[ParameterValueTypeDef]] = None
+    ParameterOverrides: Optional[Sequence[ParameterValue]] = None
     ResourceTypes: Optional[Sequence[str]] = None
-    RollbackConfiguration: Optional[RollbackConfigurationTypeDef] = None
+    RollbackConfiguration: Optional[RollbackConfiguration] = None
     SemanticVersion: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     TemplateId: Optional[str] = None
 
 

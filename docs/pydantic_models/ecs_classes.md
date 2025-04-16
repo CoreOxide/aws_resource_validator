@@ -1,6 +1,12 @@
 # Ecs Classes
 
-# AttachmentStateChangeTypeDef
+# Attachment
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AttachmentStateChange
 
 ### attachmentArn
 - **Type**: <class 'str'>
@@ -11,13 +17,7 @@
 - **Required**: Yes
 
 
-# AttachmentTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AttributeTypeDef
+# Attribute
 
 ### name
 - **Type**: <class 'str'>
@@ -33,14 +33,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AutoScalingGroupProviderTypeDef
+# AutoScalingGroupProvider
 
 ### autoScalingGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### managedScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ManagedScalingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ManagedScaling]
 
 ### managedTerminationProtection
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -49,10 +49,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# AutoScalingGroupProviderUpdateTypeDef
+# AutoScalingGroupProviderUpdate
 
 ### managedScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ManagedScalingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ManagedScaling]
 
 ### managedTerminationProtection
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -61,20 +61,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# AwsVpcConfigurationOutputTypeDef
-
-### subnets
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### securityGroups
-- **Type**: typing.Optional[typing.List[str]]
-
-### assignPublicIp
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-
-# AwsVpcConfigurationTypeDef
+# AwsVpcConfiguration
 
 ### subnets
 - **Type**: typing.Sequence[str]
@@ -87,13 +74,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
+# AwsVpcConfigurationOutput
+
+### subnets
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### securityGroups
+- **Type**: typing.Optional[typing.List[str]]
+
+### assignPublicIp
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CapacityProviderStrategyItemTypeDef
+# CapacityProvider
+
+### capacityProviderArn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+
+### autoScalingGroupProvider
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.AutoScalingGroupProvider]
+
+### updateStatus
+- **Type**: typing.Optional[typing.Literal['DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'UPDATE_COMPLETE', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS']]
+
+### updateStatusReason
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
+
+
+# CapacityProviderStrategyItem
 
 ### capacityProvider
 - **Type**: <class 'str'>
@@ -106,62 +130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CapacityProviderTypeDef
-
-### capacityProviderArn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
-
-### autoScalingGroupProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.AutoScalingGroupProviderTypeDef]
-
-### updateStatus
-- **Type**: typing.Optional[typing.Literal['DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'UPDATE_COMPLETE', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS']]
-
-### updateStatusReason
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
-
-
-# ClusterConfigurationTypeDef
-
-### executeCommandConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ExecuteCommandConfigurationTypeDef]
-
-### managedStorageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ManagedStorageConfigurationTypeDef]
-
-
-# ClusterServiceConnectDefaultsRequestTypeDef
-
-### namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# ClusterServiceConnectDefaultsTypeDef
-
-### namespace
-- **Type**: typing.Optional[str]
-
-
-# ClusterSettingTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['containerInsights']]
-
-### value
-- **Type**: typing.Optional[str]
-
-
-# ClusterTypeDef
+# Cluster
 
 ### clusterArn
 - **Type**: typing.Optional[str]
@@ -170,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterConfiguration]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -188,31 +157,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### statistics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePair]]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### settings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ClusterSettingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ClusterSetting]]
 
 ### capacityProviders
 - **Type**: typing.Optional[typing.List[str]]
 
 ### defaultCapacityProviderStrategy
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItemTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItem]]
 
 ### attachments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.AttachmentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Attachment]]
 
 ### attachmentsStatus
 - **Type**: typing.Optional[str]
 
 ### serviceConnectDefaults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterServiceConnectDefaultsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterServiceConnectDefaults]
 
 
-# ContainerDefinitionOutputTypeDef
+# ClusterConfiguration
+
+### executeCommandConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ExecuteCommandConfiguration]
+
+### managedStorageConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ManagedStorageConfiguration]
+
+
+# ClusterServiceConnectDefaults
+
+### namespace
+- **Type**: typing.Optional[str]
+
+
+# ClusterServiceConnectDefaultsRequest
+
+### namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# ClusterSetting
+
+### name
+- **Type**: typing.Optional[typing.Literal['containerInsights']]
+
+### value
+- **Type**: typing.Optional[str]
+
+
+# Container
+
+### containerArn
+- **Type**: typing.Optional[str]
+
+### taskArn
+- **Type**: typing.Optional[str]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -220,128 +226,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### image
 - **Type**: typing.Optional[str]
 
-### repositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.RepositoryCredentialsTypeDef]
+### imageDigest
+- **Type**: typing.Optional[str]
+
+### runtimeId
+- **Type**: typing.Optional[str]
+
+### lastStatus
+- **Type**: typing.Optional[str]
+
+### exitCode
+- **Type**: typing.Optional[int]
+
+### reason
+- **Type**: typing.Optional[str]
+
+### networkBindings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.NetworkBinding]]
+
+### networkInterfaces
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.NetworkInterface]]
+
+### healthStatus
+- **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY', 'UNKNOWN']]
+
+### managedAgents
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ManagedAgent]]
 
 ### cpu
-- **Type**: typing.Optional[int]
+- **Type**: typing.Optional[str]
 
 ### memory
-- **Type**: typing.Optional[int]
+- **Type**: typing.Optional[str]
 
 ### memoryReservation
-- **Type**: typing.Optional[int]
-
-### links
-- **Type**: typing.Optional[typing.List[str]]
-
-### portMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.PortMappingTypeDef]]
-
-### essential
-- **Type**: typing.Optional[bool]
-
-### restartPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ContainerRestartPolicyOutputTypeDef]
-
-### entryPoint
-- **Type**: typing.Optional[typing.List[str]]
-
-### command
-- **Type**: typing.Optional[typing.List[str]]
-
-### environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePairTypeDef]]
-
-### environmentFiles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.EnvironmentFileTypeDef]]
-
-### mountPoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.MountPointTypeDef]]
-
-### volumesFrom
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.VolumeFromTypeDef]]
-
-### linuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LinuxParametersOutputTypeDef]
-
-### secrets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.SecretTypeDef]]
-
-### dependsOn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerDependencyTypeDef]]
-
-### startTimeout
-- **Type**: typing.Optional[int]
-
-### stopTimeout
-- **Type**: typing.Optional[int]
-
-### versionConsistency
-- **Type**: typing.Optional[typing.Literal['disabled', 'enabled']]
-
-### hostname
 - **Type**: typing.Optional[str]
 
-### user
-- **Type**: typing.Optional[str]
-
-### workingDirectory
-- **Type**: typing.Optional[str]
-
-### disableNetworking
-- **Type**: typing.Optional[bool]
-
-### privileged
-- **Type**: typing.Optional[bool]
-
-### readonlyRootFilesystem
-- **Type**: typing.Optional[bool]
-
-### dnsServers
-- **Type**: typing.Optional[typing.List[str]]
-
-### dnsSearchDomains
-- **Type**: typing.Optional[typing.List[str]]
-
-### extraHosts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.HostEntryTypeDef]]
-
-### dockerSecurityOptions
-- **Type**: typing.Optional[typing.List[str]]
-
-### interactive
-- **Type**: typing.Optional[bool]
-
-### pseudoTerminal
-- **Type**: typing.Optional[bool]
-
-### dockerLabels
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### ulimits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.UlimitTypeDef]]
-
-### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LogConfigurationOutputTypeDef]
-
-### healthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.HealthCheckOutputTypeDef]
-
-### systemControls
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.SystemControlTypeDef]]
-
-### resourceRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ResourceRequirementTypeDef]]
-
-### firelensConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.FirelensConfigurationOutputTypeDef]
-
-### credentialSpecs
+### gpuIds
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ContainerDefinitionTypeDef
+# ContainerDefinition
 
 ### name
 - **Type**: typing.Optional[str]
@@ -350,7 +275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### repositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.RepositoryCredentialsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.RepositoryCredentials]
 
 ### cpu
 - **Type**: typing.Optional[int]
@@ -365,13 +290,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### portMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PortMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PortMapping]]
 
 ### essential
 - **Type**: typing.Optional[bool]
 
 ### restartPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ContainerRestartPolicyUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ContainerRestartPolicyUnion]
 
 ### entryPoint
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -380,25 +305,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePair]]
 
 ### environmentFiles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.EnvironmentFileTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.EnvironmentFile]]
 
 ### mountPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.MountPointTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.MountPoint]]
 
 ### volumesFrom
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.VolumeFromTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.VolumeFrom]]
 
 ### linuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LinuxParametersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LinuxParametersUnion]
 
 ### secrets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.SecretTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Secret]]
 
 ### dependsOn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ContainerDependencyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ContainerDependency]]
 
 ### startTimeout
 - **Type**: typing.Optional[int]
@@ -434,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### extraHosts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.HostEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.HostEntry]]
 
 ### dockerSecurityOptions
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -449,34 +374,163 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### ulimits
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.UlimitTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Ulimit]]
 
 ### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LogConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LogConfigurationUnion]
 
 ### healthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.HealthCheckUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.HealthCheckUnion]
 
 ### systemControls
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.SystemControlTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.SystemControl]]
 
 ### resourceRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ResourceRequirement]]
 
 ### firelensConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.FirelensConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.FirelensConfigurationUnion]
 
 ### credentialSpecs
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ContainerDefinitionUnionTypeDef
+# ContainerDefinitionOutput
+
+### name
+- **Type**: typing.Optional[str]
+
+### image
+- **Type**: typing.Optional[str]
+
+### repositoryCredentials
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.RepositoryCredentials]
+
+### cpu
+- **Type**: typing.Optional[int]
+
+### memory
+- **Type**: typing.Optional[int]
+
+### memoryReservation
+- **Type**: typing.Optional[int]
+
+### links
+- **Type**: typing.Optional[typing.List[str]]
+
+### portMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.PortMapping]]
+
+### essential
+- **Type**: typing.Optional[bool]
+
+### restartPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ContainerRestartPolicyOutput]
+
+### entryPoint
+- **Type**: typing.Optional[typing.List[str]]
+
+### command
+- **Type**: typing.Optional[typing.List[str]]
+
+### environment
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePair]]
+
+### environmentFiles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.EnvironmentFile]]
+
+### mountPoints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.MountPoint]]
+
+### volumesFrom
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.VolumeFrom]]
+
+### linuxParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LinuxParametersOutput]
+
+### secrets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Secret]]
+
+### dependsOn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerDependency]]
+
+### startTimeout
+- **Type**: typing.Optional[int]
+
+### stopTimeout
+- **Type**: typing.Optional[int]
+
+### versionConsistency
+- **Type**: typing.Optional[typing.Literal['disabled', 'enabled']]
+
+### hostname
+- **Type**: typing.Optional[str]
+
+### user
+- **Type**: typing.Optional[str]
+
+### workingDirectory
+- **Type**: typing.Optional[str]
+
+### disableNetworking
+- **Type**: typing.Optional[bool]
+
+### privileged
+- **Type**: typing.Optional[bool]
+
+### readonlyRootFilesystem
+- **Type**: typing.Optional[bool]
+
+### dnsServers
+- **Type**: typing.Optional[typing.List[str]]
+
+### dnsSearchDomains
+- **Type**: typing.Optional[typing.List[str]]
+
+### extraHosts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.HostEntry]]
+
+### dockerSecurityOptions
+- **Type**: typing.Optional[typing.List[str]]
+
+### interactive
+- **Type**: typing.Optional[bool]
+
+### pseudoTerminal
+- **Type**: typing.Optional[bool]
+
+### dockerLabels
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### ulimits
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Ulimit]]
+
+### logConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LogConfigurationOutput]
+
+### healthCheck
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.HealthCheckOutput]
+
+### systemControls
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.SystemControl]]
+
+### resourceRequirements
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ResourceRequirement]]
+
+### firelensConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.FirelensConfigurationOutput]
+
+### credentialSpecs
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ContainerDefinitionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContainerDependencyTypeDef
+# ContainerDependency
 
 ### containerName
 - **Type**: <class 'str'>
@@ -487,7 +541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ContainerImageTypeDef
+# ContainerImage
 
 ### containerName
 - **Type**: typing.Optional[str]
@@ -499,16 +553,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ContainerInstanceHealthStatusTypeDef
-
-### overallStatus
-- **Type**: typing.Optional[typing.Literal['IMPAIRED', 'INITIALIZING', 'INSUFFICIENT_DATA', 'OK']]
-
-### details
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.InstanceHealthCheckResultTypeDef]]
-
-
-# ContainerInstanceTypeDef
+# ContainerInstance
 
 ### containerInstanceArn
 - **Type**: typing.Optional[str]
@@ -523,13 +568,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### versionInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.VersionInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.VersionInfo]
 
 ### remainingResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ResourceOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ResourceOutput]]
 
 ### registeredResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ResourceOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ResourceOutput]]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -550,49 +595,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING', 'STAGED', 'STAGING', 'UPDATED', 'UPDATING']]
 
 ### attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Attribute]]
 
 ### registeredAt
 - **Type**: typing.Optional[datetime.datetime]
 
 ### attachments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.AttachmentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Attachment]]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### healthStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ContainerInstanceHealthStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ContainerInstanceHealthStatus]
 
 
-# ContainerOverrideOutputTypeDef
+# ContainerInstanceHealthStatus
 
-### name
-- **Type**: typing.Optional[str]
+### overallStatus
+- **Type**: typing.Optional[typing.Literal['IMPAIRED', 'INITIALIZING', 'INSUFFICIENT_DATA', 'OK']]
 
-### command
-- **Type**: typing.Optional[typing.List[str]]
-
-### environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePairTypeDef]]
-
-### environmentFiles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.EnvironmentFileTypeDef]]
-
-### cpu
-- **Type**: typing.Optional[int]
-
-### memory
-- **Type**: typing.Optional[int]
-
-### memoryReservation
-- **Type**: typing.Optional[int]
-
-### resourceRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ResourceRequirementTypeDef]]
+### details
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.InstanceHealthCheckResult]]
 
 
-# ContainerOverrideTypeDef
+# ContainerOverride
 
 ### name
 - **Type**: typing.Optional[str]
@@ -601,10 +628,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePair]]
 
 ### environmentFiles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.EnvironmentFileTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.EnvironmentFile]]
 
 ### cpu
 - **Type**: typing.Optional[int]
@@ -616,23 +643,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### resourceRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ResourceRequirement]]
 
 
-# ContainerRestartPolicyOutputTypeDef
+# ContainerOverrideOutput
 
-### enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
+### name
+- **Type**: typing.Optional[str]
 
-### ignoredExitCodes
-- **Type**: typing.Optional[typing.List[int]]
+### command
+- **Type**: typing.Optional[typing.List[str]]
 
-### restartAttemptPeriod
+### environment
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.KeyValuePair]]
+
+### environmentFiles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.EnvironmentFile]]
+
+### cpu
 - **Type**: typing.Optional[int]
 
+### memory
+- **Type**: typing.Optional[int]
 
-# ContainerRestartPolicyTypeDef
+### memoryReservation
+- **Type**: typing.Optional[int]
+
+### resourceRequirements
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ResourceRequirement]]
+
+
+# ContainerRestartPolicy
 
 ### enabled
 - **Type**: <class 'bool'>
@@ -645,13 +686,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ContainerRestartPolicyUnionTypeDef
+# ContainerRestartPolicyOutput
+
+### enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### ignoredExitCodes
+- **Type**: typing.Optional[typing.List[int]]
+
+### restartAttemptPeriod
+- **Type**: typing.Optional[int]
+
+
+# ContainerRestartPolicyUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContainerStateChangeTypeDef
+# ContainerStateChange
 
 ### containerName
 - **Type**: typing.Optional[str]
@@ -666,7 +720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### networkBindings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.NetworkBindingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.NetworkBinding]]
 
 ### reason
 - **Type**: typing.Optional[str]
@@ -675,121 +729,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ContainerTypeDef
-
-### containerArn
-- **Type**: typing.Optional[str]
-
-### taskArn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### image
-- **Type**: typing.Optional[str]
-
-### imageDigest
-- **Type**: typing.Optional[str]
-
-### runtimeId
-- **Type**: typing.Optional[str]
-
-### lastStatus
-- **Type**: typing.Optional[str]
-
-### exitCode
-- **Type**: typing.Optional[int]
-
-### reason
-- **Type**: typing.Optional[str]
-
-### networkBindings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.NetworkBindingTypeDef]]
-
-### networkInterfaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.NetworkInterfaceTypeDef]]
-
-### healthStatus
-- **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY', 'UNKNOWN']]
-
-### managedAgents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ManagedAgentTypeDef]]
-
-### cpu
-- **Type**: typing.Optional[str]
-
-### memory
-- **Type**: typing.Optional[str]
-
-### memoryReservation
-- **Type**: typing.Optional[str]
-
-### gpuIds
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# CreateCapacityProviderRequestTypeDef
+# CreateCapacityProviderRequest
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### autoScalingGroupProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.AutoScalingGroupProviderTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.AutoScalingGroupProvider'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 
-# CreateCapacityProviderResponseTypeDef
+# CreateCapacityProviderResponse
 
 ### capacityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.CapacityProvider'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateClusterRequestTypeDef
+# CreateClusterRequest
 
 ### clusterName
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### settings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ClusterSettingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ClusterSetting]]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterConfiguration]
 
 ### capacityProviders
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### defaultCapacityProviderStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItem]]
 
 ### serviceConnectDefaults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterServiceConnectDefaultsRequestTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterServiceConnectDefaultsRequest]
 
 
-# CreateClusterResponseTypeDef
+# CreateClusterResponse
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateServiceRequestTypeDef
+# CreateServiceRequest
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -805,10 +805,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### loadBalancers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancerTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancer]]
 
 ### serviceRegistries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistry]]
 
 ### desiredCount
 - **Type**: typing.Optional[int]
@@ -820,7 +820,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
 
 ### capacityProviderStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItem]]
 
 ### platformVersion
 - **Type**: typing.Optional[str]
@@ -829,16 +829,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### deploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentConfigurationUnion]
 
 ### placementConstraints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementConstraintTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementConstraint]]
 
 ### placementStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementStrategyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementStrategy]]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnion]
 
 ### healthCheckGracePeriodSeconds
 - **Type**: typing.Optional[int]
@@ -847,10 +847,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAEMON', 'REPLICA']]
 
 ### deploymentController
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentControllerTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentController]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### enableECSManagedTags
 - **Type**: typing.Optional[bool]
@@ -862,27 +862,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### serviceConnectConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectConfigurationUnion]
 
 ### volumeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceVolumeConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceVolumeConfigurationUnion]]
 
 ### vpcLatticeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.VpcLatticeConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.VpcLatticeConfiguration]]
 
 
-# CreateServiceResponseTypeDef
+# CreateServiceResponse
 
 ### service
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ServiceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Service'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTaskSetRequestTypeDef
+# CreateTaskSetRequest
 
 ### service
 - **Type**: <class 'str'>
@@ -900,54 +900,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnion]
 
 ### loadBalancers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancerTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancer]]
 
 ### serviceRegistries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistry]]
 
 ### launchType
 - **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
 
 ### capacityProviderStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItem]]
 
 ### platformVersion
 - **Type**: typing.Optional[str]
 
 ### scale
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ScaleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.Scale]
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 
-# CreateTaskSetResponseTypeDef
+# CreateTaskSetResponse
 
 ### taskSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatedAtTypeDef
+# CreatedAt
 
 ### before
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.Timestamp]
 
 ### after
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.Timestamp]
 
 
-# DeleteAccountSettingRequestTypeDef
+# DeleteAccountSettingRequest
 
 ### name
 - **Type**: typing.Literal['awsvpcTrunking', 'containerInsights', 'containerInstanceLongArnFormat', 'fargateFIPSMode', 'fargateTaskRetirementWaitPeriod', 'guardDutyActivate', 'serviceLongArnFormat', 'tagResourceAuthorization', 'taskLongArnFormat']
@@ -957,75 +957,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAccountSettingResponseTypeDef
+# DeleteAccountSettingResponse
 
 ### setting
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.SettingTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Setting'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAttributesRequestTypeDef
+# DeleteAttributesRequest
 
 ### attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.AttributeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Attribute]
 - **Required**: Yes
 
 ### cluster
 - **Type**: typing.Optional[str]
 
 
-# DeleteAttributesResponseTypeDef
+# DeleteAttributesResponse
 
 ### attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.AttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Attribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteCapacityProviderRequestTypeDef
+# DeleteCapacityProviderRequest
 
 ### capacityProvider
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCapacityProviderResponseTypeDef
+# DeleteCapacityProviderResponse
 
 ### capacityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.CapacityProvider'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteClusterRequestTypeDef
+# DeleteClusterRequest
 
 ### cluster
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteClusterResponseTypeDef
+# DeleteClusterResponse
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteServiceRequestTypeDef
+# DeleteServiceRequest
 
 ### service
 - **Type**: <class 'str'>
@@ -1038,40 +1038,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteServiceResponseTypeDef
+# DeleteServiceResponse
 
 ### service
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ServiceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Service'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteTaskDefinitionsRequestTypeDef
+# DeleteTaskDefinitionsRequest
 
 ### taskDefinitions
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DeleteTaskDefinitionsResponseTypeDef
+# DeleteTaskDefinitionsResponse
 
 ### taskDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskDefinitionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskDefinition]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteTaskSetRequestTypeDef
+# DeleteTaskSetRequest
 
 ### cluster
 - **Type**: <class 'str'>
@@ -1089,18 +1089,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteTaskSetResponseTypeDef
+# DeleteTaskSetResponse
 
 ### taskSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeploymentAlarmsOutputTypeDef
+# Deployment
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeploymentAlarms
+
+### alarmNames
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### rollback
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### enable
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# DeploymentAlarmsOutput
 
 ### alarmNames
 - **Type**: typing.List[str]
@@ -1115,22 +1136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeploymentAlarmsTypeDef
-
-### alarmNames
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### rollback
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### enable
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-
-# DeploymentCircuitBreakerTypeDef
+# DeploymentCircuitBreaker
 
 ### enable
 - **Type**: <class 'bool'>
@@ -1141,10 +1147,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeploymentConfigurationOutputTypeDef
+# DeploymentConfiguration
 
 ### deploymentCircuitBreaker
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentCircuitBreakerTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentCircuitBreaker]
 
 ### maximumPercent
 - **Type**: typing.Optional[int]
@@ -1153,13 +1159,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### alarms
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentAlarmsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentAlarms]
 
 
-# DeploymentConfigurationTypeDef
+# DeploymentConfigurationOutput
 
 ### deploymentCircuitBreaker
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentCircuitBreakerTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentCircuitBreaker]
 
 ### maximumPercent
 - **Type**: typing.Optional[int]
@@ -1168,34 +1174,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### alarms
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentAlarmsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentAlarmsOutput]
 
 
-# DeploymentConfigurationUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DeploymentControllerTypeDef
+# DeploymentConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeploymentEphemeralStorageTypeDef
+# DeploymentController
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeploymentEphemeralStorage
 
 ### kmsKeyId
 - **Type**: typing.Optional[str]
 
 
-# DeploymentTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DeregisterContainerInstanceRequestTypeDef
+# DeregisterContainerInstanceRequest
 
 ### containerInstance
 - **Type**: <class 'str'>
@@ -1208,36 +1208,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeregisterContainerInstanceResponseTypeDef
+# DeregisterContainerInstanceResponse
 
 ### containerInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ContainerInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ContainerInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeregisterTaskDefinitionRequestTypeDef
+# DeregisterTaskDefinitionRequest
 
 ### taskDefinition
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterTaskDefinitionResponseTypeDef
+# DeregisterTaskDefinitionResponse
 
 ### taskDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskDefinition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCapacityProvidersRequestTypeDef
+# DescribeCapacityProvidersRequest
 
 ### capacityProviders
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1252,25 +1252,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeCapacityProvidersResponseTypeDef
+# DescribeCapacityProvidersResponse
 
 ### capacityProviders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.CapacityProvider]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeClustersRequestTypeDef
+# DescribeClustersRequest
 
 ### clusters
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1279,22 +1279,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ATTACHMENTS', 'CONFIGURATIONS', 'SETTINGS', 'STATISTICS', 'TAGS']]]
 
 
-# DescribeClustersResponseTypeDef
+# DescribeClustersResponse
 
 ### clusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ClusterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Cluster]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeContainerInstancesRequestTypeDef
+# DescribeContainerInstancesRequest
 
 ### containerInstances
 - **Type**: typing.Sequence[str]
@@ -1307,66 +1307,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CONTAINER_INSTANCE_HEALTH', 'TAGS']]]
 
 
-# DescribeContainerInstancesResponseTypeDef
+# DescribeContainerInstancesResponse
 
 ### containerInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerInstance]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeServiceDeploymentsRequestTypeDef
+# DescribeServiceDeploymentsRequest
 
 ### serviceDeploymentArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeServiceDeploymentsResponseTypeDef
+# DescribeServiceDeploymentsResponse
 
 ### serviceDeployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceDeploymentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceDeployment]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeServiceRevisionsRequestTypeDef
+# DescribeServiceRevisionsRequest
 
 ### serviceRevisionArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeServiceRevisionsResponseTypeDef
+# DescribeServiceRevisionsResponse
 
 ### serviceRevisions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceRevisionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceRevision]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeServicesRequestTypeDef
+# DescribeServicesRequest
 
 ### services
 - **Type**: typing.Sequence[str]
@@ -1379,7 +1379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['TAGS']]]
 
 
-# DescribeServicesRequestWaitExtraTypeDef
+# DescribeServicesRequestWait
 
 ### services
 - **Type**: typing.Sequence[str]
@@ -1392,10 +1392,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['TAGS']]]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeServicesRequestWaitTypeDef
+# DescribeServicesRequestWaitExtra
 
 ### services
 - **Type**: typing.Sequence[str]
@@ -1408,25 +1408,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['TAGS']]]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeServicesResponseTypeDef
+# DescribeServicesResponse
 
 ### services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Service]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTaskDefinitionRequestTypeDef
+# DescribeTaskDefinitionRequest
 
 ### taskDefinition
 - **Type**: <class 'str'>
@@ -1436,22 +1436,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['TAGS']]]
 
 
-# DescribeTaskDefinitionResponseTypeDef
+# DescribeTaskDefinitionResponse
 
 ### taskDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskDefinition'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTaskSetsRequestTypeDef
+# DescribeTaskSetsRequest
 
 ### cluster
 - **Type**: <class 'str'>
@@ -1468,22 +1468,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['TAGS']]]
 
 
-# DescribeTaskSetsResponseTypeDef
+# DescribeTaskSetsResponse
 
 ### taskSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskSetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskSet]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTasksRequestTypeDef
+# DescribeTasksRequest
 
 ### tasks
 - **Type**: typing.Sequence[str]
@@ -1496,7 +1496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['TAGS']]]
 
 
-# DescribeTasksRequestWaitExtraTypeDef
+# DescribeTasksRequestWait
 
 ### tasks
 - **Type**: typing.Sequence[str]
@@ -1509,10 +1509,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['TAGS']]]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeTasksRequestWaitTypeDef
+# DescribeTasksRequestWaitExtra
 
 ### tasks
 - **Type**: typing.Sequence[str]
@@ -1525,38 +1525,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['TAGS']]]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeTasksResponseTypeDef
+# DescribeTasksResponse
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Task]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeviceOutputTypeDef
-
-### hostPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### containerPath
-- **Type**: typing.Optional[str]
-
-### permissions
-- **Type**: typing.Optional[typing.List[typing.Literal['mknod', 'read', 'write']]]
-
-
-# DeviceTypeDef
+# Device
 
 ### hostPath
 - **Type**: <class 'str'>
@@ -1569,13 +1556,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['mknod', 'read', 'write']]]
 
 
-# DeviceUnionTypeDef
+# DeviceOutput
+
+### hostPath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### containerPath
+- **Type**: typing.Optional[str]
+
+### permissions
+- **Type**: typing.Optional[typing.List[typing.Literal['mknod', 'read', 'write']]]
+
+
+# DeviceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DiscoverPollEndpointRequestTypeDef
+# DiscoverPollEndpointRequest
 
 ### containerInstance
 - **Type**: typing.Optional[str]
@@ -1584,7 +1584,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DiscoverPollEndpointResponseTypeDef
+# DiscoverPollEndpointResponse
 
 ### endpoint
 - **Type**: <class 'str'>
@@ -1599,29 +1599,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DockerVolumeConfigurationOutputTypeDef
-
-### scope
-- **Type**: typing.Optional[typing.Literal['shared', 'task']]
-
-### autoprovision
-- **Type**: typing.Optional[bool]
-
-### driver
-- **Type**: typing.Optional[str]
-
-### driverOpts
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### labels
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# DockerVolumeConfigurationTypeDef
+# DockerVolumeConfiguration
 
 ### scope
 - **Type**: typing.Optional[typing.Literal['shared', 'task']]
@@ -1639,45 +1621,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# DockerVolumeConfigurationUnionTypeDef
+# DockerVolumeConfigurationOutput
+
+### scope
+- **Type**: typing.Optional[typing.Literal['shared', 'task']]
+
+### autoprovision
+- **Type**: typing.Optional[bool]
+
+### driver
+- **Type**: typing.Optional[str]
+
+### driverOpts
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### labels
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# DockerVolumeConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EBSTagSpecificationOutputTypeDef
+# EBSTagSpecification
 
 ### resourceType
 - **Type**: typing.Literal['volume']
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### propagateTags
 - **Type**: typing.Optional[typing.Literal['NONE', 'SERVICE', 'TASK_DEFINITION']]
 
 
-# EBSTagSpecificationTypeDef
+# EBSTagSpecificationOutput
 
 ### resourceType
 - **Type**: typing.Literal['volume']
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### propagateTags
 - **Type**: typing.Optional[typing.Literal['NONE', 'SERVICE', 'TASK_DEFINITION']]
 
 
-# EBSTagSpecificationUnionTypeDef
+# EBSTagSpecificationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EFSAuthorizationConfigTypeDef
+# EFSAuthorizationConfig
 
 ### accessPointId
 - **Type**: typing.Optional[str]
@@ -1686,7 +1686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# EFSVolumeConfigurationTypeDef
+# EFSVolumeConfiguration
 
 ### fileSystemId
 - **Type**: <class 'str'>
@@ -1702,23 +1702,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### authorizationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EFSAuthorizationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EFSAuthorizationConfig]
 
 
-# EnvironmentFileTypeDef
+# EnvironmentFile
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EphemeralStorageTypeDef
+# EphemeralStorage
 
 ### sizeInGiB
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# ExecuteCommandConfigurationTypeDef
+# ExecuteCommandConfiguration
 
 ### kmsKeyId
 - **Type**: typing.Optional[str]
@@ -1727,10 +1727,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEFAULT', 'NONE', 'OVERRIDE']]
 
 ### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ExecuteCommandLogConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ExecuteCommandLogConfiguration]
 
 
-# ExecuteCommandLogConfigurationTypeDef
+# ExecuteCommandLogConfiguration
 
 ### cloudWatchLogGroupName
 - **Type**: typing.Optional[str]
@@ -1748,7 +1748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecuteCommandRequestTypeDef
+# ExecuteCommandRequest
 
 ### command
 - **Type**: <class 'str'>
@@ -1769,7 +1769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecuteCommandResponseTypeDef
+# ExecuteCommandResponse
 
 ### clusterArn
 - **Type**: <class 'str'>
@@ -1788,7 +1788,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### session
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.SessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Session'>
 - **Required**: Yes
 
 ### taskArn
@@ -1796,11 +1796,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FSxWindowsFileServerAuthorizationConfigTypeDef
+# FSxWindowsFileServerAuthorizationConfig
 
 ### credentialsParameter
 - **Type**: <class 'str'>
@@ -1811,7 +1811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FSxWindowsFileServerVolumeConfigurationTypeDef
+# FSxWindowsFileServerVolumeConfiguration
 
 ### fileSystemId
 - **Type**: <class 'str'>
@@ -1822,11 +1822,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### authorizationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.FSxWindowsFileServerAuthorizationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.FSxWindowsFileServerAuthorizationConfig'>
 - **Required**: Yes
 
 
-# FailureTypeDef
+# Failure
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1838,19 +1838,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FirelensConfigurationOutputTypeDef
+# FirelensConfigurationOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FirelensConfigurationUnionTypeDef
+# FirelensConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetTaskProtectionRequestTypeDef
+# GetTaskProtectionRequest
 
 ### cluster
 - **Type**: <class 'str'>
@@ -1860,41 +1860,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetTaskProtectionResponseTypeDef
+# GetTaskProtectionResponse
 
 ### protectedTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ProtectedTaskTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ProtectedTask]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HealthCheckOutputTypeDef
-
-### command
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### interval
-- **Type**: typing.Optional[int]
-
-### timeout
-- **Type**: typing.Optional[int]
-
-### retries
-- **Type**: typing.Optional[int]
-
-### startPeriod
-- **Type**: typing.Optional[int]
-
-
-# HealthCheckTypeDef
+# HealthCheck
 
 ### command
 - **Type**: typing.Sequence[str]
@@ -1913,13 +1894,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# HealthCheckUnionTypeDef
+# HealthCheckOutput
+
+### command
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### interval
+- **Type**: typing.Optional[int]
+
+### timeout
+- **Type**: typing.Optional[int]
+
+### retries
+- **Type**: typing.Optional[int]
+
+### startPeriod
+- **Type**: typing.Optional[int]
+
+
+# HealthCheckUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HostEntryTypeDef
+# HostEntry
 
 ### hostname
 - **Type**: <class 'str'>
@@ -1930,22 +1930,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# HostVolumePropertiesTypeDef
+# HostVolumeProperties
 
 ### sourcePath
 - **Type**: typing.Optional[str]
 
 
-# InferenceAcceleratorOverrideTypeDef
-
-### deviceName
-- **Type**: typing.Optional[str]
-
-### deviceType
-- **Type**: typing.Optional[str]
-
-
-# InferenceAcceleratorTypeDef
+# InferenceAccelerator
 
 ### deviceName
 - **Type**: <class 'str'>
@@ -1956,22 +1947,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InstanceHealthCheckResultTypeDef
+# InferenceAcceleratorOverride
+
+### deviceName
+- **Type**: typing.Optional[str]
+
+### deviceType
+- **Type**: typing.Optional[str]
+
+
+# InstanceHealthCheckResult
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KernelCapabilitiesOutputTypeDef
-
-### add
-- **Type**: typing.Optional[typing.List[str]]
-
-### drop
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# KernelCapabilitiesTypeDef
+# KernelCapabilities
 
 ### add
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1980,13 +1971,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# KernelCapabilitiesUnionTypeDef
+# KernelCapabilitiesOutput
+
+### add
+- **Type**: typing.Optional[typing.List[str]]
+
+### drop
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# KernelCapabilitiesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KeyValuePairTypeDef
+# KeyValuePair
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1995,13 +1995,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LinuxParametersOutputTypeDef
+# LinuxParameters
 
 ### capabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.KernelCapabilitiesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.KernelCapabilitiesUnion]
 
 ### devices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.DeviceOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.DeviceUnion]]
 
 ### initProcessEnabled
 - **Type**: typing.Optional[bool]
@@ -2010,7 +2010,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tmpfs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TmpfsOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TmpfsUnion]]
 
 ### maxSwap
 - **Type**: typing.Optional[int]
@@ -2019,13 +2019,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LinuxParametersTypeDef
+# LinuxParametersOutput
 
 ### capabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.KernelCapabilitiesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.KernelCapabilitiesOutput]
 
 ### devices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.DeviceUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.DeviceOutput]]
 
 ### initProcessEnabled
 - **Type**: typing.Optional[bool]
@@ -2034,7 +2034,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tmpfs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TmpfsUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TmpfsOutput]]
 
 ### maxSwap
 - **Type**: typing.Optional[int]
@@ -2043,31 +2043,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LinuxParametersUnionTypeDef
+# LinuxParametersUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListAccountSettingsRequestPaginateTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['awsvpcTrunking', 'containerInsights', 'containerInstanceLongArnFormat', 'fargateFIPSMode', 'fargateTaskRetirementWaitPeriod', 'guardDutyActivate', 'serviceLongArnFormat', 'tagResourceAuthorization', 'taskLongArnFormat']]
-
-### value
-- **Type**: typing.Optional[str]
-
-### principalArn
-- **Type**: typing.Optional[str]
-
-### effectiveSettings
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfigTypeDef]
-
-
-# ListAccountSettingsRequestTypeDef
+# ListAccountSettingsRequest
 
 ### name
 - **Type**: typing.Optional[typing.Literal['awsvpcTrunking', 'containerInsights', 'containerInstanceLongArnFormat', 'fargateFIPSMode', 'fargateTaskRetirementWaitPeriod', 'guardDutyActivate', 'serviceLongArnFormat', 'tagResourceAuthorization', 'taskLongArnFormat']]
@@ -2088,40 +2070,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAccountSettingsResponseTypeDef
+# ListAccountSettingsRequestPaginate
+
+### name
+- **Type**: typing.Optional[typing.Literal['awsvpcTrunking', 'containerInsights', 'containerInstanceLongArnFormat', 'fargateFIPSMode', 'fargateTaskRetirementWaitPeriod', 'guardDutyActivate', 'serviceLongArnFormat', 'tagResourceAuthorization', 'taskLongArnFormat']]
+
+### value
+- **Type**: typing.Optional[str]
+
+### principalArn
+- **Type**: typing.Optional[str]
+
+### effectiveSettings
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfig]
+
+
+# ListAccountSettingsResponse
 
 ### settings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.SettingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Setting]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAttributesRequestPaginateTypeDef
-
-### targetType
-- **Type**: typing.Literal['container-instance']
-- **Required**: Yes
-
-### cluster
-- **Type**: typing.Optional[str]
-
-### attributeName
-- **Type**: typing.Optional[str]
-
-### attributeValue
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfigTypeDef]
-
-
-# ListAttributesRequestTypeDef
+# ListAttributesRequest
 
 ### targetType
 - **Type**: typing.Literal['container-instance']
@@ -2143,27 +2124,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAttributesResponseTypeDef
+# ListAttributesRequestPaginate
+
+### targetType
+- **Type**: typing.Literal['container-instance']
+- **Required**: Yes
+
+### cluster
+- **Type**: typing.Optional[str]
+
+### attributeName
+- **Type**: typing.Optional[str]
+
+### attributeValue
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfig]
+
+
+# ListAttributesResponse
 
 ### attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.AttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Attribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListClustersRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfigTypeDef]
-
-
-# ListClustersRequestTypeDef
+# ListClustersRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -2172,35 +2166,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListClustersResponseTypeDef
+# ListClustersRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfig]
+
+
+# ListClustersResponse
 
 ### clusterArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListContainerInstancesResponseTypeDef
+# ListContainerInstancesResponse
 
 ### containerInstanceArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServiceDeploymentsRequestTypeDef
+# ListServiceDeploymentsRequest
 
 ### service
 - **Type**: <class 'str'>
@@ -2213,7 +2213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['IN_PROGRESS', 'PENDING', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'ROLLBACK_SUCCESSFUL', 'STOPPED', 'STOP_REQUESTED', 'SUCCESSFUL']]]
 
 ### createdAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.CreatedAtTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.CreatedAt]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -2222,31 +2222,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListServiceDeploymentsResponseTypeDef
+# ListServiceDeploymentsResponse
 
 ### serviceDeployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceDeploymentBriefTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceDeploymentBrief]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServicesByNamespaceRequestPaginateTypeDef
-
-### namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfigTypeDef]
-
-
-# ListServicesByNamespaceRequestTypeDef
+# ListServicesByNamespaceRequest
 
 ### namespace
 - **Type**: <class 'str'>
@@ -2259,36 +2249,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListServicesByNamespaceResponseTypeDef
+# ListServicesByNamespaceRequestPaginate
+
+### namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfig]
+
+
+# ListServicesByNamespaceResponse
 
 ### serviceArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServicesRequestPaginateTypeDef
-
-### cluster
-- **Type**: typing.Optional[str]
-
-### launchType
-- **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
-
-### schedulingStrategy
-- **Type**: typing.Optional[typing.Literal['DAEMON', 'REPLICA']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfigTypeDef]
-
-
-# ListServicesRequestTypeDef
+# ListServicesRequest
 
 ### cluster
 - **Type**: typing.Optional[str]
@@ -2306,51 +2291,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAEMON', 'REPLICA']]
 
 
-# ListServicesResponseTypeDef
+# ListServicesRequestPaginate
+
+### cluster
+- **Type**: typing.Optional[str]
+
+### launchType
+- **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
+
+### schedulingStrategy
+- **Type**: typing.Optional[typing.Literal['DAEMON', 'REPLICA']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfig]
+
+
+# ListServicesResponse
 
 ### serviceArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTaskDefinitionFamiliesRequestPaginateTypeDef
-
-### familyPrefix
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'ALL', 'INACTIVE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfigTypeDef]
-
-
-# ListTaskDefinitionFamiliesRequestTypeDef
+# ListTaskDefinitionFamiliesRequest
 
 ### familyPrefix
 - **Type**: typing.Optional[str]
@@ -2365,36 +2353,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTaskDefinitionFamiliesResponseTypeDef
+# ListTaskDefinitionFamiliesRequestPaginate
+
+### familyPrefix
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'ALL', 'INACTIVE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfig]
+
+
+# ListTaskDefinitionFamiliesResponse
 
 ### families
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTaskDefinitionsRequestPaginateTypeDef
-
-### familyPrefix
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETE_IN_PROGRESS', 'INACTIVE']]
-
-### sort
-- **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfigTypeDef]
-
-
-# ListTaskDefinitionsRequestTypeDef
+# ListTaskDefinitionsRequest
 
 ### familyPrefix
 - **Type**: typing.Optional[str]
@@ -2412,48 +2397,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTaskDefinitionsResponseTypeDef
+# ListTaskDefinitionsRequestPaginate
+
+### familyPrefix
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETE_IN_PROGRESS', 'INACTIVE']]
+
+### sort
+- **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfig]
+
+
+# ListTaskDefinitionsResponse
 
 ### taskDefinitionArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTasksRequestPaginateTypeDef
-
-### cluster
-- **Type**: typing.Optional[str]
-
-### containerInstance
-- **Type**: typing.Optional[str]
-
-### family
-- **Type**: typing.Optional[str]
-
-### startedBy
-- **Type**: typing.Optional[str]
-
-### serviceName
-- **Type**: typing.Optional[str]
-
-### desiredStatus
-- **Type**: typing.Optional[typing.Literal['PENDING', 'RUNNING', 'STOPPED']]
-
-### launchType
-- **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfigTypeDef]
-
-
-# ListTasksRequestTypeDef
+# ListTasksRequest
 
 ### cluster
 - **Type**: typing.Optional[str]
@@ -2483,21 +2456,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
 
 
-# ListTasksResponseTypeDef
+# ListTasksRequestPaginate
+
+### cluster
+- **Type**: typing.Optional[str]
+
+### containerInstance
+- **Type**: typing.Optional[str]
+
+### family
+- **Type**: typing.Optional[str]
+
+### startedBy
+- **Type**: typing.Optional[str]
+
+### serviceName
+- **Type**: typing.Optional[str]
+
+### desiredStatus
+- **Type**: typing.Optional[typing.Literal['PENDING', 'RUNNING', 'STOPPED']]
+
+### launchType
+- **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.PaginatorConfig]
+
+
+# ListTasksResponse
 
 ### taskArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# LoadBalancerTypeDef
+# LoadBalancer
 
 ### targetGroupArn
 - **Type**: typing.Optional[str]
@@ -2512,20 +2512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LogConfigurationOutputTypeDef
-
-### logDriver
-- **Type**: typing.Literal['awsfirelens', 'awslogs', 'fluentd', 'gelf', 'journald', 'json-file', 'splunk', 'syslog']
-- **Required**: Yes
-
-### options
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### secretOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.SecretTypeDef]]
-
-
-# LogConfigurationTypeDef
+# LogConfiguration
 
 ### logDriver
 - **Type**: typing.Literal['awsfirelens', 'awslogs', 'fluentd', 'gelf', 'journald', 'json-file', 'splunk', 'syslog']
@@ -2535,16 +2522,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### secretOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.SecretTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Secret]]
 
 
-# LogConfigurationUnionTypeDef
+# LogConfigurationOutput
+
+### logDriver
+- **Type**: typing.Literal['awsfirelens', 'awslogs', 'fluentd', 'gelf', 'journald', 'json-file', 'splunk', 'syslog']
+- **Required**: Yes
+
+### options
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### secretOptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Secret]]
+
+
+# LogConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ManagedAgentStateChangeTypeDef
+# ManagedAgent
+
+### lastStartedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### name
+- **Type**: typing.Optional[typing.Literal['ExecuteCommandAgent']]
+
+### reason
+- **Type**: typing.Optional[str]
+
+### lastStatus
+- **Type**: typing.Optional[str]
+
+
+# ManagedAgentStateChange
 
 ### containerName
 - **Type**: <class 'str'>
@@ -2562,22 +2577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ManagedAgentTypeDef
-
-### lastStartedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### name
-- **Type**: typing.Optional[typing.Literal['ExecuteCommandAgent']]
-
-### reason
-- **Type**: typing.Optional[str]
-
-### lastStatus
-- **Type**: typing.Optional[str]
-
-
-# ManagedScalingTypeDef
+# ManagedScaling
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -2595,7 +2595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ManagedStorageConfigurationTypeDef
+# ManagedStorageConfiguration
 
 ### kmsKeyId
 - **Type**: typing.Optional[str]
@@ -2604,7 +2604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MountPointTypeDef
+# MountPoint
 
 ### sourceVolume
 - **Type**: typing.Optional[str]
@@ -2616,7 +2616,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# NetworkBindingTypeDef
+# NetworkBinding
 
 ### bindIP
 - **Type**: typing.Optional[str]
@@ -2637,25 +2637,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NetworkConfigurationOutputTypeDef
+# NetworkConfiguration
 
 ### awsvpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.AwsVpcConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.AwsVpcConfiguration]
 
 
-# NetworkConfigurationTypeDef
+# NetworkConfigurationOutput
 
 ### awsvpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.AwsVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.AwsVpcConfigurationOutput]
 
 
-# NetworkConfigurationUnionTypeDef
+# NetworkConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NetworkInterfaceTypeDef
+# NetworkInterface
 
 ### attachmentId
 - **Type**: typing.Optional[str]
@@ -2667,7 +2667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2679,25 +2679,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlacementConstraintTypeDef
+# PlacementConstraint
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PlacementStrategyTypeDef
+# PlacementStrategy
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PlatformDeviceTypeDef
+# PlatformDevice
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PortMappingTypeDef
+# PortMapping
 
 ### containerPort
 - **Type**: typing.Optional[int]
@@ -2718,7 +2718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProtectedTaskTypeDef
+# ProtectedTask
 
 ### taskArn
 - **Type**: typing.Optional[str]
@@ -2730,19 +2730,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ProxyConfigurationOutputTypeDef
+# ProxyConfigurationOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ProxyConfigurationUnionTypeDef
+# ProxyConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PutAccountSettingDefaultRequestTypeDef
+# PutAccountSettingDefaultRequest
 
 ### name
 - **Type**: typing.Literal['awsvpcTrunking', 'containerInsights', 'containerInstanceLongArnFormat', 'fargateFIPSMode', 'fargateTaskRetirementWaitPeriod', 'guardDutyActivate', 'serviceLongArnFormat', 'tagResourceAuthorization', 'taskLongArnFormat']
@@ -2753,18 +2753,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutAccountSettingDefaultResponseTypeDef
+# PutAccountSettingDefaultResponse
 
 ### setting
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.SettingTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Setting'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutAccountSettingRequestTypeDef
+# PutAccountSettingRequest
 
 ### name
 - **Type**: typing.Literal['awsvpcTrunking', 'containerInsights', 'containerInstanceLongArnFormat', 'fargateFIPSMode', 'fargateTaskRetirementWaitPeriod', 'guardDutyActivate', 'serviceLongArnFormat', 'tagResourceAuthorization', 'taskLongArnFormat']
@@ -2778,39 +2778,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAccountSettingResponseTypeDef
+# PutAccountSettingResponse
 
 ### setting
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.SettingTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Setting'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutAttributesRequestTypeDef
+# PutAttributesRequest
 
 ### attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.AttributeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Attribute]
 - **Required**: Yes
 
 ### cluster
 - **Type**: typing.Optional[str]
 
 
-# PutAttributesResponseTypeDef
+# PutAttributesResponse
 
 ### attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.AttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Attribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutClusterCapacityProvidersRequestTypeDef
+# PutClusterCapacityProvidersRequest
 
 ### cluster
 - **Type**: <class 'str'>
@@ -2821,22 +2821,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### defaultCapacityProviderStrategy
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItemTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItem]
 - **Required**: Yes
 
 
-# PutClusterCapacityProvidersResponseTypeDef
+# PutClusterCapacityProvidersResponse
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RegisterContainerInstanceRequestTypeDef
+# RegisterContainerInstanceRequest
 
 ### cluster
 - **Type**: typing.Optional[str]
@@ -2848,43 +2848,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### totalResources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ResourceUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ResourceUnion]]
 
 ### versionInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.VersionInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.VersionInfo]
 
 ### containerInstanceArn
 - **Type**: typing.Optional[str]
 
 ### attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Attribute]]
 
 ### platformDevices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlatformDeviceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlatformDevice]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 
-# RegisterContainerInstanceResponseTypeDef
+# RegisterContainerInstanceResponse
 
 ### containerInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ContainerInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ContainerInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RegisterTaskDefinitionRequestTypeDef
+# RegisterTaskDefinitionRequest
 
 ### family
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### containerDefinitions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ContainerDefinitionUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ContainerDefinitionUnion]
 - **Required**: Yes
 
 ### taskRoleArn
@@ -2897,10 +2897,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['awsvpc', 'bridge', 'host', 'none']]
 
 ### volumes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.VolumeUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.VolumeUnion]]
 
 ### placementConstraints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TaskDefinitionPlacementConstraintTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TaskDefinitionPlacementConstraint]]
 
 ### requiresCompatibilities
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]]
@@ -2912,7 +2912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### pidMode
 - **Type**: typing.Optional[typing.Literal['host', 'task']]
@@ -2921,62 +2921,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['host', 'none', 'task']]
 
 ### proxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ProxyConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ProxyConfigurationUnion]
 
 ### inferenceAccelerators
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.InferenceAcceleratorTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.InferenceAccelerator]]
 
 ### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorage]
 
 ### runtimePlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.RuntimePlatformTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.RuntimePlatform]
 
 ### enableFaultInjection
 - **Type**: typing.Optional[bool]
 
 
-# RegisterTaskDefinitionResponseTypeDef
+# RegisterTaskDefinitionResponse
 
 ### taskDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskDefinition'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RepositoryCredentialsTypeDef
+# RepositoryCredentials
 
 ### credentialsParameter
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResourceOutputTypeDef
+# ResourceOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResourceRequirementTypeDef
+# ResourceRequirement
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResourceUnionTypeDef
+# ResourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2998,7 +2998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RollbackTypeDef
+# Rollback
 
 ### reason
 - **Type**: typing.Optional[str]
@@ -3010,14 +3010,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RunTaskRequestTypeDef
+# RunTaskRequest
 
 ### taskDefinition
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### capacityProviderStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItem]]
 
 ### cluster
 - **Type**: typing.Optional[str]
@@ -3038,16 +3038,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnion]
 
 ### overrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskOverrideUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskOverrideUnion]
 
 ### placementConstraints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementConstraintTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementConstraint]]
 
 ### placementStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementStrategyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementStrategy]]
 
 ### platformVersion
 - **Type**: typing.Optional[str]
@@ -3062,31 +3062,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### volumeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TaskVolumeConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TaskVolumeConfiguration]]
 
 
-# RunTaskResponseTypeDef
+# RunTaskResponse
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Task]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RuntimePlatformTypeDef
+# RuntimePlatform
 
 ### cpuArchitecture
 - **Type**: typing.Optional[typing.Literal['ARM64', 'X86_64']]
@@ -3095,7 +3095,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LINUX', 'WINDOWS_SERVER_2004_CORE', 'WINDOWS_SERVER_2016_FULL', 'WINDOWS_SERVER_2019_CORE', 'WINDOWS_SERVER_2019_FULL', 'WINDOWS_SERVER_2022_CORE', 'WINDOWS_SERVER_2022_FULL', 'WINDOWS_SERVER_20H2_CORE']]
 
 
-# ScaleTypeDef
+# Scale
 
 ### value
 - **Type**: typing.Optional[float]
@@ -3104,7 +3104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PERCENT']]
 
 
-# SecretTypeDef
+# Secret
 
 ### name
 - **Type**: <class 'str'>
@@ -3115,7 +3115,106 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ServiceConnectClientAliasTypeDef
+# Service
+
+### serviceArn
+- **Type**: typing.Optional[str]
+
+### serviceName
+- **Type**: typing.Optional[str]
+
+### clusterArn
+- **Type**: typing.Optional[str]
+
+### loadBalancers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancer]]
+
+### serviceRegistries
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistry]]
+
+### status
+- **Type**: typing.Optional[str]
+
+### desiredCount
+- **Type**: typing.Optional[int]
+
+### runningCount
+- **Type**: typing.Optional[int]
+
+### pendingCount
+- **Type**: typing.Optional[int]
+
+### launchType
+- **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
+
+### capacityProviderStrategy
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItem]]
+
+### platformVersion
+- **Type**: typing.Optional[str]
+
+### platformFamily
+- **Type**: typing.Optional[str]
+
+### taskDefinition
+- **Type**: typing.Optional[str]
+
+### deploymentConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentConfigurationOutput]
+
+### taskSets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskSet]]
+
+### deployments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Deployment]]
+
+### roleArn
+- **Type**: typing.Optional[str]
+
+### events
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceEvent]]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### placementConstraints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.PlacementConstraint]]
+
+### placementStrategy
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.PlacementStrategy]]
+
+### networkConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationOutput]
+
+### healthCheckGracePeriodSeconds
+- **Type**: typing.Optional[int]
+
+### schedulingStrategy
+- **Type**: typing.Optional[typing.Literal['DAEMON', 'REPLICA']]
+
+### deploymentController
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentController]
+
+### tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
+### enableECSManagedTags
+- **Type**: typing.Optional[bool]
+
+### propagateTags
+- **Type**: typing.Optional[typing.Literal['NONE', 'SERVICE', 'TASK_DEFINITION']]
+
+### enableExecuteCommand
+- **Type**: typing.Optional[bool]
+
+### availabilityZoneRebalancing
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# ServiceConnectClientAlias
 
 ### port
 - **Type**: <class 'int'>
@@ -3125,7 +3224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceConnectConfigurationOutputTypeDef
+# ServiceConnectConfiguration
 
 ### enabled
 - **Type**: <class 'bool'>
@@ -3135,13 +3234,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### services
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectServiceOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectService]]
 
 ### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LogConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LogConfiguration]
 
 
-# ServiceConnectConfigurationTypeDef
+# ServiceConnectConfigurationOutput
 
 ### enabled
 - **Type**: <class 'bool'>
@@ -3151,19 +3250,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### services
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectServiceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectServiceOutput]]
 
 ### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LogConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.LogConfigurationOutput]
 
 
-# ServiceConnectConfigurationUnionTypeDef
+# ServiceConnectConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceConnectServiceOutputTypeDef
+# ServiceConnectService
 
 ### portName
 - **Type**: <class 'str'>
@@ -3173,19 +3272,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### clientAliases
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectClientAliasTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectClientAlias]]
 
 ### ingressPortOverride
 - **Type**: typing.Optional[int]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TimeoutConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TimeoutConfiguration]
 
 ### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectTlsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectTlsConfiguration]
 
 
-# ServiceConnectServiceResourceTypeDef
+# ServiceConnectServiceOutput
+
+### portName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### discoveryName
+- **Type**: typing.Optional[str]
+
+### clientAliases
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectClientAlias]]
+
+### ingressPortOverride
+- **Type**: typing.Optional[int]
+
+### timeout
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TimeoutConfiguration]
+
+### tls
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectTlsConfiguration]
+
+
+# ServiceConnectServiceResource
 
 ### discoveryName
 - **Type**: typing.Optional[str]
@@ -3194,38 +3315,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceConnectServiceTypeDef
-
-### portName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### discoveryName
-- **Type**: typing.Optional[str]
-
-### clientAliases
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectClientAliasTypeDef]]
-
-### ingressPortOverride
-- **Type**: typing.Optional[int]
-
-### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TimeoutConfigurationTypeDef]
-
-### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectTlsConfigurationTypeDef]
-
-
-# ServiceConnectTlsCertificateAuthorityTypeDef
+# ServiceConnectTlsCertificateAuthority
 
 ### awsPcaAuthorityArn
 - **Type**: typing.Optional[str]
 
 
-# ServiceConnectTlsConfigurationTypeDef
+# ServiceConnectTlsConfiguration
 
 ### issuerCertificateAuthority
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectTlsCertificateAuthorityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectTlsCertificateAuthority'>
 - **Required**: Yes
 
 ### kmsKey
@@ -3235,7 +3334,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceDeploymentAlarmsTypeDef
+# ServiceDeployment
+
+### serviceDeploymentArn
+- **Type**: typing.Optional[str]
+
+### serviceArn
+- **Type**: typing.Optional[str]
+
+### clusterArn
+- **Type**: typing.Optional[str]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### startedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### finishedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### stoppedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### sourceServiceRevisions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceRevisionSummary]]
+
+### targetServiceRevision
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceRevisionSummary]
+
+### status
+- **Type**: typing.Optional[typing.Literal['IN_PROGRESS', 'PENDING', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'ROLLBACK_SUCCESSFUL', 'STOPPED', 'STOP_REQUESTED', 'SUCCESSFUL']]
+
+### statusReason
+- **Type**: typing.Optional[str]
+
+### deploymentConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentConfigurationOutput]
+
+### rollback
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.Rollback]
+
+### deploymentCircuitBreaker
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceDeploymentCircuitBreaker]
+
+### alarms
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceDeploymentAlarms]
+
+
+# ServiceDeploymentAlarms
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'MONITORING', 'MONITORING_COMPLETE', 'TRIGGERED']]
@@ -3247,7 +3397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ServiceDeploymentBriefTypeDef
+# ServiceDeploymentBrief
 
 ### serviceDeploymentArn
 - **Type**: typing.Optional[str]
@@ -3277,7 +3427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceDeploymentCircuitBreakerTypeDef
+# ServiceDeploymentCircuitBreaker
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'MONITORING', 'MONITORING_COMPLETE', 'TRIGGERED']]
@@ -3289,64 +3439,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ServiceDeploymentTypeDef
-
-### serviceDeploymentArn
-- **Type**: typing.Optional[str]
-
-### serviceArn
-- **Type**: typing.Optional[str]
-
-### clusterArn
-- **Type**: typing.Optional[str]
-
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### startedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### finishedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### stoppedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### updatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### sourceServiceRevisions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceRevisionSummaryTypeDef]]
-
-### targetServiceRevision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceRevisionSummaryTypeDef]
-
-### status
-- **Type**: typing.Optional[typing.Literal['IN_PROGRESS', 'PENDING', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'ROLLBACK_SUCCESSFUL', 'STOPPED', 'STOP_REQUESTED', 'SUCCESSFUL']]
-
-### statusReason
-- **Type**: typing.Optional[str]
-
-### deploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentConfigurationOutputTypeDef]
-
-### rollback
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.RollbackTypeDef]
-
-### deploymentCircuitBreaker
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceDeploymentCircuitBreakerTypeDef]
-
-### alarms
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceDeploymentAlarmsTypeDef]
-
-
-# ServiceEventTypeDef
+# ServiceEvent
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceManagedEBSVolumeConfigurationOutputTypeDef
+# ServiceManagedEBSVolumeConfiguration
 
 ### roleArn
 - **Type**: <class 'str'>
@@ -3374,13 +3473,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tagSpecifications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.EBSTagSpecificationOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.EBSTagSpecificationUnion]]
 
 ### filesystemType
 - **Type**: typing.Optional[typing.Literal['ext3', 'ext4', 'ntfs', 'xfs']]
 
 
-# ServiceManagedEBSVolumeConfigurationTypeDef
+# ServiceManagedEBSVolumeConfigurationOutput
 
 ### roleArn
 - **Type**: <class 'str'>
@@ -3408,19 +3507,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tagSpecifications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.EBSTagSpecificationUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.EBSTagSpecificationOutput]]
 
 ### filesystemType
 - **Type**: typing.Optional[typing.Literal['ext3', 'ext4', 'ntfs', 'xfs']]
 
 
-# ServiceManagedEBSVolumeConfigurationUnionTypeDef
+# ServiceManagedEBSVolumeConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceRegistryTypeDef
+# ServiceRegistry
 
 ### registryArn
 - **Type**: typing.Optional[str]
@@ -3435,22 +3534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ServiceRevisionSummaryTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### requestedTaskCount
-- **Type**: typing.Optional[int]
-
-### runningTaskCount
-- **Type**: typing.Optional[int]
-
-### pendingTaskCount
-- **Type**: typing.Optional[int]
-
-
-# ServiceRevisionTypeDef
+# ServiceRevision
 
 ### serviceRevisionArn
 - **Type**: typing.Optional[str]
@@ -3465,7 +3549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### capacityProviderStrategy
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItemTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItem]]
 
 ### launchType
 - **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
@@ -3477,162 +3561,78 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### loadBalancers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancerTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancer]]
 
 ### serviceRegistries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistry]]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationOutput]
 
 ### containerImages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerImageTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerImage]]
 
 ### guardDutyEnabled
 - **Type**: typing.Optional[bool]
 
 ### serviceConnectConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectConfigurationOutput]
 
 ### volumeConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceVolumeConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceVolumeConfigurationOutput]]
 
 ### fargateEphemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentEphemeralStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentEphemeralStorage]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
 
 ### vpcLatticeConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.VpcLatticeConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.VpcLatticeConfiguration]]
 
 
-# ServiceTypeDef
+# ServiceRevisionSummary
 
-### serviceArn
+### arn
 - **Type**: typing.Optional[str]
 
-### serviceName
-- **Type**: typing.Optional[str]
-
-### clusterArn
-- **Type**: typing.Optional[str]
-
-### loadBalancers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancerTypeDef]]
-
-### serviceRegistries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistryTypeDef]]
-
-### status
-- **Type**: typing.Optional[str]
-
-### desiredCount
+### requestedTaskCount
 - **Type**: typing.Optional[int]
 
-### runningCount
+### runningTaskCount
 - **Type**: typing.Optional[int]
 
-### pendingCount
+### pendingTaskCount
 - **Type**: typing.Optional[int]
 
-### launchType
-- **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
 
-### capacityProviderStrategy
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItemTypeDef]]
-
-### platformVersion
-- **Type**: typing.Optional[str]
-
-### platformFamily
-- **Type**: typing.Optional[str]
-
-### taskDefinition
-- **Type**: typing.Optional[str]
-
-### deploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentConfigurationOutputTypeDef]
-
-### taskSets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskSetTypeDef]]
-
-### deployments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.DeploymentTypeDef]]
-
-### roleArn
-- **Type**: typing.Optional[str]
-
-### events
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ServiceEventTypeDef]]
-
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### placementConstraints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.PlacementConstraintTypeDef]]
-
-### placementStrategy
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.PlacementStrategyTypeDef]]
-
-### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationOutputTypeDef]
-
-### healthCheckGracePeriodSeconds
-- **Type**: typing.Optional[int]
-
-### schedulingStrategy
-- **Type**: typing.Optional[typing.Literal['DAEMON', 'REPLICA']]
-
-### deploymentController
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentControllerTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
-
-### createdBy
-- **Type**: typing.Optional[str]
-
-### enableECSManagedTags
-- **Type**: typing.Optional[bool]
-
-### propagateTags
-- **Type**: typing.Optional[typing.Literal['NONE', 'SERVICE', 'TASK_DEFINITION']]
-
-### enableExecuteCommand
-- **Type**: typing.Optional[bool]
-
-### availabilityZoneRebalancing
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-
-# ServiceVolumeConfigurationOutputTypeDef
+# ServiceVolumeConfiguration
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### managedEBSVolume
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceManagedEBSVolumeConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceManagedEBSVolumeConfigurationUnion]
 
 
-# ServiceVolumeConfigurationTypeDef
+# ServiceVolumeConfigurationOutput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### managedEBSVolume
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceManagedEBSVolumeConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceManagedEBSVolumeConfigurationOutput]
 
 
-# ServiceVolumeConfigurationUnionTypeDef
+# ServiceVolumeConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SessionTypeDef
+# Session
 
 ### sessionId
 - **Type**: typing.Optional[str]
@@ -3644,13 +3644,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SettingTypeDef
+# Setting
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StartTaskRequestTypeDef
+# StartTaskRequest
 
 ### containerInstances
 - **Type**: typing.Sequence[str]
@@ -3673,10 +3673,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnion]
 
 ### overrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskOverrideUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskOverrideUnion]
 
 ### propagateTags
 - **Type**: typing.Optional[typing.Literal['NONE', 'SERVICE', 'TASK_DEFINITION']]
@@ -3688,28 +3688,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### volumeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TaskVolumeConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TaskVolumeConfiguration]]
 
 
-# StartTaskResponseTypeDef
+# StartTaskResponse
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Task]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopTaskRequestTypeDef
+# StopTaskRequest
 
 ### task
 - **Type**: <class 'str'>
@@ -3722,39 +3722,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopTaskResponseTypeDef
+# StopTaskResponse
 
 ### task
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Task'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SubmitAttachmentStateChangesRequestTypeDef
+# SubmitAttachmentStateChangesRequest
 
 ### attachments
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.AttachmentStateChangeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.AttachmentStateChange]
 - **Required**: Yes
 
 ### cluster
 - **Type**: typing.Optional[str]
 
 
-# SubmitAttachmentStateChangesResponseTypeDef
+# SubmitAttachmentStateChangesResponse
 
 ### acknowledgment
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SubmitContainerStateChangeRequestTypeDef
+# SubmitContainerStateChangeRequest
 
 ### cluster
 - **Type**: typing.Optional[str]
@@ -3778,21 +3778,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### networkBindings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.NetworkBindingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.NetworkBinding]]
 
 
-# SubmitContainerStateChangeResponseTypeDef
+# SubmitContainerStateChangeResponse
 
 ### acknowledgment
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SubmitTaskStateChangeRequestTypeDef
+# SubmitTaskStateChangeRequest
 
 ### cluster
 - **Type**: typing.Optional[str]
@@ -3807,36 +3807,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### containers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ContainerStateChangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ContainerStateChange]]
 
 ### attachments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.AttachmentStateChangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.AttachmentStateChange]]
 
 ### managedAgents
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ManagedAgentStateChangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ManagedAgentStateChange]]
 
 ### pullStartedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.Timestamp]
 
 ### pullStoppedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.Timestamp]
 
 ### executionStoppedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.Timestamp]
 
 
-# SubmitTaskStateChangeResponseTypeDef
+# SubmitTaskStateChangeResponse
 
 ### acknowledgment
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SystemControlTypeDef
+# SystemControl
 
 ### namespace
 - **Type**: typing.Optional[str]
@@ -3845,18 +3845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: typing.Optional[str]
@@ -3865,210 +3854,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TaskDefinitionPlacementConstraintTypeDef
+# TagResourceRequest
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# TaskDefinitionTypeDef
-
-### taskDefinitionArn
-- **Type**: typing.Optional[str]
-
-### containerDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerDefinitionOutputTypeDef]]
-
-### family
-- **Type**: typing.Optional[str]
-
-### taskRoleArn
-- **Type**: typing.Optional[str]
-
-### executionRoleArn
-- **Type**: typing.Optional[str]
-
-### networkMode
-- **Type**: typing.Optional[typing.Literal['awsvpc', 'bridge', 'host', 'none']]
-
-### revision
-- **Type**: typing.Optional[int]
-
-### volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.VolumeOutputTypeDef]]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETE_IN_PROGRESS', 'INACTIVE']]
-
-### requiresAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.AttributeTypeDef]]
-
-### placementConstraints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskDefinitionPlacementConstraintTypeDef]]
-
-### compatibilities
-- **Type**: typing.Optional[typing.List[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]]
-
-### runtimePlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.RuntimePlatformTypeDef]
-
-### requiresCompatibilities
-- **Type**: typing.Optional[typing.List[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]]
-
-### cpu
-- **Type**: typing.Optional[str]
-
-### memory
-- **Type**: typing.Optional[str]
-
-### inferenceAccelerators
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.InferenceAcceleratorTypeDef]]
-
-### pidMode
-- **Type**: typing.Optional[typing.Literal['host', 'task']]
-
-### ipcMode
-- **Type**: typing.Optional[typing.Literal['host', 'none', 'task']]
-
-### proxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ProxyConfigurationOutputTypeDef]
-
-### registeredAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### deregisteredAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### registeredBy
-- **Type**: typing.Optional[str]
-
-### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorageTypeDef]
-
-### enableFaultInjection
-- **Type**: typing.Optional[bool]
-
-
-# TaskEphemeralStorageTypeDef
-
-### sizeInGiB
-- **Type**: typing.Optional[int]
-
-### kmsKeyId
-- **Type**: typing.Optional[str]
-
-
-# TaskManagedEBSVolumeConfigurationTypeDef
-
-### roleArn
+### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### encrypted
-- **Type**: typing.Optional[bool]
-
-### kmsKeyId
-- **Type**: typing.Optional[str]
-
-### volumeType
-- **Type**: typing.Optional[str]
-
-### sizeInGiB
-- **Type**: typing.Optional[int]
-
-### snapshotId
-- **Type**: typing.Optional[str]
-
-### iops
-- **Type**: typing.Optional[int]
-
-### throughput
-- **Type**: typing.Optional[int]
-
-### tagSpecifications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.EBSTagSpecificationUnionTypeDef]]
-
-### terminationPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskManagedEBSVolumeTerminationPolicyTypeDef]
-
-### filesystemType
-- **Type**: typing.Optional[typing.Literal['ext3', 'ext4', 'ntfs', 'xfs']]
-
-
-# TaskManagedEBSVolumeTerminationPolicyTypeDef
-
-### deleteOnTermination
-- **Type**: <class 'bool'>
+### tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.Tag]
 - **Required**: Yes
 
 
-# TaskOverrideOutputTypeDef
-
-### containerOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerOverrideOutputTypeDef]]
-
-### cpu
-- **Type**: typing.Optional[str]
-
-### inferenceAcceleratorOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.InferenceAcceleratorOverrideTypeDef]]
-
-### executionRoleArn
-- **Type**: typing.Optional[str]
-
-### memory
-- **Type**: typing.Optional[str]
-
-### taskRoleArn
-- **Type**: typing.Optional[str]
-
-### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorageTypeDef]
-
-
-# TaskOverrideTypeDef
-
-### containerOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ContainerOverrideTypeDef]]
-
-### cpu
-- **Type**: typing.Optional[str]
-
-### inferenceAcceleratorOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.InferenceAcceleratorOverrideTypeDef]]
-
-### executionRoleArn
-- **Type**: typing.Optional[str]
-
-### memory
-- **Type**: typing.Optional[str]
-
-### taskRoleArn
-- **Type**: typing.Optional[str]
-
-### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorageTypeDef]
-
-
-# TaskOverrideUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# TaskSetTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# TaskTypeDef
+# Task
 
 ### attachments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.AttachmentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Attachment]]
 
 ### attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Attribute]]
 
 ### availabilityZone
 - **Type**: typing.Optional[str]
@@ -4089,7 +3892,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Container]]
 
 ### cpu
 - **Type**: typing.Optional[str]
@@ -4113,7 +3916,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY', 'UNKNOWN']]
 
 ### inferenceAccelerators
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.InferenceAcceleratorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.InferenceAccelerator]]
 
 ### lastStatus
 - **Type**: typing.Optional[str]
@@ -4125,7 +3928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### overrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskOverrideOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskOverrideOutput]
 
 ### platformVersion
 - **Type**: typing.Optional[str]
@@ -4158,7 +3961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Tag]]
 
 ### taskArn
 - **Type**: typing.Optional[str]
@@ -4170,23 +3973,220 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorage]
 
 ### fargateEphemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskEphemeralStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskEphemeralStorage]
 
 
-# TaskVolumeConfigurationTypeDef
+# TaskDefinition
+
+### taskDefinitionArn
+- **Type**: typing.Optional[str]
+
+### containerDefinitions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerDefinitionOutput]]
+
+### family
+- **Type**: typing.Optional[str]
+
+### taskRoleArn
+- **Type**: typing.Optional[str]
+
+### executionRoleArn
+- **Type**: typing.Optional[str]
+
+### networkMode
+- **Type**: typing.Optional[typing.Literal['awsvpc', 'bridge', 'host', 'none']]
+
+### revision
+- **Type**: typing.Optional[int]
+
+### volumes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.VolumeOutput]]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETE_IN_PROGRESS', 'INACTIVE']]
+
+### requiresAttributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.Attribute]]
+
+### placementConstraints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.TaskDefinitionPlacementConstraint]]
+
+### compatibilities
+- **Type**: typing.Optional[typing.List[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]]
+
+### runtimePlatform
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.RuntimePlatform]
+
+### requiresCompatibilities
+- **Type**: typing.Optional[typing.List[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]]
+
+### cpu
+- **Type**: typing.Optional[str]
+
+### memory
+- **Type**: typing.Optional[str]
+
+### inferenceAccelerators
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.InferenceAccelerator]]
+
+### pidMode
+- **Type**: typing.Optional[typing.Literal['host', 'task']]
+
+### ipcMode
+- **Type**: typing.Optional[typing.Literal['host', 'none', 'task']]
+
+### proxyConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ProxyConfigurationOutput]
+
+### registeredAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### deregisteredAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### registeredBy
+- **Type**: typing.Optional[str]
+
+### ephemeralStorage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorage]
+
+### enableFaultInjection
+- **Type**: typing.Optional[bool]
+
+
+# TaskDefinitionPlacementConstraint
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TaskEphemeralStorage
+
+### sizeInGiB
+- **Type**: typing.Optional[int]
+
+### kmsKeyId
+- **Type**: typing.Optional[str]
+
+
+# TaskManagedEBSVolumeConfiguration
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### encrypted
+- **Type**: typing.Optional[bool]
+
+### kmsKeyId
+- **Type**: typing.Optional[str]
+
+### volumeType
+- **Type**: typing.Optional[str]
+
+### sizeInGiB
+- **Type**: typing.Optional[int]
+
+### snapshotId
+- **Type**: typing.Optional[str]
+
+### iops
+- **Type**: typing.Optional[int]
+
+### throughput
+- **Type**: typing.Optional[int]
+
+### tagSpecifications
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.EBSTagSpecificationUnion]]
+
+### terminationPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskManagedEBSVolumeTerminationPolicy]
+
+### filesystemType
+- **Type**: typing.Optional[typing.Literal['ext3', 'ext4', 'ntfs', 'xfs']]
+
+
+# TaskManagedEBSVolumeTerminationPolicy
+
+### deleteOnTermination
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# TaskOverride
+
+### containerOverrides
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ContainerOverride]]
+
+### cpu
+- **Type**: typing.Optional[str]
+
+### inferenceAcceleratorOverrides
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.InferenceAcceleratorOverride]]
+
+### executionRoleArn
+- **Type**: typing.Optional[str]
+
+### memory
+- **Type**: typing.Optional[str]
+
+### taskRoleArn
+- **Type**: typing.Optional[str]
+
+### ephemeralStorage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorage]
+
+
+# TaskOverrideOutput
+
+### containerOverrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerOverrideOutput]]
+
+### cpu
+- **Type**: typing.Optional[str]
+
+### inferenceAcceleratorOverrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecs_classes.InferenceAcceleratorOverride]]
+
+### executionRoleArn
+- **Type**: typing.Optional[str]
+
+### memory
+- **Type**: typing.Optional[str]
+
+### taskRoleArn
+- **Type**: typing.Optional[str]
+
+### ephemeralStorage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EphemeralStorage]
+
+
+# TaskOverrideUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TaskSet
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TaskVolumeConfiguration
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### managedEBSVolume
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskManagedEBSVolumeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.TaskManagedEBSVolumeConfiguration]
 
 
-# TimeoutConfigurationTypeDef
+# TimeoutConfiguration
 
 ### idleTimeoutSeconds
 - **Type**: typing.Optional[int]
@@ -4195,27 +4195,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TmpfsOutputTypeDef
-
-### containerPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### size
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### mountOptions
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# TmpfsTypeDef
+# Tmpfs
 
 ### containerPath
 - **Type**: <class 'str'>
@@ -4229,13 +4215,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TmpfsUnionTypeDef
+# TmpfsOutput
+
+### containerPath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### size
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### mountOptions
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# TmpfsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UlimitTypeDef
+# Ulimit
 
 ### name
 - **Type**: typing.Literal['core', 'cpu', 'data', 'fsize', 'locks', 'memlock', 'msgqueue', 'nice', 'nofile', 'nproc', 'rss', 'rtprio', 'rttime', 'sigpending', 'stack']
@@ -4250,7 +4250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -4261,78 +4261,78 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCapacityProviderRequestTypeDef
+# UpdateCapacityProviderRequest
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### autoScalingGroupProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.AutoScalingGroupProviderUpdateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.AutoScalingGroupProviderUpdate'>
 - **Required**: Yes
 
 
-# UpdateCapacityProviderResponseTypeDef
+# UpdateCapacityProviderResponse
 
 ### capacityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.CapacityProvider'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateClusterRequestTypeDef
+# UpdateClusterRequest
 
 ### cluster
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### settings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ClusterSettingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ClusterSetting]]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterConfiguration]
 
 ### serviceConnectDefaults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterServiceConnectDefaultsRequestTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ClusterServiceConnectDefaultsRequest]
 
 
-# UpdateClusterResponseTypeDef
+# UpdateClusterResponse
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateClusterSettingsRequestTypeDef
+# UpdateClusterSettingsRequest
 
 ### cluster
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### settings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ClusterSettingTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ClusterSetting]
 - **Required**: Yes
 
 
-# UpdateClusterSettingsResponseTypeDef
+# UpdateClusterSettingsResponse
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateContainerAgentRequestTypeDef
+# UpdateContainerAgentRequest
 
 ### containerInstance
 - **Type**: <class 'str'>
@@ -4342,18 +4342,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateContainerAgentResponseTypeDef
+# UpdateContainerAgentResponse
 
 ### containerInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ContainerInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ContainerInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateContainerInstancesStateRequestTypeDef
+# UpdateContainerInstancesStateRequest
 
 ### containerInstances
 - **Type**: typing.Sequence[str]
@@ -4367,22 +4367,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateContainerInstancesStateResponseTypeDef
+# UpdateContainerInstancesStateResponse
 
 ### containerInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ContainerInstance]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServicePrimaryTaskSetRequestTypeDef
+# UpdateServicePrimaryTaskSetRequest
 
 ### cluster
 - **Type**: <class 'str'>
@@ -4397,18 +4397,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServicePrimaryTaskSetResponseTypeDef
+# UpdateServicePrimaryTaskSetResponse
 
 ### taskSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServiceRequestTypeDef
+# UpdateServiceRequest
 
 ### service
 - **Type**: <class 'str'>
@@ -4424,22 +4424,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### capacityProviderStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.CapacityProviderStrategyItem]]
 
 ### deploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DeploymentConfigurationUnion]
 
 ### availabilityZoneRebalancing
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.NetworkConfigurationUnion]
 
 ### placementConstraints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementConstraintTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementConstraint]]
 
 ### placementStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementStrategyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.PlacementStrategy]]
 
 ### platformVersion
 - **Type**: typing.Optional[str]
@@ -4457,36 +4457,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### loadBalancers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancerTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.LoadBalancer]]
 
 ### propagateTags
 - **Type**: typing.Optional[typing.Literal['NONE', 'SERVICE', 'TASK_DEFINITION']]
 
 ### serviceRegistries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceRegistry]]
 
 ### serviceConnectConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.ServiceConnectConfigurationUnion]
 
 ### volumeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceVolumeConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.ServiceVolumeConfigurationUnion]]
 
 ### vpcLatticeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.VpcLatticeConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecs_classes.VpcLatticeConfiguration]]
 
 
-# UpdateServiceResponseTypeDef
+# UpdateServiceResponse
 
 ### service
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ServiceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Service'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTaskProtectionRequestTypeDef
+# UpdateTaskProtectionRequest
 
 ### cluster
 - **Type**: <class 'str'>
@@ -4504,22 +4504,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateTaskProtectionResponseTypeDef
+# UpdateTaskProtectionResponse
 
 ### protectedTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ProtectedTaskTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.ProtectedTask]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.FailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecs_classes.Failure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTaskSetRequestTypeDef
+# UpdateTaskSetRequest
 
 ### cluster
 - **Type**: <class 'str'>
@@ -4534,22 +4534,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scale
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ScaleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.Scale'>
 - **Required**: Yes
 
 
-# UpdateTaskSetResponseTypeDef
+# UpdateTaskSetResponse
 
 ### taskSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.TaskSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VersionInfoTypeDef
+# VersionInfo
 
 ### agentVersion
 - **Type**: typing.Optional[str]
@@ -4561,7 +4561,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VolumeFromTypeDef
+# Volume
+
+### name
+- **Type**: typing.Optional[str]
+
+### host
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.HostVolumeProperties]
+
+### dockerVolumeConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DockerVolumeConfigurationUnion]
+
+### efsVolumeConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EFSVolumeConfiguration]
+
+### fsxWindowsFileServerVolumeConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.FSxWindowsFileServerVolumeConfiguration]
+
+### configuredAtLaunch
+- **Type**: typing.Optional[bool]
+
+
+# VolumeFrom
 
 ### sourceContainer
 - **Type**: typing.Optional[str]
@@ -4570,55 +4591,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# VolumeOutputTypeDef
+# VolumeOutput
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### host
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.HostVolumePropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.HostVolumeProperties]
 
 ### dockerVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DockerVolumeConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DockerVolumeConfigurationOutput]
 
 ### efsVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EFSVolumeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EFSVolumeConfiguration]
 
 ### fsxWindowsFileServerVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.FSxWindowsFileServerVolumeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.FSxWindowsFileServerVolumeConfiguration]
 
 ### configuredAtLaunch
 - **Type**: typing.Optional[bool]
 
 
-# VolumeTypeDef
-
-### name
-- **Type**: typing.Optional[str]
-
-### host
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.HostVolumePropertiesTypeDef]
-
-### dockerVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.DockerVolumeConfigurationUnionTypeDef]
-
-### efsVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.EFSVolumeConfigurationTypeDef]
-
-### fsxWindowsFileServerVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecs_classes.FSxWindowsFileServerVolumeConfigurationTypeDef]
-
-### configuredAtLaunch
-- **Type**: typing.Optional[bool]
-
-
-# VolumeUnionTypeDef
+# VolumeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# VpcLatticeConfigurationTypeDef
+# VpcLatticeConfiguration
 
 ### roleArn
 - **Type**: <class 'str'>
@@ -4633,7 +4633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

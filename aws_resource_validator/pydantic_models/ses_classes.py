@@ -12,17 +12,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ses_constants import *
 
-class AddHeaderActionTypeDef(BaseValidatorModel):
+class AddHeaderAction(BaseValidatorModel):
     HeaderName: str
     HeaderValue: str
 
 
-class ContentTypeDef(BaseValidatorModel):
+class Content(BaseValidatorModel):
     Data: str
     Charset: Optional[str] = None
 
 
-class BounceActionTypeDef(BaseValidatorModel):
+class BounceAction(BaseValidatorModel):
     SmtpReplyCode: str
     Message: str
     Sender: str
@@ -30,48 +30,48 @@ class BounceActionTypeDef(BaseValidatorModel):
     StatusCode: Optional[str] = None
 
 
-class BulkEmailDestinationStatusTypeDef(BaseValidatorModel):
+class BulkEmailDestinationStatus(BaseValidatorModel):
     Status: Optional[BulkEmailStatusType] = None
     Error: Optional[str] = None
     MessageId: Optional[str] = None
 
 
-class DestinationTypeDef(BaseValidatorModel):
+class Destination(BaseValidatorModel):
     ToAddresses: Optional[Sequence[str]] = None
     CcAddresses: Optional[Sequence[str]] = None
     BccAddresses: Optional[Sequence[str]] = None
 
 
-class MessageTagTypeDef(BaseValidatorModel):
+class MessageTag(BaseValidatorModel):
     Name: str
     Value: str
 
 
-class CloneReceiptRuleSetRequestTypeDef(BaseValidatorModel):
+class CloneReceiptRuleSetRequest(BaseValidatorModel):
     RuleSetName: str
     OriginalRuleSetName: str
 
 
-class CloudWatchDimensionConfigurationTypeDef(BaseValidatorModel):
+class CloudWatchDimensionConfiguration(BaseValidatorModel):
     DimensionName: str
     DimensionValueSource: DimensionValueSourceType
     DefaultDimensionValue: str
 
 
-class ConfigurationSetTypeDef(BaseValidatorModel):
+class ConfigurationSet(BaseValidatorModel):
     Name: str
 
 
-class ConnectActionTypeDef(BaseValidatorModel):
+class ConnectAction(BaseValidatorModel):
     InstanceARN: str
     IAMRoleARN: str
 
 
-class TrackingOptionsTypeDef(BaseValidatorModel):
+class TrackingOptions(BaseValidatorModel):
     CustomRedirectDomain: Optional[str] = None
 
 
-class CreateCustomVerificationEmailTemplateRequestTypeDef(BaseValidatorModel):
+class CreateCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
     FromEmailAddress: str
     TemplateSubject: str
@@ -80,18 +80,18 @@ class CreateCustomVerificationEmailTemplateRequestTypeDef(BaseValidatorModel):
     FailureRedirectionURL: str
 
 
-class CreateReceiptRuleSetRequestTypeDef(BaseValidatorModel):
+class CreateReceiptRuleSetRequest(BaseValidatorModel):
     RuleSetName: str
 
 
-class TemplateTypeDef(BaseValidatorModel):
+class Template(BaseValidatorModel):
     TemplateName: str
     SubjectPart: Optional[str] = None
     TextPart: Optional[str] = None
     HtmlPart: Optional[str] = None
 
 
-class CustomVerificationEmailTemplateTypeDef(BaseValidatorModel):
+class CustomVerificationEmailTemplate(BaseValidatorModel):
     TemplateName: Optional[str] = None
     FromEmailAddress: Optional[str] = None
     TemplateSubject: Optional[str] = None
@@ -99,63 +99,63 @@ class CustomVerificationEmailTemplateTypeDef(BaseValidatorModel):
     FailureRedirectionURL: Optional[str] = None
 
 
-class DeleteConfigurationSetEventDestinationRequestTypeDef(BaseValidatorModel):
+class DeleteConfigurationSetEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
     EventDestinationName: str
 
 
-class DeleteConfigurationSetRequestTypeDef(BaseValidatorModel):
+class DeleteConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
-class DeleteConfigurationSetTrackingOptionsRequestTypeDef(BaseValidatorModel):
+class DeleteConfigurationSetTrackingOptionsRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
-class DeleteCustomVerificationEmailTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
 
-class DeleteIdentityPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteIdentityPolicyRequest(BaseValidatorModel):
     Identity: str
     PolicyName: str
 
 
-class DeleteIdentityRequestTypeDef(BaseValidatorModel):
+class DeleteIdentityRequest(BaseValidatorModel):
     Identity: str
 
 
-class DeleteReceiptFilterRequestTypeDef(BaseValidatorModel):
+class DeleteReceiptFilterRequest(BaseValidatorModel):
     FilterName: str
 
 
-class DeleteReceiptRuleRequestTypeDef(BaseValidatorModel):
+class DeleteReceiptRuleRequest(BaseValidatorModel):
     RuleSetName: str
     RuleName: str
 
 
-class DeleteReceiptRuleSetRequestTypeDef(BaseValidatorModel):
+class DeleteReceiptRuleSetRequest(BaseValidatorModel):
     RuleSetName: str
 
 
-class DeleteTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
 
-class DeleteVerifiedEmailAddressRequestTypeDef(BaseValidatorModel):
+class DeleteVerifiedEmailAddressRequest(BaseValidatorModel):
     EmailAddress: str
 
 
-class DeliveryOptionsTypeDef(BaseValidatorModel):
+class DeliveryOptions(BaseValidatorModel):
     TlsPolicy: Optional[TlsPolicyType] = None
 
 
-class ReceiptRuleSetMetadataTypeDef(BaseValidatorModel):
+class ReceiptRuleSetMetadata(BaseValidatorModel):
     Name: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -163,69 +163,69 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DescribeConfigurationSetRequestTypeDef(BaseValidatorModel):
+class DescribeConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: str
     ConfigurationSetAttributeNames: Optional[Sequence[ConfigurationSetAttributeType]] = None
 
 
-class ReputationOptionsTypeDef(BaseValidatorModel):
+class ReputationOptions(BaseValidatorModel):
     SendingEnabled: Optional[bool] = None
     ReputationMetricsEnabled: Optional[bool] = None
     LastFreshStart: Optional[datetime] = None
 
 
-class DescribeReceiptRuleRequestTypeDef(BaseValidatorModel):
+class DescribeReceiptRuleRequest(BaseValidatorModel):
     RuleSetName: str
     RuleName: str
 
 
-class DescribeReceiptRuleSetRequestTypeDef(BaseValidatorModel):
+class DescribeReceiptRuleSetRequest(BaseValidatorModel):
     RuleSetName: str
 
 
-class KinesisFirehoseDestinationTypeDef(BaseValidatorModel):
+class KinesisFirehoseDestination(BaseValidatorModel):
     IAMRoleARN: str
     DeliveryStreamARN: str
 
 
-class SNSDestinationTypeDef(BaseValidatorModel):
+class SNSDestination(BaseValidatorModel):
     TopicARN: str
 
 
-class ExtensionFieldTypeDef(BaseValidatorModel):
+class ExtensionField(BaseValidatorModel):
     Name: str
     Value: str
 
 
-class GetCustomVerificationEmailTemplateRequestTypeDef(BaseValidatorModel):
+class GetCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
 
-class GetIdentityDkimAttributesRequestTypeDef(BaseValidatorModel):
+class GetIdentityDkimAttributesRequest(BaseValidatorModel):
     Identities: Sequence[str]
 
 
-class IdentityDkimAttributesTypeDef(BaseValidatorModel):
+class IdentityDkimAttributes(BaseValidatorModel):
     DkimEnabled: bool
     DkimVerificationStatus: VerificationStatusType
     DkimTokens: Optional[List[str]] = None
 
 
-class GetIdentityMailFromDomainAttributesRequestTypeDef(BaseValidatorModel):
+class GetIdentityMailFromDomainAttributesRequest(BaseValidatorModel):
     Identities: Sequence[str]
 
 
-class IdentityMailFromDomainAttributesTypeDef(BaseValidatorModel):
+class IdentityMailFromDomainAttributes(BaseValidatorModel):
     MailFromDomain: str
     MailFromDomainStatus: CustomMailFromStatusType
     BehaviorOnMXFailure: BehaviorOnMXFailureType
 
 
-class GetIdentityNotificationAttributesRequestTypeDef(BaseValidatorModel):
+class GetIdentityNotificationAttributesRequest(BaseValidatorModel):
     Identities: Sequence[str]
 
 
-class IdentityNotificationAttributesTypeDef(BaseValidatorModel):
+class IdentityNotificationAttributes(BaseValidatorModel):
     BounceTopic: str
     ComplaintTopic: str
     DeliveryTopic: str
@@ -235,26 +235,26 @@ class IdentityNotificationAttributesTypeDef(BaseValidatorModel):
     HeadersInDeliveryNotificationsEnabled: Optional[bool] = None
 
 
-class GetIdentityPoliciesRequestTypeDef(BaseValidatorModel):
+class GetIdentityPoliciesRequest(BaseValidatorModel):
     Identity: str
     PolicyNames: Sequence[str]
 
 
-class GetIdentityVerificationAttributesRequestTypeDef(BaseValidatorModel):
+class GetIdentityVerificationAttributesRequest(BaseValidatorModel):
     Identities: Sequence[str]
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class IdentityVerificationAttributesTypeDef(BaseValidatorModel):
+class IdentityVerificationAttributes(BaseValidatorModel):
     VerificationStatus: VerificationStatusType
     VerificationToken: Optional[str] = None
 
 
-class SendDataPointTypeDef(BaseValidatorModel):
+class SendDataPoint(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
     DeliveryAttempts: Optional[int] = None
     Bounces: Optional[int] = None
@@ -262,63 +262,63 @@ class SendDataPointTypeDef(BaseValidatorModel):
     Rejects: Optional[int] = None
 
 
-class GetTemplateRequestTypeDef(BaseValidatorModel):
+class GetTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
 
-class LambdaActionTypeDef(BaseValidatorModel):
+class LambdaAction(BaseValidatorModel):
     FunctionArn: str
     TopicArn: Optional[str] = None
     InvocationType: Optional[InvocationTypeType] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListConfigurationSetsRequestTypeDef(BaseValidatorModel):
+class ListConfigurationSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
-class ListCustomVerificationEmailTemplatesRequestTypeDef(BaseValidatorModel):
+class ListCustomVerificationEmailTemplatesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListIdentitiesRequestTypeDef(BaseValidatorModel):
+class ListIdentitiesRequest(BaseValidatorModel):
     IdentityType: Optional[IdentityTypeType] = None
     NextToken: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
-class ListIdentityPoliciesRequestTypeDef(BaseValidatorModel):
+class ListIdentityPoliciesRequest(BaseValidatorModel):
     Identity: str
 
 
-class ListReceiptRuleSetsRequestTypeDef(BaseValidatorModel):
+class ListReceiptRuleSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListTemplatesRequestTypeDef(BaseValidatorModel):
+class ListTemplatesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
-class TemplateMetadataTypeDef(BaseValidatorModel):
+class TemplateMetadata(BaseValidatorModel):
     Name: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
 
 
-class PutIdentityPolicyRequestTypeDef(BaseValidatorModel):
+class PutIdentityPolicyRequest(BaseValidatorModel):
     Identity: str
     PolicyName: str
     Policy: str
 
 
-class S3ActionTypeDef(BaseValidatorModel):
+class S3Action(BaseValidatorModel):
     BucketName: str
     TopicArn: Optional[str] = None
     ObjectKeyPrefix: Optional[str] = None
@@ -326,95 +326,95 @@ class S3ActionTypeDef(BaseValidatorModel):
     IamRoleArn: Optional[str] = None
 
 
-class SNSActionTypeDef(BaseValidatorModel):
+class SNSAction(BaseValidatorModel):
     TopicArn: str
     Encoding: Optional[SNSActionEncodingType] = None
 
 
-class StopActionTypeDef(BaseValidatorModel):
+class StopAction(BaseValidatorModel):
     Scope: Literal["RuleSet"]
     TopicArn: Optional[str] = None
 
 
-class WorkmailActionTypeDef(BaseValidatorModel):
+class WorkmailAction(BaseValidatorModel):
     OrganizationArn: str
     TopicArn: Optional[str] = None
 
 
-class ReceiptIpFilterTypeDef(BaseValidatorModel):
+class ReceiptIpFilter(BaseValidatorModel):
     Policy: ReceiptFilterPolicyType
     Cidr: str
 
 
-class ReorderReceiptRuleSetRequestTypeDef(BaseValidatorModel):
+class ReorderReceiptRuleSetRequest(BaseValidatorModel):
     RuleSetName: str
     RuleNames: Sequence[str]
 
 
-class SendCustomVerificationEmailRequestTypeDef(BaseValidatorModel):
+class SendCustomVerificationEmailRequest(BaseValidatorModel):
     EmailAddress: str
     TemplateName: str
     ConfigurationSetName: Optional[str] = None
 
 
-class SetActiveReceiptRuleSetRequestTypeDef(BaseValidatorModel):
+class SetActiveReceiptRuleSetRequest(BaseValidatorModel):
     RuleSetName: Optional[str] = None
 
 
-class SetIdentityDkimEnabledRequestTypeDef(BaseValidatorModel):
+class SetIdentityDkimEnabledRequest(BaseValidatorModel):
     Identity: str
     DkimEnabled: bool
 
 
-class SetIdentityFeedbackForwardingEnabledRequestTypeDef(BaseValidatorModel):
+class SetIdentityFeedbackForwardingEnabledRequest(BaseValidatorModel):
     Identity: str
     ForwardingEnabled: bool
 
 
-class SetIdentityHeadersInNotificationsEnabledRequestTypeDef(BaseValidatorModel):
+class SetIdentityHeadersInNotificationsEnabledRequest(BaseValidatorModel):
     Identity: str
     NotificationType: NotificationTypeType
     Enabled: bool
 
 
-class SetIdentityMailFromDomainRequestTypeDef(BaseValidatorModel):
+class SetIdentityMailFromDomainRequest(BaseValidatorModel):
     Identity: str
     MailFromDomain: Optional[str] = None
     BehaviorOnMXFailure: Optional[BehaviorOnMXFailureType] = None
 
 
-class SetIdentityNotificationTopicRequestTypeDef(BaseValidatorModel):
+class SetIdentityNotificationTopicRequest(BaseValidatorModel):
     Identity: str
     NotificationType: NotificationTypeType
     SnsTopic: Optional[str] = None
 
 
-class SetReceiptRulePositionRequestTypeDef(BaseValidatorModel):
+class SetReceiptRulePositionRequest(BaseValidatorModel):
     RuleSetName: str
     RuleName: str
     After: Optional[str] = None
 
 
-class TestRenderTemplateRequestTypeDef(BaseValidatorModel):
+class TestRenderTemplateRequest(BaseValidatorModel):
     TemplateName: str
     TemplateData: str
 
 
-class UpdateAccountSendingEnabledRequestTypeDef(BaseValidatorModel):
+class UpdateAccountSendingEnabledRequest(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class UpdateConfigurationSetReputationMetricsEnabledRequestTypeDef(BaseValidatorModel):
+class UpdateConfigurationSetReputationMetricsEnabledRequest(BaseValidatorModel):
     ConfigurationSetName: str
     Enabled: bool
 
 
-class UpdateConfigurationSetSendingEnabledRequestTypeDef(BaseValidatorModel):
+class UpdateConfigurationSetSendingEnabledRequest(BaseValidatorModel):
     ConfigurationSetName: str
     Enabled: bool
 
 
-class UpdateCustomVerificationEmailTemplateRequestTypeDef(BaseValidatorModel):
+class UpdateCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
     FromEmailAddress: Optional[str] = None
     TemplateSubject: Optional[str] = None
@@ -423,452 +423,452 @@ class UpdateCustomVerificationEmailTemplateRequestTypeDef(BaseValidatorModel):
     FailureRedirectionURL: Optional[str] = None
 
 
-class VerifyDomainDkimRequestTypeDef(BaseValidatorModel):
+class VerifyDomainDkimRequest(BaseValidatorModel):
     Domain: str
 
 
-class VerifyDomainIdentityRequestTypeDef(BaseValidatorModel):
+class VerifyDomainIdentityRequest(BaseValidatorModel):
     Domain: str
 
 
-class VerifyEmailAddressRequestTypeDef(BaseValidatorModel):
+class VerifyEmailAddressRequest(BaseValidatorModel):
     EmailAddress: str
 
 
-class VerifyEmailIdentityRequestTypeDef(BaseValidatorModel):
+class VerifyEmailIdentityRequest(BaseValidatorModel):
     EmailAddress: str
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class RawMessageTypeDef(BaseValidatorModel):
-    Data: BlobTypeDef
+class RawMessage(BaseValidatorModel):
+    Data: Blob
 
 
-class BulkEmailDestinationTypeDef(BaseValidatorModel):
-    Destination: DestinationTypeDef
-    ReplacementTags: Optional[Sequence[MessageTagTypeDef]] = None
+class BulkEmailDestination(BaseValidatorModel):
+    Destination: Destination
+    ReplacementTags: Optional[Sequence[MessageTag]] = None
     ReplacementTemplateData: Optional[str] = None
 
 
-class SendTemplatedEmailRequestTypeDef(BaseValidatorModel):
+class SendTemplatedEmailRequest(BaseValidatorModel):
     Source: str
-    Destination: DestinationTypeDef
+    Destination: Destination
     Template: str
     TemplateData: str
     ReplyToAddresses: Optional[Sequence[str]] = None
     ReturnPath: Optional[str] = None
     SourceArn: Optional[str] = None
     ReturnPathArn: Optional[str] = None
-    Tags: Optional[Sequence[MessageTagTypeDef]] = None
+    Tags: Optional[Sequence[MessageTag]] = None
     ConfigurationSetName: Optional[str] = None
     TemplateArn: Optional[str] = None
 
 
-class CloudWatchDestinationOutputTypeDef(BaseValidatorModel):
-    DimensionConfigurations: List[CloudWatchDimensionConfigurationTypeDef]
+class CloudWatchDestinationOutput(BaseValidatorModel):
+    DimensionConfigurations: List[CloudWatchDimensionConfiguration]
 
 
-class CloudWatchDestinationTypeDef(BaseValidatorModel):
-    DimensionConfigurations: Sequence[CloudWatchDimensionConfigurationTypeDef]
+class CloudWatchDestination(BaseValidatorModel):
+    DimensionConfigurations: Sequence[CloudWatchDimensionConfiguration]
 
 
-class CreateConfigurationSetRequestTypeDef(BaseValidatorModel):
-    ConfigurationSet: ConfigurationSetTypeDef
+class CreateConfigurationSetRequest(BaseValidatorModel):
+    ConfigurationSet: ConfigurationSet
 
 
-class CreateConfigurationSetTrackingOptionsRequestTypeDef(BaseValidatorModel):
+class CreateConfigurationSetTrackingOptionsRequest(BaseValidatorModel):
     ConfigurationSetName: str
-    TrackingOptions: TrackingOptionsTypeDef
+    TrackingOptions: TrackingOptions
 
 
-class UpdateConfigurationSetTrackingOptionsRequestTypeDef(BaseValidatorModel):
+class UpdateConfigurationSetTrackingOptionsRequest(BaseValidatorModel):
     ConfigurationSetName: str
-    TrackingOptions: TrackingOptionsTypeDef
+    TrackingOptions: TrackingOptions
 
 
-class CreateTemplateRequestTypeDef(BaseValidatorModel):
-    Template: TemplateTypeDef
+class CreateTemplateRequest(BaseValidatorModel):
+    Template: Template
 
 
-class UpdateTemplateRequestTypeDef(BaseValidatorModel):
-    Template: TemplateTypeDef
+class UpdateTemplateRequest(BaseValidatorModel):
+    Template: Template
 
 
-class PutConfigurationSetDeliveryOptionsRequestTypeDef(BaseValidatorModel):
+class PutConfigurationSetDeliveryOptionsRequest(BaseValidatorModel):
     ConfigurationSetName: str
-    DeliveryOptions: Optional[DeliveryOptionsTypeDef] = None
+    DeliveryOptions: Optional[DeliveryOptions] = None
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccountSendingEnabledResponseTypeDef(BaseValidatorModel):
+class GetAccountSendingEnabledResponse(BaseValidatorModel):
     Enabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCustomVerificationEmailTemplateResponseTypeDef(BaseValidatorModel):
+class GetCustomVerificationEmailTemplateResponse(BaseValidatorModel):
     TemplateName: str
     FromEmailAddress: str
     TemplateSubject: str
     TemplateContent: str
     SuccessRedirectionURL: str
     FailureRedirectionURL: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdentityPoliciesResponseTypeDef(BaseValidatorModel):
+class GetIdentityPoliciesResponse(BaseValidatorModel):
     Policies: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSendQuotaResponseTypeDef(BaseValidatorModel):
+class GetSendQuotaResponse(BaseValidatorModel):
     Max24HourSend: float
     MaxSendRate: float
     SentLast24Hours: float
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTemplateResponseTypeDef(BaseValidatorModel):
-    Template: TemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTemplateResponse(BaseValidatorModel):
+    Template: Template
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConfigurationSetsResponseTypeDef(BaseValidatorModel):
-    ConfigurationSets: List[ConfigurationSetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfigurationSetsResponse(BaseValidatorModel):
+    ConfigurationSets: List[ConfigurationSet]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCustomVerificationEmailTemplatesResponseTypeDef(BaseValidatorModel):
-    CustomVerificationEmailTemplates: List[CustomVerificationEmailTemplateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCustomVerificationEmailTemplatesResponse(BaseValidatorModel):
+    CustomVerificationEmailTemplates: List[CustomVerificationEmailTemplate]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListIdentitiesResponseTypeDef(BaseValidatorModel):
+class ListIdentitiesResponse(BaseValidatorModel):
     Identities: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListIdentityPoliciesResponseTypeDef(BaseValidatorModel):
+class ListIdentityPoliciesResponse(BaseValidatorModel):
     PolicyNames: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListReceiptRuleSetsResponseTypeDef(BaseValidatorModel):
-    RuleSets: List[ReceiptRuleSetMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReceiptRuleSetsResponse(BaseValidatorModel):
+    RuleSets: List[ReceiptRuleSetMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListVerifiedEmailAddressesResponseTypeDef(BaseValidatorModel):
+class ListVerifiedEmailAddressesResponse(BaseValidatorModel):
     VerifiedEmailAddresses: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendBounceResponseTypeDef(BaseValidatorModel):
+class SendBounceResponse(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendBulkTemplatedEmailResponseTypeDef(BaseValidatorModel):
-    Status: List[BulkEmailDestinationStatusTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SendBulkTemplatedEmailResponse(BaseValidatorModel):
+    Status: List[BulkEmailDestinationStatus]
+    ResponseMetadata: ResponseMetadata
 
 
-class SendCustomVerificationEmailResponseTypeDef(BaseValidatorModel):
+class SendCustomVerificationEmailResponse(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendEmailResponseTypeDef(BaseValidatorModel):
+class SendEmailResponse(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendRawEmailResponseTypeDef(BaseValidatorModel):
+class SendRawEmailResponse(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendTemplatedEmailResponseTypeDef(BaseValidatorModel):
+class SendTemplatedEmailResponse(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TestRenderTemplateResponseTypeDef(BaseValidatorModel):
+class TestRenderTemplateResponse(BaseValidatorModel):
     RenderedTemplate: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class VerifyDomainDkimResponseTypeDef(BaseValidatorModel):
+class VerifyDomainDkimResponse(BaseValidatorModel):
     DkimTokens: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class VerifyDomainIdentityResponseTypeDef(BaseValidatorModel):
+class VerifyDomainIdentityResponse(BaseValidatorModel):
     VerificationToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdentityDkimAttributesResponseTypeDef(BaseValidatorModel):
-    DkimAttributes: Dict[str, IdentityDkimAttributesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIdentityDkimAttributesResponse(BaseValidatorModel):
+    DkimAttributes: Dict[str, IdentityDkimAttributes]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdentityMailFromDomainAttributesResponseTypeDef(BaseValidatorModel):
-    MailFromDomainAttributes: Dict[str, IdentityMailFromDomainAttributesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIdentityMailFromDomainAttributesResponse(BaseValidatorModel):
+    MailFromDomainAttributes: Dict[str, IdentityMailFromDomainAttributes]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdentityNotificationAttributesResponseTypeDef(BaseValidatorModel):
-    NotificationAttributes: Dict[str, IdentityNotificationAttributesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIdentityNotificationAttributesResponse(BaseValidatorModel):
+    NotificationAttributes: Dict[str, IdentityNotificationAttributes]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdentityVerificationAttributesRequestWaitTypeDef(BaseValidatorModel):
+class GetIdentityVerificationAttributesRequestWait(BaseValidatorModel):
     Identities: Sequence[str]
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetIdentityVerificationAttributesResponseTypeDef(BaseValidatorModel):
-    VerificationAttributes: Dict[str, IdentityVerificationAttributesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIdentityVerificationAttributesResponse(BaseValidatorModel):
+    VerificationAttributes: Dict[str, IdentityVerificationAttributes]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSendStatisticsResponseTypeDef(BaseValidatorModel):
-    SendDataPoints: List[SendDataPointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSendStatisticsResponse(BaseValidatorModel):
+    SendDataPoints: List[SendDataPoint]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConfigurationSetsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConfigurationSetsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCustomVerificationEmailTemplatesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCustomVerificationEmailTemplatesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIdentitiesRequestPaginateTypeDef(BaseValidatorModel):
+class ListIdentitiesRequestPaginate(BaseValidatorModel):
     IdentityType: Optional[IdentityTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListReceiptRuleSetsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListReceiptRuleSetsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplatesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListTemplatesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplatesResponseTypeDef(BaseValidatorModel):
-    TemplatesMetadata: List[TemplateMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTemplatesResponse(BaseValidatorModel):
+    TemplatesMetadata: List[TemplateMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class MessageDsnTypeDef(BaseValidatorModel):
+class MessageDsn(BaseValidatorModel):
     ReportingMta: str
-    ArrivalDate: Optional[TimestampTypeDef] = None
-    ExtensionFields: Optional[Sequence[ExtensionFieldTypeDef]] = None
+    ArrivalDate: Optional[Timestamp] = None
+    ExtensionFields: Optional[Sequence[ExtensionField]] = None
 
 
-class RecipientDsnFieldsTypeDef(BaseValidatorModel):
+class RecipientDsnFields(BaseValidatorModel):
     Action: DsnActionType
     Status: str
     FinalRecipient: Optional[str] = None
     RemoteMta: Optional[str] = None
     DiagnosticCode: Optional[str] = None
-    LastAttemptDate: Optional[TimestampTypeDef] = None
-    ExtensionFields: Optional[Sequence[ExtensionFieldTypeDef]] = None
+    LastAttemptDate: Optional[Timestamp] = None
+    ExtensionFields: Optional[Sequence[ExtensionField]] = None
 
 
-class ReceiptActionTypeDef(BaseValidatorModel):
-    S3Action: Optional[S3ActionTypeDef] = None
-    BounceAction: Optional[BounceActionTypeDef] = None
-    WorkmailAction: Optional[WorkmailActionTypeDef] = None
-    LambdaAction: Optional[LambdaActionTypeDef] = None
-    StopAction: Optional[StopActionTypeDef] = None
-    AddHeaderAction: Optional[AddHeaderActionTypeDef] = None
-    SNSAction: Optional[SNSActionTypeDef] = None
-    ConnectAction: Optional[ConnectActionTypeDef] = None
+class ReceiptAction(BaseValidatorModel):
+    S3Action: Optional[S3Action] = None
+    BounceAction: Optional[BounceAction] = None
+    WorkmailAction: Optional[WorkmailAction] = None
+    LambdaAction: Optional[LambdaAction] = None
+    StopAction: Optional[StopAction] = None
+    AddHeaderAction: Optional[AddHeaderAction] = None
+    SNSAction: Optional[SNSAction] = None
+    ConnectAction: Optional[ConnectAction] = None
 
 
-class ReceiptFilterTypeDef(BaseValidatorModel):
+class ReceiptFilter(BaseValidatorModel):
     Name: str
-    IpFilter: ReceiptIpFilterTypeDef
+    IpFilter: ReceiptIpFilter
 
 
-class SendRawEmailRequestTypeDef(BaseValidatorModel):
-    RawMessage: RawMessageTypeDef
+class SendRawEmailRequest(BaseValidatorModel):
+    RawMessage: RawMessage
     Source: Optional[str] = None
     Destinations: Optional[Sequence[str]] = None
     FromArn: Optional[str] = None
     SourceArn: Optional[str] = None
     ReturnPathArn: Optional[str] = None
-    Tags: Optional[Sequence[MessageTagTypeDef]] = None
+    Tags: Optional[Sequence[MessageTag]] = None
     ConfigurationSetName: Optional[str] = None
 
 
-class BodyTypeDef(BaseValidatorModel):
+class Body(BaseValidatorModel):
     pass
 
 
-class MessageTypeDef(BaseValidatorModel):
-    Subject: ContentTypeDef
-    Body: BodyTypeDef
+class Message(BaseValidatorModel):
+    Subject: Content
+    Body: Body
 
 
-class SendBulkTemplatedEmailRequestTypeDef(BaseValidatorModel):
+class SendBulkTemplatedEmailRequest(BaseValidatorModel):
     Source: str
     Template: str
     DefaultTemplateData: str
-    Destinations: Sequence[BulkEmailDestinationTypeDef]
+    Destinations: Sequence[BulkEmailDestination]
     SourceArn: Optional[str] = None
     ReplyToAddresses: Optional[Sequence[str]] = None
     ReturnPath: Optional[str] = None
     ReturnPathArn: Optional[str] = None
     ConfigurationSetName: Optional[str] = None
-    DefaultTags: Optional[Sequence[MessageTagTypeDef]] = None
+    DefaultTags: Optional[Sequence[MessageTag]] = None
     TemplateArn: Optional[str] = None
 
 
-class EventDestinationOutputTypeDef(BaseValidatorModel):
+class EventDestinationOutput(BaseValidatorModel):
     Name: str
     MatchingEventTypes: List[EventTypeType]
     Enabled: Optional[bool] = None
-    KinesisFirehoseDestination: Optional[KinesisFirehoseDestinationTypeDef] = None
-    CloudWatchDestination: Optional[CloudWatchDestinationOutputTypeDef] = None
-    SNSDestination: Optional[SNSDestinationTypeDef] = None
+    KinesisFirehoseDestination: Optional[KinesisFirehoseDestination] = None
+    CloudWatchDestination: Optional[CloudWatchDestinationOutput] = None
+    SNSDestination: Optional[SNSDestination] = None
 
 
-class EventDestinationTypeDef(BaseValidatorModel):
+class EventDestination(BaseValidatorModel):
     Name: str
     MatchingEventTypes: Sequence[EventTypeType]
     Enabled: Optional[bool] = None
-    KinesisFirehoseDestination: Optional[KinesisFirehoseDestinationTypeDef] = None
-    CloudWatchDestination: Optional[CloudWatchDestinationTypeDef] = None
-    SNSDestination: Optional[SNSDestinationTypeDef] = None
+    KinesisFirehoseDestination: Optional[KinesisFirehoseDestination] = None
+    CloudWatchDestination: Optional[CloudWatchDestination] = None
+    SNSDestination: Optional[SNSDestination] = None
 
 
-class BouncedRecipientInfoTypeDef(BaseValidatorModel):
+class BouncedRecipientInfo(BaseValidatorModel):
     Recipient: str
     RecipientArn: Optional[str] = None
     BounceType: Optional[BounceTypeType] = None
-    RecipientDsnFields: Optional[RecipientDsnFieldsTypeDef] = None
+    RecipientDsnFields: Optional[RecipientDsnFields] = None
 
 
-class ReceiptRuleOutputTypeDef(BaseValidatorModel):
+class ReceiptRuleOutput(BaseValidatorModel):
     Name: str
     Enabled: Optional[bool] = None
     TlsPolicy: Optional[TlsPolicyType] = None
     Recipients: Optional[List[str]] = None
-    Actions: Optional[List[ReceiptActionTypeDef]] = None
+    Actions: Optional[List[ReceiptAction]] = None
     ScanEnabled: Optional[bool] = None
 
 
-class ReceiptRuleTypeDef(BaseValidatorModel):
+class ReceiptRule(BaseValidatorModel):
     Name: str
     Enabled: Optional[bool] = None
     TlsPolicy: Optional[TlsPolicyType] = None
     Recipients: Optional[Sequence[str]] = None
-    Actions: Optional[Sequence[ReceiptActionTypeDef]] = None
+    Actions: Optional[Sequence[ReceiptAction]] = None
     ScanEnabled: Optional[bool] = None
 
 
-class CreateReceiptFilterRequestTypeDef(BaseValidatorModel):
-    Filter: ReceiptFilterTypeDef
+class CreateReceiptFilterRequest(BaseValidatorModel):
+    Filter: ReceiptFilter
 
 
-class ListReceiptFiltersResponseTypeDef(BaseValidatorModel):
-    Filters: List[ReceiptFilterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReceiptFiltersResponse(BaseValidatorModel):
+    Filters: List[ReceiptFilter]
+    ResponseMetadata: ResponseMetadata
 
 
-class SendEmailRequestTypeDef(BaseValidatorModel):
+class SendEmailRequest(BaseValidatorModel):
     Source: str
-    Destination: DestinationTypeDef
-    Message: MessageTypeDef
+    Destination: Destination
+    Message: Message
     ReplyToAddresses: Optional[Sequence[str]] = None
     ReturnPath: Optional[str] = None
     SourceArn: Optional[str] = None
     ReturnPathArn: Optional[str] = None
-    Tags: Optional[Sequence[MessageTagTypeDef]] = None
+    Tags: Optional[Sequence[MessageTag]] = None
     ConfigurationSetName: Optional[str] = None
 
 
-class DescribeConfigurationSetResponseTypeDef(BaseValidatorModel):
-    ConfigurationSet: ConfigurationSetTypeDef
-    EventDestinations: List[EventDestinationOutputTypeDef]
-    TrackingOptions: TrackingOptionsTypeDef
-    DeliveryOptions: DeliveryOptionsTypeDef
-    ReputationOptions: ReputationOptionsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeConfigurationSetResponse(BaseValidatorModel):
+    ConfigurationSet: ConfigurationSet
+    EventDestinations: List[EventDestinationOutput]
+    TrackingOptions: TrackingOptions
+    DeliveryOptions: DeliveryOptions
+    ReputationOptions: ReputationOptions
+    ResponseMetadata: ResponseMetadata
 
 
-class SendBounceRequestTypeDef(BaseValidatorModel):
+class SendBounceRequest(BaseValidatorModel):
     OriginalMessageId: str
     BounceSender: str
-    BouncedRecipientInfoList: Sequence[BouncedRecipientInfoTypeDef]
+    BouncedRecipientInfoList: Sequence[BouncedRecipientInfo]
     Explanation: Optional[str] = None
-    MessageDsn: Optional[MessageDsnTypeDef] = None
+    MessageDsn: Optional[MessageDsn] = None
     BounceSenderArn: Optional[str] = None
 
 
-class DescribeActiveReceiptRuleSetResponseTypeDef(BaseValidatorModel):
-    Metadata: ReceiptRuleSetMetadataTypeDef
-    Rules: List[ReceiptRuleOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeActiveReceiptRuleSetResponse(BaseValidatorModel):
+    Metadata: ReceiptRuleSetMetadata
+    Rules: List[ReceiptRuleOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeReceiptRuleResponseTypeDef(BaseValidatorModel):
-    Rule: ReceiptRuleOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeReceiptRuleResponse(BaseValidatorModel):
+    Rule: ReceiptRuleOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeReceiptRuleSetResponseTypeDef(BaseValidatorModel):
-    Metadata: ReceiptRuleSetMetadataTypeDef
-    Rules: List[ReceiptRuleOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeReceiptRuleSetResponse(BaseValidatorModel):
+    Metadata: ReceiptRuleSetMetadata
+    Rules: List[ReceiptRuleOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class EventDestinationUnionTypeDef(BaseValidatorModel):
+class EventDestinationUnion(BaseValidatorModel):
     pass
 
 
-class CreateConfigurationSetEventDestinationRequestTypeDef(BaseValidatorModel):
+class CreateConfigurationSetEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
-    EventDestination: EventDestinationUnionTypeDef
+    EventDestination: EventDestinationUnion
 
 
-class UpdateConfigurationSetEventDestinationRequestTypeDef(BaseValidatorModel):
+class UpdateConfigurationSetEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
-    EventDestination: EventDestinationUnionTypeDef
+    EventDestination: EventDestinationUnion
 
 
-class ReceiptRuleUnionTypeDef(BaseValidatorModel):
+class ReceiptRuleUnion(BaseValidatorModel):
     pass
 
 
-class CreateReceiptRuleRequestTypeDef(BaseValidatorModel):
+class CreateReceiptRuleRequest(BaseValidatorModel):
     RuleSetName: str
-    Rule: ReceiptRuleUnionTypeDef
+    Rule: ReceiptRuleUnion
     After: Optional[str] = None
 
 
-class UpdateReceiptRuleRequestTypeDef(BaseValidatorModel):
+class UpdateReceiptRuleRequest(BaseValidatorModel):
     RuleSetName: str
-    Rule: ReceiptRuleUnionTypeDef
+    Rule: ReceiptRuleUnion
 
 

@@ -6,10 +6,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateSuiteDefinitionRequestTypeDef
+# CreateSuiteDefinitionRequest
 
 ### suiteDefinitionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteDefinitionConfigurationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteDefinitionConfigurationUnion'>
 - **Required**: Yes
 
 ### tags
@@ -19,7 +19,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateSuiteDefinitionResponseTypeDef
+# CreateSuiteDefinitionResponse
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
@@ -38,18 +38,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteSuiteDefinitionRequestTypeDef
+# DeleteSuiteDefinitionRequest
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeviceUnderTestTypeDef
+# DeviceUnderTest
 
 ### thingArn
 - **Type**: typing.Optional[str]
@@ -61,7 +61,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetEndpointRequestTypeDef
+# GetEndpointRequest
 
 ### thingArn
 - **Type**: typing.Optional[str]
@@ -76,18 +76,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SignatureVersion4', 'X509ClientCertificate']]
 
 
-# GetEndpointResponseTypeDef
+# GetEndpointResponse
 
 ### endpoint
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSuiteDefinitionRequestTypeDef
+# GetSuiteDefinitionRequest
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
@@ -97,7 +97,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSuiteDefinitionResponseTypeDef
+# GetSuiteDefinitionResponse
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
@@ -116,7 +116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### suiteDefinitionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteDefinitionConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteDefinitionConfigurationOutput'>
 - **Required**: Yes
 
 ### createdAt
@@ -132,11 +132,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSuiteRunReportRequestTypeDef
+# GetSuiteRunReportRequest
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
@@ -147,18 +147,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSuiteRunReportResponseTypeDef
+# GetSuiteRunReportResponse
 
 ### qualificationReportDownloadUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSuiteRunRequestTypeDef
+# GetSuiteRunRequest
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
@@ -169,7 +169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSuiteRunResponseTypeDef
+# GetSuiteRunResponse
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
@@ -188,11 +188,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### suiteRunConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteRunConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteRunConfigurationOutput'>
 - **Required**: Yes
 
 ### testResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.TestResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.TestResult'>
 - **Required**: Yes
 
 ### startTime
@@ -216,11 +216,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GroupResultTypeDef
+# GroupResult
 
 ### groupId
 - **Type**: typing.Optional[str]
@@ -229,10 +229,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.TestCaseRunTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.TestCaseRun]]
 
 
-# ListSuiteDefinitionsRequestTypeDef
+# ListSuiteDefinitionsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -241,21 +241,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSuiteDefinitionsResponseTypeDef
+# ListSuiteDefinitionsResponse
 
 ### suiteDefinitionInformationList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteDefinitionInformationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteDefinitionInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSuiteRunsRequestTypeDef
+# ListSuiteRunsRequest
 
 ### suiteDefinitionId
 - **Type**: typing.Optional[str]
@@ -270,39 +270,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSuiteRunsResponseTypeDef
+# ListSuiteRunsResponse
 
 ### suiteRunsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteRunInformationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteRunInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -324,14 +324,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartSuiteRunRequestTypeDef
+# StartSuiteRunRequest
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### suiteRunConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteRunConfigurationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteRunConfigurationUnion'>
 - **Required**: Yes
 
 ### suiteDefinitionVersion
@@ -341,7 +341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StartSuiteRunResponseTypeDef
+# StartSuiteRunResponse
 
 ### suiteRunId
 - **Type**: <class 'str'>
@@ -360,11 +360,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopSuiteRunRequestTypeDef
+# StopSuiteRunRequest
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
@@ -375,7 +375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SuiteDefinitionConfigurationOutputTypeDef
+# SuiteDefinitionConfiguration
 
 ### suiteDefinitionName
 - **Type**: <class 'str'>
@@ -390,7 +390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### devices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTestTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTest]]
 
 ### intendedForQualification
 - **Type**: typing.Optional[bool]
@@ -402,7 +402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MqttV3_1_1', 'MqttV3_1_1_OverWebSocket', 'MqttV5', 'MqttV5_OverWebSocket']]
 
 
-# SuiteDefinitionConfigurationTypeDef
+# SuiteDefinitionConfigurationOutput
 
 ### suiteDefinitionName
 - **Type**: <class 'str'>
@@ -417,7 +417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### devices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTestTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTest]]
 
 ### intendedForQualification
 - **Type**: typing.Optional[bool]
@@ -429,13 +429,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MqttV3_1_1', 'MqttV3_1_1_OverWebSocket', 'MqttV5', 'MqttV5_OverWebSocket']]
 
 
-# SuiteDefinitionConfigurationUnionTypeDef
+# SuiteDefinitionConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SuiteDefinitionInformationTypeDef
+# SuiteDefinitionInformation
 
 ### suiteDefinitionId
 - **Type**: typing.Optional[str]
@@ -444,7 +444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### defaultDevices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTestTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTest]]
 
 ### intendedForQualification
 - **Type**: typing.Optional[bool]
@@ -459,23 +459,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# SuiteRunConfigurationOutputTypeDef
+# SuiteRunConfiguration
 
 ### primaryDevice
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTestTypeDef'>
-- **Required**: Yes
-
-### selectedTestList
-- **Type**: typing.Optional[typing.List[str]]
-
-### parallelRun
-- **Type**: typing.Optional[bool]
-
-
-# SuiteRunConfigurationTypeDef
-
-### primaryDevice
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTest'>
 - **Required**: Yes
 
 ### selectedTestList
@@ -485,13 +472,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SuiteRunConfigurationUnionTypeDef
+# SuiteRunConfigurationOutput
+
+### primaryDevice
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.DeviceUnderTest'>
+- **Required**: Yes
+
+### selectedTestList
+- **Type**: typing.Optional[typing.List[str]]
+
+### parallelRun
+- **Type**: typing.Optional[bool]
+
+
+# SuiteRunConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SuiteRunInformationTypeDef
+# SuiteRunInformation
 
 ### suiteDefinitionId
 - **Type**: typing.Optional[str]
@@ -524,7 +524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -535,7 +535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestCaseRunTypeDef
+# TestCaseRun
 
 ### testCaseRunId
 - **Type**: typing.Optional[str]
@@ -565,10 +565,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### testScenarios
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.TestCaseScenarioTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.TestCaseScenario]]
 
 
-# TestCaseScenarioTypeDef
+# TestCaseScenario
 
 ### testCaseScenarioId
 - **Type**: typing.Optional[str]
@@ -586,13 +586,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestResultTypeDef
+# TestResult
 
 ### groups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.GroupResultTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.GroupResult]]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -603,18 +603,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSuiteDefinitionRequestTypeDef
+# UpdateSuiteDefinitionRequest
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### suiteDefinitionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteDefinitionConfigurationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.SuiteDefinitionConfigurationUnion'>
 - **Required**: Yes
 
 
-# UpdateSuiteDefinitionResponseTypeDef
+# UpdateSuiteDefinitionResponse
 
 ### suiteDefinitionId
 - **Type**: <class 'str'>
@@ -641,7 +641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotdeviceadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

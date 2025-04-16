@@ -12,34 +12,34 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.discovery_constants import *
 
-class AgentConfigurationStatusTypeDef(BaseValidatorModel):
+class AgentConfigurationStatus(BaseValidatorModel):
     agentId: Optional[str] = None
     operationSucceeded: Optional[bool] = None
     description: Optional[str] = None
 
 
-class AgentNetworkInfoTypeDef(BaseValidatorModel):
+class AgentNetworkInfo(BaseValidatorModel):
     ipAddress: Optional[str] = None
     macAddress: Optional[str] = None
 
 
-class AssociateConfigurationItemsToApplicationRequestTypeDef(BaseValidatorModel):
+class AssociateConfigurationItemsToApplicationRequest(BaseValidatorModel):
     applicationConfigurationId: str
     configurationIds: Sequence[str]
 
 
-class BatchDeleteAgentErrorTypeDef(BaseValidatorModel):
+class BatchDeleteAgentError(BaseValidatorModel):
     agentId: str
     errorMessage: str
     errorCode: DeleteAgentErrorCodeType
 
 
-class DeleteAgentTypeDef(BaseValidatorModel):
+class DeleteAgent(BaseValidatorModel):
     agentId: str
     force: Optional[bool] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -47,30 +47,30 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeletionWarningTypeDef(BaseValidatorModel):
+class DeletionWarning(BaseValidatorModel):
     configurationId: Optional[str] = None
     warningCode: Optional[int] = None
     warningText: Optional[str] = None
 
 
-class FailedConfigurationTypeDef(BaseValidatorModel):
+class FailedConfiguration(BaseValidatorModel):
     configurationId: Optional[str] = None
     errorStatusCode: Optional[int] = None
     errorMessage: Optional[str] = None
 
 
-class BatchDeleteImportDataErrorTypeDef(BaseValidatorModel):
+class BatchDeleteImportDataError(BaseValidatorModel):
     importTaskId: Optional[str] = None
     errorCode: Optional[BatchDeleteImportDataErrorCodeType] = None
     errorDescription: Optional[str] = None
 
 
-class BatchDeleteImportDataRequestTypeDef(BaseValidatorModel):
+class BatchDeleteImportDataRequest(BaseValidatorModel):
     importTaskIds: Sequence[str]
     deleteHistory: Optional[bool] = None
 
 
-class ConfigurationTagTypeDef(BaseValidatorModel):
+class ConfigurationTag(BaseValidatorModel):
     configurationType: Optional[ConfigurationItemTypeType] = None
     configurationId: Optional[str] = None
     key: Optional[str] = None
@@ -78,7 +78,7 @@ class ConfigurationTagTypeDef(BaseValidatorModel):
     timeOfCreation: Optional[datetime] = None
 
 
-class ContinuousExportDescriptionTypeDef(BaseValidatorModel):
+class ContinuousExportDescription(BaseValidatorModel):
     exportId: Optional[str] = None
     status: Optional[ContinuousExportStatusType] = None
     statusDetail: Optional[str] = None
@@ -89,18 +89,18 @@ class ContinuousExportDescriptionTypeDef(BaseValidatorModel):
     schemaStorageConfig: Optional[Dict[str, str]] = None
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     wave: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class CustomerAgentInfoTypeDef(BaseValidatorModel):
+class CustomerAgentInfo(BaseValidatorModel):
     activeAgents: int
     healthyAgents: int
     blackListedAgents: int
@@ -110,7 +110,7 @@ class CustomerAgentInfoTypeDef(BaseValidatorModel):
     unknownAgents: int
 
 
-class CustomerAgentlessCollectorInfoTypeDef(BaseValidatorModel):
+class CustomerAgentlessCollectorInfo(BaseValidatorModel):
     activeAgentlessCollectors: int
     healthyAgentlessCollectors: int
     denyListedAgentlessCollectors: int
@@ -120,7 +120,7 @@ class CustomerAgentlessCollectorInfoTypeDef(BaseValidatorModel):
     unknownAgentlessCollectors: int
 
 
-class CustomerConnectorInfoTypeDef(BaseValidatorModel):
+class CustomerConnectorInfo(BaseValidatorModel):
     activeConnectors: int
     healthyConnectors: int
     blackListedConnectors: int
@@ -130,7 +130,7 @@ class CustomerConnectorInfoTypeDef(BaseValidatorModel):
     unknownConnectors: int
 
 
-class CustomerMeCollectorInfoTypeDef(BaseValidatorModel):
+class CustomerMeCollectorInfo(BaseValidatorModel):
     activeMeCollectors: int
     healthyMeCollectors: int
     denyListedMeCollectors: int
@@ -140,43 +140,43 @@ class CustomerMeCollectorInfoTypeDef(BaseValidatorModel):
     unknownMeCollectors: int
 
 
-class DeleteApplicationsRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationsRequest(BaseValidatorModel):
     configurationIds: Sequence[str]
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     name: str
     values: Sequence[str]
     condition: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeBatchDeleteConfigurationTaskRequestTypeDef(BaseValidatorModel):
+class DescribeBatchDeleteConfigurationTaskRequest(BaseValidatorModel):
     taskId: str
 
 
-class DescribeConfigurationsRequestTypeDef(BaseValidatorModel):
+class DescribeConfigurationsRequest(BaseValidatorModel):
     configurationIds: Sequence[str]
 
 
-class DescribeContinuousExportsRequestTypeDef(BaseValidatorModel):
+class DescribeContinuousExportsRequest(BaseValidatorModel):
     exportIds: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class DescribeExportConfigurationsRequestTypeDef(BaseValidatorModel):
+class DescribeExportConfigurationsRequest(BaseValidatorModel):
     exportIds: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ExportInfoTypeDef(BaseValidatorModel):
+class ExportInfo(BaseValidatorModel):
     exportId: str
     exportStatus: ExportStatusType
     statusMessage: str
@@ -187,18 +187,18 @@ class ExportInfoTypeDef(BaseValidatorModel):
     requestedEndTime: Optional[datetime] = None
 
 
-class ExportFilterTypeDef(BaseValidatorModel):
+class ExportFilter(BaseValidatorModel):
     name: str
     values: Sequence[str]
     condition: str
 
 
-class ImportTaskFilterTypeDef(BaseValidatorModel):
+class ImportTaskFilter(BaseValidatorModel):
     name: Optional[ImportTaskFilterNameType] = None
     values: Optional[Sequence[str]] = None
 
 
-class ImportTaskTypeDef(BaseValidatorModel):
+class ImportTask(BaseValidatorModel):
     importTaskId: Optional[str] = None
     clientRequestToken: Optional[str] = None
     name: Optional[str] = None
@@ -215,33 +215,33 @@ class ImportTaskTypeDef(BaseValidatorModel):
     errorsAndFailedEntriesZip: Optional[str] = None
 
 
-class TagFilterTypeDef(BaseValidatorModel):
+class TagFilter(BaseValidatorModel):
     name: str
     values: Sequence[str]
 
 
-class DisassociateConfigurationItemsFromApplicationRequestTypeDef(BaseValidatorModel):
+class DisassociateConfigurationItemsFromApplicationRequest(BaseValidatorModel):
     applicationConfigurationId: str
     configurationIds: Sequence[str]
 
 
-class ReservedInstanceOptionsTypeDef(BaseValidatorModel):
+class ReservedInstanceOptions(BaseValidatorModel):
     purchasingOption: PurchasingOptionType
     offeringClass: OfferingClassType
     termLength: TermLengthType
 
 
-class UsageMetricBasisTypeDef(BaseValidatorModel):
+class UsageMetricBasis(BaseValidatorModel):
     name: Optional[str] = None
     percentageAdjust: Optional[float] = None
 
 
-class OrderByElementTypeDef(BaseValidatorModel):
+class OrderByElement(BaseValidatorModel):
     fieldName: str
     sortOrder: Optional[OrderStringType] = None
 
 
-class ListServerNeighborsRequestTypeDef(BaseValidatorModel):
+class ListServerNeighborsRequest(BaseValidatorModel):
     configurationId: str
     portInformationNeeded: Optional[bool] = None
     neighborConfigurationIds: Optional[Sequence[str]] = None
@@ -249,7 +249,7 @@ class ListServerNeighborsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class NeighborConnectionDetailTypeDef(BaseValidatorModel):
+class NeighborConnectionDetail(BaseValidatorModel):
     sourceServerId: str
     destinationServerId: str
     connectionsCount: int
@@ -257,40 +257,40 @@ class NeighborConnectionDetailTypeDef(BaseValidatorModel):
     transportProtocol: Optional[str] = None
 
 
-class StartBatchDeleteConfigurationTaskRequestTypeDef(BaseValidatorModel):
+class StartBatchDeleteConfigurationTaskRequest(BaseValidatorModel):
     configurationType: Literal["SERVER"]
     configurationIds: Sequence[str]
 
 
-class StartDataCollectionByAgentIdsRequestTypeDef(BaseValidatorModel):
+class StartDataCollectionByAgentIdsRequest(BaseValidatorModel):
     agentIds: Sequence[str]
 
 
-class StartImportTaskRequestTypeDef(BaseValidatorModel):
+class StartImportTaskRequest(BaseValidatorModel):
     name: str
     importUrl: str
     clientRequestToken: Optional[str] = None
 
 
-class StopContinuousExportRequestTypeDef(BaseValidatorModel):
+class StopContinuousExportRequest(BaseValidatorModel):
     exportId: str
 
 
-class StopDataCollectionByAgentIdsRequestTypeDef(BaseValidatorModel):
+class StopDataCollectionByAgentIdsRequest(BaseValidatorModel):
     agentIds: Sequence[str]
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     configurationId: str
     name: Optional[str] = None
     description: Optional[str] = None
     wave: Optional[str] = None
 
 
-class AgentInfoTypeDef(BaseValidatorModel):
+class AgentInfo(BaseValidatorModel):
     agentId: Optional[str] = None
     hostName: Optional[str] = None
-    agentNetworkInfoList: Optional[List[AgentNetworkInfoTypeDef]] = None
+    agentNetworkInfoList: Optional[List[AgentNetworkInfo]] = None
     connectorId: Optional[str] = None
     version: Optional[str] = None
     health: Optional[AgentStatusType] = None
@@ -300,72 +300,72 @@ class AgentInfoTypeDef(BaseValidatorModel):
     registeredTime: Optional[str] = None
 
 
-class BatchDeleteAgentsRequestTypeDef(BaseValidatorModel):
-    deleteAgents: Sequence[DeleteAgentTypeDef]
+class BatchDeleteAgentsRequest(BaseValidatorModel):
+    deleteAgents: Sequence[DeleteAgent]
 
 
-class BatchDeleteAgentsResponseTypeDef(BaseValidatorModel):
-    errors: List[BatchDeleteAgentErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeleteAgentsResponse(BaseValidatorModel):
+    errors: List[BatchDeleteAgentError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateApplicationResponseTypeDef(BaseValidatorModel):
+class CreateApplicationResponse(BaseValidatorModel):
     configurationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeConfigurationsResponseTypeDef(BaseValidatorModel):
+class DescribeConfigurationsResponse(BaseValidatorModel):
     configurations: List[Dict[str, str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportConfigurationsResponseTypeDef(BaseValidatorModel):
+class ExportConfigurationsResponse(BaseValidatorModel):
     exportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConfigurationsResponseTypeDef(BaseValidatorModel):
+class ListConfigurationsResponse(BaseValidatorModel):
     configurations: List[Dict[str, str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartBatchDeleteConfigurationTaskResponseTypeDef(BaseValidatorModel):
+class StartBatchDeleteConfigurationTaskResponse(BaseValidatorModel):
     taskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartContinuousExportResponseTypeDef(BaseValidatorModel):
+class StartContinuousExportResponse(BaseValidatorModel):
     exportId: str
     s3Bucket: str
     startTime: datetime
     dataSource: Literal["AGENT"]
     schemaStorageConfig: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDataCollectionByAgentIdsResponseTypeDef(BaseValidatorModel):
-    agentsConfigurationStatus: List[AgentConfigurationStatusTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartDataCollectionByAgentIdsResponse(BaseValidatorModel):
+    agentsConfigurationStatus: List[AgentConfigurationStatus]
+    ResponseMetadata: ResponseMetadata
 
 
-class StartExportTaskResponseTypeDef(BaseValidatorModel):
+class StartExportTaskResponse(BaseValidatorModel):
     exportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopContinuousExportResponseTypeDef(BaseValidatorModel):
+class StopContinuousExportResponse(BaseValidatorModel):
     startTime: datetime
     stopTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopDataCollectionByAgentIdsResponseTypeDef(BaseValidatorModel):
-    agentsConfigurationStatus: List[AgentConfigurationStatusTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopDataCollectionByAgentIdsResponse(BaseValidatorModel):
+    agentsConfigurationStatus: List[AgentConfigurationStatus]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDeleteConfigurationTaskTypeDef(BaseValidatorModel):
+class BatchDeleteConfigurationTask(BaseValidatorModel):
     taskId: Optional[str] = None
     status: Optional[BatchDeleteConfigurationTaskStatusType] = None
     startTime: Optional[datetime] = None
@@ -373,186 +373,186 @@ class BatchDeleteConfigurationTaskTypeDef(BaseValidatorModel):
     configurationType: Optional[Literal["SERVER"]] = None
     requestedConfigurations: Optional[List[str]] = None
     deletedConfigurations: Optional[List[str]] = None
-    failedConfigurations: Optional[List[FailedConfigurationTypeDef]] = None
-    deletionWarnings: Optional[List[DeletionWarningTypeDef]] = None
+    failedConfigurations: Optional[List[FailedConfiguration]] = None
+    deletionWarnings: Optional[List[DeletionWarning]] = None
 
 
-class BatchDeleteImportDataResponseTypeDef(BaseValidatorModel):
-    errors: List[BatchDeleteImportDataErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeleteImportDataResponse(BaseValidatorModel):
+    errors: List[BatchDeleteImportDataError]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTagsResponseTypeDef(BaseValidatorModel):
-    tags: List[ConfigurationTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTagsResponse(BaseValidatorModel):
+    tags: List[ConfigurationTag]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeContinuousExportsResponseTypeDef(BaseValidatorModel):
-    descriptions: List[ContinuousExportDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeContinuousExportsResponse(BaseValidatorModel):
+    descriptions: List[ContinuousExportDescription]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateTagsRequestTypeDef(BaseValidatorModel):
+class CreateTagsRequest(BaseValidatorModel):
     configurationIds: Sequence[str]
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class DeleteTagsRequestTypeDef(BaseValidatorModel):
+class DeleteTagsRequest(BaseValidatorModel):
     configurationIds: Sequence[str]
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class GetDiscoverySummaryResponseTypeDef(BaseValidatorModel):
+class GetDiscoverySummaryResponse(BaseValidatorModel):
     servers: int
     applications: int
     serversMappedToApplications: int
     serversMappedtoTags: int
-    agentSummary: CustomerAgentInfoTypeDef
-    connectorSummary: CustomerConnectorInfoTypeDef
-    meCollectorSummary: CustomerMeCollectorInfoTypeDef
-    agentlessCollectorSummary: CustomerAgentlessCollectorInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    agentSummary: CustomerAgentInfo
+    connectorSummary: CustomerConnectorInfo
+    meCollectorSummary: CustomerMeCollectorInfo
+    agentlessCollectorSummary: CustomerAgentlessCollectorInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAgentsRequestTypeDef(BaseValidatorModel):
+class DescribeAgentsRequest(BaseValidatorModel):
     agentIds: Optional[Sequence[str]] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class DescribeAgentsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeAgentsRequestPaginate(BaseValidatorModel):
     agentIds: Optional[Sequence[str]] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeContinuousExportsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeContinuousExportsRequestPaginate(BaseValidatorModel):
     exportIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeExportConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeExportConfigurationsRequestPaginate(BaseValidatorModel):
     exportIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeExportConfigurationsResponseTypeDef(BaseValidatorModel):
-    exportsInfo: List[ExportInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeExportConfigurationsResponse(BaseValidatorModel):
+    exportsInfo: List[ExportInfo]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeExportTasksResponseTypeDef(BaseValidatorModel):
-    exportsInfo: List[ExportInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeExportTasksResponse(BaseValidatorModel):
+    exportsInfo: List[ExportInfo]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeExportTasksRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeExportTasksRequestPaginate(BaseValidatorModel):
     exportIds: Optional[Sequence[str]] = None
-    filters: Optional[Sequence[ExportFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[ExportFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeExportTasksRequestTypeDef(BaseValidatorModel):
+class DescribeExportTasksRequest(BaseValidatorModel):
     exportIds: Optional[Sequence[str]] = None
-    filters: Optional[Sequence[ExportFilterTypeDef]] = None
+    filters: Optional[Sequence[ExportFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class DescribeImportTasksRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[ImportTaskFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeImportTasksRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[ImportTaskFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeImportTasksRequestTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[ImportTaskFilterTypeDef]] = None
+class DescribeImportTasksRequest(BaseValidatorModel):
+    filters: Optional[Sequence[ImportTaskFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class DescribeImportTasksResponseTypeDef(BaseValidatorModel):
-    tasks: List[ImportTaskTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeImportTasksResponse(BaseValidatorModel):
+    tasks: List[ImportTask]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartImportTaskResponseTypeDef(BaseValidatorModel):
-    task: ImportTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartImportTaskResponse(BaseValidatorModel):
+    task: ImportTask
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTagsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[TagFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeTagsRequestPaginate(BaseValidatorModel):
+    filters: Optional[Sequence[TagFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeTagsRequestTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[TagFilterTypeDef]] = None
+class DescribeTagsRequest(BaseValidatorModel):
+    filters: Optional[Sequence[TagFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class Ec2RecommendationsExportPreferencesTypeDef(BaseValidatorModel):
+class Ec2RecommendationsExportPreferences(BaseValidatorModel):
     enabled: Optional[bool] = None
-    cpuPerformanceMetricBasis: Optional[UsageMetricBasisTypeDef] = None
-    ramPerformanceMetricBasis: Optional[UsageMetricBasisTypeDef] = None
+    cpuPerformanceMetricBasis: Optional[UsageMetricBasis] = None
+    ramPerformanceMetricBasis: Optional[UsageMetricBasis] = None
     tenancy: Optional[TenancyType] = None
     excludedInstanceTypes: Optional[Sequence[str]] = None
     preferredRegion: Optional[str] = None
-    reservedInstanceOptions: Optional[ReservedInstanceOptionsTypeDef] = None
+    reservedInstanceOptions: Optional[ReservedInstanceOptions] = None
 
 
-class ListConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListConfigurationsRequestPaginate(BaseValidatorModel):
     configurationType: ConfigurationItemTypeType
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    orderBy: Optional[Sequence[OrderByElementTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[Filter]] = None
+    orderBy: Optional[Sequence[OrderByElement]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListConfigurationsRequest(BaseValidatorModel):
     configurationType: ConfigurationItemTypeType
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    orderBy: Optional[Sequence[OrderByElementTypeDef]] = None
+    orderBy: Optional[Sequence[OrderByElement]] = None
 
 
-class ListServerNeighborsResponseTypeDef(BaseValidatorModel):
-    neighbors: List[NeighborConnectionDetailTypeDef]
+class ListServerNeighborsResponse(BaseValidatorModel):
+    neighbors: List[NeighborConnectionDetail]
     knownDependencyCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeAgentsResponseTypeDef(BaseValidatorModel):
-    agentsInfo: List[AgentInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAgentsResponse(BaseValidatorModel):
+    agentsInfo: List[AgentInfo]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeBatchDeleteConfigurationTaskResponseTypeDef(BaseValidatorModel):
-    task: BatchDeleteConfigurationTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBatchDeleteConfigurationTaskResponse(BaseValidatorModel):
+    task: BatchDeleteConfigurationTask
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportPreferencesTypeDef(BaseValidatorModel):
-    ec2RecommendationsPreferences: Optional[Ec2RecommendationsExportPreferencesTypeDef] = None
+class ExportPreferences(BaseValidatorModel):
+    ec2RecommendationsPreferences: Optional[Ec2RecommendationsExportPreferences] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class StartExportTaskRequestTypeDef(BaseValidatorModel):
+class StartExportTaskRequest(BaseValidatorModel):
     exportDataFormat: Optional[Sequence[Literal["CSV"]]] = None
-    filters: Optional[Sequence[ExportFilterTypeDef]] = None
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
-    preferences: Optional[ExportPreferencesTypeDef] = None
+    filters: Optional[Sequence[ExportFilter]] = None
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
+    preferences: Optional[ExportPreferences] = None
 
 

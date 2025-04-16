@@ -12,16 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.marketplace_deployment_constants import *
 
-class DeploymentParameterInputTypeDef(BaseValidatorModel):
+class DeploymentParameterInput(BaseValidatorModel):
     name: str
     secretString: str
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -29,40 +29,40 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutDeploymentParameterResponseTypeDef(BaseValidatorModel):
+class PutDeploymentParameterResponse(BaseValidatorModel):
     agreementId: str
     deploymentParameterId: str
     resourceArn: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class PutDeploymentParameterRequestTypeDef(BaseValidatorModel):
+class PutDeploymentParameterRequest(BaseValidatorModel):
     agreementId: str
     catalog: str
-    deploymentParameter: DeploymentParameterInputTypeDef
+    deploymentParameter: DeploymentParameterInput
     productId: str
     clientToken: Optional[str] = None
-    expirationDate: Optional[TimestampTypeDef] = None
+    expirationDate: Optional[Timestamp] = None
     tags: Optional[Mapping[str, str]] = None
 
 
