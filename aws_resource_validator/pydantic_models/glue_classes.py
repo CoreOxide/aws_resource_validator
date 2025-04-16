@@ -2057,7 +2057,7 @@ class MLUserDataEncryptionTypeDef(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
-class MappingTypeDef(BaseValidatorModel):
+class MappingType(BaseValidatorModel):
     ToKey: Optional[str] = None
     FromPath: Optional[Sequence[str]] = None
     FromType: Optional[str] = None

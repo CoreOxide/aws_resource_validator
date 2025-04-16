@@ -6711,7 +6711,7 @@ class SignalUnionTypeDef(BaseValidatorModel):
     pass
 
 
-class SequenceTypeDef(BaseValidatorModel):
+class SequenceType(BaseValidatorModel):
     Uid: Optional[str] = None
     Actors: Optional[Sequence[ActorTypeDef]] = None
     Endpoints: Optional[Sequence[NetworkEndpointTypeDef]] = None

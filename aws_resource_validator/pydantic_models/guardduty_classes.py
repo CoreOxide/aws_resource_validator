@@ -2102,7 +2102,7 @@ class SignalTypeDef(BaseValidatorModel):
     pass
 
 
-class SequenceTypeDef(BaseValidatorModel):
+class SequenceType(BaseValidatorModel):
     Uid: str
     Description: str
     Signals: List[SignalTypeDef]

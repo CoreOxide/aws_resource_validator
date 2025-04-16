@@ -39,7 +39,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class MappingTypeDef(BaseValidatorModel):
+class MappingType(BaseValidatorModel):
     templateLanguage: MappingTemplateLanguageType
     template: Optional[str] = None
 
@@ -410,7 +410,7 @@ class CreateTransformerResponseTypeDef(BaseValidatorModel):
     ediType: EdiTypeTypeDef
     sampleDocument: str
     inputConversion: InputConversionTypeDef
-    mapping: MappingTypeDef
+    mapping: MappingType
     outputConversion: OutputConversionTypeDef
     sampleDocuments: SampleDocumentsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -428,7 +428,7 @@ class GetTransformerResponseTypeDef(BaseValidatorModel):
     ediType: EdiTypeTypeDef
     sampleDocument: str
     inputConversion: InputConversionTypeDef
-    mapping: MappingTypeDef
+    mapping: MappingType
     outputConversion: OutputConversionTypeDef
     sampleDocuments: SampleDocumentsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -445,7 +445,7 @@ class TransformerSummaryTypeDef(BaseValidatorModel):
     ediType: Optional[EdiTypeTypeDef] = None
     sampleDocument: Optional[str] = None
     inputConversion: Optional[InputConversionTypeDef] = None
-    mapping: Optional[MappingTypeDef] = None
+    mapping: Optional[MappingType] = None
     outputConversion: Optional[OutputConversionTypeDef] = None
     sampleDocuments: Optional[SampleDocumentsOutputTypeDef] = None
 
@@ -462,7 +462,7 @@ class UpdateTransformerResponseTypeDef(BaseValidatorModel):
     ediType: EdiTypeTypeDef
     sampleDocument: str
     inputConversion: InputConversionTypeDef
-    mapping: MappingTypeDef
+    mapping: MappingType
     outputConversion: OutputConversionTypeDef
     sampleDocuments: SampleDocumentsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -486,7 +486,7 @@ class CreateTransformerRequestTypeDef(BaseValidatorModel):
     ediType: Optional[EdiTypeTypeDef] = None
     sampleDocument: Optional[str] = None
     inputConversion: Optional[InputConversionTypeDef] = None
-    mapping: Optional[MappingTypeDef] = None
+    mapping: Optional[MappingType] = None
     outputConversion: Optional[OutputConversionTypeDef] = None
     sampleDocuments: Optional[SampleDocumentsUnionTypeDef] = None
 
@@ -500,7 +500,7 @@ class UpdateTransformerRequestTypeDef(BaseValidatorModel):
     ediType: Optional[EdiTypeTypeDef] = None
     sampleDocument: Optional[str] = None
     inputConversion: Optional[InputConversionTypeDef] = None
-    mapping: Optional[MappingTypeDef] = None
+    mapping: Optional[MappingType] = None
     outputConversion: Optional[OutputConversionTypeDef] = None
     sampleDocuments: Optional[SampleDocumentsUnionTypeDef] = None
 
